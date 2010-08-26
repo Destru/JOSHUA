@@ -1,0 +1,243 @@
+/* alexander@binaerpilot.no */
+/* text-shadow: rgba(0, 0, 0, 0.2) 0 1px 0; */
+@font-face {
+	font-family:'LCARS';
+	src: url('fonts/lcars.ttf') format("truetype");
+}
+@import "joshua.css";
+body {
+	font-family:Helvetica, Arial;
+	background-color:#000;
+	color:#fff;
+	font-size:14px;
+	line-height:18px;
+	background-image:url("images/lcars.png");
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	background-attachment:fixed;
+}
+a {
+	color:#f90;
+	text-decoration:none;
+}
+table td {
+	padding-right:14px;
+}
+.window {
+	padding:0 9px 9px 9px;
+}
+.example {
+	border-left:solid 5px #fc9;
+	color:#fc9;
+	padding-left:10px;
+	margin-left:10px;
+	text-transform:lowercase;
+	font-size:14px;
+	line-height:14px;
+}
+#profile {
+	font-size:12px;
+}
+#alexander.window {
+	width:344px;
+}
+ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, #prompt, #joshua .st, p.pearl, #profile, #joshua, .window, .window .tiny, p.note, #output {
+	border-radius:9px;
+	-webkit-border-radius:9px;
+	-moz-border-radius:9px;
+}
+.window .tiny {
+	background-color:#000;
+	padding:11px;
+}
+ul.tracks, #profile, p.pearl, p.note {
+	background-color:#000;
+	padding:18px;
+	color:#fc9;
+}
+.st h1, .st h2 {
+	display:inline;
+	background-color:#000;
+}
+.output p, .prompt, .output {
+	margin-bottom:10px;
+}
+.output p, .output table, .output pre, .output .pre {
+	padding:0 9px;
+}
+#profile {
+	width:100%;
+}
+#profile td {
+	padding-right:0;
+}
+.close {
+	float:right;
+	padding:0 2px;
+	background-color:#000;
+	color:#f90;
+}
+.close:hover {
+	color:#fc9;
+}
+h1, h2 {
+	line-height:18px;
+	color:#99c;
+	border-left:solid 3px #99c;
+	border-right:solid 3px #99c;
+	padding:0 6px;
+}
+.tiny div {
+	float:left;
+	padding:6px;
+	background-color:#fc9;
+	color:#000;
+	margin:6px 3px;
+}
+.tiny div:hover {
+	background-color:#f96;
+}
+#desktop {
+	padding-left:14px;
+	display:block;
+	max-width:980px;
+}
+#desktop a {
+	display:block;
+	float:left;
+	background-color:#c9c;
+	color:#000;
+	padding:6px;
+	margin-bottom:6px;
+	width:158px;
+	margin-left:6px;
+}
+#desktop a:hover, #desktop a.active {
+	background-color:#c69;
+}
+#links a {
+	background-color:#fc9;
+}
+#links a:hover {
+	background-color:#f96;
+}
+.image, #desktop a, .tiny div {
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+}
+#sliders {
+	display:none;
+}
+.joshua, .light, .command {
+	color:#c66;
+}
+.command {
+	font-weight:bold;
+	letter-spacing:-1px;
+}
+.command .dark {
+	font-weight:normal;
+	letter-spacing:0;
+}
+.error {
+	color:#c69;
+}
+strong {
+	font-weight:bold;
+	letter-spacing:-1px;
+}
+.dark {
+	color:#99c;
+}
+
+/* joshua */
+#joshua {
+	width:640px;
+	padding:20px;
+	font-size:14px;
+	line-height:18px;
+}
+#joshua .st {
+	margin-bottom:18px;
+}
+#prompt {
+	margin-top:20px;
+	padding:3px 10px;
+	height:24px;
+	border:none;
+	width:614px;
+	color:#f90;
+	background-color:transparent;
+	font-size:14px;
+	border:solid 3px #f90;
+}
+.prompt {
+	background-color:#fc9;
+	color:#000;
+	padding:3px 20px;
+	margin:20px 0;
+}
+.jScrollPaneDrag {
+	background-color:#f96;
+}
+.jScrollPaneTrack {
+	background-color:#fc9;
+}
+#music .st, #music {
+	background-color:#833;
+}
+ul.tracks a {
+	color:#c66;
+	display:block;
+	border-left:solid 10px #833;
+	padding-left:10px;
+	margin-top:6px;
+}
+ul.tracks a.play, ul.tracks a:hover {
+	border-color:#c66;
+}
+#superplastic {
+	padding:0 !important;
+}
+#superplastic .st {
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	-webkit-border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+}
+
+#desktop a, .tiny div, .prompt, h1, h2 {
+	font-size:20px;
+	line-height:12px;
+	font-family:LCARS;
+	text-transform:uppercase;
+}
+h1, h2 {
+	font-size:26px;
+	line-height:20px;
+}
+.prompt {
+	font-size:20px;
+	line-height:12px;
+}
+.window .st, #joshua .st {
+	height:19px;
+	overflow:hidden;
+}
+.tng {
+	display:block;
+	margin-left:20px;
+	padding:0 2px;
+	background-color:#000;
+	height:19px;
+	float:left;
+}
+.window, .window .st, #joshua .st {
+	background-color:#f90;
+}
+pre, .pre {
+	font-family:Consolas, Monospace;
+	font-size:12px;
+	line-height:16px;
+}

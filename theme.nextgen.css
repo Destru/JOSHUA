@@ -1,0 +1,446 @@
+/* alexander@binaerpilot.no */
+@import "joshua.css";
+
+/* fonts */
+@font-face {
+	font-family:"Joshua Normal";
+	src: url('fonts/pf_tempesta_seven.ttf');
+}
+@font-face {
+	font-family:"Joshua Normal Bold";
+	src: url('fonts/pf_tempesta_seven_bold.ttf');
+}
+@font-face {
+	font-family:"Joshua Fancy";
+	src: url('fonts/pf_tempesta_seven_extended.ttf');
+}
+@font-face {
+	font-family:"Joshua Fancy Bold";
+	src: url('fonts/pf_tempesta_seven_extended_bold.ttf');
+}
+@font-face {
+	font-family:"ProFont";
+	src: url('fonts/profont.ttf');
+}
+
+/* joshua */
+#joshua {
+	z-index:10;
+	height:530px;
+	padding:10px;
+    position:absolute;
+    left:50%; top:50%;
+    margin-left: -380px;
+    margin-top: -285px;
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+}
+#input {
+	margin-top:10px;
+	padding:5px;
+}
+#joshua, #output {
+	width:740px;
+}
+pre, p, input#prompt {
+	width:720px;
+	border-collapse:collapse;
+}
+table {
+	width:710px;
+}
+#output {
+	height:450px;
+}
+input#prompt {
+	font-family:Helvetica, Arial;
+	font-size:12px;
+	background:transparent;
+	border:none;
+	overflow:hidden;
+	margin-left:2px;
+	text-transform:lowercase;
+	height:15px;
+	padding-top:3px;
+}
+
+/* blocks */
+body {
+	font-family:Helvetica, Arial;
+	font-size:14px;
+}
+h1, h2 {
+	clear:both;
+	display:block;
+	height:11px;
+	padding:10px;
+	margin-bottom:10px;
+}
+h1 a, h2 a {
+	text-decoration:none;
+}
+
+.italic {
+	font-style:italic;
+}
+td {
+	vertical-align:top;
+	padding-right:10px;
+}
+td.command {
+	vertical-align:middle;
+	min-width:150px;
+}
+.close {
+	font-family:"Profont", Verdana;
+	font-size:9px;
+	float:right;
+	position:absolute;
+	top:15px;
+	right:15px;
+	cursor:pointer;
+	text-transform:uppercase;
+}
+.window {
+	padding:10px;
+	margin:20px;
+}
+.window p {
+	width:auto;
+	font-size:11px;
+	line-height:16px;
+	padding:5px 10px;
+	opacity:0.75;
+}
+.example {
+	margin-top:-5px;
+}
+p, table, pre {
+	margin-bottom:10px;
+	cursor:default;
+}
+ol, ul, .motd, .prompt {
+	margin-bottom:10px;
+}
+.prompt {
+	margin-top:20px;
+}
+
+/* rounders, cursors */
+#fancybox-outer, #joshua, .window {
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+h1, h2, #input {
+	cursor:default;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+#sliders .frame, .ui-slider-handle, .button, .chat, .tiny div, .jScrollPaneDrag, .jScrollPaneTrack {
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+
+/* typography */
+p, ul, ol, table {
+	line-height:18px;
+}
+h1, h2, h1 em, h2 em {
+	font-family: "Joshua Fancy", Helvetica, Arial;
+	font-size:8px;
+}
+h1 strong, h1 em, h2 em {
+	font-family: "Joshua Fancy Bold", Helvetica, Arial;
+}
+pre, pre .hl, td.fixed-width, .pre {
+	font-family: "ProFont", Monaco, Lucida Console;
+	font-size:9px; line-height:14px;
+}
+#sliders .frame, .chat, .tiny div, ul.icons li a, #tip, .pixel, .button, .command, .prompt, .joshua, .error {
+	font-family: "Joshua Normal", Helvetica, Arial;
+	font-size:8px; line-height:8px;
+	text-transform:uppercase;
+}
+.joshua em, .error em, strong {
+	font-family: "Joshua Normal Bold", Helvetica, Arial;
+}
+
+/* content */
+#tip {
+	float:right;
+	text-transform:uppercase;
+}
+table.version td.command {
+	vertical-align:top;
+}
+table.torrents .torrent {
+	width:620px;
+}
+table.torrents td {
+	vertical-align:middle;
+}
+table.torrents td a {
+	text-decoration:none;
+}
+table.torrents td a:hover {
+	text-decoration:underline;
+}
+#config .note {
+	display:none;
+}
+.clearFix {
+	margin-top:-20px;
+}
+.window h1, .window h2 {
+	padding:5px 10px;
+}
+.window .close {
+	float:right;
+	top:15px;
+	right:15px;
+}
+.pointer {
+	cursor:pointer;
+}
+.close {
+	opacity:0.5;
+}
+.close:hover {
+	opacity:1;
+}
+
+/* desktop */
+#desktop {
+	z-index:0;
+	display:none;
+	overflow:hidden;
+}
+ul.icons {
+	float:left;
+	width:104px;
+	margin:30px 0;
+	margin-left:10px;
+}
+
+ul.icons li a {
+	display:block;
+	text-decoration:none;
+	text-align:center;
+	line-height:12px;
+	cursor:pointer;
+	width:84px;
+	height:15px;
+	padding:10px;
+	overflow:hidden;
+	margin-bottom:15px;
+	background-repeat:no-repeat;
+	background-position:36px 0;
+	padding-top:36px;
+	opacity:0.75;
+}
+ul.icons li a.external {
+	background-position:37px -64px;
+}
+ul.icons li a.application, ul.icons li a.preset {
+	background-position:37px -128px;
+}
+ul.icons li a.external-page {
+	background-position:37px -192px;
+}
+ul.icons li a:hover {
+	opacity:1;
+}
+ul#links {
+	float:right;
+	margin-right:10px;
+	margin-left:0;
+}
+
+/* superplastic */
+#superplastic.window {
+	z-index:21;
+	width:580px;
+	height:360px;
+	position:absolute;
+    left:50%; top:50%;
+	margin-left:-290px;
+	margin-top:-180px;
+	background-color:#080808;
+}
+#superplastic h1 {
+	background-color:transparent;
+	padding:0;
+	color:#aaa;
+	text-transform:uppercase;
+}
+#superplastic .close {
+	color:#555;
+	top:10px; right:10px;
+}
+
+/* balloons */
+.chat {
+	padding:5px 10px;
+	background-color:#fff;
+	color:#000;
+	margin-bottom:0px;
+	line-height:14px;
+	width:145px;
+}
+.pixelChat {
+	margin-bottom:20px;
+	background-image: url("images/pixelChat.png");
+	background-repeat:no-repeat;
+	padding-top:8px;
+}
+
+/* music player */
+ul.tracks {
+	margin-bottom:-2px;
+}
+.tracks .button {
+	display:block;
+	margin-right:none;
+	margin-bottom:2px;
+	text-decoration:none;
+	padding:5px 10px 6px 10px;
+}
+.button.playing, .button.paused {
+	font-family:"Joshua Normal Bold";
+}
+/* tiny buttons */
+.tiny {
+	margin-bottom:10px;
+}
+.tiny div {
+	float:left;
+	color:#fff;
+	margin-right:5px;
+	margin-bottom:5px;
+	cursor:pointer;
+}
+.tiny div, #sliders .frame, .button {
+	padding:4px 7px 6px 7px;
+}
+.tiny div:last-child {
+	margin-right:0;
+}
+
+/* sliders */
+#sliders {
+	clear:both;
+	margin-top:-5px;
+}
+#sliders .frame {
+	padding-left:13px;
+	padding-right:13px;
+	text-indent:-6px;
+	margin-bottom:5px;
+}
+#sliders .frame:last-child {
+	margin-bottom:0;
+}
+#sliders .frame, .ui-slider {
+	width:254px;
+}
+
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index:23;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	z-index:24;
+}
+.ui-slider .ui-slider-handle {
+	height:12px; width:20px;
+	margin-top:-1px;
+	margin-left:-10px;
+}
+
+/* theme */
+body {
+	background-image:url('images/background.png');
+	background-repeat: no-repeat;
+	background-position:70px 70px;
+	background-color:#181818;
+	color:#fff;
+}
+#joshua {
+	background-color:#262626;
+}
+#sliders .frame, .jScrollPaneDrag {
+	background-color:#444;
+}
+#fancybox-outer, .button, .window {
+	background-color:#363636;
+}
+.window h1, .window h2 {
+	color:#fff;
+}
+.button:hover, .button:hover, .tiny div:hover, .button.playing {
+	background-color:#fc0;
+	color:#363636;
+}
+.close, .dark, .prompt {
+	color:#888;
+}
+#prompt, .close:hover {
+	color:#fff;
+}
+.tiny div, .ui-slider-handle, .button, .window h2 {
+	background-color:#282828;
+}
+ul.icons li a {
+	background-image:url("images/icons.png");
+}
+.window h1, h2, h1, #input, .jScrollPaneTrack {
+	background-color:#181818;
+}
+.example, .light, .command, a, .joshua, .error {
+	color:#fc0;
+}
+#sliders .frame {
+	color:#282828;
+}
+h2.presets {
+	display:none;
+}
+.next-gen.extra {
+	display:inline;
+}
+.image {
+	margin-top:4px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+#joshua.atari {
+	background-image:url("images/joshua_atari.png");
+}
+#joshua.pirate {
+	background-image:url("images/joshua_pirate.png");
+}
+#joshua.sleep{
+	background-image:url("images/joshua_sde.png");
+}
+#joshua.rachael {
+	background-image:url("images/joshua_rachael.png");
+}
+#profile .image {
+	margin-left:10px;
+}
+#profile {
+	font-size:11px;
+}
+.window h2 {
+	font-family:"Joshua Fancy Bold";
+}

@@ -1,0 +1,44 @@
+@import "../reset.css";
+body {
+	font-family:Helvetica, Arial;
+	font-size:14px;
+	line-height:1.4em;
+	background-color:#1a1a1a;
+	color:#ccc;
+}
+a {
+	color:#e38;
+	font-size:75%;
+}
+#wrapper {
+	margin:20px;
+}
+h1 {
+	color:#eee;
+	font-weight:bold;
+	letter-spacing:-1px;
+	font-size:40px;
+	text-shadow:#000 2px 2px 1px;
+	margin-bottom:10px;
+	line-height:34px;
+}
+em {
+	font-style:italic;
+	color:#666;
+}
+p {
+	text-shadow:#000 1px 1px 0px;
+}
+/* rachael ivy støver kubes (tm) */
+#risk {
+	float:left;
+	height:64px;
+	width:48px;
+	margin-bottom:200px;
+	margin-right:20px;
+}
+#risk .line {
+
+	height:1px;
+	display:none;
+}

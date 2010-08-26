@@ -1,0 +1,36 @@
+/* alexander@binaerpilot.no */
+@import "theme.nextgen.css";
+/* colors */
+.pink {color:#f09;}
+body {background-color:#02262e;color:#fff;}
+#joshua {background-color:#02343e;}
+.jScrollPaneDrag {background-color:#3495a5;}
+#fancybox-outer, .window {background-color:#ff7800;}
+h1, #input, .jScrollPaneTrack {background-color:#002933;}
+.dark, .prompt {color:#92d0e0;}
+a, .joshua, .error {color:#fbb11a;}
+.example, .light, .command {color:#48b2ce;}
+.button.playing, .tiny div, .tiny div:hover, .window h1, .window h2, .button, .button:hover, .window, .close, .close:hover {color:#582023;}
+.window h1, .window h2 {background-color:#d15213;}
+.tiny div, #sliders .frame, .button, .window h2 {background-color:#e66405;}
+.window a {
+	color:#02343e;
+}
+#profile .dark, .window {
+	color:#1c0900;
+}
+#profile .dark {
+	opacity:0.5;
+}
+/* images */
+ul.icons li a {
+	background-image:url("images/icons-blue.png");
+}
+body {
+	background-image:url("images/background-blue.png");
+	background-repeat:repeat-x;
+	background-position:0% 0%;
+}
+.button.playing, .button:hover, .tiny div:hover, .ui-slider-handle {
+	background-color:#d35300;
+}

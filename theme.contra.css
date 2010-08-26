@@ -1,0 +1,51 @@
+/* alexander@binaerpilot.no */
+@import "theme.nextgen.css";
+
+body {
+	background-color:#152521;
+	background-image:url("images/background-konami.png");
+	background-position:98% 95%;
+}
+
+#joshua {
+	background-color:#1b2e2a;
+}
+
+/* images */
+ul.icons li a {
+	background-image:url("images/icons-konami.png");
+	color:#c28934;
+}
+
+/* colors */
+.pink {color:#f09;}
+.ui-slider-handle, .window h1, .window h2, #fancybox-outer, .window {background-color:#300b09;}
+a, .joshua, .error {color:#ccab60;}
+.dark, .prompt {color:#c28934;}
+.example, .light, .command {
+	color:#ffd56d;
+}
+#prompt, .close, .close:hover {color:#fff;}
+.window h1, .window h2 {
+	color:#fff;
+	padding:0;
+}
+ #input, .jScrollPaneTrack, h1 {
+	background-color:#152521;
+}
+.jScrollPaneDrag {
+	background-color:#ccab60;
+}
+.window .close {
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+.tiny div, #sliders .frame, .button {
+	background-color:#3e0e0c;
+	color:#d19f9c;
+}
+.tiny div:hover, .button:hover, .button.playing {
+	background-color:#c28934;
+	color:#4e1616;
+}

@@ -1,0 +1,34 @@
+/* alexander@binaerpilot.no */
+@import "theme.nextgen.css";
+
+/* colors */
+body {background-color:#420127;color:#fff;}
+#sliders .frame, .tiny div, .button, #joshua {background-color:#66013c;}
+.button.playing, .tiny div:hover, .button:hover, .jScrollPaneDrag {background-color:#ae2a78;}
+.ui-slider-handle, #fancybox-outer, .window, h1, #input, .jScrollPaneTrack {background-color:#4a012c;}
+.button, .button.paused, #sliders .frame, .tiny div, .light, .command, .example, a, .joshua, .error {color:#ff8acf;}
+.close, .close:hover, .dark, .prompt {color:#ff34ab;}
+.pink {color:#f09;}
+.dark {color:#4bccfc;}
+#prompt { color:#ffdcf0;}
+.window h1, .window h2 {
+	padding:0;
+	background-color:transparent;
+	color:#fff;
+}
+/* images */
+ul.icons li a {
+	background-image:url("images/icons-pink.png");
+}
+body {
+	background-image:url("images/background-pink.png");
+	background-repeat: no-repeat;
+	background-position:140px 40px;
+}
+.window .close {
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+
+.tiny div:hover, .button:hover, .button.playing {color:#4a012c;}

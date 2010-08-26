@@ -1,0 +1,381 @@
+/* alexander@binaerpilot.no */
+@import "joshua.css";
+body {
+	background-color:#000;
+	color:#fff;
+	font-family:Helvetica, Arial;
+	font-size:14px;
+	line-height:18px;
+	background-image:url("images/background-tron_blue.jpg");
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+}
+
+/* joshua */
+#joshua {
+	z-index:10;
+	height:480px;
+	padding:10px;
+    position:absolute;
+    left:50%; top:50%;
+    margin-left: -410px;
+    margin-top: -250px;
+	background-image:url("images/joshua_black.png");
+}
+#input {
+	margin-top:10px;
+	padding:5px;
+}
+#joshua, #output {
+	width:800px;
+}
+pre, p, #prompt, table {
+	width:760px;
+}
+a {
+	text-decoration:none;
+}
+td a:hover, p a:hover {
+	text-decoration:underline;
+}
+#output {
+	height:402px;
+}
+#prompt {
+	font-family:Helvetica, Arial;
+	font-size:12px;
+	background:transparent;
+	border:none;
+	overflow:hidden;
+	margin-left:2px;
+	text-transform:lowercase;
+	height:15px;
+	padding-top:3px;
+	color:#fff;
+}
+h1 {
+	color:#fff;
+	height:2px;
+	font-size:11px;
+}
+#sliders {
+	display:none;
+}
+.tron.extra {
+	display:inline;
+}
+
+/* blocks */
+p em, h1 em, h2 em {
+	font-weight:bold;
+}
+.error strong, .joshua strong {
+	font-weight:bold;
+}
+h1, h2 {
+	clear:both;
+	display:block;
+	margin-bottom:10px;
+}
+h1 a, h2 a {
+	text-decoration:none;
+}
+pre, .pre {
+	font-family:Joshua-Fixed, Courier New, Monaco;
+	font-size:12px;
+	line-height:15px;
+}
+.italic {
+	font-style:italic;
+}
+.window h1, .close, #desktop ul li a {
+	font-family:Verdana, Helvetica, Arial;
+	font-size:9px;
+	text-transform:uppercase;
+}
+.close {
+	float:right;
+	position:relative;
+	top:4px; right:-6px;
+	border:solid 1px #333;
+	line-height:14px;
+	height:14px;
+	padding:0 5px;
+	color:#333;
+}
+.window {
+	background-color:#080808;
+	padding:10px;
+}
+.window p {
+	width:auto;
+	font-size:11px;
+	line-height:16px;
+	padding:0 10px;
+}
+.example {
+	margin-top:-5px;
+}
+p, table, pre {
+	margin-bottom:10px;
+	cursor:default;
+}
+ol, ul, .motd, .prompt {
+	margin-bottom:10px;
+}
+.prompt {
+	margin-top:20px;
+}
+.clearFix {
+	margin-top:-20px;
+}
+.window h1 {
+	color:#4a4a4a;
+}
+#config.window {
+	z-index:21;
+	width:340px;
+}
+
+/* gallery */
+ul.thumbs {
+	position:relative;
+	left:-5px; top:5px;
+	width:355px;
+}
+ul.thumbs li {
+	display:inline;
+	line-height:1px;
+}
+ul.thumbs li a {
+	display:block;
+	line-height:1px;
+	float:left;
+	margin-left:5px;
+	margin-top:5px;
+	height:44px;
+	width:54px;
+}
+.galleryFix {
+	height:5px;
+}
+
+/* tiny buttons */
+.tiny {
+	margin-top:-5px;
+	margin-bottom:10px;
+}
+.tiny div {
+	float:left;
+	margin-right:5px;
+	margin-top:5px;
+	cursor:pointer;
+	padding:0 5px;
+	text-transform:capitalize;
+}
+.tiny div, #desktop a {
+	font-size:11px;
+	line-height:22px;
+	height:22px;
+	color:#4a4a4a;
+	border:solid 1px #2a2a2a;
+}
+
+/* misc */
+.pre, ul.inline, .tiny, .output p, .output td, .output pre {
+	padding:0 10px;
+}
+.clear {
+	clear:both;
+}
+.prompt strong {
+	font-weight:normal;
+}
+#effects.tiny {
+	margin-bottom:0;
+}
+table.torrents .torrent {
+	width:620px;
+}
+table.torrents td {
+	vertical-align:middle;
+}
+table.torrents td a {
+	text-decoration:none;
+}
+table.torrents td a:hover {
+	text-decoration:underline;
+}
+.clear {
+	clear:both;
+}
+ul.inline li {
+	float:left;
+	margin-right:10px;
+	font-size:11px;
+	text-align:center;
+	margin-top:0px;
+}
+
+/* desktop */
+#desktop {
+	z-index:9;
+	display:none;
+	overflow:hidden;
+	position:absolute;
+	top:20px;left:20px;
+}
+#desktop ul {
+	margin-bottom:20px;
+}
+#desktop a {
+	display:block;
+	width:140px;
+	overflow:hidden;
+	margin-bottom:5px;
+	cursor:pointer;
+	padding:0 10px;
+	height:22px;
+	background-color:#080808;
+}
+#desktop ul#links {
+	display:none;
+}
+.tiny div:hover, .close:hover, #desktop a:hover {
+	color:#68b8ff;
+	border-color:#68b8ff;
+}
+#desktop a.active {
+	font-weight:Bold;
+}
+
+/* mp3 player */
+.tracks {
+	margin:0;
+}
+.tracks li {
+	margin-top:5px;
+}
+.tracks li a {
+	display:block;
+	text-transform:capitalize;
+}
+.tracks li a.playing, .tracks li a.playing:hover {
+	background-color:#68b8ff;
+	opacity:1;
+}
+.tracks li a:hover {
+	opacity:0.25;
+}
+
+/* colors */
+h1 .dark, #input #prompt, .error, .joshua, a, .command, .example {
+	color:#68b8ff;
+}
+.dark {
+	color:#666;
+}
+.error, .joshua {
+	font-size:12px;
+	line-height:12px;
+}
+.black {
+	display:none;
+}
+.joshua em, .error em {
+	font-style:normal;
+	font-weight:bold;
+}
+.pink, .error {
+	color:#f0f;
+}
+.light {
+	color:#0e7fd4;
+}
+.command {
+	text-transform:lowercase;
+}
+h1 {
+	line-height:24px;
+	height:24px;
+	padding:0 10px;
+	border:solid 1px #333;
+}
+.tracks li a, h2, .prompt {
+	font-weight:bold;
+	font-size:11px;
+	line-height:18px;
+	height:18px;
+	padding:0 10px;
+	background-color:#fff;
+	color:#000;
+	opacity:0.15;
+}
+#input {
+	border:solid 1px #68b8ff;
+}
+.jScrollPaneDrag {
+	width:8px !important;
+	border:solid 1px #333;
+	background-color:transparent;
+}
+.jScrollPaneTrack {
+	background-color:transparent;
+}
+.image {
+	margin-top:4px;
+}
+
+/* rounders */
+.image, .chat, ul li a, .prompt, h1, #input {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+#fancybox-outer, #joshua, .window {
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+.tiny div, h2, .close, .jScrollPaneDrag {
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+/* background */
+#fancybox-outer {
+	background-color:transparent;
+	background-image:url("images/joshua_black.png");
+}
+.tron .tiny div {
+	border:none;
+	height:15px;
+	width:10px;
+}
+.tron .tiny .blue {
+	background-color:#68b8ff;
+}
+.tron .tiny .pink {
+	background-color:#f570f5;
+}
+.tron .tiny .red {
+	background-color:#e9000f;
+}
+.tron .tiny .yellow {
+	background-color:#f0e53a;
+}
+.tron .tiny .green {
+	background-color:#a4e750;
+}
+.tron .tiny .purple {
+	background-color:#9a65ff;
+}
+.tron .tiny .orange {
+	background-color:#eb7129;
+}
+#profile .image {
+	margin-left:10px;
+	margin-right:20px;
+}
+#profile {
+	font-size:11px;
+}

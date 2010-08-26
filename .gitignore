@@ -1,0 +1,6 @@
+*.data
+*.xml
+music/*
+ao/*
+gallery/*
+reviews/backdoor.php

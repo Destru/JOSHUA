@@ -1,0 +1,149 @@
+/* alexander@binaerpilot.no */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+@import "joshua.css";
+body {
+	background-color:#080808;
+	background-image:url("images/blackwood.png");
+	color:#fff;
+}
+body, #joshua, #prompt, pre {
+	font-family:Consolas, 'Droid Sans Mono', Monospace;
+	font-size:14px;
+	line-height:18px;
+}
+a {
+	text-decoration:none;
+}
+.window {
+	font-size:12px;
+	line-height:16px;
+}
+.prompt, #prompt, .prefix {
+	font-weight:bold;
+}
+.output a {
+	border-bottom:solid 1px #222;
+}
+#joshua {
+	min-height:80%;
+	width:640px;
+	padding:20px;
+}
+.example {
+	border-left:solid 7px #777;
+	padding-left:7px;
+	color:#777;
+}
+.prompt, .output, p, table, pre {
+	margin-bottom:20px;
+}
+#prompt {
+	padding:0;
+	background-color:transparent;
+	border:none;
+	width:520px;
+}
+.prefix {
+	float:left;
+	margin-right:7px;
+}
+h1, h2 {
+	margin-bottom:10px;
+}
+h2 {
+	margin-top:15px;
+}
+td {
+	padding-right:15px;
+}
+.close {
+	float:right;
+	padding:0 3px;
+	line-height:14px;
+	background-color:#222;
+	color:#222;
+	margin-top:1px;
+}
+.close:hover {
+	background-color:#f30;
+	color:#f30;
+}
+.light, .command {
+	color:#f30;
+}
+.dark, .prefix, .prompt, #prompt {
+	color:#777;
+}
+a, .joshua, .error {
+	color:#f30;
+}
+strong {
+	font-weight:bold;
+}
+em {
+	font-style:italic;
+}
+#config .note {
+	display:none;
+}
+#fancybox-outer {
+	background-image:url("images/joshua_black.png");
+}
+.window h2, .window h1 {
+	color:#444;
+	border:solid 1px #333;
+	padding:3px 0;
+	border-left:0;
+	border-right:0;
+	text-transform:uppercase;
+}
+.tracks a, .tiny div {
+	color:#777;
+}
+.tiny div {
+	float:left;
+	margin-right:6px;
+	cursor:pointer;
+}
+.tiny div.hacker, .tiny .selected, .tracks a.playing {
+	color:#f30;
+}
+.tracks a:hover, .tiny div:hover {
+	color:#ddd;
+}
+#sliders {
+	display:none;
+}
+.image {
+	margin-top:4px;
+}
+#config.window {
+	width:260px;
+}
+#music.window {
+	width:180px;
+}
+#superplastic.window {
+	padding:10px;
+	background-color:#080808;
+}
+#superplastic h1 {
+	margin-bottom:0;
+}
+pre {
+	color:#777;
+}
+pre.ascii {
+	font-size:12px;
+	line-height:14px;
+}
+.clearFix {
+	margin-bottom:2px;
+}
+::selection {
+	background-color:#f30;
+	color:#fff;
+}
+.pixel {
+	background-image:url("images/brushRed.png");
+}

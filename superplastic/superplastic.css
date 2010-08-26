@@ -1,0 +1,92 @@
+@import "../reset.css";
+body {
+	background-color:#080808;
+	font-family: Helvetica, Arial;
+	font-size:14px;
+	line-height:18px;
+	color:#777;
+}
+.button {
+	display:block;
+	float:left;
+	text-align:center;
+	text-transform:uppercase;
+	cursor:pointer;
+	font-weight:bold;
+}
+.button:hover {
+	border-color:#fff;
+	color:#fff;
+}
+
+.button, input {
+	font-size:11px;
+	line-height:20px;
+	padding:0 10px;
+	color:#666;
+	border:solid 1px #333;
+}
+p {
+	padding:10px;
+}
+p#hud {
+	padding:10px;
+}
+#startGame, #submitForm {
+	position:absolute;
+	bottom:10px; right:10px;	
+}
+strong {
+	color:#ccc
+}
+p, ol {
+	margin-bottom:10px;
+}
+#hud, ol {
+	font-size:10px;
+	line-height:14px;
+	text-transform:uppercase;
+}
+ol .score {
+	display:block;
+	float:right;
+	margin-right:400px;
+}
+input {
+	float:left;
+	height:22px;
+	background-color:transparent;
+	margin-right:10px;
+}
+input.text:focus, input:hover {
+	color:#fff;
+	border-color:#fff;
+}
+input.text {
+	font-weight:normal;
+	width:100px;
+}
+ol {
+	padding-left:35px;
+	list-style-type:decimal-leading-zero;
+}
+.button, input {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+#message {
+	display:none;
+	position:absolute;
+	top:0; left:0;
+	width:100%;
+	height:100%;
+	background-color:#111;
+}
+h2 {
+	padding:0 10px;
+	margin-bottom:10px;
+	font-weight:bold;
+	color:#666;
+	text-transform:uppercase;
+	font-size:11px;
+}

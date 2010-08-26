@@ -1,0 +1,8 @@
+# init
+#php_flag zlib.output_compression On
+RewriteEngine on
+
+RewriteRule ^gec.html$ http://jgemainframe.com/gec/ [R=301,L]
+RewriteRule ^gec/$ index.php?p=gec
+RewriteRule ^gec/(.*).html$ index.php?p=gec-$1 [L]
+RewriteRule ^(.*).html$ index.php?p=$1

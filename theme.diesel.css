@@ -1,0 +1,235 @@
+/* alexander@binaerpilot.no */
+@import "joshua.css";
+body {
+	background-color:#1d1f17;
+	color:#fff;
+	font-family:Helvetica, Arial;
+	font-size:15px;
+	line-height:18px;
+}
+#joshua, #output {
+	z-index:10;
+}
+#joshua {
+	padding:30px;
+}
+#joshua .prompt, #joshua, #input, #output {
+	width:680px;
+}
+#output {
+	width:700px;
+}
+#output p, #output pre, #output table, #output .pre, #output ul {
+	max-width:660px;
+	padding:0 10px;
+	margin-bottom:10px;
+}
+#output table {
+	max-width:670px;
+	padding-right:0;
+}
+a {
+	text-decoration:none;
+}
+#input {
+	border-top:solid 1px #464740;
+	border-bottom:solid 1px #464740;
+}
+#prompt {
+	width:660px;
+	padding:6px 10px;
+	border:none;
+	background-color:transparent;
+	color:#f92666;
+}
+p.joshua em {
+	font-weight:bold;
+}
+div {
+	cursor:default;
+}
+#music {
+	width:180px;
+}
+a, .tiny div {
+	cursor:pointer;
+}
+.tiny {
+	position:relative;
+	left:-10px;
+	width:340px;
+}
+#desktop li a, .tracks li a, .tiny div {
+	border-top:solid 1px #464740;
+	padding:5px 10px;
+	line-height:15px;
+}
+.tracks li a {
+	display:block;
+	text-transform:capitalize;
+}
+.tracks {
+	margin-bottom:-5px;
+}
+.tiny div {
+	float:left;
+	width:80px;
+	margin-left:10px;
+}
+.tiny div:hover {
+	background-color:#464740;
+	color:#22251c;
+}
+.tiny {
+	margin-bottom:20px;
+}
+#sliders {
+	display:none;
+}
+.motd {
+	margin-top:20px;
+}
+#desktop, .window {
+	font-size:12px;
+	background-color:#22251c;
+}
+.window h1 {
+	font-size:16px;
+	font-weight:bold;
+	letter-spacing:-1px;
+	margin-bottom:10px;
+}
+.window {
+	position:absolute;
+	right:0 !important; top:0 !important;
+	padding:15px;
+}
+.window p {
+	padding:0 10px;
+}
+.window h2 {
+	margin:10px 0;
+	font-weight:bold;
+	font-size:14px;
+	letter-spacing:-1px;
+}
+.close {
+	font-family:Joshua-Fixed;
+	text-transform:uppercase;
+	font-size:12px;
+	line-height:12px;
+	float:right;
+	color:#22251c;
+	background-color:#464740;
+	padding:4px 10px 2px 10px;
+}
+.close:hover {
+	background-color:#c9db67;
+}
+#desktop ul li a, .tiny div, .tracks li a, .window h1, .window h2, .dark, .prompt {
+	color:#565750;
+}
+.window p {
+	color:#767770;
+	line-height:16px;
+}
+.tracks li a:hover, .tracks li a.playing, a, .command, .example, .light {
+	color:#c9db67;
+}
+.joshua, .error {
+	color:#f92666;
+}
+strong {
+	font-weight:bold;
+	letter-spacing:-1px;
+}
+pre {
+	font-family:Joshua-Fixed;
+	font-size:12px;
+	line-height:14px;
+	text-transform:uppercase;
+}
+table td {
+	padding-right:15px;
+}
+.image {
+	margin-top:3px;
+}
+#header {
+	height:26px;
+	padding-bottom:15px;
+	padding-left:10px;
+	border-bottom:solid 1px #464740;
+}
+.prompt {
+	border-top:solid 5px #464740;
+	margin:20px 0 10px 0;
+	padding:5px 10px;
+	width:660px !important;
+	font-size:12px;
+}
+.prompt strong {
+	letter-spacing:0;
+}
+.example {
+	border-left:solid 5px #464740;
+	color:#565750;
+	padding-left:10px;
+	margin-left:10px;
+	text-transform:lowercase;
+	font-size:14px;
+	line-height:14px;
+}
+.jScrollPaneDrag {
+	background-color:#464740;
+}
+.jScrollPaneTrack {
+	background-color:transparent;
+}
+#desktop {
+	padding:30px;
+}
+#desktop ul {
+	max-width:1200px;
+}
+#desktop ul li {
+	display:inline;
+}
+#desktop ul li a {
+	float:left;
+	width:180px;
+	overflow:hidden;
+	margin-right:20px;
+}
+.tiny .diesel, .tiny .selected, #desktop a.active, #desktop ul li a:hover {
+	color:#f92666;
+	font-weight:bold;
+}
+#desktop ul#links li a:hover {
+	color:#c9db67;
+}
+#profile .image {
+	margin-left:10px;
+}
+#fx {
+	margin-bottom:0;
+}
+#superplastic {
+	padding:10px 10px 0 10px;
+}
+pre.messages {
+	font-family:Helvetica, Arial;
+	font-size:14px;
+	line-height:18px;
+	text-transform:none;
+	overflow:hidden;
+}
+pre.messages .light {
+	font-size:12px;
+	line-height:12px;
+	font-family:Joshua-Fixed;
+	margin-right:2px;
+}
+.pixel {
+	background-image:url("images/brushPink.png");
+}

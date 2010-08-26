@@ -1,0 +1,73 @@
+/* alexander@binaerpilot.no */
+@import "theme.nextgen.css";
+
+/* colors */
+body {background-color:#eee;color:#444;}
+.jScrollPaneDrag {background-color:#c4c4c4;}
+.button:hover, .tiny div:hover, .button.playing, #joshua {background-color:#fff;}
+.button:hover, .tiny div:hover, .button.playing {
+	color:#999;
+}
+#fancybox-outer, .window {
+	background-color:#ddd;
+}
+.window h1, .window h2 {
+	background-color:transparent;
+	color:#777;
+	padding:0;
+}
+
+#sliders .frame, .tiny div, #input, .button, .jScrollPaneTrack  {
+	background-color:#e4e4e4;
+}
+#joshua h1 {
+	background-color:transparent;
+	color:#777;
+	text-transform:uppercase;
+	line-height:9px;
+	padding:10px 0;
+}
+.example, .light, a, .joshua, .error, .command {color:#09f;}
+.close, .close:hover {color:#999;}
+.window .close, .window .close:hover {color:#000;}
+.pink, .dark, .prompt {color:#f09;}
+#prompt { color:#222;}
+
+h1 .dark {
+	color:#ccc;
+}
+/* images */
+ul.icons li a {
+	color:#555;
+	background-image:url("images/icons.png");
+}
+
+body {
+	background-image:url('images/background-white.png');
+	background-repeat:repeat-y;
+	background-position:0 0;
+}
+#joshua.pirate {
+	background-image:url('images/joshua_pirate_light.png') !important;
+}
+#joshua.atari {
+	background-image:url('images/joshua_atari_light.png') !important;
+}
+.window .close {
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+
+#sliders .frame, .tiny div, .button {
+	color:#777;
+}
+#sliders .ui-slider-handle {
+	background-color:#aaa;
+}
+.next-gen.extra, #tip {
+	display:none;
+}
+.pixel {
+	background-image:url("images/brushPink.png");
+}
