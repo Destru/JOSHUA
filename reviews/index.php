@@ -45,7 +45,7 @@
 		Alright, so it might not have been the greatest of ideas.
 		When I think of all the hours wasted, in agony and in pain, if I didn't know any better I'd say this little club of ours was some sort of S&amp;M cult.
 		And if you're thinking <em>"Well, there's not that many movies in the list."</em>, please observe that these are only the ones we bothered reviewing.
-		We've seen at least three times this much. Yes, they were all bad.
+		We've seen at least ten times this much. Yes, they were all bad.
 		</p>
 
 		<h2>The rating system</h2>
