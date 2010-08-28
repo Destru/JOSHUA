@@ -62,6 +62,16 @@ function get($url, $cache = 0){
 function microtimer($timestamp){
 	return round(microtime(true)-$timestamp, 5);
 }
+function dbFile($filename) {
+	$file = file($filename);
+	$data = array();
+	foreach ($file as $lineNum => $line) {
+	if(!empty($line))
+		$data[$lineNum] = explode('^', trim($line));
+		else return false;
+	}
+	return $data;
+}
 
 // errors	
 $error = array(
@@ -225,6 +235,7 @@ if(empty($output)){
 	}
 	// msg
 	if($command == "msg") {
+		$storage = "msg.data";
 		$length = trim(strlen(str_replace($command, '', $dump)));
 		if($length > 0) {
 			if($length > 140) error('strlong');
@@ -235,22 +246,32 @@ if(empty($output)){
 					if($message != 'list') {
 						if($length < 8) error('strshort');
 						$timestamp = date("d/m/y");
-						$fp = fopen('msg.data', 'a');
-						fwrite($fp, '<span class="light">'.$timestamp.'</span> '.$message.' <span class="dark">'.$_SERVER['REMOTE_ADDR'].'</span> <!--'.$_SERVER['HTTP_USER_AGENT'].' -->'."\n");
+						$fp = fopen($storage, 'a');
+						fwrite($fp, $timestamp.'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
 						fclose($fp);
 					}
 				}
-				$command = $message;
-				$data = file_get_contents('msg.data');
-				$message = explode("\n",$data);
-				$message = array_reverse($message);
-				$count = count($message); $limit = 10;
-				if($command == "all") $limit = 1337;
-				if($limit > $count) $limit = $count;
-				$messages = '<pre class="messages">';
-				for ($i = 0; $i < $limit; $i++) $messages .= $message[$i]."\n";
-				$messages .= '</pre>';
-				output($messages);
+				$db = dbFile($storage);
+				$messages = array();
+				foreach ($db as $entry => $message) {
+					$messages[$entry]['timestamp'] = $message[0];
+					$messages[$entry]['message'] = $message[1];
+					if(!empty($message[2])) {
+						$messages[$entry]['ip'] = $message[2];
+					}
+				}
+				$messages = array_reverse($messages);
+				$count = count($messages);
+				$limit = 10;
+				if($command == "all") {
+					$limit = $count;
+				}
+				$output = '<pre class="messages">';
+				for ($i = 0; $i < $limit; $i++) {
+					$output .= '<span class="light">'.$messages[$i]['timestamp'].'</span> '.$messages[$i]['message']."\n";
+				}
+				$output .= '</pre>';
+				output($output);
 			}
 		}
 		else output('<p>Please leave a message after the beep. <140 characters (alphanumeric). <em>Beep!</em></p><p class="example">msg joshua needs more ultraviolence</p>');
@@ -576,24 +597,13 @@ if(empty($output)){
 	if($command == "superplastic") {
 		if(!empty($_POST['name'])) $name = strip_tags(trim($_POST['name']));
 		if(!empty($_POST['score'])) $score = strip_tags(trim($_POST['score']));
-		$data = 'superplastic.data';
+		$storage = "superplastic.data";
 		if(!empty($name) && !empty($score)) {
-			$fp = fopen($data, 'a');
+			$fp = fopen($storage, 'a');
 			fwrite($fp, $score.'^'.$name."\n");
 			fclose($fp);
 		}
-		$scores = array();
-		function getFile($filename) {
-			  $file = file($filename);
-			  $list = array();
-			  foreach ($file as $line_num => $line) {
-				  if(!empty($line))
-					  $list[$line_num] = explode('^', trim($line));
-				  else return false;
-			  }
-			  return $list;
-		}
-		$db = getFile($data);
+		$db = dbFile($storage);
 		$scores = array();
 		foreach ($db as $entry => $score) {
 			$scores[$entry]['score'] = $score[0];
