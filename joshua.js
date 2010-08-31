@@ -260,27 +260,30 @@ function loadConfig() {
 
 // application loaders
 function loadGallery() {
-	var content = $('#gallery .ajax').load('load.gallery.php', function() {
-		$(this).append('<div class="clear galleryFix"/>');
-		$('a.view').fancybox({
-			'overlayShow': false,
-			'hideOnContentClick': true,
-			'showNavArrows':false,
-			'showCloseButton':false,
-			'padding': 10,
-			'zoomSpeedIn': 300,
-			'zoomSpeedOut': 300
+	// hack to avoid reloading on command input
+	if(!$('#slideshow').length) {
+		$('#gallery').append('<div class="ajax"/>');
+		var content = $('#gallery .ajax').load('load.gallery.php', function() {
+			$(this).append('<div class="clear galleryFix"/>');
+			$('a.view').fancybox({
+				'overlayShow': false,
+				'hideOnContentClick': true,
+				'showNavArrows':false,
+				'showCloseButton':false,
+				'padding': 10,
+				'zoomSpeedIn': 300,
+				'zoomSpeedOut': 300
+			});
+			$('#slideshow').cycle({ 
+				fx:     'fade', 
+				delay:  -1000,
+				next: '#slideshow'
+			});
 		});
-		$('#slideshow').cycle({ 
-			fx:     'fade', 
-			delay:  -1000,
-			next: '#slideshow'
-		});
-	});
-	systemReady();
+		systemReady();
+	}
 }
 function loadSuperplastic() {
-	$('.spark').remove();
 	$('#superplastic iframe').attr('src', 'superplastic/index.html');
 	$('#superplastic:hidden').fadeIn(fade);
 	loseFocus();
@@ -425,7 +428,7 @@ function customMagic() {
 	}
 	else if(theme == "diesel") {
 		$('#joshua h1').html('<div id="header"><img src="images/diesel_logo.png" alt=""/></div>');
-		var chrome = 272,
+		var chrome = 271,
 		height = $(window).height()-chrome;
 		$('#output').css("height", height+"px");
 		$(window).resize(function() {
@@ -553,16 +556,16 @@ $(document).ready(function() {
 			}
 			/* quit smoking -- let's try this again sometime...
 			else if(command == "smoking") {
-				var quit = new Date(2010, 1-1, 7);
+				var quit = new Date(2010, 10-1, 1);
 				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 12 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
 				systemReady();
 			} */
 			// windows
 			else if(command == "music" || command == "config" || command == "alexander" || command == "gallery") {
+				if(command == "gallery") loadGallery();
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
-				if(command == "gallery") loadGallery();
 				systemReady();
 			}
 			// superplastic

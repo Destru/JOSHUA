@@ -241,7 +241,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
 'prudiful' => 'A mix of "Pretty" and "Beautiful". A synomyn for Rachael.',
 'hot' => 'One of the hottest things on the planet, the infamous <a href="misc/deadsexy.jpg" class="view">Peter Andersen</a>.',
 'asimov' => 'Individual science fiction stories may seem as trivial as ever to the blinder critics and philosophers of today. But the core of science fiction, its essence, has become crucial to our salvation if we are to be saved at all.',
-'joshua' => 'Joshua is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="dark">about</span>. <a href="http://github.com/destru/joshua">Joshua source is available on Github</a>.',
+'joshua' => 'Joshua is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="dark">about</span>. <a href="http://github.com/destru/joshua">Source available on Github</a>.',
 'hidden' => 'Look closer! Have you tried cheating? To <span class="dark">cheat</span> or not to <span class="dark">cheat</span>, that is the question.',
 'sharks' => 'Don\'t poop. Ever. They\'re like the Thunderdome, only two men enter and no man leaves.',
 'lamb' => 'A lamb stays a lamb. Forever. Sheep are not lambs, they are a different species entirely. Dr. Young, the world renowned lambologist, has done research into the matter.',
@@ -279,7 +279,7 @@ Alexander: CONAN WIELDS THE MIGHTY CANE!
 Rachael: HAHAHA!</pre>',
 'justmtv' => 'An amazing idea I had that never will be realized.',
 'everywhere' => '<p>Can you hear me calling<br/>Out your name<br/>You know that I\'m falling<br/>And I don\'t know what to say<br/>I\'ll speak a little louder<br/>I\'ll even shout<br/>You know that I\'m proud<br/>And I can\'t get the words out</p><p>Oh I...<br/>I want to be with you everywhere</span></p>',
-'github' => '<a href="http://github.com/destru/">Destru@Github</a>',
+'git' => 'Git is awesome. I don\'t know how I survived without it.<br/><a class="external" href="http://github.com/destru/">Destru@Github</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to Joshua. Thank you for being awesome.<p>
 	<p>
