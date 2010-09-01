@@ -259,30 +259,6 @@ function loadConfig() {
 }
 
 // application loaders
-function loadGallery() {
-	// hack to avoid reloading on command input
-	if(!$('#slideshow').length) {
-		$('#gallery').append('<div class="ajax"/>');
-		var content = $('#gallery .ajax').load('load.gallery.php', function() {
-			$(this).append('<div class="clear galleryFix"/>');
-			$('a.view').fancybox({
-				'overlayShow': false,
-				'hideOnContentClick': true,
-				'showNavArrows':false,
-				'showCloseButton':false,
-				'padding': 10,
-				'zoomSpeedIn': 300,
-				'zoomSpeedOut': 300
-			});
-			$('#slideshow').cycle({ 
-				fx:     'fade', 
-				delay:  -1000,
-				next: '#slideshow'
-			});
-		});
-		systemReady();
-	}
-}
 function loadSuperplastic() {
 	$('#superplastic iframe').attr('src', 'superplastic/index.html');
 	$('#superplastic:hidden').fadeIn(fade);
@@ -329,10 +305,7 @@ function chromeInit() {
 	$('.open').click(function() {
 		var id = this.getAttribute('id').replace(/Open/,'');
 		createCookie(id,'true',expires);
-		if(id == "gallery") {
-			loadGallery();
-		}
-		else if(id == "superplastic") {
+		if(id == "superplastic") {
 			loadSuperplastic();
 		}
 		else if(id == "music") {
@@ -360,9 +333,6 @@ function chromeInit() {
 			$('#'+window+':hidden').show();
 		}
 	});
-	if(readCookie('gallery')) {
-		loadGallery();
-	}
 	if(readCookie('superplastic')) {
 		loadSuperplastic();
 	}
@@ -565,7 +535,6 @@ $(document).ready(function() {
 			} */
 			// windows
 			else if(command == "music" || command == "config" || command == "alexander" || command == "gallery") {
-				if(command == "gallery") loadGallery();
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				systemReady();

@@ -277,7 +277,8 @@ Alexander: THE CANE OF JURTIS!!!
 Rachael: HAHAH! NO! stop... pain...
 Alexander: CONAN WIELDS THE MIGHTY CANE!
 Rachael: HAHAHA!</pre>',
-'justmtv' => 'An amazing idea I had that never will be realized.',
+'fizzbuzz' => '<pre>&lt;?while($i++<100){$p=($i%3<1?"Fizz":"").($i%5<1?"Buzz":"");echo($p?$p:$i)."\n";}?&gt;</pre>',
+'justmtv' => 'An amazing idea I had that never will be realized. Streaming music videos without interruption online. Or in other words, what MTV should be.',
 'everywhere' => '<p>Can you hear me calling<br/>Out your name<br/>You know that I\'m falling<br/>And I don\'t know what to say<br/>I\'ll speak a little louder<br/>I\'ll even shout<br/>You know that I\'m proud<br/>And I can\'t get the words out</p><p>Oh I...<br/>I want to be with you everywhere</span></p>',
 'git' => 'Git is awesome. I don\'t know how I survived without it.<br/><a class="external" href="http://github.com/destru/">Destru@Github</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
