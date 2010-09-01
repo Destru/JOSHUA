@@ -1,6 +1,6 @@
 // joshua (jquery operating system)
 // http://binaerpilot.no/alexander/
-// astoever@binaerpilot.no
+// alexander@binaerpilot.no
 var header = '<strong>Joshua</strong> <span id="version"/> <span class="dark">LCARS</span>',
 title = ' > JOSHUA (jQuery Operating System)',
 terminalPrompt = '<strong>Guest</strong>@Joshua/> </div>',
@@ -552,6 +552,7 @@ $(document).ready(function() {
 				$('#output').append('<div class="output"><div class="prompt">rachael</div><p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist. We\'ve been happily married for <span class="countdown married pink"/>, her birthday is in <span class="countdown birthday pink"/> and I am still madly in love. You can <a href="http://rachaelivy.com">visit her homepage</a> if you\'d like to know more. (Potential stalkers be warned: I carry an axe.)</p></div>');
 				$('.birthday').countdown({until: birthday, compact: true, format: 'OWDHMS'});
 				$('.married').countdown({since: married, compact: true, format: 'OWDHMS'});
+				scrollCheck();
 				systemReady();
 			}
 			/* quit smoking -- let's try this again sometime...
@@ -559,6 +560,7 @@ $(document).ready(function() {
 				var quit = new Date(2010, 10-1, 1);
 				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 12 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
+				scrollCheck();
 				systemReady();
 			} */
 			// windows
