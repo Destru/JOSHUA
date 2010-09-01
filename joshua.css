@@ -38,17 +38,15 @@ td.command {
 	width:100px;
 }
 
-/* balloons */
-#output p.chat {
+/* pixel people! */
+.speechBubble {
 	padding:5px 10px;
 	margin-bottom:0px;
-	max-width:205px;
+	max-width:225px;
 	background-color:#fff;
 	color:#000;
-	line-height:14px;
-	font-size:11px;
 }
-.pixelChat {
+.pixelPerson {
 	margin-bottom:20px;
 	background-image: url("images/pixelChat.png");
 	background-repeat:no-repeat;

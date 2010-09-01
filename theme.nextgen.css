@@ -138,7 +138,7 @@ h1, h2, #input {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 }
-#sliders .frame, .ui-slider-handle, .button, .chat, .tiny div, .jScrollPaneDrag, .jScrollPaneTrack {
+.speechBubble, #sliders .frame, .ui-slider-handle, .button, .tiny div, .jScrollPaneDrag, .jScrollPaneTrack {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	border-radius:3px;
@@ -159,7 +159,7 @@ pre, pre .hl, td.fixed-width, .pre {
 	font-family: "ProFont", Monaco, Lucida Console;
 	font-size:9px; line-height:14px;
 }
-#sliders .frame, .chat, .tiny div, ul.icons li a, #tip, .pixel, .button, .command, .prompt, .joshua, .error {
+#sliders .frame, .speechBubble, .tiny div, ul.icons li a, #tip, .button, .command, .prompt, .joshua, .error {
 	font-family: "Joshua Normal", Helvetica, Arial;
 	font-size:8px; line-height:8px;
 	text-transform:uppercase;
@@ -279,22 +279,6 @@ ul#links {
 #superplastic .close {
 	color:#555;
 	top:10px; right:10px;
-}
-
-/* balloons */
-.chat {
-	padding:5px 10px;
-	background-color:#fff;
-	color:#000;
-	margin-bottom:0px;
-	line-height:14px;
-	width:145px;
-}
-.pixelChat {
-	margin-bottom:20px;
-	background-image: url("images/pixelChat.png");
-	background-repeat:no-repeat;
-	padding-top:8px;
 }
 
 /* music player */

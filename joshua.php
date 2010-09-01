@@ -278,13 +278,13 @@ if(empty($output)){
 	}
 	// yoda
 	if($command == "yoda") {
-		$yodaPixel = '<div class="pixelChat"><img src="images/yoda.png" width="27" height="28" /></div>';
+		$yodaPixel = '<div class="pixelPerson"><img src="images/yoda.png" width="27" height="28" /></div>';
 		$length = strlen($dump);
 		if($length > 6	) {
 			$question = str_replace('yoda ','',$dump);
 			if(!stristr($question, '?')) $question .= '?';
 			$count = count($yoda)-1; $rand = rand(0,$count);
-			print '<div class="prompt">'.$command.' <strong>'.$question.'</strong></div><p class="chat">'.$yoda[$rand].'</p>'.$yodaPixel; $output = 1;
+			print '<div class="prompt">'.$command.' <strong>'.$question.'</strong></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel; $output = 1;
 		}
 		else output('<p class="chat">Ask a question you must.</p>'.$yodaPixel);
 	}
