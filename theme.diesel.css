@@ -226,9 +226,10 @@ pre.messages {
 }
 pre.messages .light {
 	font-size:12px;
-	line-height:12px;
 	font-family:Joshua-Fixed;
 	margin-right:2px;
+	position:relative;
+	top:-1px;
 }
 .pixel {
 	background-image:url("images/brushPink.png");

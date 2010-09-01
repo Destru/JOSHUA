@@ -11,7 +11,7 @@ if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/'
 	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named Joshua. Go Team Norway!" />
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript" />
 	<meta name="author" content="alexander@binaerpilot.no" />
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen" />
 <?php $dir = opendir('.');
 while ($file = readdir($dir)) {

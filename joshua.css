@@ -156,6 +156,10 @@ tr.major .command {
 }
 
 /* gallery */
+#slideshow {
+	height:265px;
+	margin-bottom:10px;
+}
 ul.thumbs {
 	position:relative;
 	left:-5px; top:5px;
@@ -170,16 +174,13 @@ ul.thumbs li a {
 	line-height:1px;
 	float:left;
 	margin-left:5px;
-	margin-top:5px;
+	margin-bottom:5px;
 	height:44px;
 	width:54px;
 	opacity:0.75;
 }
 ul.thumbs li a:hover {
 	opacity:1;
-}
-.galleryFix {
-	height:5px;
 }
 
 /* tweaks */

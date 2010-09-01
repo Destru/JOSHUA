@@ -120,14 +120,14 @@ function fxInit(fx, boot) {
 	else if(fx == "draw") {
 		var pixel;
 		$('body').css('-webkit-user-select', 'none');
-		$(document).mousedown(function(){
+		$(document).mousedown(function() {
 			drawing = true;
 		});
-		$(document).mouseup(function(){
+		$(document).mouseup(function() {
 			drawing = false;
 		});
-		$(document).mousemove(function(e){
-			if(drawing == true){
+		$(document).mousemove(function(e) {
+			if(drawing) {
 				pixel = $('<div/>').addClass('pixel').hide();
 				$(document.body).append(pixel);
 				pixel.css({
@@ -448,7 +448,7 @@ function joshuaInit() {
 			location.reload();
 		}
 	});
-	// settings
+	// load settings
 	var theme = readCookie('theme'),
 	background = readCookie('background'),
 	fx = readCookie('fx'),
@@ -457,13 +457,8 @@ function joshuaInit() {
 	if(theme) loadTheme(theme, true);
 	if(background) $('#joshua').addClass(background);
 	if(fx) fxInit(fx, true);
-	if(opacity) $('#joshua, .window').css({opacity:opacity});
-	// finish bootloader
-	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
-	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
-		motd.appendTo('#output');
-		stealFocus(); scrollCheck();
-	});
+	if(opacity) $('#joshua, .window').css('opacity', opacity);
+	// load quote
 	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function() {
 		pearl.appendTo('#pearls');
 	});
@@ -479,6 +474,12 @@ function joshuaInit() {
 				top: pos[2]
 			});
 		}
+	});
+	// ready prompt
+	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
+	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
+		motd.appendTo('#output');
+		stealFocus(); scrollCheck();
 	});
 	chromeInit();
 	customMagic();
@@ -574,7 +575,7 @@ $(document).ready(function() {
 			}
 			// engine
 			else {
-				if(command != "") {
+				if(command) {
 					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
 						$('#output').append(content);
 						reBoot();
