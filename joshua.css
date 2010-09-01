@@ -39,13 +39,13 @@ td.command {
 }
 
 /* balloons */
-.chat {
-	padding:5px 10px !important;
+#output p.chat {
+	padding:5px 10px;
+	margin-bottom:0px;
+	max-width:205px;
 	background-color:#fff;
 	color:#000;
-	margin-bottom:0px;
 	line-height:14px;
-	max-width:205px;
 	font-size:11px;
 }
 .pixelChat {
