@@ -237,7 +237,7 @@ ul.inline li {
 	cursor:pointer;
 	padding:0 10px;
 	height:22px;
-	background-color:#080808;
+	background-image:url("images/joshua_black.png");
 }
 #desktop ul#links {
 	display:none;
@@ -328,7 +328,7 @@ h1 {
 }
 
 /* rounders */
-.image, .chat, ul li a, .prompt, h1, #input {
+.image, .speechBubble, ul li a, .prompt, h1, #input {
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 }

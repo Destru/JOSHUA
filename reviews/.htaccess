@@ -1,5 +1,0 @@
-# init
-php_flag zlib.output_compression On
-RewriteEngine on
-
-RewriteRule ^(.*).html$ index.php?en=$1&no=$1

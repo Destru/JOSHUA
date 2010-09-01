@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteRule ^cheatsheets.html$ cheatsheets.php [L]
-RewriteRule ^(.*).html$ index.php?p=$1

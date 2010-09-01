@@ -1,8 +1,14 @@
+.htaccess
 .DS_Store
 *.data
 *.xml
-music/*
 ao/*
+code/*
+eve/*
 gallery/*
-reviews/backdoor.php
-.htaccess
+jge/*
+misc/*
+mobile/*
+music/*
+reviews/*
+wtfig/*
