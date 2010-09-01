@@ -1,12 +1,9 @@
 <?php // joshua brain <alexander@binaerpilot.no>
-
 // load brain cells
-$dir = opendir('.');
-while ($file = readdir($dir)) {
+$d = scandir(".");
+foreach($d as $file) {
 	if(stristr($file, 'cell.')) include $file;
 }
-closedir($dir);
-
 // static information
 $static = array(
 'help' => '<table class="help">
