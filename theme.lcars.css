@@ -112,6 +112,9 @@ h1, h2 {
 	width:158px;
 	margin-left:6px;
 }
+#config.window {
+	width:340px;
+}
 #desktop a:hover, #desktop a.active {
 	background-color:#c69;
 }

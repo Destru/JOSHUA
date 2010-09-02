@@ -59,7 +59,7 @@ $static = array(
 	<p>Joshua is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
 	The name Joshua is a reference to \'War Games\' (Shall we play a game?).
 	Special <span class="dark">thanks</span> to <a href="http://twitter.com/ehjelle" class="blank">Eirik Hjelle</a> and <a href="http://twitter.com/elektronaut" class="blank">Inge Jørgensen</a> for answering stupid questions.
-	This site is fueled by sleep deprivation and nicotine. Feel free to to bite my code, but ask for sauce or miss out on server-side magix.</p>
+	This site is fueled by sleep deprivation and nicotine. Feel free to to <a href="http://github.com/destru/joshua">bite my code</a>.</p>
 
 	<p>Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most
 	awkward way to navigate a website ever perceived. But then again; Mouseclicking is so 90\'s.</p>',
@@ -241,7 +241,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
 'prudiful' => 'A mix of "Pretty" and "Beautiful". A synomyn for Rachael.',
 'hot' => 'One of the hottest things on the planet, the infamous <a href="misc/deadsexy.jpg" class="view">Peter Andersen</a>.',
 'asimov' => 'Individual science fiction stories may seem as trivial as ever to the blinder critics and philosophers of today. But the core of science fiction, its essence, has become crucial to our salvation if we are to be saved at all.',
-'joshua' => 'Joshua is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="dark">about</span>. <a href="http://github.com/destru/joshua">Source available on Github</a>.',
+'joshua' => 'Joshua is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="dark">about</span>.',
 'hidden' => 'Look closer! Have you tried cheating? To <span class="dark">cheat</span> or not to <span class="dark">cheat</span>, that is the question.',
 'sharks' => 'Don\'t poop. Ever. They\'re like the Thunderdome, only two men enter and no man leaves.',
 'lamb' => 'A lamb stays a lamb. Forever. Sheep are not lambs, they are a different species entirely. Dr. Young, the world renowned lambologist, has done research into the matter.',
