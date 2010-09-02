@@ -219,18 +219,10 @@ table td {
 }
 pre.messages {
 	font-family:Helvetica, Arial;
-	font-size:14px;
+	font-size:15px;
 	line-height:18px;
 	text-transform:none;
-	overflow:hidden;
 }
-pre.messages .light {
-	font-size:12px;
-	font-family:Joshua-Fixed;
-	margin-right:2px;
-	position:relative;
-	top:-1px;
-}
-.pixel {
-	background-image:url("images/brushPink.png");
+.brush {
+	background-image:url("images/brushDiesel.png");
 }

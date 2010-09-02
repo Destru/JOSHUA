@@ -68,6 +68,6 @@ body {
 .next-gen.extra, #tip {
 	display:none;
 }
-.pixel {
-	background-image:url("images/brushPink.png");
+.brush {
+	background-image:url("images/brushWhite.png");
 }

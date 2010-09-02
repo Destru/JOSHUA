@@ -140,10 +140,3 @@ pre.ascii {
 .clearFix {
 	margin-bottom:2px;
 }
-::selection {
-	background-color:#f30;
-	color:#fff;
-}
-.pixel {
-	background-image:url("images/brushRed.png");
-}

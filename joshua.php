@@ -242,14 +242,13 @@ if(empty($output)){
 			else {
 				$message = explode("msg ",$dump);
 				$message = $message[1];
-				if($message != 'all') {
-					if($message != 'list') {
-						if($length < 8) error('strshort');
-						$timestamp = date("d/m/y");
-						$fp = fopen($storage, 'a');
-						fwrite($fp, $timestamp.'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
-						fclose($fp);
-					}
+				if($message == "all") $all = 1;
+				if($message != "list" && $message != "all") {
+					if($length < 8) error('strshort');
+					$timestamp = date("d/m/y");
+					$fp = fopen($storage, 'a');
+					fwrite($fp, $timestamp.'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
+					fclose($fp);
 				}
 				$db = dbFile($storage);
 				$messages = array();
@@ -261,13 +260,10 @@ if(empty($output)){
 					}
 				}
 				$messages = array_reverse($messages);
-				$count = count($messages);
-				$limit = 10;
-				if($command == "all") {
-					$limit = $count;
-				}
+				$limit = 10; if(isset($all)) $limit = count($messages);
 				$output = '<pre class="messages">';
 				for ($i = 0; $i < $limit; $i++) {
+					$id = $i+1;
 					$output .= '<span class="light">'.$messages[$i]['timestamp'].'</span> '.$messages[$i]['message']."\n";
 				}
 				$output .= '</pre>';

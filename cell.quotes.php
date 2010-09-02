@@ -42,5 +42,6 @@
 	'If only you could see what I\'ve seen with your eyes.',
 	'I\'m Joshua. Blade Runner. Two sixty three-fifty four. I\'m filed and monitored.',
 	'I\'m Joshua Skywalker, I\'m here to rescue you.',
-	'Help me Joshu-Wan Kenobi. You\'re my only hope.'
+	'Help me Joshu-Wan Kenobi. You\'re my only hope.',
+	'Space... The final frontier. These are the voyages of the starship Joshua. It\'s continuing mission, to explore strange new worlds. To seek out new life and new civilizations. To boldly go where no one has gone before.'
 ); ?>

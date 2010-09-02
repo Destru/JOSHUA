@@ -73,7 +73,7 @@ function mute() {
 function fxStop() {
 	var cookie = readCookie('fx');
 	if(cookie) {
-		$('.spark, #malkovich, .pixel').remove();
+		$('.spark, #malkovich, .brush').remove();
 		if(cookie != "none") {
 			eraseCookie('fx');
 		}
@@ -88,7 +88,6 @@ function fxStop() {
 	}
 }
 function fxInit(fx, boot) {
-	$('#fx .'+fx).addClass('selected');
 	if(!boot) {
 		fxStop();
 		createCookie('fx', fx, expires);
@@ -118,7 +117,7 @@ function fxInit(fx, boot) {
 		setInterval(pulsar,30000);
 	}
 	else if(fx == "draw") {
-		var pixel;
+		var brush;
 		$('body').css('-webkit-user-select', 'none');
 		$(document).mousedown(function() {
 			drawing = true;
@@ -128,9 +127,9 @@ function fxInit(fx, boot) {
 		});
 		$(document).mousemove(function(e) {
 			if(drawing) {
-				pixel = $('<div/>').addClass('pixel').hide();
-				$(document.body).append(pixel);
-				pixel.css({
+				brush = $('<div/>').addClass('brush').hide();
+				$(document.body).append(brush);
+				brush.css({
 					top: e.pageY-12,
 					left: e.pageX-12
 				}).show();
@@ -433,15 +432,16 @@ function customMagic() {
 // booting up joshua
 function joshuaInit() {
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
-	// upgrading users to 7.x series
+	// upgrading users to latest edition
 	$('#version').load('joshua.php', {command: "version", option: "clean"}, function() {
 		var version = $('#version').html(),
 		versionCheck = readCookie('release');
-		if(versionCheck < 7) {
+		if(versionCheck < 7.7) {
 			$('title').html('Upgrading'+title);
 			eraseCookie('background');
-			createCookie('theme', 'diesel', expires);
+			createCookie('theme', 'lcars', expires);
 			createCookie('desktop', 'true', expires);
+			createCookie('config', 'true', expires);			
 			eraseCookie('fx');
 			createCookie('release', version, expires);
 			$.each(allWindows,function() {eraseCookie('window.'+this);});
@@ -506,11 +506,7 @@ $(document).ready(function() {
 			}
 			// js commands
 			if(command == "clear") clearScreen();
-			// externals
 			else if(command == "exit" || input == "quit" || input == "logout") window.location = "http://binaerpilot.no";
-			else if(command == "reviews") window.location = "http://binaerpilot.no/alexander/reviews/";
-			else if(command == "code") window.location = "http://binaerpilot.no/alexander/code/";
-			else if(command == "jge") window.location = "http://jgemainframe.com/";
 			// rachael
 			else if(command == "rachael") {
 				var current = new Date();
@@ -534,6 +530,20 @@ $(document).ready(function() {
 				scrollCheck();
 				systemReady();
 			} */
+			// timer
+			else if(command == "timer") {
+				if(option && parseInt(option)) {
+					time = option*60*1000;
+					if(timer) clearTimeout(timer);
+					var timer = setTimeout("alert('Time's up!')", time);
+					$('#output').append('<div class="output"><div class="prompt">timer</div><p>Timer set for '+option+' minutes.</p></div>');
+				}
+				else {
+					$('#output').append('<div class="output"><div class="prompt">timer</div><p>You need to specify length in minutes.</p></div>');
+				}
+				scrollCheck();
+				systemReady();
+			}
 			// windows
 			else if(command == "music" || command == "config" || command == "alexander" || command == "gallery") {
 				createCookie(command,'true',expires);

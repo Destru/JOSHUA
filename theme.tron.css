@@ -21,7 +21,7 @@ body {
     left:50%; top:50%;
     margin-left: -410px;
     margin-top: -250px;
-	background-image:url("images/joshua_black.png");
+	background-image:url("images/tronWindows.png");
 }
 #input {
 	margin-top:10px;
@@ -237,7 +237,7 @@ ul.inline li {
 	cursor:pointer;
 	padding:0 10px;
 	height:22px;
-	background-image:url("images/joshua_black.png");
+	background-image:url("images/tronWindows.png");
 }
 #desktop ul#links {
 	display:none;
@@ -344,7 +344,7 @@ h1 {
 /* background */
 #fancybox-outer {
 	background-color:transparent;
-	background-image:url("images/joshua_black.png");
+	background-image:url("images/tronWindows.png");
 }
 .tron .tiny div {
 	border:none;

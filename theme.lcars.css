@@ -94,7 +94,7 @@ h1, h2 {
 	color:#000;
 	margin:6px 3px;
 }
-.tiny div:hover {
+.tiny div:hover, .tiny div.lcars {
 	background-color:#f96;
 }
 #desktop {
