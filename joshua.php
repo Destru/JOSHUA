@@ -307,8 +307,6 @@ if(empty($output)){
 			<a href="misc/aoscripts.rar">Download some scripts</a> or listen to <a href="misc/doktor_dreiebenk_-_the_doctor_is_in.mp3">this little rap song</a>.
 			Both more than indicative of my former Rubi-ka addiction.
 			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
-			Now I am not playing actively anymore, but I do enjoy my froob fixer now and then.
-			Because, as anyone will tell you, AO is nigh impossible to quit.
 			</p>'.
 			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/ao-'.$char.'.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
@@ -325,8 +323,8 @@ if(empty($output)){
 		$cache = 'eve.xml';
 		
 		// get the data
-		// get($url, $cache);
-		$status = "Inactive";
+		get($url, $cache);
+		$status = "Active";
 		$xml = simplexml_load_file($cache);
 		
 		// print it out
@@ -458,7 +456,7 @@ if(empty($output)){
 			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
 			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">'.$xml->cdata->location.'</td></tr></table>';
-		output('<p>I haven\'t played <em>Star Trek Online</em> long enough for an educated opinion. That being said I am having fun. Bite-sized fun. Space combat is basically EVE Arcade, and thank fuck for that.</p>'.$character);
+		output('<p>I didn\'t play <em>Star Trek Online</em> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam, but ultimately a bit shallow for my taste.</p>'.$character);
 	}
 	// games
 	if($command == "game" || $command == "games") {

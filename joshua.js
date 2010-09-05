@@ -441,7 +441,11 @@ function joshuaInit() {
 			eraseCookie('background');
 			createCookie('theme', 'lcars', expires);
 			createCookie('desktop', 'true', expires);
-			createCookie('config', 'true', expires);			
+			createCookie('alexander', 'true', expires);			
+			eraseCookie('config');
+			eraseCookie('superplastic');
+			eraseCookie('music');
+			eraseCookie('gallery');
 			eraseCookie('fx');
 			createCookie('release', version, expires);
 			$.each(allWindows,function() {eraseCookie('window.'+this);});

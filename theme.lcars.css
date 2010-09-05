@@ -213,7 +213,7 @@ ul.tracks a.play, ul.tracks a:hover {
 #desktop a, .tiny div, .prompt, h1, h2 {
 	font-size:20px;
 	line-height:12px;
-	font-family:LCARS;
+	font-family:LCARS, Helvetica;
 	text-transform:uppercase;
 }
 h1, h2 {

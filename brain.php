@@ -190,6 +190,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
 'omg' => 'lol',
 'stfu' => 'wat lol',
 'wat' => 'lol',
+'flattr' => 'I can dig the concept. Here\'s hoping it catches on beyond Germany. You can <a href="http://flattr.com/thing/58145/">flattr Joshua</a>.',
 'farts' => 'Would you look at that? A lil mouse ran in and tooted.',
 'fart' => 'Rachael? Are you pluggin stuff into Joshua again?',
 'elp' => 'Looks like you might need some... Type slower!',

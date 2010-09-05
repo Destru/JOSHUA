@@ -1,5 +1,5 @@
 <?php $pearls = array(
-	"How can someone reach the point where they get turned on by Brazilian fart porn? They were masturbating behind the couch as a kid when suddenly their mom farted. Damage done.",
+	"How does someone reach the point where they get turned on by Brazilian fart porn? They were masturbating behind the couch as a kid when suddenly their mom farted. Damage done.",
 	"I'm sad because I'm just smart enough to realize the stupid people have more fun.",
 	"Sometimes I'll hear a great song from a band I don't like and get mad, because apparently I'm a sad and bitter old bastard.",
 	"&lt;Write a long sentence on any subject and end it with&gt; something something, axe murder.",

@@ -144,10 +144,9 @@ strong {
 	letter-spacing:-1px;
 }
 pre {
-	font-family:Joshua-Fixed;
+	font-family:Consolas, Monospace;
 	font-size:12px;
-	line-height:14px;
-	text-transform:uppercase;
+	line-height:16px;
 }
 table td {
 	padding-right:15px;
@@ -216,12 +215,6 @@ table td {
 }
 #superplastic {
 	padding:10px 10px 0 10px;
-}
-pre.messages {
-	font-family:Helvetica, Arial;
-	font-size:15px;
-	line-height:18px;
-	text-transform:none;
 }
 .brush {
 	background-image:url("images/brushDiesel.png");
