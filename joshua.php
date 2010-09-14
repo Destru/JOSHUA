@@ -299,8 +299,8 @@ if(empty($output)){
 		$cache = 'ao.xml';
 		get($url, $cache);
 		$xml = simplexml_load_file($cache);
-		$status = "Active";
-		
+		$status = "Disabled";
+
 		$name = $xml->name->firstname.' <a href="'.$url.'">'.$xml->name->nick.'</a> '.$xml->name->lastname;
 		output('<p><em>Anarchy Online</em> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
 			The sheer size and complexity of the game was unparallalled at the time and I quickly found myself completely immersed in it.
