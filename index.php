@@ -18,7 +18,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="index,follow,noarchive" />
 	<meta name="language" content="en" />
-	<title>JOSHUA (jQuery Operating System, HUA!) - Alexander St&oslash;ver</title>
+	<title>JOSHUA (jQuery Operating System, HUA!) - Alexander Støver</title>
 	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named Joshua. Go Team Norway!" />
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript" />
 	<meta name="author" content="alexander@binaerpilot.no" />

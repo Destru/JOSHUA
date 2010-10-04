@@ -26,11 +26,11 @@ function get($url, $cache = 0){
 	global $dev;
 	$secondsBeforeUpdate = 60;
 	$timeout = 10;
-	if(!isset($dev)) {
-		if(!empty($cache)) {
+	if(!isset($dev)){
+		if(!empty($cache)){
 			if(!file_exists($cache)) touch($cache);
 			$lastModified = filemtime($cache);
-			if(time() - $lastModified > $secondsBeforeUpdate) {
+			if(time() - $lastModified > $secondsBeforeUpdate){
 				$ch = curl_init();
 				curl_setopt ($ch, CURLOPT_URL, $url);
 				curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -62,10 +62,10 @@ function get($url, $cache = 0){
 function microtimer($timestamp){
 	return round(microtime(true)-$timestamp, 5);
 }
-function dbFile($filename) {
+function dbFile($filename){
 	$file = file($filename);
 	$data = array();
-	foreach ($file as $lineNum => $line) {
+	foreach ($file as $lineNum => $line){
 	if(!empty($line))
 		$data[$lineNum] = explode('^', trim($line));
 		else return false;
@@ -107,29 +107,29 @@ if(!empty($command)){
 if(empty($output)){
 	include('brain.php');
 	// version 
-	if($command == "version") {
-		if(isset($option) && $option == "clean") {
+	if($command == "version"){
+		if(isset($option) && $option == "clean"){
 			print $version; $output = 1;
 		}
 	}
 	// motd 
-	if($command == "motd") {
+	if($command == "motd"){
 		$count = count($quotes)-1; $rand = rand(0,$count);
 		print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <em>help</em> for commands.</p>'; $output = 1;
 	}
 	// quotes, pearls, bash
-	if($command == "quote" || $command == "bash" || $command == "pearl") {
+	if($command == "quote" || $command == "bash" || $command == "pearl"){
 		if($command == "bash") $array = $bash;
 		elseif($command == "quote") $array = $quotes;
 		elseif($command == "pearl") $array = $pearls;
 		$count = count($array)-1; $rand = rand(0,$count);
-		if(!empty($option) && $option == "all") {
-			foreach($array as $quote) {
+		if(!empty($option) && $option == "all"){
+			foreach($array as $quote){
 				if($command == "bash") $quote = '<div class="pre">'.$quote.'</div>';
 				output($quote);
 			}
 		}
-		elseif(isset($option) && $option == "clean") {
+		elseif(isset($option) && $option == "clean"){
 			print $array[$rand]; $output = 1;
 		}
 		else {
@@ -139,19 +139,19 @@ if(empty($output)){
 		}
 	}
 	// uptime and date
-	if($command == "uptime" || $command == "date") {
+	if($command == "uptime" || $command == "date"){
 		$return = trim(exec($command));
 		if(!empty($return))	output($return);
 		else error('noreturn');
 	}
 	// whois
-	if($command == "whois") {
+	if($command == "whois"){
 		if(empty($option)) output('<p>You need to specify a domain name.</p><p class="example">whois binaerpilot.no</p>');
 		else {
 			$pattern = "/^[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,4}$/";
-			if (preg_match($pattern, $option)) {
+			if (preg_match($pattern, $option)){
 				$return = shell_exec('whois '.$option);
-				if(!empty($return)) {
+				if(!empty($return)){
 					$return = utf8_encode($return);
 					output('<pre>'.$return.'</pre>');
 				}
@@ -161,11 +161,11 @@ if(empty($output)){
 		}
 	}
 	// prime number
-	if($command == "prime") {
+	if($command == "prime"){
 		if(empty($option)) output('<p>You need to specify a number.</p><p class="example">prime 13</p>');
 		else {
 			$pattern = "/^1?$|^(11+?)\1+$/"; // why isn't this working?
-			if (preg_match($pattern, $option)) {
+			if (preg_match($pattern, $option)){
 				output($option.' is a prime number.');
 			}
 			else output($option.' is not a prime number.');
@@ -177,10 +177,10 @@ if(empty($output)){
 		if(!empty($option)) $ip = $option;
 		else $ip = $_SERVER['REMOTE_ADDR'];
 		$match = "/^[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}$/";
-		if(preg_match($pattern, $ip)) {
+		if(preg_match($pattern, $ip)){
 			$trace = $tracer.$ip;
 			$output = get($trace);
-			if(!empty($output)) {
+			if(!empty($output)){
 				output('<pre>'.$output.'</pre>');
 			}
 			else error('noreturn');
@@ -189,7 +189,7 @@ if(empty($output)){
 	}
 	// sudo
 	if($command == "sudo"){
-		if(empty($option)) {
+		if(empty($option)){
 			if(empty($_SESSION['sudo'])) error('auth');
 			else output('<p class="joshua">'.$joshua.'You\'re already authenticated.');
 		}
@@ -221,7 +221,7 @@ if(empty($output)){
 			else output('<p>There are '.$levels.' levels. Answer by typing <span class="dark">n (x)</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
 		}
 		else if(!empty($option)){
-			if($option == $numbers[$_SESSION['numbers']][1]) {
+			if($option == $numbers[$_SESSION['numbers']][1]){
 				$_SESSION['numbers'] = $_SESSION['numbers']+1;
 				$level = $_SESSION['numbers']+1;
 				output('<p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
@@ -234,16 +234,16 @@ if(empty($output)){
 		}
 	}
 	// msg
-	if($command == "msg") {
+	if($command == "msg"){
 		$storage = "msg.data";
 		$length = trim(strlen(str_replace($command, '', $dump)));
-		if($length > 0) {
+		if($length > 0){
 			if($length > 140) error('strlong');
 			else {
 				$message = explode("msg ",$dump);
 				$message = $message[1];
 				if($message == "all") $all = 1;
-				if($message != "list" && $message != "all") {
+				if($message != "list" && $message != "all"){
 					if($length < 8) error('strshort');
 					$timestamp = date("d/m/y");
 					$fp = fopen($storage, 'a');
@@ -252,17 +252,17 @@ if(empty($output)){
 				}
 				$db = dbFile($storage);
 				$messages = array();
-				foreach ($db as $entry => $message) {
+				foreach ($db as $entry => $message){
 					$messages[$entry]['timestamp'] = $message[0];
 					$messages[$entry]['message'] = $message[1];
-					if(!empty($message[2])) {
+					if(!empty($message[2])){
 						$messages[$entry]['ip'] = $message[2];
 					}
 				}
 				$messages = array_reverse($messages);
 				$limit = 10; if(isset($all)) $limit = count($messages);
 				$output = '<pre class="messages">';
-				for ($i = 0; $i < $limit; $i++) {
+				for ($i = 0; $i < $limit; $i++){
 					$id = $i+1;
 					$output .= '<span class="light">'.$messages[$i]['timestamp'].'</span> '.$messages[$i]['message']."\n";
 				}
@@ -273,10 +273,10 @@ if(empty($output)){
 		else output('<p>Please leave a message after the beep. <140 characters (alphanumeric). <em>Beep!</em></p><p class="example">msg joshua needs more ultraviolence</p>');
 	}
 	// yoda
-	if($command == "yoda") {
+	if($command == "yoda"){
 		$yodaPixel = '<div class="pixelPerson"><img src="images/yoda.png" width="27" height="28" /></div>';
 		$length = strlen($dump);
-		if($length > 6	) {
+		if($length > 6	){
 			$question = str_replace('yoda ','',$dump);
 			if(!stristr($question, '?')) $question .= '?';
 			$count = count($yoda)-1; $rand = rand(0,$count);
@@ -285,7 +285,7 @@ if(empty($output)){
 		else output('<p class="chat">Ask a question you must.</p>'.$yodaPixel);
 	}
 	// fml
-	if($command == "fml") {
+	if($command == "fml"){
 		$url = "http://feeds.feedburner.com/fmylife?format=xml";
 		$cache = "fml.xml";
 		get($url, $cache);
@@ -293,7 +293,7 @@ if(empty($output)){
 		output($xml->entry[rand(0,9)]->content);
 	}
 	// ao
-	if($command == "game" && !empty($option) && $option == "ao") {
+	if($command == "game" && !empty($option) && $option == "ao"){
 		$char = 'quickhack';
 		$url = 'http://people.anarchy-online.com/character/bio/d/1/name/'.$char.'/bio.xml';
 		$cache = 'ao.xml';
@@ -317,7 +317,7 @@ if(empty($output)){
 			'<tr><td class="dark">Status</td><td class="light">'.$status.'</td></tr></table>');
 	}
 	// eve online
-	if($command == "game" && !empty($option) && $option == "eve") {
+	if($command == "game" && !empty($option) && $option == "eve"){
 		$charid = '1761654327';
 		$url = 'http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=3292896&apiKey=GUOOjhg49noDHZSn0Wn6xpncdDdqzLuPX3z6V0s1ERSfDYzpHnSf9tBcbS3aIelu&characterID='.$charid;
 		$cache = 'eve.xml';
@@ -348,7 +348,7 @@ if(empty($output)){
 			'<tr><td class="dark">Status</td><td class="light">'.$status.'</td></tr></table>');
 	}
 	// wow 
-	if($command == "game" && !empty($option) && $option == "wow") {
+	if($command == "game" && !empty($option) && $option == "wow"){
 		$realm = "Skullcrusher"; $character = "Fenrisúlfr";
 		$url = 'http://eu.wowarmory.com/character-sheet.xml?r='.$realm.'&n='.$character.'&rhtml=n';
 		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US'; 
@@ -361,7 +361,7 @@ if(empty($output)){
 		$xml = simplexml_load_file($cache);
 		$xml_custom = simplexml_load_file($cache_custom);
 		
-		if(filesize($cache) > 2000) {
+		if(filesize($cache) > 2000){
 			$name = $xml->characterInfo->character->attributes()->name;
 			$class = $xml->characterInfo->character->attributes()->class;
 			$level = $xml->characterInfo->character->attributes()->level;
@@ -378,7 +378,7 @@ if(empty($output)){
 				$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeThree;
 			$kills = $xml->characterInfo->characterTab->pvp->lifetimehonorablekills->attributes()->value;
 			$events = '';
-			for ($i = 0; $i < 5; $i++) {
+			for ($i = 0; $i < 5; $i++){
 				$event = $xml_custom->entry[$i]->title;
 				if(!empty($event)) $events .= $event.'<br/>';
 			}
@@ -402,7 +402,7 @@ if(empty($output)){
 			'For the Horde!</p>'.$details);
 	}
 	// xbox
-	if($command == "xbox") {
+	if($command == "xbox"){
 		$charid = "Destru%20Kaneda";
 		$url = 'http://xboxapi.duncanmackenzie.net/gamertag.ashx?GamerTag='.$charid;
 		$cache = 'xbox.xml';
@@ -412,7 +412,7 @@ if(empty($output)){
 		$xml = simplexml_load_file($cache);
 
 		// print it out
-		if($xml->AccountStatus != "Unknown") {
+		if($xml->AccountStatus != "Unknown"){
 			$name = $xml->Gamertag;
 			$reputation = $xml->Reputation;
 			$score = $xml->GamerScore;
@@ -421,7 +421,7 @@ if(empty($output)){
 			$moreInfo = $xml->PresenceInfo->Info2;
 			if(strlen($moreInfo) > 1) $info = $info.' ('.$moreInfo.')';
 			$games = '';
-			for ($i = 0; $i < 3; $i++) {
+			for ($i = 0; $i < 3; $i++){
 				$game = $xml->RecentGames->XboxUserGameInfo[$i]->Game->Name;
 				$gameScore = $xml->RecentGames->XboxUserGameInfo[$i]->GamerScore;
 				$gameDetails = $xml->RecentGames->XboxUserGameInfo[$i]->DetailsURL;
@@ -440,7 +440,7 @@ if(empty($output)){
 		}
 	}
 	// sto
-	if($command == "game" && !empty($option) && $option == "sto") {
+	if($command == "game" && !empty($option) && $option == "sto"){
 		$charid = '918798';
 		$url = 'http://www.startrekonline.com/character_profiles/'.$charid.'/xml';
 		$cache = 'sto.xml';
@@ -459,10 +459,10 @@ if(empty($output)){
 		output('<p>I didn\'t play <em>Star Trek Online</em> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam, but ultimately a bit shallow for my taste.</p>'.$character);
 	}
 	// games
-	if($command == "game" || $command == "games") {
+	if($command == "game" || $command == "games"){
 		$gameList = '';
-		if(!empty($option)) {
-			foreach ($games as $key => $value) {
+		if(!empty($option)){
+			foreach ($games as $key => $value){
 				if($key == $option) output($value);
 			}
 			// 404
@@ -475,16 +475,16 @@ if(empty($output)){
 		}
 	}
 	// cheat
-	if($command == "idkfa") {
+	if($command == "idkfa"){
 		$commands = array();
-		foreach ($static as $key => $value) {
+		foreach ($static as $key => $value){
 			$commands[] .= '<em>'.$key.'</em>';
 		}
 		sort($commands); $commands = implode(', ', $commands);
 		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p><p>'.$commands.'.</p>');
 	}
 	// lastfm
-	if($command == "last.fm" || $command == "lastfm") {
+	if($command == "last.fm" || $command == "lastfm"){
 		// loved tracks
 		$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 		$count = 8; $cache = 'lastfm.loved.xml';
@@ -493,7 +493,7 @@ if(empty($output)){
 		// print it out
 		$xml = simplexml_load_file($cache);
 		print '<div class="prompt">last.fm <strong>Loved</strong></div><p>';
-		for ($i = 0; $i < $count; $i++) {
+		for ($i = 0; $i < $count; $i++){
 			$track = $xml->lovedtracks->track[$i]->name;
 			$artist = $xml->lovedtracks->track[$i]->artist->name;
 			print $artist.' - '.$track.'<br/>'."\r";
@@ -506,7 +506,7 @@ if(empty($output)){
 		// print it out
 		$xml = simplexml_load_file($cache);
 		print '<div class="prompt">last.fm <strong>Recent</strong></div><p>';
-		for ($i = 0; $i < $count; $i++) {
+		for ($i = 0; $i < $count; $i++){
 			$track = $xml->recenttracks->track[$i]->name;
 			$artist =$xml->recenttracks->track[$i]->artist;
 			print $artist.' - '.$track.'<br/>'."\r";
@@ -514,19 +514,19 @@ if(empty($output)){
 		print '<a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>'; $output = 1;
 	}
 	// wtfig
-	if($command == "wtfig") {
-		if(!isset($option)) {
+	if($command == "wtfig"){
+		if(!isset($option)){
 			output('<p>You need to specify font and caption.</p><p class="example">wtfig chunky Awesome!</p>');
 		}
 		else {
-			if(file_exists("wtfig/fonts/$option.flf")) {
+			if(file_exists("wtfig/fonts/$option.flf")){
 				$font =  $option.'.flf';
 				$caption = trim(str_replace($option, '', str_replace($command, '', $dump)));
-				if(strlen($caption) > 0) {
+				if(strlen($caption) > 0){
 					// load class
 					require("wtfig/class.figlet.php");
 					$phpFiglet = new phpFiglet();
-					if ($phpFiglet->loadFont("wtfig/fonts/".$font)) {
+					if ($phpFiglet->loadFont("wtfig/fonts/".$font)){
 						$wtFIG = $phpFiglet->fetch($caption);
 						output('<pre class="ascii">'.$wtFIG.'</pre>');
 					}
@@ -538,15 +538,15 @@ if(empty($output)){
 			else {
 				$fontList = array();
 				$dir = scandir("wtfig/fonts/");
-				foreach($dir as $file) {
-					if(strpos($file,".flf")) {
+				foreach($dir as $file){
+					if(strpos($file,".flf")){
 						$fontName = str_replace('.flf', '', $file);
 						$fontList[] = '<em>'.$fontName.'</em>';
 					}
 				}
 				sort($fontList); $fonts = implode(', ', $fontList);
 				$output = '<p>'.$fonts.'.</p>';
-				if($option != "list") {
+				if($option != "list"){
 					$output = '<p class="error">'.$joshua.'Invalid font. See list below.</p>'.$output;
 				}
 				output($output);
@@ -554,17 +554,17 @@ if(empty($output)){
 		}
 	}
 	// torrents
-	if($command == "get" || $command == "torrent" || $command == "torrents") {
-		if(isset($option)) {
+	if($command == "get" || $command == "torrent" || $command == "torrents"){
+		if(isset($option)){
 			$rows = 20; $query = str_replace($command.' ', '', $dump);
 			$url = 'http://isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&rows='.$rows.'&sort=seeds';
 			$content = get($url);
-			if($content) {
+			if($content){
 				print '<div class="prompt">'.$command.' <strong>'.$query.'</strong></div>';
 				$c = json_decode($content, true);
-				if($c['total_results'] > 0) {
+				if($c['total_results'] > 0){
 					print '<table class="torrents">';
-					for ($i = 0; $i < $rows; $i++) {
+					for ($i = 0; $i < $rows; $i++){
 						$name = $c['items']['list'][$i]['title'];
 						$link = $c['items']['list'][$i]['link'];
 						$size = $c['items']['list'][$i]['size'];
@@ -572,7 +572,7 @@ if(empty($output)){
 						$leechers = $c['items']['list'][$i]['leechers'];
 						$title = $name.' ('.$size.')';
 						if(strlen($name) > 83) $name = substr($name, 0, 80).'...';
-						if($link) {
+						if($link){
 							print '<tr><td class="torrent"><a href="'.$link.'" title="'.$title.'">'.$name.'</a></td><td class="dark">'.$seeds.'/'.$leechers.'</td></tr>';
 						}
 					}
@@ -588,37 +588,37 @@ if(empty($output)){
 		else output('<p>You need to specify something to look for.</p><p class="example">get binaerpilot</p>');
 	} 
 	// superplastic
-	if($command == "superplastic") {
+	if($command == "superplastic"){
 		if(!empty($_POST['name'])) $name = strip_tags(trim($_POST['name']));
 		if(!empty($_POST['score'])) $score = strip_tags(trim($_POST['score']));
 		$storage = "superplastic.data";
-		if(!empty($name) && !empty($score)) {
+		if(!empty($name) && !empty($score)){
 			$fp = fopen($storage, 'a');
 			fwrite($fp, $score.'^'.$name."\n");
 			fclose($fp);
 		}
 		$db = dbFile($storage);
 		$scores = array();
-		foreach ($db as $entry => $score) {
+		foreach ($db as $entry => $score){
 			$scores[$entry]['score'] = $score[0];
 			$scores[$entry]['name'] = $score[1];
 		}
 		rsort($scores);
 		print '<h2>Season IV</h2><ol>';
 		$count = 10;
-		for ($i = 0; $i < $count; $i++) {
+		for ($i = 0; $i < $count; $i++){
 			print '<li><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
 		print '</ol>'; $output = 1;
 	}
 	// stats
-	if($command == "stats") {
+	if($command == "stats"){
 		$timestamp = microtime(true);
 		$dir = opendir('.');
 		$brainCells = 0; $themes = 0; $bytes = 0; $lines = 0;
 		$dir = scandir(".");
-		foreach ($dir as $file) {
-			if(!stristr($file, '.xml') && !stristr($file, '.data') && !is_dir($file)) {
+		foreach ($dir as $file){
+			if(!stristr($file, '.xml') && !stristr($file, '.data') && !is_dir($file)){
 				$bytes = $bytes + filesize($file);
 				$lines = $lines + count(file($file));
 			}
@@ -645,8 +645,8 @@ if(empty($output)){
 		output($stats);
 	}
 	// check static commands
-	if(empty($output)) {
-		foreach ($static as $key => $value) {
+	if(empty($output)){
+		foreach ($static as $key => $value){
 			if($key == $command) output($value);
 		}
 		// static has nothing either, print invalid command

@@ -526,20 +526,20 @@ $(document).ready(function() {
 				scrollCheck();
 				systemReady();
 			}
-			/* quit smoking -- let's try this again sometime...
+			// quit smoking
 			else if(command == "smoking") {
 				var quit = new Date(2010, 10-1, 1);
-				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 12 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
+				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 13 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
 				scrollCheck();
 				systemReady();
-			} */
+			}
 			// timer
 			else if(command == "timer") {
 				if(option && parseInt(option)) {
 					time = option*60*1000;
 					if(timer) clearTimeout(timer);
-					var timer = setTimeout("alert('Time's up!')", time);
+					var timer = setTimeout("alert('Honk honk, I am coming to your house Jesus!')", time);
 					$('#output').append('<div class="output"><div class="prompt">timer</div><p>Timer set for '+option+' minutes.</p></div>');
 				}
 				else {
