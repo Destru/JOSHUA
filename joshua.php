@@ -89,7 +89,7 @@ $error = array(
 
 // security
 if(!empty($command)){
-	$pattern = "/^[[:alnum:][:space:]:.\,\'-?!]{0,160}$/";
+	$pattern = "/^[[:alnum:][:space:]:.\,\'-?!\*+%]{0,160}$/";
 	if(!empty($dump) && preg_match($pattern, $dump) || empty($dump)){
 		if(!empty($option)){
 			$prompt = '<div class="prompt">'.$command.' <strong>'.$option.'</strong></div>';
@@ -135,8 +135,7 @@ if(empty($output)){
 		else {
 			$quote = $array[$rand];
 			if($command == "bash") $quote = '<div class="pre">'.$quote.'</div>';
-			output($quote);
-		}
+			output($quote);		}
 	}
 	// uptime and date
 	if($command == "uptime" || $command == "date"){
@@ -610,6 +609,20 @@ if(empty($output)){
 			print '<li><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
 		print '</ol>'; $output = 1;
+	}
+	// calc
+	if($command == "calc"){
+		if(isset($option)) {
+			if(preg_match('/^([0-9]+[+-\/*%][0-9]+)*$/', $option)){
+				$return = shell_exec("awk 'BEGIN {print $option}'");
+				if(!empty($return)){
+					output($return);
+				}
+				else error('noreturn');
+			}
+			else output('<p>Does not compute.</p>');
+		}
+		else output('<p>There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
 	}
 	// stats
 	if($command == "stats"){
