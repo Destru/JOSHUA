@@ -6,7 +6,7 @@ if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
-$version = '7.6';
+$version = '7.7';
 $joshua = '<strong>Joshua:</strong> ';
 $output = '';
 

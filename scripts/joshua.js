@@ -1,7 +1,7 @@
 // joshua (jquery operating system)
 // http://binaerpilot.no/alexander/
 // alexander@binaerpilot.no
-var header = '<strong>Joshua</strong> <span id="version"/> <span class="dark">LCARS</span>',
+var header = '<strong>Joshua</strong> <span id="version"/> <span class="dark">Diesel Edition</span>',
 title = ' > JOSHUA (jQuery Operating System)',
 terminalPrompt = '<strong>Guest</strong>@Joshua/> </div>',
 hist = [], // history (arrow up/down)
@@ -66,6 +66,24 @@ function mute() {
 		soundManager.unmute();
 		muted = false;
 	}
+	systemReady();
+}
+function timer(time) {
+	if(time > 0) {
+		var remaining = time / 60000;
+		if(remaining > 1) {
+			$('#output').append('<div class="output"><p><strong>Timer:</strong> There are '+remaining+' minutes remaining.</p></div>');								
+		}
+		else {
+			$('#output').append('<div class="output"><p><strong>Timer:</strong> There is '+remaining+' minute remaining.</p></div>');
+		}
+		time = time - 60000;
+	    setTimeout('timer('+time+')', 60000);
+	}
+	else {
+		alert('This is an alarm. You are supposed to do something now.');
+	}
+	scrollCheck();
 	systemReady();
 }
 
@@ -433,22 +451,21 @@ function customMagic() {
 function joshuaInit() {
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
 	// upgrading users to latest edition
-	$('#version').load('joshua.php', {command: "version", option: "clean"}, function() {
-		var version = $('#version').html(),
-		versionCheck = readCookie('release');
-		if(versionCheck < 7.7) {
+	$('#version').load('joshua.php', {command: "version", option: "clean"}, function(version) {
+		var versionCheck = readCookie('release');
+		if(version > versionCheck) {
 			$('title').html('Upgrading'+title);
 			eraseCookie('background');
-			createCookie('theme', 'lcars', expires);
-			createCookie('desktop', 'true', expires);
-			createCookie('alexander', 'true', expires);			
 			eraseCookie('config');
 			eraseCookie('superplastic');
 			eraseCookie('music');
 			eraseCookie('gallery');
 			eraseCookie('fx');
-			createCookie('release', version, expires);
 			$.each(allWindows,function() {eraseCookie('window.'+this);});
+			createCookie('theme', 'diesel', expires);
+			createCookie('desktop', 'true', expires);
+			createCookie('alexander', 'true', expires);			
+			createCookie('release', version, expires);
 			location.reload();
 		}
 	});
@@ -537,13 +554,10 @@ $(document).ready(function() {
 			// timer
 			else if(command == "timer") {
 				if(option && parseInt(option)) {
-					time = option*60*1000;
-					if(timer) clearTimeout(timer);
-					var timer = setTimeout("alert('Honk honk, I am coming to your house Jesus!')", time);
-					$('#output').append('<div class="output"><div class="prompt">timer</div><p>Timer set for '+option+' minutes.</p></div>');
+					timer(option*60000);
 				}
 				else {
-					$('#output').append('<div class="output"><div class="prompt">timer</div><p>You need to specify length in minutes.</p></div>');
+					$('#output').append('<div class="output"><div class="prompt">timer</div><p>You need to specify length (in minutes).</p></div>');
 				}
 				scrollCheck();
 				systemReady();
