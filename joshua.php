@@ -24,8 +24,8 @@ function output($response){
 }
 function get($url, $cache = 0){
 	global $dev;
-	$secondsBeforeUpdate = 60;
 	$timeout = 10;
+	$secondsBeforeUpdate = 60;
 	if(!isset($dev)){
 		if(!empty($cache)){
 			if(!file_exists($cache)) touch($cache);
@@ -318,7 +318,7 @@ if(empty($output)){
 	// eve online
 	if($command == "game" && !empty($option) && $option == "eve"){
 		$charid = '1761654327';
-		$url = 'http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=3292896&apiKey=GUOOjhg49noDHZSn0Wn6xpncdDdqzLuPX3z6V0s1ERSfDYzpHnSf9tBcbS3aIelu&characterID='.$charid;
+		$url = 'http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=3292896&apiKey=2F975C46AD0E4944B92A1593424E96473C8D729993DF46D0BABB4EA1C2C4E88B&characterID='.$charid;
 		$cache = 'eve.xml';
 		
 		// get the data
