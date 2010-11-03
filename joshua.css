@@ -7,6 +7,9 @@ html, body {
 	height:100%;
 	color:#fff;
 }
+a {
+	color:#fff;
+}
 h1, h2, h3, h4 {
 	cursor:default;
 }
@@ -230,17 +233,6 @@ ul.tracks a {
 	font-family:'Joshua-Fixed';
 	src: url('fonts/profontwindows.ttf') format("truetype");
 }
-
-
-/* config */
-#sliders {
-	display:none;
-}
-
-
-/* --- EXTERNAL RULES --- */
-
-
 
 /* fancybox */
 #fancybox-loading {

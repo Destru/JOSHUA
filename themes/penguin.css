@@ -1,6 +1,4 @@
 /* alexander@binaerpilot.no */
-@import "nextgen.css";
-/* colors */
 body {background-color:#420127;color:#fff;}
 #sliders .frame, .tiny div, .button, #joshua {background-color:#66013c;}
 .button.playing, .tiny div:hover, .button:hover, .jScrollPaneDrag {background-color:#ae2a78;}
@@ -17,10 +15,10 @@ body {background-color:#420127;color:#fff;}
 }
 /* images */
 ul.icons li a {
-	background-image:url("images/iconsPenguin.png");
+	background-image:url("../images/iconsPenguin.png");
 }
 body {
-	background-image:url("images/backgroundPenguin.png");
+	background-image:url("../images/backgroundPenguin.png");
 	background-repeat: no-repeat;
 	background-position:140px 40px;
 }
@@ -29,5 +27,4 @@ body {
 	top:10px;
 	right:10px;
 }
-
 .tiny div:hover, .button:hover, .button.playing {color:#4a012c;}

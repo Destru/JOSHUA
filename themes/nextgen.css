@@ -1,7 +1,4 @@
 /* alexander@binaerpilot.no */
-@import "../joshua.css";
-
-/* fonts */
 @font-face {
 	font-family:"Joshua Normal";
 	src: url('../fonts/pf_tempesta_seven.ttf');
@@ -42,8 +39,8 @@
 #joshua, #output {
 	width:740px;
 }
-#output, .jScrollPaneContainer {
-	height:450px !important;
+#output {
+	height:450px;
 }
 pre, p, input#prompt {
 	width:720px;

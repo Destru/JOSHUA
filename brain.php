@@ -1,5 +1,5 @@
 <?php // joshua brain <alexander@binaerpilot.no>
-$version = '7.9';
+$version = '7.8';
 // load brain cells
 $d = scandir(".");
 foreach($d as $file) {

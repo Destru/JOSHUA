@@ -11,6 +11,7 @@ fade = 500, // ui fade delay
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
+nextGen = ['carolla', 'contra', 'penguin', 'white'],
 windows = ['config', 'music', 'alexander'],
 custom = ['gallery', 'superplastic', 'desktop'],
 allWindows = $.merge(windows, custom);
@@ -163,6 +164,17 @@ function loadTheme(theme, boot) {
 		location.reload();
 	}
 	else {
+		// next-generation
+		if($.inArray(theme, nextGen) > -1) {
+			$("head").append("<link>");
+				css = $("head").children(":last");
+				css.attr({
+				  rel:  'stylesheet',
+				  type: 'text/css',
+				  href: 'themes/nextgen.css'
+			});
+		}
+		// load theme
 		$("head").append("<link>");
 		    css = $("head").children(":last");
 		    css.attr({
@@ -196,7 +208,6 @@ function loadPreset(preset) {
 	else if(preset == "identity") {
 		createCookie('theme', preset, expires);
 		eraseCookie('background');
-		eraseCookie('opacity');
 		eraseCookie('fx');
 		eraseCookie('desktop');	
 	}
@@ -205,7 +216,6 @@ function loadPreset(preset) {
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');
-		eraseCookie('opacity');
 		eraseCookie('release');
 		eraseCookie('tron.team');
 		$.each(windows,function() {
@@ -246,33 +256,6 @@ function loadConfig() {
 	$('div#presets div').click(function() {
 		var preset = this.getAttribute('class');
 		loadPreset(preset);
-	});
-	// sliders
-	$('#sliders label').click(function() {
-		var slider = this.getAttribute('class');
-		if(slider == "opacity") {
-			$('#joshua, .window').css({opacity:''});
-		}
-	});
-	var opacity = readCookie('opacity');
-	if(!opacity) {
-		opacity = 1;
-		createCookie('opacity', opacity, expires);
-	}
-	// opacity
-	$('#opacity').slider({
-		max: 20,
-		min: 3,
-		value: opacity*20,
-		slide: function(event, ui) {
-			opacity = ui.value/20;
-			$('#joshua, .window').css('opacity', opacity);
-		},
-		change: function(event, ui) {
-			opacity = ui.value/20;
-			$('#joshua, .window').css('opacity', opacity);
-			createCookie('opacity', opacity, expires);
-		}
 	});
 }
 
@@ -385,6 +368,26 @@ function clearScreen() {
 // custom magic
 function customMagic() {
 	var theme = readCookie('theme');
+	// next generation
+	if($.inArray(theme, nextGen) > -1) {
+		var opacity = readCookie('opacity');
+		if(opacity) opactiy = 1;
+		$('#opacity').slider({
+			max: 20,
+			min: 3,
+			value: opacity*20,
+			slide: function(event, ui) {
+				opacity = ui.value/20;
+				$('#joshua, .window').css('opacity', opacity);
+			},
+			change: function(event, ui) {
+				opacity = ui.value/20;
+				$('#joshua, .window').css('opacity', opacity);
+				createCookie('opacity', opacity, expires);
+			}
+		});
+		if(opacity) $('#joshua, .window').css('opacity', opacity);
+	}
 	if(theme == "tron") {
 		var team = readCookie('tron.team');
 		if(!team) createCookie('tron.team', 'blue', expires);
@@ -481,12 +484,10 @@ function joshuaInit() {
 	var theme = readCookie('theme'),
 	background = readCookie('background'),
 	fx = readCookie('fx'),
-	desktop = readCookie('desktop'),
-	opacity = readCookie('opacity');
+	desktop = readCookie('desktop');
 	if(theme) loadTheme(theme, true);
 	if(background) $('#joshua').addClass(background);
 	if(fx) fxInit(fx, true);
-	if(opacity) $('#joshua, .window').css('opacity', opacity);
 	// load quote
 	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function() {
 		pearl.appendTo('#pearls');

@@ -51,7 +51,9 @@
 			<div class="green"></div>
 		</div>
 	</div>
-	<div id="sliders">
-		<div class="frame"><div id="opacity" class="slider">Opacity</div></div>
+	<div class="next-gen extra">
+		<div id="sliders">
+			<div class="frame"><div id="opacity" class="slider">Opacity</div></div>
+		</div>
 	</div>
 </div>

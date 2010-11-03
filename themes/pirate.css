@@ -1,10 +1,9 @@
 /* alexander@binaerpilot.no */
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
-@import "joshua.css";
 body {
 	background-color:#000;
-	background-image:url("images/joshua_pirate.png");
+	background-image:url("../images/joshuaPirate.png");
 	background-repeat:no-repeat;
 	background-position:50% 50%;
 	font-family:'Droid Sans', Arial, Helvetica;
