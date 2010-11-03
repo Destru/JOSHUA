@@ -83,9 +83,6 @@ a, .tiny div {
 .tiny {
 	margin-bottom:20px;
 }
-#sliders {
-	display:none;
-}
 .motd {
 	margin-top:20px;
 }
@@ -207,11 +204,11 @@ table td {
 #desktop ul#links li a:hover {
 	color:#c9db67;
 }
-#profile .image {
-	margin-left:10px;
-}
 #fx {
 	margin-bottom:0;
+}
+#profile .image {
+	margin-left:10px;
 }
 #superplastic {
 	padding:10px 10px 0 10px;

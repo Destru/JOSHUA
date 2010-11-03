@@ -315,6 +315,7 @@ ul.tracks {
 
 /* sliders */
 #sliders {
+	display:block;
 	clear:both;
 	margin-top:-5px;
 }

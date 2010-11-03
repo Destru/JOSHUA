@@ -30,7 +30,7 @@ h1 {
 .output, .prompt, p, table, pre {
 	margin-bottom:20px;
 }
-p.note, #sliders {
+p.note {
 	display:none;
 }
 #joshua {
@@ -136,7 +136,7 @@ a.close:hover {
 .tiny {
 	margin-bottom:20px;
 }
-#fx.tiny {
+#fx {
 	margin-bottom:0;
 }
 ::selection {

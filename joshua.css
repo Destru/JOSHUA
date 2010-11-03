@@ -231,6 +231,17 @@ ul.tracks a {
 	src: url('fonts/profontwindows.ttf') format("truetype");
 }
 
+
+/* config */
+#sliders {
+	display:none;
+}
+
+
+/* --- EXTERNAL RULES --- */
+
+
+
 /* fancybox */
 #fancybox-loading {
 	position: fixed;

@@ -7,10 +7,15 @@ body {
 	background-repeat:no-repeat;
 	color:#333;
 }
-body, #joshua, pre {
+body, #joshua {
 	font-family:Helvetica, Arial;
 	font-size:14px;
 	line-height:18px;
+}
+pre {
+	font-family:Monaco, Consolas;
+	font-size:10px;
+	line-height:14px;
 }
 a, .tiny div {
 	color:#f00;
@@ -29,13 +34,18 @@ strong {
 	border-radius:10px;
 	padding:20px;
 }
+p.note {
+	display:none;
+}
 .window h1 {
 	font-size:18px;
 	line-height:22px;
 	font-weight:bold;
+	margin-bottom:20px;
 }
 .window h2 {
-	margin-top:20px;
+	margin-top:30px;
+	margin-bottom:10px;
 	font-size:16px;
 	line-height:20px;
 }
@@ -59,8 +69,8 @@ a:hover, .tiny div:hover {
 	color:#777;
 }
 .close {
-	position:relative;
-	top:-10px; right:-5px;
+	font-size:14px;
+	line-height:18px;
 	float:right;
 	font-weight:normal;
 	text-transform:uppercase;
