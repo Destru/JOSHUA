@@ -1,5 +1,5 @@
 <?php // joshua brain <alexander@binaerpilot.no>
-$version = '7.8';
+$version = '7.9';
 // load brain cells
 $d = scandir(".");
 foreach($d as $file) {
@@ -172,6 +172,9 @@ $static = array(
 		<tr><td class="command fixed-width">7.8</td>
 			<td>I hated the Hacker theme, say hello to Helvetica instead. Diesel is once again the default theme. Made the timer less useless.</td>
 		</tr>
+		<tr><td class="command fixed-width">7.9</td>
+			<td>Backend reworked (again?! yes!). Streamlined themes etc. Added a few more static commands.</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
@@ -187,6 +190,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
+'pvp' => 'Yes, it so happens that I quite <a href="http://www.minmatar-militia.org/kb/?a=pilot_detail&plt_id=47869">enjoy a bit of pew</a>. I enjoyed my <a href="images/walloflame.jpg" class="view">rogue</a> and <a href="images/walloflameFenris.jpg" class="view">paladin</a> as well.',
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',
 'geek' => '<pre>GMU d-(---)pu s+++:-- a-- C++++$ U>+++ P+ L+ E---- W+++$ w PS+++ PE-- Y++ PGP-- t+ tv-- b+ D++ G e- h r++ y+*</pre>',
 'ip' => $_SERVER['REMOTE_ADDR'],

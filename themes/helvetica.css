@@ -6,11 +6,25 @@ body {
 	background-position:700px 0;
 	background-repeat:no-repeat;
 	color:#333;
+	text-shadow:rgba(0,0,0,0.05) 1px 1px 1px;
 }
 body, #joshua {
 	font-family:Helvetica, Arial;
 	font-size:14px;
 	line-height:18px;
+}
+#joshua h1 {
+	padding-top:40px;
+	padding-left:40px;
+	font-size:48px;
+	line-height:48px;
+}
+#joshua h1 #version {
+	font-size:14px;
+	color:#888;
+}
+#joshua h1 .dark {
+	display:none;
 }
 pre {
 	font-family:Monaco, Consolas;
@@ -20,17 +34,20 @@ pre {
 a, .tiny div {
 	color:#f00;
 	text-decoration:none;
-	padding-bottom:1px;
 	border-bottom:solid 1px #fdd;
 }
 strong {
 	font-weight:bold;
 	letter-spacing:-1px;
 }
+.speechBubble {
+	border:solid 1px #eee;
+}
 .window {
 	background-color:#fff;
+	background-image:url("../images/pattern45.png");
 	font-size:12px;
-	line-height:16px;
+	line-height:18px;
 	border-radius:10px;
 	padding:20px;
 }
@@ -69,7 +86,9 @@ a:hover, .tiny div:hover {
 	color:#777;
 }
 .close {
-	font-size:14px;
+	text-shadow:none;
+	border:none;
+	font-size:12px;
 	line-height:18px;
 	float:right;
 	font-weight:normal;

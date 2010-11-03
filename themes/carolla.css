@@ -1,5 +1,6 @@
 /* alexander@binaerpilot.no */
-@import "theme.nextgen.css";
+@import "nextgen.css";
+
 /* colors */
 .pink {color:#f09;}
 body {background-color:#02262e;color:#fff;}
@@ -24,10 +25,10 @@ a, .joshua, .error {color:#fbb11a;}
 }
 /* images */
 ul.icons li a {
-	background-image:url("images/icons-blue.png");
+	background-image:url("../images/iconsCarolla.png");
 }
 body {
-	background-image:url("images/background-blue.png");
+	background-image:url("../images/backgroundCarolla.png");
 	background-repeat:repeat-x;
 	background-position:0% 0%;
 }

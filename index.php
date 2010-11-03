@@ -29,10 +29,20 @@
 	<script type="text/javascript" src="scripts/joshua.external.js"></script>
 	<script type="text/javascript" src="scripts/joshua.js"></script>
 </head>
-<body><div id="joshua">Booting up the jQuery Operating System...</div>
+<body><div id="joshua"></div>
 <div id="desktop"><?php include 'desktop.php' ?></div>
 <div id="apps"><?php foreach ($app as $file) include $file; ?></div>
 <div id="games"><?php foreach ($game as $file) include $file; ?></div>
-<?php include 'analytics.html'; ?>
+<!-- analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-139019-4");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
 </body>
 </html>

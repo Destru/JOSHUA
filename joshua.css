@@ -268,7 +268,7 @@ ul.tracks a {
 	left: 0;
 	width: 40px;
 	height: 480px;
-	background-image: url('images/fancybox.png');
+	background-image: url('images/fancybox/fancybox.png');
 	opacity:0.25;
 }
 
@@ -340,7 +340,7 @@ ul.tracks a {
 	right: -15px;
 	width: 30px;
 	height: 30px;
-	background-image: url('images/fancybox.png');
+	background-image: url('images/fancybox/fancybox.png');
 	background-position: -40px 0px;
 	cursor: pointer;
 	z-index: 1103;
@@ -410,7 +410,7 @@ ul.tracks a {
 
 #fancybox-title-over {
 	padding: 10px;
-	background-image: url('images/fancy_title_over.png');
+	background-image: url('images/fancybox/fancy_title_over.png');
 	display: block;
 }
 
@@ -425,7 +425,7 @@ ul.tracks a {
 
 #fancybox-title-left {
 	padding-left: 15px;
-	background-image: url('images/fancybox.png');
+	background-image: url('images/fancybox/fancybox.png');
 	background-position: -40px -90px;
 	background-repeat: no-repeat;
 }
@@ -433,14 +433,14 @@ ul.tracks a {
 #fancybox-title-main {
 	font-weight: bold;
 	line-height: 29px;
-	background-image: url('images/fancybox-x.png');
+	background-image: url('images/fancybox/fancybox-x.png');
 	background-position: 0px -40px;
 	color: #FFF;
 }
 
 #fancybox-title-right {
 	padding-left: 15px;
-	background-image: url('images/fancybox.png');
+	background-image: url('images/fancybox/fancybox.png');
 	background-position: -55px -90px;
 	background-repeat: no-repeat;
 }
@@ -452,7 +452,7 @@ ul.tracks a {
 	width: 35%;
 	cursor: pointer;
 	outline: none;
-	background-image: url('images/blank.gif');
+	background-image: url('images/fancybox/blank.gif');
 	z-index: 1102;
 	display: none;
 }
@@ -478,12 +478,12 @@ ul.tracks a {
 }
 
 #fancybox-left-ico {
-	background-image: url('images/fancybox.png');
+	background-image: url('images/fancybox/fancybox.png');
 	background-position: -40px -30px;
 }
 
 #fancybox-right-ico {
-	background-image: url('images/fancybox.png');
+	background-image: url('images/fancybox/fancybox.png');
 	background-position: -40px -60px;
 }
 

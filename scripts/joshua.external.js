@@ -55,7 +55,7 @@ function pulsar() {
 	});
 	$('ul.icons li a').css({
 		color:'#000000',
-		backgroundImage:'url("images/icons_pulsar.png")',
+		backgroundImage:'url("images/iconsPulsar.png")',
 		opacity:'0.25'
 	});
 	$('body').animate({backgroundColor:"#e93b73"}, 5000)

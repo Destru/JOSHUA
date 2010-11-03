@@ -6,7 +6,7 @@ body {
 	font-family:Helvetica, Arial;
 	font-size:14px;
 	line-height:18px;
-	background-image:url("images/background-tron_blue.jpg");
+	background-image:url("../images/backgroundTronBlue.jpg");
 	background-position:50% 50%;
 	background-repeat:no-repeat;
 	background-attachment:fixed;
@@ -21,7 +21,7 @@ body {
     left:50%; top:50%;
     margin-left: -410px;
     margin-top: -250px;
-	background-image:url("images/tronWindows.png");
+	background-image:url("../images/tronWindows.png");
 }
 #input {
 	margin-top:10px;
@@ -39,8 +39,8 @@ a {
 td a:hover, p a:hover {
 	text-decoration:underline;
 }
-#output {
-	height:402px;
+#output, .jScrollPaneContainer {
+	height:402px !important;
 }
 #prompt {
 	font-family:Helvetica, Arial;
@@ -234,7 +234,7 @@ ul.inline li {
 	cursor:pointer;
 	padding:0 10px;
 	height:22px;
-	background-image:url("images/tronWindows.png");
+	background-image:url("../images/tronWindows.png");
 }
 #desktop ul#links {
 	display:none;
@@ -341,7 +341,7 @@ h1 {
 /* background */
 #fancybox-outer {
 	background-color:transparent;
-	background-image:url("images/tronWindows.png");
+	background-image:url("../images/tronWindows.png");
 }
 .tron .tiny div {
 	border:none;

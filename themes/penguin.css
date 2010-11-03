@@ -1,6 +1,5 @@
 /* alexander@binaerpilot.no */
-@import "theme.nextgen.css";
-
+@import "nextgen.css";
 /* colors */
 body {background-color:#420127;color:#fff;}
 #sliders .frame, .tiny div, .button, #joshua {background-color:#66013c;}
@@ -18,10 +17,10 @@ body {background-color:#420127;color:#fff;}
 }
 /* images */
 ul.icons li a {
-	background-image:url("images/icons-pink.png");
+	background-image:url("images/iconsPenguin.png");
 }
 body {
-	background-image:url("images/background-pink.png");
+	background-image:url("images/backgroundPenguin.png");
 	background-repeat: no-repeat;
 	background-position:140px 40px;
 }

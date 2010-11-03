@@ -1,5 +1,5 @@
 /* alexander@binaerpilot.no */
-@import "joshua.css";
+@import "../joshua.css";
 body {
 	background-color:#1d1f17;
 	color:#fff;
@@ -214,5 +214,5 @@ table td {
 	padding:10px 10px 0 10px;
 }
 .brush {
-	background-image:url("images/brushDiesel.png");
+	background-image:url("../images/brushDiesel.png");
 }
