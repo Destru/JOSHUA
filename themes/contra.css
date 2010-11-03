@@ -1,9 +1,8 @@
 /* alexander@binaerpilot.no */
-@import "theme.nextgen.css";
-
+@import "nextgen.css";
 body {
 	background-color:#152521;
-	background-image:url("images/background-konami.png");
+	background-image:url("../images/backgroundKonami.png");
 	background-position:98% 95%;
 }
 
@@ -13,7 +12,7 @@ body {
 
 /* images */
 ul.icons li a {
-	background-image:url("images/icons-konami.png");
+	background-image:url("../images/iconsKonami.png");
 	color:#c28934;
 }
 

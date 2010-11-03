@@ -3,7 +3,7 @@
 // alexander@binaerpilot.no
 var header = '<strong>Joshua</strong> <span id="version"/> <span class="dark">Diesel Edition</span>',
 title = ' > JOSHUA (jQuery Operating System)',
-terminalPrompt = '<strong>Guest</strong>@Joshua/> </div>',
+terminalPrompt = '<strong>Guest</strong>@Joshua/>',
 hist = [], // history (arrow up/down)
 position = 0, // position in history
 expires = 1095, // cookie dies in 3 years
@@ -158,18 +158,18 @@ function fxInit(fx, boot) {
 
 // themes
 function loadTheme(theme, boot) {
-	if(theme == "tron") {
-		eraseCookie('background');
-		if(readCookie('opacity') != 1) {
-			createCookie('opacity', '1', expires);
-		}
-	}
 	if(!boot) {
 		createCookie('theme', theme, expires);
 		location.reload();
 	}
 	else {
-		switchStyle(theme);
+		$("head").append("<link>");
+		    css = $("head").children(":last");
+		    css.attr({
+		      rel:  'stylesheet',
+		      type: 'text/css',
+		      href: 'themes/'+theme+'.css'
+		});
 	}
 }
 
@@ -193,11 +193,12 @@ function loadPreset(preset) {
 		createCookie('fx', preset, expires);
 		eraseCookie('desktop');
 	}
-	else if(preset == "tron") {
+	else if(preset == "identity") {
 		createCookie('theme', preset, expires);
 		eraseCookie('background');
+		eraseCookie('opacity');
 		eraseCookie('fx');
-		createCookie('desktop', 'true', expires);	
+		eraseCookie('desktop');	
 	}
 	else if(preset == "reset") {
 		eraseCookie('theme');
@@ -395,7 +396,8 @@ function customMagic() {
 			else if(team == "green") color = colors[3];
 			else if(team == "purple") color = colors[4];
 			else if(team == "orange") color = colors[5];
-			var css = 'body {background-image: url("images/background-tron_'+team+'.jpg")}'+
+			team = team.toUpperCase();
+			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
 				'h1 .dark, #input input, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
 				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
@@ -407,14 +409,14 @@ function customMagic() {
 			createCookie('tron.team', team, expires);
 			location.reload();
 		});
-		$('#joshua h1 strong').html('<img src="images/joshua_logo.png" height="8" width="71" alt="" />');
+		$('#joshua h1 strong').html('<img src="images/logoTron.png" height="8" width="71" alt="" />');
 	}
 	else if(theme == "contra") {
 		$('#joshua h1').html('<em>Joshua</em> Konami Edition <span class="dark">30 lives!</span>');
 		$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
 	}
 	else if(theme == "diesel") {
-		$('#joshua h1').html('<div id="header"><img src="images/diesel_logo.png" alt=""/></div>');
+		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
 		var chrome = 271,
 		height = $(window).height()-chrome;
 		$('#output').css("height", height+"px");
@@ -424,11 +426,17 @@ function customMagic() {
 			scrollCheck();
 		});
 	}
-	else if(theme == "hacker" || theme == "pirate") {
+	else if(theme == "helvetica" || theme == "pirate") {
 		terminal = true;
+		if(theme == "helvetica") {
+			terminalPrompt = "<strong>Guest@Joshua:</strong>&nbsp;";
+		}
+		else {
+			$('#joshua h1').remove();
+		}
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+terminalPrompt+'</div>');
-		$('#joshua h1, #desktop #links').remove();
+		$('#desktop #links').remove();
 		$('#desktop').remove();
 	}
 	else if(theme == "lcars") {
@@ -461,10 +469,10 @@ function joshuaInit() {
 			eraseCookie('music');
 			eraseCookie('gallery');
 			eraseCookie('fx');
+			eraseCookie('alexander');
 			$.each(allWindows,function() {eraseCookie('window.'+this);});
 			createCookie('theme', 'diesel', expires);
 			createCookie('desktop', 'true', expires);
-			createCookie('alexander', 'true', expires);			
 			createCookie('release', version, expires);
 			location.reload();
 		}

@@ -1,5 +1,5 @@
 /* alexander@binaerpilot.no */
-@import "theme.nextgen.css";
+@import "nextgen.css";
 
 /* colors */
 body {background-color:#eee;color:#444;}
@@ -39,19 +39,13 @@ h1 .dark {
 /* images */
 ul.icons li a {
 	color:#555;
-	background-image:url("images/icons.png");
+	background-image:url("../images/icons.png");
 }
 
 body {
-	background-image:url('images/background-white.png');
+	background-image:url('../images/backgroundWhite.png');
 	background-repeat:repeat-y;
 	background-position:0 0;
-}
-#joshua.pirate {
-	background-image:url('images/joshua_pirate_light.png') !important;
-}
-#joshua.atari {
-	background-image:url('images/joshua_atari_light.png') !important;
 }
 .window .close {
 	position:absolute;

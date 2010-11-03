@@ -6,7 +6,6 @@ if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
-$version = '7.7';
 $joshua = '<strong>Joshua:</strong> ';
 $output = '';
 
@@ -273,7 +272,7 @@ if(empty($output)){
 	}
 	// yoda
 	if($command == "yoda"){
-		$yodaPixel = '<div class="pixelPerson"><img src="images/yoda.png" width="27" height="28" /></div>';
+		$yodaPixel = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28" /></div>';
 		$length = strlen($dump);
 		if($length > 6	){
 			$question = str_replace('yoda ','',$dump);
@@ -307,7 +306,7 @@ if(empty($output)){
 			Both more than indicative of my former Rubi-ka addiction.
 			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
 			</p>'.
-			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/ao-'.$char.'.png\');width:100px;height:100px;"></div></td></tr>'.
+			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoQuickhack.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
@@ -338,7 +337,7 @@ if(empty($output)){
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
 			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">free 14-day trial</a> available.</p>'.
-			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eve-'.$charid.'.png\');width:100px;height:100px;"></div></td></tr>'.
+			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
 			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
 			'<tr><td class="dark">Corporation</td><td>'.$corp.'</td></tr>'.

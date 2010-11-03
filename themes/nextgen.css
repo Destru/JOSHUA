@@ -1,26 +1,26 @@
 /* alexander@binaerpilot.no */
-@import "joshua.css";
+@import "../joshua.css";
 
 /* fonts */
 @font-face {
 	font-family:"Joshua Normal";
-	src: url('fonts/pf_tempesta_seven.ttf');
+	src: url('../fonts/pf_tempesta_seven.ttf');
 }
 @font-face {
 	font-family:"Joshua Normal Bold";
-	src: url('fonts/pf_tempesta_seven_bold.ttf');
+	src: url('../fonts/pf_tempesta_seven_bold.ttf');
 }
 @font-face {
 	font-family:"Joshua Fancy";
-	src: url('fonts/pf_tempesta_seven_extended.ttf');
+	src: url('../fonts/pf_tempesta_seven_extended.ttf');
 }
 @font-face {
 	font-family:"Joshua Fancy Bold";
-	src: url('fonts/pf_tempesta_seven_extended_bold.ttf');
+	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf');
 }
 @font-face {
 	font-family:"ProFont";
-	src: url('fonts/profont.ttf');
+	src: url('../fonts/profont.ttf');
 }
 
 /* joshua */
@@ -42,15 +42,15 @@
 #joshua, #output {
 	width:740px;
 }
+#output, .jScrollPaneContainer {
+	height:450px !important;
+}
 pre, p, input#prompt {
 	width:720px;
 	border-collapse:collapse;
 }
 table {
 	width:710px;
-}
-#output {
-	height:450px;
 }
 input#prompt {
 	font-family:Helvetica, Arial;
@@ -315,6 +315,7 @@ ul.tracks {
 
 /* sliders */
 #sliders {
+	display:block;
 	clear:both;
 	margin-top:-5px;
 }
@@ -353,7 +354,7 @@ ul.tracks {
 
 /* theme */
 body {
-	background-image:url('images/background.png');
+	background-image:url('../images/background.png');
 	background-repeat: no-repeat;
 	background-position:70px 70px;
 	background-color:#181818;
@@ -385,7 +386,7 @@ body {
 	background-color:#282828;
 }
 ul.icons li a {
-	background-image:url("images/icons.png");
+	background-image:url("../images/icons.png");
 }
 .window h1, h2, h1, #input, .jScrollPaneTrack {
 	background-color:#181818;
@@ -408,16 +409,16 @@ h2.presets {
 	-webkit-border-radius:5px;
 }
 #joshua.atari {
-	background-image:url("images/joshua_atari.png");
+	background-image:url("../images/joshuaAtari.png");
 }
 #joshua.pirate {
-	background-image:url("images/joshua_pirate.png");
+	background-image:url("../images/joshuaPirate.png");
 }
 #joshua.sleep{
-	background-image:url("images/joshua_sde.png");
+	background-image:url("../images/joshuaSDE.png");
 }
 #joshua.rachael {
-	background-image:url("images/joshua_rachael.png");
+	background-image:url("../images/joshuaRachael.png");
 }
 #profile .image {
 	margin-left:10px;
