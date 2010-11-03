@@ -1,0 +1,101 @@
+/* alexander@binaerpilot.no */
+@import "joshua.css";
+body {
+	background-color:#fff;
+	background-image:url("images/illusion.png");
+	background-position:700px 0;
+	background-repeat:no-repeat;
+	color:#333;
+}
+body, #joshua, pre {
+	font-family:Helvetica, Arial;
+	font-size:14px;
+	line-height:18px;
+}
+a, .tiny div {
+	color:#f00;
+	text-decoration:none;
+	padding-bottom:1px;
+	border-bottom:solid 1px #fdd;
+}
+strong {
+	font-weight:bold;
+	letter-spacing:-1px;
+}
+.window {
+	background-color:#fff;
+	font-size:12px;
+	line-height:16px;
+	border-radius:10px;
+	padding:20px;
+}
+.window h1 {
+	font-size:18px;
+	line-height:22px;
+	font-weight:bold;
+}
+.window h2 {
+	margin-top:20px;
+	font-size:16px;
+	line-height:20px;
+}
+.tiny div {
+	float:left;
+	margin-right:5px;
+}
+a:hover, .tiny div:hover {
+	border-color:#f00;
+}
+#joshua {
+	min-height:100%;
+	width:660px;
+}
+#output {
+	padding-left:40px;
+}
+.example {
+	border-left:solid 7px #777;
+	padding-left:7px;
+	color:#777;
+}
+.close {
+	position:relative;
+	top:-10px; right:-5px;
+	float:right;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+h1, h2, .prompt, .output, p, table, pre {
+	margin-bottom:20px;
+}
+#prompt {
+	padding:0;
+	background-color:transparent;
+	border:none;
+	width:480px;
+}
+td {
+	padding-right:20px;
+}
+#prompt, .prefix, .prompt {
+	color:#333;
+	font-size:14px;
+	line-height:18px;
+}
+#input {
+	margin-left:40px;
+	padding-bottom:40px;
+}
+
+#header {
+	padding:40px 0 20px 40px;
+}
+.prefix {
+	float:left;
+}
+.dark {
+	font-style:italic;
+}
+.joshua, .command, .light {
+	color:#f00;
+}

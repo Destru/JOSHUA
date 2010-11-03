@@ -3,7 +3,7 @@
 // alexander@binaerpilot.no
 var header = '<strong>Joshua</strong> <span id="version"/> <span class="dark">Diesel Edition</span>',
 title = ' > JOSHUA (jQuery Operating System)',
-terminalPrompt = '<strong>Guest</strong>@Joshua/> </div>',
+terminalPrompt = '<strong>Guest</strong>@Joshua/>',
 hist = [], // history (arrow up/down)
 position = 0, // position in history
 expires = 1095, // cookie dies in 3 years
@@ -169,7 +169,13 @@ function loadTheme(theme, boot) {
 		location.reload();
 	}
 	else {
-		switchStyle(theme);
+		$("head").append("<link>");
+		    css = $("head").children(":last");
+		    css.attr({
+		      rel:  'stylesheet',
+		      type: 'text/css',
+		      href: 'theme.'+theme+'.css'
+		});
 	}
 }
 
@@ -414,7 +420,7 @@ function customMagic() {
 		$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
 	}
 	else if(theme == "diesel") {
-		$('#joshua h1').html('<div id="header"><img src="images/diesel_logo.png" alt=""/></div>');
+		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
 		var chrome = 271,
 		height = $(window).height()-chrome;
 		$('#output').css("height", height+"px");
@@ -424,11 +430,18 @@ function customMagic() {
 			scrollCheck();
 		});
 	}
-	else if(theme == "hacker" || theme == "pirate") {
+	else if(theme == "helvetica" || theme == "pirate") {
 		terminal = true;
+		if(theme == "helvetica") {
+			$('#joshua h1').html('<div id="header"><img src="images/logoHelvetica.png" alt=""/></div>');
+			terminalPrompt = "<strong>Guest@Joshua:</strong>&nbsp;";
+		}
+		else {
+			$('#joshua h1').remove();
+		}
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+terminalPrompt+'</div>');
-		$('#joshua h1, #desktop #links').remove();
+		$('#desktop #links').remove();
 		$('#desktop').remove();
 	}
 	else if(theme == "lcars") {
@@ -461,10 +474,10 @@ function joshuaInit() {
 			eraseCookie('music');
 			eraseCookie('gallery');
 			eraseCookie('fx');
+			eraseCookie('alexander');
 			$.each(allWindows,function() {eraseCookie('window.'+this);});
 			createCookie('theme', 'diesel', expires);
 			createCookie('desktop', 'true', expires);
-			createCookie('alexander', 'true', expires);			
 			createCookie('release', version, expires);
 			location.reload();
 		}

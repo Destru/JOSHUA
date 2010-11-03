@@ -1,4 +1,5 @@
 <?php // joshua brain <alexander@binaerpilot.no>
+$version = '7.8';
 // load brain cells
 $d = scandir(".");
 foreach($d as $file) {
@@ -167,6 +168,9 @@ $static = array(
 		</tr>
 		<tr><td class="command fixed-width">7.7</td>
 			<td>Housecleaning continued, and bugfixing as a result of said cleaning. Added a <span class="dark">timer</span> command for Rachael. LCARS is now the default theme.</td>
+		</tr>
+		<tr><td class="command fixed-width">7.8</td>
+			<td>I hated the Hacker theme, say hello to Helvetica instead. Diesel is once again the default theme. Made the timer less useless.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',

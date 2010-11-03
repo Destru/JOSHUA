@@ -28,7 +28,14 @@ h1, h2, h3, h4 {
 
 /* tables */
 td {
+	padding-right:10px;
 	vertical-align:top;
+}
+td .image {
+	margin-right:20px;
+}
+tr td:last-child {
+	padding-right:0;
 }
 td.command {
 	vertical-align:middle;
@@ -115,9 +122,6 @@ td.command {
 	width:80px;
 	height:80px;
 	background:url("http://www.gravatar.com/avatar/332889bd5f2e5e183cbcccfa862e053d.png");
-}
-#profile td {
-	padding-right:10px;
 }
 #alexander #bio {
 	display:none;

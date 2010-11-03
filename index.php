@@ -24,11 +24,6 @@
 	<meta name="author" content="alexander@binaerpilot.no" />
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen" />
-<?php // yeah, I should change how this works 
-foreach ($theme as $file) {
-	$title = str_replace('theme.','',str_replace('.css','',$file));
-	print "\t".'<link rel="alternate stylesheet" type="text/css" href="'.$file.'" title="'.$title.'" media="screen"/>'."\r";
-} ?>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery.ui.custom.js"></script>
 	<script type="text/javascript" src="scripts/joshua.external.js"></script>
