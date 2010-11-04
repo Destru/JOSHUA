@@ -261,7 +261,7 @@ function loadConfig() {
 
 // application loaders
 function loadSuperplastic() {
-	$('#superplastic iframe').attr('src', 'superplastic/index.html');
+	$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no"/>')
 	$('#superplastic:hidden').fadeIn(fade);
 	loseFocus();
 	systemReady();
