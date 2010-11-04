@@ -164,7 +164,7 @@ function loadTheme(theme, boot) {
 		location.reload();
 	}
 	else {
-		// next-generation
+		// nextgen
 		if($.inArray(theme, nextGen) > -1) {
 			$("head").append("<link>");
 				css = $("head").children(":last");
@@ -285,19 +285,15 @@ function chromeInit() {
 	// close windows
 	$('.close').click(function() {
 		var id = $(this).closest("div").attr("id");
-		var cookie = eraseCookie(id);
+		eraseCookie(id);
 		$('#'+id+':visible').fadeOut(fade);
 		if(id == "superplastic") {
 			$('#'+id+' iframe').attr('src','');
 			var fx = readCookie('fx');
-			if(fx) {
-				fxInit(fx);
-			}
+			if(fx) { fxInit(fx); }
 		}
 		else if(id == "music") {
-			if(!muted) {
-				mute();
-			}
+			if(!muted) { mute(); }
 		}
 		$('#'+id+'Open').removeClass('active');
 		stealFocus();
@@ -368,10 +364,17 @@ function clearScreen() {
 // custom magic
 function customMagic() {
 	var theme = readCookie('theme');
-	// next generation
+	// nextgen
 	if($.inArray(theme, nextGen) > -1) {
-		var opacity = readCookie('opacity');
-		if(opacity) opactiy = 1;
+		var background = readCookie('background'),
+		opacity = readCookie('opacity');
+		if(background) {
+			$('#joshua').addClass(background);
+		}
+		if(!opacity) {
+			opacity = 1;
+		}
+		
 		$('#opacity').slider({
 			max: 20,
 			min: 3,
@@ -386,19 +389,21 @@ function customMagic() {
 				createCookie('opacity', opacity, expires);
 			}
 		});
-		if(opacity) $('#joshua, .window').css('opacity', opacity);
+		$('#joshua, .window').css('opacity', opacity);
 	}
 	if(theme == "tron") {
 		var team = readCookie('tron.team');
-		if(!team) createCookie('tron.team', 'blue', expires);
+		if(!team) {
+			createCookie('tron.team', 'blue', expires);
+		}
 		else if(team && team != "blue") {
 			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff', 'eb7129'], color = ''; 
-			if(team == "pink") color = colors[0];
-			else if(team == "red") color = colors[1];
-			else if(team == "yellow") color = colors[2];
-			else if(team == "green") color = colors[3];
-			else if(team == "purple") color = colors[4];
-			else if(team == "orange") color = colors[5];
+			if(team == "pink") { color = colors[0]; }
+			else if(team == "red") { color = colors[1]; }
+			else if(team == "yellow") { color = colors[2]; }
+			else if(team == "green") { color = colors[3]; }
+			else if(team == "purple") { color = colors[4]; }
+			else if(team == "orange") { color = colors[5]; }
 			team = team.toUpperCase();
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
 				'h1 .dark, #input input, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
@@ -420,12 +425,10 @@ function customMagic() {
 	}
 	else if(theme == "diesel") {
 		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
-		var chrome = 271,
-		height = $(window).height()-chrome;
-		$('#output').css("height", height+"px");
+		var dieselChrome = 271;
+		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function() {
-			var height = $(window).height()-chrome;
-			$('#output, .jScrollPaneContainer').css("height", height+"px");
+			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
 			scrollCheck();
 		});
 	}
@@ -445,12 +448,10 @@ function customMagic() {
 	else if(theme == "lcars") {
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var chrome = 242,
-		height = $(window).height()-chrome;
-		$('#output').css("height", height+"px");
+		var lcarsChrome = 242;
+		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function() {
-			var height = $(window).height()-chrome;
-			$('#output, .jScrollPaneContainer').css("height", height+"px");
+			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
 			scrollCheck();
 		});
 	}
@@ -480,14 +481,11 @@ function joshuaInit() {
 			location.reload();
 		}
 	});
-	// load settings
+	// load base settings
 	var theme = readCookie('theme'),
-	background = readCookie('background'),
-	fx = readCookie('fx'),
-	desktop = readCookie('desktop');
-	if(theme) loadTheme(theme, true);
-	if(background) $('#joshua').addClass(background);
-	if(fx) fxInit(fx, true);
+	fx = readCookie('fx');
+	if(theme) { loadTheme(theme, true); }
+	if(fx) { fxInit(fx, true); }
 	// load quote
 	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function() {
 		pearl.appendTo('#pearls');
@@ -516,7 +514,7 @@ function joshuaInit() {
 }
 
 // let's go
-$(document).ready(function() {
+$(function() {
 	joshuaInit();
 	$('#prompt').keydown(function(e) {
 		// command issued with enter
@@ -535,8 +533,8 @@ $(document).ready(function() {
 				position = hist.length;
 			}
 			// js commands
-			if(command == "clear") clearScreen();
-			else if(command == "exit" || input == "quit" || input == "logout") window.location = "http://binaerpilot.no";
+			if(command == "clear") { clearScreen(); }
+			else if(command == "exit" || input == "quit" || input == "logout") { window.location = "http://binaerpilot.no"; }
 			// rachael
 			else if(command == "rachael") {
 				var current = new Date();
@@ -562,7 +560,7 @@ $(document).ready(function() {
 			}
 			// timer
 			else if(command == "timer") {
-				if(option && parseInt(option)) {
+				if(option && parseInt(option, 0)) {
 					timer(option*60000);
 				}
 				else {
@@ -578,7 +576,7 @@ $(document).ready(function() {
 				systemReady();
 			}
 			// superplastic
-			else if(command == "superplastic") loadSuperplastic();
+			else if(command == "superplastic") { loadSuperplastic(); }
 			// desktop
 			else if(command == "desktop") {
 				var cookie = readCookie('desktop');
@@ -592,8 +590,8 @@ $(document).ready(function() {
 				}
 				systemReady();
 			}
-			else if(command == "mute") mute();
-			else if(command == "reset")	loadPreset('reset');
+			else if(command == "mute") { mute(); }
+			else if(command == "reset")	{ loadPreset('reset'); }
 			// come on my droogs
 			else if(command == "ultraviolence") {
 				$('body').append('<div id="ultraviolence" class="overlay"/>');
@@ -627,11 +625,11 @@ $(document).ready(function() {
 		}
 		// access history
 		else if(e.which == 38) {
-			if(position > 0) position = position-1;
+			if(position > 0) { position = position-1; }
 			$(this).val(hist[position]);
 		}
 		else if(e.which == 40) {
-			if(position < hist.length) position = position+1;
+			if(position < hist.length) { position = position+1; }
 			if(position == hist.length) {
 				$(this).val('');
 			}
