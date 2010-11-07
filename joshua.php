@@ -626,10 +626,9 @@ if(empty($output)){
 	// stats
 	if($command == "stats"){
 		$timestamp = microtime(true);
-		$dir = opendir('.');
 		$brainCells = 0; $themes = 0; $bytes = 0; $lines = 0;
-		$dir = scandir(".");
-		foreach ($dir as $file){
+		$dir = '.'; $scan = scandir($dir);
+		foreach ($scan as $file){
 			if(!stristr($file, '.xml') && !stristr($file, '.data') && !is_dir($file)){
 				$bytes = $bytes + filesize($file);
 				$lines = $lines + count(file($file));
@@ -637,6 +636,14 @@ if(empty($output)){
 			if(stristr($file, 'cell.'))	$brainCells = $brainCells+1;
 			else if(stristr($file, 'theme.')) $themes = $themes+1;
 			else if(stristr($file, '.xml')) $brainCells = $brainCells+1;
+		}
+		$dir = 'themes/'; $scan = scandir($dir);
+		foreach ($scan as $file){
+			if(!is_dir($file)){
+				$bytes = $bytes + filesize($dir.$file);
+				$lines = $lines + count(file($dir.$file));
+			}
+			if(stristr($file, '.css')) $themes = $themes+1;
 		}
 		$messages = count(explode("\n", file_get_contents('msg.data')));
 		$scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
