@@ -36,6 +36,7 @@ td {
 }
 td .image {
 	margin-right:15px;
+	margin-bottom:15px;
 }
 tr td:last-child {
 	padding-right:0;

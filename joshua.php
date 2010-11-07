@@ -290,16 +290,15 @@ if(empty($output)){
 		$xml = simplexml_load_file($cache);
 		output($xml->entry[rand(0,9)]->content);
 	}
-	// ao
+	// game ao
 	if($command == "game" && !empty($option) && $option == "ao"){
 		$char = 'quickhack';
 		$url = 'http://people.anarchy-online.com/character/bio/d/1/name/'.$char.'/bio.xml';
 		$cache = 'ao.xml';
 		get($url, $cache);
 		$xml = simplexml_load_file($cache);
-		$status = "Disabled";
 
-		$name = $xml->name->firstname.' <a href="'.$url.'">'.$xml->name->nick.'</a> '.$xml->name->lastname;
+		$name = $xml->name->firstname.' '.$xml->name->lastname;
 		output('<p><em>Anarchy Online</em> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
 			The sheer size and complexity of the game was unparallalled at the time and I quickly found myself completely immersed in it.
 			<a href="misc/aoscripts.rar">Download some scripts</a> or listen to <a href="misc/doktor_dreiebenk_-_the_doctor_is_in.mp3">this little rap song</a>.
@@ -308,21 +307,18 @@ if(empty($output)){
 			</p>'.
 			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoQuickhack.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->nick.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">'.$status.'</td></tr></table>');
+			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr></table>');
 	}
-	// eve online
+	// game eve
 	if($command == "game" && !empty($option) && $option == "eve"){
 		$charid = '1761654327';
 		$url = 'http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=3292896&apiKey=2F975C46AD0E4944B92A1593424E96473C8D729993DF46D0BABB4EA1C2C4E88B&characterID='.$charid;
 		$cache = 'eve.xml';
-		
-		// get the data
 		get($url, $cache);
-		$status = "Active";
 		$xml = simplexml_load_file($cache);
 		
 		// print it out
@@ -336,26 +332,22 @@ if(empty($output)){
 		output('<p><em>EVE Online</em> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">free 14-day trial</a> available.</p>'.
+			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'.
 			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
 			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
-			'<tr><td class="dark">Corporation</td><td>'.$corp.'</td></tr>'.
-			'<tr><td class="dark">Piloting</td><td><a href="http://eve.wikia.com/wiki/Maelstrom">Nostromo</a></td></tr>'.
-			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">'.$status.'</td></tr></table>');
+			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
+			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
+			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr></table>');
 	}
-	// wow 
+	// game wow 
 	if($command == "game" && !empty($option) && $option == "wow"){
 		$realm = "Skullcrusher"; $character = "Fenrisúlfr";
 		$url = 'http://eu.wowarmory.com/character-sheet.xml?r='.$realm.'&n='.$character.'&rhtml=n';
 		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US'; 
 		$cache = 'wow.xml'; $cache_custom = 'wow.custom.xml';
-
-		// get the data
 		//get($url, $cache);
 		//get($url_custom,  $cache_custom);
-		$status = "Inactive";
 		$xml = simplexml_load_file($cache);
 		$xml_custom = simplexml_load_file($cache_custom);
 		
@@ -386,7 +378,6 @@ if(empty($output)){
 			'<tr><td class="dark">Spec</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Alternate</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">'.$status.'</a></td></tr>'.
 			'</table>';
 			if(filesize($cache_custom) > 2000) $details .= '<div class="pre dark"><span class="light">Latest Activity</span><br/>'.$events.'</div>';
 		}
@@ -399,13 +390,28 @@ if(empty($output)){
 			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed. '.
 			'For the Horde!</p>'.$details);
 	}
+	// game sto
+	if($command == "game" && !empty($option) && $option == "sto"){
+		$charid = '918798';
+		$url = 'http://www.startrekonline.com/character_profiles/'.$charid.'/xml';
+		$cache = 'sto.xml';
+		get($url, $cache);
+		$xml = simplexml_load_file($cache);
+		
+		$character = '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/sto.png\');width:100px;height:100px"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$xml->cdata->name.'@'.$xml->cdata->display_name.'</a></td></tr>'.
+			'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $xml->cdata->class).'</td></tr>'.
+			'<tr><td class="dark">Rank</td><td>'.$xml->cdata->rank.' ('.$xml->cdata->level.')</td></tr>'.
+			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
+			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">'.$xml->cdata->location.'</td></tr></table>';
+		output('<p>I didn\'t play <em>Star Trek Online</em> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game was a bit shallow for my taste.</p>'.$character);
+	}
 	// xbox
 	if($command == "xbox"){
 		$charid = "Destru%20Kaneda";
 		$url = 'http://xboxapi.duncanmackenzie.net/gamertag.ashx?GamerTag='.$charid;
 		$cache = 'xbox.xml';
-
-		// get the data
 		get($url, $cache);
 		$xml = simplexml_load_file($cache);
 
@@ -436,25 +442,6 @@ if(empty($output)){
 		else {
 			output('Failed to retrieve data from Xbox Live.');
 		}
-	}
-	// sto
-	if($command == "game" && !empty($option) && $option == "sto"){
-		$charid = '918798';
-		$url = 'http://www.startrekonline.com/character_profiles/'.$charid.'/xml';
-		$cache = 'sto.xml';
-
-		// get the data
-		get($url, $cache);
-		$xml = simplexml_load_file($cache);
-		
-		$character = '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/sto.png\');width:100px;height:100px"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$xml->cdata->name.'@'.$xml->cdata->display_name.'</a></td></tr>'.
-			'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $xml->cdata->class).'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$xml->cdata->rank.' ('.$xml->cdata->level.')</td></tr>'.
-			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
-			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">'.$xml->cdata->location.'</td></tr></table>';
-		output('<p>I didn\'t play <em>Star Trek Online</em> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam, but ultimately a bit shallow for my taste.</p>'.$character);
 	}
 	// games
 	if($command == "game" || $command == "games"){
@@ -634,7 +621,6 @@ if(empty($output)){
 				$lines = $lines + count(file($file));
 			}
 			if(stristr($file, 'cell.'))	$brainCells = $brainCells+1;
-			else if(stristr($file, 'theme.')) $themes = $themes+1;
 			else if(stristr($file, '.xml')) $brainCells = $brainCells+1;
 		}
 		$dir = 'themes/'; $scan = scandir($dir);
