@@ -552,7 +552,7 @@ $(function() {
 			}
 			// quit smoking
 			else if(command == "smoking") {
-				var quit = new Date(2010, 10-1, 1);
+				var quit = new Date(2010, 10-1, 1, 13, 37);
 				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 13 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
 				scrollCheck();
