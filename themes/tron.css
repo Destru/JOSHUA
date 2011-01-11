@@ -38,8 +38,8 @@ a {
 td a:hover, p a:hover {
 	text-decoration:underline;
 }
-#output, .jScrollPaneContainer {
-	height:402px !important;
+#output {
+	height:402px;
 }
 #prompt {
 	font-family:Helvetica, Arial;
