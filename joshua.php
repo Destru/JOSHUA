@@ -306,12 +306,13 @@ if(empty($output)){
 			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
 			</p>'.
 			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoQuickhack.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->nick.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr></table>');
+			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+			'</table>');
 	}
 	// game eve
 	if($command == "game" && !empty($option) && $option == "eve"){
@@ -338,7 +339,9 @@ if(empty($output)){
 			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
 			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
 			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
-			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr></table>');
+			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
+			'</table>');
 	}
 	// game wow 
 	if($command == "game" && !empty($option) && $option == "wow"){
@@ -346,8 +349,8 @@ if(empty($output)){
 		$url = 'http://eu.wowarmory.com/character-sheet.xml?r='.$realm.'&n='.$character.'&rhtml=n';
 		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US'; 
 		$cache = 'wow.xml'; $cache_custom = 'wow.custom.xml';
-		//get($url, $cache);
-		//get($url_custom,  $cache_custom);
+		get($url, $cache);
+		get($url_custom,  $cache_custom);
 		$xml = simplexml_load_file($cache);
 		$xml_custom = simplexml_load_file($cache_custom);
 		
@@ -375,9 +378,10 @@ if(empty($output)){
 			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
-			'<tr><td class="dark">Spec</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
-			'<tr><td class="dark">Alternate</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
+			'<tr><td class="dark">Spec</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
+			'<tr><td class="dark">Alternate</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 			if(filesize($cache_custom) > 2000) $details .= '<div class="pre dark"><span class="light">Latest Activity</span><br/>'.$events.'</div>';
 		}
