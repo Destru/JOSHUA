@@ -206,7 +206,7 @@ function loadPreset(preset) {
 		eraseCookie('desktop');
 	}
 	else if(preset == "identity") {
-		createCookie('theme', preset, expires);
+		createCookie('theme', 'tron', expires);
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');	
