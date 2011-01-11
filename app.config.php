@@ -9,7 +9,7 @@
 		<div class="gamer">Gamer</div>
 		<div class="rachael">Rachael</div>
 		<div class="pulsar">Pulsar</div>
-		<div class="identy">Identity</div>
+		<div class="identity">Identity</div>
 	</div>
 	<h2>Themes</h2>
 	<div id="themes" class="tiny">
