@@ -373,7 +373,7 @@ if(empty($output)){
 			$kills = $xml->characterInfo->characterTab->pvp->lifetimehonorablekills->attributes()->value;
 			$events = '';
 			for ($i = 0; $i < 5; $i++){
-				$event = $xml_custom->entry[$i]->title;
+				$event = $xml_custom->entry[$i]->content;
 				if(!empty($event)) $events .= $event.'<br/>';
 			}
 			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
@@ -384,10 +384,10 @@ if(empty($output)){
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
-			if(filesize($cache_custom) > 2000) $details .= '<div class="pre dark"><span class="light">Latest Activity</span><br/>'.$events.'</div>';
+			if(filesize($cache_custom) > 2000) $details .= '<div class="pre dark">'.$events.'</div>';
 		}
 		else {
-			$details = '<p><a class="external" href="'.$url.'">View my armory profile.</a></p>';
+			$details = '<p><a class="external" href="'.$armory.'">View my armory profile.</a></p>';
 		}
 
 		output('<p><em>World of Warcraft</em> has been a guilty pleasure of mine on and off for years. '.

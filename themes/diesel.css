@@ -183,6 +183,7 @@ table td {
 }
 #desktop {
 	padding:30px;
+	padding-right:10px;
 }
 #desktop ul {
 	max-width:1200px;

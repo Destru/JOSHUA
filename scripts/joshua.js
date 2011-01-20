@@ -391,7 +391,7 @@ function customMagic() {
 		});
 		$('#joshua, .window').css('opacity', opacity);
 	}
-	if(theme == "tron") {
+	else if(theme == "tron") {
 		var team = readCookie('tron.team');
 		if(!team) {
 			createCookie('tron.team', 'blue', expires);
@@ -404,9 +404,9 @@ function customMagic() {
 			else if(team == "green") { color = colors[3]; }
 			else if(team == "purple") { color = colors[4]; }
 			else if(team == "orange") { color = colors[5]; }
-			team = team.toUpperCase();
+			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'h1 .dark, #input input, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
+				'h1 .dark, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
 				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
 			$('body').append('<div id="custom"/>');
