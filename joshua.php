@@ -347,7 +347,8 @@ if(empty($output)){
 	if($command == "game" && !empty($option) && $option == "wow"){
 		$realm = "Skullcrusher"; $character = "Fenrisúlfr";
 		$url = 'http://eu.wowarmory.com/character-sheet.xml?r='.$realm.'&n='.$character.'&rhtml=n';
-		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US'; 
+		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US';
+		$armory = 'http://eu.battle.net/wow/en/character/'.$realm.'/'.$character.'/simple';
 		$cache = 'wow.xml'; $cache_custom = 'wow.custom.xml';
 		get($url, $cache);
 		get($url_custom,  $cache_custom);
@@ -376,7 +377,7 @@ if(empty($output)){
 				if(!empty($event)) $events .= $event.'<br/>';
 			}
 			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$name.'</a></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="'.$armory.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
 			'<tr><td class="dark">Spec</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
 			'<tr><td class="dark">Alternate</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
