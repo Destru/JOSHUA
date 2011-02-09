@@ -348,7 +348,7 @@ if(empty($output)){
 		$realm = "Skullcrusher"; $character = "Fenrisúlfr";
 		$url = 'http://eu.wowarmory.com/character-sheet.xml?r='.$realm.'&n='.$character.'&rhtml=n';
 		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US';
-		$armory = 'http://eu.battle.net/wow/en/character/'.$realm.'/'.$character.'/simple';
+		$wowhead = 'http://www.wowhead.com/user=Destru#characters';
 		$cache = 'wow.xml'; $cache_custom = 'wow.custom.xml';
 		get($url, $cache);
 		get($url_custom,  $cache_custom);
@@ -377,7 +377,7 @@ if(empty($output)){
 				if(!empty($event)) $events .= $event.'<br/>';
 			}
 			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="'.$armory.'">'.$name.'</a></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
 			'<tr><td class="dark">Spec</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
 			'<tr><td class="dark">Alternate</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
@@ -387,7 +387,7 @@ if(empty($output)){
 			if(filesize($cache_custom) > 2000) $details .= '<div class="pre dark">'.$events.'</div>';
 		}
 		else {
-			$details = '<p><a class="external" href="'.$armory.'">View my armory profile.</a></p>';
+			$details = '<p><a class="external" href="'.$wowhead.'">View my Wowhead profile.</a></p>';
 		}
 
 		output('<p><em>World of Warcraft</em> has been a guilty pleasure of mine on and off for years. '.
