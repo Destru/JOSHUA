@@ -350,7 +350,7 @@ function chromeInit() {
 }
 
 // more helpers
-function reBoot() {
+function init() {
 	chromeInit();
 	stealFocus();	
 	scrollCheck();
@@ -358,7 +358,7 @@ function reBoot() {
 }
 function clearScreen() {
 	$('#output').html('<div class="clearFix"/>');
-	reBoot();
+	init();
 }
 
 // custom magic
@@ -507,9 +507,8 @@ function joshuaInit() {
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
 		motd.appendTo('#output');
-		stealFocus(); scrollCheck();
+		init();
 	});
-	chromeInit();
 	customMagic();
 }
 
@@ -613,7 +612,7 @@ $(function() {
 				if(command) {
 					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
 						$('#output').append(content);
-						reBoot();
+						init();
 					});
 				}
 				else {
