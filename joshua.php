@@ -173,15 +173,15 @@ if(empty($output)){
 			else output($option.' is a prime number.');
 		}
 	}
-	// trace
-	if($command == "trace"){
-		$tracer = "http://api.hostip.info/get_html.php?position=true&ip=";
+	// locate
+	if($command == "locate"){
+		$lookup = "http://api.hostip.info/get_html.php?position=true&ip=";
 		if(!empty($option)) $ip = $option;
 		else $ip = $_SERVER['REMOTE_ADDR'];
 		$match = "/^[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}$/";
 		if(preg_match($pattern, $ip)){
-			$trace = $tracer.$ip;
-			$output = get($trace);
+			$request = $lookup.$ip;
+			$output = get($request);
 			if(!empty($output)){
 				output('<pre>'.$output.'</pre>');
 			}
@@ -547,11 +547,11 @@ if(empty($output)){
 			}
 		}
 	}
-	// torrents
-	if($command == "get" || $command == "torrent" || $command == "torrents"){
+	// get (torrents)
+	if($command == "get"){
 		if(isset($option)){
 			$rows = 20; $query = str_replace($command.' ', '', $dump);
-			$url = 'http://isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&rows='.$rows.'&sort=seeds';
+			$url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&rows='.$rows.'&sort=seeds';
 			$content = get($url);
 			if($content){
 				print '<div class="prompt">'.$command.' <strong>'.$query.'</strong></div>';

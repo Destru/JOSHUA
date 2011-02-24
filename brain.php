@@ -32,8 +32,8 @@ $static = array(
 		<td>Favorite games and things I made for them</td></tr>
 	<tr><td class="command">xbox</td>
 		<td>Destru Kaneda, pillager of villages and destroyer of men!</td></tr>
-	<tr><td class="command">trace <span class="dark">ip</span></td>
-		<td>Find out where IP is (Geolocation)</td></tr>
+	<tr><td class="command">locate <span class="dark">ip</span></td>
+		<td>Find out where IP is</td></tr>
 	<tr><td class="command">whois <span class="dark">domain</span></td>
 		<td>Look up whois information</td></tr>
 	<tr><td class="command">uptime</td>
@@ -44,6 +44,15 @@ $static = array(
 		<td>Random moments in time and space</td></tr>
 	<tr><td class="command">music</td>
 		<td>Listen to my music with the Bleep MP3 player</td></tr>
+	<tr>
+		<td class="command">prime <span class="dark">number</span></td>
+		<td>Checks if number is prime</td>
+	</tr>
+	<tr>
+		<td class="command">calc <span class="dark">operation</span></td>
+		<td>Performs simple calculations (only one operation at a time)</td>
+	</tr>
+
 	<tr><td class="command">thanks</td>
 		<td>Credit where credit is due</td></tr>
 	<tr><td class="command">version</td>
