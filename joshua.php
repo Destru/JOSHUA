@@ -162,11 +162,15 @@ if(empty($output)){
 	if($command == "prime"){
 		if(empty($option)) output('<p>You need to specify a number.</p><p class="example">prime 13</p>');
 		else {
-			$pattern = "/^1?$|^(11+?)\1+$/"; // why isn't this working?
-			if (preg_match($pattern, $option)){
-				output($option.' is a prime number.');
+			$i = 0; $unary = '';
+			while($i++ < $option){
+				$unary = $unary.'1';
 			}
-			else output($option.' is not a prime number.');
+			$pattern = '/^1?$|^(11+?)\1+$/';
+			if (preg_match($pattern, $unary)){
+				output($option.' is not a prime number.');
+			}
+			else output($option.' is a prime number.');
 		}
 	}
 	// trace

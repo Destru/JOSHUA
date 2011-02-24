@@ -173,7 +173,7 @@ $static = array(
 			<td>I hated the Hacker theme, say hello to Helvetica instead. Diesel is once again the default theme. Made the timer less useless.</td>
 		</tr>
 		<tr><td class="command fixed-width">7.9</td>
-			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Added a few more static commands.</td>
+			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Simple <span class="dark">calc</span> and a method to check for <span class="dark">prime</span> numbers.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
@@ -266,7 +266,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
 'stupid' => 'I try to fill my life with the things I love, whether or not they hold meaning to anyone else is besides the point.',
 'batdog' => 'Who is batdog? <a href="misc/batdog.jpg" class="view">He is the bat</a>, Rachael\'s guardian.',
 'smeg' => 'We are <a href="http://steamcommunity.com/groups/clansmeg">Clan SMEG</a>. Also known as The Boys From The Dwarf. For more information see <span class="dark">game cs:s</span>.',
-'coffee' => 'Non-fat half the syrup double tall white chocolate almond mocha.',
+'coffee' => 'Cheers, I take mine black. Rachael? Non-fat half the syrup double tall white chocolate almond mocha...',
 'blocktrix' => 'The greatest game in the world. It\'s like <a href="http://en.tetrinet.no/">Tetris on steroids</a>.',
 'trick' => '"Luckily I don\'t have a trick knee like grandpa over here." Quoth Rachael, the harpy.',
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
