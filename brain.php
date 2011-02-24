@@ -33,7 +33,7 @@ $static = array(
 	<tr><td class="command">xbox</td>
 		<td>Destru Kaneda, pillager of villages and destroyer of men!</td></tr>
 	<tr><td class="command">locate <span class="dark">ip</span></td>
-		<td>Find out where IP is</td></tr>
+		<td>Find out where IP is located</td></tr>
 	<tr><td class="command">whois <span class="dark">domain</span></td>
 		<td>Look up whois information</td></tr>
 	<tr><td class="command">uptime</td>

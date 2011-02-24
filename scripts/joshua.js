@@ -444,6 +444,7 @@ function chromeInit() {
 // initializer
 function init() {
 	chromeInit();
+	chromeMagic();
 	scrollCheck();
 	stealFocus();
 	systemReady();
@@ -502,7 +503,6 @@ function boot() {
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
 		motd.appendTo('#output');
 		init(); // boot sequence finished, initialize JOSHUA
-		chromeMagic();
 	});
 }
 
