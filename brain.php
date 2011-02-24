@@ -22,8 +22,8 @@ $static = array(
 		<td>Do you ASCII? Figlet generator extraordinaire</td></tr>
 	<tr><td class="command">yoda <span class="dark">question</span></td>
 		<td>Answer your questions Yoda will</td></tr>
-	<tr><td class="command">bash</td>
-		<td>Experience the IRC-monster as documented on bash.org</td></tr>
+	<tr><td class="command">bash / fml</td>
+		<td>Our infinite stupidity as documented through bash and fml</td></tr>
 	<tr><td class="command">last.fm</td>
 		<td>Recent tracks and other Last.FM data</td></tr>
 	<tr><td class="command">get <span class="dark">query</span></td>

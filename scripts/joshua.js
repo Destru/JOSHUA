@@ -69,24 +69,6 @@ function mute() {
 	}
 	systemReady();
 }
-function timer(time) {
-	if(time > 0) {
-		var remaining = time / 60000;
-		if(remaining > 1) {
-			$('#output').append('<div class="output"><p><strong>Timer:</strong> There are '+remaining+' minutes remaining.</p></div>');								
-		}
-		else {
-			$('#output').append('<div class="output"><p><strong>Timer:</strong> There is '+remaining+' minute remaining.</p></div>');
-		}
-		time = time - 60000;
-	    setTimeout('timer('+time+')', 60000);
-	}
-	else {
-		alert('This is an alarm. You are supposed to do something now.');
-	}
-	scrollCheck();
-	systemReady();
-}
 
 // effects
 function fxStop() {
@@ -294,7 +276,6 @@ function chromeMagic() {
 		if(!opacity) {
 			opacity = 1;
 		}
-		
 		$('#opacity').slider({
 			max: 20,
 			min: 3,
@@ -375,8 +356,6 @@ function chromeMagic() {
 			scrollCheck();
 		});
 	}
-	// miscellaneous cosmetic fixes
-	$('div.tiny, #desktop').append('<br class="clear"/>');
 }
 
 // init chrome
@@ -459,7 +438,7 @@ function chromeInit() {
 		scrollCheck();
 	});
 	$("a[href^='http']").attr('target','_blank'); // ext. links in new window
-	chromeMagic();
+	$('#desktop, .tiny').addClass('clearfix'); // floats
 }
 
 // initializer
@@ -523,6 +502,7 @@ function boot() {
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
 		motd.appendTo('#output');
 		init(); // boot sequence finished, initialize JOSHUA
+		chromeMagic();
 	});
 }
 
@@ -566,17 +546,6 @@ $(function() {
 				var quit = new Date(2010, 10-1, 1, 13, 37);
 				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 13 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
-				scrollCheck();
-				systemReady();
-			}
-			// timer
-			else if(command == "timer") {
-				if(option && parseInt(option, 0)) {
-					timer(option*60000);
-				}
-				else {
-					$('#output').append('<div class="output"><div class="prompt">timer</div><p>You need to specify length (in minutes).</p></div>');
-				}
 				scrollCheck();
 				systemReady();
 			}
