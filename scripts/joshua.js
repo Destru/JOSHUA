@@ -106,8 +106,8 @@ function fxStop() {
 		}
 	}
 }
-function fxInit(fx, boot) {
-	if(!boot) {
+function fxInit(fx, temp) {
+	if(!temp) {
 		fxStop();
 		createCookie('fx', fx, expires);
 	}
@@ -154,6 +154,20 @@ function fxInit(fx, boot) {
 				}).show();
 			}
 		});
+	}
+	else if(fx == "ultraviolence") {
+		$('body').append('<div id="ultraviolence" class="overlay"/>');
+		$('#ultraviolence').css({
+			'background-image': 'url("images/ultraviolence.jpg")',
+			'background-repeat': 'no-repeat',
+			'background-position': '50% 100%',
+			'height': $(document).height(),
+			'width': $(document).width()
+		});
+		$('#ultraviolence').fadeIn(2000);
+		setTimeout(function() {
+			$('#ultraviolence').fadeOut(2000);
+		}, 5000);
 	}
 }
 
@@ -267,102 +281,8 @@ function loadSuperplastic() {
 	systemReady();
 }
 
-// init chrome
-function chromeInit() {
-	// drag windows
-	$('.window').draggable({
-		distance:10,
-		stop: function(event) {
-			var window = 'window.'+$(this).attr('id'),
-			left = $(this).css('left'),
-			right = $(this).css('right'),
-			top = $(this).css('top');
-			createCookie(window, left+','+right+','+top, expires);
-		}
-	});
-	// x marks the spot
-	$('.window h1:not(:has(.close))').append('<a class="close">x</a>');
-	// close windows
-	$('.close').click(function() {
-		var id = $(this).closest("div").attr("id");
-		eraseCookie(id);
-		$('#'+id+':visible').fadeOut(fade);
-		if(id == "superplastic") {
-			$('#'+id+' iframe').attr('src','');
-			var fx = readCookie('fx');
-			if(fx) { fxInit(fx); }
-		}
-		else if(id == "music") {
-			if(!muted) { mute(); }
-		}
-		$('#'+id+'Open').removeClass('active');
-		stealFocus();
-	});
-	// open windows
-	$('.open').click(function() {
-		var id = this.getAttribute('id').replace(/Open/,'');
-		createCookie(id,'true',expires);
-		if(id == "superplastic") {
-			loadSuperplastic();
-		}
-		else if(id == "music") {
-			if(muted) {
-				mute();
-			}
-		}
-		$('#'+id+':hidden').fadeIn(fade);
-		$(this).addClass('active');
-	});
-	// fancybox
-	 $('a.view').fancybox({
-		'overlayShow': false,
-		'hideOnContentClick': true,
-		'showNavArrows':false,
-		'showCloseButton':false,
-		'padding': 10,
-		'zoomSpeedIn': 300,
-		'zoomSpeedOut': 300
-	});
-	// window events
-	$.each(windows,function(index, window) {
-		if(readCookie(window)) {
-			$('#'+window+'Open').addClass('active');
-			$('#'+window+':hidden').show();
-		}
-	});
-	if(readCookie('superplastic')) {
-		loadSuperplastic();
-	}
-	// konami
-	if(readCookie('konami')) {
-		$('div.contra').css({display:'block'});
-	}
-	// config window
-	loadConfig();
-	// miscellaneous
-	$('.version tr.major').show(); // version log
-	$('.version .toggle').click(function() {
-		$(this).remove();
-		$('.version tr').show();
-		scrollCheck();
-	});
-	$("a[href^='http']").attr('target','_blank'); // ext. links in new window
-}
-
-// more helpers
-function init() {
-	chromeInit();
-	stealFocus();	
-	scrollCheck();
-	systemReady();
-}
-function clearScreen() {
-	$('#output').html('<div class="clearFix"/>');
-	init();
-}
-
-// custom magic
-function customMagic() {
+// chrome magic
+function chromeMagic() {
 	var theme = readCookie('theme');
 	// nextgen
 	if($.inArray(theme, nextGen) > -1) {
@@ -459,8 +379,103 @@ function customMagic() {
 	$('div.tiny, #desktop').append('<br class="clear"/>');
 }
 
+// init chrome
+function chromeInit() {
+	// drag windows
+	$('.window').draggable({
+		distance:10,
+		stop: function(event) {
+			var window = 'window.'+$(this).attr('id'),
+			left = $(this).css('left'),
+			right = $(this).css('right'),
+			top = $(this).css('top');
+			createCookie(window, left+','+right+','+top, expires);
+		}
+	});
+	// x marks the spot
+	$('.window h1:not(:has(.close))').append('<a class="close">x</a>');
+	// close windows
+	$('.close').click(function() {
+		var id = $(this).closest("div").attr("id");
+		eraseCookie(id);
+		$('#'+id+':visible').fadeOut(fade);
+		if(id == "superplastic") {
+			$('#'+id+' iframe').attr('src','');
+			var fx = readCookie('fx');
+			if(fx) { fxInit(fx); }
+		}
+		else if(id == "music") {
+			if(!muted) { mute(); }
+		}
+		$('#'+id+'Open').removeClass('active');
+		stealFocus();
+	});
+	// open windows
+	$('.open').click(function() {
+		var id = this.getAttribute('id').replace(/Open/,'');
+		createCookie(id,'true',expires);
+		if(id == "superplastic") {
+			loadSuperplastic();
+		}
+		else if(id == "music") {
+			if(muted) {
+				mute();
+			}
+		}
+		$('#'+id+':hidden').fadeIn(fade);
+		$(this).addClass('active');
+	});
+	// fancybox
+	 $('a.view').fancybox({
+		'overlayShow': false,
+		'hideOnContentClick': true,
+		'showNavArrows':false,
+		'showCloseButton':false,
+		'padding': 10,
+		'zoomSpeedIn': 300,
+		'zoomSpeedOut': 300
+	});
+	// window events
+	$.each(windows,function(index, window) {
+		if(readCookie(window)) {
+			$('#'+window+'Open').addClass('active');
+			$('#'+window+':hidden').show();
+		}
+	});
+	if(readCookie('superplastic')) {
+		loadSuperplastic();
+	}
+	// konami
+	if(readCookie('konami')) {
+		$('div.contra').css({display:'block'});
+	}
+	// config window
+	loadConfig();
+	// miscellaneous
+	$('.version tr.major').show(); // version log
+	$('.version .toggle').click(function() {
+		$(this).remove();
+		$('.version tr').show();
+		scrollCheck();
+	});
+	$("a[href^='http']").attr('target','_blank'); // ext. links in new window
+	chromeMagic();
+}
+
+// initializer
+function init() {
+	chromeInit();
+	scrollCheck();
+	stealFocus();
+	systemReady();
+}
+function clearScreen() {
+	$('#output').html('<div class="clearFix"/>');
+	init();
+}
+
 // booting up joshua
-function joshuaInit() {
+function boot() {
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
 	// upgrading users to latest edition
 	$('#version').load('joshua.php', {command: "version", option: "clean"}, function(version) {
@@ -507,24 +522,21 @@ function joshuaInit() {
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
 		motd.appendTo('#output');
-		init();
+		init(); // boot sequence finished, initialize JOSHUA
 	});
-	customMagic();
 }
 
 // let's go
 $(function() {
-	joshuaInit();
-	$('#prompt').keydown(function(e) {
-		// command issued with enter
-		$('title').html('Listening'+title);
-		if(e.which == 13) {
-			$('title').html('Running'+title);
+	boot();
+	$('#prompt').keydown(function(e) { // key pressed
+		$('title').html('Listening'+title); // listening to input
+		if(e.which == 13) { // command issued with enter
+			$('title').html('Running'+title); // running command
 			$('#joshua').css('cursor', 'wait'); // loading
-			var dump = $(this).val(); // grab the input
-			var input = dump.split(' '); // split the input
-			var command = input[0];
-			var option = input[1];
+			var dump = $(this).val(), // grab the input
+			input = dump.split(' '), // split the input
+			command = input[0],	option = input[1]; // command (option)
 			// store history
 			if(command) {
 				hist.push(dump);
@@ -592,21 +604,7 @@ $(function() {
 			else if(command == "mute") { mute(); }
 			else if(command == "reset")	{ loadPreset('reset'); }
 			// come on my droogs
-			else if(command == "ultraviolence") {
-				$('body').append('<div id="ultraviolence" class="overlay"/>');
-				$('#ultraviolence').css({
-					'background-image': 'url("images/ultraviolence.jpg")',
-					'background-repeat': 'no-repeat',
-					'background-position': '50% 100%',
-					'height': $(document).height(),
-					'width': $(document).width()
-				});
-				$('#ultraviolence').fadeIn(2000);
-				setTimeout(function() {
-					$('#ultraviolence').fadeOut(2000);
-				}, 5000);
-				systemReady();
-			}
+			else if(command == "ultraviolence") { fxInit('ultraviolence', true) }
 			// engine
 			else {
 				if(command) {

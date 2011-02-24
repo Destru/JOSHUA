@@ -1,5 +1,5 @@
 <?php // joshua brain <alexander@binaerpilot.no>
-$version = '7.8';
+$version = '7.9';
 // load brain cells
 $d = scandir(".");
 foreach($d as $file) {
@@ -173,7 +173,7 @@ $static = array(
 			<td>I hated the Hacker theme, say hello to Helvetica instead. Diesel is once again the default theme. Made the timer less useless.</td>
 		</tr>
 		<tr><td class="command fixed-width">7.9</td>
-			<td>Backend reworked (again?! yes!). Streamlined themes etc. Added a few more static commands.</td>
+			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Added a few more static commands.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
