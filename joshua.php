@@ -383,8 +383,8 @@ if(empty($output)){
 			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
-			'<tr><td class="dark">Spec</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
-			'<tr><td class="dark">Alternate</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
+			'<tr><td class="dark">PvE</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
+			'<tr><td class="dark">PvP</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
