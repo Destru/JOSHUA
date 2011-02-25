@@ -24,25 +24,30 @@
 	<meta name="author" content="alexander@binaerpilot.no" />
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen" />
+</head>
+<body>
+	<div id="joshua"></div>
+	<div id="desktop"><?php include 'desktop.php' ?></div>
+	<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
+	<div id="games"><?php foreach ($game as $file) include $file; ?></div>
+
+	<!-- load JS at the bottom to avoid WebKit CSS bug -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery.ui.custom.js"></script>
 	<script type="text/javascript" src="scripts/joshua.external.js"></script>
 	<script type="text/javascript" src="scripts/joshua.js"></script>
-</head>
-<body><div id="joshua"></div>
-<div id="desktop"><?php include 'desktop.php' ?></div>
-<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
-<div id="games"><?php foreach ($game as $file) include $file; ?></div>
-<!-- analytics -->
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-139019-4");
-pageTracker._trackPageview();
-} catch(err) {}
-</script>
+
+	<!-- analytics -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-139019-4");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+
 </body>
 </html>
