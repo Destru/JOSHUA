@@ -188,9 +188,6 @@ table.torrents td a:hover {
 #config .note {
 	display:none;
 }
-.clearFix {
-	margin-top:-20px;
-}
 .window h1, .window h2 {
 	padding:5px 10px;
 }

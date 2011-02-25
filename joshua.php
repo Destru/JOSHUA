@@ -207,7 +207,7 @@ if(empty($output)){
 		}
 	}
 	// todo
-	if($command == "ls" || $command == "rm" || $command == "top" || $command == "who"){
+	if($command == "ls" || $command == "cd" || $command == "top" || $command == "rm" || $command == "top" || $command == "who"){
 		if(!empty($_SESSION['sudo'])){
 			output('Make these work.');
 		}

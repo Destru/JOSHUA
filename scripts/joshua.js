@@ -88,8 +88,8 @@ function fxStop() {
 		}
 	}
 }
-function fxInit(fx, temp) {
-	if(!temp) {
+function fxInit(fx, option) {
+	if(!option) {
 		fxStop();
 		createCookie('fx', fx, expires);
 	}
@@ -115,7 +115,7 @@ function fxInit(fx, temp) {
 	}
 	else if(fx == "pulsar") {
 		pulsar();
-		setInterval(pulsar,30000);
+		setInterval(pulsar, 30000);
 	}
 	else if(fx == "draw") {
 		var brush;
@@ -154,8 +154,8 @@ function fxInit(fx, temp) {
 }
 
 // themes
-function loadTheme(theme, boot) {
-	if(!boot) {
+function loadTheme(theme, option) {
+	if(!option) {
 		createCookie('theme', theme, expires);
 		location.reload();
 	}
@@ -263,101 +263,6 @@ function loadSuperplastic() {
 	systemReady();
 }
 
-// chrome magic
-function chromeMagic() {
-	var theme = readCookie('theme');
-	// nextgen
-	if($.inArray(theme, nextGen) > -1) {
-		var background = readCookie('background'),
-		opacity = readCookie('opacity');
-		if(background) {
-			$('#joshua').addClass(background);
-		}
-		if(!opacity) {
-			opacity = 1;
-		}
-		$('#opacity').slider({
-			max: 20,
-			min: 3,
-			value: opacity*20,
-			slide: function(event, ui) {
-				opacity = ui.value/20;
-				$('#joshua, .window').css('opacity', opacity);
-			},
-			change: function(event, ui) {
-				opacity = ui.value/20;
-				$('#joshua, .window').css('opacity', opacity);
-				createCookie('opacity', opacity, expires);
-			}
-		});
-		$('#joshua, .window').css('opacity', opacity);
-	}
-	else if(theme == "tron") {
-		var team = readCookie('tron.team');
-		if(!team) {
-			createCookie('tron.team', 'blue', expires);
-		}
-		else if(team && team != "blue") {
-			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff', 'eb7129'], color = ''; 
-			if(team == "pink") { color = colors[0]; }
-			else if(team == "red") { color = colors[1]; }
-			else if(team == "yellow") { color = colors[2]; }
-			else if(team == "green") { color = colors[3]; }
-			else if(team == "purple") { color = colors[4]; }
-			else if(team == "orange") { color = colors[5]; }
-			team = team.charAt(0).toUpperCase() + team.slice(1);
-			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'h1 .dark, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
-				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
-				'.light {color:#'+color+'; opacity:0.5;}';
-			$('body').append('<div id="custom"/>');
-			$('#custom').html('<style type="text/css">'+css+'</style>');
-		}
-		$('div.tron div.tiny div').click(function() {
-			var team = this.getAttribute('class');
-			createCookie('tron.team', team, expires);
-			location.reload();
-		});
-		$('#joshua h1 strong').html('<img src="images/logoTron.png" height="8" width="71" alt="" />');
-	}
-	else if(theme == "contra") {
-		$('#joshua h1').html('<em>Joshua</em> Konami Edition <span class="dark">30 lives!</span>');
-		$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
-	}
-	else if(theme == "diesel") {
-		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
-		var dieselChrome = 271;
-		$('#output').css("height", $(window).height()-dieselChrome);
-		$(window).resize(function() {
-			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
-			scrollCheck();
-		});
-	}
-	else if(theme == "helvetica" || theme == "pirate") {
-		terminal = true;
-		if(theme == "helvetica") {
-			terminalPrompt = "<strong>Guest@Joshua:</strong>&nbsp;";
-		}
-		else {
-			$('#joshua h1').remove();
-		}
-		$('#presets').prev('h2').remove();
-		$('#input').prepend('<div class="prefix">'+terminalPrompt+'</div>');
-		$('#desktop #links').remove();
-		$('#desktop').remove();
-	}
-	else if(theme == "lcars") {
-		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
-		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = 242;
-		$('#output').css("height", $(window).height()-lcarsChrome);
-		$(window).resize(function() {
-			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
-			scrollCheck();
-		});
-	}
-}
-
 // init chrome
 function chromeInit() {
 	// drag windows
@@ -441,16 +346,113 @@ function chromeInit() {
 	$('#desktop, .tiny').addClass('clearfix'); // floats
 }
 
+// chrome magic
+function chromeMagic() {
+	var theme = readCookie('theme');
+	console.log(theme);
+	// nextgen
+	if(theme == "nextgen" || $.inArray(theme, nextGen) > -1) {
+		var background = readCookie('background'),
+		opacity = readCookie('opacity');
+		if(background) {
+			$('#joshua').addClass(background);
+		}
+		if(!opacity) {
+			opacity = 1;
+		}
+		$('#opacity').slider({
+			max: 20,
+			min: 3,
+			value: opacity*20,
+			slide: function(event, ui) {
+				opacity = ui.value/20;
+				$('#joshua, .window').css('opacity', opacity);
+			},
+			change: function(event, ui) {
+				opacity = ui.value/20;
+				$('#joshua, .window').css('opacity', opacity);
+				createCookie('opacity', opacity, expires);
+			}
+		});
+		$('#joshua, .window').css('opacity', opacity);
+		// contra
+		if(theme == "contra") {
+			$('#joshua h1').html('<em>Joshua</em> Konami Edition <span class="dark">30 lives!</span>');
+			$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
+		}
+	}
+	else if(theme == "tron") {
+		var team = readCookie('tron.team');
+		if(!team) {
+			createCookie('tron.team', 'blue', expires);
+		}
+		else if(team && team != "blue") {
+			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff', 'eb7129'], color = ''; 
+			if(team == "pink") { color = colors[0]; }
+			else if(team == "red") { color = colors[1]; }
+			else if(team == "yellow") { color = colors[2]; }
+			else if(team == "green") { color = colors[3]; }
+			else if(team == "purple") { color = colors[4]; }
+			else if(team == "orange") { color = colors[5]; }
+			team = team.charAt(0).toUpperCase() + team.slice(1);
+			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
+				'h1 .dark, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
+				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
+				'.light {color:#'+color+'; opacity:0.5;}';
+			$('body').append('<div id="custom"/>');
+			$('#custom').html('<style type="text/css">'+css+'</style>');
+		}
+		$('div.tron div.tiny div').click(function() {
+			var team = this.getAttribute('class');
+			createCookie('tron.team', team, expires);
+			location.reload();
+		});
+		$('#joshua h1 strong').html('<img src="images/logoTron.png" height="8" width="71" alt="" />');
+	}
+	else if(theme == "diesel") {
+		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
+		var dieselChrome = 271;
+		$('#output').css("height", $(window).height()-dieselChrome);
+		$(window).resize(function() {
+			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
+			scrollCheck();
+		});
+	}
+	else if(theme == "helvetica" || theme == "pirate") {
+		terminal = true;
+		if(theme == "helvetica") {
+			terminalPrompt = "<strong>Guest@Joshua:</strong>&nbsp;";
+		}
+		else {
+			$('#joshua h1').remove();
+		}
+		$('#presets').prev('h2').remove();
+		$('#input').prepend('<div class="prefix">'+terminalPrompt+'</div>');
+		$('#desktop #links').remove();
+		$('#desktop').remove();
+	}
+	else if(theme == "lcars") {
+		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
+		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
+		var lcarsChrome = 242;
+		$('#output').css("height", $(window).height()-lcarsChrome);
+		$(window).resize(function() {
+			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
+			scrollCheck();
+		});
+	}
+}
+
 // initializer
-function init() {
+function init(option) {
 	chromeInit();
-	chromeMagic();
+	if(option && option == "boot") chromeMagic();
 	scrollCheck();
 	stealFocus();
 	systemReady();
 }
 function clearScreen() {
-	$('#output').html('<div class="clearFix"/>');
+	$('#output').html('').addClass('.clearfix');
 	init();
 }
 
@@ -479,8 +481,8 @@ function boot() {
 	// load base settings
 	var theme = readCookie('theme'),
 	fx = readCookie('fx');
-	if(theme) { loadTheme(theme, true); }
-	if(fx) { fxInit(fx, true); }
+	if(theme) loadTheme(theme, boot);
+	if(fx) fxInit(fx, boot);
 	// load quote
 	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function() {
 		pearl.appendTo('#pearls');
@@ -502,7 +504,7 @@ function boot() {
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
 		motd.appendTo('#output');
-		init(); // boot sequence finished, initialize JOSHUA
+		init('boot'); // initialize
 	});
 }
 
@@ -524,7 +526,7 @@ $(function() {
 				position = hist.length;
 			}
 			// js commands
-			if(command == "clear") { clearScreen(); }
+			if(command == "clear" || command == "cls") clearScreen();
 			else if(command == "exit" || input == "quit" || input == "logout") { window.location = "http://binaerpilot.no"; }
 			// rachael
 			else if(command == "rachael") {
@@ -556,7 +558,7 @@ $(function() {
 				systemReady();
 			}
 			// superplastic
-			else if(command == "superplastic") { loadSuperplastic(); }
+			else if(command == "superplastic") loadSuperplastic();
 			// desktop
 			else if(command == "desktop") {
 				var cookie = readCookie('desktop');
@@ -570,10 +572,10 @@ $(function() {
 				}
 				systemReady();
 			}
-			else if(command == "mute") { mute(); }
-			else if(command == "reset")	{ loadPreset('reset'); }
+			else if(command == "mute") mute();
+			else if(command == "reset")	loadPreset('reset');
 			// come on my droogs
-			else if(command == "ultraviolence") { fxInit('ultraviolence', true) }
+			else if(command == "ultraviolence") fxInit('ultraviolence', runonce);
 			// engine
 			else {
 				if(command) {
