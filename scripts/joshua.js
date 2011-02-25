@@ -452,7 +452,7 @@ function init(option) {
 	systemReady();
 }
 function clearScreen() {
-	$('#output').html('').addClass('.clearfix');
+	$('#output').html('');
 	init();
 }
 
