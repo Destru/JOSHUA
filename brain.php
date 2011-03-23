@@ -268,7 +268,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
 'mouse' => 'Pro mouse w/steelmat? <a class="view" href="misc/donald.jpg">I has one</a>.',
 'butts' => 'Cuz I\'m buuuurnin\', buuuuuurnin\', burnin\' with deeeesiiire.',
 'user' => $_SERVER['HTTP_USER_AGENT'],
-'status' => '<p class="joshua">'.$joshua.'Currently running version '.$version.' on '.$_SERVER['SERVER_SOFTWARE'],
+'server' => '<p class="joshua">'.$joshua.'Currently running on '.$_SERVER['SERVER_SOFTWARE'],
 'henrik' => 'Lillebroren min som skal bli rockestjerne.',
 'freiburg' => 'I don\'t know why I hate you so much.',
 'survice' => 'How Alexander spells "survive" apparently. Brain tumor, anyone?',
