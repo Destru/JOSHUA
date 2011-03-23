@@ -105,12 +105,6 @@ if(!empty($command)){
 
 if(empty($output)){
 	include('brain.php');
-	// version 
-	if($command == "version"){
-		if(isset($option) && $option == "clean"){
-			print $version; $output = 1;
-		}
-	}
 	// motd 
 	if($command == "motd"){
 		$count = count($quotes)-1; $rand = rand(0,$count);

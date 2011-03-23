@@ -1,6 +1,5 @@
 <?php // joshua brain <alexander@binaerpilot.no>
-$version = '7.9';
-// load brain cells
+// brain cells
 $d = scandir(".");
 foreach($d as $file) {
 	if(stristr($file, 'cell.')) include $file;
@@ -143,7 +142,7 @@ $static = array(
 			<td>Minor bugfixes and new version-handling. More content and the <span class="dark">xbox</span> command.</td>
 		</tr>
 		<tr class="major"><td class="command fixed-width">6.0 <span class="dark">mobile</span></td>
-			<td>Mobile (iPhone/Android) version up. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name). A lot of content added.</td>
+			<td>Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name). A lot of content added.</td>
 		</tr>
 		<tr><td class="command fixed-width">6.1</td>
 			<td>Brand new fluid scrolling output. Fixed a glitch with Firefox 3.6.</td>
@@ -184,6 +183,9 @@ $static = array(
 		<tr><td class="command fixed-width">7.9</td>
 			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Simple <span class="dark">calc</span> and a method to check for <span class="dark">prime</span> numbers.</td>
 		</tr>
+		<tr class="major"><td class="command fixed-width">8.0 <span class="dark">Stable</span></td>
+			<td>First stable release, well, on WebKit-based platforms. (I use Chrome and this site is maintained by the WFMWF-principle.)</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
@@ -199,7 +201,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
-'pvp' => 'Yes, it so happens that I quite <a href="http://www.minmatar-militia.org/kb/?a=pilot_detail&plt_id=47869">enjoy a bit of pew</a>. I enjoyed my <a href="images/walloflame.jpg" class="view">rogue</a> and <a href="images/walloflameFenris.jpg" class="view">paladin</a> as well.',
+'pvp' => 'PVP > PVE',
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',
 'geek' => '<pre>GMU d-(---)pu s+++:-- a-- C++++$ U>+++ P+ L+ E---- W+++$ w PS+++ PE-- Y++ PGP-- t+ tv-- b+ D++ G e- h r++ y+*</pre>',
 'ip' => $_SERVER['REMOTE_ADDR'],

@@ -1,24 +1,18 @@
 // joshua (jquery operating system)
 // http://binaerpilot.no/alexander/
 // alexander@binaerpilot.no
-var header = '<strong>Joshua</strong> <span id="version"/> <span class="dark">Diesel Edition</span>',
-title = ' > JOSHUA (jQuery Operating System)',
-terminalPrompt = '<strong>Guest</strong>@Joshua/>',
-hist = [], // history (arrow up/down)
+var hist = [], // history (arrow up/down)
 position = 0, // position in history
 expires = 1095, // cookie dies in 3 years
 fade = 500, // ui fade delay
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
-nextGen = ['carolla', 'contra', 'penguin', 'white'],
-windows = ['config', 'music', 'alexander'],
-custom = ['gallery', 'superplastic', 'desktop'],
-allWindows = $.merge(windows, custom);
+windows = ['config', 'music', 'alexander', 'gallery', 'superplastic', 'desktop'];
 
 // helpers
 function systemReady() {
-	$('title').text('Ready'+title);
+	$('title').text(title+'Ready');
 	$('#joshua').css('cursor', 'auto');
 }
 function stealFocus() {
@@ -42,7 +36,7 @@ function clearInput() {
 function scrollCheck() {
 	if(terminal) {
 		$('body').attr({ scrollTop: $("body").attr("scrollHeight") });
-		$('.output:last .prompt').prepend(terminalPrompt);
+		$('.output:last .prompt').prepend(prompt);
 	}
 	else {
 		var autoScroll = $('#output').data('jScrollPanePosition') == $('#output').data('jScrollPaneMaxScroll');
@@ -153,33 +147,6 @@ function fxInit(fx, option) {
 	}
 }
 
-// themes
-function loadTheme(theme, option) {
-	if(!option) {
-		createCookie('theme', theme, expires);
-		location.reload();
-	}
-	else {
-		// nextgen
-		if($.inArray(theme, nextGen) > -1) {
-			$("head").append("<link>");
-				css = $("head").children(":last");
-				css.attr({
-				  rel:  'stylesheet',
-				  type: 'text/css',
-				  href: 'themes/nextgen.css'
-			});
-		}
-		// load theme
-		$("head").append("<link>");
-		    css = $("head").children(":last");
-		    css.attr({
-		      rel:  'stylesheet',
-		      type: 'text/css',
-		      href: 'themes/'+theme+'.css'
-		});
-	}
-}
 
 // presets
 function loadPreset(preset) {
@@ -208,11 +175,11 @@ function loadPreset(preset) {
 		eraseCookie('desktop');	
 	}
 	else if(preset == "reset") {
+		eraseCookie('release');
 		eraseCookie('theme');
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');
-		eraseCookie('release');
 		eraseCookie('tron.team');
 		$.each(windows,function() {
 			eraseCookie(this);
@@ -228,7 +195,7 @@ function loadConfig() {
 	$('div#themes div').click(function() {
 		var theme = this.getAttribute('class');
 		createCookie('theme', theme, expires);
-		loadTheme(theme);
+		location.reload();
 	});
 	// backgrounds
 	$('div#backgrounds div').click(function() {
@@ -349,9 +316,8 @@ function chromeInit() {
 // chrome magic
 function chromeMagic() {
 	var theme = readCookie('theme');
-	console.log(theme);
-	// nextgen
-	if(theme == "nextgen" || $.inArray(theme, nextGen) > -1) {
+	// nextgen themes
+	if(theme == "nextgen" || $.inArray(theme, nextgen) > -1) {
 		var background = readCookie('background'),
 		opacity = readCookie('opacity');
 		if(background) {
@@ -421,13 +387,13 @@ function chromeMagic() {
 	else if(theme == "helvetica" || theme == "pirate") {
 		terminal = true;
 		if(theme == "helvetica") {
-			terminalPrompt = "<strong>Guest@Joshua:</strong>&nbsp;";
+			prompt = "<strong>Guest@Joshua:</strong>&nbsp;";
 		}
 		else {
 			$('#joshua h1').remove();
 		}
 		$('#presets').prev('h2').remove();
-		$('#input').prepend('<div class="prefix">'+terminalPrompt+'</div>');
+		$('#input').prepend('<div class="prefix">'+prompt+'</div>');
 		$('#desktop #links').remove();
 		$('#desktop').remove();
 	}
@@ -459,36 +425,32 @@ function clearScreen() {
 // booting up joshua
 function boot() {
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
-	// upgrading users to latest edition
-	$('#version').load('joshua.php', {command: "version", option: "clean"}, function(version) {
-		var versionCheck = readCookie('release');
-		if(version > versionCheck) {
-			$('title').html('Upgrading'+title);
-			eraseCookie('background');
-			eraseCookie('config');
-			eraseCookie('superplastic');
-			eraseCookie('music');
-			eraseCookie('gallery');
-			eraseCookie('fx');
-			eraseCookie('alexander');
-			$.each(allWindows,function() {eraseCookie('window.'+this);});
-			createCookie('theme', 'diesel', expires);
-			createCookie('desktop', 'true', expires);
-			createCookie('release', version, expires);
-			location.reload();
-		}
-	});
-	// load base settings
-	var theme = readCookie('theme'),
-	fx = readCookie('fx');
-	if(theme) loadTheme(theme, boot);
+	// version check
+	var versionCheck = readCookie('release');
+	if(version > versionCheck) {
+		$('title').html(title+'Upgrading...');
+		eraseCookie('background');
+		eraseCookie('config');
+		eraseCookie('superplastic');
+		eraseCookie('music');
+		eraseCookie('gallery');
+		eraseCookie('fx');
+		eraseCookie('alexander');
+		$.each(windows,function() {eraseCookie('window.'+this);});
+		createCookie('theme', 'diesel', expires);
+		createCookie('desktop', 'true', expires);
+		createCookie('release', version, expires);
+		location.reload();
+	}
+	// load effects
+	var fx = readCookie('fx');
 	if(fx) fxInit(fx, boot);
 	// load quote
 	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function() {
 		pearl.appendTo('#pearls');
 	});
 	// window positions
-	$.each(allWindows,function() {
+	$.each(windows,function() {
 		var cookie = readCookie('window.'+this);
 		if(cookie) {
 			var pos = cookie.split(',');
@@ -512,9 +474,9 @@ function boot() {
 $(function() {
 	boot();
 	$('#prompt').keydown(function(e) { // key pressed
-		$('title').html('Listening'+title); // listening to input
+		$('title').html(title+'Listening...'); // listening to input
 		if(e.which == 13) { // command issued with enter
-			$('title').html('Running'+title); // running command
+			$('title').html(title+'Running...'); // running command
 			$('#joshua').css('cursor', 'wait'); // loading
 			var dump = $(this).val(), // grab the input
 			input = dump.split(' '), // split the input
