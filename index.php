@@ -3,7 +3,7 @@
 	$name = 'Diesel Edition';
 	$header = '<strong>JOSHUA</strong> <span id="version">'.$version.'</span> <span class="dark">'.$name.'</span>';
 	$title = 'JOSHUA > ';
-	$prompt = '<strong>Guest</strong>@Joshua/>';
+	$prompt = '<strong>Guest</strong>@Joshua/>&nbsp;';
 	// mobile placeholder
 	if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) header('Location: http://binaerpilot.no/alexander/mobile/'); // redirect
 ?>

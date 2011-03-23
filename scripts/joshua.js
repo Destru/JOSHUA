@@ -386,10 +386,7 @@ function chromeMagic() {
 	}
 	else if(theme == "helvetica" || theme == "pirate") {
 		terminal = true;
-		if(theme == "helvetica") {
-			prompt = "<strong>Guest@Joshua:</strong>&nbsp;";
-		}
-		else {
+		if(theme == "pirate") {
 			$('#joshua h1').remove();
 		}
 		$('#presets').prev('h2').remove();
