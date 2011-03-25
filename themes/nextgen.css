@@ -119,8 +119,8 @@ p, table, pre {
 ol, ul, .motd, .prompt {
 	margin-bottom:10px;
 }
-.prompt {
-	margin-top:20px;
+.output {
+	margin-bottom:20px;
 }
 
 /* rounders, cursors */
