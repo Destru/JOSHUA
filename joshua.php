@@ -176,10 +176,13 @@ if(empty($output)){
 		if(preg_match($pattern, $ip)){
 			$request = $lookup.$ip;
 			$output = get($request);
-			if(!empty($output)){
-				output('<pre>'.$output.'</pre>');
+			// google maps link
+			$latitude = trim(array_shift(explode('Longitude', array_pop(explode('Latitude:', $output)))));
+			$longitude = trim(array_shift(explode('IP', array_pop(explode('Longitude:', $output)))));
+			if(!empty($latitude) && !empty($longitude)) {
+				output('<pre>'.$output.'</pre><a class="external" href="http://maps.google.com/maps?q='.$latitude.'+'.$longitude.'">View at Google Maps.</a>');
 			}
-			else error('noreturn');
+			else output('<pre>'.$output.'</pre>');
 		}
 		else error('notip');
 	}
