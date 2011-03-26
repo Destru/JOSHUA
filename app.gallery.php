@@ -27,7 +27,7 @@ $(function() {
 		pauseOnPagerHover: true,
 	    pager: '.thumbs', 
 	    pagerAnchorBuilder: function(idx, slide) {
-			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="58" height="37" />';
+			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="58" height="36" />';
 			if(idx % 10 == 0) {
 				return '<li class="noMargin">'+item+'</li>'; 
 			}
