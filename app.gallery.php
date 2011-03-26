@@ -1,6 +1,7 @@
 <div id="gallery" class="window">
 	<h1>Slick Gallery</h1>
-	<div class="slideshow">
+	<div id="slick">
+		<div class="slideshow">
 <?php // slick gallery
 	$d = scandir("gallery");
 	foreach($d as $file) {
@@ -14,12 +15,13 @@
 		print '<div class="slide"><img src="gallery/'.$image.'" width="560" height="345" alt="" /></div>';
 	}
 ?>
+		</div>
 	</div>
 </div>
 <script type="text/javascript">
-$(function() {
+$(function(){
 	// slideshow with pager
-	$('#gallery .slideshow').after('<ul class="thumbs"/>').cycle({
+	$('#slick .slideshow').before('<ul class="thumbs clearfix"/>').cycle({
 	    speed:  500,
 	    timeout: 5000,
 		delay: 2000,
@@ -27,12 +29,23 @@ $(function() {
 		pauseOnPagerHover: true,
 	    pager: '.thumbs', 
 	    pagerAnchorBuilder: function(idx, slide) {
-			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="58" height="36" />';
-			if(idx % 10 == 0) {
-				return '<li class="noMargin">'+item+'</li>'; 
-			}
-			else return '<li>'+item+'</li>'; 
+			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="82" height="50" />';
+			return '<li>'+item+'</li>'; 
 	    }
+	}, function(){
+		
+	});
+	// slide down pager
+	var adjust;
+	$('#slick').hover(function(){
+		adjust = $(this).find('ul').height()+10;
+		$(this).find('ul').animate({
+			'top': '-='+adjust+'px'
+		});
+	}, function(){
+		$(this).find('ul').animate({
+			'top': '+='+adjust+'px'
+		});
 	});
 });
 </script>

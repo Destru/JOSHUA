@@ -162,8 +162,21 @@ tr.major .command {
 #gallery.window {
 	width:560px;
 }
-#gallery .slideshow {
+#slick {
+	width:560px;
 	height:345px;
+	overflow:hidden;
+	position:relative;
+}
+#slick ul {
+	background-image:url("images/backgroundSlick.png");
+	top:345px;
+	position:absolute;
+	z-index:21;
+	width:580px;
+	padding:10px;
+	padding-top:0px;
+	padding-left:0px;
 }
 ul.thumbs li {
 	cursor:pointer;
