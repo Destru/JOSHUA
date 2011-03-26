@@ -11,4 +11,4 @@
 	"Anti-cool is an oxymoron.",
 	"My dick shake brings all the boys to the yard. They're like: \"It's bigger than ours!\" Damn right, it's bigger than yours. I could beat you, with my dick so large.",
 	"Everyone who went on to do something great didn't have it easy in school."
-);
+); ?>

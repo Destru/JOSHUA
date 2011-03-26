@@ -90,9 +90,6 @@ td.command {
 	z-index:21;
 	width:320px;
 }
-#gallery.window {
-	width:349px;
-}
 #music.window {
 	z-index:21;
 }
@@ -162,30 +159,25 @@ tr.major .command {
 }
 
 /* gallery */
-#slideshow {
-	height:265px;
-	margin-bottom:10px;
+#gallery.window {
+	width:560px;
 }
-ul.thumbs {
-	position:relative;
-	left:-5px; top:5px;
-	width:355px;
+#gallery .slideshow {
+	height:345px;
 }
 ul.thumbs li {
-	display:inline;
-	line-height:1px;
-}
-ul.thumbs li a {
+	cursor:pointer;
 	display:block;
-	line-height:1px;
 	float:left;
-	margin-left:5px;
-	margin-bottom:5px;
-	height:44px;
-	width:54px;
-	opacity:0.75;
+	line-height:1px;
+	margin-left:10px;
+	margin-top:10px;
+	opacity:0.25;
 }
-ul.thumbs li a:hover {
+ul.thumbs li.noMargin {
+	margin-left:0;
+}
+ul.thumbs li:hover, ul.thumbs li.activeSlide {
 	opacity:1;
 }
 
@@ -202,7 +194,7 @@ ul.inline li {
 	float:left;
 	margin-right:10px;
 	text-align:center;
-	margin-top:0px;
+	margin-top:0;
 }
 pre.ascii {
 	font-size:12px;

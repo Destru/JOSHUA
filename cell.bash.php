@@ -296,5 +296,5 @@
 	spitfire: haha mendo<br/>
 	spitfire: take a screen shot<br/>
 	spitfire: wait<br/>
-	spitfire: that made no sense");
-?>
+	spitfire: that made no sense"
+); ?>

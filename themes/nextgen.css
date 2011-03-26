@@ -60,6 +60,10 @@ input#prompt {
 	height:15px;
 	padding-top:3px;
 }
+em {
+	font-weight:bold;
+	letter-spacing:-1px;
+}
 
 /* blocks */
 body {

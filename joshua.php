@@ -180,7 +180,7 @@ if(empty($output)){
 			$latitude = trim(array_shift(explode('Longitude', array_pop(explode('Latitude:', $output)))));
 			$longitude = trim(array_shift(explode('IP', array_pop(explode('Longitude:', $output)))));
 			if(!empty($latitude) && !empty($longitude)) {
-				output('<pre>'.$output.'</pre><a class="external" href="http://maps.google.com/maps?q='.$latitude.'+'.$longitude.'">View at Google Maps.</a>');
+				output('<pre>'.$output.'</pre><p><a class="external" href="http://maps.google.com/maps?q='.$latitude.'+'.$longitude.'">View at Google Maps.</a></p>');
 			}
 			else output('<pre>'.$output.'</pre>');
 		}
@@ -401,7 +401,7 @@ if(empty($output)){
 		$charid = '918798';
 		$url = 'http://www.startrekonline.com/character_profiles/'.$charid.'/xml';
 		$cache = 'sto.xml';
-		get($url, $cache);
+		// get($url, $cache);
 		$xml = simplexml_load_file($cache);
 		
 		$character = '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/sto.png\');width:100px;height:100px"></div></td></tr>'.
@@ -410,8 +410,8 @@ if(empty($output)){
 			'<tr><td class="dark">Rank</td><td>'.$xml->cdata->rank.' ('.$xml->cdata->level.')</td></tr>'.
 			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
 			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">'.$xml->cdata->location.'</td></tr></table>';
-		output('<p>I didn\'t play <em>Star Trek Online</em> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game was a bit shallow for my taste.</p>'.$character);
+			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr></table>';
+		output('<p>I didn\'t play <em>Star Trek Online</em> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game didn\'t grip me.</p>'.$character);
 	}
 	// xbox
 	if($command == "xbox"){

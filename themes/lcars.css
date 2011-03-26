@@ -177,13 +177,13 @@ strong {
 	margin:20px 0;
 }
 .jScrollPaneDrag {
-	background-color:#f96;
-}
-.jScrollPaneTrack {
 	background-color:#fc9;
 }
+.jScrollPaneTrack {
+	background-color:transparent;
+}
 #music .st, #music {
-	background-color:#833;
+	background-color:#fc9;
 }
 ul.tracks a {
 	color:#c66;

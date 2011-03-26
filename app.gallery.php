@@ -1,36 +1,38 @@
 <div id="gallery" class="window">
-	<h1>Gallery Random</h1>
-	<?php
-		// random awesome powers
-		$dir = "gallery";
-		$d = scandir($dir);
-		foreach($d as $file) {
-			if(stristr($file, '.jpg') || stristr($file, '.png')) {
-				$images[] = $file;
-			}
+	<h1>Slick Gallery</h1>
+	<div class="slideshow">
+<?php // slick gallery
+	$d = scandir("gallery");
+	foreach($d as $file) {
+		if(stristr($file, '.jpg') || stristr($file, '.png')) {
+			$images[] = $file;
 		}
-		shuffle($images);
-		// images
-		print '<div id="slideshow">';
-		foreach($images as $image) {
-			print '<img src="http://binaerpilot.no/resize.php?src=/alexander/gallery/'.$image.'&amp;h=265&amp;w=349&amp;zc=1" height="265" width="349" alt="" class="pointer" />';
-		}
-		print '</div>';
-		// pager
-		print '<ul class="thumbs">';
-		foreach($images as $image) {
-			print '<li><a href="gallery/'.$image.'" class="view" rel="gallery"><img src="http://binaerpilot.no/resize.php?src=/alexander/gallery/'.$image.'&amp;h=44&amp;w=54&amp;zc=1" height="44" width="54" alt="" /></a></li>';
-		}
-		print '</ul>';
-	?>
+	}
+	shuffle($images);
+	// images
+	foreach($images as $image) {
+		print '<div class="slide"><img src="gallery/'.$image.'" width="560" height="345" alt="" /></div>';
+	}
+?>
+	</div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#slideshow').cycle({ 
-		fx: 'fade', 
-		next: '#slideshow',
-		timeout: 3000
+$(function() {
+	// slideshow with pager
+	$('#gallery .slideshow').after('<ul class="thumbs"/>').cycle({
+	    speed:  500,
+	    timeout: 5000,
+		delay: 2000,
+		pause: true,
+		pauseOnPagerHover: true,
+	    pager: '.thumbs', 
+	    pagerAnchorBuilder: function(idx, slide) {
+			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="58" height="37" />';
+			if(idx % 10 == 0) {
+				return '<li class="noMargin">'+item+'</li>'; 
+			}
+			else return '<li>'+item+'</li>'; 
+	    }
 	});
-	$('#gallery').append('<div class="clear"/>');
 });
 </script>

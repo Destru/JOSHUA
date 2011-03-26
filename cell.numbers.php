@@ -22,5 +22,4 @@
 	array('Two mouthfuls.', '69'),
 	array('Who is the king of time?', '3:13'),
 	array('You\'ve beat the game! Here\'s a cheat code for you: <span class="dark">idkfa</span>')
-);
-?>
+); ?>

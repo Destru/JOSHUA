@@ -131,29 +131,6 @@ ol, ul, .motd, .prompt {
 	width:340px;
 }
 
-/* gallery */
-ul.thumbs {
-	position:relative;
-	left:-5px; top:5px;
-	width:355px;
-}
-ul.thumbs li {
-	display:inline;
-	line-height:1px;
-}
-ul.thumbs li a {
-	display:block;
-	line-height:1px;
-	float:left;
-	margin-left:5px;
-	margin-top:5px;
-	height:44px;
-	width:54px;
-}
-.galleryFix {
-	height:5px;
-}
-
 /* tiny buttons */
 .tiny {
 	margin-top:-5px;

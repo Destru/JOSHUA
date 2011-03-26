@@ -3,7 +3,7 @@
 	<li><a class="open" id="configOpen">Configure Joshua</a></li>
 	<li><a class="open" id="superplasticOpen">Superplastic</a></li>
 	<li><a class="open" id="musicOpen">Bleep MP3 Player</a></li>
-	<li><a class="open" id="galleryOpen">Gallery Random</a></li>
+	<li><a class="open" id="galleryOpen">Slick Gallery</a></li>
 </ul>
 <ul id="links" class="icons">
 	<li><a class="external" href="reviews/" title="Movie Reviews of Bad Movies">Movie Reviews</a></li>
