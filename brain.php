@@ -186,6 +186,9 @@ $static = array(
 		<tr class="major"><td class="command fixed-width">8.0 <span class="dark">Stable</span></td>
 			<td>First stable release, well, on WebKit-based platforms. (I use Chrome and this site is maintained by the WFMWF-principle.)</td>
 		</tr>
+		<tr><td class="command fixed-width">8.1</td>
+			<td>Slick Gallery to replace the old one. Fancybox removed and replaced with SimpleModal (-30kb).</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
@@ -312,7 +315,7 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://www.kelvinluck.com/">Kelvin Luck</a> for jScrollPane.
 		<a href="http://brandonaaron.net/">Brandon Aaron</a> for jQuery Mousewheel.
 		<a href="http://malsup.com/">Mike Alsup</a> for jQuery Cycle.
-		<a href="http://fancybox.net/">Janis Skarnelis</a> for FancyBox.
+		<a href="http://ericmmartin.com/">Eric Martin</a> for SimpleModal.
 		<a href="http://www.stilbuero.de/">Klaus Hartl</a> for jQuery Cookie.
 		<a href="http://www.sedgeman.com/" class="blank">Luke Sedgeman</a> for his pixel people.
 		<a href="http://keith-wood.name/">Keith Wood</a> for jQuery Countdown.

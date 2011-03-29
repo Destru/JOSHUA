@@ -11,30 +11,30 @@ terminal = false, // terminal style layout
 windows = ['config', 'music', 'alexander', 'gallery', 'superplastic', 'desktop'];
 
 // helpers
-function systemReady() {
+function systemReady(){
 	$('title').text(title+'Ready');
 	$('#joshua').css('cursor', 'auto');
 }
-function stealFocus() {
-	$('#joshua').click(function() {
+function stealFocus(){
+	$('#joshua').click(function(){
 		$('#prompt').focus();
 	});
 	$('#prompt').focus();
 }
-function loseFocus() {
+function loseFocus(){
 	$('#prompt').blur();
-	setTimeout(function() {
+	setTimeout(function(){
 		$('#prompt').blur();
 	}, 50);
 }
-function clearInput() {
+function clearInput(){
 	$('#prompt').blur().val('');
-	setTimeout(function() {
+	setTimeout(function(){
 		$('#prompt').focus();
 	}, 50);
 }
-function scrollCheck() {
-	if(terminal) {
+function scrollCheck(){
+	if(terminal){
 		$('body').attr({ scrollTop: $("body").attr("scrollHeight") });
 		$('.output:last .prompt').prepend(prompt);
 	}
@@ -47,13 +47,13 @@ function scrollCheck() {
 			animateTo: true,
 			animateInterval:25
 		});
-		if (autoScroll) {
+		if (autoScroll){
 			$('#output')[0].scrollTo($('#output').data('jScrollPaneMaxScroll'));
 		}
 	}
 }
-function mute() {
-	if(!muted) {
+function mute(){
+	if(!muted){
 		soundManager.mute();
 		muted = true;
 	}
@@ -65,38 +65,38 @@ function mute() {
 }
 
 // effects
-function fxStop() {
+function fxStop(){
 	var cookie = readCookie('fx');
-	if(cookie) {
+	if(cookie){
 		$('.spark, #malkovich, .brush').remove();
-		if(cookie != "none") {
+		if(cookie != "none"){
 			eraseCookie('fx');
 		}
-		if(cookie == "pulsar" || cookie == "spin") {
+		if(cookie == "pulsar" || cookie == "spin"){
 			location.reload();
 		}
-		if(cookie == "draw") {
+		if(cookie == "draw"){
 			$(document).unbind('mousedown');
 			$(document).unbind('mouseup');
 			$(document).unbind('mousemove');
 		}
 	}
 }
-function fxInit(fx, option) {
-	if(!option) {
+function fxInit(fx, runOnce){
+	if(!runOnce){
 		fxStop();
 		createCookie('fx', fx, expires);
 	}
-	if(fx == "sparks") {
+	if(fx == "sparks"){
 		var totalSparks = 42;
 		var sparks = [];
-		for (i = 0; i < totalSparks; i++) {
+		for (i = 0; i < totalSparks; i++){
 			sparks[i] = new Spark(50);
 		}
 	}
-	else if(fx == "malkovich") {
+	else if(fx == "malkovich"){
 		$('body').append('<div id="malkovich"/>');
-		$('body').mousemove(function(event) {
+		$('body').mousemove(function(event){
 			$('#malkovich').css({
 				top: (event.pageY+10)+'px',
 				left: (event.pageX+15)+'px'
@@ -104,24 +104,24 @@ function fxInit(fx, option) {
 			$('#malkovich:hidden').fadeIn(fade);
 		});
 	}
-	else if(fx == "spin") {
+	else if(fx == "spin"){
 		$('#joshua, .window').spin(10);
 	}
-	else if(fx == "pulsar") {
+	else if(fx == "pulsar"){
 		pulsar();
 		setInterval(pulsar, 30000);
 	}
-	else if(fx == "draw") {
+	else if(fx == "draw"){
 		var brush;
 		$('body').css('-webkit-user-select', 'none');
-		$(document).mousedown(function() {
+		$(document).mousedown(function(){
 			drawing = true;
 		});
-		$(document).mouseup(function() {
+		$(document).mouseup(function(){
 			drawing = false;
 		});
-		$(document).mousemove(function(e) {
-			if(drawing) {
+		$(document).mousemove(function(e){
+			if(drawing){
 				brush = $('<div/>').addClass('brush').hide();
 				$(document.body).append(brush);
 				brush.css({
@@ -131,7 +131,7 @@ function fxInit(fx, option) {
 			}
 		});
 	}
-	else if(fx == "ultraviolence") {
+	else if(fx == "ultraviolence"){
 		$('body').append('<div id="ultraviolence" class="overlay"/>');
 		$('#ultraviolence').css({
 			'background-image': 'url("images/ultraviolence.jpg")',
@@ -141,7 +141,7 @@ function fxInit(fx, option) {
 			'width': $(document).width()
 		});
 		$('#ultraviolence').fadeIn(2000);
-		setTimeout(function() {
+		setTimeout(function(){
 			$('#ultraviolence').fadeOut(2000);
 		}, 5000);
 	}
@@ -149,39 +149,39 @@ function fxInit(fx, option) {
 
 
 // presets
-function loadPreset(preset) {
-	if(preset == "gamer") {
+function loadPreset(preset){
+	if(preset == "gamer"){
 		createCookie('theme', 'carolla', expires);
 		createCookie('background', 'atari', expires);
 		createCookie('fx', 'sparks', expires);
 		eraseCookie('desktop');
 	}
-	else if(preset == "rachael") {
+	else if(preset == "rachael"){
 		createCookie('theme', 'penguin', expires);
 		createCookie('background', 'rachael', expires);
 		eraseCookie('fx');
 		eraseCookie('desktop');
 	}
-	else if(preset == "pulsar") {
+	else if(preset == "pulsar"){
 		createCookie('theme', 'white', expires);
 		eraseCookie('background');
 		createCookie('fx', preset, expires);
 		eraseCookie('desktop');
 	}
-	else if(preset == "identity") {
+	else if(preset == "identity"){
 		createCookie('theme', 'tron', expires);
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');	
 	}
-	else if(preset == "reset") {
+	else if(preset == "reset"){
 		eraseCookie('release');
 		eraseCookie('theme');
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');
 		eraseCookie('tron.team');
-		$.each(windows,function() {
+		$.each(windows,function(){
 			eraseCookie(this);
 			eraseCookie('window.'+this);
 		});
@@ -190,40 +190,40 @@ function loadPreset(preset) {
 }
 
 // config window
-function loadConfig() {
+function loadConfig(){
 	// themes
-	$('div#themes div').click(function() {
+	$('div#themes div').click(function(){
 		var theme = this.getAttribute('class');
 		createCookie('theme', theme, expires);
 		location.reload();
 	});
 	// backgrounds
-	$('div#backgrounds div').click(function() {
+	$('div#backgrounds div').click(function(){
 		var background = this.getAttribute('class');
 		$('#joshua').removeClass().addClass(background);
 		createCookie('background', background, expires);
 	});
 	// effects
-	$('div#fx div').click(function() {
+	$('div#fx div').click(function(){
 		$('#fx div').removeClass('selected');
 		var fx = this.getAttribute('class');
 		var cookie = readCookie('fx');
-		if(fx == "none") {
+		if(fx == "none"){
 			fxStop();
 		}
-		else if(fx != cookie) {
+		else if(fx != cookie){
 			fxInit(fx);
 		}
 	});
 	// miscellaneous
-	$('div#presets div').click(function() {
+	$('div#presets div').click(function(){
 		var preset = this.getAttribute('class');
 		loadPreset(preset);
 	});
 }
 
 // application loaders
-function loadSuperplastic() {
+function loadSuperplastic(){
 	$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no"/>')
 	$('#superplastic:hidden').fadeIn(fade);
 	loseFocus();
@@ -231,11 +231,11 @@ function loadSuperplastic() {
 }
 
 // init chrome
-function chromeInit() {
+function chromeInit(){
 	// drag windows
 	$('.window').draggable({
 		distance:10,
-		stop: function(event) {
+		stop: function(event){
 			var window = 'window.'+$(this).attr('id'),
 			left = $(this).css('left'),
 			right = $(this).css('right'),
@@ -246,65 +246,83 @@ function chromeInit() {
 	// x marks the spot
 	$('.window h1:not(:has(.close))').append('<a class="close">x</a>');
 	// close windows
-	$('.close').click(function() {
+	$('.close').click(function(){
 		var id = $(this).closest("div").attr("id");
 		eraseCookie(id);
 		$('#'+id+':visible').fadeOut(fade);
-		if(id == "superplastic") {
+		if(id == "superplastic"){
 			$('#'+id+' iframe').attr('src','');
 			var fx = readCookie('fx');
-			if(fx) { fxInit(fx); }
+			if(fx){ fxInit(fx); }
 		}
-		else if(id == "music") {
-			if(!muted) { mute(); }
+		else if(id == "music"){
+			if(!muted){ mute(); }
 		}
 		$('#'+id+'Open').removeClass('active');
 		stealFocus();
 	});
 	// open windows
-	$('.open').click(function() {
+	$('.open').click(function(){
 		var id = this.getAttribute('id').replace(/Open/,'');
 		createCookie(id,'true',expires);
-		if(id == "superplastic") {
+		if(id == "superplastic"){
 			loadSuperplastic();
 		}
-		else if(id == "music") {
-			if(muted) {
+		else if(id == "music"){
+			if(muted){
 				mute();
 			}
 		}
 		$('#'+id+':hidden').fadeIn(fade);
 		$(this).addClass('active');
 	});
-	// fancybox
-	 $('a.view').fancybox({
-		'overlayShow': false,
-		'hideOnContentClick': true,
-		'showNavArrows':false,
-		'showCloseButton':false,
-		'padding': 10,
-		'zoomSpeedIn': 300,
-		'zoomSpeedOut': 300
+	// view images
+	$('a.view').click(function(event){
+		event.preventDefault();
+		var imageSource = $(this).attr('href');
+		$("<img/>").attr("src", imageSource).load(function(){
+			$('<div class="modalClose"><img src="'+imageSource+'" width="'+this.width+'" height="'+ this.height+'"/></div>').modal({
+				overlayId: 'modalOverlay',
+				containerId : 'modalContainer',
+				dataId: 'modalData',
+				closeClass: 'modalClose',
+				overlayClose: true,
+				onOpen: function(dialog){
+					dialog.overlay.fadeIn(fade, function(){
+						dialog.container.fadeIn(fade);
+						dialog.data.fadeIn(fade);
+					});
+				},
+				onClose: function(dialog){
+					dialog.data.fadeOut(fade, function () {
+							dialog.container.fadeOut(fade);
+							dialog.overlay.fadeOut(fade, function(){
+								$.modal.close();
+							});
+					});
+				}
+			});
+		});
 	});
 	// window events
-	$.each(windows,function(index, window) {
-		if(readCookie(window)) {
+	$.each(windows,function(index, window){
+		if(readCookie(window)){
 			$('#'+window+'Open').addClass('active');
 			$('#'+window+':hidden').show();
 		}
 	});
-	if(readCookie('superplastic')) {
+	if(readCookie('superplastic')){
 		loadSuperplastic();
 	}
 	// konami
-	if(readCookie('konami')) {
+	if(readCookie('konami')){
 		$('div.contra').css({display:'block'});
 	}
 	// config window
 	loadConfig();
 	// miscellaneous
 	$('.version tr.major').show(); // version log
-	$('.version .toggle').click(function() {
+	$('.version .toggle').click(function(){
 		$(this).remove();
 		$('.version tr').show();
 		scrollCheck();
@@ -314,27 +332,27 @@ function chromeInit() {
 }
 
 // chrome magic
-function chromeMagic() {
+function chromeMagic(){
 	var theme = readCookie('theme');
 	// nextgen themes
-	if(theme == "nextgen" || $.inArray(theme, nextgen) > -1) {
+	if(theme == "nextgen" || $.inArray(theme, nextgen) > -1){
 		var background = readCookie('background'),
 		opacity = readCookie('opacity');
-		if(background) {
+		if(background){
 			$('#joshua').addClass(background);
 		}
-		if(!opacity) {
+		if(!opacity){
 			opacity = 1;
 		}
 		$('#opacity').slider({
 			max: 20,
 			min: 3,
 			value: opacity*20,
-			slide: function(event, ui) {
+			slide: function(event, ui){
 				opacity = ui.value/20;
 				$('#joshua, .window').css('opacity', opacity);
 			},
-			change: function(event, ui) {
+			change: function(event, ui){
 				opacity = ui.value/20;
 				$('#joshua, .window').css('opacity', opacity);
 				createCookie('opacity', opacity, expires);
@@ -342,24 +360,24 @@ function chromeMagic() {
 		});
 		$('#joshua, .window').css('opacity', opacity);
 		// contra
-		if(theme == "contra") {
+		if(theme == "contra"){
 			$('#joshua h1').html('<em>Joshua</em> Konami Edition <span class="dark">30 lives!</span>');
 			$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
 		}
 	}
-	else if(theme == "tron") {
+	else if(theme == "tron"){
 		var team = readCookie('tron.team');
-		if(!team) {
+		if(!team){
 			createCookie('tron.team', 'blue', expires);
 		}
-		else if(team && team != "blue") {
+		else if(team && team != "blue"){
 			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff', 'eb7129'], color = ''; 
-			if(team == "pink") { color = colors[0]; }
-			else if(team == "red") { color = colors[1]; }
-			else if(team == "yellow") { color = colors[2]; }
-			else if(team == "green") { color = colors[3]; }
-			else if(team == "purple") { color = colors[4]; }
-			else if(team == "orange") { color = colors[5]; }
+			if(team == "pink"){ color = colors[0]; }
+			else if(team == "red"){ color = colors[1]; }
+			else if(team == "yellow"){ color = colors[2]; }
+			else if(team == "green"){ color = colors[3]; }
+			else if(team == "purple"){ color = colors[4]; }
+			else if(team == "orange"){ color = colors[5]; }
 			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
 				'h1 .dark, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
@@ -368,38 +386,35 @@ function chromeMagic() {
 			$('body').append('<div id="custom"/>');
 			$('#custom').html('<style type="text/css">'+css+'</style>');
 		}
-		$('div.tron div.tiny div').click(function() {
+		$('div.tron div.tiny div').click(function(){
 			var team = this.getAttribute('class');
 			createCookie('tron.team', team, expires);
 			location.reload();
 		});
 		$('#joshua h1 strong').html('<img src="images/logoTron.png" height="8" width="71" alt="" />');
 	}
-	else if(theme == "diesel") {
+	else if(theme == "diesel"){
 		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
 		var dieselChrome = 271;
 		$('#output').css("height", $(window).height()-dieselChrome);
-		$(window).resize(function() {
+		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
 			scrollCheck();
 		});
 	}
-	else if(theme == "helvetica" || theme == "pirate") {
+	else if(theme == "helvetica" || theme == "pirate"){
 		terminal = true;
-		if(theme == "pirate") {
-			$('#joshua h1').remove();
-		}
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+prompt+'</div>');
 		$('#desktop #links').remove();
 		$('#desktop').remove();
 	}
-	else if(theme == "lcars") {
+	else if(theme == "lcars"){
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
 		var lcarsChrome = 242;
 		$('#output').css("height", $(window).height()-lcarsChrome);
-		$(window).resize(function() {
+		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
 			scrollCheck();
 		});
@@ -407,24 +422,24 @@ function chromeMagic() {
 }
 
 // initializer
-function init(option) {
+function init(option){
 	chromeInit();
 	if(option && option == "boot") chromeMagic();
 	scrollCheck();
 	stealFocus();
 	systemReady();
 }
-function clearScreen() {
+function clearScreen(){
 	$('#output').html('');
 	init();
 }
 
 // booting up joshua
-function boot() {
+function boot(){
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
 	// version check
 	var versionCheck = readCookie('release');
-	if(version > versionCheck) {
+	if(version > versionCheck){
 		$('title').html(title+'Upgrading...');
 		eraseCookie('background');
 		eraseCookie('config');
@@ -433,7 +448,7 @@ function boot() {
 		eraseCookie('gallery');
 		eraseCookie('fx');
 		eraseCookie('alexander');
-		$.each(windows,function() {eraseCookie('window.'+this);});
+		$.each(windows,function(){eraseCookie('window.'+this);});
 		createCookie('theme', 'diesel', expires);
 		createCookie('desktop', 'true', expires);
 		createCookie('release', version, expires);
@@ -441,15 +456,15 @@ function boot() {
 	}
 	// load effects
 	var fx = readCookie('fx');
-	if(fx) fxInit(fx, boot);
+	if(fx) fxInit(fx, true);
 	// load quote
-	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function() {
+	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function(){
 		pearl.appendTo('#pearls');
 	});
 	// window positions
-	$.each(windows,function() {
+	$.each(windows,function(){
 		var cookie = readCookie('window.'+this);
-		if(cookie) {
+		if(cookie){
 			var pos = cookie.split(',');
 			$('#'+this).css({
 				position: 'absolute',
@@ -461,39 +476,39 @@ function boot() {
 	});
 	// ready prompt
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
-	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function() {
+	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function(){
 		motd.appendTo('#output');
 		init('boot'); // initialize
 	});
 }
 
 // let's go
-$(function() {
+$(function(){
 	boot();
-	$('#prompt').keydown(function(e) { // key pressed
+	$('#prompt').keydown(function(e){ // key pressed
 		$('title').html(title+'Listening...'); // listening to input
-		if(e.which == 13) { // command issued with enter
+		if(e.which == 13){ // command issued with enter
 			$('title').html(title+'Running...'); // running command
 			$('#joshua').css('cursor', 'wait'); // loading
 			var dump = $(this).val(), // grab the input
 			input = dump.split(' '), // split the input
 			command = input[0],	option = input[1]; // command (option)
 			// store history
-			if(command) {
+			if(command){
 				hist.push(dump);
 				hist.unique();
 				position = hist.length;
 			}
 			// js commands
 			if(command == "clear" || command == "cls") clearScreen();
-			else if(command == "exit" || input == "quit" || input == "logout") { window.location = "http://binaerpilot.no"; }
+			else if(command == "exit" || input == "quit" || input == "logout"){ window.location = "http://binaerpilot.no"; }
 			// rachael
-			else if(command == "rachael") {
+			else if(command == "rachael"){
 				var current = new Date();
 				var currentYear = current.getFullYear();
 				var birthday = new Date(currentYear, 6-1, 29);
 				var married = new Date(2009, 10-1, 7);
-				if(current > birthday) {
+				if(current > birthday){
 					birthday = new Date(currentYear+1, 6-1, 29);
 				}
 				$('#output').append('<div class="output"><div class="prompt">rachael</div><p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist. We\'ve been happily married for <span class="countdown married pink"/>, her birthday is in <span class="countdown birthday pink"/> and I am still madly in love. You can <a href="http://rachaelivy.com">visit her homepage</a> if you\'d like to know more. (Potential stalkers be warned: I carry an axe.)</p></div>');
@@ -503,7 +518,7 @@ $(function() {
 				systemReady();
 			}
 			// quit smoking
-			else if(command == "smoking") {
+			else if(command == "smoking"){
 				var quit = new Date(2010, 10-1, 1, 13, 37);
 				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 13 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
@@ -511,7 +526,7 @@ $(function() {
 				systemReady();
 			}
 			// windows
-			else if(command == "music" || command == "config" || command == "alexander" || command == "gallery") {
+			else if(command == "music" || command == "config" || command == "alexander" || command == "gallery"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				systemReady();
@@ -519,9 +534,9 @@ $(function() {
 			// superplastic
 			else if(command == "superplastic") loadSuperplastic();
 			// desktop
-			else if(command == "desktop") {
+			else if(command == "desktop"){
 				var cookie = readCookie('desktop');
-				if(cookie) {
+				if(cookie){
 					$('#desktop').fadeOut(fade);
 					eraseCookie('desktop');
 				}
@@ -534,11 +549,11 @@ $(function() {
 			else if(command == "mute") mute();
 			else if(command == "reset")	loadPreset('reset');
 			// come on my droogs
-			else if(command == "ultraviolence") fxInit('ultraviolence', runonce);
+			else if(command == "ultraviolence") fxInit('ultraviolence', true);
 			// engine
 			else {
-				if(command) {
-					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
+				if(command){
+					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function(){
 						$('#output').append(content);
 						init();
 					});
@@ -551,13 +566,13 @@ $(function() {
 			$("#prompt").val('');
 		}
 		// access history
-		else if(e.which == 38) {
-			if(position > 0) { position = position-1; }
+		else if(e.which == 38){
+			if(position > 0){ position = position-1; }
 			$(this).val(hist[position]);
 		}
-		else if(e.which == 40) {
-			if(position < hist.length) { position = position+1; }
-			if(position == hist.length) {
+		else if(e.which == 40){
+			if(position < hist.length){ position = position+1; }
+			if(position == hist.length){
 				$(this).val('');
 			}
 			else {

@@ -1,5 +1,5 @@
 <?php // global settings
-	$version = '8.0';
+	$version = '8.1';
 	$name = 'Stable';
 	$header = '<strong>JOSHUA</strong> <span id="version">'.$version.'</span> <span class="dark">'.$name.'</span>';
 	$title = 'JOSHUA > ';

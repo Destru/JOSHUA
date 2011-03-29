@@ -128,7 +128,7 @@ ol, ul, .motd, .prompt {
 }
 
 /* rounders, cursors */
-#fancybox-outer, #joshua, .window {
+#joshua, .window {
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
@@ -364,7 +364,7 @@ body {
 #sliders .frame, .jScrollPaneDrag {
 	background-color:#444;
 }
-#fancybox-outer, .button, .window {
+.button, .window {
 	background-color:#363636;
 }
 .window h1, .window h2 {

@@ -5,7 +5,7 @@ body {background-color:#eee;color:#444;}
 .button:hover, .tiny div:hover, .button.playing {
 	color:#999;
 }
-#fancybox-outer, .window {
+.window {
 	background-color:#ddd;
 }
 .window h1, .window h2 {

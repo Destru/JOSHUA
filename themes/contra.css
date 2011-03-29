@@ -17,7 +17,7 @@ ul.icons li a {
 
 /* colors */
 .pink {color:#f09;}
-.ui-slider-handle, .window h1, .window h2, #fancybox-outer, .window {background-color:#300b09;}
+.ui-slider-handle, .window h1, .window h2, .window {background-color:#300b09;}
 a, .joshua, .error {color:#ccab60;}
 .dark, .prompt {color:#c28934;}
 .example, .light, .command {

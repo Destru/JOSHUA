@@ -302,7 +302,7 @@ h1 {
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 }
-#fancybox-outer, #joshua, .window {
+#joshua, .window {
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 }
@@ -312,10 +312,6 @@ h1 {
 }
 
 /* background */
-#fancybox-outer {
-	background-color:transparent;
-	background-image:url("../images/tronWindows.png");
-}
 .tron .tiny div {
 	border:none;
 	height:15px;

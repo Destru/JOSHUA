@@ -422,7 +422,7 @@ if(empty($output)){
 		$xml = simplexml_load_file($cache);
 
 		// print it out
-		if($xml->AccountStatus != "Unknown"){
+		if($xml->AccountStatus && $xml->AccountStatus != "Unknown"){
 			$name = $xml->Gamertag;
 			$reputation = $xml->Reputation;
 			$score = $xml->GamerScore;
@@ -483,12 +483,13 @@ if(empty($output)){
 
 		// print it out
 		$xml = simplexml_load_file($cache);
-		print '<div class="prompt">last.fm <strong>Loved</strong></div><p>';
+		print '<div class="prompt">last.fm <strong>loved</strong></div><p>';
 		for ($i = 0; $i < $count; $i++){
 			$track = $xml->lovedtracks->track[$i]->name;
 			$artist = $xml->lovedtracks->track[$i]->artist->name;
 			print $artist.' - '.$track.'<br/>'."\r";
 		}
+		print '</p>';
 		// recent tracks
 		$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 		$count = 8; $cache = 'lastfm.xml';
@@ -496,13 +497,13 @@ if(empty($output)){
 
 		// print it out
 		$xml = simplexml_load_file($cache);
-		print '<div class="prompt">last.fm <strong>Recent</strong></div><p>';
+		print '<div class="prompt">last.fm <strong>recent</strong></div><p>';
 		for ($i = 0; $i < $count; $i++){
 			$track = $xml->recenttracks->track[$i]->name;
 			$artist =$xml->recenttracks->track[$i]->artist;
 			print $artist.' - '.$track.'<br/>'."\r";
 		}
-		print '<a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>'; $output = 1;
+		print '</p><p><a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>'; $output = 1;
 	}
 	// wtfig
 	if($command == "wtfig"){

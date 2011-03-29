@@ -29,7 +29,7 @@ $(function(){
 		pauseOnPagerHover: true,
 	    pager: '.thumbs', 
 	    pagerAnchorBuilder: function(idx, slide) {
-			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="82" height="50" />';
+			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="45" height="28" />';
 			return '<li>'+item+'</li>'; 
 	    }
 	}, function(){
