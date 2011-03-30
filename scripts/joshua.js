@@ -251,12 +251,12 @@ function chromeInit(){
 		eraseCookie(id);
 		$('#'+id+':visible').fadeOut(fade);
 		if(id == "superplastic"){
-			$('#'+id+' iframe').attr('src','');
+			$('#'+id+' iframe').remove();
 			var fx = readCookie('fx');
-			if(fx){ fxInit(fx); }
+			if(fx)fxInit(fx);
 		}
 		else if(id == "music"){
-			if(!muted){ mute(); }
+			if(!muted) mute();
 		}
 		$('#'+id+'Open').removeClass('active');
 		stealFocus();
@@ -269,9 +269,7 @@ function chromeInit(){
 			loadSuperplastic();
 		}
 		else if(id == "music"){
-			if(muted){
-				mute();
-			}
+			if(muted)	mute();
 		}
 		$('#'+id+':hidden').fadeIn(fade);
 		$(this).addClass('active');
@@ -298,6 +296,7 @@ function chromeInit(){
 							dialog.container.fadeOut(fade);
 							dialog.overlay.fadeOut(fade, function(){
 								$.modal.close();
+								stealFocus();
 							});
 					});
 				}
@@ -380,7 +379,8 @@ function chromeMagic(){
 			else if(team == "orange"){ color = colors[5]; }
 			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'h1 .dark, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #desktop ul li a:hover, #input {color:#'+color+'; border-color:#'+color+'}'+
+				'#desktop li a:hover, h1 .dark, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #input, .example, .tiny div.tron {color:#'+color+'; border-color:#'+color+'}'+
+				'#desktop li a.active {color:#'+color+'}'+
 				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
 			$('body').append('<div id="custom"/>');
@@ -404,6 +404,7 @@ function chromeMagic(){
 	}
 	else if(theme == "helvetica" || theme == "pirate"){
 		terminal = true;
+		if(theme == "pirate") $('#joshua h1').remove();
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+prompt+'</div>');
 		$('#desktop #links').remove();
@@ -448,7 +449,9 @@ function boot(){
 		eraseCookie('gallery');
 		eraseCookie('fx');
 		eraseCookie('alexander');
-		$.each(windows,function(){eraseCookie('window.'+this);});
+		$.each(windows, function(){
+			eraseCookie('window.'+this);
+		});
 		createCookie('theme', 'diesel', expires);
 		createCookie('desktop', 'true', expires);
 		createCookie('release', version, expires);
@@ -526,9 +529,12 @@ $(function(){
 				systemReady();
 			}
 			// windows
-			else if(command == "music" || command == "config" || command == "alexander" || command == "gallery"){
+			else if(command == "config" || command == "alexander" || command == "gallery" || command == "music"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
+				if(command == "music") {
+					if(muted)	mute(); // if sound is muted, unmute!
+				}
 				systemReady();
 			}
 			// superplastic
@@ -547,7 +553,7 @@ $(function(){
 				systemReady();
 			}
 			else if(command == "mute") mute();
-			else if(command == "reset")	loadPreset('reset');
+			else if(command == "reset") loadPreset('reset');
 			// come on my droogs
 			else if(command == "ultraviolence") fxInit('ultraviolence', true);
 			// engine

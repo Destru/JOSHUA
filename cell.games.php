@@ -1,8 +1,4 @@
 <?php $games = array(
-	'jge' => '<em>Jumpgate Evolution</em> is a glimmer of hope for the science fiction fans out there.
-			The prospect of real combat in an MMO again is making me all kinds of horny.
-			I\'m so excited about this game that I made <a href="http://jge.binaerpilot.no">JGE Mainframe</a> in anticipation of launch.
-			Which, by the looks of it, seems to be taking ages.',
 	'cs:s' => '
 		<p>
 			<em>Counter-Strike: Source</em> is great game (especially when you\'re playing with human beings and not prepubescent prawnmachines).

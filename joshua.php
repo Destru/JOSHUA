@@ -1,27 +1,27 @@
 <?php // joshua engine <alexander@binaerpilot.no>
-session_start(); // initialize a session
 if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1" ) $dev = 1; // development mode set
 if(!empty($_POST['command'])) $command = strip_tags(trim($_POST['command']));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
-$joshua = '<strong>Joshua:</strong> ';
-$output = '';
+$joshua = "<strong>JOSHUA</strong> &gt; ";
+unset($output);
 
 // functions
-function error($input){
-	global $error,$output,$command,$prompt,$joshua;
-	print $prompt.'<p class="error">'.$error[$input].'</p>';
+function error($id, $message=null){
+	global $error, $command, $prompt, $joshua;
+	if($id == 'custom') $error[$id] = $message;
+	print $prompt.'<p class="error">'.$joshua.$error[$id].'</p>';
 	die();
 }
 function output($response){
-	global $output,$command,$option,$prompt,$joshua;
+	global $output, $command, $option, $prompt;
 	if(stristr($response,'<p') || stristr($response,'<table')) print $prompt.$response;
 	else print $prompt.'<p>'.$response.'</p>';
 	$output = 1;
 }
-function get($url, $cache = 0){
+function get($url, $cache=null){
 	global $dev;
 	$timeout = 10;
 	$secondsBeforeUpdate = 60;
@@ -74,16 +74,16 @@ function dbFile($filename){
 
 // errors	
 $error = array(
-	'404' => $joshua.'No such key found',
-	'invalid' => $joshua.'The command <em>'.$command.'</em> is invalid.',
-	'blocked' => $joshua.'Input did not pass security.',
-	'notip' => $joshua.'Not a valid IP address.',
-	'notdomain' => $joshua.'Illegal domain name.',
-	'noreturn' => $joshua.'Host system did not respond to <em>'.$command.'</em>.',
-	'strlong' => $joshua.'Input is over the <em>'.$command.'</em> limit.',
-	'strshort' => $joshua.'Input has failed to meet <em>'.$command.'</em> minimum length.',
-	'auth' => $joshua.'You are not authorized to issue that command.',
-	'timeout' => $joshua.'Request timed out. Please try again later.'
+	'404' => 'No such key found',
+	'invalid' => 'The command <em>'.$command.'</em> is invalid.',
+	'blocked' => 'Input did not pass security.',
+	'notip' => 'Not a valid IP address.',
+	'notdomain' => 'Illegal domain name.',
+	'noreturn' => 'Host system did not respond to <em>'.$command.'</em>.',
+	'strlong' => 'Input is over the <em>'.$command.'</em> limit.',
+	'strshort' => 'Input has failed to meet <em>'.$command.'</em> minimum length.',
+	'auth' => 'You are not authorized to issue that command.',
+	'timeout' => 'Request timed out. Please try again later.'
 );
 
 // security
@@ -446,7 +446,7 @@ if(empty($output)){
 				'<tr><td class="dark">Gamerscore</td><td>'.$score.'</td></tr></table>');
 		}
 		else {
-			output('Failed to retrieve data from Xbox Live.');
+			error('custom', 'Failed to retrieve data from Xbox Live.');
 		}
 	}
 	// games

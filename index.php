@@ -1,9 +1,10 @@
-<?php // global settings
-	$version = '8.1';
-	$name = 'Stable';
+<?php session_start(); // initialize session
+	// global settings
+	$version = "8.1";
+	$name = "Stable";
 	$header = '<strong>JOSHUA</strong> <span id="version">'.$version.'</span> <span class="dark">'.$name.'</span>';
-	$title = 'JOSHUA > ';
-	$prompt = '<strong>Guest</strong>@Joshua/>&nbsp;';
+	$title = "JOSHUA > ";
+	$prompt = "<strong>Guest</strong>@JOSHUA >&nbsp;";
 	// mobile placeholder
 	if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) header('Location: http://binaerpilot.no/alexander/mobile/'); // redirect
 ?>
