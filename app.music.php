@@ -1,5 +1,5 @@
 <div id="music" class="window">
-	<h1>Bleep</h1>
+	<h1>Bleep Player</h1>
 <?php // can't stop the rock
 	$dir = "music";
 	$d = scandir($dir);

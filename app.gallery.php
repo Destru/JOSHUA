@@ -12,7 +12,7 @@
 	shuffle($images);
 	// images
 	foreach($images as $image) {
-		print '<div class="slide"><img src="gallery/'.$image.'" width="560" height="345" alt="" /></div>';
+		print '<div class="slide"><img src="gallery/'.$image.'" width="560" height="345" alt=""></div>';
 	}
 ?>
 		</div>
@@ -29,7 +29,7 @@ $(function(){
 		pauseOnPagerHover: true,
 	    pager: '.thumbs', 
 	    pagerAnchorBuilder: function(idx, slide) {
-			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="45" height="28" />';
+			var item = '<img src="'+$(slide).find('img').attr('src')+'" width="45" height="28">';
 			return '<li>'+item+'</li>'; 
 	    }
 	}, function(){

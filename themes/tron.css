@@ -35,9 +35,6 @@ pre, p, #prompt, table {
 a {
 	text-decoration:none;
 }
-td a:hover, p a:hover {
-	text-decoration:underline;
-}
 #output {
 	height:402px;
 }
@@ -63,12 +60,6 @@ h1 {
 }
 
 /* blocks */
-p em, h1 em, h2 em {
-	font-weight:bold;
-}
-.error strong, .joshua strong {
-	font-weight:bold;
-}
 h1, h2 {
 	clear:both;
 	display:block;
@@ -120,8 +111,8 @@ p, table, pre {
 ol, ul, .motd, .prompt {
 	margin-bottom:10px;
 }
-.prompt {
-	margin-top:20px;
+.output {
+	margin-bottom:20px;
 }
 .window h1 {
 	color:#4a4a4a;
@@ -140,11 +131,10 @@ ol, ul, .motd, .prompt {
 	float:left;
 	margin-right:5px;
 	margin-top:5px;
-	cursor:pointer;
 	padding:0 5px;
 	text-transform:capitalize;
 }
-.tiny div, #desktop a {
+.tiny div {
 	font-size:11px;
 	line-height:22px;
 	height:22px;
@@ -162,7 +152,8 @@ ol, ul, .motd, .prompt {
 .prompt strong {
 	font-weight:normal;
 }
-#effects.tiny {
+
+.tron.extra .tiny {
 	margin-bottom:0;
 }
 table.torrents .torrent {
@@ -200,22 +191,17 @@ ul.inline li {
 	margin-bottom:20px;
 }
 #desktop a {
-	display:block;
-	width:140px;
-	overflow:hidden;
-	margin-bottom:5px;
-	cursor:pointer;
-	padding:0 10px;
-	height:22px;
 	font-weight:bold;
+	color:#4a4a4a;
 }
 #desktop ul#links {
 	display:none;
 }
 .tiny div:hover, .close:hover, #desktop a:hover {
 	border-color:#68b8ff;
+	color:#68b8ff;
 }
-#desktop a.active, #desktop a:hover, .tiny div:hover {
+#desktop a.active {
 	color:#68b8ff;
 }
 
@@ -251,10 +237,6 @@ h1 .dark, #input #prompt, .error, .joshua, a, .command, .example {
 }
 .black {
 	display:none;
-}
-.joshua em, .error em {
-	font-style:normal;
-	font-weight:bold;
 }
 .pink, .error {
 	color:#f0f;

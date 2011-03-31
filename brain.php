@@ -51,7 +51,6 @@ $static = array(
 		<td class="command">calc <span class="dark">operation</span></td>
 		<td>Performs simple calculations (only one operation at a time)</td>
 	</tr>
-
 	<tr><td class="command">thanks</td>
 		<td>Credit where credit is due</td></tr>
 	<tr><td class="command">version</td>
@@ -59,24 +58,10 @@ $static = array(
 	<tr><td class="command">stats</td>
 		<td>Useless information that nerds love</td></tr>
 	</table>',
-
-'about' => '
-	<p>My name is Alexander Støver. I work for <a href="http://manualdesign.no" class="blank">Manual design</a> where my title is \'Hacker\'. Now I can\'t hack,
-	but I do work with web development and interface design. On my spare time I make crazy robot music as <a href="http://biaerpilot.no">Binärpilot</a> and play online <span class="dark">games</span> under the name <em>Destru Kaneda</em>.
-	If you want to hang out your best bet is the <a href="http://forum.binaerpilot.no">Binaer People</a>.</p>
-
-	<p>Joshua is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
-	The name Joshua is a reference to \'War Games\' (Shall we play a game?).
-	Special <span class="dark">thanks</span> to <a href="http://twitter.com/ehjelle" class="blank">Eirik Hjelle</a> and <a href="http://twitter.com/elektronaut" class="blank">Inge Jørgensen</a> for answering stupid questions.
-	This site is fueled by sleep deprivation and nicotine. Feel free to to <a href="http://github.com/destru/joshua">bite my code</a>.</p>
-
-	<p>Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most
-	awkward way to navigate a website ever perceived. But then again; Mouseclicking is so 90\'s.</p>',
-
 'version' => '
 	<table class="version">
 		<tr class="major"><td class="command fixed-width">1.0 <span class="dark">Beta</span></td>
-			<td>The first version of Joshua. Apart from the UI only minor alterations were made to the <a href="http://miklos.ca/cmd.html">Osenoa</a> JS. Still using XML. Wrote two PHP commands, <span class="dark">uptime</span> and <span class="dark">whois</span>.</td>
+			<td>The first version of Joshua. Apart from the UI only minor alterations were made to the <a href="http://miklos.ca/cmd.html">Osenoa</a> JS. Still using XML. Wrote two PHP commands, <span class="command">uptime</span> and <span class="command">whois</span>.</td>
 		</tr>
 		<tr><td class="command fixed-width">1.1</td>
 			<td>Added themes. (Mmm, fluff.) Joshua now responds to standard *nix commands.</td>
@@ -97,49 +82,49 @@ $static = array(
 			<td>Who needs content? New GUI, again. Themes need to be updated, but it will be worth it.	No more fixed-width fontage (that breaks cross-OS) and pretty scrollbar is pretty.</td>
 		</tr>
 		<tr><td class="command fixed-width">4.1</td>
-			<td><span class="destroy">Sitebar for floating content.</span> Added the <span class="dark">game</span> command and a bunch of hidden ones.</td>
+			<td><span class="destroy">Sitebar for floating content.</span> Added the <span class="command">game</span> command and a bunch of hidden ones.</td>
 		</tr>
 		<tr><td class="command fixed-width">4.2</td>
-			<td>It\'s now possible to leave messages with <span class="dark">msg</span>. Random motd extravaganza in place. Tweaked the scrollbar and updated all the themes (needs to be easier).</td>
+			<td>It\'s now possible to leave messages with <span class="command">msg</span>. Random motd extravaganza in place. Tweaked the scrollbar and updated all the themes (needs to be easier).</td>
 		</tr>
 		<tr><td class="command fixed-width">4.3</td>
-			<td>Ask <span class="dark">yoda</span> questions. More game info, the <span class="dark">destru</span> command. Cheating is now possible.</td>
+			<td>Ask <span class="command">yoda</span> questions. More game info, the <span class="command">destru</span> command. Cheating is now possible.</td>
 		</tr>
 		<tr><td class="command fixed-width">4.4</td>
 			<td>More hidden commands and added desktop emulation for all the non-Joshua content.</td>
 		</tr>
 		<tr><td class="command fixed-width">4.5</td>
-			<td>Fixed a couple of interface/performance issues and added <span class="dark">last.fm</span>.</td>
+			<td>Fixed a couple of interface/performance issues and added <span class="command">last.fm</span>.</td>
 		</tr>
 		<tr class="major"><td class="command fixed-width">5.0 <span class="dark">Next-Gen</span></td>
 			<td>Redid the Joshua chrome to (almost) completely rely on CSS+JS. Wrote a new Gallery. Made new themes. Added a handful of statics and other junk. Good times!</td>
 		</tr>
 		<tr><td class="command fixed-width">5.1</td>
-			<td>Refocused the layout on the command prompt emulation. The <span class="dark">desktop</span> was demanding too much attention. Also added a handful commands and a visual effect (sparks).</td>
+			<td>Refocused the layout on the command prompt emulation. The <span class="command">desktop</span> was demanding too much attention. Also added a handful commands and a visual effect (sparks).</td>
 		</tr>
 		<tr><td class="command fixed-width">5.2</td>
-			<td>Mostly CPU enhancements and visual tweaks (motivated by your feedback: thanks!). Started working on my first game; An awesome fantastic sidescroller called Superplastic (open development). Added <span class="dark">tip</span> and the usual bunch of hiddens.</td>
+			<td>Mostly CPU enhancements and visual tweaks (motivated by your feedback: thanks!). Started working on my first game; An awesome fantastic sidescroller called Superplastic (open development). Added <span class="command">tip</span> and the usual bunch of hiddens.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.3</td>
-			<td>Joshua will now remember what windows you have open and input history (finally got around to it). Music was asked for, say hi to <span class="dark">bleep</span>, the tiny music player.</td>
+			<td>Joshua will now remember what windows you have open and input history (finally got around to it). Music was asked for, say hi to <span class="command">bleep</span>, the tiny music player.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.4</td>
 			<td>Window positions are now stored and there\'s new effects (spin, translucent and pulsar). Otherwise strictly a maintenance release.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.5</td>
-			<td>New stand-alone default theme called Tron (relatively cross-browser). You can download torrents from Isohunt with <span class="dark">get</span> and read about people worse off than you with <span class="dark">fml</span> and see IRC idiocracy with <span class="dark">bash</span>.</td>
+			<td>New stand-alone default theme called Tron (relatively cross-browser). You can download torrents from Isohunt with <span class="command">get</span> and read about people worse off than you with <span class="command">fml</span> and see IRC idiocracy with <span class="command">bash</span>.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.6</td>
-			<td>Redid the theme-handling (to support flexible layouts). Added <span class="dark">stats</span>.</td>
+			<td>Redid the theme-handling (to support flexible layouts). Added <span class="command">stats</span>.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.7</td>
 			<td>Superplastic: New enemies and visual effects. Shields added, points added, rate of fire increased. In short: Rachael helped make the game more fun.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.8</td>
-			<td>A new text-based game called <span class="dark">numbers</span> has been implemented.</td>
+			<td>A new text-based game called <span class="command">numbers</span> has been implemented.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.9</td>
-			<td>Minor bugfixes and new version-handling. More content and the <span class="dark">xbox</span> command.</td>
+			<td>Minor bugfixes and new version-handling. More content and the <span class="command">xbox</span> command.</td>
 		</tr>
 		<tr class="major"><td class="command fixed-width">6.0 <span class="dark">mobile</span></td>
 			<td>Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name). A lot of content added.</td>
@@ -151,7 +136,7 @@ $static = array(
 			<td>Rewritten parts of the engine to take advantage of SimpleXML (-3kb gain). Added a couple CURL tweaks for external requests.</td>
 		</tr>
 		<tr><td class="command fixed-width">6.3</td>
-			<td>Geolocation with <span class="dark">trace</span> added. Minor theme fixes. Superplastic bugfix. More useless stats.</td>
+			<td>Geolocation with <span class="command">trace</span> added. Minor theme fixes. Superplastic bugfix. More useless stats.</td>
 		</tr>
 		<tr class="major"><td class="command fixed-width">7.0 <span class="dark">Diesel</span></td>
 			<td>Diesel introduced; Stand-alone design with several interface tweaks. Removed a lot of unnecessary junk.</td>
@@ -175,25 +160,48 @@ $static = array(
 			<td>A fair amount of housecleaning before porting source to Github.</td>
 		</tr>
 		<tr><td class="command fixed-width">7.7</td>
-			<td>Housecleaning continued, and bugfixing as a result of said cleaning. Added a <span class="dark">timer</span> command for Rachael. LCARS is now the default theme.</td>
+			<td>Housecleaning continued, and bugfixing as a result of said cleaning. <span class="scratch">Added a <span class="command">timer</span> command for Rachael.</span> LCARS is now the default theme.</td>
 		</tr>
 		<tr><td class="command fixed-width">7.8</td>
 			<td>I hated the Hacker theme, say hello to Helvetica instead. Diesel is once again the default theme. Made the timer less useless.</td>
 		</tr>
 		<tr><td class="command fixed-width">7.9</td>
-			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Simple <span class="dark">calc</span> and a method to check for <span class="dark">prime</span> numbers.</td>
+			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Simple <span class="command">calc</span> and a method to check for <span class="command">prime</span> numbers.</td>
 		</tr>
 		<tr class="major"><td class="command fixed-width">8.0 <span class="dark">Stable</span></td>
 			<td>First stable release, well, on WebKit-based platforms. (I use Chrome and this site is maintained by the WFMWF-principle.)</td>
 		</tr>
 		<tr><td class="command fixed-width">8.1</td>
-			<td>Slick Gallery to replace the old one. Fancybox removed and replaced with SimpleModal (-30kb).</td>
+			<td>New Slick Gallery. Fancybox removed and replaced with SimpleModal (-30kb).</td>
+		</tr>
+		<tr>
+			<td class="command fixed-width">8.2</td>
+			<td>HTML5 and content update. Tron default theme.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
-'destru' => '<p><em>Destru Kaneda</em> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira".
-When it comes to games I prefer PvP (with lasers), but until a decent science fiction MMO releases, you can find me playing MW2 on <a href="http://live.xbox.com/member/Destru%20Kaneda">Xbox Live</a>.</p>',
+'about' => '
+	<p>
+		My name is Alexander Støver. I work for <a href="http://manualdesign.no">Manual design</a> where my title is \'Hacker\'.
+		I can\'t hack, but I do work with web development and interface design.
+		On my spare time I make crazy robot music as <a href="http://binaerpilot.no">Binärpilot</a> and play online <span class="command">games</span>.
+	</p>
+
+	<p>
+		JOSHUA is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
+		The name is a reference to \'War Games\' (Shall we play a game?).
+		Special <span class="command">thanks</span> to <a href="http://twitter.com/ehjelle">Eirik</a> and <a href="http://twitter.com/elektronaut">Inge</a> for answering stupid questions.
+		This site fueled by sleep deprivation.
+	</p>
+
+	<p>
+		Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever perceived.
+		But then again; Mouseclicking is <i>sooo</i> 90\'s.
+	</p>',
+
+'destru' => '<p>Destru Kaneda is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira".
+When it comes to games I prefer PvP (with lasers), but until <span class="scratch">a decent science fiction MMO</span> SW:TOR releases, you can find me playing Black Ops on <a href="http://live.xbox.com/member/Destru%20Kaneda">Xbox Live</a>.</p>',
 
 'ascii' => '<pre class="ascii">
        dP                   dP                        
@@ -251,7 +259,7 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
 'sheldon' => 'Sheldon is a genius. Really.',
 'wtf' => 'Can you pay them? The people who put everything together? That\'s the only way I can explain it.',
 'armadillo' => 'Do not hurt the infamous armadillo, whose tales of awesometude have reached even the cold shores of Norway. We, the vikings of this barren land, will fight to preserve this majestic creature\'s right to proper lodgings. Something something, axe murder.',
-'toes' => '<em>"I don\'t care much for toes. Sure, they help you keep your balance, but name me one more useful thing about them?"</em> Ouch! That\'s how I used to feel about toes, but <a href="misc/toes.jpg" class="view">that was before I met these guys</a>. Dey r super ql an fun to b aroun lol!',
+'toes' => '<i>"I don\'t care much for toes. Sure, they help you keep your balance, but name me one more useful thing about them?"</i> Ouch! That\'s how I used to feel about toes, but <a href="misc/toes.jpg" class="view">that was before I met these guys</a>. Dey r super ql an fun to b aroun lol!',
 'pnk' => 'Hei Eirik, slutt snokinga etter kommandoer. Kom heller og ta en øl.',
 'inge' => 'Behold the majesty that is <a href="misc/ingusmccloud.jpg" class="view">Ingus McCloud</a>.',
 'peter' => 'Real men are not afraid to show their emotions. <a href="misc/malebonding.gif" class="view">Like me and Peter</a>.',
@@ -264,8 +272,8 @@ When it comes to games I prefer PvP (with lasers), but until a decent science fi
 'prudiful' => 'A mix of "Pretty" and "Beautiful". A synomyn for Rachael.',
 'hot' => 'One of the hottest things on the planet, the infamous <a href="misc/deadsexy.jpg" class="view">Peter Andersen</a>.',
 'asimov' => 'Individual science fiction stories may seem as trivial as ever to the blinder critics and philosophers of today. But the core of science fiction, its essence, has become crucial to our salvation if we are to be saved at all.',
-'joshua' => 'Joshua is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="dark">about</span>.',
-'hidden' => 'Look closer! Have you tried cheating? To <span class="dark">cheat</span> or not to <span class="dark">cheat</span>, that is the question.',
+'joshua' => '<p>JOSHUA is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="command">about</span>.<br><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a></p>',
+'hidden' => 'Look closer! Have you tried cheating? To <span class="command">cheat</span> or not to <span class="command">cheat</span>, that is the question.',
 'sharks' => 'Don\'t poop. Ever. They\'re like the Thunderdome, only two men enter and no man leaves.',
 'lamb' => 'A lamb stays a lamb. Forever. Sheep are not lambs, they are a different species entirely. Dr. Young, the world renowned lambologist, has done research into the matter.',
 'mouse' => 'Pro mouse w/steelmat? <a class="view" href="misc/donald.jpg">I has one</a>.',
@@ -302,8 +310,8 @@ Alexander: CONAN WIELDS THE MIGHTY CANE!
 Rachael: HAHAHA!</pre>',
 'fizzbuzz' => '&lt;?while($i++<100){$p=($i%3<1?"Fizz":"").($i%5<1?"Buzz":"");echo($p?$p:$i)."\n";}?&gt;',
 'justmtv' => 'An amazing idea I had that never will be realized. Streaming music videos without interruption online. Or in other words, what MTV should be.',
-'everywhere' => '<p>Can you hear me calling<br/>Out your name<br/>You know that I\'m falling<br/>And I don\'t know what to say<br/>I\'ll speak a little louder<br/>I\'ll even shout<br/>You know that I\'m proud<br/>And I can\'t get the words out</p><p>Oh I...<br/>I want to be with you everywhere</span></p>',
-'git' => 'Git is awesome. I don\'t know how I survived without it.<br/><a class="external" href="http://github.com/destru/">Destru@Github</a>',
+'everywhere' => '<p>Can you hear me calling<br>Out your name<br>You know that I\'m falling<br>And I don\'t know what to say<br>I\'ll speak a little louder<br>I\'ll even shout<br>You know that I\'m proud<br>And I can\'t get the words out</p><p>Oh I...<br>I want to be with you everywhere</span></p>',
+'git' => 'Git is awesome. I don\'t know how I survived without it.<br><a class="external" href="http://github.com/destru/">Follow me at GitHub.</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to Joshua. Thank you for being awesome.<p>
 	<p>

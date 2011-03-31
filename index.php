@@ -1,16 +1,15 @@
 <?php session_start(); // initialize session
 	// global settings
-	$version = "8.1";
+	$version = "8.2";
 	$name = "Stable";
-	$header = '<strong>JOSHUA</strong> <span id="version">'.$version.'</span> <span class="dark">'.$name.'</span>';
-	$title = "JOSHUA > ";
+	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$name.'</span>';
+	$title = "JOSHUA: ";
 	$prompt = "<strong>Guest</strong>@JOSHUA >&nbsp;";
 	// mobile placeholder
 	if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) header('Location: http://binaerpilot.no/alexander/mobile/'); // redirect
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
+<html>
 <!--
 	Why are you listening to this song backwards?
 	You could have been on a date with a girl.

@@ -5,7 +5,7 @@ if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
-$joshua = "<strong>JOSHUA</strong> &gt; ";
+$joshua = "<b>JOSHUA:</b> ";
 unset($output);
 
 // functions
@@ -75,13 +75,13 @@ function dbFile($filename){
 // errors	
 $error = array(
 	'404' => 'No such key found',
-	'invalid' => 'The command <em>'.$command.'</em> is invalid.',
+	'invalid' => 'The command <b>'.$command.'</b> is invalid.',
 	'blocked' => 'Input did not pass security.',
 	'notip' => 'Not a valid IP address.',
 	'notdomain' => 'Illegal domain name.',
-	'noreturn' => 'Host system did not respond to <em>'.$command.'</em>.',
-	'strlong' => 'Input is over the <em>'.$command.'</em> limit.',
-	'strshort' => 'Input has failed to meet <em>'.$command.'</em> minimum length.',
+	'noreturn' => 'Host system did not respond to <b>'.$command.'</b>.',
+	'strlong' => 'Input is over the <b>'.$command.'</b> limit.',
+	'strshort' => 'Input has failed to meet <b>'.$command.'</b> minimum length.',
 	'auth' => 'You are not authorized to issue that command.',
 	'timeout' => 'Request timed out. Please try again later.'
 );
@@ -108,7 +108,7 @@ if(empty($output)){
 	// motd 
 	if($command == "motd"){
 		$count = count($quotes)-1; $rand = rand(0,$count);
-		print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <em>help</em> for commands.</p>'; $output = 1;
+		print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
 	}
 	// quotes, pearls, bash
 	if($command == "quote" || $command == "bash" || $command == "pearl"){
@@ -217,7 +217,7 @@ if(empty($output)){
 			$level = $_SESSION['numbers']+1;
 			$levels = count($numbers);
 			if($level != 1) output('<p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
-			else output('<p>There are '.$levels.' levels. Answer by typing <span class="dark">n (x)</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
+			else output('<p>There are '.$levels.' levels. Answer by typing <span class="command">n (x)</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
 		}
 		else if(!empty($option)){
 			if($option == $numbers[$_SESSION['numbers']][1]){
@@ -269,17 +269,17 @@ if(empty($output)){
 				output($output);
 			}
 		}
-		else output('<p>Please leave a message after the beep. <140 characters (alphanumeric). <em>Beep!</em></p><p class="example">msg joshua needs more ultraviolence</p>');
+		else output('<p>Please leave a message after the beep. <140 characters (alphanumeric). <i>Beep!</i></p><p class="example">msg joshua needs more ultraviolence</p>');
 	}
 	// yoda
 	if($command == "yoda"){
-		$yodaPixel = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28" /></div>';
+		$yodaPixel = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
 		$length = strlen($dump);
 		if($length > 6	){
 			$question = str_replace('yoda ','',$dump);
 			if(!stristr($question, '?')) $question .= '?';
 			$count = count($yoda)-1; $rand = rand(0,$count);
-			print '<div class="prompt">'.$command.' <strong>'.$question.'</strong></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel; $output = 1;
+			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel; $output = 1;
 		}
 		else output('<p class="chat">Ask a question you must.</p>'.$yodaPixel);
 	}
@@ -300,7 +300,7 @@ if(empty($output)){
 		$xml = simplexml_load_file($cache);
 
 		$name = $xml->name->firstname.' '.$xml->name->lastname;
-		output('<p><em>Anarchy Online</em> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
+		output('<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
 			The sheer size and complexity of the game was unparallalled at the time and I quickly found myself completely immersed in it.
 			<a href="misc/aoscripts.rar">Download some scripts</a> or listen to <a href="misc/doktor_dreiebenk_-_the_doctor_is_in.mp3">this little rap song</a>.
 			Both more than indicative of my former Rubi-ka addiction.
@@ -331,7 +331,7 @@ if(empty($output)){
 		$corp = $xml->result->corporationName;
 		$clone = $xml->result->cloneSkillPoints;
 		$balance = $xml->result->balance;
-		output('<p><em>EVE Online</em> is a well-crafted world for those with enough time to invest. '.
+		output('<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
 			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'.
@@ -375,7 +375,7 @@ if(empty($output)){
 			$events = '';
 			for ($i = 0; $i < 5; $i++){
 				$event = $xml_custom->entry[$i]->content;
-				if(!empty($event)) $events .= $event.'<br/>';
+				if(!empty($event)) $events .= $event.'<br>';
 			}
 			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
@@ -391,7 +391,7 @@ if(empty($output)){
 			$details = '<p><a class="external" href="'.$wowhead.'">View my Wowhead profile.</a></p>';
 		}
 
-		output('<p><em>World of Warcraft</em> has been a guilty pleasure of mine on and off for years. '.
+		output('<p><b>World of Warcraft</b> has been a guilty pleasure of mine on and off for years. '.
 			'So far I\'ve played three characters to end-game and messed around with more PvP alts than I can remember. '.
 			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed. '.
 			'For the Horde!</p>'.$details);
@@ -411,7 +411,7 @@ if(empty($output)){
 			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
 			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr></table>';
-		output('<p>I didn\'t play <em>Star Trek Online</em> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game didn\'t grip me.</p>'.$character);
+		output('<p>I didn\'t play <b>Star Trek Online</b> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game didn\'t grip me.</p>'.$character);
 	}
 	// xbox
 	if($command == "xbox"){
@@ -420,7 +420,6 @@ if(empty($output)){
 		$cache = 'xbox.xml';
 		get($url, $cache);
 		$xml = simplexml_load_file($cache);
-
 		// print it out
 		if($xml->AccountStatus && $xml->AccountStatus != "Unknown"){
 			$name = $xml->Gamertag;
@@ -453,62 +452,60 @@ if(empty($output)){
 	if($command == "game" || $command == "games"){
 		$gameList = '';
 		if(!empty($option)){
-			foreach ($games as $key => $value){
-				if($key == $option) output($value);
-			}
+			foreach ($games as $key => $value)	if($key == $option) output($value);
 			// 404
 			if(empty($output)) error('404');
 		}
 		else {
-			foreach ($games as $key => $value) $gameList[] .= '<em>'.$key.'</em>';
+			foreach ($games as $key => $value) $gameList[] .= '<span class="command">'.$key.'</span>';
 			$gameList = implode(', ', $gameList);
-			output('<p>Valid choices are '.$gameList.', <em>wow</em>, <em>sto</em>, <em>eve</em> and <em>ao</em>.</p><p class="example">game eve</p>');
+			output('<p>You need to specify a game. Valid options are '.$gameList.', <span class="command">wow</span>, <span class="command">sto</span>, <span class="command">eve</span> and <span class="command">ao</span>.</p><p class="example">game eve</p>');
 		}
 	}
 	// cheat
 	if($command == "idkfa"){
 		$commands = array();
-		foreach ($static as $key => $value){
-			$commands[] .= '<em>'.$key.'</em>';
-		}
+		foreach ($static as $key => $value) $commands[] .= $key;
 		sort($commands); $commands = implode(', ', $commands);
 		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p><p>'.$commands.'.</p>');
 	}
 	// lastfm
 	if($command == "last.fm" || $command == "lastfm"){
-		// loved tracks
-		$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
-		$count = 8; $cache = 'lastfm.loved.xml';
-		get($url, $cache);
-
-		// print it out
-		$xml = simplexml_load_file($cache);
-		print '<div class="prompt">last.fm <strong>loved</strong></div><p>';
-		for ($i = 0; $i < $count; $i++){
-			$track = $xml->lovedtracks->track[$i]->name;
-			$artist = $xml->lovedtracks->track[$i]->artist->name;
-			print $artist.' - '.$track.'<br/>'."\r";
+		if(!empty($option) && $option == "loved"){
+			// loved tracks
+			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
+			$count = 8; $cache = 'lastfm.loved.xml';
+			get($url, $cache);
+			// print it out
+			$xml = simplexml_load_file($cache);
+			print '<div class="prompt">last.fm <strong>loved</strong></div><p>';
+			for ($i = 0; $i < $count; $i++){
+				$track = $xml->lovedtracks->track[$i]->name;
+				$artist = $xml->lovedtracks->track[$i]->artist->name;
+				print $artist.' - '.$track.'<br>'."\r";
+			}	
 		}
-		print '</p>';
-		// recent tracks
-		$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
-		$count = 8; $cache = 'lastfm.xml';
-		get($url, $cache);
-
-		// print it out
-		$xml = simplexml_load_file($cache);
-		print '<div class="prompt">last.fm <strong>recent</strong></div><p>';
-		for ($i = 0; $i < $count; $i++){
-			$track = $xml->recenttracks->track[$i]->name;
-			$artist =$xml->recenttracks->track[$i]->artist;
-			print $artist.' - '.$track.'<br/>'."\r";
+		else {
+			// recent tracks
+			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
+			$count = 8; $cache = 'lastfm.xml';
+			get($url, $cache);
+			// print it out
+			$xml = simplexml_load_file($cache);
+			print '<div class="prompt">last.fm <strong>recent</strong></div><p>';
+			for ($i = 0; $i < $count; $i++){
+				$track = $xml->recenttracks->track[$i]->name;
+				$artist =$xml->recenttracks->track[$i]->artist;
+				print $artist.' - '.$track.'<br>'."\r";
+			}
 		}
-		print '</p><p><a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>'; $output = 1;
+		print '<a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>';
+		$output = 1;	
 	}
 	// wtfig
 	if($command == "wtfig"){
 		if(!isset($option)){
-			output('<p>You need to specify font and caption.</p><p class="example">wtfig chunky Awesome!</p>');
+			output('<p>You need to specify font and caption. See available fonts with <span class="command">wtfig list</span>.</p><p class="example">wtfig chunky Awesome!</p>');
 		}
 		else {
 			if(file_exists("wtfig/fonts/$option.flf")){
@@ -533,7 +530,7 @@ if(empty($output)){
 				foreach($dir as $file){
 					if(strpos($file,".flf")){
 						$fontName = str_replace('.flf', '', $file);
-						$fontList[] = '<em>'.$fontName.'</em>';
+						$fontList[] = $fontName;
 					}
 				}
 				sort($fontList); $fonts = implode(', ', $fontList);
@@ -570,7 +567,7 @@ if(empty($output)){
 					}
 					print '</table>';
 				}
-				else print '<p>There were no results for <em>'.$query.'</em>.</p>';
+				else print '<p>There were no results for <b>'.$query.'</i>.</p>';
 				$output = 1;
 			}
 			else {

@@ -16,13 +16,19 @@ h1, h2, h3, h4 {
 #joshua input {
 	display:block;
 }
+.output a {
+	text-decoration:underline;
+}
 .countdown * {
 	display:inline;
+}
+.scratch {
+	text-decoration: line-through;
 }
 .clear {
 	clear:both;
 }
-#desktop a, .close, .pointer {
+#desktop a, .close, .tiny div {
 	cursor:pointer;
 }
 #desktop, .contra, .extra {
@@ -139,11 +145,10 @@ table.version td.command {
 #pearls p {
 	margin-bottom:0;
 }
+
+/* tiny */
 .tiny {
 	text-transform:capitalize;
-}
-.tiny div {
-	cursor:pointer;
 }
 .tiny .lcars {
 	text-transform:uppercase;

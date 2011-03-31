@@ -1,12 +1,12 @@
 <?php $quotes = array(
-	'Some say the world will end in fire,<br/>
-	Some say in ice.<br/>
-	From what I\'ve tasted of desire<br/>
-	I hold with those who favor fire.<br/>
-	But if it had to perish twice,<br/>
-	I think I know enough of hate<br/>
-	To say that for destruction ice<br/>
-	Is also great<br/>
+	'Some say the world will end in fire,<br>
+	Some say in ice.<br>
+	From what I\'ve tasted of desire<br>
+	I hold with those who favor fire.<br>
+	But if it had to perish twice,<br>
+	I think I know enough of hate<br>
+	To say that for destruction ice<br>
+	Is also great<br>
 	And would suffice.',
 	'The world is your oyster, because that\'s all the world is.',
 	'I am Joshua of Borg. Prepare to be assimilated.',
@@ -20,9 +20,9 @@
 	'Emergency. Emergency. There\'s an emergency going on. It\'s still going on. It\'s still an emergency.',
 	'Smoke me a kipper, I\'ll be back for breakfast.',
 	'Joshua Bullet: Cybernautic Detective.',
-	'It\'s cold outside, there\'s no kind of atmosphere<br/>
-	I\'m all alone, more or less<br/>
-	Let me fly, far away from here<br/>
+	'It\'s cold outside, there\'s no kind of atmosphere<br>
+	I\'m all alone, more or less<br>
+	Let me fly, far away from here<br>
 	Fun, fun, fun, in the sun, sun, sun...',
 	'I was wondering when El Capitan was gonna get a chance to use his popgun.',
 	'Maybe we\'re at war with Norway?',

@@ -360,7 +360,7 @@ function chromeMagic(){
 		$('#joshua, .window').css('opacity', opacity);
 		// contra
 		if(theme == "contra"){
-			$('#joshua h1').html('<em>Joshua</em> Konami Edition <span class="dark">30 lives!</span>');
+			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
 			$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
 		}
 	}
@@ -391,7 +391,7 @@ function chromeMagic(){
 			createCookie('tron.team', team, expires);
 			location.reload();
 		});
-		$('#joshua h1 strong').html('<img src="images/logoTron.png" height="8" width="71" alt="" />');
+		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
 	else if(theme == "diesel"){
 		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
@@ -452,7 +452,7 @@ function boot(){
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
-		createCookie('theme', 'diesel', expires);
+		createCookie('theme', 'tron', expires);
 		createCookie('desktop', 'true', expires);
 		createCookie('release', version, expires);
 		location.reload();

@@ -30,6 +30,9 @@ body {
 a {
 	text-decoration:none;
 }
+.output p a {
+	text-decoration:underline;
+}
 #input {
 	border-top:solid 1px #464740;
 	border-bottom:solid 1px #464740;
@@ -41,17 +44,11 @@ a {
 	background-color:transparent;
 	color:#f92666;
 }
-p.joshua em {
-	font-weight:bold;
-}
 div {
 	cursor:default;
 }
 #music {
 	width:180px;
-}
-a, .tiny div {
-	cursor:pointer;
 }
 .tiny {
 	position:relative;
