@@ -194,7 +194,7 @@ table td {
 	overflow:hidden;
 	margin-right:20px;
 }
-.tiny .diesel, .tiny .selected, #desktop a.active, #desktop ul li a:hover {
+#desktop a.active, #desktop ul li a:hover {
 	color:#f92666;
 	font-weight:bold;
 }

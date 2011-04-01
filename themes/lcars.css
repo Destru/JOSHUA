@@ -92,7 +92,7 @@ h1, h2 {
 	color:#000;
 	margin:6px 3px;
 }
-.tiny div:hover, .tiny div.lcars {
+.tiny div:hover {
 	background-color:#f96;
 }
 #desktop {
@@ -174,7 +174,9 @@ strong {
 	background-color:#fc9;
 	color:#000;
 	padding:3px 20px;
-	margin:20px 0;
+}
+.output, .prompt {
+	margin-bottom:20px;
 }
 .jScrollPaneDrag {
 	background-color:#fc9;

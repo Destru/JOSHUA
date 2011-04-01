@@ -125,7 +125,7 @@ a.close:hover {
 .tiny div:hover {
 	color:#fff;
 }
-.tiny div.pirate, .tracks a:hover, a.playing, .tiny .selected, .tiny .selected:hover {
+.tracks a:hover, a.playing {
 	color:#00bff3;
 }
 .tiny {
