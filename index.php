@@ -1,6 +1,6 @@
 <?php session_start(); // initialize session
 	// global settings
-	$version = "8.2";
+	$version = "8.3";
 	$name = "Stable";
 	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$name.'</span>';
 	$title = "JOSHUA: ";

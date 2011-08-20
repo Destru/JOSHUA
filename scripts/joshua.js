@@ -224,7 +224,12 @@ function loadConfig(){
 
 // application loaders
 function loadSuperplastic(){
-	$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no"/>')
+	if($('#superplastic').has('iframe').length == 0){
+		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no"/>')		
+	}
+	else {
+		 $('#superplastic iframe').attr("src", $('#superplastic iframe').attr("src"));
+	}
 	$('#superplastic:hidden').fadeIn(fade);
 	loseFocus();
 	systemReady();
@@ -313,7 +318,7 @@ function chromeInit(){
 	if(readCookie('superplastic')){
 		loadSuperplastic();
 	}
-	// konami
+	// contra theme unlocked?
 	if(readCookie('konami')){
 		$('div.contra').css({display:'block'});
 	}
@@ -452,8 +457,7 @@ function boot(){
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
-		createCookie('theme', 'tron', expires);
-		createCookie('desktop', 'true', expires);
+		createCookie('theme', 'pirate', expires); // set default theme
 		createCookie('release', version, expires);
 		location.reload();
 	}
