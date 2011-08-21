@@ -84,7 +84,7 @@ $error = array(
 	'strshort' => 'Input has failed to meet <b>'.$command.'</b> minimum length.',
 	'auth' => 'You are not authorized to issue that command.',
 	'timeout' => 'Request timed out. Please try again later.',
-	'empty' => 'Request returned nothing. Malformed or abandoned API.'
+	'empty' => 'Request returned nothing. Dead API?'
 );
 
 // security
@@ -104,12 +104,9 @@ if(!empty($command)){
 	}
 }
 
+// output
 if(empty($output)){
 	include('brain.php');
-	// portfolio
-	if($command == "portfolio"){
-	  output('For practical applications of my skillset see the Manual portfolio.<br/> <a class="external" href="http://manualdesign.no">Manual design portfolio.</a>');
-	}
 	// motd 
 	if($command == "motd"){
 		$count = count($quotes)-1; $rand = rand(0,$count);
@@ -334,25 +331,29 @@ if(empty($output)){
 		$xml = simplexml_load_file($cache);
 		
 		// print it out
-		$name = $xml->result->name;
-		$race = $xml->result->race;
-		$bloodline = $xml->result->bloodLine;
-		$gender = $xml->result->gender;
-		$corp = $xml->result->corporationName;
-		$clone = $xml->result->cloneSkillPoints;
-		$balance = $xml->result->balance;
-		output('<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
+		print $prompt.
+			'<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'.
-			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
-			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
-			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
-			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
-			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
-			'</table>');
+			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>';
+		if(!empty($xml->result->name)) {
+			$name = $xml->result->name;
+			$race = $xml->result->race;
+			$bloodline = $xml->result->bloodLine;
+			$gender = $xml->result->gender;
+			$corp = $xml->result->corporationName;
+			$clone = $xml->result->cloneSkillPoints;
+			$balance = $xml->result->balance;
+			print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
+				'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
+				'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
+				'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
+				'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
+				'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
+				'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+				'</table>';
+		}
+		$output = 1;
 	}
 	// game wow 
 	if($command == "game" && !empty($option) && $option == "wow"){
