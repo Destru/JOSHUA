@@ -9,10 +9,10 @@ $joshua = "<b>JOSHUA:</b> ";
 unset($output);
 
 // functions
-function error($id, $message=null){
+function error($id, $inline=null){
 	global $error, $command, $prompt, $joshua;
-	if($id == 'custom') $error[$id] = $message;
-	print $prompt.'<p class="error">'.$joshua.$error[$id].'</p>';
+	if(!$inline) print $prompt;
+	print '<p class="error">'.$joshua.$error[$id].'</p>';
 	die();
 }
 function output($response){
@@ -21,7 +21,7 @@ function output($response){
 	else print $prompt.'<p>'.$response.'</p>';
 	$output = 1;
 }
-function get($url, $cache=null){
+function get($url, $cache=null, $inline=null){
 	global $dev;
 	$timeout = 10;
 	$secondsBeforeUpdate = 60;
@@ -40,22 +40,42 @@ function get($url, $cache=null){
 					fwrite($handle, $urlData);
 					fclose($handle);
 				}
-				else error('empty');
+				else {
+					if($inline) error('empty', 1);
+					else error('empty');
+				}
 				curl_close($ch);
 			}
 		}
 		else {
-				$ch = curl_init();
-				curl_setopt ($ch, CURLOPT_URL, $url);
-				curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-				curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
-				$urlData = curl_exec($ch);
-				return $urlData;
-				curl_close($ch);
+			$ch = curl_init();
+			curl_setopt ($ch, CURLOPT_URL, $url);
+			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
+			$urlData = curl_exec($ch);
+			return $urlData;
+			curl_close($ch);
 		}
 	}
 	else {
 		if(empty($cache)) error('noreturn');
+	}
+}
+function loader($file, $inline=null){
+	global $dev;
+	if(!$dev){
+		$ext = pathinfo($file, PATHINFO_EXTENSION);
+		if($ext == "xml"){
+			if(simplexml_load_file($file) && filesize($file) > 350) return simplexml_load_file($file);
+			else {
+				if($inline) error('invalidxml', 1);
+				else error('invalidxml');
+			}
+		}
+	}
+	else {
+		if($inline) error('localcache', 1);
+		else error('localcache');
 	}
 }
 function microtimer($timestamp){
@@ -65,8 +85,8 @@ function dbFile($filename){
 	$file = file($filename);
 	$data = array();
 	foreach ($file as $lineNum => $line){
-	if(!empty($line))
-		$data[$lineNum] = explode('^', trim($line));
+		if(!empty($line))
+			$data[$lineNum] = explode('^', trim($line));
 		else return false;
 	}
 	return $data;
@@ -84,7 +104,9 @@ $error = array(
 	'strshort' => 'Input has failed to meet <b>'.$command.'</b> minimum length.',
 	'auth' => 'You are not authorized to issue that command.',
 	'timeout' => 'Request timed out. Please try again later.',
-	'empty' => 'Request returned nothing. Dead API?'
+	'empty' => 'API did not respond.',
+	'invalidxml' => 'API returned malformed XML.',
+	'localcache' => 'Local cache does not exist.'
 );
 
 // security
@@ -99,7 +121,7 @@ if(!empty($command)){
 		}
 	}
 	else {
-		$prompt = '<div class="prompt">error</div>';
+		$prompt = '<div class="prompt"></div>';
 		error('blocked');
 	}
 }
@@ -135,7 +157,8 @@ if(empty($output)){
 		else {
 			$quote = $array[$rand];
 			if($command == "bash") $quote = '<div class="pre">'.$quote.'</div>';
-			output($quote);		}
+			output($quote);
+		}
 	}
 	// uptime and date
 	if($command == "uptime" || $command == "date"){
@@ -295,7 +318,7 @@ if(empty($output)){
 		$url = "http://feeds.feedburner.com/fmylife?format=xml";
 		$cache = "fml.xml";
 		get($url, $cache);
-		$xml = simplexml_load_file($cache);
+		$xml = loader($cache);
 		output($xml->entry[rand(0,9)]->content);
 	}
 	// game ao
@@ -303,92 +326,81 @@ if(empty($output)){
 		$char = 'binaerpilot';
 		$url = 'http://people.anarchy-online.com/character/bio/d/1/name/'.$char.'/bio.xml';
 		$cache = 'ao.xml';
-		get($url, $cache);
-		$xml = simplexml_load_file($cache);
-
-		$name = $xml->name->firstname.' '.$xml->name->lastname;
-		output('<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
+		print $prompt.'<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
 			The sheer size and complexity of the game was unparallalled at the time and I quickly found myself completely immersed in it.
 			<a href="misc/aoscripts.rar">Download some scripts</a> or listen to <a href="misc/doktor_dreiebenk_-_the_doctor_is_in.mp3">this little rap song</a>.
 			Both more than indicative of my former Rubi-ka addiction.
 			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
-			</p>'.
-			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoBinaerpilot.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->nick.'</a></td></tr>'.
+			</p>';
+		get($url, $cache, 1);
+		$xml = loader($cache, 1);
+		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoBinaerpilot.png\');width:100px;height:100px;"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->firstname.' "'.$xml->name->nick.'" '.$xml->name->lastname.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
-			'</table>');
+			'</table>';
+		$output = 1;
 	}
 	// game eve
 	if($command == "game" && !empty($option) && $option == "eve"){
 		$charid = '1761654327';
 		$url = 'http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=3292896&apiKey=2F975C46AD0E4944B92A1593424E96473C8D729993DF46D0BABB4EA1C2C4E88B&characterID='.$charid;
 		$cache = 'eve.xml';
-		get($url, $cache);
-		$xml = simplexml_load_file($cache);
-		
-		// print it out
-		print $prompt.
-			'<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
+		print $prompt.'<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
 			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>';
-		if(!empty($xml->result->name)) {
-			$name = $xml->result->name;
-			$race = $xml->result->race;
-			$bloodline = $xml->result->bloodLine;
-			$gender = $xml->result->gender;
-			$corp = $xml->result->corporationName;
-			$clone = $xml->result->cloneSkillPoints;
-			$balance = $xml->result->balance;
-			print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
-				'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
-				'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
-				'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
-				'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
-				'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
-				'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
-				'</table>';
-		}
+		get($url, $cache, 1);
+		$xml = loader($cache, 1);
+		$name = $xml->result->name;
+		$race = $xml->result->race;
+		$bloodline = $xml->result->bloodLine;
+		$gender = $xml->result->gender;
+		$corp = $xml->result->corporationName;
+		$clone = $xml->result->cloneSkillPoints;
+		$balance = $xml->result->balance;
+		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
+			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
+			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
+			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
+			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+			'</table>';
 		$output = 1;
 	}
 	// game wow 
 	if($command == "game" && !empty($option) && $option == "wow"){
-		$realm = "Skullcrusher"; $character = "Fenrisúlfr";
+		$realm = "Skullcrusher";
+		$character = "Fenrisúlfr";
 		$url = 'http://eu.battle.net/wow?r='.$realm.'&n='.$character.'&rhtml=n&locale=en_US';
-		$url_custom = 'http://eu.battle.net/wow?r='.$realm.'&cn='.$character.'&rhtml=n&locale=en_US';
 		$wowhead = 'http://www.wowhead.com/user=Destru#characters';
-		$cache = 'wow.xml'; $cache_custom = 'wow.custom.xml';
-		get($url, $cache);
-		get($url_custom,  $cache_custom);
-		$xml = simplexml_load_file($cache);
-		$xml_custom = simplexml_load_file($cache_custom);
-		
-		if(filesize($cache) > 2000){
-			$name = $xml->characterInfo->character->attributes()->name;
-			$class = $xml->characterInfo->character->attributes()->class;
-			$level = $xml->characterInfo->character->attributes()->level;
-			$points = $xml->characterInfo->character->attributes()->points;
-			$faction= $xml->characterInfo->character->attributes()->faction;
-			$updated = $xml->characterInfo->character->attributes()->lastModified;
-			$spec = $xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->prim;
-			$specDetails =  $xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeOne.'/'.
-				$xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeTwo.'/'.
-				$xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeThree;
-			$altSpec = $xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->prim;	
-			$altSpecDetails  = $xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeOne.'/'.
-				$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeTwo.'/'.
-				$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeThree;
-			$kills = $xml->characterInfo->characterTab->pvp->lifetimehonorablekills->attributes()->value;
-			$events = '';
-			for ($i = 0; $i < 5; $i++){
-				$event = $xml_custom->entry[$i]->content;
-				if(!empty($event)) $events .= $event.'<br>';
-			}
-			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/wowFenris.png\');width:100px;height:100px;"></div></td></tr>'.
+		$cache = 'wow.xml';
+		print $prompt.'<p><b>World of Warcraft</b> has been a <a href="'.$wowhead.'">guilty pleasure</a> of mine on and off for years. '.
+			'So far I\'ve played a coulple characters to end-game and messed around with more PvP alts than I can remember. '.
+			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed. '.
+			'For the Horde!</p>';
+		get($url, $cache, 1);
+		$xml = loader($cache, 1);
+		$name = $xml->characterInfo->character->attributes()->name;
+		$class = $xml->characterInfo->character->attributes()->class;
+		$level = $xml->characterInfo->character->attributes()->level;
+		$points = $xml->characterInfo->character->attributes()->points;
+		$faction= $xml->characterInfo->character->attributes()->faction;
+		$updated = $xml->characterInfo->character->attributes()->lastModified;
+		$kills = $xml->characterInfo->characterTab->pvp->lifetimehonorablekills->attributes()->value;
+		$spec = $xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->prim;
+		$specDetails =  $xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeOne.'/'.
+			$xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeTwo.'/'.
+			$xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeThree;
+		$altSpec = $xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->prim;	
+		$altSpecDetails  = $xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeOne.'/'.
+			$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeTwo.'/'.
+			$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeThree;
+		print '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/wowFenris.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
 			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
@@ -396,33 +408,25 @@ if(empty($output)){
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
-			if(filesize($cache_custom) > 2000) $details .= '<div class="pre dark">'.$events.'</div>';
-		}
-		else {
-			$details = '<p><a class="external" href="'.$wowhead.'">View my Wowhead profile.</a></p>';
-		}
+		$output = 1;
 
-		output('<p><b>World of Warcraft</b> has been a guilty pleasure of mine on and off for years. '.
-			'So far I\'ve played three characters to end-game and messed around with more PvP alts than I can remember. '.
-			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed. '.
-			'For the Horde!</p>'.$details);
 	}
 	// game sto
 	if($command == "game" && !empty($option) && $option == "sto"){
 		$charid = '918798';
 		$url = 'http://www.startrekonline.com/character_profiles/'.$charid.'/xml';
 		$cache = 'sto.xml';
-		// get($url, $cache);
-		$xml = simplexml_load_file($cache);
-		
-		$character = '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/sto.png\');width:100px;height:100px"></div></td></tr>'.
+		print $prompt.'<p>I didn\'t play <b>Star Trek Online</b> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game didn\'t grip me.</p>';
+		get($url, $cache, 1);
+		$xml = loader($cache, 1);
+		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/sto.png\');width:100px;height:100px"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$xml->cdata->name.'@'.$xml->cdata->display_name.'</a></td></tr>'.
 			'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $xml->cdata->class).'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$xml->cdata->rank.' ('.$xml->cdata->level.')</td></tr>'.
 			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
 			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr></table>';
-		output('<p>I didn\'t play <b>Star Trek Online</b> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game didn\'t grip me.</p>'.$character);
+		$output = 1;
 	}
 	// xbox
 	if($command == "xbox"){
@@ -430,34 +434,28 @@ if(empty($output)){
 		$url = 'http://xboxapi.duncanmackenzie.net/gamertag.ashx?GamerTag='.$charid;
 		$cache = 'xbox.xml';
 		get($url, $cache);
-		$xml = simplexml_load_file($cache);
-		// print it out
-		if($xml->AccountStatus && $xml->AccountStatus != "Unknown"){
-			$name = $xml->Gamertag;
-			$reputation = $xml->Reputation;
-			$score = $xml->GamerScore;
-			$status = $xml->PresenceInfo->StatusText;
-			$info = $xml->PresenceInfo->Info;
-			$moreInfo = $xml->PresenceInfo->Info2;
-			if(strlen($moreInfo) > 1) $info = $info.' ('.$moreInfo.')';
-			$games = '';
-			for ($i = 0; $i < 3; $i++){
-				$game = $xml->RecentGames->XboxUserGameInfo[$i]->Game->Name;
-				$gameScore = $xml->RecentGames->XboxUserGameInfo[$i]->GamerScore;
-				$gameDetails = $xml->RecentGames->XboxUserGameInfo[$i]->DetailsURL;
-				$games .= $game.' ('.$gameScore.')';
-				if($i != 2) $games .= ', ';
-			}
-			output('<table class="fluid"><tr><td rowspan="6"><div class="image" style="background-image:url(\'http://avatar.xboxlive.com/avatar/'.$charid.'/avatarpic-l.png\');width:64px;height:64px;"></div></td></tr>'.
-				'<tr><td class="dark">Gamertag</td><td><a href="http://live.xbox.com/member/'.$charid.'">'.$name.'</a> ('.$status.')</td></tr>'.
-				'<tr><td class="dark">Activity</td><td>'.$info.'</td></tr>'.
-				'<tr><td class="dark">Recent</td><td>'.$games.'</td></tr>'.
-				'<tr><td class="dark">Reputation</td><td>'.$reputation.'%</td></tr>'.
-				'<tr><td class="dark">Gamerscore</td><td>'.$score.'</td></tr></table>');
+		loader($cache);
+		$name = $xml->Gamertag;
+		$reputation = $xml->Reputation;
+		$score = $xml->GamerScore;
+		$status = $xml->PresenceInfo->StatusText;
+		$info = $xml->PresenceInfo->Info;
+		$moreInfo = $xml->PresenceInfo->Info2;
+		if(strlen($moreInfo) > 1) $info = $info.' ('.$moreInfo.')';
+		$games = '';
+		for ($i = 0; $i < 3; $i++){
+			$game = $xml->RecentGames->XboxUserGameInfo[$i]->Game->Name;
+			$gameScore = $xml->RecentGames->XboxUserGameInfo[$i]->GamerScore;
+			$gameDetails = $xml->RecentGames->XboxUserGameInfo[$i]->DetailsURL;
+			$games .= $game.' ('.$gameScore.')';
+			if($i != 2) $games .= ', ';
 		}
-		else {
-			error('custom', 'Failed to retrieve data from Xbox Live.');
-		}
+		output('<table class="fluid"><tr><td rowspan="6"><div class="image" style="background-image:url(\'http://avatar.xboxlive.com/avatar/'.$charid.'/avatarpic-l.png\');width:64px;height:64px;"></div></td></tr>'.
+			'<tr><td class="dark">Gamertag</td><td><a href="http://live.xbox.com/member/'.$charid.'">'.$name.'</a> ('.$status.')</td></tr>'.
+			'<tr><td class="dark">Activity</td><td>'.$info.'</td></tr>'.
+			'<tr><td class="dark">Recent</td><td>'.$games.'</td></tr>'.
+			'<tr><td class="dark">Reputation</td><td>'.$reputation.'%</td></tr>'.
+			'<tr><td class="dark">Gamerscore</td><td>'.$score.'</td></tr></table>');
 	}
 	// games
 	if($command == "game" || $command == "games"){
@@ -482,14 +480,13 @@ if(empty($output)){
 	}
 	// lastfm
 	if($command == "last.fm" || $command == "lastfm"){
+		print $prompt.'<p>';
 		if(!empty($option) && $option == "loved"){
 			// loved tracks
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
-			$count = 8; $cache = 'lastfm.loved.xml';
-			get($url, $cache);
-			// print it out
-			$xml = simplexml_load_file($cache);
-			print '<div class="prompt">last.fm <strong>loved</strong></div><p>';
+			$count = 10; $cache = 'lastfm.loved.xml';
+			get($url, $cache, 1);
+			$xml = loader($cache, 1);
 			for ($i = 0; $i < $count; $i++){
 				$track = $xml->lovedtracks->track[$i]->name;
 				$artist = $xml->lovedtracks->track[$i]->artist->name;
@@ -499,11 +496,9 @@ if(empty($output)){
 		else {
 			// recent tracks
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
-			$count = 8; $cache = 'lastfm.xml';
-			get($url, $cache);
-			// print it out
-			$xml = simplexml_load_file($cache);
-			print '<div class="prompt">last.fm <strong>recent</strong></div><p>';
+			$count = 10; $cache = 'lastfm.xml';
+			get($url, $cache, 1);
+			$xml = loader($cache, 1);
 			for ($i = 0; $i < $count; $i++){
 				$track = $xml->recenttracks->track[$i]->name;
 				$artist =$xml->recenttracks->track[$i]->artist;
