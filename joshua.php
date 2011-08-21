@@ -40,7 +40,7 @@ function get($url, $cache=null){
 					fwrite($handle, $urlData);
 					fclose($handle);
 				}
-				else error('timeout');
+				else error('empty');
 				curl_close($ch);
 			}
 		}
@@ -74,7 +74,7 @@ function dbFile($filename){
 
 // errors	
 $error = array(
-	'404' => 'No such key found',
+	'404' => 'Invalid option.',
 	'invalid' => 'The command <b>'.$command.'</b> is invalid.',
 	'blocked' => 'Input did not pass security.',
 	'notip' => 'Not a valid IP address.',
@@ -83,7 +83,8 @@ $error = array(
 	'strlong' => 'Input is over the <b>'.$command.'</b> limit.',
 	'strshort' => 'Input has failed to meet <b>'.$command.'</b> minimum length.',
 	'auth' => 'You are not authorized to issue that command.',
-	'timeout' => 'Request timed out. Please try again later.'
+	'timeout' => 'Request timed out. Please try again later.',
+	'empty' => 'Request returned nothing. Dead API?'
 );
 
 // security
@@ -103,16 +104,18 @@ if(!empty($command)){
 	}
 }
 
+// output
 if(empty($output)){
 	include('brain.php');
-	// portfolio
-	if($command == "portfolio"){
-	  output('For practical applications of my skillset see the Manual portfolio.<br/> <a class="external" href="//manualdesign.no">Manual design portfolio.</a>');
-	}
 	// motd 
 	if($command == "motd"){
 		$count = count($quotes)-1; $rand = rand(0,$count);
-		print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
+		if(!empty($option) && $option == "clean"){
+			print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
+		}
+		else {
+			output($quotes[$rand]);
+		}
 	}
 	// quotes, pearls, bash
 	if($command == "quote" || $command == "bash" || $command == "pearl"){
@@ -285,7 +288,7 @@ if(empty($output)){
 			$count = count($yoda)-1; $rand = rand(0,$count);
 			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel; $output = 1;
 		}
-		else output('<p class="chat">Ask a question you must.</p>'.$yodaPixel);
+		else output('<p class="speechBubble">Ask a question you must.</p>'.$yodaPixel);
 	}
 	// fml
 	if($command == "fml"){
@@ -297,7 +300,7 @@ if(empty($output)){
 	}
 	// game ao
 	if($command == "game" && !empty($option) && $option == "ao"){
-		$char = 'quickhack';
+		$char = 'binaerpilot';
 		$url = 'http://people.anarchy-online.com/character/bio/d/1/name/'.$char.'/bio.xml';
 		$cache = 'ao.xml';
 		get($url, $cache);
@@ -310,7 +313,7 @@ if(empty($output)){
 			Both more than indicative of my former Rubi-ka addiction.
 			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
 			</p>'.
-			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoQuickhack.png\');width:100px;height:100px;"></div></td></tr>'.
+			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoBinaerpilot.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->nick.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
@@ -328,31 +331,35 @@ if(empty($output)){
 		$xml = simplexml_load_file($cache);
 		
 		// print it out
-		$name = $xml->result->name;
-		$race = $xml->result->race;
-		$bloodline = $xml->result->bloodLine;
-		$gender = $xml->result->gender;
-		$corp = $xml->result->corporationName;
-		$clone = $xml->result->cloneSkillPoints;
-		$balance = $xml->result->balance;
-		output('<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
+		print $prompt.
+			'<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'.
-			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
-			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
-			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
-			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
-			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
-			'</table>');
+			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>';
+		if(!empty($xml->result->name)) {
+			$name = $xml->result->name;
+			$race = $xml->result->race;
+			$bloodline = $xml->result->bloodLine;
+			$gender = $xml->result->gender;
+			$corp = $xml->result->corporationName;
+			$clone = $xml->result->cloneSkillPoints;
+			$balance = $xml->result->balance;
+			print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
+				'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
+				'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
+				'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
+				'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
+				'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
+				'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+				'</table>';
+		}
+		$output = 1;
 	}
 	// game wow 
 	if($command == "game" && !empty($option) && $option == "wow"){
 		$realm = "Skullcrusher"; $character = "Fenrisúlfr";
-		$url = 'http://eu.wowarmory.com/character-sheet.xml?r='.$realm.'&n='.$character.'&rhtml=n';
-		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US';
+		$url = 'http://eu.battle.net/wow?r='.$realm.'&n='.$character.'&rhtml=n&locale=en_US';
+		$url_custom = 'http://eu.battle.net/wow?r='.$realm.'&cn='.$character.'&rhtml=n&locale=en_US';
 		$wowhead = 'http://www.wowhead.com/user=Destru#characters';
 		$cache = 'wow.xml'; $cache_custom = 'wow.custom.xml';
 		get($url, $cache);
@@ -381,11 +388,11 @@ if(empty($output)){
 				$event = $xml_custom->entry[$i]->content;
 				if(!empty($event)) $events .= $event.'<br>';
 			}
-			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
+			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/wowFenris.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
-			'<tr><td class="dark">PvE</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
-			'<tr><td class="dark">PvP</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
+			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
+			'<tr><td class="dark">Secondary</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';

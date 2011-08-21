@@ -10,5 +10,5 @@
 	"if(!full(battery)) { charge(battery); } else { for(i = 0; i < 4; i++) { var we = \"the robots\"; } }",
 	"Anti-cool is an oxymoron.",
 	"My dick shake brings all the boys to the yard. They're like: \"It's bigger than ours!\" Damn right, it's bigger than yours. I could beat you, with my dick so large.",
-	"Everyone who went on to do something great didn't have it easy in school."
+	"Most people who do great things didn't have it easy in school."
 ); ?>

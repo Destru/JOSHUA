@@ -8,14 +8,15 @@
 	// mobile placeholder
 	if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) header('Location: http://binaerpilot.no/alexander/mobile/'); // redirect
 ?>
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <!--
 	Why are you listening to this song backwards?
 	You could have been on a date with a girl.
  -->
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="robots" content="index,follow,noarchive">
 	<meta name="language" content="en">
 	<title>JOSHUA (jQuery Operating System, HUA!)</title>
@@ -59,14 +60,14 @@
 	<div id="games"><?php foreach ($game as $file) include $file; ?></div>
 	<!-- analytics -->
 	<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-		try {
-		var pageTracker = _gat._getTracker("UA-139019-4");
-		pageTracker._trackPageview();
-		} catch(err) {}
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-139019-4']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
 	</script>
 </body>
 </html>
