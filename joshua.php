@@ -105,6 +105,10 @@ if(!empty($command)){
 
 if(empty($output)){
 	include('brain.php');
+	// portfolio
+	if($command == "portfolio"){
+	  output('For practical applications of my skillset see the Manual portfolio.<br/> <a class="external" href="//manualdesign.no">Manual design portfolio.</a>');
+	}
 	// motd 
 	if($command == "motd"){
 		$count = count($quotes)-1; $rand = rand(0,$count);
@@ -341,7 +345,7 @@ if(empty($output)){
 			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
 			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
 			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
 			'</table>');
 	}
 	// game wow 

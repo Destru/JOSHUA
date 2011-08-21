@@ -42,7 +42,7 @@ $static = array(
 	<tr><td class="command">gallery</td>
 		<td>Random moments in time and space</td></tr>
 	<tr><td class="command">music</td>
-		<td>Listen to my music with the Bleep MP3 player</td></tr>
+		<td>Listen to some of my music</td></tr>
 	<tr>
 		<td class="command">prime <span class="dark">number</span></td>
 		<td>Checks if number is prime</td>
@@ -106,7 +106,7 @@ $static = array(
 			<td>Mostly CPU enhancements and visual tweaks (motivated by your feedback: thanks!). Started working on my first game; An awesome fantastic sidescroller called Superplastic (open development). Added <span class="command">tip</span> and the usual bunch of hiddens.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.3</td>
-			<td>Joshua will now remember what windows you have open and input history (finally got around to it). Music was asked for, say hi to <span class="command">bleep</span>, the tiny music player.</td>
+			<td>Joshua will now remember what windows you have open and input history (finally got around to it). <span class="command">Music</span> was asked for so I made a tiny MP3 player.</td>
 		</tr>
 		<tr><td class="command fixed-width">5.4</td>
 			<td>Window positions are now stored and there\'s new effects (spin, translucent and pulsar). Otherwise strictly a maintenance release.</td>
@@ -177,6 +177,10 @@ $static = array(
 		<tr>
 			<td class="command fixed-width">8.2</td>
 			<td>HTML5 and content update. Tron default theme.</td>
+		</tr>
+		<tr>
+			<td class="command fixed-width">8.3</td>
+			<td>External links cleanup, content updates, pirate default theme and other miscellaneous updates.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
@@ -332,7 +336,7 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://lucasbaltes.com/">Lucas Baltes</a> for his Figlet PHP class.
 		<a href="http://bananarenders.com/">Bananarenders</a> for the original TR2N background.
 	</p>
-	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade <a href="images/background-konami.png" class="view">Contra logo</a>. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
+	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
 'porn' =>'<pre>Perfect Breasts             <span class="pink">(o)(o)</span>
 Fake Silicone Breasts       <span class="pink">( + )( + )</span>
