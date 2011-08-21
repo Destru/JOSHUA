@@ -40,7 +40,7 @@ function get($url, $cache=null){
 					fwrite($handle, $urlData);
 					fclose($handle);
 				}
-				else error('timeout');
+				else error('empty');
 				curl_close($ch);
 			}
 		}
@@ -83,7 +83,8 @@ $error = array(
 	'strlong' => 'Input is over the <b>'.$command.'</b> limit.',
 	'strshort' => 'Input has failed to meet <b>'.$command.'</b> minimum length.',
 	'auth' => 'You are not authorized to issue that command.',
-	'timeout' => 'Request timed out. Please try again later.'
+	'timeout' => 'Request timed out. Please try again later.',
+	'empty' => 'Request returned nothing. Malformed or abandoned API.'
 );
 
 // security
@@ -107,12 +108,17 @@ if(empty($output)){
 	include('brain.php');
 	// portfolio
 	if($command == "portfolio"){
-	  output('For practical applications of my skillset see the Manual portfolio.<br/> <a class="external" href="//manualdesign.no">Manual design portfolio.</a>');
+	  output('For practical applications of my skillset see the Manual portfolio.<br/> <a class="external" href="http://manualdesign.no">Manual design portfolio.</a>');
 	}
 	// motd 
 	if($command == "motd"){
 		$count = count($quotes)-1; $rand = rand(0,$count);
-		print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
+		if(!empty($option) && $option == "clean"){
+			print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
+		}
+		else {
+			output($quotes[$rand]);
+		}
 	}
 	// quotes, pearls, bash
 	if($command == "quote" || $command == "bash" || $command == "pearl"){
@@ -351,8 +357,8 @@ if(empty($output)){
 	// game wow 
 	if($command == "game" && !empty($option) && $option == "wow"){
 		$realm = "Skullcrusher"; $character = "Fenrisúlfr";
-		$url = 'http://eu.wowarmory.com/character-sheet.xml?r='.$realm.'&n='.$character.'&rhtml=n';
-		$url_custom = 'http://eu.wowarmory.com/character-feed.atom?r='.$realm.'&cn='.$character.'&locale=en_US';
+		$url = 'http://eu.battle.net/wow?r='.$realm.'&n='.$character.'&rhtml=n&locale=en_US';
+		$url_custom = 'http://eu.battle.net/wow?r='.$realm.'&cn='.$character.'&rhtml=n&locale=en_US';
 		$wowhead = 'http://www.wowhead.com/user=Destru#characters';
 		$cache = 'wow.xml'; $cache_custom = 'wow.custom.xml';
 		get($url, $cache);
@@ -381,7 +387,7 @@ if(empty($output)){
 				$event = $xml_custom->entry[$i]->content;
 				if(!empty($event)) $events .= $event.'<br>';
 			}
-			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
+			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/wowFenris.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
 			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.

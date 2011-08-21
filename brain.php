@@ -180,7 +180,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">8.3</td>
-			<td>External links cleanup, content updates, pirate default theme and other miscellaneous updates.</td>
+			<td>External links cleanup, content updates and Pirate\'d.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',

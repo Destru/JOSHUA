@@ -409,7 +409,9 @@ function chromeMagic(){
 	}
 	else if(theme == "helvetica" || theme == "pirate"){
 		terminal = true;
-		if(theme == "pirate") $('#joshua h1').remove();
+		if(theme == "pirate") {
+			$('#joshua h1').html('<b>JOSHUARRR!</b> <span class="dark">Pirate Edition</span>');
+		}
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+prompt+'</div>');
 		$('#desktop #links').remove();
@@ -418,7 +420,7 @@ function chromeMagic(){
 	else if(theme == "lcars"){
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = 242;
+		var lcarsChrome = 208;
 		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
@@ -483,7 +485,7 @@ function boot(){
 	});
 	// ready prompt
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
-	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd"}, function(){
+	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd", option: "clean"}, function(){
 		motd.appendTo('#output');
 		init('boot'); // initialize
 	});
