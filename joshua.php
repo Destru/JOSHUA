@@ -648,9 +648,9 @@ if(empty($output)){
 			}
 			if(stristr($file, '.css')) $themes = $themes+1;
 		}
-		$messages = count(explode("\n", file_get_contents('msg.data')));
-		$scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
-		$commands = count($static)+20;
+		if(file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
+		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
+		$commands = count($static)+35; // guesstimate
 		$quotes = count($motd)+count($bash)+count($pearls);
 		$stats = 
 			'<table class="stats">'.

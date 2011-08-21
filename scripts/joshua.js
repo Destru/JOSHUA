@@ -384,7 +384,7 @@ function chromeMagic(){
 			else if(team == "orange"){ color = colors[5]; }
 			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'#desktop li a:hover, h1 .dark, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #input, .example, .tiny div.tron {color:#'+color+'; border-color:#'+color+'}'+
+				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #input, .example, .tiny div.tron {color:#'+color+'; border-color:#'+color+'}'+
 				'#desktop li a.active {color:#'+color+'}'+
 				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
@@ -450,6 +450,7 @@ function boot(){
 	if(version > versionCheck){
 		$('title').html(title+'Upgrading...');
 		eraseCookie('background');
+		eraseCookie('desktop');
 		eraseCookie('config');
 		eraseCookie('superplastic');
 		eraseCookie('music');
@@ -459,7 +460,10 @@ function boot(){
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
-		createCookie('theme', 'pirate', expires); // set default theme
+		createCookie('theme', 'tron', expires); // set default theme
+		createCookie('desktop', 'true', expires);
+		createCookie('music', 'true', expires);
+		createCookie('tron.team', 'pink', expires);
 		createCookie('release', version, expires);
 		location.reload();
 	}
