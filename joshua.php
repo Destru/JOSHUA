@@ -74,7 +74,7 @@ function dbFile($filename){
 
 // errors	
 $error = array(
-	'404' => 'No such key found',
+	'404' => 'Invalid option.',
 	'invalid' => 'The command <b>'.$command.'</b> is invalid.',
 	'blocked' => 'Input did not pass security.',
 	'notip' => 'Not a valid IP address.',
@@ -293,7 +293,7 @@ if(empty($output)){
 	}
 	// game ao
 	if($command == "game" && !empty($option) && $option == "ao"){
-		$char = 'quickhack';
+		$char = 'binaerpilot';
 		$url = 'http://people.anarchy-online.com/character/bio/d/1/name/'.$char.'/bio.xml';
 		$cache = 'ao.xml';
 		get($url, $cache);
@@ -306,7 +306,7 @@ if(empty($output)){
 			Both more than indicative of my former Rubi-ka addiction.
 			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
 			</p>'.
-			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoQuickhack.png\');width:100px;height:100px;"></div></td></tr>'.
+			'<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoBinaerpilot.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->nick.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
@@ -380,8 +380,8 @@ if(empty($output)){
 			$details = '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/fenris.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
-			'<tr><td class="dark">PvE</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
-			'<tr><td class="dark">PvP</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
+			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
+			'<tr><td class="dark">Secondary</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
 			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
