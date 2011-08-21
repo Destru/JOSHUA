@@ -182,6 +182,10 @@ $static = array(
 			<td class="command fixed-width">8.3</td>
 			<td>External links cleanup, content updates and Pirate\'d.</td>
 		</tr>
+		<tr>
+			<td class="command fixed-width">8.4</td>
+			<td>MMO API\'s are teh suck. Failsafes for clean installs. I can <span class="command">sudo</span>.</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 

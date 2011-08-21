@@ -1,4 +1,5 @@
 <?php // joshua engine <alexander@binaerpilot.no>
+session_start(); // sudo commands
 if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1" ) $dev = 1; // development mode set
 if(!empty($_POST['command'])) $command = strip_tags(trim($_POST['command']));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
@@ -62,8 +63,7 @@ function get($url, $cache=null, $inline=null){
 	}
 }
 function loader($file, $inline=null){
-	global $dev;
-	if(!$dev){
+	if(file_exists($file)){
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
 		if($ext == "xml"){
 			if(simplexml_load_file($file) && filesize($file) > 350) return simplexml_load_file($file);
@@ -81,15 +81,18 @@ function loader($file, $inline=null){
 function microtimer($timestamp){
 	return round(microtime(true)-$timestamp, 5);
 }
-function dbFile($filename){
-	$file = file($filename);
-	$data = array();
-	foreach ($file as $lineNum => $line){
-		if(!empty($line))
-			$data[$lineNum] = explode('^', trim($line));
-		else return false;
+function dbFile($file){
+	if(file_exists($file)){
+		$file = file($file);
+		$data = array();
+		foreach ($file as $lineNum => $line){
+			if(!empty($line))
+				$data[$lineNum] = explode('^', trim($line));
+			else return false;
+		}
+		return $data;		
 	}
-	return $data;
+	else error('localcache');
 }
 
 // errors	
@@ -106,7 +109,8 @@ $error = array(
 	'timeout' => 'Request timed out. Please try again later.',
 	'empty' => 'API did not respond.',
 	'invalidxml' => 'API returned malformed XML.',
-	'localcache' => 'Local cache does not exist.'
+	'localcache' => 'Local cache does not exist.',
+	'password' => 'Incorrect password.'
 );
 
 // security
@@ -131,18 +135,17 @@ if(empty($output)){
 	include('brain.php');
 	// motd 
 	if($command == "motd"){
-		$count = count($quotes)-1; $rand = rand(0,$count);
-		if(!empty($option) && $option == "clean"){
-			print '<p class="dark motd">'.$quotes[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
+		$count = count($motd)-1; $rand = rand(0,$count);
+		if(isset($option) && $option == "clean"){
+			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
 		}
 		else {
-			output($quotes[$rand]);
+			output($motd[$rand]);
 		}
 	}
 	// quotes, pearls, bash
-	if($command == "quote" || $command == "bash" || $command == "pearl"){
+	if($command == "bash" || $command == "pearl"){
 		if($command == "bash") $array = $bash;
-		elseif($command == "quote") $array = $quotes;
 		elseif($command == "pearl") $array = $pearls;
 		$count = count($array)-1; $rand = rand(0,$count);
 		if(!empty($option) && $option == "all"){
@@ -218,25 +221,27 @@ if(empty($output)){
 	}
 	// sudo
 	if($command == "sudo"){
-		if(empty($option)){
-			if(empty($_SESSION['sudo'])) error('auth');
-			else output('<p class="joshua">'.$joshua.'You\'re already authenticated.');
-		}
-		else if(!empty($option)){
-			if($option == "joshua"){
-				$_SESSION['sudo'] = "true";
-				output('<p class="joshua">'.$joshua.'Authentification successful.</p><p>Welcome back, Alexander. What do you want to do today?</p>');
+		if(empty($option)) error('password');
+		else {
+			if($option == "iddqd"){
+				$_SESSION['sudo'] = 1;
+				output('<p class="joshua">'.$joshua.'Authentification successful.</p>');
 			}
 			else {
 				unset($_SESSION['sudo']);
-				output('<p class="error">'.$joshua.'Incorrect password.</p>');
+				error('password');
 			}
 		}
 	}
-	// todo
+	// *nix commands for lulz
 	if($command == "ls" || $command == "cd" || $command == "top" || $command == "rm" || $command == "top" || $command == "who"){
-		if(!empty($_SESSION['sudo'])){
-			output('Make these work.');
+		if(isset($_SESSION['sudo'])){
+			if($command == "ls") $return = shell_exec("ls");
+			elseif($command == "who") $return = shell_exec("who");
+			if(isset($return) && !empty($return)){
+				output('<pre>'.$return.'</pre>');
+			}
+			else error('noreturn');		
 		}
 		else error('auth');
 	}
@@ -275,6 +280,7 @@ if(empty($output)){
 				if($message != "list" && $message != "all"){
 					if($length < 8) error('strshort');
 					$timestamp = date("d/m/y");
+					if(!file_exists($storage)) touch($storage);
 					$fp = fopen($storage, 'a');
 					fwrite($fp, $timestamp.'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
 					fclose($fp);
@@ -588,6 +594,7 @@ if(empty($output)){
 		if(!empty($_POST['score'])) $score = strip_tags(trim($_POST['score']));
 		$storage = "superplastic.data";
 		if(!empty($name) && !empty($score)){
+			if(!file_exists($storage)) touch($storage);
 			$fp = fopen($storage, 'a');
 			fwrite($fp, $score.'^'.$name."\n");
 			fclose($fp);
@@ -644,7 +651,7 @@ if(empty($output)){
 		$messages = count(explode("\n", file_get_contents('msg.data')));
 		$scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
 		$commands = count($static)+20;
-		$quotes = count($quotes)+count($bash)+count($pearls);
+		$quotes = count($motd)+count($bash)+count($pearls);
 		$stats = 
 			'<table class="stats">'.
 			'<tr><td class="light">Commands</td><td>'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
