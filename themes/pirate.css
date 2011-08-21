@@ -67,9 +67,8 @@ td {
 .example {
 	position:relative;
 	top:-5px;
-	border-left:solid 10px #666;
+	border-left:solid 1px #666;
 	padding-left:10px;
-	line-height:9px;
 }
 .joshua, .error, a {
 	color:#00bff3;

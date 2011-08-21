@@ -291,7 +291,7 @@ if(empty($output)){
 			$count = count($yoda)-1; $rand = rand(0,$count);
 			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel; $output = 1;
 		}
-		else output('<p class="chat">Ask a question you must.</p>'.$yodaPixel);
+		else output('<p class="speechBubble">Ask a question you must.</p>'.$yodaPixel);
 	}
 	// fml
 	if($command == "fml"){

@@ -157,7 +157,7 @@ pre, pre .hl, td.fixed-width, .pre {
 }
 #sliders .frame, .speechBubble, .tiny div, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
 	font-family: "Joshua Normal", Helvetica, Arial;
-	font-size:8px; line-height:8px;
+	font-size:8px; line-height:1.2em;
 	text-transform:uppercase;
 }
 .joshua b, .error b {
