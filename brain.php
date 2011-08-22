@@ -6,172 +6,245 @@ foreach($d as $file) {
 }
 // static information
 $static = array(
-'help' => '<table class="help">
-	<tr><td class="command">about</td>
-		<td>Who, what, when, where?</td></tr>
-	<tr><td class="command">config</td>
-		<td>GUI configuration (themes, backgrounds, effects)</td></tr>
-	<tr><td class="command">superplastic</td>
-		<td>My first attempt at gamedesign; A tiny space shooter!</td></tr>
-	<tr><td class="command">numbers</td>
-		<td>A text-based game where all the answers are numbers</td></tr>
-	<tr><td class="command">msg <span class="dark">message</span></td>
-		<td>Leave me a message (use <span class="dark">msg list</span> to read)</td></tr>
-	<tr><td class="command">wtfig <span class="dark">font</span> <span class="dark">caption</span></td>
-		<td>Do you ASCII? Figlet generator extraordinaire</td></tr>
-	<tr><td class="command">yoda <span class="dark">question</span></td>
-		<td>Answer your questions Yoda will</td></tr>
-	<tr><td class="command">bash / fml</td>
-		<td>Our infinite stupidity as documented through bash and fml</td></tr>
-	<tr><td class="command">last.fm</td>
-		<td>Recent tracks and other Last.FM data</td></tr>
-	<tr><td class="command">get <span class="dark">query</span></td>
-		<td>Search and download torrents</td></tr>
-	<tr><td class="command">game <span class="dark">name</span></td>
-		<td>Favorite games and things I made for them</td></tr>
-	<tr><td class="command">xbox</td>
-		<td>Destru Kaneda, pillager of villages and destroyer of men!</td></tr>
-	<tr><td class="command">locate <span class="dark">ip</span></td>
-		<td>Find out where IP is located</td></tr>
-	<tr><td class="command">whois <span class="dark">domain</span></td>
-		<td>Look up whois information</td></tr>
-	<tr><td class="command">uptime</td>
-		<td>Server uptime and load averages</td></tr>
-	<tr><td class="command">rachael</td>
-		<td>Joshua\'s first command (husband cheat-sheet)</td></tr>
-	<tr><td class="command">gallery</td>
-		<td>Random moments in time and space</td></tr>
-	<tr><td class="command">music</td>
-		<td>Listen to some of my music</td></tr>
-	<tr>
-		<td class="command">prime <span class="dark">number</span></td>
-		<td>Checks if number is prime</td>
-	</tr>
-	<tr>
-		<td class="command">calc <span class="dark">operation</span></td>
-		<td>Performs simple calculations (only one operation at a time)</td>
-	</tr>
-	<tr><td class="command">thanks</td>
-		<td>Credit where credit is due</td></tr>
-	<tr><td class="command">version</td>
-		<td>Captain\'s log (lists version changes)</td></tr>
-	<tr><td class="command">stats</td>
-		<td>Useless information that nerds love</td></tr>
+'help' => '
+	<table class="help">
+		<tr>
+			<td class="command">about</td>
+			<td>Who, what, when, where?</td>
+		</tr>
+		<tr>
+			<td class="command">config</td>
+			<td>GUI configuration (themes, backgrounds, effects)</td>
+		</tr>
+		<tr>
+			<td class="command">superplastic</td>
+			<td>My first attempt at gamedesign; A tiny space shooter!</td>
+		</tr>
+		<tr>
+			<td class="command">numbers</td>
+			<td>A text-based game where all the answers are numbers</td>
+		</tr>
+		<tr>
+			<td class="command">reviews</td>
+			<td>Reviews of terrible, terrible movies</td>
+		</tr>
+		<tr>
+			<td class="command">msg <span class="dark">message</span></td>
+			<td>Leave me a message (use <span class="dark">msg list</span> to read)</td>
+		</tr>
+		<tr>
+			<td class="command">wtfig <span class="dark">font</span> <span class="dark">caption</span></td>
+			<td>Do you ASCII? Figlet generator extraordinaire</td>
+		</tr>
+		<tr>
+			<td class="command">yoda <span class="dark">question</span></td>
+			<td>Answer your questions Yoda will</td>
+		</tr>
+		<tr>
+			<td class="command">bash / fml</td>
+			<td>Our infinite stupidity as documented through bash and fml</td>
+		</tr>
+		<tr>
+			<td class="command">last.fm</td>
+			<td>Recent tracks and other Last.FM data</td>
+		</tr>
+		<tr>
+			<td class="command">get <span class="dark">query</span></td>
+			<td>Search and download torrents</td>
+		</tr>
+		<tr>
+			<td class="command">game <span class="dark">name</span></td>
+			<td>Favorite games and things I made for them</td>
+		</tr>
+		<tr>
+			<td class="command">locate <span class="dark">ip</span></td>
+			<td>Find out where IP is located</td>
+		</tr>
+		<tr>
+			<td class="command">whois <span class="dark">domain</span></td>
+			<td>Look up whois information</td>
+		</tr>
+		<tr>
+			<td class="command">uptime</td>
+			<td>Server uptime and load averages</td>
+		</tr>
+		<tr>
+			<td class="command">rachael</td>
+			<td>Joshua\'s first command (husband cheat-sheet)</td>
+		</tr>
+		<tr>
+			<td class="command">prime <span class="dark">number</span></td>
+			<td>Checks if number is prime</td>
+		</tr>
+		<tr>
+			<td class="command">calc <span class="dark">operation</span></td>
+			<td>Performs simple calculations (only one operation at a time)</td>
+		</tr>
+		<tr>
+			<td class="command">thanks</td>
+			<td>Credit where credit is due</td>
+		</tr>
+		<tr>
+			<td class="command">version</td>
+			<td>Captain\'s log (lists version changes)</td>
+		</tr>
+		<tr>
+			<td class="command">stats</td>
+			<td>Useless information that I think is really neat</td>
+		</tr>
 	</table>',
 'version' => '
 	<table class="version">
-		<tr class="major"><td class="command fixed-width">1.0 <span class="dark">Beta</span></td>
+		<tr class="major">
+			<td class="command fixed-width">1.0 <span class="dark">Beta</span></td>
 			<td>The first version of Joshua. Apart from the UI only minor alterations were made to the <a href="http://miklos.ca/cmd.html">Osenoa</a> JS. Still using XML. Wrote two PHP commands, <span class="command">uptime</span> and <span class="command">whois</span>.</td>
 		</tr>
-		<tr><td class="command fixed-width">1.1</td>
+		<tr>
+			<td class="command fixed-width">1.1</td>
 			<td>Added themes. (Mmm, fluff.) Joshua now responds to standard *nix commands.</td>
 		</tr>
-		<tr class="major"><td class="command fixed-width">2.0 <span class="dark">PHP</span></td>
+		<tr class="major">
+			<td class="command fixed-width">2.0 <span class="dark">PHP</span></td>
 			<td>Completely rewrote the JS (-40 lines) and made the entire engine solely rely on PHP for content. Added view, easter-eggs and wtFIG.</td>
 		</tr>
-		<tr><td class="command fixed-width">2.1</td>
+		<tr>
+			<td class="command fixed-width">2.1</td>
 			<td>Added a countdown and some other JS magic (I magicked the shit out of it).</td>
 		</tr>
-		<tr><td class="command fixed-width">2.2</td>
+		<tr>
+			<td class="command fixed-width">2.2</td>
 			<td>Security, output and error handling is now exlusively PHP\'s domain.</td>
 		</tr>
-		<tr class="major"><td class="command fixed-width">3.0 <span class="dark">XBrowser</span></td>
+		<tr class="major">
+			<td class="command fixed-width">3.0 <span class="dark">XBrowser</span></td>
 			<td>Rewrote the JS again (!) and optimized the PHP engine. Added a brand new GUI to combat the WebKit issues. Everything should run smoothly crossbrowser now.</td>
 		</tr>
-		<tr class="major"><td class="command fixed-width">4.0 <span class="dark">Clean</span></td>
+		<tr class="major">
+			<td class="command fixed-width">4.0 <span class="dark">Clean</span></td>
 			<td>Who needs content? New GUI, again. Themes need to be updated, but it will be worth it.	No more fixed-width fontage (that breaks cross-OS) and pretty scrollbar is pretty.</td>
 		</tr>
-		<tr><td class="command fixed-width">4.1</td>
+		<tr>
+			<td class="command fixed-width">4.1</td>
 			<td><span class="destroy">Sitebar for floating content.</span> Added the <span class="command">game</span> command and a bunch of hidden ones.</td>
 		</tr>
-		<tr><td class="command fixed-width">4.2</td>
+		<tr>
+			<td class="command fixed-width">4.2</td>
 			<td>It\'s now possible to leave messages with <span class="command">msg</span>. Random motd extravaganza in place. Tweaked the scrollbar and updated all the themes (needs to be easier).</td>
 		</tr>
-		<tr><td class="command fixed-width">4.3</td>
+		<tr>
+			<td class="command fixed-width">4.3</td>
 			<td>Ask <span class="command">yoda</span> questions. More game info, the <span class="command">destru</span> command. Cheating is now possible.</td>
 		</tr>
-		<tr><td class="command fixed-width">4.4</td>
+		<tr>
+			<td class="command fixed-width">4.4</td>
 			<td>More hidden commands and added desktop emulation for all the non-Joshua content.</td>
 		</tr>
-		<tr><td class="command fixed-width">4.5</td>
+		<tr>
+			<td class="command fixed-width">4.5</td>
 			<td>Fixed a couple of interface/performance issues and added <span class="command">last.fm</span>.</td>
 		</tr>
-		<tr class="major"><td class="command fixed-width">5.0 <span class="dark">Next-Gen</span></td>
+		<tr class="major">
+			<td class="command fixed-width">5.0 <span class="dark">Next-Gen</span></td>
 			<td>Redid the Joshua chrome to (almost) completely rely on CSS+JS. Wrote a new Gallery. Made new themes. Added a handful of statics and other junk. Good times!</td>
 		</tr>
-		<tr><td class="command fixed-width">5.1</td>
+		<tr>
+			<td class="command fixed-width">5.1</td>
 			<td>Refocused the layout on the command prompt emulation. The <span class="command">desktop</span> was demanding too much attention. Also added a handful commands and a visual effect (sparks).</td>
 		</tr>
-		<tr><td class="command fixed-width">5.2</td>
+		<tr>
+			<td class="command fixed-width">5.2</td>
 			<td>Mostly CPU enhancements and visual tweaks (motivated by your feedback: thanks!). Started working on my first game; An awesome fantastic sidescroller called Superplastic (open development). Added <span class="command">tip</span> and the usual bunch of hiddens.</td>
 		</tr>
-		<tr><td class="command fixed-width">5.3</td>
+		<tr>
+			<td class="command fixed-width">5.3</td>
 			<td>Joshua will now remember what windows you have open and input history (finally got around to it). <span class="command">Music</span> was asked for so I made a tiny MP3 player.</td>
 		</tr>
-		<tr><td class="command fixed-width">5.4</td>
+		<tr>
+			<td class="command fixed-width">5.4</td>
 			<td>Window positions are now stored and there\'s new effects (spin, translucent and pulsar). Otherwise strictly a maintenance release.</td>
 		</tr>
-		<tr><td class="command fixed-width">5.5</td>
+		<tr>
+			<td class="command fixed-width">5.5</td>
 			<td>New stand-alone default theme called Tron (relatively cross-browser). You can download torrents from Isohunt with <span class="command">get</span> and read about people worse off than you with <span class="command">fml</span> and see IRC idiocracy with <span class="command">bash</span>.</td>
 		</tr>
-		<tr><td class="command fixed-width">5.6</td>
+		<tr>
+			<td class="command fixed-width">5.6</td>
 			<td>Redid the theme-handling (to support flexible layouts). Added <span class="command">stats</span>.</td>
 		</tr>
-		<tr><td class="command fixed-width">5.7</td>
+		<tr>
+			<td class="command fixed-width">5.7</td>
 			<td>Superplastic: New enemies and visual effects. Shields added, points added, rate of fire increased. In short: Rachael helped make the game more fun.</td>
 		</tr>
-		<tr><td class="command fixed-width">5.8</td>
+		<tr>
+			<td class="command fixed-width">5.8</td>
 			<td>A new text-based game called <span class="command">numbers</span> has been implemented.</td>
 		</tr>
-		<tr><td class="command fixed-width">5.9</td>
+		<tr>
+			<td class="command fixed-width">5.9</td>
 			<td>Minor bugfixes and new version-handling. More content and the <span class="command">xbox</span> command.</td>
 		</tr>
-		<tr class="major"><td class="command fixed-width">6.0 <span class="dark">mobile</span></td>
+		<tr class="major">
+			<td class="command fixed-width">6.0 <span class="dark">mobile</span></td>
 			<td>Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name). A lot of content added.</td>
 		</tr>
-		<tr><td class="command fixed-width">6.1</td>
+		<tr>
+			<td class="command fixed-width">6.1</td>
 			<td>Brand new fluid scrolling output. Fixed a glitch with Firefox 3.6.</td>
 		</tr>
-		<tr><td class="command fixed-width">6.2</td>
+		<tr>
+			<td class="command fixed-width">6.2</td>
 			<td>Rewritten parts of the engine to take advantage of SimpleXML (-3kb gain). Added a couple CURL tweaks for external requests.</td>
 		</tr>
-		<tr><td class="command fixed-width">6.3</td>
+		<tr>
+			<td class="command fixed-width">6.3</td>
 			<td>Geolocation with <span class="command">trace</span> added. Minor theme fixes. Superplastic bugfix. More useless stats.</td>
 		</tr>
-		<tr class="major"><td class="command fixed-width">7.0 <span class="dark">Diesel</span></td>
+		<tr class="major">
+			<td class="command fixed-width">7.0 <span class="dark">Diesel</span></td>
 			<td>Diesel introduced; Stand-alone design with several interface tweaks. Removed a lot of unnecessary junk.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.1</td>
+		<tr>
+			<td class="command fixed-width">7.1</td>
 			<td>Load time reduced by 80%: Optimized requests and added compression.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.2</td>
+		<tr>
+			<td class="command fixed-width">7.2</td>
 			<td>Hacker-stylesheet added to highlight new terminal-style functionality (expect more soon). Re-implemented the wtFIG command-line integration.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.3</td>
+		<tr>
+			<td class="command fixed-width">7.3</td>
 			<td>Added mouse and title-indication when Joshua is processing commands (waiting cursor not behaving correctly in WebKit, bug report submitted). New Pirate-stylesheet and several minor tweaks to existing styles.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.4</td>
+		<tr>
+			<td class="command fixed-width">7.4</td>
 			<td>LCARS assimilated (yes, I have been watching Star Trek).</td>
 		</tr>
-		<tr><td class="command fixed-width">7.5</td>
+		<tr>
+			<td class="command fixed-width">7.5</td>
 			<td>You can now draw. Granted it\'s only one brush and one color (for now), but it\'s still pretty cool right? A bunch of other tweaks.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.6</td>
+		<tr>
+			<td class="command fixed-width">7.6</td>
 			<td>A fair amount of housecleaning before porting source to Github.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.7</td>
+		<tr>
+			<td class="command fixed-width">7.7</td>
 			<td>Housecleaning continued, and bugfixing as a result of said cleaning. <span class="scratch">Added a <span class="command">timer</span> command for Rachael.</span> LCARS is now the default theme.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.8</td>
+		<tr>
+			<td class="command fixed-width">7.8</td>
 			<td>I hated the Hacker theme, say hello to Helvetica instead. Diesel is once again the default theme. Made the timer less useless.</td>
 		</tr>
-		<tr><td class="command fixed-width">7.9</td>
+		<tr>
+			<td class="command fixed-width">7.9</td>
 			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Simple <span class="command">calc</span> and a method to check for <span class="command">prime</span> numbers.</td>
 		</tr>
-		<tr class="major"><td class="command fixed-width">8.0 <span class="dark">Stable</span></td>
+		<tr class="major">
+			<td class="command fixed-width">8.0 <span class="dark">Stable</span></td>
 			<td>First stable release, well, on WebKit-based platforms. (I use Chrome and this site is maintained by the WFMWF-principle.)</td>
 		</tr>
-		<tr><td class="command fixed-width">8.1</td>
+		<tr>
+			<td class="command fixed-width">8.1</td>
 			<td>New Slick Gallery. Fancybox removed and replaced with SimpleModal (-30kb).</td>
 		</tr>
 		<tr>
@@ -185,6 +258,10 @@ $static = array(
 		<tr>
 			<td class="command fixed-width">8.4</td>
 			<td>MMO API\'s are teh suck. Failsafes for clean installs. I can <span class="command">sudo</span>.</td>
+		</tr>
+		<tr>
+			<td class="command fixed-width">8.5</td>
+			<td>Added <span class="command">reviews</span>, cleaned the desktop and updated Tron.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',

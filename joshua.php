@@ -118,7 +118,7 @@ if(!empty($command)){
 	$pattern = "/^[[:alnum:][:space:]:.\,\'-?!\*+%]{0,160}$/";
 	if(!empty($dump) && preg_match($pattern, $dump) || empty($dump)){
 		if(!empty($option)){
-			$prompt = '<div class="prompt">'.$command.' <strong>'.$option.'</strong></div>';
+			$prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
 		}
 		else {
 			$prompt = '<div class="prompt">'.$command.'</div>';
@@ -440,7 +440,7 @@ if(empty($output)){
 		$url = 'http://xboxapi.duncanmackenzie.net/gamertag.ashx?GamerTag='.$charid;
 		$cache = 'xbox.xml';
 		get($url, $cache);
-		loader($cache);
+		$xml = loader($cache);
 		$name = $xml->Gamertag;
 		$reputation = $xml->Reputation;
 		$score = $xml->GamerScore;
@@ -652,6 +652,7 @@ if(empty($output)){
 		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
 		$commands = count($static)+35; // guesstimate
 		$quotes = count($motd)+count($bash)+count($pearls);
+		$reviews = count($reviews);
 		$stats = 
 			'<table class="stats">'.
 			'<tr><td class="light">Commands</td><td>'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
@@ -660,11 +661,39 @@ if(empty($output)){
 			'<tr><td class="light">Bytes</td><td>'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++</td></tr>'.
 			'<tr><td class="light">Lines</td><td>'.$lines.'</td><td class="dark">Lines of code (no externals)</td></tr>'.
 			'<tr><td class="light">Messages</td><td>'.$messages.'</td><td class="dark">Left with the msg command</td></tr>'.
+			'<tr><td class="light">Reviews</td><td>'.$reviews.'</td><td class="dark">Reviews of terrible movies</td></tr>'.
 			'<tr><td class="light">Scores</td><td>'.$scores.'</td><td class="dark">Superplastic record attempts</td></tr>'.
 			'<tr><td class="light">Quotes</td><td>'.$quotes.'</td><td class="dark">Includes MOTD\'s and bash.org quotes</td></tr>'.
 			'<tr><td class="light">Timer</td><td>'.microtimer($timestamp).'</td><td class="dark">The seconds it took to compile these stats</td></tr>'.
 			'</table>';
 		output($stats);
+	}
+	// reviews
+	if($command == "reviews" || $command == "review" && !isset($option)){
+		print $prompt.'<p>One day we had a great idea. '.
+			'"Let\'s watch all the worst movies in the world!"</i> '.
+			'In retrospect, it might not have been the greatest of ideas. Some reviews are in norwegian.';
+		print '<table class="reviews fluid">';
+		foreach ($reviews as $key => $value){
+			print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].'</td><td class="dark">'.$value['year'].'</td><td class="dark">'.$value['rating'].'/10</td></tr>';
+		}
+		print '</table>';
+		print '<p>Read a review by typing <span class="command">review (x)</span>.</p>';
+		$output = 1;
+	}
+	if($command == "review" && isset($option)){
+		$pattern = "/^[0-9]+$/";
+		if(preg_match($pattern, $option)){
+			$id = $option-1;
+			if(!empty($reviews[$id])){
+				print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span> '.
+					'<a href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">IMDb</a></p>'.
+					$reviews[$id]['review'];
+				$output = 1;
+			}
+			else error("404");
+		}
+		else error("blocked");
 	}
 	// check static commands
 	if(empty($output)){

@@ -14,12 +14,12 @@ body {
 /* joshua */
 #joshua {
 	z-index:10;
-	height:480px;
+	height:510px;
 	padding:10px;
     position:absolute;
     left:50%; top:50%;
     margin-left: -410px;
-    margin-top: -250px;
+    margin-top: -265px;
 	background-image:url("../images/tronWindows.png");
 }
 #input {
@@ -36,7 +36,7 @@ a {
 	text-decoration:none;
 }
 #output {
-	height:402px;
+	height:432px;
 }
 #prompt {
 	font-family:Helvetica, Arial;
@@ -85,14 +85,14 @@ pre, .pre {
 	float:right;
 	position:relative;
 	top:4px; right:-6px;
-	border:solid 1px #333;
-	line-height:14px;
-	height:14px;
+	border:solid 2px #555;
+	line-height:11px;
+	height:12px;
 	padding:0 5px;
-	color:#333;
+	color:#000;
 }
 .window {
-	background-color:#080808;
+	background-image:url("../images/tronWindows.png");
 	padding:10px;
 }
 .window p {
@@ -115,7 +115,7 @@ ol, ul, .motd, .prompt {
 	margin-bottom:20px;
 }
 .window h1 {
-	color:#6a6a6a;
+	color:#777;
 }
 #config.window {
 	z-index:21;
@@ -136,10 +136,10 @@ ol, ul, .motd, .prompt {
 }
 .tiny div {
 	font-size:11px;
-	line-height:22px;
-	height:22px;
-	color:#3a3a3a;
-	border:solid 1px #2a2a2a;
+	line-height:20px;
+	height:20px;
+	color:#777;
+	border:solid 2px #555;
 }
 
 /* misc */
@@ -188,13 +188,13 @@ ul.inline li {
 	top:20px;left:20px;
 }
 #desktop ul {
-	margin-bottom:20px;
+	margin-bottom:0;
 }
 #desktop a {
 	color:#6a6a6a;
 }
 #desktop ul#links {
-	display:none;
+	opacity:0.5;
 }
 .tiny div:hover, .close:hover, #desktop a:hover {
 	border-color:#68b8ff;
@@ -220,7 +220,7 @@ ul.inline li {
 	opacity:1;
 }
 .tracks li a:hover {
-	opacity:0.25;
+	opacity:0.5;
 }
 
 /* colors */
@@ -228,7 +228,7 @@ h1 .dark, #input #prompt, .error, .joshua, a, .command, .example {
 	color:#68b8ff;
 }
 .dark {
-	color:#666;
+	color:#777;
 }
 .error, .joshua {
 	font-size:12px;
@@ -250,7 +250,7 @@ h1 {
 	line-height:24px;
 	height:24px;
 	padding:0 10px;
-	border:solid 1px #333;
+	border:solid 1px #555;
 }
 .tracks li a, h2, .prompt {
 	font-weight:bold;
@@ -260,14 +260,14 @@ h1 {
 	padding:0 10px;
 	background-color:#fff;
 	color:#000;
-	opacity:0.15;
+	opacity:0.25;
 }
 #input {
 	border:solid 1px #68b8ff;
 }
 .jScrollPaneDrag {
 	width:8px !important;
-	border:solid 1px #333;
+	border:solid 1px #555;
 	background-color:transparent;
 }
 .jScrollPaneTrack {
