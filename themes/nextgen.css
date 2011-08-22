@@ -1,34 +1,12 @@
 /* alexander@binaerpilot.no */
-@font-face {
-	font-family:"Joshua Normal";
-	src: url('../fonts/pf_tempesta_seven.ttf');
-}
-@font-face {
-	font-family:"Joshua Normal Bold";
-	src: url('../fonts/pf_tempesta_seven_bold.ttf');
-}
-@font-face {
-	font-family:"Joshua Fancy";
-	src: url('../fonts/pf_tempesta_seven_extended.ttf');
-}
-@font-face {
-	font-family:"Joshua Fancy Bold";
-	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf');
-}
-@font-face {
-	font-family:"ProFont";
-	src: url('../fonts/profont.ttf');
-}
-
-/* joshua */
 #joshua {
 	z-index:10;
 	height:530px;
 	padding:10px;
-    position:absolute;
-    left:50%; top:50%;
-    margin-left: -380px;
-    margin-top: -285px;
+	position:absolute;
+	left:50%; top:50%;
+	margin-left: -380px;
+	margin-top: -285px;
 	background-position:50% 50%;
 	background-repeat:no-repeat;
 }
@@ -145,23 +123,23 @@ p, ul, ol, table {
 	line-height:18px;
 }
 h1, h2, h1 b, h2 b {
-	font-family: "Joshua Fancy", Helvetica, Arial;
+	font-family: 'Tempesta Extended', Helvetica, Arial;
 	font-size:8px;
 }
 h1 b, h2 b {
-	font-family: "Joshua Fancy Bold", Helvetica, Arial;
+	font-family: 'Tempesta Extended Bold', Helvetica, Arial;
 }
-pre, pre .hl, td.fixed-width, .pre {
-	font-family: "ProFont", Monaco, Lucida Console;
+pre, pre .hl, td.fixed-width, .pre, p.irc {
+	font-family: 'Consolas', 'Monaco', 'Lucida Console';
 	font-size:9px; line-height:14px;
 }
 #sliders .frame, .speechBubble, .tiny div, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
-	font-family: "Joshua Normal", Helvetica, Arial;
+	font-family: 'Tempesta', Helvetica, Arial;
 	font-size:8px; line-height:1.2em;
 	text-transform:uppercase;
 }
 .joshua b, .error b {
-	font-family: "Joshua Normal Bold", Helvetica, Arial;
+	font-family: 'Tempesta Bold', Helvetica, Arial;
 }
 
 /* content */
@@ -283,7 +261,7 @@ ul.tracks {
 	padding:5px 10px 6px 10px;
 }
 .button.playing, .button.paused {
-	font-family:"Joshua Normal Bold";
+	font-family:"Tempesta Bold";
 }
 /* tiny buttons */
 .tiny {
@@ -417,5 +395,5 @@ h2.presets {
 	font-size:11px;
 }
 .window h2 {
-	font-family:"Joshua Fancy Bold";
+	font-family:"Tempesta Extended Bold";
 }

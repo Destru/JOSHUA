@@ -30,12 +30,15 @@ pre {
 	font-size:10px;
 	line-height:14px;
 }
-a, .tiny div {
+a, .output a, .tiny div {
 	color:#f00;
 	text-decoration:none;
-	border-bottom:solid 1px #fdd;
+	border-bottom:solid 1px rgba(255,0,0,0.25);
 }
-strong {
+.window {
+	color:#888;
+}
+b, strong {
 	font-weight:bold;
 	letter-spacing:-1px;
 }
@@ -43,7 +46,7 @@ strong {
 	border:solid 1px #eee;
 }
 .window {
-	background-color:#fff;
+	background-color:#333;
 	background-image:url("../images/pattern45.png");
 	font-size:12px;
 	line-height:18px;
@@ -52,6 +55,9 @@ strong {
 }
 p.note {
 	display:none;
+}
+.window h1, .window h2 {
+	color:#fff;
 }
 .window h1 {
 	font-size:18px;
@@ -67,10 +73,10 @@ p.note {
 }
 .tiny div {
 	float:left;
-	margin-right:5px;
+	margin-right:10px;
 }
-a:hover, .tiny div:hover {
-	border-color:#f00;
+a:hover {
+	border-color:rgba(255,0,0,0.75);
 }
 #joshua {
 	min-height:100%;

@@ -14,12 +14,12 @@ body {
 /* joshua */
 #joshua {
 	z-index:10;
-	height:510px;
+	height:480px;
 	padding:10px;
     position:absolute;
     left:50%; top:50%;
     margin-left: -410px;
-    margin-top: -265px;
+    margin-top: -250px;
 	background-image:url("../images/tronWindows.png");
 }
 #input {
@@ -36,7 +36,7 @@ a {
 	text-decoration:none;
 }
 #output {
-	height:432px;
+	height:400px;
 }
 #prompt {
 	font-family:Helvetica, Arial;
@@ -68,11 +68,6 @@ h1, h2 {
 h1 a, h2 a {
 	text-decoration:none;
 }
-pre, .pre {
-	font-family:Joshua-Fixed, Courier New, Monaco;
-	font-size:12px;
-	line-height:15px;
-}
 .italic {
 	font-style:italic;
 }
@@ -82,13 +77,15 @@ pre, .pre {
 	text-transform:uppercase;
 }
 .close {
+	font-family:'Tempesta';
+	font-size:8px;
+	line-height:6px;
 	float:right;
 	position:relative;
 	top:4px; right:-6px;
 	border:solid 2px #555;
-	line-height:11px;
-	height:12px;
-	padding:0 5px;
+	height:8px;
+	padding:2px 5px;
 	color:#000;
 }
 .window {
@@ -131,15 +128,12 @@ ol, ul, .motd, .prompt {
 	float:left;
 	margin-right:5px;
 	margin-top:5px;
-	padding:0 5px;
+	padding:3px 6px;
 	text-transform:capitalize;
-}
-.tiny div {
 	font-size:11px;
-	line-height:20px;
-	height:20px;
+	line-height:1.2em;
 	color:#777;
-	border:solid 2px #555;
+	border:solid 1px #555;
 }
 
 /* misc */
@@ -263,7 +257,7 @@ h1 {
 	opacity:0.25;
 }
 #input {
-	border:solid 1px #68b8ff;
+	border:solid 2px #68b8ff;
 }
 .jScrollPaneDrag {
 	width:8px !important;

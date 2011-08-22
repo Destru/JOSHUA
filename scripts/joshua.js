@@ -384,7 +384,7 @@ function chromeMagic(){
 			else if(team == "orange"){ color = colors[5]; }
 			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #input, .example, .tiny div.tron {color:#'+color+'; border-color:#'+color+'}'+
+				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
 				'#desktop li a.active {color:#'+color+'}'+
 				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
@@ -420,7 +420,7 @@ function chromeMagic(){
 	else if(theme == "lcars"){
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = 208;
+		var lcarsChrome = 210;
 		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);

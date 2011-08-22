@@ -7,12 +7,12 @@
 			<p>A In terms of uttered wordage in the log-file, this comes dead last.
 			Unfortunately, that\'s not because we enjoyed ourselves.
 			This movie is complete and utter shite.</p>
-			<p class="dark">inge: this is an ed wood flick, i forgot to mention it.<br>
+			<p class="irc dark">inge: this is an ed wood flick, i forgot to mention it.<br>
 			alexandr: a true classic in other words<br>
 			inge: right.</p>
 			<p>Yeah sure, my old self, if by <em>classic</em> you mean <em>crime against film</em>.
 			It\'s a waste of bandwith. Don\'t bother.</p>
-			<p class="dark">inge: this movie has no redeeming qualities, whatsoever<br>
+			<p class="irc dark">inge: this movie has no redeeming qualities, whatsoever<br>
 			alexandr: ooo, tits<br>
 			inge: i retract my statement</p>
 			<p>Now you know where the star comes from. Tits good.</p>'
@@ -36,7 +36,7 @@
 			So naturally we started thinking <i>"Hey, this might not be so shit."</i>
 			And it wasn\'t. I laughed my ass off.</p>
 			
-			<p class="dark">alexandr: ahahahaaha<br>
+			<p class="irc dark">alexandr: ahahahaaha<br>
 			inge: these are the worst ninjas ever<br>
 			inge: but +1 for the panties shot<br>
 			alexandr: hamster cam pwns<br>
@@ -45,7 +45,7 @@
 			<p>So great, this movie was, that we completely forgot about actually writing down comments.
 			The logfile is probably the smallest for a POOP-session ever.
 			If I\'m to judge by that this is probably the most enjoyable POOP experience so far.</p>
-			<p class="dark">alexandr: omg yes!<br>
+			<p class="irc dark">alexandr: omg yes!<br>
 			inge: lol @ unbuttoning<br>
 			alexandr: AHAHHAAHAHAH<br>
 			alexandr: omfgomfogmogmfomfofg<br>
@@ -79,7 +79,7 @@
 			Sannsynligvis var fyren på vei til en prøvespilling for <i>Cross-dressing Sluts in Outer Space</i> når
 			regissøren plukket han opp.</p>
 
-			<p class="dark">Tom Servo: What are we?<br>
+			<p class="irc dark">Tom Servo: What are we?<br>
 			Alle: Bats!<br>
 			Tom Servo: What do we want?<br>
 			Alle: Insects!</p>
@@ -89,7 +89,7 @@
 			i FK POOP så langt. Med personligheter som potet-damen, "Batman", Deathstalker [El Barfo] og Elton John the Gay Wizard
 			blir Deathstalker III rett og slett en fest i MST3k-format.</p>
 
-			<p class="dark">Tom Servo: Squeak like you\'ve never squeaked before!"</p>'
+			<p class="irc dark">Tom Servo: Squeak like you\'ve never squeaked before!"</p>'
 	),
 	array(
 		'title' => 'Dünyayı Kurtaran Adam',
@@ -100,7 +100,7 @@
 			meg på gutterommet i Bodø og Peter på dataparty i England den kvelden
 			vi bestemte oss for å se Tyrkias svar på Star Wars.</p>
 
-			<p class="dark">alexander: ahahahahaha<br>
+			<p class="irc dark">alexander: ahahahahaha<br>
 			peter: omg det er en ny daft punk-video<br>
 			peter: hahahaha<br>
 			peter: HAHAHA<br>
@@ -114,7 +114,7 @@
 			film hadde blitt hvis eJay hadde kommet med et filmredigerings-program kun medfølgende
 			klipp fra større Hollywood produksjoner og Tyrkisk amatørteater.</p>
 
-			<p class="dark">alexander: faen i satan hvor fort det går<br>
+			<p class="irc dark">alexander: faen i satan hvor fort det går<br>
 			alexander: dette må jo være laget på dop<br>
 			alexander: de klipper jo faen så fort i helvete<br>
 			peter: hvorfor lage film selv når man kan stjele all actionen fra star wars?<br>
@@ -129,7 +129,7 @@
 
 			<p>Provoserende jævlig. Alt er klippet på narkotika og ingenting henger sammen.</p>
 
-			<p class="dark">alexander: hva faen er det som foregår?<br>
+			<p class="irc dark">alexander: hva faen er det som foregår?<br>
 			alexander: AHAHAHHAHAHAHA<br>
 			alexander: jeg klarer ikke begripe at denne filmen er seriøst ment<br>
 			alexander: "We did no crash here. They made us crash."<br>
@@ -140,7 +140,7 @@
 			Når superhelten begynte treningen med å karate-choppe opp gråstein fikk jeg nok.
 			Tyrkisk, ja. Og forferdelig.</p>
 
-			<p class="dark">alexander: AHAHAHAHHAAHAHAHAHHAHHAAHAH<br>
+			<p class="irc dark">alexander: AHAHAHAHHAAHAHAHAHHAHHAAHAH<br>
 			alexander: DETTE ER IKKE SANT<br>
 			alexander: du ble helt betatt?<br>
 			alexander: HERREGUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUD<br>
@@ -181,13 +181,13 @@
 			<p>Husker ikke så forferdelig mye av denne sort/hvitt-affæren.
 			For å være helt ærlig så husker jeg faktisk ikke noe annet enn at de sa "swell" veldig ofte og at filmen var helt utrolig kjedelig.</p>
 
-			<p class="dark">inge: første poop-filmen jeg har grua meg til<br>
+			<p class="irc dark">inge: første poop-filmen jeg har grua meg til<br>
 			inge: hysj, dette er nok mer underholdende enn filmen</p>
 
 			<p>Det skjer faktisk ingenting. De har en krangel og 40 minutter har gått. 
 			Så kjedelig at vi begynner snakke om filmer som er dårligere for å drepe tid.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			inge: dette minner meg om den filmen.. uh, den med romskip og drit<br>
 			inge: tror det var meg og alexander som så den<br>
 			inge: den der de finner folka som er frosset ned<br>
@@ -203,7 +203,7 @@
 			<p>På denne tiden [40-tallet] var tydeligvis <i>swell</i> det mest brukte ordet i USA.
 			Hvem som hadde trodd det. Vel, the more you know!</p>
 
-			<p class="dark">[21:43] inge: "that\'s swell, jimmy"<br>
+			<p class="irc dark">[21:43] inge: "that\'s swell, jimmy"<br>
 			[21:43] peter: alle sier swell i denne filmen<br>
 			[21:44] inge: "and that\'s pretty swell too"<br>
 			[21:45] inge: gangstere er folk som ikke sier "swell"<br>
@@ -219,7 +219,7 @@
 			På et punkt bekymrer vi oss for at filmen kan være en musical; Hvem som sier at det ikke skulle ha kunne lurt
 			seg inn en musical på den listen? Vi blir veldig nervøse men enes om å slå av hvis så er tilfelle.</p>
 
-			<p class="dark">peter: ikke si at dette utvikler seg til å bli en musical<br>
+			<p class="irc dark">peter: ikke si at dette utvikler seg til å bli en musical<br>
 			alexandr: omg nei<br>
 			inge: da tror jeg vi kan bli kollektivt enige om at da er det punktum<br>
 			peter: jeg HATER musicals. grease kom på når jeg var hos therese, og jeg var nødt til å slå av tven for å få det bort<br>
@@ -229,7 +229,7 @@
 			relaterer til filmen. Jeg bare skraper hele dritten. Ikke se den.
 			Og husk: Vi er profesjonelle utøvere. Ikke prøv dette hjemme. Nå skal jeg dra og gråte meg i seng.</p>
 
-			<p class="dark">peter: så idiotisk<br>
+			<p class="irc dark">peter: så idiotisk<br>
 			inge: jeg er glad for at DET er over<br>
 			alexandr: inn i helvete<br>
 			peter: mhm<br>
@@ -245,7 +245,7 @@
 			<p>Litt av en merkelig opplevelse. Nesten som en delt fornøyelse, men stort sett på den positive siden.
 			Bortsett fra synginga såklart. Det var elendig dårlig. Filmen som helhet var underholdende nok egentlig.</p>
 
-			<p class="dark">alexandr: maxine shreck?!<br>
+			<p class="irc dark">alexandr: maxine shreck?!<br>
 			inge: mary magnum er bra smud<br>
 			alexandr: de får pluss for smellfeit intro i det minste<br>
 			inge: ja, den er fra 2001 men ser og høres ut som om den er filma på syttitallet<br>
@@ -256,7 +256,7 @@
 			Don\'t believe the hype; Den er morsom, men noen segmenter er så ille at jeg får akutt tarmslyng.
 			Helt sant. Skal legge opp bilde av den gråblå bilringen min.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			alexandr: og dette mener du oppriktig at ikke er poop?<br>
 			inge: det er litt poop. men det tar iaffal aldri seg selv høytidelig.<br>
 			alexandr: nei, men uansett, omfg<br>
@@ -266,7 +266,7 @@
 
 			<p>Pene dama er i Ottar. Jeg er nedfor. Inge forsøker å trøste meg som best han kan.</p>
 
-			<p class="dark">alexandr: nå har jeg ingen grunn til å se filmen :(<br>
+			<p class="irc dark">alexandr: nå har jeg ingen grunn til å se filmen :(<br>
 			inge: hehe, hva var nedtur?<br>
 			alexandr: at mary my divine ray of holy glory er teppebanker<br>
 			inge: alle trenger litt deep dickin\' av og til</p>
@@ -274,7 +274,7 @@
 			<p>Dette var den morsomste scenen i hele filmen. Tore Tainnlaus står på scenen og synger som ei anna stygg kråke.
 			Faen ass. Men vi hadde det dritmorsomt i vår ende.</p>
 
-			<p class="dark">inge: obi wan kenobi<br>
+			<p class="irc dark">inge: obi wan kenobi<br>
 			alexandr: obi wan dental insurance<br>
 			inge: chewbacca<br>
 			alexandr: tann solo<br></p>
@@ -312,7 +312,7 @@
 		'review' => '
 			<p>Denne husker jeg godt. Startet bemerkelsverdig bra, men så ble det helt katastrofalt dårlig etterhvert.</p>
 
-			<p class="dark">alexander: ahahaha, deilig landing<br>
+			<p class="irc dark">alexander: ahahaha, deilig landing<br>
 			peter: ALIENS FROM OUTER SPACE<br>
 			peter: de snakket da ihvertfall ikke engelsk<br>
 			peter: det er jo et fantastisk pluss<br>
@@ -324,7 +324,7 @@
 			får litt alien-funk på seg som muterer,
 			drar rundt og skyter ting med spacepistolen sin. Jævlig gøy.</p>
 
-			<p class="dark">peter: der hun der crazye bitcha<br>
+			<p class="irc dark">peter: der hun der crazye bitcha<br>
 			 alexander: affer er hun cwazy? tror du bestefaren har smitta henne?<br>
 			 peter: hun bodde jo med general sprø<br>
 			 alexander: ehehe, general sprø<br>
@@ -332,7 +332,7 @@
 			 
 			<p>Jævlig kule aliens til tross...</P>
 
-			<p class="dark">peter: aliensene er ihvertfall tøff, selv om de har dårlig tv<br>
+			<p class="irc dark">peter: aliensene er ihvertfall tøff, selv om de har dårlig tv<br>
 			alexander: faen de ruler<br>
 			peter: HAHAHA, VKAARK BIIIXI TOO<br>
 			peter: jeg teller allerede ned til filmen er ferdig,<br>
@@ -342,7 +342,7 @@
 			<p>Hvorpå jeg og peter innser noe fundamentalt galt om disse møtenes karakter.
 			<i>Verdens dårligste slutt</i>-prisen går forøvrig også til dette makkverket.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			peter: vi kommer til å bli suicidale av å se alle disse filmene<br>
 			alexander: hva mener du bli?<br>
 			alexander: vel, vi kan ikke bare kutte heller<br>
@@ -381,7 +381,7 @@
 			Vi ble ikke skuffet. To personer tok selvmord før to år var gått etter lanseringen av denne perlen i filmhistorien.
 			Som forventet var dette en karuselltur i elendighet, en underholdende karuselltur.</p>
 
-			<p class="dark">alexander: alt er dubba, og jentestemmen er faket<br>
+			<p class="irc dark">alexander: alt er dubba, og jentestemmen er faket<br>
 			alexander: um.. so bob, can you do a little girl voice?<br>
 			inge: you mean.. like deeese? *giggle*<br>
 			inge: bob har dubba ALLE stemmene<br>
@@ -390,7 +390,7 @@
 			<p>Før vi er kommet 20 minutter inn i filmen så begynner guttene å resirkulere klipp av kjøring ved å spille dem
 			i revers. Ærlig talt, finnes det ingen grenser?</p>
 
-			<p class="dark">alexander: SKJE NOE FOR HELVETE<br>
+			<p class="irc dark">alexander: SKJE NOE FOR HELVETE<br>
 			alexander: hånd-temaet begynner å bli utslitt<br>
 			inge: er ikke dette samme sekvens?<br>
 			alexander: for en jævlig klipping, det er helt utrolig<br>
@@ -399,7 +399,7 @@
 			<p>Plutselig er de ved huset til <i>The Master</i> - Designated evil villain og Bearer of the worlds ugliest robe.
 			Selvfølgelig er det også to enørme røde hender på said robe. Cute.</p>
 
-			<p class="dark">inge: sjekk musikken hver gang korgi limper<br>
+			<p class="irc dark">inge: sjekk musikken hver gang korgi limper<br>
 			inge: aw, han er forelska<br>
 			alexander: TEH MASTUR DEMANDS A HANDJOB<br>
 			alexander: å herregud, som om du er i fare,  du kan jo bare blåse på krøplingen<br>
@@ -408,7 +408,7 @@
 
 			<p>Han heter Torgo. <a href="http://www.torgo.org/torgo/">Les hans triste historie</a>.</p>
 
-			<p class="dark">inge: denne filmen MÅ være improvisert<br>
+			<p class="irc dark">inge: denne filmen MÅ være improvisert<br>
 			alexander: forferdelig, forferdelig, forferdelig dårlig<br>
 			inge: hvordan klarte torgo å limpe vekk fra vinduet så fort? damn, han var rask<br>
 			alexander: han er rask når det gjelder, sjekke, han tar jo helt av nå</p>
@@ -416,7 +416,7 @@
 			<p>Det blir bare verre og verre egentlig. Jeg ler stort sett ganske ofte, det er bare ikke til å tro 
 			handlingen som utspiller seg foran øynene mine. Mirakuløst miserabelt.</p>
 
-			<p class="dark">inge: "oh manos, thou of primal darkness"<br>
+			<p class="irc dark">inge: "oh manos, thou of primal darkness"<br>
 			alexander: flashy outfit<br>
 			inge: "arise, my wives!" "and iron my workshirt!"<br>
 			inge: dette er ikke en film, dette er performance art<br>
@@ -424,13 +424,13 @@
 
 			<p>The Master er forbannet på Torgo. Inge og jeg blir nesten glade i den onde jævelen.</p>
 
-			<p class="dark">inge: YOU HAVE FAILED US TORGO, FOR THIS YOU MUST DIE<br>
+			<p class="irc dark">inge: YOU HAVE FAILED US TORGO, FOR THIS YOU MUST DIE<br>
 			inge: vel, good riddance</p>
 
 			<p>Jeg blir helt lynende forbanna over hvor dårlig denne filmen er et kort øyeblikk.
 			Fint at man dokumenterer slikt for ettertanke.	</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			alexander: HERREGUD<br>
 			alexander: HVA FAEN ER DET MED DENNE FILMEN?!<br>
 			alexander: HVORFOR I HELVETE REPETERES ALT FEM HUNDRE GANGER<br>
@@ -448,7 +448,7 @@
 			<p>Filmen handler om en morderbæsj. Det er helt sant. Og du har helt rett, filmen er forferdelig.
 			Helt forferdelig.</p>
 
-			<p class="dark">alexander: hæ? nå er jeg helt ute<br>
+			<p class="irc dark">alexander: hæ? nå er jeg helt ute<br>
 			alexander: synes bare det så ut som et kvinnfolk på ørepynten.. men hvem vet i disse dager<br>
 			inge: nei, det var ei dame i tønna<br>
 			alexander: hva var det du preika om en fyr som snubla i huska for da?<br>
@@ -461,7 +461,7 @@
 
 			<p>Minuttene går så sakte. Så veldig sakte.</p>
 
-			<p class="dark">inge: "you shot me?!" sjekk hvordan han er helt uaffisiert av kula han fikk i puppen<br>
+			<p class="irc dark">inge: "you shot me?!" sjekk hvordan han er helt uaffisiert av kula han fikk i puppen<br>
 			alexander: helt ville effekter<br>
 			inge: den pistolen der laga de selv i metallsløyden<br>
 			alexander: enten det eller så har herr dokterr en tidsmaskin<br>
@@ -470,7 +470,7 @@
 			<p>Vi prater stort sett lite om filmen. Plutselig prøver den veldig hardt å underholde.
 			Vi får prosjektilspying, blodbad og walking man of fecal matter i løpet av to minutter.</p>
 
-			<p class="dark">alexander: b-film burde inneholde tits<br>
+			<p class="irc dark">alexander: b-film burde inneholde tits<br>
 			inge: hadde jeg hatt ti år til på baken, hadde jeg vært into øyenbryn-dama<br>
 			inge: haha, prosjektilspying, hahaha<br>
 			alexander: HÅHÅHÅHÅ, bra sekvens<br>
@@ -481,7 +481,7 @@
 			<p>Tilbake til drømmeland, bokstavelig talt for en av oss. Først krangler vi litt om hvem som sovner først.
 			Har egentlig ikke noe mer å si om filmen. Den var drittdårlig.</p>
 
-			<p class="dark">alexander: det er jeg som skal sovne først<br>
+			<p class="irc dark">alexander: det er jeg som skal sovne først<br>
 			inge: heheh, jeg sliter<br>
 			inge: er faen så trøtt<br>
 			alexander: "jeg skal være våken i hele natt." øya mine svir<br>
@@ -497,7 +497,7 @@
 		'review' => '
 			<p>Egentlig vurdererte jeg bare å fylle denne paragrafen med synonymer for <i>elendig</i>.</p>
 
-			<p class="dark">alexander: TEH BLOODSTONE<br>
+			<p class="irc dark">alexander: TEH BLOODSTONE<br>
 			peter: DIII BLAAAADSTOOOONE<br>
 			alexander: TEH BLOOSTONEEEEEEEEEEEEEE<br>
 			alexander: så ut som han spilte en trall på TEH BLOODSTONE<br>
@@ -510,7 +510,7 @@
 			Uansett hvor nå enn mye du måtte kjede deg.
 			Selv tysk porno er mer underholdende enn dette.</p>
 
-			<p class="dark">peter: "neei! saltvann! jeg tåler ikke salt!"<br>
+			<p class="irc dark">peter: "neei! saltvann! jeg tåler ikke salt!"<br>
 			peter: VANLIG LYS HAR JO IKKE DEN EFFEKTEN PÅ VAMPYRER<br>
 			peter: "DIS IS SOLAR POWARD LIGHT MACHENE"<br>
 			alexander: a vempaire, i dånnt biliv it<br>
@@ -519,7 +519,7 @@
 
 			<p>I\'m drawing a blank.</p>
 
-			<p class="dark">peter: han høres skikkelig ut som marlon brando da<br>
+			<p class="irc dark">peter: han høres skikkelig ut som marlon brando da<br>
 			peter: ser for meg at det er noe mafia-greier på gang snart<br>
 			alexander: you are neither, you\'re an errand boy sent by groceryvampires<br>
 			peter: you fucking grocery vampire!</p>
@@ -529,7 +529,7 @@
 			fortsatt være vampyr... Hvilken mongo doktor er dette egentlig? Stakkars drapsmachene,
 			ich skal hjelpe dich jakte om den dagen ochså. Wienerschnitzel.</p>
 
-			<p class="dark">peter: jess, av med klærne<br>
+			<p class="irc dark">peter: jess, av med klærne<br>
 			alexander: tis a potent elixiiiiar<br>
 			alexander: hun ser ikke særlig døende ut<br>
 			alexander: hva skal han med en blodprøve? sjekke jern-nivået?<br>
@@ -537,14 +537,14 @@
 
 			<p>Vampyrer tåler ikke vanlig lys heller. Ikke engang lommelykter. Det er synd i de.</p>
 
-			<p class="dark">peter: du seriøst, dette er jo ... driiiiiiiiiit<br>
+			<p class="irc dark">peter: du seriøst, dette er jo ... driiiiiiiiiit<br>
 			alexander: dette er helt utrolig møkk<br>
 			peter: OH NO! MAGLITES!!!!<br>
 			alexander: I\'ve lived for 1000 years, ARARHrhrhr not with the flashlights!!!11111</p>
 
 			<p>Men de slår av lommelyktene og vampyren får overtaket igjen.</p>
 
-			<p class="dark">alexander: AHHAHAAHAHAHA<br>
+			<p class="irc dark">alexander: AHHAHAAHAHAHA<br>
 			peter: gud, så usigelig dumt<br>
 			peter: hva med å slå på de forpulte lommelyktene igjen?<br>
 			alexander: herregud og satan i helvete faen, dette er beyond me<br>
@@ -552,7 +552,7 @@
 
 			<p>Vi blir sure og vil ha båndbredden vår tilbake.</p>
 
-			<p class="dark">peter: FITTEFILM<br>
+			<p class="irc dark">peter: FITTEFILM<br>
 			alexander: FAENS JÆVLA HOREFILM</p>'
 	),
 	array(
@@ -565,7 +565,7 @@
 			At least if it had like some fucking teeth, or some claws, or <span class="underline">something</span>.
 			But nooo... It\'s like three people walking underneath carrying this chinese parade-reject, pulling other people into it. Boo fucking hoo I\'m so scawed.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			alexander: what the fuck is that supposed to be? is that the spaceship? that\'s the worst fucking alien I have ever seen...<br>
 			steffen: a Jabba the Hut prototype<br>
 			alexander: Jabba teh Suck</p>
@@ -573,7 +573,7 @@
 			<p>Inge hasn\'t been paying attention, so he gets a recap. The alien keeps making these noises, like radio static.
 			It\'s driving me insane.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			alexander: just wait \'till you see the alien<br>
 			alexander: whatever it is it appears to be broadcasting CBS<br>
 			alexander: and it doesn\'t have hands but the ship is filled with knobs<br>
@@ -581,13 +581,13 @@
 
 			<p>We discover disturbing things about our mutual friend Steffen.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			steffen: breast feeding rules<br>
 			steffen: or, just breast ^_^</p>
 
 			<p>Nothing fucking happens yo.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			alexander: we should make a petition for plot<br>
 			steffen: they used all the money on the monster instead of plot<br>
 			alexander: "bobby\'s hopelessly inbred synapses slowly begin to fire"<br>
@@ -602,7 +602,7 @@
 
 			<p>The monstarr disrupts the party in the gym.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			alexander: how the hell did the, let\'s call it "monster", ever manage to get out of that little hole in the,
 			let\'s call it "ship"<br>
 			inge: through sheer willpower<br>
@@ -613,7 +613,7 @@
 			fucktit managed to figure out how to operate an automobile and direct it\'s force towards the chinese sofa.
 			I don\'t remember how the monsters evil twin (or whatever) died. Safe to say it was probably dumb as fuck.</p>
 
-			<p class="dark">
+			<p class="irc dark">
 			alexander: please someone just shoot at it<br>
 			alexander: it\'s eaten half the town you moron, for fuck\'s sake, end this travesty<br>
 			alexander: I\'ve been waiting for over an hour to see that monster die, and now there\'s another one</p>'

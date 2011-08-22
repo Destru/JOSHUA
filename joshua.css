@@ -108,7 +108,7 @@ td.command {
 	width:580px;
 	height:378px;
 	position:absolute;
-    left:50% !important; top:50% !important;
+	left:50% !important; top:50% !important;
 	margin-left:-290px;
 	margin-top:-180px;
 	background-color:#080808;
@@ -207,6 +207,11 @@ pre.messages .dark {
 }
 
 /* content */
+pre, .pre, p.irc {
+	font-family:'Consolas', 'Monaco';
+	font-size:10px;
+	line-height:1.4em;
+}
 ul.inline li {
 	float:left;
 	margin-right:10px;
@@ -236,12 +241,6 @@ ul.tracks a {
 	opacity:0.25;
 	z-index:99;
 	background-color:#000;
-}
-
-/* fonts */
-@font-face {
-	font-family:'Joshua-Fixed';
-	src: url('fonts/profontwindows.ttf') format("truetype");
 }
 
 /* simplemodal */
@@ -283,4 +282,22 @@ ul.tracks a {
 	bottom: 0;
 	left: 0;
 	overflow: hidden;
+}
+
+/* fonts */
+@font-face {
+	font-family:'Tempesta';
+	src: url('fonts/pf_tempesta_seven.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Bold';
+	src: url('fonts/pf_tempesta_seven_bold.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Extended';
+	src: url('fonts/pf_tempesta_seven_extended.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Extended Bold';
+	src: url('fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
 }

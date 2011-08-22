@@ -184,8 +184,8 @@ $static = array(
 			<td>Minor bugfixes and new version-handling. More content and the <span class="command">xbox</span> command.</td>
 		</tr>
 		<tr class="major">
-			<td class="command fixed-width">6.0 <span class="dark">mobile</span></td>
-			<td>Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name). A lot of content added.</td>
+			<td class="command fixed-width">6.0 <span class="dark">Content</span></td>
+			<td>A lot of content added. Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name).</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">6.1</td>
@@ -410,6 +410,7 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://malsup.com/">Mike Alsup</a> for jQuery Cycle.
 		<a href="http://ericmmartin.com/">Eric Martin</a> for SimpleModal.
 		<a href="http://www.stilbuero.de/">Klaus Hartl</a> for jQuery Cookie.
+		<a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a> for his pixel fonts.
 		<a href="http://www.sedgeman.com/" class="blank">Luke Sedgeman</a> for his pixel people.
 		<a href="http://keith-wood.name/">Keith Wood</a> for jQuery Countdown.
 		<a href="http://vision-media.ca/">Vision Media</a> for the sparks effect.
