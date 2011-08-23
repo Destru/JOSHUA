@@ -1,32 +1,30 @@
 /* alexander@binaerpilot.no */
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 body {
-	background-color:#000;
+	background-color:#1a1a1a;
 	background-image:url("../images/joshuaPirate.png");
 	background-repeat:no-repeat;
 	background-position:50% 50%;
-	font-family:'Droid Sans', Arial, Helvetica;
-	font-size:13px;
-	line-height:16px;
+	font-family:'Open Sans', Arial, Helvetica;
+	font-size:12px;
+	line-height:1.4em;
 }
 a {
 	text-decoration:none;
 }
 .window {
-	background-color:#1a1a1a;
 	color:#ccc;
 	padding:10px;
-	border-radius:10px;
+}
+.window h1, .window h2 {
+	color:#fff;
+	margin-bottom:10px;
 }
 h1, h2 {
-	margin-bottom:10px;
-
-}
-h1 {
+	font-size:14px;
 	font-weight:bold;
 }
-.output, .prompt, p, table, pre {
+.output, .prompt, p, pre, table {
 	margin-bottom:20px;
 }
 p.note {
@@ -37,23 +35,19 @@ p.note {
 	width:640px;
 	padding:20px;
 	font-size:14px;
-	line-height:18px;
+	line-height:1.4em;
 }
 #prompt {
 	padding:0;
 	background-color:transparent;
 	border:none;
 	width:500px;
-	padding-top:2px;
+	position:relative;
+	left:-1px;
+	padding-top:1px;
 }
 .prefix {
 	float:left;
-}
-pre {
-	font-family:'Droid Sans Mono', Consolas, Monospace;
-	font-size:13px;
-	line-height:16px;
-	color:#888;
 }
 .prefix, .prompt, #prompt {
 	color:#888;
@@ -80,58 +74,40 @@ td {
 .light, .command {
 	color:#00e5f3;
 }
-.window h2 {
-	margin-bottom:10px;
-	padding-bottom:5px;
-}
 .window a {
 	color:#00bff3;
 }
 .tiny div {
 	float:left;
-	margin-right:5px;
+	margin-right:10px;
 	margin-top:5px;
-	background-color:#000;
-	padding:4px 8px;
 	color:#888;
 }
 a.close {
 	float:right;
-	padding:1px 5px;
+	font-size:2px;
+	line-height:1em;
+	padding:5px;
 	margin-right:0;
-	background-color:#000;
-	font-size:12px;
-	line-height:14px;
-	color:#000;
 	font-weight:normal;
+	background-color:#333;
+	color:#333;
+	border-radius:2px;
 }
 a.close:hover {
-	color:#333;
-	background-color:#333;
-}
-.image, .tiny div, .close, .tracks a {
-	border-radius:5px;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
+	background-color:#00bff3;
+	color:#00bff3;
 }
 .tracks a {
 	display:block;
-	background-color:#000;
-	padding:4px 8px;
 	color:#888;
 	margin-top:5px;
 }
-.tiny div:hover {
-	color:#fff;
-}
-.tracks a:hover, a.playing {
+.tiny div:hover , .tracks a:hover, a.playing {
 	color:#00bff3;
 }
 .tiny {
 	margin-bottom:20px;
-}
-#fx {
-	margin-bottom:0;
 }
 ::selection {
 	background-color:#00bff3;

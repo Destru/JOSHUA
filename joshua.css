@@ -41,8 +41,8 @@ td {
 	vertical-align:top;
 }
 td .image {
-	margin-right:15px;
-	margin-bottom:15px;
+	margin-top:4px;
+	margin-right:20px;
 }
 tr td:last-child {
 	padding-right:0;
@@ -129,9 +129,6 @@ td.command {
 	height:80px;
 	background:url("http://www.gravatar.com/avatar/332889bd5f2e5e183cbcccfa862e053d.png");
 }
-#alexander #bio {
-	display:none;
-}
 .image {
 	line-height:1px;
 }
@@ -208,7 +205,7 @@ pre.messages .dark {
 
 /* content */
 pre, .pre, p.irc {
-	font-family:'Consolas', 'Monaco';
+	font-family:'Consolas', 'Monaco', monospace;
 	font-size:10px;
 	line-height:1.4em;
 }
@@ -282,22 +279,4 @@ ul.tracks a {
 	bottom: 0;
 	left: 0;
 	overflow: hidden;
-}
-
-/* fonts */
-@font-face {
-	font-family:'Tempesta';
-	src: url('fonts/pf_tempesta_seven.ttf') format("truetype");
-}
-@font-face {
-	font-family:'Tempesta Bold';
-	src: url('fonts/pf_tempesta_seven_bold.ttf') format("truetype");
-}
-@font-face {
-	font-family:'Tempesta Extended';
-	src: url('fonts/pf_tempesta_seven_extended.ttf') format("truetype");
-}
-@font-face {
-	font-family:'Tempesta Extended Bold';
-	src: url('fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
 }

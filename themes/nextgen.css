@@ -397,3 +397,20 @@ h2.presets {
 .window h2 {
 	font-family:"Tempesta Extended Bold";
 }
+/* fonts */
+@font-face {
+	font-family:'Tempesta';
+	src: url('../fonts/pf_tempesta_seven.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Bold';
+	src: url('../fonts/pf_tempesta_seven_bold.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Extended';
+	src: url('../fonts/pf_tempesta_seven_extended.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Extended Bold';
+	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
+}

@@ -36,7 +36,7 @@ table td {
 #alexander.window {
 	width:344px;
 }
-ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, #prompt, #joshua .st, p.pearl, #profile, #joshua, .window, .window .tiny, p.note, #output {
+ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua .st, p.pearl, #profile, #joshua, .window, .window .tiny, p.note, #output {
 	border-radius:9px;
 	-webkit-border-radius:9px;
 	-moz-border-radius:9px;
@@ -45,7 +45,7 @@ ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, #prompt, #joshua .st, p
 	background-color:#000;
 	padding:11px;
 }
-ul.tracks, #profile, p.pearl, p.note {
+ul.tracks, #profile, p.pearl, p.note, p#bio {
 	background-color:#000;
 	padding:18px;
 	color:#fc9;

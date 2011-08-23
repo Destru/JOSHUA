@@ -410,7 +410,7 @@ function chromeMagic(){
 	else if(theme == "helvetica" || theme == "pirate"){
 		terminal = true;
 		if(theme == "pirate") {
-			$('#joshua h1').html('<b>JOSHUARRR!</b> <span class="dark">Pirate Edition</span>');
+			$('#joshua h1').remove();
 		}
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+prompt+'</div>');

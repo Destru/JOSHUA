@@ -75,7 +75,7 @@ p.note {
 	float:left;
 	margin-right:10px;
 }
-a:hover {
+a:hover, .tiny div:hover {
 	border-color:rgba(255,0,0,0.75);
 }
 #joshua {
