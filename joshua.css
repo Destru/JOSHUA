@@ -1,8 +1,9 @@
-/*
-	default rules
-	alexander@binaerpilot.no
-*/
+/* alexander@binaerpilot.no */
 @import "reset.css";
+@font-face {
+	font-family:'ProFont';
+	src: url('fonts/profont.ttf') format("truetype");
+}
 html, body {
 	height:100%;
 	color:#fff;
@@ -98,7 +99,7 @@ td.command {
 #music.window {
 	z-index:21;
 }
-#alexander.window {
+#profile.window {
 	width:340px;
 }
 
@@ -123,12 +124,14 @@ td.command {
 	width:48px; height:68px;
 }
 
-/* profile */
+/* alexander */
 #profile .image {
 	width:80px;
 	height:80px;
 	background:url("http://www.gravatar.com/avatar/332889bd5f2e5e183cbcccfa862e053d.png");
 }
+
+/* miscellaneous */
 .image {
 	line-height:1px;
 }
@@ -137,9 +140,6 @@ table.fluid {
 }
 table.version td.command {
 	vertical-align:top;
-}
-#pearls p {
-	margin-bottom:0;
 }
 
 /* tiny */
@@ -204,20 +204,19 @@ pre.messages .dark {
 }
 
 /* content */
-pre, .pre, p.irc {
-	font-family:'Consolas', 'Monaco', monospace;
-	font-size:10px;
+pre, .pre, p.irc, .fixed-width {
+	font-family:'Consolas', 'Monaco';
+	font-size:12px;
 	line-height:1.4em;
+}
+pre.ascii {
+	line-height:1.2em;
 }
 ul.inline li {
 	float:left;
 	margin-right:10px;
 	text-align:center;
 	margin-top:0;
-}
-pre.ascii {
-	font-size:12px;
-	line-height:12px;
 }
 ul.tracks a {
 	text-transform:capitalize;

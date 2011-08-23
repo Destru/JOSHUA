@@ -9,11 +9,11 @@
 		}
 	}
 	shuffle($tracks);
-	print '<ul class="tracks">';
+	print "\t".'<ul class="tracks">';
 	for ($i = 0; $i < count($tracks); $i++) {
 		$title = str_replace('binaerpilot - ','',str_replace('_',' ',str_replace('.mp3','',$tracks[$i])));
-		print "\r\t\t".'<li><a href="'.$dir.'/'.$tracks[$i].'">'.$title.'</a></li>';
+		print "\n\t\t".'<li><a href="'.$dir.'/'.$tracks[$i].'">'.$title.'</a></li>';
 	}
-	print '</ul>';
+	print "\n\t".'</ul>'."\n";
 ?>
 </div>

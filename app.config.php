@@ -1,8 +1,5 @@
 <div id="config" class="window">
 	<h1>Configuration</h1>
-		<p class="note">
-			Keep in mind that some of these themes and/or effects will not render correctly in certain browsers.
-		</p>
 	<h2>Presets</h2>
 	<div id="presets" class="tiny">
 		<div class="reset">Reset</div>
@@ -13,13 +10,13 @@
 	</div>
 	<h2>Themes</h2>
 	<div id="themes" class="tiny">
-		<?php $dir = scandir("themes");
-			foreach($dir as $file) {
-				if(stristr($file, '.css')) {
-					$title = str_replace('.css','',$file);
-					print "\t\t".'<div class="'.$title.'">'.$title.'</div>'."\r";
-				}
-			} ?>
+<?php $dir = scandir("themes");
+	foreach($dir as $file) {
+		if(stristr($file, '.css')) {
+			$title = str_replace('.css','',$file);
+			print "\t\t".'<div class="'.$title.'">'.$title.'</div>'."\n";
+		}
+	} ?>
 	</div>
 	<div class="next-gen extra">
 		<h2>Background</h2>

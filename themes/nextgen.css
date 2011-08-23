@@ -1,4 +1,20 @@
 /* alexander@binaerpilot.no */
+@font-face {
+	font-family:'Tempesta';
+	src: url('../fonts/pf_tempesta_seven.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Bold';
+	src: url('../fonts/pf_tempesta_seven_bold.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Extended';
+	src: url('../fonts/pf_tempesta_seven_extended.ttf') format("truetype");
+}
+@font-face {
+	font-family:'Tempesta Extended Bold';
+	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
+}
 #joshua {
 	z-index:10;
 	height:530px;
@@ -67,7 +83,7 @@ td.command {
 	min-width:150px;
 }
 .close {
-	font-family:"Profont", Verdana;
+	font-family:'ProFont';
 	font-size:9px;
 	float:right;
 	position:absolute;
@@ -84,7 +100,6 @@ td.command {
 	font-size:11px;
 	line-height:16px;
 	padding:5px 10px;
-	opacity:0.75;
 }
 .example {
 	margin-top:-5px;
@@ -128,10 +143,6 @@ h1, h2, h1 b, h2 b {
 }
 h1 b, h2 b {
 	font-family: 'Tempesta Extended Bold', Helvetica, Arial;
-}
-pre, pre .hl, td.fixed-width, .pre, p.irc {
-	font-family: 'Consolas', 'Monaco', 'Lucida Console';
-	font-size:9px; line-height:14px;
 }
 #sliders .frame, .speechBubble, .tiny div, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
 	font-family: 'Tempesta', Helvetica, Arial;
@@ -277,10 +288,6 @@ ul.tracks {
 .tiny div, #sliders .frame, .button {
 	padding:4px 7px 6px 7px;
 }
-.tiny div:last-child {
-	margin-right:0;
-}
-
 /* sliders */
 #sliders {
 	display:block;
@@ -292,9 +299,6 @@ ul.tracks {
 	padding-right:13px;
 	text-indent:-6px;
 	margin-bottom:5px;
-}
-#sliders .frame:last-child {
-	margin-bottom:0;
 }
 #sliders .frame, .ui-slider {
 	width:254px;
@@ -394,23 +398,9 @@ h2.presets {
 #profile {
 	font-size:11px;
 }
+#alexander p {
+	margin-bottom:0;
+}
 .window h2 {
 	font-family:"Tempesta Extended Bold";
-}
-/* fonts */
-@font-face {
-	font-family:'Tempesta';
-	src: url('../fonts/pf_tempesta_seven.ttf') format("truetype");
-}
-@font-face {
-	font-family:'Tempesta Bold';
-	src: url('../fonts/pf_tempesta_seven_bold.ttf') format("truetype");
-}
-@font-face {
-	font-family:'Tempesta Extended';
-	src: url('../fonts/pf_tempesta_seven_extended.ttf') format("truetype");
-}
-@font-face {
-	font-family:'Tempesta Extended Bold';
-	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
 }

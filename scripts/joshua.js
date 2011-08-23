@@ -8,7 +8,7 @@ fade = 500, // ui fade delay
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
-windows = ['config', 'music', 'alexander', 'gallery', 'superplastic', 'desktop'];
+windows = ['config', 'music', 'profile', 'gallery', 'superplastic', 'desktop'];
 
 // helpers
 function systemReady(){
@@ -95,7 +95,7 @@ function fxInit(fx, runOnce){
 		}
 	}
 	else if(fx == "malkovich"){
-		$('body').append('<div id="malkovich"/>');
+		$('body').append('<div id="malkovich">');
 		$('body').mousemove(function(event){
 			$('#malkovich').css({
 				top: (event.pageY+10)+'px',
@@ -132,7 +132,7 @@ function fxInit(fx, runOnce){
 		});
 	}
 	else if(fx == "ultraviolence"){
-		$('body').append('<div id="ultraviolence" class="overlay"/>');
+		$('body').append('<div id="ultraviolence" class="overlay">');
 		$('#ultraviolence').css({
 			'background-image': 'url("images/ultraviolence.jpg")',
 			'background-repeat': 'no-repeat',
@@ -225,7 +225,7 @@ function loadConfig(){
 // application loaders
 function loadSuperplastic(){
 	if($('#superplastic').has('iframe').length == 0){
-		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no"/>')		
+		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no">')		
 	}
 	else {
 		 $('#superplastic iframe').attr("src", $('#superplastic iframe').attr("src"));
@@ -388,7 +388,7 @@ function chromeMagic(){
 				'#desktop li a.active {color:#'+color+'}'+
 				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
-			$('body').append('<div id="custom"/>');
+			$('body').append('<div id="custom">');
 			$('#custom').html('<style type="text/css">'+css+'</style>');
 		}
 		$('div.tron div.tiny div').click(function(){
@@ -399,7 +399,7 @@ function chromeMagic(){
 		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
 	else if(theme == "diesel"){
-		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
+		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt="JOSHUA"></div>');
 		var dieselChrome = 271;
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
@@ -409,9 +409,7 @@ function chromeMagic(){
 	}
 	else if(theme == "helvetica" || theme == "pirate"){
 		terminal = true;
-		if(theme == "pirate") {
-			$('#joshua h1').remove();
-		}
+		if(theme == "pirate") $('#joshua h1').remove();
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+prompt+'</div>');
 		$('#desktop #links').remove();
@@ -419,6 +417,7 @@ function chromeMagic(){
 	}
 	else if(theme == "lcars"){
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
+		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
 		var lcarsChrome = 210;
 		$('#output').css("height", $(window).height()-lcarsChrome);
@@ -456,13 +455,13 @@ function boot(){
 		eraseCookie('music');
 		eraseCookie('gallery');
 		eraseCookie('fx');
-		eraseCookie('alexander');
+		eraseCookie('profile');
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
 		createCookie('theme', 'tron', expires); // set default theme
 		createCookie('desktop', 'true', expires);
-		createCookie('music', 'true', expires);
+		createCookie('profile', 'true', expires);
 		createCookie('tron.team', 'pink', expires);
 		createCookie('release', version, expires);
 		location.reload();
@@ -470,10 +469,6 @@ function boot(){
 	// load effects
 	var fx = readCookie('fx');
 	if(fx) fxInit(fx, true);
-	// load quote
-	var pearl = $('<p class="pearl"/>').load('joshua.php', {command: "pearl", option: "clean"}, function(){
-		pearl.appendTo('#pearls');
-	});
 	// window positions
 	$.each(windows,function(){
 		var cookie = readCookie('window.'+this);
@@ -539,7 +534,7 @@ $(function(){
 				systemReady();
 			}
 			// windows
-			else if(command == "config" || command == "alexander" || command == "gallery" || command == "music"){
+			else if(command == "config" || command == "profile" || command == "gallery" || command == "music"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				if(command == "music") {

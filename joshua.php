@@ -686,9 +686,9 @@ if(empty($output)){
 		if(preg_match($pattern, $option)){
 			$id = $option-1;
 			if(!empty($reviews[$id])){
-				print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span> '.
-					'<a href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">IMDb</a></p>'.
-					$reviews[$id]['review'];
+				print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span></p>'.
+					$reviews[$id]['review'].
+					'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a></p>';
 				$output = 1;
 			}
 			else error("404");

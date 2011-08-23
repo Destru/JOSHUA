@@ -13,8 +13,10 @@ a {
 	text-decoration:none;
 }
 .window {
+	background-color:rgba(24,24,24,0.5);
 	color:#ccc;
 	padding:10px;
+	border-radius:5px;	
 }
 .window h1, .window h2 {
 	color:#fff;
@@ -26,9 +28,6 @@ h1, h2 {
 }
 .output, .prompt, p, pre, table {
 	margin-bottom:20px;
-}
-p.note {
-	display:none;
 }
 #joshua {
 	min-height:80%;
@@ -54,6 +53,7 @@ p.note {
 }
 td {
 	padding-right:20px;
+	padding-bottom:2px;
 }
 #pearls p, .dark, .example {
 	color:#666;
@@ -92,11 +92,13 @@ a.close {
 	font-weight:normal;
 	background-color:#333;
 	color:#333;
-	border-radius:2px;
 }
 a.close:hover {
 	background-color:#00bff3;
 	color:#00bff3;
+}
+a.close, #profile .image {
+	border-radius:3px;
 }
 .tracks a {
 	display:block;
@@ -112,4 +114,7 @@ a.close:hover {
 ::selection {
 	background-color:#00bff3;
 	color:#fff;
+}
+#alexander p, #fx {
+	margin-bottom:0;
 }

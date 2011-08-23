@@ -14,8 +14,7 @@
 			It\'s a waste of bandwith. Don\'t bother.</p>
 			<p class="irc dark">inge: this movie has no redeeming qualities, whatsoever<br>
 			alexandr: ooo, tits<br>
-			inge: i retract my statement</p>
-			<p>Now you know where the star comes from. Tits good.</p>'
+			inge: i retract my statement</p>'
 	),
 	array(
 		'title' => 'Cheerleader Ninjas',
@@ -406,7 +405,7 @@
 			inge: hun kunne hinket fra ham, hva skal han gjøre? poke henne med staven?<br>
 			alexander: hva heter han anyway, targo? tarko? cargo?</p>
 
-			<p>Han heter Torgo. <a href="http://www.torgo.org/torgo/">Les hans triste historie</a>.</p>
+			<p>Han heter Torgo. <a href="http://www.torgo.org/torgo/">Les hans triste historie.</a></p>
 
 			<p class="irc dark">inge: denne filmen MÅ være improvisert<br>
 			alexander: forferdelig, forferdelig, forferdelig dårlig<br>
@@ -642,7 +641,7 @@
 			comes out being everything but scary. It\'s all just rather silly really. <i>"Gee, look at all the little bald kids playing with their green jello."</i>
 			</p>
 
-			<p>This movie stinks. No stars. Maybe if we were four-five people and everybody were
+			<p>This movie stinks. Zero rating. Maybe if we were four-five people and everybody were
 			just throwing random insults at it, this movie could be somewhat entertaining.
 			So in closing, if you\'re gonna defy reason and see this movie, make sure you\'re not alone.
 			Oh, and before I forget. To all you IMDB-loons out there,

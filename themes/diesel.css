@@ -6,6 +6,9 @@ body {
 	font-size:15px;
 	line-height:18px;
 }
+table {
+	margin-bottom:10px;
+}
 #joshua, #output {
 	z-index:10;
 }
@@ -97,9 +100,6 @@ div {
 	right:0 !important; top:0 !important;
 	padding:15px;
 }
-.window p {
-	padding:0 10px;
-}
 .window h2 {
 	margin:10px 0;
 	font-weight:bold;
@@ -107,7 +107,7 @@ div {
 	letter-spacing:-1px;
 }
 .close {
-	font-family:'Joshua-Fixed';
+	font-family:'ProFont';
 	text-transform:uppercase;
 	font-size:12px;
 	line-height:12px;

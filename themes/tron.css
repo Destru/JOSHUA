@@ -16,11 +16,11 @@ body {
 	z-index:10;
 	height:480px;
 	padding:10px;
-    position:absolute;
-    left:50%; top:50%;
-    margin-left: -410px;
-    margin-top: -250px;
-	background-image:url("../images/tronWindows.png");
+	position:absolute;
+	left:50%; top:50%;
+	margin-left: -410px;
+	margin-top: -250px;
+	background-color:rgba(0,0,0,0.85);
 }
 #input {
 	margin-top:10px;
@@ -77,19 +77,17 @@ h1 a, h2 a {
 	text-transform:uppercase;
 }
 .close {
-	font-weight:normal;
-	font-size:8px;
-	line-height:8px;
 	float:right;
 	position:relative;
 	top:4px; right:-6px;
 	border:solid 2px #555;
-	height:8px;
-	padding:2px 5px;
+	font-family:'ProFont';
+	line-height:1em;
+	padding:1px 5px;
 	color:#000;
 }
 .window {
-	background-image:url("../images/tronWindows.png");
+	background-color:rgba(0,0,0,0.85);
 	padding:10px;
 }
 .window p {
@@ -145,10 +143,6 @@ ol, ul, .motd, .prompt {
 }
 .prompt strong {
 	font-weight:normal;
-}
-
-.tron.extra .tiny {
-	margin-bottom:0;
 }
 table.torrents .torrent {
 	width:620px;
@@ -288,7 +282,7 @@ h1 {
 /* background */
 .tron .tiny div {
 	border:none;
-	height:15px;
+	height:5px;
 	width:10px;
 }
 .tron .tiny .blue {

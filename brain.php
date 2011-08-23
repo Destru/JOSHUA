@@ -417,6 +417,7 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://elliottkember.com/">Elliott Kember</a> for the spin effect.
 		<a href="http://lucasbaltes.com/">Lucas Baltes</a> for his Figlet PHP class.
 		<a href="http://bananarenders.com/">Bananarenders</a> for the original TR2N background.
+		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 

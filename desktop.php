@@ -1,5 +1,5 @@
 <ul class="icons">
-	<li><a class="open" id="alexanderOpen">Alexander Støver</a></li>
+	<li><a class="open" id="profileOpen">Alexander Støver</a></li>
 	<li><a class="open" id="configOpen">Configure JOSHUA</a></li>
 	<li><a class="open" id="superplasticOpen">Superplastic</a></li>
 	<li><a class="open" id="musicOpen">Binärpilot Player</a></li>
