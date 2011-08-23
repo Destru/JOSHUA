@@ -206,8 +206,8 @@ pre.messages .dark {
 /* content */
 pre, .pre, p.irc, .fixed-width {
 	font-family:'Consolas', 'Monaco';
-	font-size:12px;
-	line-height:1.5em;
+	font-size:11px;
+	line-height:1.4em;
 }
 pre.ascii {
 	line-height:1.2em;
