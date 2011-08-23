@@ -18,8 +18,8 @@ body {
 	padding:10px;
 	position:absolute;
 	left:50%; top:50%;
-	margin-left: -410px;
-	margin-top: -250px;
+	margin-left:-410px;
+	margin-top:-250px;
 	background-color:rgba(0,0,0,0.85);
 }
 #input {
@@ -36,7 +36,7 @@ a {
 	text-decoration:none;
 }
 #output {
-	height:400px;
+	height:402px;
 }
 #prompt {
 	font-family:Helvetica, Arial;

@@ -83,7 +83,7 @@ td.command {
 	min-width:150px;
 }
 .close {
-	font-family:'ProFont';
+	font-family:'Tempesta';
 	font-size:9px;
 	float:right;
 	position:absolute;
@@ -185,6 +185,7 @@ table.torrents td a:hover {
 	right:15px;
 }
 .close {
+	padding:0 5px;
 	opacity:0.5;
 }
 .close:hover {

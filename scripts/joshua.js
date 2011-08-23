@@ -170,6 +170,7 @@ function loadPreset(preset){
 	}
 	else if(preset == "identity"){
 		createCookie('theme', 'tron', expires);
+		createCookie('tron.team', 'green', expires);
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');	
@@ -375,13 +376,13 @@ function chromeMagic(){
 			createCookie('tron.team', 'blue', expires);
 		}
 		else if(team && team != "blue"){
-			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff', 'eb7129'], color = ''; 
-			if(team == "pink"){ color = colors[0]; }
-			else if(team == "red"){ color = colors[1]; }
-			else if(team == "yellow"){ color = colors[2]; }
-			else if(team == "green"){ color = colors[3]; }
-			else if(team == "purple"){ color = colors[4]; }
-			else if(team == "orange"){ color = colors[5]; }
+			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff','eb7129'], color = '';
+			if(team == "pink") color = colors[0];
+			else if(team == "red") color = colors[1];
+			else if(team == "yellow") color = colors[2];
+			else if(team == "green") color = colors[3];
+			else if(team == "purple") color = colors[4];
+			else if(team == "orange") color = colors[5];
 			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
 				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
