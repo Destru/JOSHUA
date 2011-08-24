@@ -400,7 +400,7 @@ function chromeMagic(){
 	}
 	else if(theme == "diesel"){
 		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt=""/></div>');
-		var dieselChrome = 271;
+		var dieselChrome = 245;
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
