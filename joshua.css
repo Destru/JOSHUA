@@ -1,8 +1,9 @@
-/*
-	default rules
-	alexander@binaerpilot.no
-*/
+/* alexander@binaerpilot.no */
 @import "reset.css";
+@font-face {
+	font-family:'ProFont';
+	src: url('fonts/profont.ttf') format("truetype");
+}
 html, body {
 	height:100%;
 	color:#fff;
@@ -41,8 +42,8 @@ td {
 	vertical-align:top;
 }
 td .image {
-	margin-right:15px;
-	margin-bottom:15px;
+	margin-top:4px;
+	margin-right:20px;
 }
 tr td:last-child {
 	padding-right:0;
@@ -98,7 +99,7 @@ td.command {
 #music.window {
 	z-index:21;
 }
-#alexander.window {
+#profile.window {
 	width:340px;
 }
 
@@ -108,7 +109,7 @@ td.command {
 	width:580px;
 	height:378px;
 	position:absolute;
-    left:50% !important; top:50% !important;
+	left:50% !important; top:50% !important;
 	margin-left:-290px;
 	margin-top:-180px;
 	background-color:#080808;
@@ -123,15 +124,14 @@ td.command {
 	width:48px; height:68px;
 }
 
-/* profile */
+/* alexander */
 #profile .image {
 	width:80px;
 	height:80px;
 	background:url("http://www.gravatar.com/avatar/332889bd5f2e5e183cbcccfa862e053d.png");
 }
-#alexander #bio {
-	display:none;
-}
+
+/* miscellaneous */
 .image {
 	line-height:1px;
 }
@@ -140,9 +140,6 @@ table.fluid {
 }
 table.version td.command {
 	vertical-align:top;
-}
-#pearls p {
-	margin-bottom:0;
 }
 
 /* tiny */
@@ -207,15 +204,19 @@ pre.messages .dark {
 }
 
 /* content */
+pre, .pre, p.irc, .fixed-width {
+	font-family:'Consolas', 'Monaco';
+	font-size:11px;
+	line-height:1.4em;
+}
+pre.ascii {
+	line-height:1.2em;
+}
 ul.inline li {
 	float:left;
 	margin-right:10px;
 	text-align:center;
 	margin-top:0;
-}
-pre.ascii {
-	font-size:12px;
-	line-height:12px;
 }
 ul.tracks a {
 	text-transform:capitalize;
@@ -236,12 +237,6 @@ ul.tracks a {
 	opacity:0.25;
 	z-index:99;
 	background-color:#000;
-}
-
-/* fonts */
-@font-face {
-	font-family:'Joshua-Fixed';
-	src: url('fonts/profontwindows.ttf') format("truetype");
 }
 
 /* simplemodal */

@@ -12,7 +12,7 @@
 	shuffle($images);
 	// images
 	foreach($images as $image) {
-		print '<div class="slide"><img src="gallery/'.$image.'" width="560" height="345" alt=""></div>';
+		print "\t\t\t".'<div class="slide"><img src="gallery/'.$image.'" width="560" height="345" alt=""></div>'."\n";
 	}
 ?>
 		</div>

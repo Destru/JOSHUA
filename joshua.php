@@ -670,12 +670,12 @@ if(empty($output)){
 	}
 	// reviews
 	if($command == "reviews" || $command == "review" && !isset($option)){
-		print $prompt.'<p>One day we had a great idea. '.
-			'"Let\'s watch all the worst movies in the world!"</i> '.
-			'In retrospect, it might not have been the greatest of ideas. Some reviews are in norwegian.';
+		print $prompt.'<p>One day we had a great idea: '.
+			'"Let\'s watch all the worst movies in the world!"</i><br> '.
+			'In retrospect, it might not have been the greatest of ideas. ';
 		print '<table class="reviews fluid">';
 		foreach ($reviews as $key => $value){
-			print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].'</td><td class="dark">'.$value['year'].'</td><td class="dark">'.$value['rating'].'/10</td></tr>';
+			print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].' ('.$value['year'].')</td><td class="dark">'.$value['rating'].'/10</td></tr>';
 		}
 		print '</table>';
 		print '<p>Read a review by typing <span class="command">review (x)</span>.</p>';
@@ -686,9 +686,9 @@ if(empty($output)){
 		if(preg_match($pattern, $option)){
 			$id = $option-1;
 			if(!empty($reviews[$id])){
-				print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span> '.
-					'<a href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">IMDb</a></p>'.
-					$reviews[$id]['review'];
+				print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span></p>'.
+					$reviews[$id]['review'].
+					'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a></p>';
 				$output = 1;
 			}
 			else error("404");

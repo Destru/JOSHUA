@@ -1,34 +1,28 @@
 /* alexander@binaerpilot.no */
 @font-face {
-	font-family:"Joshua Normal";
-	src: url('../fonts/pf_tempesta_seven.ttf');
+	font-family:'Tempesta';
+	src: url('../fonts/pf_tempesta_seven.ttf') format("truetype");
 }
 @font-face {
-	font-family:"Joshua Normal Bold";
-	src: url('../fonts/pf_tempesta_seven_bold.ttf');
+	font-family:'Tempesta Bold';
+	src: url('../fonts/pf_tempesta_seven_bold.ttf') format("truetype");
 }
 @font-face {
-	font-family:"Joshua Fancy";
-	src: url('../fonts/pf_tempesta_seven_extended.ttf');
+	font-family:'Tempesta Extended';
+	src: url('../fonts/pf_tempesta_seven_extended.ttf') format("truetype");
 }
 @font-face {
-	font-family:"Joshua Fancy Bold";
-	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf');
+	font-family:'Tempesta Extended Bold';
+	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
 }
-@font-face {
-	font-family:"ProFont";
-	src: url('../fonts/profont.ttf');
-}
-
-/* joshua */
 #joshua {
 	z-index:10;
 	height:530px;
 	padding:10px;
-    position:absolute;
-    left:50%; top:50%;
-    margin-left: -380px;
-    margin-top: -285px;
+	position:absolute;
+	left:50%; top:50%;
+	margin-left: -380px;
+	margin-top: -285px;
 	background-position:50% 50%;
 	background-repeat:no-repeat;
 }
@@ -89,7 +83,7 @@ td.command {
 	min-width:150px;
 }
 .close {
-	font-family:"Profont", Verdana;
+	font-family:'Tempesta';
 	font-size:9px;
 	float:right;
 	position:absolute;
@@ -106,7 +100,6 @@ td.command {
 	font-size:11px;
 	line-height:16px;
 	padding:5px 10px;
-	opacity:0.75;
 }
 .example {
 	margin-top:-5px;
@@ -145,23 +138,19 @@ p, ul, ol, table {
 	line-height:18px;
 }
 h1, h2, h1 b, h2 b {
-	font-family: "Joshua Fancy", Helvetica, Arial;
+	font-family: 'Tempesta Extended', Helvetica, Arial;
 	font-size:8px;
 }
 h1 b, h2 b {
-	font-family: "Joshua Fancy Bold", Helvetica, Arial;
-}
-pre, pre .hl, td.fixed-width, .pre {
-	font-family: "ProFont", Monaco, Lucida Console;
-	font-size:9px; line-height:14px;
+	font-family: 'Tempesta Extended Bold', Helvetica, Arial;
 }
 #sliders .frame, .speechBubble, .tiny div, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
-	font-family: "Joshua Normal", Helvetica, Arial;
+	font-family: 'Tempesta', Helvetica, Arial;
 	font-size:8px; line-height:1.2em;
 	text-transform:uppercase;
 }
 .joshua b, .error b {
-	font-family: "Joshua Normal Bold", Helvetica, Arial;
+	font-family: 'Tempesta Bold', Helvetica, Arial;
 }
 
 /* content */
@@ -196,6 +185,7 @@ table.torrents td a:hover {
 	right:15px;
 }
 .close {
+	padding:0 5px;
 	opacity:0.5;
 }
 .close:hover {
@@ -283,7 +273,7 @@ ul.tracks {
 	padding:5px 10px 6px 10px;
 }
 .button.playing, .button.paused {
-	font-family:"Joshua Normal Bold";
+	font-family:"Tempesta Bold";
 }
 /* tiny buttons */
 .tiny {
@@ -299,10 +289,6 @@ ul.tracks {
 .tiny div, #sliders .frame, .button {
 	padding:4px 7px 6px 7px;
 }
-.tiny div:last-child {
-	margin-right:0;
-}
-
 /* sliders */
 #sliders {
 	display:block;
@@ -314,9 +300,6 @@ ul.tracks {
 	padding-right:13px;
 	text-indent:-6px;
 	margin-bottom:5px;
-}
-#sliders .frame:last-child {
-	margin-bottom:0;
 }
 #sliders .frame, .ui-slider {
 	width:254px;
@@ -416,6 +399,9 @@ h2.presets {
 #profile {
 	font-size:11px;
 }
+#alexander p {
+	margin-bottom:0;
+}
 .window h2 {
-	font-family:"Joshua Fancy Bold";
+	font-family:"Tempesta Extended Bold";
 }

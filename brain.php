@@ -184,8 +184,8 @@ $static = array(
 			<td>Minor bugfixes and new version-handling. More content and the <span class="command">xbox</span> command.</td>
 		</tr>
 		<tr class="major">
-			<td class="command fixed-width">6.0 <span class="dark">mobile</span></td>
-			<td>Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name). A lot of content added.</td>
+			<td class="command fixed-width">6.0 <span class="dark">Content</span></td>
+			<td>A lot of content added. Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name).</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">6.1</td>
@@ -268,8 +268,7 @@ $static = array(
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I work for <a href="http://manualdesign.no">Manual design</a> where my title is \'Hacker\'.
-		I can\'t hack, but I do work with web development and interface design.
+		My name is Alexander Støver. I work for <a href="http://manualdesign.no">Manual </a> as a frontend developer.
 		On my spare time I make crazy robot music as <a href="http://binaerpilot.no">Binärpilot</a> and play online <span class="command">games</span>.
 	</p>
 
@@ -410,12 +409,14 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://malsup.com/">Mike Alsup</a> for jQuery Cycle.
 		<a href="http://ericmmartin.com/">Eric Martin</a> for SimpleModal.
 		<a href="http://www.stilbuero.de/">Klaus Hartl</a> for jQuery Cookie.
+		<a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a> for his pixel fonts.
 		<a href="http://www.sedgeman.com/" class="blank">Luke Sedgeman</a> for his pixel people.
 		<a href="http://keith-wood.name/">Keith Wood</a> for jQuery Countdown.
 		<a href="http://vision-media.ca/">Vision Media</a> for the sparks effect.
 		<a href="http://elliottkember.com/">Elliott Kember</a> for the spin effect.
 		<a href="http://lucasbaltes.com/">Lucas Baltes</a> for his Figlet PHP class.
 		<a href="http://bananarenders.com/">Bananarenders</a> for the original TR2N background.
+		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 

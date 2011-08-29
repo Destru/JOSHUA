@@ -14,13 +14,13 @@ body {
 /* joshua */
 #joshua {
 	z-index:10;
-	height:510px;
+	height:480px;
 	padding:10px;
-    position:absolute;
-    left:50%; top:50%;
-    margin-left: -410px;
-    margin-top: -265px;
-	background-image:url("../images/tronWindows.png");
+	position:absolute;
+	left:50%; top:50%;
+	margin-left:-410px;
+	margin-top:-250px;
+	background-color:rgba(0,0,0,0.85);
 }
 #input {
 	margin-top:10px;
@@ -36,7 +36,7 @@ a {
 	text-decoration:none;
 }
 #output {
-	height:432px;
+	height:402px;
 }
 #prompt {
 	font-family:Helvetica, Arial;
@@ -68,11 +68,6 @@ h1, h2 {
 h1 a, h2 a {
 	text-decoration:none;
 }
-pre, .pre {
-	font-family:Joshua-Fixed, Courier New, Monaco;
-	font-size:12px;
-	line-height:15px;
-}
 .italic {
 	font-style:italic;
 }
@@ -86,13 +81,13 @@ pre, .pre {
 	position:relative;
 	top:4px; right:-6px;
 	border:solid 2px #555;
-	line-height:11px;
-	height:12px;
-	padding:0 5px;
+	font-family:'ProFont';
+	line-height:1em;
+	padding:1px 5px;
 	color:#000;
 }
 .window {
-	background-image:url("../images/tronWindows.png");
+	background-color:rgba(0,0,0,0.85);
 	padding:10px;
 }
 .window p {
@@ -131,15 +126,12 @@ ol, ul, .motd, .prompt {
 	float:left;
 	margin-right:5px;
 	margin-top:5px;
-	padding:0 5px;
+	padding:3px 6px;
 	text-transform:capitalize;
-}
-.tiny div {
 	font-size:11px;
-	line-height:20px;
-	height:20px;
+	line-height:1.2em;
 	color:#777;
-	border:solid 2px #555;
+	border:solid 1px #555;
 }
 
 /* misc */
@@ -151,10 +143,6 @@ ol, ul, .motd, .prompt {
 }
 .prompt strong {
 	font-weight:normal;
-}
-
-.tron.extra .tiny {
-	margin-bottom:0;
 }
 table.torrents .torrent {
 	width:620px;
@@ -263,7 +251,7 @@ h1 {
 	opacity:0.25;
 }
 #input {
-	border:solid 1px #68b8ff;
+	border:solid 2px #68b8ff;
 }
 .jScrollPaneDrag {
 	width:8px !important;
@@ -294,7 +282,7 @@ h1 {
 /* background */
 .tron .tiny div {
 	border:none;
-	height:15px;
+	height:5px;
 	width:10px;
 }
 .tron .tiny .blue {
