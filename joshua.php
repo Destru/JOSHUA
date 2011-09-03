@@ -254,7 +254,7 @@ if(empty($output)){
 			if($level != 1) output('<p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
 			else output('<p>There are '.$levels.' levels. Answer by typing <span class="command">n (x)</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
 		}
-		else if(!empty($option)){
+		else {
 			if($option == $numbers[$_SESSION['numbers']][1]){
 				$_SESSION['numbers'] = $_SESSION['numbers']+1;
 				$level = $_SESSION['numbers']+1;
@@ -669,31 +669,33 @@ if(empty($output)){
 		output($stats);
 	}
 	// reviews
-	if($command == "reviews" || $command == "review" && !isset($option)){
-		print $prompt.'<p>One day we had a great idea: '.
-			'"Let\'s watch all the worst movies in the world!"</i><br> '.
-			'In retrospect, it might not have been the greatest of ideas. ';
-		print '<table class="reviews fluid">';
-		foreach ($reviews as $key => $value){
-			print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].' ('.$value['year'].')</td><td class="dark">'.$value['rating'].'/10</td></tr>';
-		}
-		print '</table>';
-		print '<p>Read a review by typing <span class="command">review (x)</span>.</p>';
-		$output = 1;
-	}
-	if($command == "review" && isset($option)){
-		$pattern = "/^[0-9]+$/";
-		if(preg_match($pattern, $option)){
-			$id = $option-1;
-			if(!empty($reviews[$id])){
-				print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span></p>'.
-					$reviews[$id]['review'].
-					'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a></p>';
-				$output = 1;
+	if($command == "reviews" || $command == "r"){
+		if(empty($option)) {
+			print $prompt.'<p>One day we had a great idea: '.
+				'"Let\'s watch all the worst movies in the world!"</i><br> '.
+				'In retrospect, it might not have been the greatest of ideas. ';
+			print '<table class="reviews fluid">';
+			foreach ($reviews as $key => $value){
+				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].' ('.$value['year'].')</td><td class="dark">'.$value['rating'].'/10</td></tr>';
 			}
-			else error("404");
+			print '</table>';
+			print '<p>Read a review by typing <span class="command">r (x)</span>.</p>';
+			$output = 1;
 		}
-		else error("blocked");
+		else {
+			$pattern = "/^[0-9]+$/";
+			if(preg_match($pattern, $option)){
+				$id = $option-1;
+				if(!empty($reviews[$id])){
+					print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span></p>'.
+						$reviews[$id]['review'].
+						'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a></p>';
+					$output = 1;
+				}
+				else error("404");
+			}
+			else error("blocked");
+		}
 	}
 	// check static commands
 	if(empty($output)){

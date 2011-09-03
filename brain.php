@@ -268,9 +268,9 @@ $static = array(
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I work for <a href="http://manualdesign.no">Manual design</a> where my title is \'Hacker\'.
-		I can\'t hack, but I do work with web development and interface design.
-		On my spare time I make crazy robot music as <a href="http://binaerpilot.no">Binärpilot</a> and play online <span class="command">games</span>.
+		My name is Alexander Støver. I work for <a href="http://manualdesign.no">Manual </a> as a front-end developer.
+		That\'s a fancy way of saying I\'m neither a designer or developer but sort of both.
+		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
 
 	<p>
