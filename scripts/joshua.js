@@ -401,7 +401,8 @@ function chromeMagic(){
 	}
 	else if(theme == "diesel"){
 		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt="JOSHUA"></div>');
-		var dieselChrome = 271;
+		var dieselChrome = 245;
+		console.log(dieselChrome);
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
@@ -420,7 +421,7 @@ function chromeMagic(){
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = 210;
+		var lcarsChrome = 225;
 		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
