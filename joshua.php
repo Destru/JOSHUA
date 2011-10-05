@@ -341,12 +341,12 @@ if(empty($output)){
 		get($url, $cache, 1);
 		$xml = loader($cache, 1);
 		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoBinaerpilot.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->firstname.' "'.$xml->name->nick.'" '.$xml->name->lastname.'</a></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$xml->name->firstname.' "'.$xml->name->nick.'" '.$xml->name->lastname.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 		$output = 1;
 	}
