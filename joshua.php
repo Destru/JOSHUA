@@ -366,15 +366,20 @@ if(empty($output)){
 		$bloodline = $xml->result->bloodLine;
 		$gender = $xml->result->gender;
 		$corp = $xml->result->corporationName;
-		$clone = $xml->result->cloneSkillPoints;
-		$balance = $xml->result->balance;
+		$sp = 0;
+		foreach($xml->result->rowset->row as $skill){
+			foreach($skill->attributes() as $key => $value){
+				if($key == "skillpoints") $sp = $sp + $value;
+			}
+		}
+		$isk = $xml->result->balance;
 		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="http://www.minmatar-militia.org/kb/?a=pilot_detail&plt_id=47869">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
 			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
-			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
-			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+			'<tr><td class="dark">Skills</td><td>'.$sp.' SP</td></tr>'.
+			'<tr><td class="dark">Wallet</td><td>'.$isk.' ISK</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 		$output = 1;
 	}
@@ -412,7 +417,7 @@ if(empty($output)){
 			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
 			'<tr><td class="dark">Secondary</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
 			'</table>';
 		$output = 1;
 
