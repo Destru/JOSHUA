@@ -334,9 +334,8 @@ if(empty($output)){
 		$cache = 'ao.xml';
 		print $prompt.'<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
 			The sheer size and complexity of the game was unparallalled at the time and I quickly found myself completely immersed in it.
-			<a href="misc/aoscripts.rar">Download some scripts</a> or listen to <a href="misc/doktor_dreiebenk_-_the_doctor_is_in.mp3">this little rap song</a>.
-			Both more than indicative of my former Rubi-ka addiction.
-			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
+			<a href="misc/aoscripts.rar">Download some scripts</a> or listen to <a href="misc/doktor_dreiebenk_-_the_doctor_is_in.mp3">this little rap song</a>,
+			both more than indicative of my former Rubi-ka addiction.
 			</p>';
 		get($url, $cache, 1);
 		$xml = loader($cache, 1);
@@ -346,7 +345,6 @@ if(empty($output)){
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 		$output = 1;
 	}
@@ -358,12 +356,13 @@ if(empty($output)){
 		print $prompt.'<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>';
+			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a>.</p>';
 		get($url, $cache, 1);
 		$xml = loader($cache, 1);
 		$name = $xml->result->name;
 		$race = $xml->result->race;
-		$bloodline = $xml->result->bloodLine;
+		$blood = $xml->result->bloodLine;
+		$ancestry = $xml->result->ancestry;		
 		$gender = $xml->result->gender;
 		$corp = $xml->result->corporationName;
 		$sp = 0;
@@ -375,11 +374,11 @@ if(empty($output)){
 		$isk = $xml->result->balance;
 		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="http://www.minmatar-militia.org/kb/?a=pilot_detail&plt_id=47869">'.$name.'</a></td></tr>'.
-			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
+			'<tr><td class="dark">Race</td><td>'.$race.'</td></tr>'.
+			'<tr><td class="dark">Ancestry</td><td>'.$blood.' '.$ancestry.'</td></tr>'.
 			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
 			'<tr><td class="dark">Skills</td><td>'.$sp.' SP</td></tr>'.
 			'<tr><td class="dark">Wallet</td><td>'.$isk.' ISK</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 		$output = 1;
 	}
@@ -417,7 +416,6 @@ if(empty($output)){
 			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
 			'<tr><td class="dark">Secondary</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
 			'</table>';
 		$output = 1;
 
@@ -436,7 +434,6 @@ if(empty($output)){
 			'<tr><td class="dark">Rank</td><td>'.$xml->cdata->rank.' ('.$xml->cdata->level.')</td></tr>'.
 			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
 			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr></table>';
 		$output = 1;
 	}
 	// xbox
