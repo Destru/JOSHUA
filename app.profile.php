@@ -8,8 +8,8 @@
 		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">@binaerpilot.no</a></td></tr>
 	</table>
 	<p>
-		I make awesome websites using Ruby on Rails, jQuery and PHP for <a href="http://manualdesign.no">Manual</a> in Oslo.
-		On my spare time I make <a href="http://binaerpilot.no">music</a>.
+		I do front end development for the 2nd largest Norwegian website, <a href="http://finn.no/torget">FINN</a>.
+		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
 		I am, what is colloquially known as, a massive nerd.
 	</p>
 </div>
