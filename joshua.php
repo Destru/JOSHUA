@@ -332,21 +332,17 @@ if(empty($output)){
 		$char = 'binaerpilot';
 		$url = 'http://people.anarchy-online.com/character/bio/d/1/name/'.$char.'/bio.xml';
 		$cache = 'ao.xml';
-		print $prompt.'<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none.
-			The sheer size and complexity of the game was unparallalled at the time and I quickly found myself completely immersed in it.
-			<a href="misc/aoscripts.rar">Download some scripts</a> or listen to <a href="misc/doktor_dreiebenk_-_the_doctor_is_in.mp3">this little rap song</a>.
-			Both more than indicative of my former Rubi-ka addiction.
-			I\'ve also coded a little for various botnets and made more silly little sites than I can remember.
-			</p>';
+		print $prompt.'<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none. '.
+			'In awe of the sheer size and complexity of the game I quickly found myself completely immersed in it. '.
+			'I made <a href="misc/aoscripts.rar">some scripts</a> that make things easier. Down with Omni-Tek!</p>';
 		get($url, $cache, 1);
 		$xml = loader($cache, 1);
-		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/aoBinaerpilot.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="'.$url.'">'.$xml->name->firstname.' "'.$xml->name->nick.'" '.$xml->name->lastname.'</a></td></tr>'.
+		print '<table class="fluid">'.
+			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$xml->name->firstname.' "'.$xml->name->nick.'" '.$xml->name->lastname.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 		$output = 1;
 	}
@@ -397,13 +393,12 @@ if(empty($output)){
 		$altSpecDetails  = $xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeOne.'/'.
 			$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeTwo.'/'.
 			$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeThree;
-		print '<table class="fluid"><tr><td rowspan="8"><div class="image" style="background-image:url(\'images/wowFenris.png\');width:100px;height:100px;"></div></td></tr>'.
+		print '<table class="fluid">'.
 			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
 			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
 			'<tr><td class="dark">Secondary</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 		$output = 1;
 
@@ -413,16 +408,15 @@ if(empty($output)){
 		$charid = '918798';
 		$url = 'http://www.startrekonline.com/character_profiles/'.$charid.'/xml';
 		$cache = 'sto.xml';
-		print $prompt.'<p>I didn\'t play <b>Star Trek Online</b> long enough for an educated opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately the game didn\'t grip me.</p>';
+		print $prompt.'<p>I didn\'t play <b>Star Trek Online</b> long enough for an well-rounded opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately though the game didn\'t grip me.</p>';
 		get($url, $cache, 1);
 		$xml = loader($cache, 1);
-		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/sto.png\');width:100px;height:100px"></div></td></tr>'.
+		print '<table class="fluid">'.
 			'<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$xml->cdata->name.'@'.$xml->cdata->display_name.'</a></td></tr>'.
 			'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $xml->cdata->class).'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$xml->cdata->rank.' ('.$xml->cdata->level.')</td></tr>'.
 			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
-			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr></table>';
+			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>';
 		$output = 1;
 	}
 	// xbox
