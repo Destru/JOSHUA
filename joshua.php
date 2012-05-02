@@ -346,35 +346,26 @@ if(empty($output)){
 			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+			'<tr><td class="dark">Status</td><td class="light">Active</td></tr>'.
 			'</table>';
 		$output = 1;
 	}
 	// game eve
 	if($command == "game" && !empty($option) && $option == "eve"){
-		$charid = '1761654327';
-		$url = 'http://api.eve-online.com/char/CharacterSheet.xml.aspx?userID=3292896&apiKey=2F975C46AD0E4944B92A1593424E96473C8D729993DF46D0BABB4EA1C2C4E88B&characterID='.$charid;
+		$url = 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327';
 		$cache = 'eve.xml';
 		print $prompt.'<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'I have made some <a href="http://binaerpilot.no/alexander/eve/">cheat sheets</a> and there\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>';
+			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>';
 		get($url, $cache, 1);
 		$xml = loader($cache, 1);
-		$name = $xml->result->name;
-		$race = $xml->result->race;
-		$bloodline = $xml->result->bloodLine;
-		$gender = $xml->result->gender;
-		$corp = $xml->result->corporationName;
-		$clone = $xml->result->cloneSkillPoints;
-		$balance = $xml->result->balance;
 		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$name.'</td></tr>'.
-			'<tr><td class="dark">Race</td><td>'.$race.' ('.$bloodline.')</td></tr>'.
-			'<tr><td class="dark">Corporation</td><td><a href="http://www.minmatar-militia.org/kb/?a=corp_detail&crp_id=3361">'.$corp.'</a></td></tr>'.
-			'<tr><td class="dark">Piloting</td><td>Nostromo</td></tr>'.
-			'<tr><td class="dark">Wealth</td><td>'.$balance.' ISK</td></tr>'.
-			'<tr><td class="dark">Status</td><td class="light">Inactive</td></tr>'.
+			'<tr><td class="dark">Name</td><td>'.$xml->result->characterName.'</td></tr>'.
+			'<tr><td class="dark">Race</td><td>'.$xml->result->race.' ('.$xml->result->bloodline.')</td></tr>'.
+			'<tr><td class="dark">Corporation</td><td>'.$xml->result->corporation.'</td></tr>'.
+			'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$xml->result->alliance.'</a></td></tr>'.
+			'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($xml->result->securityStatus), 2).'</td></tr>'.
 			'</table>';
 		$output = 1;
 	}
