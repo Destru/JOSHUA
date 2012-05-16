@@ -268,7 +268,7 @@ $static = array(
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I work for <a href="http://manualdesign.no">Manual </a> as a front-end developer.
+		My name is Alexander Støver. I work for <a href="http://finn.no">FINN</a> as a front end web developer.
 		That\'s a fancy way of saying I\'m neither a designer or developer but sort of both.
 		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
