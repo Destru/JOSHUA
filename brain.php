@@ -1,5 +1,5 @@
 <?php // joshua brain <alexander@binaerpilot.no>
-// brain cells
+// brain cells (modules)
 $d = scandir(".");
 foreach($d as $file) {
 	if(stristr($file, 'cell.')) include $file;
@@ -53,7 +53,7 @@ $static = array(
 			<td>Search and download torrents</td>
 		</tr>
 		<tr>
-			<td class="command">game <span class="dark">name</span></td>
+			<td class="command">games <span class="dark">name</span></td>
 			<td>Favorite games and things I made for them</td>
 		</tr>
 		<tr>

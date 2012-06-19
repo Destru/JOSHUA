@@ -62,15 +62,20 @@ function get($url, $cache=null, $inline=null){
 		if(empty($cache)) error('noreturn');
 	}
 }
-function loader($file, $inline=null){
+function load($file, $inline=null){
 	if(file_exists($file)){
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
-		if($ext == "xml"){
+		if($ext == 'xml'){
 			if(simplexml_load_file($file) && filesize($file) > 350) return simplexml_load_file($file);
 			else {
 				if($inline) error('invalidxml', 1);
 				else error('invalidxml');
 			}
+		}
+		else if($ext == 'json'){
+			$fgc = file_get_contents($file,0,null,null);
+			if($fgc) return json_decode($fgc);
+			else error('invalidjson');			
 		}
 	}
 	else {
@@ -94,6 +99,11 @@ function dbFile($file){
 	}
 	else error('localcache');
 }
+function implodeHuman($a) { 
+	$last = array_pop($a); 
+	if (!count($a)) return $last;
+	return implode (', ', $a).' and '.$last; 
+}
 
 // errors	
 $error = array(
@@ -109,6 +119,7 @@ $error = array(
 	'timeout' => 'Request timed out. Please try again later.',
 	'empty' => 'API did not respond.',
 	'invalidxml' => 'API returned malformed XML.',
+	'invalidjson' => 'API returned malformed JSON.',
 	'localcache' => 'Local cache does not exist.',
 	'password' => 'Incorrect password.'
 );
@@ -131,18 +142,9 @@ if(!empty($command)){
 }
 
 // output
-if(empty($output)){
+if(empty($output)) {
+	// we need to load the brain
 	include('brain.php');
-	// motd 
-	if($command == "motd"){
-		$count = count($motd)-1; $rand = rand(0,$count);
-		if(isset($option) && $option == "clean"){
-			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
-		}
-		else {
-			output($motd[$rand]);
-		}
-	}
 	// quotes, pearls, bash
 	if($command == "bash" || $command == "pearl"){
 		if($command == "bash") $array = $bash;
@@ -163,12 +165,7 @@ if(empty($output)){
 			output($quote);
 		}
 	}
-	// uptime and date
-	if($command == "uptime" || $command == "date"){
-		$return = trim(exec($command));
-		if(!empty($return))	output($return);
-		else error('noreturn');
-	}
+
 	// whois
 	if($command == "whois"){
 		if(empty($option)) output('<p>You need to specify a domain name.</p><p class="example">whois binaerpilot.no</p>');
@@ -185,6 +182,7 @@ if(empty($output)){
 			else error('notdomain');
 		}
 	}
+
 	// prime number
 	if($command == "prime"){
 		if(empty($option)) output('<p>You need to specify a number.</p><p class="example">prime 13</p>');
@@ -200,6 +198,7 @@ if(empty($output)){
 			else output($option.' is a prime number.');
 		}
 	}
+
 	// locate
 	if($command == "locate"){
 		$lookup = "http://api.hostip.info/get_html.php?position=true&ip=";
@@ -218,32 +217,6 @@ if(empty($output)){
 			else output('<pre>'.$output.'</pre>');
 		}
 		else error('notip');
-	}
-	// sudo
-	if($command == "sudo"){
-		if(empty($option)) error('password');
-		else {
-			if($option == "iddqd"){
-				$_SESSION['sudo'] = 1;
-				output('<p class="joshua">'.$joshua.'Authentification successful.</p>');
-			}
-			else {
-				unset($_SESSION['sudo']);
-				error('password');
-			}
-		}
-	}
-	// *nix commands for lulz
-	if($command == "ls" || $command == "cd" || $command == "top" || $command == "rm" || $command == "top" || $command == "who"){
-		if(isset($_SESSION['sudo'])){
-			if($command == "ls") $return = shell_exec("ls");
-			elseif($command == "who") $return = shell_exec("who");
-			if(isset($return) && !empty($return)){
-				output('<pre>'.$return.'</pre>');
-			}
-			else error('noreturn');		
-		}
-		else error('auth');
 	}
 	// numbers
 	if($command == "numbers" || $command == "n"){
@@ -307,6 +280,7 @@ if(empty($output)){
 		}
 		else output('<p>Please leave a message after the beep. <140 characters (alphanumeric). <i>Beep!</i></p><p class="example">msg joshua needs more ultraviolence</p>');
 	}
+
 	// yoda
 	if($command == "yoda"){
 		$yodaPixel = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
@@ -319,156 +293,23 @@ if(empty($output)){
 		}
 		else output('<p class="speechBubble">Ask a question you must.</p>'.$yodaPixel);
 	}
+
 	// fml
 	if($command == "fml"){
 		$url = "http://feeds.feedburner.com/fmylife?format=xml";
 		$cache = "fml.xml";
 		get($url, $cache);
-		$xml = loader($cache);
+		$xml = load($cache);
 		output($xml->entry[rand(0,9)]->content);
 	}
-	// game ao
-	if($command == "game" && !empty($option) && $option == "ao"){
-		$char = 'binaerpilot';
-		$url = 'http://people.anarchy-online.com/character/bio/d/1/name/'.$char.'/bio.xml';
-		$cache = 'ao.xml';
-		print $prompt.'<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none. '.
-			'In awe of the sheer size and complexity of the game I quickly found myself completely immersed in it. '.
-			'I made <a href="misc/aoscripts.rar">some scripts</a> that make things easier. Down with Omni-Tek!</p>';
-		get($url, $cache, 1);
-		$xml = loader($cache, 1);
-		print '<table class="fluid">'.
-			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$xml->name->firstname.' "'.$xml->name->nick.'" '.$xml->name->lastname.'</a></td></tr>'.
-			'<tr><td class="dark">Profession</td><td>'.$xml->basic_stats->faction.' '.$xml->basic_stats->profession.'</td></tr>'.
-			'<tr><td class="dark">Title</td><td>'.$xml->basic_stats->profession_title.' ('.$xml->basic_stats->level.')</td></tr>'.
-			'<tr><td class="dark">Organization</td><td>'.$xml->organization_membership->organization_name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$xml->organization_membership->rank.'</td></tr>'.
-			'</table>';
-		$output = 1;
-	}
-	// game eve
-	if($command == "game" && !empty($option) && $option == "eve"){
-		$url = 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327';
-		$cache = 'eve.xml';
-		print $prompt.'<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
-			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
-			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>';
-		get($url, $cache, 1);
-		$xml = loader($cache, 1);
-		print '<table class="fluid"><tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$xml->result->characterName.'</td></tr>'.
-			'<tr><td class="dark">Race</td><td>'.$xml->result->race.' ('.$xml->result->bloodline.')</td></tr>'.
-			'<tr><td class="dark">Corporation</td><td>'.$xml->result->corporation.'</td></tr>'.
-			'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$xml->result->alliance.'</a></td></tr>'.
-			'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($xml->result->securityStatus), 2).'</td></tr>'.
-			'</table>';
-		$output = 1;
-	}
-	// game wow 
-	if($command == "game" && !empty($option) && $option == "wow"){
-		$realm = "Skullcrusher";
-		$character = "Fenrisúlfr";
-		$url = 'http://eu.battle.net/wow?r='.$realm.'&n='.$character.'&rhtml=n&locale=en_US';
-		$wowhead = 'http://www.wowhead.com/user=Destru#characters';
-		$cache = 'wow.xml';
-		print $prompt.'<p><b>World of Warcraft</b> has been a <a href="'.$wowhead.'">guilty pleasure</a> of mine on and off for years. '.
-			'So far I\'ve played a coulple characters to end-game and messed around with more PvP alts than I can remember. '.
-			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed. '.
-			'For the Horde!</p>';
-		get($url, $cache, 1);
-		$xml = loader($cache, 1);
-		$name = $xml->characterInfo->character->attributes()->name;
-		$class = $xml->characterInfo->character->attributes()->class;
-		$level = $xml->characterInfo->character->attributes()->level;
-		$points = $xml->characterInfo->character->attributes()->points;
-		$faction= $xml->characterInfo->character->attributes()->faction;
-		$updated = $xml->characterInfo->character->attributes()->lastModified;
-		$kills = $xml->characterInfo->characterTab->pvp->lifetimehonorablekills->attributes()->value;
-		$spec = $xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->prim;
-		$specDetails =  $xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeOne.'/'.
-			$xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeTwo.'/'.
-			$xml->characterInfo->characterTab->talentSpecs->talentSpec[0]->attributes()->treeThree;
-		$altSpec = $xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->prim;	
-		$altSpecDetails  = $xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeOne.'/'.
-			$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeTwo.'/'.
-			$xml->characterInfo->characterTab->talentSpecs->talentSpec[1]->attributes()->treeThree;
-		print '<table class="fluid">'.
-			'<tr><td class="dark">Name</td><td><a href="'.$wowhead.'">'.$name.'</a></td></tr>'.
-			'<tr><td class="dark">Faction</td><td>'.$faction.' '.$class.'</td></tr>'.
-			'<tr><td class="dark">Primary</td><td>'.$altSpec.' ('.$altSpecDetails.')</td></tr>'.
-			'<tr><td class="dark">Secondary</td><td>'.$spec.' ('.$specDetails.')</td></tr>'.
-			'<tr><td class="dark">Achievements</td><td>'.$points.'</a></td></tr>'.
-			'</table>';
-		$output = 1;
 
-	}
-	// game sto
-	if($command == "game" && !empty($option) && $option == "sto"){
-		$charid = '918798';
-		$url = 'http://www.startrekonline.com/character_profiles/'.$charid.'/xml';
-		$cache = 'sto.xml';
-		print $prompt.'<p>I didn\'t play <b>Star Trek Online</b> long enough for an well-rounded opinion. That being said I did have fun, 70 hours worth according to Steam. Ultimately though the game didn\'t grip me.</p>';
-		get($url, $cache, 1);
-		$xml = loader($cache, 1);
-		print '<table class="fluid">'.
-			'<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$xml->cdata->name.'@'.$xml->cdata->display_name.'</a></td></tr>'.
-			'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $xml->cdata->class).'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$xml->cdata->rank.' ('.$xml->cdata->level.')</td></tr>'.
-			'<tr><td class="dark">Ship</td><td>'.$xml->ship->name.'</td></tr>'.
-			'<tr><td class="dark">Serial</td><td>'.$xml->ship->serial.'</td></tr>';
-		$output = 1;
-	}
-	// xbox
-	if($command == "xbox"){
-		$charid = "Destru%20Kaneda";
-		$url = 'http://xboxapi.duncanmackenzie.net/gamertag.ashx?GamerTag='.$charid;
-		$cache = 'xbox.xml';
-		get($url, $cache);
-		$xml = loader($cache);
-		$name = $xml->Gamertag;
-		$reputation = $xml->Reputation;
-		$score = $xml->GamerScore;
-		$status = $xml->PresenceInfo->StatusText;
-		$info = $xml->PresenceInfo->Info;
-		$moreInfo = $xml->PresenceInfo->Info2;
-		if(strlen($moreInfo) > 1) $info = $info.' ('.$moreInfo.')';
-		$games = '';
-		for ($i = 0; $i < 3; $i++){
-			$game = $xml->RecentGames->XboxUserGameInfo[$i]->Game->Name;
-			$gameScore = $xml->RecentGames->XboxUserGameInfo[$i]->GamerScore;
-			$gameDetails = $xml->RecentGames->XboxUserGameInfo[$i]->DetailsURL;
-			$games .= $game.' ('.$gameScore.')';
-			if($i != 2) $games .= ', ';
-		}
-		output('<table class="fluid"><tr><td rowspan="6"><div class="image" style="background-image:url(\'http://avatar.xboxlive.com/avatar/'.$charid.'/avatarpic-l.png\');width:64px;height:64px;"></div></td></tr>'.
-			'<tr><td class="dark">Gamertag</td><td><a href="http://live.xbox.com/member/'.$charid.'">'.$name.'</a> ('.$status.')</td></tr>'.
-			'<tr><td class="dark">Activity</td><td>'.$info.'</td></tr>'.
-			'<tr><td class="dark">Recent</td><td>'.$games.'</td></tr>'.
-			'<tr><td class="dark">Reputation</td><td>'.$reputation.'%</td></tr>'.
-			'<tr><td class="dark">Gamerscore</td><td>'.$score.'</td></tr></table>');
-	}
-	// games
-	if($command == "game" || $command == "games"){
-		$gameList = '';
-		if(!empty($option)){
-			foreach ($games as $key => $value)	if($key == $option) output($value);
-			// 404
-			if(empty($output)) error('404');
-		}
-		else {
-			foreach ($games as $key => $value) $gameList[] .= '<span class="command">'.$key.'</span>';
-			$gameList = implode(', ', $gameList);
-			output('<p>You need to specify a game. Valid options are '.$gameList.', <span class="command">wow</span>, <span class="command">sto</span>, <span class="command">eve</span> and <span class="command">ao</span>.</p><p class="example">game eve</p>');
-		}
-	}
 	// cheat
 	if($command == "idkfa"){
-		$commands = array();
 		foreach ($static as $key => $value) $commands[] .= $key;
-		sort($commands); $commands = implode(', ', $commands);
-		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p><p>'.$commands.'.</p>');
+		sort($commands); $commands = implodeHuman($commands);
+		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p>'.$commandList);
 	}
+
 	// lastfm
 	if($command == "last.fm" || $command == "lastfm"){
 		print $prompt.'<p>';
@@ -477,7 +318,7 @@ if(empty($output)){
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 			$count = 10; $cache = 'lastfm.loved.xml';
 			get($url, $cache, 1);
-			$xml = loader($cache, 1);
+			$xml = load($cache, 1);
 			for ($i = 0; $i < $count; $i++){
 				$track = $xml->lovedtracks->track[$i]->name;
 				$artist = $xml->lovedtracks->track[$i]->artist->name;
@@ -489,7 +330,7 @@ if(empty($output)){
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 			$count = 10; $cache = 'lastfm.xml';
 			get($url, $cache, 1);
-			$xml = loader($cache, 1);
+			$xml = load($cache, 1);
 			for ($i = 0; $i < $count; $i++){
 				$track = $xml->recenttracks->track[$i]->name;
 				$artist =$xml->recenttracks->track[$i]->artist;
@@ -499,6 +340,7 @@ if(empty($output)){
 		print '<a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>';
 		$output = 1;	
 	}
+
 	// wtfig
 	if($command == "wtfig"){
 		if(!isset($option)){
@@ -530,7 +372,7 @@ if(empty($output)){
 						$fontList[] = $fontName;
 					}
 				}
-				sort($fontList); $fonts = implode(', ', $fontList);
+				sort($fontList); $fonts = implodeHuman($fontList);
 				$output = '<p>'.$fonts.'.</p>';
 				if($option != "list"){
 					$output = '<p class="error">'.$joshua.'Invalid font. See list below.</p>'.$output;
@@ -539,6 +381,7 @@ if(empty($output)){
 			}
 		}
 	}
+
 	// get (torrents)
 	if($command == "get"){
 		if(isset($option)){
@@ -572,7 +415,8 @@ if(empty($output)){
 			}
 		}
 		else output('<p>You need to specify something to look for.</p><p class="example">get binaerpilot</p>');
-	} 
+	}
+
 	// superplastic
 	if($command == "superplastic"){
 		if(!empty($_POST['name'])) $name = strip_tags(trim($_POST['name']));
@@ -598,6 +442,7 @@ if(empty($output)){
 		}
 		print '</ol>'; $output = 1;
 	}
+
 	// calc
 	if($command == "calc"){
 		if(isset($option)) {
@@ -612,47 +457,7 @@ if(empty($output)){
 		}
 		else output('<p>There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
 	}
-	// stats
-	if($command == "stats"){
-		$timestamp = microtime(true);
-		$brainCells = 0; $themes = 0; $bytes = 0; $lines = 0;
-		$dir = '.'; $scan = scandir($dir);
-		foreach ($scan as $file){
-			if(!stristr($file, '.xml') && !stristr($file, '.data') && !is_dir($file)){
-				$bytes = $bytes + filesize($file);
-				$lines = $lines + count(file($file));
-			}
-			if(stristr($file, 'cell.'))	$brainCells = $brainCells+1;
-			else if(stristr($file, '.xml')) $brainCells = $brainCells+1;
-		}
-		$dir = 'themes/'; $scan = scandir($dir);
-		foreach ($scan as $file){
-			if(!is_dir($file)){
-				$bytes = $bytes + filesize($dir.$file);
-				$lines = $lines + count(file($dir.$file));
-			}
-			if(stristr($file, '.css')) $themes = $themes+1;
-		}
-		if(file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
-		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
-		$commands = count($static)+35; // guesstimate
-		$quotes = count($motd)+count($bash)+count($pearls);
-		$reviews = count($reviews);
-		$stats = 
-			'<table class="stats">'.
-			'<tr><td class="light">Commands</td><td>'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
-			'<tr><td class="light">Brain cells</td><td>'.$brainCells.'</td><td class="dark">All external files loaded by the brain</td></tr>'.
-			'<tr><td class="light">Themes</td><td>'.$themes.'</td><td class="dark">Some themes have to be unlocked...</td></tr>'.
-			'<tr><td class="light">Bytes</td><td>'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++</td></tr>'.
-			'<tr><td class="light">Lines</td><td>'.$lines.'</td><td class="dark">Lines of code (no externals)</td></tr>'.
-			'<tr><td class="light">Messages</td><td>'.$messages.'</td><td class="dark">Left with the msg command</td></tr>'.
-			'<tr><td class="light">Reviews</td><td>'.$reviews.'</td><td class="dark">Reviews of terrible movies</td></tr>'.
-			'<tr><td class="light">Scores</td><td>'.$scores.'</td><td class="dark">Superplastic record attempts</td></tr>'.
-			'<tr><td class="light">Quotes</td><td>'.$quotes.'</td><td class="dark">Includes MOTD\'s and bash.org quotes</td></tr>'.
-			'<tr><td class="light">Timer</td><td>'.microtimer($timestamp).'</td><td class="dark">The seconds it took to compile these stats</td></tr>'.
-			'</table>';
-		output($stats);
-	}
+
 	// reviews
 	if($command == "reviews" || $command == "r"){
 		if(empty($option)) {
@@ -682,13 +487,55 @@ if(empty($output)){
 			else error("blocked");
 		}
 	}
-	// check static commands
+
+	// stats
+	if($command == "stats"){
+		$timestamp = microtime(true);
+		$brainCells = 0; $themes = 0; $bytes = 0; $lines = 0;
+		$dir = '.'; $scan = scandir($dir);
+		foreach ($scan as $file){
+			if(!stristr($file, '.xml') && !stristr($file, '.data') && !is_dir($file)){
+				$bytes = $bytes + filesize($file);
+				$lines = $lines + count(file($file));
+			}
+			if(stristr($file, 'cell.'))	$brainCells = $brainCells+1;
+			else if(stristr($file, '.xml')) $brainCells = $brainCells+1;
+		}
+		$dir = 'themes/'; $scan = scandir($dir);
+		foreach ($scan as $file){
+			if(!is_dir($file)){
+				$bytes = $bytes + filesize($dir.$file);
+				$lines = $lines + count(file($dir.$file));
+			}
+			if(stristr($file, '.css')) $themes = $themes+1;
+		}
+		if(file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
+		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
+		$commands = count($static)+30; // guesstimate
+		$quotes = count($motd)+count($bash)+count($pearls);
+		$reviews = count($reviews);
+		$stats = '<table class="stats">'.
+			'<tr><td class="light">Commands</td><td>'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
+			'<tr><td class="light">Brain cells</td><td>'.$brainCells.'</td><td class="dark">All external files loaded by the brain</td></tr>'.
+			'<tr><td class="light">Themes</td><td>'.$themes.'</td><td class="dark">Some themes have to be unlocked...</td></tr>'.
+			'<tr><td class="light">Bytes</td><td>'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++</td></tr>'.
+			'<tr><td class="light">Lines</td><td>'.$lines.'</td><td class="dark">Lines of code (no externals)</td></tr>'.
+			'<tr><td class="light">Messages</td><td>'.$messages.'</td><td class="dark">Left with the msg command</td></tr>'.
+			'<tr><td class="light">Reviews</td><td>'.$reviews.'</td><td class="dark">Reviews of terrible movies</td></tr>'.
+			'<tr><td class="light">Scores</td><td>'.$scores.'</td><td class="dark">Superplastic record attempts</td></tr>'.
+			'<tr><td class="light">Quotes</td><td>'.$quotes.'</td><td class="dark">Includes MOTD\'s and bash.org quotes</td></tr>'.
+			'<tr><td class="light">Timer</td><td>'.microtimer($timestamp).'</td><td class="dark">The seconds it took to compile these stats</td></tr>'.
+			'</table>';
+		output($stats);
+	}
+
+	// fallback
 	if(empty($output)){
 		foreach ($static as $key => $value){
-			if($key == $command) output($value);
+			if ($key == $command) output($value);
 		}
-		// static has nothing either, print invalid command
 		if(empty($output)) error('invalid');
 	}
 }
+
 ?>

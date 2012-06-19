@@ -2,6 +2,7 @@
 .DS_Store
 *.data
 *.xml
+*.json
 ao/*
 code/*
 eve/*
