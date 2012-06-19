@@ -168,8 +168,7 @@ if(empty($output)) {
 
 	// whois
 	if($command == "whois"){
-		if(empty($option)) output('<p>You need to specify a domain name.</p><p class="example">whois binaerpilot.no</p>');
-		else {
+		if(!empty($option)){
 			$pattern = "/^[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,4}$/";
 			if (preg_match($pattern, $option)){
 				$return = shell_exec('whois '.$option);
@@ -181,12 +180,12 @@ if(empty($output)) {
 			}
 			else error('notdomain');
 		}
+		else output('<p class="error">'.$joshua.'You need to specify a domain name.</p><p class="example">whois binaerpilot.no</p>');
 	}
 
 	// prime number
 	if($command == "prime"){
-		if(empty($option)) output('<p>You need to specify a number.</p><p class="example">prime 13</p>');
-		else {
+		if(!empty($option)){
 			$i = 0; $unary = '';
 			while($i++ < $option){
 				$unary = $unary.'1';
@@ -197,6 +196,7 @@ if(empty($output)) {
 			}
 			else output($option.' is a prime number.');
 		}
+		else output('<p class="error">'.$joshua.'You need to specify a number.</p><p class="example">prime 13</p>');
 	}
 
 	// locate
@@ -237,7 +237,7 @@ if(empty($output)) {
 				unset($_SESSION['numbers']);
 				output($joshua.'Game reset.');
 			}
-			else output('<p class="dark">Wrong answer. Try again.</p><p>'.$numbers[$_SESSION['numbers']][0].'</p>');
+			else output('<p class="error">'.$joshua.'Wrong answer. Try again.</p><p>'.$numbers[$_SESSION['numbers']][0].'</p>');
 		}
 	}
 	// msg
@@ -278,7 +278,7 @@ if(empty($output)) {
 				output($output);
 			}
 		}
-		else output('<p>Please leave a message after the beep. <140 characters (alphanumeric). <i>Beep!</i></p><p class="example">msg joshua needs more ultraviolence</p>');
+		else output('<p class="error">'.$joshua.'Message can\'t be empty.</p><p class="example">msg joshua needs more ultraviolence</p>');
 	}
 
 	// yoda
@@ -344,7 +344,7 @@ if(empty($output)) {
 	// wtfig
 	if($command == "wtfig"){
 		if(!isset($option)){
-			output('<p>You need to specify font and caption. See available fonts with <span class="command">wtfig list</span>.</p><p class="example">wtfig chunky Awesome!</p>');
+			output('<p class="error">'.$joshua.'You need to specify font and caption. See available fonts with <span class="command">wtfig list</span>.</p><p class="example">wtfig chunky Awesome!</p>');
 		}
 		else {
 			if(file_exists("wtfig/fonts/$option.flf")){
@@ -407,14 +407,14 @@ if(empty($output)) {
 					}
 					print '</table>';
 				}
-				else print '<p>There were no results for <b>'.$query.'</i>.</p>';
+				else print '<p class="error">'.$joshua.'There were no results for <b>'.$query.'</i>.</p>';
 				$output = 1;
 			}
 			else {
 				error('timeout');
 			}
 		}
-		else output('<p>You need to specify something to look for.</p><p class="example">get binaerpilot</p>');
+		else output('<p class="error">'.$joshua.'You need to specify something to look for.</p><p class="example">get binaerpilot</p>');
 	}
 
 	// superplastic
@@ -453,9 +453,9 @@ if(empty($output)) {
 				}
 				else error('noreturn');
 			}
-			else output('<p>Does not compute.</p>');
+			else output('<p class="error">'.$joshua.'Does not compute.</p>');
 		}
-		else output('<p>There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
+		else output('<p class="error">'.$joshua.'There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
 	}
 
 	// reviews

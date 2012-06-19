@@ -38,5 +38,7 @@
 	'You will know when you are calm, at peace. Passive. A Jedi uses the Force for knowledge and defense, never for attack.',
 	'You must unlearn what you have learned.',
 	'Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering.',
-	'Is the future you see.'
+	'Is the future you see.',
+	'If you honor what they fight for? Yes.',
+	'Brought you here, the galaxy has. Your path clearly is.'
 ); ?>

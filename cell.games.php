@@ -74,7 +74,7 @@ if($command == 'games' || $command == 'game'){
 		}
 		$output = 1;
 	}
-	else output('<p>Valid options are '.implodeHuman($gameList).'.</p><p class="example">'.$command.' '.$gameList[rand(0,count($gameList)-1)].'</p>');
+	else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($gameList).'.</p><p class="example">'.$command.' '.$gameList[rand(0,count($gameList)-1)].'</p>');
 }
 
 // xbox
