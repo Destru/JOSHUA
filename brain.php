@@ -263,6 +263,10 @@ $static = array(
 			<td class="command fixed-width">8.5</td>
 			<td>Added <span class="command">reviews</span>, cleaned the desktop and updated Tron.</td>
 		</tr>
+		<tr>
+			<td class="command fixed-width">8.6</td>
+			<td>Updated all the game API\'s (and made them a module). Back to Diesel as default theme.</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 

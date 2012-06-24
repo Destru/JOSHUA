@@ -461,10 +461,8 @@ function boot(){
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
-		createCookie('theme', 'tron', expires); // set default theme
+		createCookie('theme', 'diesel', expires);
 		createCookie('desktop', 'true', expires);
-		createCookie('profile', 'true', expires);
-		createCookie('tron.team', 'pink', expires);
 		createCookie('release', version, expires);
 		location.reload();
 	}

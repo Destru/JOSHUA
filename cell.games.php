@@ -5,7 +5,7 @@ $games = array(
 		'format' => 'xml',
 		'about' => '<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none. '.
 			'In awe of the sheer size and complexity of the game I quickly found myself completely immersed in it. '.
-			'I made <a href="misc/aoscripts.rar">some scripts</a> that make things easier. Down with Omni-Tek!</p>'
+			'I made <a href="misc/aoscripts.rar">some scripts</a> that make things easier.</p>'
 	),
 	'eve' => array(
 		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327',
@@ -16,12 +16,11 @@ $games = array(
 			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'
 	),
 	'wow' => array(
-		'api' => 'http://eu.battle.net/api/wow/character/skullcrusher/fenris%C3%BAlfr?fields=pvp',
+		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp',
 		'format' => 'json',
-		'about' => '<p><b>World of Warcraft</b> has been a <a href="'.$wowhead.'">guilty pleasure</a> of mine on and off for years. '.
+		'about' => '<p><b>World of Warcraft</b> has been a guilty pleasure of mine on and off for years. '.
 			'So far I\'ve played a coulple characters to end-game and messed around with more PvP alts than I can remember. '.
-			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed. '.
-			'For the Horde!</p>'		
+			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed.</p>'		
 	),
 	'sto' => array(
 		'api' => 'http://www.startrekonline.com/character_profiles/918798/xml',
@@ -34,14 +33,15 @@ $games = array(
 // see, we had all these API's...
 function api($game, $api){
 	if($game == 'ao'){
-		$output = '<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->nick.'</a></td></tr>'.
+		$output = '<tr><td rowspan="6"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
+			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->nick.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->faction.' '.$api->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$api->organization_membership->rank.'</td></tr>';
 	}
 	else if($game == 'eve'){
-		$output = '<tr><td rowspan="7"><div class="image" style="background-image:url(\'images/eveDestruKaneda.png\');width:100px;height:100px;"></div></td></tr>'.
+		$output = '<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$api->result->characterName.'</td></tr>'.
 			'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
 			'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
@@ -51,7 +51,7 @@ function api($game, $api){
 	else if($game == 'wow'){
 		$output = '<tr><td rowspan="4"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
 		'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/">'.$api->name.'</a></td></tr>'.
-		'<tr><td class="dark">Kills</td><td>'.$api->pvp->totalHonorableKills.'</a></td></tr>'.
+		'<tr><td class="dark">Honorable Kills</td><td>'.$api->pvp->totalHonorableKills.'</a></td></tr>'.
 		'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</a></td></tr>';
 	}
 	else if($game == 'sto'){
@@ -68,7 +68,7 @@ function api($game, $api){
 // games
 if($command == 'games' || $command == 'game'){
 	$gameList = array_keys($games);
-	if(!empty($games[$option])){
+	if(isset($option) && !empty($games[$option])){
 		$game = $option;
 		$cache = $game.'.'.$games[$game]['format'];
 		print $prompt.$games[$game]['about'];
