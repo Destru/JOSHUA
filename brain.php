@@ -1,5 +1,5 @@
 <?php // joshua brain <alexander@binaerpilot.no>
-// brain cells
+// brain cells (modules)
 $d = scandir(".");
 foreach($d as $file) {
 	if(stristr($file, 'cell.')) include $file;
@@ -53,7 +53,7 @@ $static = array(
 			<td>Search and download torrents</td>
 		</tr>
 		<tr>
-			<td class="command">game <span class="dark">name</span></td>
+			<td class="command">games <span class="dark">name</span></td>
 			<td>Favorite games and things I made for them</td>
 		</tr>
 		<tr>
@@ -268,7 +268,7 @@ $static = array(
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I work for <a href="http://manualdesign.no">Manual </a> as a front-end developer.
+		My name is Alexander Støver. I work for <a href="http://finn.no">FINN</a> as a front end web developer.
 		That\'s a fancy way of saying I\'m neither a designer or developer but sort of both.
 		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
