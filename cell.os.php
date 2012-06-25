@@ -33,7 +33,7 @@ if($command == "reply"){
 }
 
 // various *nix commands
-if($command == "ls" || $command == "cd" || $command == "top" || $command == "rm" || $command == "top" || $command == "who"){
+if($command == "ls" || $command == "cd" || $command == "top" || $command == "rm" || $command == "top" || $command == "who" || $command == "kill"){
 	if(isset($_SESSION['sudo'])){
 		if($command == "ls") $return = shell_exec("ls");
 		elseif($command == "who") $return = shell_exec("who");

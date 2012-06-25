@@ -239,7 +239,7 @@ if(empty($output)) {
 		$storage = "msg.data";
 		$message = trim(str_replace($command, '', $dump));
 		if(strlen($message) > 0){
-			if($message != "list"){
+			if($option != "list" && $option != "listall"){
 				if(!file_exists($storage)) touch($storage);
 				$fp = fopen($storage, 'a');
 				fwrite($fp, date("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
@@ -256,7 +256,8 @@ if(empty($output)) {
 			}
 			$messages = array_reverse($messages);
 			$output = '<table class="fluid">';
-			for ($i = 0; $i < 20; $i++){
+			$limit = 20; if($option == "listall") $limit = count($messages);
+			for ($i = 0; $i < $limit; $i++){
 				$output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
 			}
 			$output .= '</table>';
