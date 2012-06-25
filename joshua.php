@@ -245,38 +245,35 @@ if(empty($output)) {
 		$storage = "msg.data";
 		$length = trim(strlen(str_replace($command, '', $dump)));
 		if($length > 0){
-			if($length > 140) error('strlong');
-			else {
-				$message = explode("msg ",$dump);
-				$message = $message[1];
-				if($message == "all") $all = 1;
-				if($message != "list" && $message != "all"){
-					if($length < 8) error('strshort');
-					$timestamp = date("d/m/y");
-					if(!file_exists($storage)) touch($storage);
-					$fp = fopen($storage, 'a');
-					fwrite($fp, $timestamp.'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
-					fclose($fp);
-				}
-				$db = dbFile($storage);
-				$messages = array();
-				foreach ($db as $entry => $message){
-					$messages[$entry]['timestamp'] = $message[0];
-					$messages[$entry]['message'] = $message[1];
-					if(!empty($message[2])){
-						$messages[$entry]['ip'] = $message[2];
-					}
-				}
-				$messages = array_reverse($messages);
-				$limit = 10; if(isset($all)) $limit = count($messages);
-				$output = '<pre class="messages">';
-				for ($i = 0; $i < $limit; $i++){
-					$id = $i+1;
-					$output .= '<span class="light">'.$messages[$i]['timestamp'].'</span> '.$messages[$i]['message']."\n";
-				}
-				$output .= '</pre>';
-				output($output);
+			$message = explode("msg ",$dump);
+			$message = $message[1];
+			if($message == "all") $all = 1;
+			if($message != "list" && $message != "all"){
+				if($length < 8) error('strshort');
+				$timestamp = date("d/m/y");
+				if(!file_exists($storage)) touch($storage);
+				$fp = fopen($storage, 'a');
+				fwrite($fp, $timestamp.'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
+				fclose($fp);
 			}
+			$db = dbFile($storage);
+			$messages = array();
+			foreach ($db as $entry => $message){
+				$messages[$entry]['timestamp'] = $message[0];
+				$messages[$entry]['message'] = $message[1];
+				if(!empty($message[2])){
+					$messages[$entry]['ip'] = $message[2];
+				}
+			}
+			$messages = array_reverse($messages);
+			$limit = 10; if(isset($all)) $limit = count($messages);
+			$output = '<table class="fluid">';
+			for ($i = 0; $i < $limit; $i++){
+				$id = $i+1;
+				$output .= '<tr><td class="dark">'.$messages[$i]['ip'].'</td><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td></tr>';
+			}
+			$output .= '</table>';
+			output($output);
 		}
 		else output('<p class="error">'.$joshua.'Message can\'t be empty.</p><p class="example">msg joshua needs more ultraviolence</p>');
 	}
@@ -383,7 +380,7 @@ if(empty($output)) {
 	}
 
 	// get (torrents)
-	if($command == "get"){
+	if($command == "get" || $command == "torrents"){
 		if(isset($option)){
 			$rows = 20; $query = str_replace($command.' ', '', $dump);
 			$url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&rows='.$rows.'&sort=seeds';
@@ -401,7 +398,7 @@ if(empty($output)) {
 						$leechers = $c['items']['list'][$i]['leechers'];
 						$title = $name.' ('.$size.')';
 						if(strlen($name) > 83) $name = substr($name, 0, 80).'...';
-						if($link){
+						if(!empty($link) && !empty($seeds)){
 							print '<tr><td class="torrent"><a href="'.$link.'" title="'.$title.'">'.$name.'</a></td><td class="dark">'.$seeds.'/'.$leechers.'</td></tr>';
 						}
 					}

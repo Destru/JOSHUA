@@ -16,7 +16,7 @@ $games = array(
 			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'
 	),
 	'wow' => array(
-		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp',
+		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
 		'format' => 'json',
 		'about' => '<p><b>World of Warcraft</b> has been a guilty pleasure of mine on and off for years. '.
 			'So far I\'ve played a coulple characters to end-game and messed around with more PvP alts than I can remember. '.
@@ -33,36 +33,65 @@ $games = array(
 // see, we had all these API's...
 function api($game, $api){
 	if($game == 'ao'){
-		$output = '<tr><td rowspan="6"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
+		$output = '<table class="fluid">'.
+			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
 			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->nick.'</a></td></tr>'.
 			'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->faction.' '.$api->basic_stats->profession.'</td></tr>'.
 			'<tr><td class="dark">Title</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$api->organization_membership->rank.'</td></tr>';
+			'<tr><td class="dark">Rank</td><td>'.$api->organization_membership->rank.'</td></tr>'.
+			'</table>';
 	}
 	else if($game == 'eve'){
-		$output = '<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
+		$output = '<table class="fluid">'.
+			'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$api->result->characterName.'</td></tr>'.
 			'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
 			'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
 			'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.
-			'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>';
+			'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
+			'</table>';
 	}
 	else if($game == 'wow'){
-		$output = '<tr><td rowspan="4"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
-		'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/">'.$api->name.'</a></td></tr>'.
-		'<tr><td class="dark">Honorable Kills</td><td>'.$api->pvp->totalHonorableKills.'</a></td></tr>'.
-		'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</a></td></tr>';
+		// get specs
+		foreach($api->talents as $talent) $talents[] = $talent->name.' ('.$talent->trees[0]->total.'/'.$talent->trees[1]->total.'/'.$talent->trees[2]->total.')';
+		// set correct title
+		foreach($api->titles as $title) if($title->selected) $currentTitle = $title->name;
+		if(isset($currentTitle)) $api->name = str_replace('%s', $api->name, $currentTitle);
+		// grab recent events
+		$feed = array_filter($api->feed, function($i){
+			if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
+		});	
+		$feed = array_values($feed);
+		for($i = 0; $i < 5; $i++){
+			$title = $feed[$i]->achievement->title;
+			$points = $feed[$i]->achievement->points;
+			if(!empty($title)){
+				if(!empty($points)) $events[] = $title.' <span class="light">+'.$points.'</span>';
+				else $events[] = $title;				
+			}
+		}
+		$output = '<table class="fluid">'.
+			'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$api->name.'</a></td></tr>'.
+			'<tr><td class="dark">Realm</td><td>'.$api->realm.' ('.$api->battlegroup.')</td></tr>'.
+			'<tr><td class="dark">Talents</td><td>'.implodeHuman($talents).'</td></tr>'.
+			'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</td></tr>'.
+			'<tr><td class="dark">Honorable Kills</td><td>'.$api->pvp->totalHonorableKills.'</td></tr>'.
+			'<tr><td class="dark">Recent Activity</td><td>';
+		foreach($events as $event) $output .= $event.'<br/>';
+		$output .= '</td></tr></table>';
 	}
 	else if($game == 'sto'){
-		$output = '<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$api->cdata->name.'@'.$api->cdata->display_name.'</a></td></tr>'.
-		'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $api->cdata->class).'</td></tr>'.
-		'<tr><td class="dark">Rank</td><td>'.$api->cdata->rank.' ('.$api->cdata->level.')</td></tr>'.
-		'<tr><td class="dark">Ship</td><td>'.$api->ship->name.'</td></tr>'.
-		'<tr><td class="dark">Serial</td><td>'.$api->ship->serial.'</td></tr>';
+		$output = '<table class="fluid">'.
+			'<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$api->cdata->name.'@'.$api->cdata->display_name.'</a></td></tr>'.
+			'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $api->cdata->class).'</td></tr>'.
+			'<tr><td class="dark">Rank</td><td>'.$api->cdata->rank.' ('.$api->cdata->level.')</td></tr>'.
+			'<tr><td class="dark">Ship</td><td>'.$api->ship->name.'</td></tr>'.
+			'<tr><td class="dark">Serial</td><td>'.$api->ship->serial.'</td></tr>'.
+			'</table>';
 	}
-	else return '<p class="error">'.$joshua.'No API for this game could be found.</p>';
-	return '<table class="fluid">'.$output.'</table>';
+	return $output;
 }
 
 // games
