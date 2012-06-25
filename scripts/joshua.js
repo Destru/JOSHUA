@@ -402,7 +402,6 @@ function chromeMagic(){
 	else if(theme == "diesel"){
 		$('#joshua h1').html('<div id="header"><img src="images/logoDiesel.png" alt="JOSHUA"></div>');
 		var dieselChrome = 245;
-		console.log(dieselChrome);
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
