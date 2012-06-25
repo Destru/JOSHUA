@@ -36,7 +36,7 @@ function clearInput(){
 function scrollCheck(){
 	if(terminal){
 		$('body').attr({ scrollTop: $("body").attr("scrollHeight") });
-		$('.output:last .prompt').prepend(prompt);
+		$('.output:last .prompt').prepend(termPrompt);
 	}
 	else {
 		var autoScroll = $('#output').data('jScrollPanePosition') == $('#output').data('jScrollPaneMaxScroll');
@@ -413,7 +413,7 @@ function chromeMagic(){
 		terminal = true;
 		if(theme == "pirate") $('#joshua h1').remove();
 		$('#presets').prev('h2').remove();
-		$('#input').prepend('<div class="prefix">'+prompt+'</div>');
+		$('#input').prepend('<div class="prefix">'+termPrompt+'</div>');
 		$('#desktop #links').remove();
 		$('#desktop').remove();
 	}
@@ -461,8 +461,7 @@ function boot(){
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
-		createCookie('theme', 'diesel', expires);
-		createCookie('desktop', 'true', expires);
+		createCookie('theme', 'pirate', expires);
 		createCookie('release', version, expires);
 		location.reload();
 	}

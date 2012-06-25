@@ -1,10 +1,10 @@
 <?php session_start(); // initialize session
 	// global settings
-	$version = "8.6";
-	$name = "Stable";
-	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$name.'</span>';
-	$title = "JOSHUA: ";
-	$prompt = "Guest@<b>JOSHUA</b>/>&nbsp;";
+	$version = '8.7';
+	$versionName = 'Pirate';
+	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
+	$title = 'JOSHUA '.$version.': ';
+	$termPrompt = 'Guest@<b>JOSHUA</b>/>&nbsp;';
 	// mobile placeholder
 	if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) header('Location: http://binaerpilot.no/alexander/mobile/'); // redirect
 ?>
@@ -41,7 +41,7 @@
 		var version = '<?php echo $version; ?>',
 		header = '<?php echo $header; ?>',
 		title = '<?php echo $title; ?>',
-		prompt = '<?php echo $prompt; ?>',
+		termPrompt = '<?php echo $termPrompt; ?>',
 		nextgen = ["<?php echo implode('","', $nextgen); ?>"];
 	</script>
 	<script type="text/javascript" src="scripts/joshua.js"></script>	

@@ -56,7 +56,7 @@ function api($game, $api){
 		// get specs
 		foreach($api->talents as $talent) $talents[] = $talent->name.' ('.$talent->trees[0]->total.'/'.$talent->trees[1]->total.'/'.$talent->trees[2]->total.')';
 		// set correct title
-		foreach($api->titles as $title) if($title->selected) $currentTitle = $title->name;
+		foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
 		if(isset($currentTitle)) $api->name = str_replace('%s', $api->name, $currentTitle);
 		// grab recent events
 		$feed = array_filter($api->feed, function($i){

@@ -15,7 +15,24 @@ if($command == "sudo"){
 	}
 }
 
-// various *nix commands for lulz
+// reply
+if($command == "reply"){
+	if(isset($_SESSION['sudo'])){
+		$storage = "msg.data";
+		$message = trim(str_replace($command, '', $dump));
+		if(strlen($message) > 0){
+			$fp = fopen($storage, 'a');
+			fwrite($fp, date("d/m/y").'^<span class="light">'.$message.'</span>^127.0.0.1'."\n");
+			fclose($fp);
+			print '<div class="prompt">'.$command.'</div><p class="joshua">'.$joshua.'Reply stored.</p>';
+			$output = 1;
+		}
+		else output('<p class="error">'.$joshua.'Reply can\'t be empty.</p>');
+	}
+	else error('auth');
+}
+
+// various *nix commands
 if($command == "ls" || $command == "cd" || $command == "top" || $command == "rm" || $command == "top" || $command == "who"){
 	if(isset($_SESSION['sudo'])){
 		if($command == "ls") $return = shell_exec("ls");

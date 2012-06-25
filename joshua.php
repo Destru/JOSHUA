@@ -113,8 +113,6 @@ $error = array(
 	'notip' => 'Not a valid IP address.',
 	'notdomain' => 'Illegal domain name.',
 	'noreturn' => 'Host system did not respond to <b>'.$command.'</b>.',
-	'strlong' => 'Input is over the <b>'.$command.'</b> limit.',
-	'strshort' => 'Input has failed to meet <b>'.$command.'</b> minimum length.',
 	'auth' => 'You are not authorized to issue that command.',
 	'timeout' => 'Request timed out. Please try again later.',
 	'empty' => 'API did not respond.',
@@ -128,12 +126,8 @@ $error = array(
 if(!empty($command)){
 	$pattern = "/^[[:alnum:][:space:]:.\,\'-?!\*+%]{0,160}$/";
 	if(!empty($dump) && preg_match($pattern, $dump) || empty($dump)){
-		if(!empty($option)){
-			$prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
-		}
-		else {
-			$prompt = '<div class="prompt">'.$command.'</div>';
-		}
+		if(!empty($option) && $command != "msg" && $command != "reply") $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
+		else $prompt = '<div class="prompt">'.$command.'</div>';
 	}
 	else {
 		$prompt = '<div class="prompt"></div>';
@@ -243,17 +237,12 @@ if(empty($output)) {
 	// msg
 	if($command == "msg"){
 		$storage = "msg.data";
-		$length = trim(strlen(str_replace($command, '', $dump)));
-		if($length > 0){
-			$message = explode("msg ",$dump);
-			$message = $message[1];
-			if($message == "all") $all = 1;
-			if($message != "list" && $message != "all"){
-				if($length < 8) error('strshort');
-				$timestamp = date("d/m/y");
+		$message = trim(str_replace($command, '', $dump));
+		if(strlen($message) > 0){
+			if($message != "list"){
 				if(!file_exists($storage)) touch($storage);
 				$fp = fopen($storage, 'a');
-				fwrite($fp, $timestamp.'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
+				fwrite($fp, date("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
 				fclose($fp);
 			}
 			$db = dbFile($storage);
@@ -266,14 +255,13 @@ if(empty($output)) {
 				}
 			}
 			$messages = array_reverse($messages);
-			$limit = 10; if(isset($all)) $limit = count($messages);
 			$output = '<table class="fluid">';
-			for ($i = 0; $i < $limit; $i++){
-				$id = $i+1;
-				$output .= '<tr><td class="dark">'.$messages[$i]['ip'].'</td><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td></tr>';
+			for ($i = 0; $i < 20; $i++){
+				$output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
 			}
 			$output .= '</table>';
-			output($output);
+			print '<div class="prompt">'.$command.'</div>'.$output;
+			$output = 1;
 		}
 		else output('<p class="error">'.$joshua.'Message can\'t be empty.</p><p class="example">msg joshua needs more ultraviolence</p>');
 	}
@@ -286,7 +274,8 @@ if(empty($output)) {
 			$question = str_replace('yoda ','',$dump);
 			if(!stristr($question, '?')) $question .= '?';
 			$count = count($yoda)-1; $rand = rand(0,$count);
-			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel; $output = 1;
+			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel;
+			$output = 1;
 		}
 		else output('<p class="speechBubble">Ask a question you must.</p>'.$yodaPixel);
 	}

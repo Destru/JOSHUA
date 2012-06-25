@@ -233,7 +233,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">7.8</td>
-			<td>I hated the Hacker theme, say hello to Helvetica instead. Diesel is once again the default theme. Made the timer less useless.</td>
+			<td>I hated the Hacker theme, say hello to Helvetica instead. Made the timer less useless.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">7.9</td>
@@ -249,7 +249,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">8.2</td>
-			<td>HTML5 and content update. Tron default theme.</td>
+			<td>HTML5 and content update.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">8.3</td>
@@ -265,7 +265,11 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">8.6</td>
-			<td>Updated all the game API\'s (and made them a module). Back to Diesel as default theme.</td>
+			<td>Updated all the game API\'s (and made them a module).</td>
+		</tr>
+		<tr>
+			<td class="command fixed-width">8.7</td>
+			<td>Fixed the message command. Made sudoing less useless.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
