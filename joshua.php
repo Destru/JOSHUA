@@ -1,6 +1,6 @@
 <?php // joshua engine <alexander@binaerpilot.no>
 session_start(); // sudo commands
-if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1" ) $dev = 1; // development mode set
+if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1; // development mode set
 if(!empty($_POST['command'])) $command = strip_tags(trim($_POST['command']));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
@@ -115,18 +115,19 @@ $error = array(
 	'noreturn' => 'Host system did not respond to <b>'.$command.'</b>.',
 	'auth' => 'You are not authorized to issue that command.',
 	'timeout' => 'Request timed out. Please try again later.',
-	'empty' => 'API did not respond.',
+	'empty' => 'API is not responding.',
 	'invalidxml' => 'API returned malformed XML.',
 	'invalidjson' => 'API returned malformed JSON.',
 	'localcache' => 'Local cache does not exist.',
 	'password' => 'Incorrect password.'
 );
 
-// security
+// security and prompt
 if(!empty($command)){
+	$noReturn = array('msg', 'reply', 'sudo', 'yoda'); // these commands should not return input
 	$pattern = "/^[[:alnum:][:space:]:.\,\'-?!\*+%]{0,160}$/";
 	if(!empty($dump) && preg_match($pattern, $dump) || empty($dump)){
-		if(!empty($option) && $command != "msg" && $command != "reply") $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
+		if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
 		else $prompt = '<div class="prompt">'.$command.'</div>';
 	}
 	else {
@@ -219,7 +220,7 @@ if(empty($output)) {
 			$level = $_SESSION['numbers']+1;
 			$levels = count($numbers);
 			if($level != 1) output('<p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
-			else output('<p>There are '.$levels.' levels. Answer by typing <span class="command">n (x)</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
+			else output('<p>There are '.$levels.' levels. Answer by typing <span class="command">n x</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
 		}
 		else {
 			if($option == $numbers[$_SESSION['numbers']][1]){
@@ -242,7 +243,7 @@ if(empty($output)) {
 			if($option != "list" && $option != "listall"){
 				if(!file_exists($storage)) touch($storage);
 				$fp = fopen($storage, 'a');
-				fwrite($fp, date("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
+				fwrite($fp, gmdate("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
 				fclose($fp);
 			}
 			$db = dbFile($storage);
@@ -256,7 +257,8 @@ if(empty($output)) {
 			}
 			$messages = array_reverse($messages);
 			$output = '<table class="fluid">';
-			$limit = 20; if($option == "listall") $limit = count($messages);
+			$limit = 20;
+			if($option == "listall") $limit = count($messages);
 			for ($i = 0; $i < $limit; $i++){
 				$output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
 			}
@@ -294,7 +296,7 @@ if(empty($output)) {
 	if($command == "idkfa"){
 		foreach ($static as $key => $value) $commands[] .= $key;
 		sort($commands); $commands = implodeHuman($commands);
-		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p>'.$commandList);
+		output($commands);
 	}
 
 	// lastfm
@@ -456,7 +458,7 @@ if(empty($output)) {
 				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].' ('.$value['year'].')</td><td class="dark">'.$value['rating'].'/10</td></tr>';
 			}
 			print '</table>';
-			print '<p>Read a review by typing <span class="command">r (x)</span>.</p>';
+			print '<p>Read a review by typing <span class="command">r x</span>.</p>';
 			$output = 1;
 		}
 		else {
@@ -505,7 +507,7 @@ if(empty($output)) {
 			'<tr><td class="light">Commands</td><td>'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
 			'<tr><td class="light">Brain cells</td><td>'.$brainCells.'</td><td class="dark">All external files loaded by the brain</td></tr>'.
 			'<tr><td class="light">Themes</td><td>'.$themes.'</td><td class="dark">Some themes have to be unlocked...</td></tr>'.
-			'<tr><td class="light">Bytes</td><td>'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++</td></tr>'.
+			'<tr><td class="light">Bytes</td><td>'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++ and TextMate</td></tr>'.
 			'<tr><td class="light">Lines</td><td>'.$lines.'</td><td class="dark">Lines of code (no externals)</td></tr>'.
 			'<tr><td class="light">Messages</td><td>'.$messages.'</td><td class="dark">Left with the msg command</td></tr>'.
 			'<tr><td class="light">Reviews</td><td>'.$reviews.'</td><td class="dark">Reviews of terrible movies</td></tr>'.

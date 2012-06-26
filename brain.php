@@ -293,8 +293,9 @@ $static = array(
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
 	</p>',
 
-'destru' => '<p>Destru Kaneda is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira".
-When it comes to games I prefer PvP (with lasers), but until <span class="scratch">a decent science fiction MMO</span> SW:TOR releases, you can find me playing Black Ops on <a href="http://live.xbox.com/member/Destru%20Kaneda">Xbox Live</a>.</p>',
+'destru' => '<p><b>Destru Kaneda</b> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira". '.
+	'When it comes to games my favorite setting is science fiction (duh) with team-based PvP as a favorite gameplay mode. I also prefer games with actual consequences, like EVE Online or anything with a hardcore mode. '.
+	'PEWPWEPWPEPWEPPWEWPEW!</p>',
 
 'ascii' => '<pre class="ascii">
        dP                   dP                        
@@ -401,6 +402,7 @@ Alexander: THE CANE OF JURTIS!!!
 Rachael: HAHAH! NO! stop... pain...
 Alexander: CONAN WIELDS THE MIGHTY CANE!
 Rachael: HAHAHA!</pre>',
+'time' => gmdate('l jS \of F Y h:i:s A').' UTC',
 'fizzbuzz' => '&lt;?while($i++<100){$p=($i%3<1?"Fizz":"").($i%5<1?"Buzz":"");echo($p?$p:$i)."\n";}?&gt;',
 'justmtv' => 'An amazing idea I had that never will be realized. Streaming music videos without interruption online. Or in other words, what MTV should be.',
 'everywhere' => '<p>Can you hear me calling<br>Out your name<br>You know that I\'m falling<br>And I don\'t know what to say<br>I\'ll speak a little louder<br>I\'ll even shout<br>You know that I\'m proud<br>And I can\'t get the words out</p><p>Oh I...<br>I want to be with you everywhere</span></p>',

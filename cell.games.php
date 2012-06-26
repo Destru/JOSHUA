@@ -13,7 +13,7 @@ $games = array(
 		'about' => '<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'
+			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>. But be careful, this game is digital crack and has no pause button.</p>'
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
@@ -25,8 +25,20 @@ $games = array(
 	'sto' => array(
 		'api' => 'http://www.startrekonline.com/character_profiles/918798/xml',
 		'format' => 'xml',
-		'about' => '<p>I didn\'t play <b>Star Trek Online</b> long enough for an well-rounded opinion.'.
-			' That being said I did have fun, 70 hours worth according to Steam. Ultimately though the game didn\'t grip me.</p>'
+		'about' => '<p>I didn\'t play <b>Star Trek Online</b> long enough for an well-rounded opinion. '.
+			'That being said I did have fun, 70 hours worth according to Steam. Ultimately though the game didn\'t grip me.</p>'
+	),
+	'swtor' => array(
+		'about' => '<p><b>Star Wars: The Old Republic</b> is a fantastic RPG, but unfortunately a terrible MMORPG. '.
+			'I had a great time leveling my Bounty Hunter, but when the time came to PvP I was so put off by how poorly it played that my subscription ran out without me noticing. '.
+			'I will probably give it another try in the future, but apart from a fantastic single-player experience the game was a disappointment.</p>'
+	),
+	'd3' => array(
+		'api' => 'http://eu.battle.net/api/d3/account/Destru-2757',
+		'format' => 'json',
+		'about' => '<p><b>Diablo 3</b> is tons of fun. Easy enough to pick up and play casually, but the best part is the hardcore mode. '.
+			'The repeating storyline as you progress through the difficulty levels is the only tedious thing about this game. '.
+			'Which is funny, because it\'s basically one big gear grind...</p>'
 	)
 );
 
@@ -34,12 +46,13 @@ $games = array(
 function api($game, $api){
 	if($game == 'ao'){
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
-			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->nick.'</a></td></tr>'.
-			'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->faction.' '.$api->basic_stats->profession.'</td></tr>'.
-			'<tr><td class="dark">Title</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
+			'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
+			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->firstname.' "'.$api->name->nick.'" '.$api->name->lastname.'</a></td></tr>'.
+			'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->profession.'</td></tr>'.
+			'<tr><td class="dark">Level</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
+			'<tr><td class="dark">Defender</td><td>'.$api->basic_stats->defender_rank.' ('.$api->basic_stats->defender_rank_id.')</td></tr>'.
+			'<tr><td class="dark">Faction</td><td>'.$api->basic_stats->faction.'</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$api->organization_membership->rank.'</td></tr>'.
 			'</table>';
 	}
 	else if($game == 'eve'){
@@ -57,7 +70,8 @@ function api($game, $api){
 		foreach($api->talents as $talent) $talents[] = $talent->name.' ('.$talent->trees[0]->total.'/'.$talent->trees[1]->total.'/'.$talent->trees[2]->total.')';
 		// set correct title
 		foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
-		if(isset($currentTitle)) $api->name = str_replace('%s', $api->name, $currentTitle);
+		if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
+		else $name = $api->name;
 		// grab recent events
 		$feed = array_filter($api->feed, function($i){
 			if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
@@ -73,7 +87,7 @@ function api($game, $api){
 		}
 		$output = '<table class="fluid">'.
 			'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$api->name.'</a></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Realm</td><td>'.$api->realm.' ('.$api->battlegroup.')</td></tr>'.
 			'<tr><td class="dark">Talents</td><td>'.implodeHuman($talents).'</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</td></tr>'.
@@ -91,12 +105,22 @@ function api($game, $api){
 			'<tr><td class="dark">Serial</td><td>'.$api->ship->serial.'</td></tr>'.
 			'</table>';
 	}
+	else if($game == 'd3'){
+		foreach($api->heroes as $hero){
+			$output .= '<table class="fluid">'.
+				'<tr><td class="dark">Name</td><td>'.$hero->name.' <span class="capitalize">('.str_replace('-', ' ', $hero->class).')</span</td></tr>';
+			if($hero->hardcore == true) $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.' <span class="light">Hardcore</span></td></tr>';
+			else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
+			$output .= '</table>';
+		}
+	}
 	return $output;
 }
 
 // games
 if($command == 'games' || $command == 'game'){
 	$gameList = array_keys($games);
+	sort($gameList);
 	if(isset($option) && !empty($games[$option])){
 		$game = $option;
 		$cache = $game.'.'.$games[$game]['format'];

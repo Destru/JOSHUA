@@ -1,5 +1,5 @@
 /* alexander@binaerpilot.no */
-@import "reset.css";
+@import "resources/reset.css";
 @font-face {
 	font-family:'ProFont';
 	src: url('fonts/profont.ttf') format("truetype");
@@ -218,7 +218,7 @@ ul.inline li {
 	text-align:center;
 	margin-top:0;
 }
-ul.tracks a {
+.capitalize, ul.tracks a {
 	text-transform:capitalize;
 }
 

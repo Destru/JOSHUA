@@ -1,10 +1,10 @@
 <?php session_start(); // initialize session
 	// global settings
 	$version = '8.7';
-	$versionName = 'Pirate';
+	$versionName = 'Stable';
 	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
 	$title = 'JOSHUA '.$version.': ';
-	$termPrompt = 'Guest@<b>JOSHUA</b>/>&nbsp;';
+	$termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
 	// mobile placeholder
 	if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) header('Location: http://binaerpilot.no/alexander/mobile/'); // redirect
 ?>
@@ -28,14 +28,12 @@
 <?php // theme handling
 	$theme = $_COOKIE['theme'];
 	$nextgen = array('carolla', 'contra', 'penguin', 'white');
-	if(in_array($theme, $nextgen)) {
-		echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n";
-	}
+	if(in_array($theme, $nextgen)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script type="text/javascript" src="scripts/jquery.ui.custom.js"></script>
-	<script type="text/javascript" src="scripts/joshua.external.js"></script>
+	<script type="text/javascript" src="resources/jquery.ui.custom.js"></script>
+	<script type="text/javascript" src="resources/joshua.external.js"></script>
 	<script type="text/javascript">
 		// global settings
 		var version = '<?php echo $version; ?>',
@@ -44,7 +42,7 @@
 		termPrompt = '<?php echo $termPrompt; ?>',
 		nextgen = ["<?php echo implode('","', $nextgen); ?>"];
 	</script>
-	<script type="text/javascript" src="scripts/joshua.js"></script>	
+	<script type="text/javascript" src="joshua.js"></script>	
 </head>
 <body>
 	<div id="joshua"></div>
