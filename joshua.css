@@ -1,5 +1,5 @@
 /* alexander@binaerpilot.no */
-@import "reset.css";
+@import "resources/reset.css";
 @font-face {
 	font-family:'ProFont';
 	src: url('fonts/profont.ttf') format("truetype");

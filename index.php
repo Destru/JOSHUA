@@ -34,8 +34,8 @@
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script type="text/javascript" src="scripts/jquery.ui.custom.js"></script>
-	<script type="text/javascript" src="scripts/joshua.external.js"></script>
+	<script type="text/javascript" src="resources/jquery.ui.custom.js"></script>
+	<script type="text/javascript" src="resources/joshua.external.js"></script>
 	<script type="text/javascript">
 		// global settings
 		var version = '<?php echo $version; ?>',
@@ -44,7 +44,7 @@
 		termPrompt = '<?php echo $termPrompt; ?>',
 		nextgen = ["<?php echo implode('","', $nextgen); ?>"];
 	</script>
-	<script type="text/javascript" src="scripts/joshua.js"></script>	
+	<script type="text/javascript" src="joshua.js"></script>	
 </head>
 <body>
 	<div id="joshua"></div>
