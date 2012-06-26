@@ -16,9 +16,10 @@
 	array('The first perfect number.', '6'),
 	array('The story of the secret star system.', '5555'),
 	array('For God so loved the world, that He gave His only begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.', '3:16'),
+	array('Girlfriend\'s age? My IQ? You must pay?', '55'),
 	array('A certain shade of green.', '2012'),
 	array('Who is the king of time?', '3:13'),
-	array('Girlfriend\'s age? My IQ? You must pay?', '55'),
+	array('How do you prove you have an IQ above 6000?', '45.2658812'),
 	array('How can you make 30 into a dirty number?', 'xxx'),
 	array('A slice of pie.', '3.14'),
 	array('Two mouthfuls.', '69')
