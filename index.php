@@ -4,7 +4,7 @@
 	$versionName = 'Stable';
 	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
 	$title = 'JOSHUA '.$version.': ';
-	$termPrompt = 'Guest@<b>JOSHUA</b>/>&nbsp;';
+	$termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
 	// mobile placeholder
 	if(preg_match('/iPhone/', $_SERVER['HTTP_USER_AGENT']) || preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) header('Location: http://binaerpilot.no/alexander/mobile/'); // redirect
 ?>
