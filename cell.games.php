@@ -13,7 +13,7 @@ $games = array(
 		'about' => '<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
 			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>.</p>'
+			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>. But be careful, this game is digital crack and has no pause button.</p>'
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
@@ -39,12 +39,13 @@ $games = array(
 function api($game, $api){
 	if($game == 'ao'){
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
-			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->nick.'</a></td></tr>'.
-			'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->faction.' '.$api->basic_stats->profession.'</td></tr>'.
-			'<tr><td class="dark">Title</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
+			'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
+			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->firstname.' "'.$api->name->nick.'" '.$api->name->lastname.'</a></td></tr>'.
+			'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->profession.'</td></tr>'.
+			'<tr><td class="dark">Level</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
+			'<tr><td class="dark">Defender</td><td>'.$api->basic_stats->defender_rank.' ('.$api->basic_stats->defender_rank_id.')</td></tr>'.
+			'<tr><td class="dark">Faction</td><td>'.$api->basic_stats->faction.'</td></tr>'.
 			'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$api->organization_membership->rank.'</td></tr>'.
 			'</table>';
 	}
 	else if($game == 'eve'){

@@ -1,6 +1,6 @@
 <?php // joshua engine <alexander@binaerpilot.no>
 session_start(); // sudo commands
-if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1" ) $dev = 1; // development mode set
+if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1; // development mode set
 if(!empty($_POST['command'])) $command = strip_tags(trim($_POST['command']));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
@@ -115,7 +115,7 @@ $error = array(
 	'noreturn' => 'Host system did not respond to <b>'.$command.'</b>.',
 	'auth' => 'You are not authorized to issue that command.',
 	'timeout' => 'Request timed out. Please try again later.',
-	'empty' => 'API did not respond.',
+	'empty' => 'API is down.',
 	'invalidxml' => 'API returned malformed XML.',
 	'invalidjson' => 'API returned malformed JSON.',
 	'localcache' => 'Local cache does not exist.',
@@ -240,10 +240,10 @@ if(empty($output)) {
 		$storage = "msg.data";
 		$message = trim(str_replace($command, '', $dump));
 		if(strlen($message) > 0){
-			if($message != "list"){
+			if($option != "list" && $option != "listall"){
 				if(!file_exists($storage)) touch($storage);
 				$fp = fopen($storage, 'a');
-				fwrite($fp, date("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
+				fwrite($fp, gmdate("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
 				fclose($fp);
 			}
 			$db = dbFile($storage);
@@ -257,7 +257,9 @@ if(empty($output)) {
 			}
 			$messages = array_reverse($messages);
 			$output = '<table class="fluid">';
-			for ($i = 0; $i < 20; $i++){
+			$limit = 20;
+			if($option == "listall") $limit = count($messages);
+			for ($i = 0; $i < $limit; $i++){
 				$output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
 			}
 			$output .= '</table>';
