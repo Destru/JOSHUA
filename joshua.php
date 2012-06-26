@@ -293,7 +293,7 @@ if(empty($output)) {
 	if($command == "idkfa"){
 		foreach ($static as $key => $value) $commands[] .= $key;
 		sort($commands); $commands = implodeHuman($commands);
-		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p>'.$commandList);
+		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p>'.$commands);
 	}
 
 	// lastfm

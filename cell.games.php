@@ -25,8 +25,13 @@ $games = array(
 	'sto' => array(
 		'api' => 'http://www.startrekonline.com/character_profiles/918798/xml',
 		'format' => 'xml',
-		'about' => '<p>I didn\'t play <b>Star Trek Online</b> long enough for an well-rounded opinion.'.
-			' That being said I did have fun, 70 hours worth according to Steam. Ultimately though the game didn\'t grip me.</p>'
+		'about' => '<p>I didn\'t play <b>Star Trek Online</b> long enough for an well-rounded opinion. '.
+			'That being said I did have fun, 70 hours worth according to Steam. Ultimately though the game didn\'t grip me.</p>'
+	),
+	'swtor' => array(
+		'about' => '<p><b>Star Wars: The Old Republic</b> was a fantastic RPG, but unfortunately a terrible MMORPG. '.
+			'I had a great time leveling my Bounty Hunter, but when the time came to PvP I was so put off by how poorly it played that my subscription ran out without me noticing. '.
+			'I will probably give it another try in the future, but apart from a fantastic single-player experience the game was a disappointment.</p>'
 	)
 );
 
@@ -57,7 +62,8 @@ function api($game, $api){
 		foreach($api->talents as $talent) $talents[] = $talent->name.' ('.$talent->trees[0]->total.'/'.$talent->trees[1]->total.'/'.$talent->trees[2]->total.')';
 		// set correct title
 		foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
-		if(isset($currentTitle)) $api->name = str_replace('%s', $api->name, $currentTitle);
+		if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
+		else $name = $api->name;
 		// grab recent events
 		$feed = array_filter($api->feed, function($i){
 			if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
@@ -73,7 +79,7 @@ function api($game, $api){
 		}
 		$output = '<table class="fluid">'.
 			'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$api->name.'</a></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Realm</td><td>'.$api->realm.' ('.$api->battlegroup.')</td></tr>'.
 			'<tr><td class="dark">Talents</td><td>'.implodeHuman($talents).'</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</td></tr>'.

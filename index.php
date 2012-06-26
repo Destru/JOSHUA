@@ -1,7 +1,7 @@
 <?php session_start(); // initialize session
 	// global settings
 	$version = '8.7';
-	$versionName = 'Pirate';
+	$versionName = 'Stable';
 	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
 	$title = 'JOSHUA '.$version.': ';
 	$termPrompt = 'Guest@<b>JOSHUA</b>/>&nbsp;';
@@ -28,9 +28,7 @@
 <?php // theme handling
 	$theme = $_COOKIE['theme'];
 	$nextgen = array('carolla', 'contra', 'penguin', 'white');
-	if(in_array($theme, $nextgen)) {
-		echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n";
-	}
+	if(in_array($theme, $nextgen)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>

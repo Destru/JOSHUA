@@ -293,8 +293,9 @@ $static = array(
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
 	</p>',
 
-'destru' => '<p>Destru Kaneda is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira".
-When it comes to games I prefer PvP (with lasers), but until <span class="scratch">a decent science fiction MMO</span> SW:TOR releases, you can find me playing Black Ops on <a href="http://live.xbox.com/member/Destru%20Kaneda">Xbox Live</a>.</p>',
+'destru' => '<p><b>Destru Kaneda</b> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira". '.
+	'When it comes to games my favorite setting is science fiction (duh) with team-based PvP as a favorite gameplay mode. I also prefer games with actual consequences, like EVE Online or anything with a hardcore mode. '.
+	'PEWPWEPWPEPWEPPWEWPEW!</p>',
 
 'ascii' => '<pre class="ascii">
        dP                   dP                        
