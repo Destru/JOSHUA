@@ -214,25 +214,30 @@ if(empty($output)) {
 		else error('notip');
 	}
 	// numbers
-	if($command == "numbers" || $command == "n"){
+	if($command == "numbers" || $command == "number" || $command == "n"){
+		$levels = count($numbers);
 		if(empty($_SESSION['numbers'])) $_SESSION['numbers'] = 0;
-		if(empty($option)){
-			$level = $_SESSION['numbers']+1;
-			$levels = count($numbers);
-			if($level != 1) output('<p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
-			else output('<p>There are '.$levels.' levels. Answer by typing <span class="command">n x</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
+		if(isset($option) && $option == "reset"){
+			unset($_SESSION['numbers']);
+			output('<p class="joshua">'.$joshua.'Game reset.</p>');
+		}
+		else if($_SESSION['numbers'] == $levels){
+			output('<p class="joshua">'.$joshua.'You have beaten the game! Use the code <b>idkfa</b> to list all the hidden commands.</p>');
 		}
 		else {
-			if($option == $numbers[$_SESSION['numbers']][1]){
-				$_SESSION['numbers'] = $_SESSION['numbers']+1;
+			if(empty($option)){
 				$level = $_SESSION['numbers']+1;
-				output('<p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
+				if($level != 1) output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p>');
+				else output('<p class="joshua">'.$joshua.'Type <b>number (x)</b> to answer the riddle.</p><p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p><p class="example">number 1</p>');
 			}
-			else if($option == "reset"){
-				unset($_SESSION['numbers']);
-				output($joshua.'Game reset.');
+			else {
+				if($option == $numbers[$_SESSION['numbers']][1]){
+					$_SESSION['numbers'] = $_SESSION['numbers']+1;
+					$level = $_SESSION['numbers']+1;
+					output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p>');
+				}
+				else output('<p class="error">'.$joshua.'Wrong answer. Try again.</p><p>'.$numbers[$_SESSION['numbers']][0].'</p>');
 			}
-			else output('<p class="error">'.$joshua.'Wrong answer. Try again.</p><p>'.$numbers[$_SESSION['numbers']][0].'</p>');
 		}
 	}
 	// msg
@@ -448,7 +453,7 @@ if(empty($output)) {
 	}
 
 	// reviews
-	if($command == "reviews" || $command == "r"){
+	if($command == "reviews" || $command == "review" || $command == "r"){
 		if(empty($option)) {
 			print $prompt.'<p>One day we had a great idea: '.
 				'"Let\'s watch all the worst movies in the world!"</i><br> '.
@@ -458,7 +463,7 @@ if(empty($output)) {
 				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].' ('.$value['year'].')</td><td class="dark">'.$value['rating'].'/10</td></tr>';
 			}
 			print '</table>';
-			print '<p>Read a review by typing <span class="command">r x</span>.</p>';
+			print '<p class="joshua">'.$joshua.'Type <b>review (x)</b> to read a review.</p><p class="example">review '.rand(0,count($reviews)-1).'</p>';
 			$output = 1;
 		}
 		else {
