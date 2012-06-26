@@ -219,7 +219,7 @@ if(empty($output)) {
 			$level = $_SESSION['numbers']+1;
 			$levels = count($numbers);
 			if($level != 1) output('<p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
-			else output('<p>There are '.$levels.' levels. Answer by typing <span class="command">n (x)</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
+			else output('<p>There are '.$levels.' levels. Answer by typing <span class="command">n x</span>. Good luck!</p><p><span class="light">Level '.$level.':</span> '.$numbers[$_SESSION['numbers']][0].'</p>');
 		}
 		else {
 			if($option == $numbers[$_SESSION['numbers']][1]){
@@ -293,7 +293,7 @@ if(empty($output)) {
 	if($command == "idkfa"){
 		foreach ($static as $key => $value) $commands[] .= $key;
 		sort($commands); $commands = implodeHuman($commands);
-		print output('<p class="joshua">'.$joshua.'Listing all the keys...</p>'.$commands);
+		output($commands);
 	}
 
 	// lastfm
@@ -455,7 +455,7 @@ if(empty($output)) {
 				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].' ('.$value['year'].')</td><td class="dark">'.$value['rating'].'/10</td></tr>';
 			}
 			print '</table>';
-			print '<p>Read a review by typing <span class="command">r (x)</span>.</p>';
+			print '<p>Read a review by typing <span class="command">r x</span>.</p>';
 			$output = 1;
 		}
 		else {
