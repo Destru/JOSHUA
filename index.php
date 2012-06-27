@@ -56,6 +56,7 @@
 ?>
 	<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
 	<div id="games"><?php foreach ($game as $file) include $file; ?></div>
+	<div id="loader"></div>
 	<!-- analytics -->
 	<script type="text/javascript">
 		var _gaq = _gaq || [];

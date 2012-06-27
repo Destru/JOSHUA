@@ -86,7 +86,7 @@ td.command {
 	z-index:20;
 	display:none;
 	width:220px;
-	position:absolute;
+	position:fixed;
 	top:20px; right:20px;
 }
 .window h1 {
@@ -278,4 +278,26 @@ ul.inline li {
 	bottom: 0;
 	left: 0;
 	overflow: hidden;
+}
+
+/*
+ * loader only works in webkit (like everything else on this site)
+ */
+#loader {
+	display:none;
+	z-index:100;
+	background:url(images/loader.png) no-repeat center center;
+	position:fixed;
+	top:20px; right:20px;
+	height:28px; width:28px;
+	border:1px solid hsla(0,0%,100%,0.5);
+	border-top:1px solid hsla(0,0%,100%,0);
+	border-bottom:1px solid hsla(0,0%,100%,0);
+	border-radius:28px;
+	-webkit-animation:spin 1s infinite linear;
+}
+@-webkit-keyframes spin {
+	0% { -webkit-transform:rotate(20deg); }
+	50% { -webkit-transform:rotate(-40deg); }
+	100% { -webkit-transform:rotate(-360deg); }
 }

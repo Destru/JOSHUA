@@ -495,7 +495,7 @@ $(function(){
 		$('title').html(title+'Listening...'); // listening to input
 		if(e.which == 13){ // command issued with enter
 			$('title').html(title+'Running...'); // running command
-			$('#joshua').css('cursor', 'wait'); // loading
+			$('#joshua').css('cursor', 'wait');
 			var dump = $(this).val(), // grab the input
 			input = dump.split(' '), // split the input
 			command = input[0],	option = input[1]; // command (option)
@@ -562,9 +562,11 @@ $(function(){
 			// engine
 			else {
 				if(command){
+					$('#loader').fadeIn(fade); // loader
 					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function(){
 						$('#output').append(content);
 						init();
+						$('#loader').fadeOut(fade);
 					});
 				}
 				else {

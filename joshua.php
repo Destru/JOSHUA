@@ -228,7 +228,7 @@ if(empty($output)) {
 			if(empty($option)){
 				$level = $_SESSION['numbers']+1;
 				if($level != 1) output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p>');
-				else output('<p class="joshua">'.$joshua.'Type <b>number (x)</b> to answer the riddle.</p><p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p><p class="example">number 1</p>');
+				else output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p><p class="joshua">'.$joshua.'Type <b>number (x)</b> to answer the riddle.</p><p class="example">number 1</p>');
 			}
 			else {
 				if($option == $numbers[$_SESSION['numbers']][1]){
