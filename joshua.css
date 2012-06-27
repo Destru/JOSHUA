@@ -86,7 +86,7 @@ td.command {
 	z-index:20;
 	display:none;
 	width:220px;
-	position:fixed;
+	position:absolute;
 	top:20px; right:20px;
 }
 .window h1 {

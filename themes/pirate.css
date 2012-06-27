@@ -18,6 +18,7 @@ a {
 	color:#ccc;
 	padding:10px;
 	border-radius:5px;	
+	position:fixed;	
 }
 .window h1, .window h2 {
 	color:#fff;
