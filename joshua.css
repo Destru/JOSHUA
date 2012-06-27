@@ -290,9 +290,9 @@ ul.inline li {
 	position:fixed;
 	top:20px; right:20px;
 	height:28px; width:28px;
-	border:1px solid hsla(0,0%,100%,0.5);
-	border-top:1px solid hsla(0,0%,100%,0);
-	border-bottom:1px solid hsla(0,0%,100%,0);
+	border:2px solid hsla(0,0%,100%,0.25);
+	border-top:2px solid hsla(0,0%,100%,0);
+	border-bottom:2px solid hsla(0,0%,100%,0);
 	border-radius:28px;
 	-webkit-animation:spin 1s infinite linear;
 }
