@@ -108,7 +108,8 @@ function api($game, $api){
 	else if($game == 'd3'){
 		foreach($api->heroes as $hero){
 			$output .= '<table class="fluid">'.
-				'<tr><td class="dark">Name</td><td>'.$hero->name.' <span class="capitalize">('.str_replace('-', ' ', $hero->class).')</span</td></tr>';
+				'<tr><td class="dark">Name</td><td>'.$hero->name.'</td></tr>'.
+				'<tr><td class="dark">Class</td><td class="capitalize">'.str_replace('-', ' ', $hero->class).'</td></tr>';				
 			if($hero->hardcore == true) $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.' <span class="light">Hardcore</span></td></tr>';
 			else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
 			$output .= '</table>';

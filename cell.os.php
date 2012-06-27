@@ -33,10 +33,13 @@ if($command == "reply"){
 }
 
 // various *nix commands
-if($command == "ls" || $command == "cd" || $command == "top" || $command == "rm" || $command == "top" || $command == "who" || $command == "kill"){
+$nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail');
+if(in_array($command, $nix)){
 	if(isset($_SESSION['sudo'])){
 		if($command == "ls") $return = shell_exec("ls");
+		elseif($command == "ll") $return = shell_exec("ls -al");
 		elseif($command == "who") $return = shell_exec("who");
+		elseif($command == "df") $return = shell_exec("df -h");
 		if(isset($return) && !empty($return)){
 			output('<pre>'.$return.'</pre>');
 		}
