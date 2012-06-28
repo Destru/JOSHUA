@@ -383,6 +383,7 @@ $static = array(
 'coffee' => 'Cheers, I take mine black. Rachael? Non-fat half the syrup double tall white chocolate almond mocha...',
 'blocktrix' => 'The greatest game in the world. It\'s like <a href="http://en.tetrinet.no/">Tetris on steroids</a>.',
 'trick' => '"Luckily I don\'t have a trick knee like grandpa over here." Quoth Rachael, the harpy.',
+
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
 Rachael: hahahahaha
@@ -400,12 +401,14 @@ Alexander: THE CANE OF JURTIS!!!
 Rachael: HAHAH! NO! stop... pain...
 Alexander: CONAN WIELDS THE MIGHTY CANE!
 Rachael: HAHAHA!</pre>',
+
 'time' => gmdate('l jS \of F Y h:i:s A').' UTC',
 'fizzbuzz' => '&lt;?while($i++<100){$p=($i%3<1?"Fizz":"").($i%5<1?"Buzz":"");echo($p?$p:$i)."\n";}?&gt;',
 'justmtv' => 'An amazing idea I had that never will be realized. Streaming music videos without interruption online. Or in other words, what MTV should be.',
 'everywhere' => '<p>Can you hear me calling<br>Out your name<br>You know that I\'m falling<br>And I don\'t know what to say<br>I\'ll speak a little louder<br>I\'ll even shout<br>You know that I\'m proud<br>And I can\'t get the words out</p><p>Oh I...<br>I want to be with you everywhere</span></p>',
 'git' => 'Git is awesome. I don\'t know how I survived without it.<br><a class="external" href="http://github.com/destru/">Follow me at GitHub.</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
+
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to Joshua. Thank you for being awesome.<p>
 	<p>
 		<a href="http://ejohn.org/">John Resig</a> for jQuery.

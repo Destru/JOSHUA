@@ -1,0 +1,44 @@
+/*
+ * retro mono
+ */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
+body {
+	background-color:#000;
+	font-family:'Ubuntu Mono', fixed-width;
+	font-size:14px;
+	line-height:1.4em;
+	color:#0c0;
+}
+a {
+	text-decoration:none;
+}
+#joshua {
+	padding:20px;
+	width:560px;
+}
+#prompt {
+	padding:0;
+	border:none;
+	width:300px;
+	position:relative;
+	left:-1px; top:2px;
+}
+.prefix {
+	float:left;
+}
+.prefix, .prompt, #prompt {
+	color:#0e0;
+}
+a, .light {
+	color:#0f0;
+}
+.dark {
+	color:#090;
+	font-weight:normal;
+}
+.command {
+	font-weight:bold;
+}
+.prompt, .output, p {
+	margin-bottom:10px;
+}

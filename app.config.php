@@ -10,8 +10,7 @@
 	</div>
 	<h2>Themes</h2>
 	<div id="themes" class="tiny">
-<?php $dir = scandir("themes");
-	foreach($dir as $file) {
+<?php foreach(scandir("themes") as $file) {
 		if(stristr($file, '.css')) {
 			$title = str_replace('.css','',$file);
 			print "\t\t".'<div class="'.$title.'">'.$title.'</div>'."\n";

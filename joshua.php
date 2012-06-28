@@ -401,14 +401,26 @@ if(empty($output)) {
 					}
 					print '</table>';
 				}
-				else print '<p class="error">'.$joshua.'There were no results for <b>'.$query.'</i>.</p>';
-				$output = 1;
+				else output('<p class="error">'.$joshua.'There were no results for <b>'.$query.'</b>.</p>');
 			}
 			else {
 				error('timeout');
 			}
 		}
 		else output('<p class="error">'.$joshua.'You need to specify something to look for.</p><p class="example">get binaerpilot</p>');
+	}
+
+	// theme
+	if($command == "theme"){
+		$themes = array();
+		foreach(scandir("themes") as $file){
+			if(stristr($file, '.css')) $themes[] = str_replace('.css','',$file);
+		}
+		if(isset($option) && in_array($option, $themes)){
+			setcookie('theme', $option, time()+60*60*24*365, '/');
+			output('<meta http-equiv="refresh" content="0">');
+		}
+		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
 	}
 
 	// superplastic

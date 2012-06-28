@@ -9,6 +9,7 @@ fadeFast = 150,
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
+terminals = ['pirate', 'helvetica', 'retro'],
 windows = ['config', 'music', 'profile', 'gallery', 'superplastic', 'desktop'];
 
 // helpers
@@ -409,12 +410,11 @@ function chromeMagic(){
 			scrollCheck();
 		});
 	}
-	else if(theme == "helvetica" || theme == "pirate"){
+	else if($.inArray(theme, terminals) > -1){
 		terminal = true;
 		if(theme == "pirate") $('#joshua h1').remove();
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<div class="prefix">'+termPrompt+'</div>');
-		$('#desktop #links').remove();
 		$('#desktop').remove();
 	}
 	else if(theme == "lcars"){
