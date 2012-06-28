@@ -1,7 +1,8 @@
 <?php session_start(); // initialize session
 	// global settings
-	$version = '8.7';
-	$versionName = 'Stable';
+	$version = '9.0';
+	$versionName = 'Mono';
+	$defaultTheme = 'mono';
 	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
 	$title = 'JOSHUA '.$version.': ';
 	$termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
@@ -39,6 +40,7 @@
 		var version = '<?php echo $version; ?>',
 		header = '<?php echo $header; ?>',
 		title = '<?php echo $title; ?>',
+		defaultTheme = '<?php echo $defaultTheme; ?>',
 		termPrompt = '<?php echo $termPrompt; ?>',
 		nextgen = ["<?php echo implode('","', $nextgen); ?>"];
 	</script>

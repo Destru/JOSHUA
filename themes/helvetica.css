@@ -45,6 +45,7 @@ b, strong {
 	border-radius:10px;
 	padding:20px;
 	color:#888;
+	position:fixed;	
 }
 p.note {
 	display:none;

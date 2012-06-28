@@ -9,7 +9,7 @@ fadeFast = 150,
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
-terminals = ['pirate', 'helvetica', 'retro'],
+terminals = ['pirate', 'helvetica', 'mono'],
 windows = ['config', 'music', 'profile', 'gallery', 'superplastic', 'desktop'];
 
 // helpers
@@ -448,7 +448,7 @@ function boot(){
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
 	// version check
 	var versionCheck = readCookie('release');
-	if(version > versionCheck){
+	if(version > versionCheck){ // upgrade to latest version
 		$('title').html(title+'Upgrading...');
 		eraseCookie('background');
 		eraseCookie('desktop');
@@ -461,7 +461,7 @@ function boot(){
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
-		createCookie('theme', 'pirate', expires);
+		createCookie('theme', defaultTheme, expires);
 		createCookie('release', version, expires);
 		location.reload();
 	}

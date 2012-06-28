@@ -52,7 +52,6 @@ tr td:last-child {
 	padding-right:0;
 }
 td.command {
-	vertical-align:middle;
 	min-width:150px;
 }
 .stats td.light {
