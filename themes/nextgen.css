@@ -194,7 +194,6 @@ table.torrents td a:hover {
 /* desktop */
 #desktop {
 	z-index:0;
-	display:none;
 	overflow:hidden;
 }
 ul.icons {

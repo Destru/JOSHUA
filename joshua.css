@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 #desktop a, .close, .tiny li {
 	cursor:pointer;
 }
-.contra, .extra {
+#desktop, .contra, .extra {
 	display:none;
 }
 
@@ -200,12 +200,6 @@ pre, .pre, p.irc, .fixed-width {
 }
 pre.ascii {
 	line-height:1.2em;
-}
-ul.inline li {
-	float:left;
-	margin-right:10px;
-	text-align:center;
-	margin-top:0;
 }
 .capitalize, ul.tracks a {
 	text-transform:capitalize;

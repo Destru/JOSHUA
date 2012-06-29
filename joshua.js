@@ -316,9 +316,7 @@ function chromeInit(){
 		loadSuperplastic();
 	}
 	// contra theme unlocked?
-	if(readCookie('konami')){
-		$('.contra').show();
-	}
+	if(readCookie('konami')) $('.contra').show();
 	// config window
 	loadConfig();
 	// miscellaneous
@@ -474,6 +472,8 @@ function boot(){
 			});
 		}
 	});
+	// desktop
+	if(readCookie('desktop')) $('#desktop').show();
 	// ready prompt
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd", option: "clean"}, function(){
