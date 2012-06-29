@@ -1,5 +1,5 @@
 <div id="music" class="window">
-	<h1><a href="http://binaerpilot.no">Binärpilot</a> Player</h1>
+	<h1>MP3 Player</h1>
 <?php // can't stop the rock
 	$dir = "music";
 	$d = scandir($dir);

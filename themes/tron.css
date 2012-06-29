@@ -58,7 +58,10 @@ h1 {
 	font-size:11px;
 }
 .tron.extra {
-	display:inline;
+	display:block;
+}
+.tron ul {
+	margin-bottom:0;
 }
 
 /* blocks */
@@ -114,8 +117,7 @@ ol, ul, .motd, .prompt {
 .window h1 {
 	color:#777;
 }
-#config.window {
-	z-index:21;
+#customize.window {
 	width:340px;
 }
 
@@ -165,7 +167,6 @@ table.torrents td a:hover {
 /* desktop */
 #desktop {
 	z-index:9;
-	display:none;
 	overflow:hidden;
 	position:absolute;
 	top:20px;left:20px;

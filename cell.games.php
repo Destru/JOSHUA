@@ -124,9 +124,9 @@ if($command == 'games' || $command == 'game'){
 	sort($gameList);
 	if(isset($option) && !empty($games[$option])){
 		$game = $option;
-		$cache = $game.'.'.$games[$game]['format'];
 		print $prompt.$games[$game]['about'];
-		if(!empty($games[$game]['api'])){
+		if(!empty($games[$game]['api']) && !empty($games[$game]['format'])){
+			$cache = $game.'.'.$games[$game]['format'];
 			get($games[$game]['api'], $cache, 1);
 			$api = load($cache, 1);
 			print api($game, $api);

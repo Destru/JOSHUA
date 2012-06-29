@@ -1,8 +1,8 @@
 <ul class="icons">
-	<li><a class="open" id="configOpen">Configure JOSHUA</a></li>
 	<li><a class="open" id="superplasticOpen">Superplastic</a></li>
-	<li><a class="open" id="musicOpen">Binärpilot Player</a></li>
+	<li><a class="open" id="musicOpen">MP3 Player</a></li>
 	<li><a class="open" id="galleryOpen">Slick Gallery</a></li>
+	<li><a class="open" id="customizeOpen">Customization</a></li>
 </ul>
 <ul id="links" class="icons">
 	<li><a class="external-page" href="wtfig/">Simple FIGlet Maker</a></li>

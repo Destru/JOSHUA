@@ -4,13 +4,13 @@
 var hist = [], // history (arrow up/down)
 position = 0, // position in history
 expires = 1095, // cookie dies in 3 years
-fade = 500, // ui fade delay
+fade = 350, // ui fade delay
 fadeFast = 150,
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
 terminals = ['pirate', 'helvetica', 'mono'],
-windows = ['config', 'music', 'gallery', 'superplastic'];
+windows = ['customize', 'music', 'gallery', 'superplastic'];
 
 // helpers
 function systemReady(){
@@ -149,73 +149,17 @@ function fxInit(fx, runOnce){
 	}
 }
 
-
-// presets
-function loadPreset(preset){
-	if(preset == "gamer"){
-		createCookie('theme', 'carolla', expires);
-		createCookie('background', 'atari', expires);
-		createCookie('fx', 'sparks', expires);
-		eraseCookie('desktop');
-	}
-	else if(preset == "rachael"){
-		createCookie('theme', 'penguin', expires);
-		createCookie('background', 'rachael', expires);
-		eraseCookie('fx');
-		eraseCookie('desktop');
-	}
-	else if(preset == "pulsar"){
-		createCookie('theme', 'white', expires);
-		eraseCookie('background');
-		createCookie('fx', preset, expires);
-		createCookie('desktop', true, expires);
-	}
-	else if(preset == "identity"){
-		createCookie('theme', 'tron', expires);
-		createCookie('tron.team', 'pink', expires);
-		eraseCookie('background');
-		eraseCookie('fx');
-		eraseCookie('desktop');	
-	}
-	else if(preset == "reset"){
-		eraseCookie('release');
-		eraseCookie('theme');
-		eraseCookie('background');
-		eraseCookie('fx');
-		eraseCookie('desktop');
-		$.each(windows,function(){
-			eraseCookie(this);
-			eraseCookie('window.'+this);
-		});
-	}
+function reset(){
+	eraseCookie('release');
+	eraseCookie('theme');
+	eraseCookie('background');
+	eraseCookie('fx');
+	eraseCookie('opacity');
+	$.each(windows,function(){
+		eraseCookie(this);
+		eraseCookie('window.'+this);
+	});
 	location.reload();
-}
-
-// config window
-function loadConfig(){
-	// presets
-	$('#presets li').click(function(){
-		var preset = this.getAttribute('class');
-		loadPreset(preset);
-	});
-	// effects
-	$('#fx div').click(function(){
-		$('#fx div').removeClass('selected');
-		var fx = this.getAttribute('class');
-		var cookie = readCookie('fx');
-		if(fx == "none"){
-			fxStop();
-		}
-		else if(fx != cookie){
-			fxInit(fx);
-		}
-	});
-	// backgrounds
-	$('#backgrounds div').click(function(){
-		var background = this.getAttribute('class');
-		$('#joshua').removeClass().addClass(background);
-		createCookie('background', background, expires);
-	});
 }
 
 // application loaders
@@ -315,10 +259,26 @@ function chromeInit(){
 	if(readCookie('superplastic')){
 		loadSuperplastic();
 	}
+	// customizations
+	$('#fx div').click(function(){
+		$('#fx div').removeClass('selected');
+		var fx = this.getAttribute('class');
+		var cookie = readCookie('fx');
+		if(fx == "none"){
+			fxStop();
+		}
+		else if(fx != cookie){
+			fxInit(fx);
+		}
+	});
+	// backgrounds
+	$('#backgrounds div').click(function(){
+		var background = this.getAttribute('class');
+		$('#joshua').removeClass().addClass(background);
+		createCookie('background', background, expires);
+	});
 	// contra theme unlocked?
 	if(readCookie('konami')) $('.contra').show();
-	// config window
-	loadConfig();
 	// miscellaneous
 	$('.version tr.major').show(); // version log
 	$('.version .toggle').click(function(){
@@ -443,7 +403,6 @@ function boot(){
 	if(version > versionCheck){ // upgrade to latest version
 		$('title').html(title+'Upgrading...');
 		eraseCookie('background');
-		eraseCookie('config');
 		eraseCookie('superplastic');
 		eraseCookie('music');
 		eraseCookie('gallery');
@@ -451,7 +410,6 @@ function boot(){
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
-		createCookie('desktop', true, expires);	
 		createCookie('theme', defaultTheme, expires);
 		createCookie('release', version, expires);
 		location.reload();
@@ -472,8 +430,6 @@ function boot(){
 			});
 		}
 	});
-	// desktop
-	if(readCookie('desktop')) $('#desktop').show();
 	// ready prompt
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd", option: "clean"}, function(){
@@ -526,7 +482,7 @@ $(function(){
 				systemReady();
 			}
 			// windows
-			else if(command == "config" || command == "gallery" || command == "music"){
+			else if(command == "customize" || command == "gallery" || command == "music"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				if(command == "music") {
@@ -536,21 +492,8 @@ $(function(){
 			}
 			// superplastic
 			else if(command == "superplastic") loadSuperplastic();
-			// desktop
-			else if(command == "desktop"){
-				var cookie = readCookie('desktop');
-				if(cookie){
-					$('#desktop').fadeOut(fade);
-					eraseCookie('desktop');
-				}
-				else {
-					$('#desktop:hidden').fadeIn(fade);
-					createCookie('desktop', 'true', expires);
-				}
-				systemReady();
-			}
 			else if(command == "mute") mute();
-			else if(command == "reset") loadPreset('reset');
+			else if(command == "reset") reset();
 			// come on my droogs
 			else if(command == "ultraviolence") fxInit('ultraviolence', true);
 			// engine

@@ -13,14 +13,6 @@ $static = array(
 			<td>Who, what, when, where?</td>
 		</tr>
 		<tr>
-			<td class="command">theme <span class="dark">theme</span></td>
-			<td>Change the look of the command prompt</td>
-		</tr>
-		<tr>
-			<td class="command">config</td>
-			<td>Additional configuration options (use <span class="dark">reset</span> to undo)</td>
-		</tr>
-		<tr>
 			<td class="command">superplastic</td>
 			<td>My first attempt at gamedesign; A tiny space shooter!</td>
 		</tr>
@@ -31,6 +23,14 @@ $static = array(
 		<tr>
 			<td class="command">reviews</td>
 			<td>Reviews of terrible, terrible movies</td>
+		</tr>
+		<tr>
+			<td class="command">theme <span class="dark">theme</span></td>
+			<td>Change the look of the command prompt (use <span class="dark">reset</span> to undo)</td>
+		</tr>
+		<tr>
+			<td class="command">customize</td>
+			<td>Additional customization options (some theme specific)</td>
 		</tr>
 		<tr>
 			<td class="command">msg <span class="dark">message</span></td>
@@ -275,6 +275,14 @@ $static = array(
 			<td class="command fixed-width">8.7</td>
 			<td>Fixed the message command. Made sudoing less useless.</td>
 		</tr>
+		<tr>
+			<td class="command fixed-width">8.8</td>
+			<td>There is now a load indicator (top right) when requests are running.</td>
+		</tr>
+		<tr class="major">
+			<td class="command fixed-width">9.0</td>
+			<td>Mono means back to minimalism. Removed some pointless windows and tweaked the ones that are needed. Themes and presets can (finally) be loaded from the prompt.</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
@@ -363,6 +371,7 @@ $static = array(
 'alexander' => '<table class="fluid">
 		<tr><td rowspan="6"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
 		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
+		<tr><td class="label dark">Alias</td><td>Destru Kaneda</td></tr>
 		<tr><td class="label dark">Status</td><td><a href="http://rachaelivy.com">Happily married</a></td></tr>
 		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
 		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>

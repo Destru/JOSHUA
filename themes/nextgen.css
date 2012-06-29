@@ -172,9 +172,6 @@ table.torrents td a {
 table.torrents td a:hover {
 	text-decoration:underline;
 }
-#config .note {
-	display:none;
-}
 .window h1, .window h2 {
 	padding:5px 10px;
 }

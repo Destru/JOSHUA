@@ -410,12 +410,13 @@ if(empty($output)) {
 		else output('<p class="error">'.$joshua.'You need to specify something to look for.</p><p class="example">get binaerpilot</p>');
 	}
 
-	// theme
+	// themes
 	if($command == "theme" || $command == "themes"){
 		$themes = array();
 		foreach(scandir("themes") as $file){
 			if(stristr($file, '.css')){
-				if(!stristr($file, 'contra.css')) $themes[] = str_replace('.css','',$file);	
+				$theme = str_replace('.css', '', $file);
+				if($theme != "contra") $themes[] = $theme;	
 			}
 		}
 		if(isset($option) && in_array($option, $themes)){
@@ -424,6 +425,8 @@ if(empty($output)) {
 		}
 		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
 	}
+	
+	// presets
 
 	// superplastic
 	if($command == "superplastic"){

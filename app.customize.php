@@ -1,13 +1,5 @@
-<div id="config" class="window">
-	<h1>Configuration</h1>
-	<h2>Presets</h2>
-	<ul id="presets" class="tiny">
-		<li class="reset">Reset</li>
-		<li class="gamer">Gamer</li>
-		<li class="rachael">Rachael</li>
-		<li class="pulsar">Pulsar</li>
-		<li class="identity">Identity</li>
-	</ul>
+<div id="customize" class="window">
+	<h1>Customization</h1>
 	<div class="nextgen extra">
 		<h2>Background</h2>
 		<ul id="backgrounds" class="tiny">
