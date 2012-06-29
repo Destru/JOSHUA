@@ -1,44 +1,44 @@
 <div id="config" class="window">
 	<h1>Configuration</h1>
 	<h2>Presets</h2>
-	<div id="presets" class="tiny">
-		<div class="reset">Reset</div>
-		<div class="gamer">Gamer</div>
-		<div class="rachael">Rachael</div>
-		<div class="pulsar">Pulsar</div>
-		<div class="identity">Identity</div>
-	</div>
-	<div class="next-gen extra">
+	<ul id="presets" class="tiny">
+		<li class="reset">Reset</li>
+		<li class="gamer">Gamer</li>
+		<li class="rachael">Rachael</li>
+		<li class="pulsar">Pulsar</li>
+		<li class="identity">Identity</li>
+	</ul>
+	<div class="nextgen extra">
 		<h2>Background</h2>
-		<div id="backgrounds" class="tiny">
-			<div class="none">None</div>
-			<div class="atari">Atari</div>
-			<div class="pirate">Pirate</div>
-			<div class="rachael">Rachael</div>
-			<div class="sleep">Sleep</div>
-		</div>
+		<ul id="backgrounds" class="tiny">
+			<li class="none">None</li>
+			<li class="atari">Atari</li>
+			<li class="pirate">Pirate</li>
+			<li class="rachael">Rachael</li>
+			<li class="sleep">Sleep</li>
+		</ul>
 	</div>
 	<h2>Effects</h2>
-	<div id="fx" class="tiny">
-		<div class="none">None</div>
-		<div class="sparks">Sparks</div>
-		<div class="malkovich">Malkovich</div>
-		<div class="draw">Draw</div>
-		<div class="spin">Spin</div>
-	</div>
+	<ul id="fx" class="tiny">
+		<li class="none">None</li>
+		<li class="sparks">Sparks</li>
+		<li class="malkovich">Malkovich</li>
+		<li class="draw">Draw</li>
+		<li class="spin">Spin</li>
+	</ul>
 	<div class="tron extra">
 		<h2>Team</h2>
-		<div class="tiny">
-			<div class="blue"></div>
-			<div class="purple"></div>
-			<div class="pink"></div>
-			<div class="red"></div>
-			<div class="orange"></div>
-			<div class="yellow"></div>
-			<div class="green"></div>
-		</div>
+		<ul class="tiny">
+			<li class="blue"></li>
+			<li class="purple"></li>
+			<li class="pink"></li>
+			<li class="red"></li>
+			<li class="orange"></li>
+			<li class="yellow"></li>
+			<li class="green"></li>
+		</ul>
 	</div>
-	<div class="next-gen extra">
+	<div class="nextgen extra">
 		<div id="sliders">
 			<div class="frame"><div id="opacity" class="slider">Opacity</div></div>
 		</div>

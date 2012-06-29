@@ -75,6 +75,12 @@ h1, h2 {
 	background-color:#fff;
 	color:#000;
 }
-img {
+img, .image {
 	-webkit-filter: grayscale(1);
+}
+.fluid td {
+	padding-right:14px;
+}
+td .image {
+	margin-right:14px;
 }

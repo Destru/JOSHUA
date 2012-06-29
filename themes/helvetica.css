@@ -7,12 +7,14 @@ body {
 	background-position:700px 0;
 	background-repeat:no-repeat;
 	color:#333;
-	text-shadow:rgba(0,0,0,0.05) 1px 1px 1px;
 }
 body, #joshua {
 	font-family:Helvetica, Arial;
 	font-size:14px;
 	line-height:18px;
+}
+* {
+	text-shadow:rgba(0,0,0,0.05) 1px 1px 1px;	
 }
 #joshua h1 {
 	padding-top:40px;
@@ -27,10 +29,10 @@ body, #joshua {
 #joshua h1 .dark {
 	display:none;
 }
-a, .output a, .tiny div {
+a, .output a, .tiny li {
 	color:#f00;
 	text-decoration:none;
-	border-bottom:solid 1px rgba(255,0,0,0.25);
+	border-bottom:solid 1px rgba(255,0,0,0.15);
 }
 b, strong {
 	font-weight:bold;
@@ -40,20 +42,21 @@ b, strong {
 	border:solid 1px #eee;
 }
 .window {
-	background-color:#333;
-	background-image:url("../images/pattern45.png");
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(1, hsl(0,0%,95%)),
+		color-stop(0.0, hsl(0,0%,100%))
+	);
 	font-size:12px;
 	line-height:18px;
-	border-radius:10px;
 	padding:20px;
 	color:#888;
 	position:fixed;	
 }
 p.note {
 	display:none;
-}
-.window h1, .window h2 {
-	color:#fff;
 }
 .window h1 {
 	font-size:18px;
@@ -65,11 +68,11 @@ p.note {
 	font-size:16px;
 	line-height:20px;
 }
-.tiny div {
+.tiny li {
 	float:left;
 	margin-right:10px;
 }
-a:hover, .tiny div:hover {
+a:hover, .tiny li:hover {
 	border-color:rgba(255,0,0,0.75);
 }
 #joshua {

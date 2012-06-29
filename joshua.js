@@ -194,7 +194,7 @@ function loadPreset(preset){
 // config window
 function loadConfig(){
 	// presets
-	$('#presets div').click(function(){
+	$('#presets li').click(function(){
 		var preset = this.getAttribute('class');
 		loadPreset(preset);
 	});
@@ -381,14 +381,14 @@ function chromeMagic(){
 			else if(team == "orange") color = colors[5];
 			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny div:hover, .close:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
+				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny li:hover, .close:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
 				'#desktop li a.active {color:#'+color+'}'+
 				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
 			$('body').append('<div id="custom">');
 			$('#custom').html('<style type="text/css">'+css+'</style>');
 		}
-		$('div.tron div.tiny div').click(function(){
+		$('div.tron div.tiny li').click(function(){
 			var team = this.getAttribute('class');
 			createCookie('tron.team', team, expires);
 			location.reload();

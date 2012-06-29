@@ -41,11 +41,11 @@ a, .joshua, .error {color:#ccab60;}
 	top:10px;
 	right:10px;
 }
-.tiny div, #sliders .frame, .button {
+.tiny li, #sliders .frame, .button {
 	background-color:#3e0e0c;
 	color:#d19f9c;
 }
-.tiny div:hover, .button:hover, .button.playing {
+.tiny li:hover, .button:hover, .button.playing {
 	background-color:#c28934;
 	color:#4e1616;
 }

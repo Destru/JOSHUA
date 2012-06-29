@@ -18,7 +18,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command">config</td>
-			<td>Additional configuration options</td>
+			<td>Additional configuration options (use <span class="dark">reset</span> to undo)</td>
 		</tr>
 		<tr>
 			<td class="command">superplastic</td>

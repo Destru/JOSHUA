@@ -2,10 +2,10 @@
  * penguin
  */
 body {background-color:#420127;color:#fff;}
-#sliders .frame, .tiny div, .button, #joshua {background-color:#66013c;}
-.button.playing, .tiny div:hover, .button:hover, .jScrollPaneDrag {background-color:#ae2a78;}
+#sliders .frame, .tiny li, .button, #joshua {background-color:#66013c;}
+.button.playing, .tiny li:hover, .button:hover, .jScrollPaneDrag {background-color:#ae2a78;}
 .ui-slider-handle, .window, h1, #input, .jScrollPaneTrack {background-color:#4a012c;}
-.button, .button.paused, #sliders .frame, .tiny div, .light, .command, .example, a, .joshua, .error {color:#ff8acf;}
+.button, .button.paused, #sliders .frame, .tiny li, .light, .command, .example, a, .joshua, .error {color:#ff8acf;}
 .close, .close:hover, .dark, .prompt {color:#ff34ab;}
 .pink {color:#f09;}
 .dark {color:#4bccfc;}
@@ -29,4 +29,4 @@ body {
 	top:10px;
 	right:10px;
 }
-.tiny div:hover, .button:hover, .button.playing {color:#4a012c;}
+.tiny li:hover, .button:hover, .button.playing {color:#4a012c;}

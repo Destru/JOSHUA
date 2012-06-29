@@ -34,7 +34,7 @@ h1, h2, h3, h4 {
 .clear {
 	clear:both;
 }
-#desktop a, .close, .tiny div {
+#desktop a, .close, .tiny li {
 	cursor:pointer;
 }
 .contra, .extra {
@@ -134,6 +134,9 @@ table.version td.command {
 /* tiny */
 .tiny {
 	text-transform:capitalize;
+}
+.tiny li {
+	cursor:pointer;
 }
 .tiny .lcars {
 	text-transform:uppercase;

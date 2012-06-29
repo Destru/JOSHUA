@@ -72,14 +72,14 @@ h1, h2 {
 	border-right:solid 3px #99c;
 	padding:0 6px;
 }
-.tiny div {
+.tiny li {
 	float:left;
 	padding:3px 6px;
 	background-color:#fc9;
 	color:#000;
 	margin:3px;
 }
-.tiny div:hover {
+.tiny li:hover {
 	background-color:#f96;
 }
 #desktop {
@@ -109,7 +109,7 @@ h1, h2 {
 #links a:hover {
 	background-color:#f96;
 }
-.image, #desktop a, .tiny div {
+.image, #desktop a, .tiny li {
 	border-radius:3px;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
@@ -193,7 +193,7 @@ ul.tracks a.play, ul.tracks a:hover {
 	-webkit-border-top-left-radius:10px;
 	-webkit-border-top-right-radius:10px;
 }
-#desktop a, .tiny div, .prompt, h1, h2 {
+#desktop a, .tiny li, .prompt, h1, h2 {
 	font-size:18px;
 	line-height:1em;
 	font-family:'Anton', Helvetica;

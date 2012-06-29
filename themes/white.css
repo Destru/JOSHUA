@@ -3,8 +3,8 @@
  */
 body {background-color:#eee;color:#444;}
 .jScrollPaneDrag {background-color:#c4c4c4;}
-.button:hover, .tiny div:hover, .button.playing, #joshua {background-color:#fff;}
-.button:hover, .tiny div:hover, .button.playing {
+.button:hover, .tiny li:hover, .button.playing, #joshua {background-color:#fff;}
+.button:hover, .tiny li:hover, .button.playing {
 	color:#999;
 }
 .window {
@@ -16,7 +16,7 @@ body {background-color:#eee;color:#444;}
 	padding:0;
 }
 
-#sliders .frame, .tiny div, #input, .button, .jScrollPaneTrack  {
+#sliders .frame, .tiny li, #input, .button, .jScrollPaneTrack  {
 	background-color:#e4e4e4;
 }
 #joshua h1 {
@@ -52,7 +52,7 @@ body {
 	right:10px;
 }
 
-#sliders .frame, .tiny div, .button, .slider {
+#sliders .frame, .tiny li, .button, .slider {
 	color:#777;
 }
 #sliders .ui-slider-handle {

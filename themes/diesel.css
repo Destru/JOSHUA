@@ -60,7 +60,7 @@ div {
 	left:-10px;
 	width:340px;
 }
-#desktop li a, .tracks li a, .tiny div {
+#desktop li a, .tracks li a, .tiny li {
 	border-top:solid 1px #464740;
 	padding:5px 10px;
 	line-height:15px;
@@ -72,12 +72,12 @@ div {
 .tracks {
 	margin-bottom:-5px;
 }
-.tiny div {
+.tiny li {
 	float:left;
 	width:80px;
 	margin-left:10px;
 }
-.tiny div:hover {
+.tiny li:hover {
 	background-color:#464740;
 	color:#22251c;
 }
@@ -121,7 +121,7 @@ div {
 .close:hover {
 	background-color:#c9db67;
 }
-#desktop ul li a, .tiny div, .tracks li a, .window h1, .window h2, .dark, .prompt {
+#desktop ul li a, .tiny li, .tracks li a, .window h1, .window h2, .dark, .prompt {
 	color:#565750;
 }
 .window p {

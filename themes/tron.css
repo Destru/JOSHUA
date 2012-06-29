@@ -124,8 +124,8 @@ ol, ul, .motd, .prompt {
 	margin-top:-5px;
 	margin-bottom:10px;
 }
-.tiny div {
-	float:left;
+.tiny li {
+	display:inline-block;
 	margin-right:5px;
 	margin-top:5px;
 	padding:3px 6px;
@@ -137,7 +137,7 @@ ol, ul, .motd, .prompt {
 }
 
 /* misc */
-.pre, ul.inline, .tiny, .output p, .output td, .output pre {
+.pre, .tiny, .output p, .output td, .output pre {
 	padding:0 10px;
 }
 .clear {
@@ -161,13 +161,6 @@ table.torrents td a:hover {
 .clear {
 	clear:both;
 }
-ul.inline li {
-	float:left;
-	margin-right:10px;
-	font-size:11px;
-	text-align:center;
-	margin-top:0px;
-}
 
 /* desktop */
 #desktop {
@@ -186,7 +179,7 @@ ul.inline li {
 #desktop ul#links {
 	opacity:0.5;
 }
-.tiny div:hover, .close:hover, #desktop a:hover {
+.tiny li:hover, .close:hover, #desktop a:hover {
 	border-color:#68b8ff;
 	color:#68b8ff;
 }
@@ -276,13 +269,13 @@ h1 {
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 }
-.tiny div, h2, .close, .jScrollPaneDrag {
+.tiny li, h2, .close, .jScrollPaneDrag {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 }
 
 /* background */
-.tron .tiny div {
+.tron .tiny li {
 	border:none;
 	height:5px;
 	width:10px;

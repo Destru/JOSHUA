@@ -10,9 +10,9 @@ h1, #input, .jScrollPaneTrack {background-color:#002933;}
 .dark, .prompt {color:#92d0e0;}
 a, .joshua, .error {color:#fbb11a;}
 .example, .light, .command {color:#48b2ce;}
-.button.playing, .tiny div, .tracks li a, .tiny div:hover, .window h1, .window h2, .button, .button:hover, .window, .window .close, .window .close:hover, .slider {color:#582023;}
+.button.playing, .tiny li, .tracks li a, .tiny li:hover, .window h1, .window h2, .button, .button:hover, .window, .window .close, .window .close:hover, .slider {color:#582023;}
 .window h1, .window h2 {background-color:#d15213;}
-.tiny div, #sliders .frame, .button, .window h2 {background-color:#e66405;}
+.tiny li, #sliders .frame, .button, .window h2 {background-color:#e66405;}
 .window a {
 	color:#02343e;
 }
@@ -27,6 +27,6 @@ body {
 	background-repeat:repeat-x;
 	background-position:0% 0%;
 }
-.button.playing, .button:hover, .tiny div:hover, .ui-slider-handle {
+.button.playing, .button:hover, .tiny li:hover, .ui-slider-handle {
 	background-color:#d35300;
 }

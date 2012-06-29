@@ -79,7 +79,7 @@ td {
 .window a {
 	color:#00bff3;
 }
-.tiny div {
+.tiny li {
 	float:left;
 	margin-right:10px;
 	margin-top:5px;
@@ -107,7 +107,7 @@ a.close, .image, .image {
 	color:#888;
 	margin-top:5px;
 }
-.tiny div:hover , .tracks a:hover, a.playing {
+.tiny li:hover , .tracks a:hover, a.playing {
 	color:#00bff3;
 }
 .tiny {
