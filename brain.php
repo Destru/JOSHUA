@@ -369,7 +369,7 @@ $static = array(
 'peter' => 'Real men are not afraid to show their emotions. <a href="misc/malebonding.gif" class="view">Like me and Peter</a>.',
 
 'alexander' => '<table class="fluid">
-		<tr><td rowspan="6"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
+		<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
 		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
 		<tr><td class="label dark">Alias</td><td>Destru Kaneda</td></tr>
 		<tr><td class="label dark">Status</td><td><a href="http://rachaelivy.com">Happily married</a></td></tr>

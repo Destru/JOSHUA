@@ -7,6 +7,7 @@ if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
 $joshua = "<b>JOSHUA:</b> ";
+$expires = time()+60*60*24*365;
 unset($output);
 
 // functions
@@ -413,14 +414,16 @@ if(empty($output)) {
 	// themes
 	if($command == "theme" || $command == "themes"){
 		$themes = array();
+		if(isset($_COOKIE['konami'])) $themes[] = 'contra';
 		foreach(scandir("themes") as $file){
 			if(stristr($file, '.css')){
 				$theme = str_replace('.css', '', $file);
 				if($theme != "contra") $themes[] = $theme;	
 			}
 		}
+		sort($themes);
 		if(isset($option) && in_array($option, $themes)){
-			setcookie('theme', $option, time()+60*60*24*365, '/');
+			setcookie('theme', $option, $expires, '/');
 			output('<meta http-equiv="refresh" content="0">');
 		}
 		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');

@@ -260,8 +260,8 @@ function chromeInit(){
 		loadSuperplastic();
 	}
 	// customizations
-	$('#fx div').click(function(){
-		$('#fx div').removeClass('selected');
+	$('#fx li').click(function(){
+		$('#fx li').removeClass('selected');
 		var fx = this.getAttribute('class');
 		var cookie = readCookie('fx');
 		if(fx == "none"){
@@ -272,13 +272,11 @@ function chromeInit(){
 		}
 	});
 	// backgrounds
-	$('#backgrounds div').click(function(){
+	$('#backgrounds li').click(function(){
 		var background = this.getAttribute('class');
 		$('#joshua').removeClass().addClass(background);
 		createCookie('background', background, expires);
 	});
-	// contra theme unlocked?
-	if(readCookie('konami')) $('.contra').show();
 	// miscellaneous
 	$('.version tr.major').show(); // version log
 	$('.version .toggle').click(function(){
