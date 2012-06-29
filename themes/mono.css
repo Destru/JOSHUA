@@ -44,12 +44,14 @@ a, .light {
 }
 .window {
 	text-align:right;
-	position:fixed;
 	font-size:14px;
 	line-height:1.2em;
 	background-color:#fff;
 	color:#000;
 	padding:14px;
+}
+.window, #superplastic {
+	position:fixed;
 }
 h1, h2 {
 	text-transform:uppercase;
