@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * joshua base
+ */
 @import "resources/reset.css";
 @font-face {
 	font-family:'ProFont';
@@ -35,7 +37,7 @@ h1, h2, h3, h4 {
 #desktop a, .close, .tiny div {
 	cursor:pointer;
 }
-#desktop, .contra, .extra {
+.contra, .extra {
 	display:none;
 }
 
@@ -91,9 +93,6 @@ td.command {
 	position:absolute;
 	top:20px; right:20px;
 }
-.window h1 {
-	cursor:move;
-}
 #config.window {
 	z-index:21;
 	width:320px;
@@ -101,21 +100,16 @@ td.command {
 #music.window {
 	z-index:21;
 }
-#profile.window {
-	width:340px;
-}
 
 /* superplastic */
 #superplastic.window {
 	z-index:21;
 	width:580px;
-	height:378px;
+	height:380px;
 	position:absolute;
 	left:50% !important; top:50% !important;
 	margin-left:-290px;
 	margin-top:-180px;
-	background-color:#080808;
-	background-image:none;
 }
 
 /* malkovich */
@@ -124,13 +118,6 @@ td.command {
 	z-index:30; position:absolute;
 	background-image:url("images/malkovich.png");
 	width:48px; height:68px;
-}
-
-/* alexander */
-#profile .image {
-	width:80px;
-	height:80px;
-	background:url("http://www.gravatar.com/avatar/332889bd5f2e5e183cbcccfa862e053d.png");
 }
 
 /* miscellaneous */
@@ -153,9 +140,6 @@ table.version td.command {
 }
 tr.major .command {
 	text-transform:lowercase;
-}
-.tiny .contra {
-	display:none;
 }
 .pink {
 	color:#f09;

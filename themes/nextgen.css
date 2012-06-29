@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * nextgen
+ */
 @font-face {
 	font-family:'Tempesta';
 	src: url('../fonts/pf_tempesta_seven.ttf') format("truetype");
@@ -389,15 +391,6 @@ h2.presets {
 }
 #joshua.rachael {
 	background-image:url("../images/joshuaRachael.png");
-}
-#profile .image {
-	margin-left:10px;
-}
-#profile {
-	font-size:11px;
-}
-#alexander p {
-	margin-bottom:0;
 }
 .window h2 {
 	font-family:"Tempesta Extended Bold";

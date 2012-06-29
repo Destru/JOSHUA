@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * helvetica
+ */
 body {
 	background-color:#fff;
 	background-image:url("images/illusion.png");
@@ -125,7 +127,4 @@ td {
 }
 .joshua, .command, .light {
 	color:#f00;
-}
-#alexander p {
-	margin-bottom:0;
 }

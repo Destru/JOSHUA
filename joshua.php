@@ -411,10 +411,12 @@ if(empty($output)) {
 	}
 
 	// theme
-	if($command == "theme"){
+	if($command == "theme" || $command == "themes"){
 		$themes = array();
 		foreach(scandir("themes") as $file){
-			if(stristr($file, '.css')) $themes[] = str_replace('.css','',$file);
+			if(stristr($file, '.css')){
+				if(!stristr($file, 'contra.css')) $themes[] = str_replace('.css','',$file);	
+			}
 		}
 		if(isset($option) && in_array($option, $themes)){
 			setcookie('theme', $option, time()+60*60*24*365, '/');

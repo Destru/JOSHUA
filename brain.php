@@ -13,8 +13,12 @@ $static = array(
 			<td>Who, what, when, where?</td>
 		</tr>
 		<tr>
+			<td class="command">theme <span class="dark">theme</span></td>
+			<td>Change the look of the command prompt</td>
+		</tr>
+		<tr>
 			<td class="command">config</td>
-			<td>GUI configuration (themes, backgrounds, effects)</td>
+			<td>Additional configuration options</td>
 		</tr>
 		<tr>
 			<td class="command">superplastic</td>
@@ -355,7 +359,22 @@ $static = array(
 'pnk' => 'Hei Eirik, slutt snokinga etter kommandoer. Kom heller og ta en øl.',
 'inge' => 'Behold the majesty that is <a href="misc/ingusmccloud.jpg" class="view">Ingus McCloud</a>.',
 'peter' => 'Real men are not afraid to show their emotions. <a href="misc/malebonding.gif" class="view">Like me and Peter</a>.',
-'alexander' => 'I make <a href="http://binaerpilot.no">electronic music</a> and kiss penguins. Well, one penguin.',
+
+'alexander' => '<table class="fluid">
+		<tr><td rowspan="6"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
+		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
+		<tr><td class="label dark">Status</td><td><a href="http://rachaelivy.com">Happily married</a></td></tr>
+		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
+		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
+		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">@binaerpilot.no</a></td></tr>
+	</table>
+	<p>
+		I do front end development for <a href="http://finn.no/torget">FINN</a>.
+		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
+		I am, what is colloquially known as, a massive nerd.
+		Also, I kiss penguins. Well, one penguin.
+	</p>',
+
 'kgb' => '<p class="joshua">'.$joshua.'That information is classified.',
 'paranoid' => 'Just because you\'re paranoid, don\'t mean they\'re not <a href="misc/kgb.jpg" class="view">after you</a>.',
 'host' => 'Joshua is hosted by <a href="http://optical.no" class="blank">Optical</a>. I strongly recommend them.',

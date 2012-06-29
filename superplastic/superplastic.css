@@ -1,4 +1,4 @@
-@import "../reset.css";
+@import "../resources/reset.css";
 body {
 	background-color:#080808;
 	font-family: Helvetica, Arial;
@@ -29,12 +29,10 @@ body {
 p {
 	padding:10px;
 }
-p#hud {
-	padding:10px;
-}
 #startGame, #submitForm {
-	position:absolute;
-	bottom:10px; right:10px;	
+	float:right;
+	position:fixed;
+	bottom:10px; right:10px;
 }
 strong {
 	color:#ccc

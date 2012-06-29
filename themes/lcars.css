@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * lcars
+ */
 @import url(http://fonts.googleapis.com/css?family=Anton);
 body {
 	font-family:Helvetica, Arial;
@@ -30,13 +32,7 @@ table td {
 	font-size:14px;
 	line-height:14px;
 }
-#profile {
-	font-size:12px;
-}
-#alexander.window {
-	width:344px;
-}
-ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua .st, p.pearl, #profile, #joshua, .window, .window .tiny, #output {
+ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .window .tiny, #output {
 	border-radius:9px;
 	-webkit-border-radius:9px;
 	-moz-border-radius:9px;
@@ -45,7 +41,7 @@ ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua
 	background-color:#000;
 	padding:11px;
 }
-ul.tracks, #profile, #profile p {
+ul.tracks {
 	background-color:#000;
 	padding:18px;
 	color:#fc9;
@@ -59,12 +55,6 @@ ul.tracks, #profile, #profile p {
 }
 .output p, .output table, .output pre, .output .pre {
 	padding:0 9px;
-}
-#profile {
-	width:100%;
-}
-#profile td {
-	padding-right:0;
 }
 .close {
 	float:right;

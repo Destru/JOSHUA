@@ -5,7 +5,7 @@
 body {
 	background-color:#000;
 	font-family:'Ubuntu Mono', fixed-width;
-	font-size:16px;
+	font-size:14px;
 	line-height:1.4em;
 	color:#ccc;
 }
@@ -39,31 +39,42 @@ a, .light {
 	color:#666;
 	font-weight:normal;
 }
-.command {
-	font-weight:bold;
-}
 .prompt, .output, p, table, h1, h2, .tiny {
 	margin-bottom:14px;
 }
 .window {
+	text-align:right;
 	position:fixed;
 	font-size:14px;
-	line-height:1.2em;	
+	line-height:1.2em;
+	background-color:#fff;
+	color:#000;
+	padding:14px;
 }
-.window h1, .window h2 {
-	font-weight:bold;
+h1, h2 {
+	text-transform:uppercase;
+}
+#config.window {
+	width:140px;
 }
 .close {
-	float:right;
+	float:left;
+	display:inline-block;
+	background-color:#000;
+	color:#fff;
+	width:18px; height:18px;
+	text-align:center;
+	line-height:18px;
+	text-transform:uppercase;
+	font-size:10px;
+}
+.close:hover {
+	text-decoration:none;
 }
 .prompt {
 	background-color:#fff;
 	color:#000;
 }
-.tiny div {
-	float:left;
-	margin-right:10px;
-}
-.image {
+img {
 	-webkit-filter: grayscale(1);
 }

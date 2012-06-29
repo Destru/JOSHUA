@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * diesel
+ */
 body {
 	background-color:#1d1f17;
 	color:#fff;
@@ -203,9 +205,6 @@ table td {
 }
 #fx {
 	margin-bottom:0;
-}
-#profile .image {
-	margin-left:10px;
 }
 #superplastic {
 	padding:10px 10px 0 10px;

@@ -10,7 +10,7 @@ muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
 terminals = ['pirate', 'helvetica', 'mono'],
-windows = ['config', 'music', 'profile', 'gallery', 'superplastic', 'desktop'];
+windows = ['config', 'music', 'gallery', 'superplastic'];
 
 // helpers
 function systemReady(){
@@ -168,11 +168,11 @@ function loadPreset(preset){
 		createCookie('theme', 'white', expires);
 		eraseCookie('background');
 		createCookie('fx', preset, expires);
-		eraseCookie('desktop');
+		createCookie('desktop', true, expires);
 	}
 	else if(preset == "identity"){
 		createCookie('theme', 'tron', expires);
-		createCookie('tron.team', 'green', expires);
+		createCookie('tron.team', 'pink', expires);
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');	
@@ -183,7 +183,6 @@ function loadPreset(preset){
 		eraseCookie('background');
 		eraseCookie('fx');
 		eraseCookie('desktop');
-		eraseCookie('tron.team');
 		$.each(windows,function(){
 			eraseCookie(this);
 			eraseCookie('window.'+this);
@@ -194,20 +193,13 @@ function loadPreset(preset){
 
 // config window
 function loadConfig(){
-	// themes
-	$('div#themes div').click(function(){
-		var theme = this.getAttribute('class');
-		createCookie('theme', theme, expires);
-		location.reload();
-	});
-	// backgrounds
-	$('div#backgrounds div').click(function(){
-		var background = this.getAttribute('class');
-		$('#joshua').removeClass().addClass(background);
-		createCookie('background', background, expires);
+	// presets
+	$('#presets div').click(function(){
+		var preset = this.getAttribute('class');
+		loadPreset(preset);
 	});
 	// effects
-	$('div#fx div').click(function(){
+	$('#fx div').click(function(){
 		$('#fx div').removeClass('selected');
 		var fx = this.getAttribute('class');
 		var cookie = readCookie('fx');
@@ -218,15 +210,17 @@ function loadConfig(){
 			fxInit(fx);
 		}
 	});
-	// miscellaneous
-	$('div#presets div').click(function(){
-		var preset = this.getAttribute('class');
-		loadPreset(preset);
+	// backgrounds
+	$('#backgrounds div').click(function(){
+		var background = this.getAttribute('class');
+		$('#joshua').removeClass().addClass(background);
+		createCookie('background', background, expires);
 	});
 }
 
 // application loaders
 function loadSuperplastic(){
+	createCookie('superplastic', true, expires);
 	if($('#superplastic').has('iframe').length == 0){
 		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no">')		
 	}
@@ -272,15 +266,15 @@ function chromeInit(){
 	// open windows
 	$('.open').click(function(){
 		var id = this.getAttribute('id').replace(/Open/,'');
-		createCookie(id,'true',expires);
 		if(id == "superplastic"){
 			loadSuperplastic();
 		}
-		else if(id == "music"){
-			if(muted)	mute();
+		else {
+			createCookie(id, true, expires);
+			if(id == "music") if(muted) mute();
 		}
 		$('#'+id+':hidden').fadeIn(fade);
-		$(this).addClass('active');
+		$(this).addClass('active');		
 	});
 	// view images
 	$('a.view').click(function(event){
@@ -323,7 +317,7 @@ function chromeInit(){
 	}
 	// contra theme unlocked?
 	if(readCookie('konami')){
-		$('div.contra').css({display:'block'});
+		$('.contra').show();
 	}
 	// config window
 	loadConfig();
@@ -451,16 +445,15 @@ function boot(){
 	if(version > versionCheck){ // upgrade to latest version
 		$('title').html(title+'Upgrading...');
 		eraseCookie('background');
-		eraseCookie('desktop');
 		eraseCookie('config');
 		eraseCookie('superplastic');
 		eraseCookie('music');
 		eraseCookie('gallery');
 		eraseCookie('fx');
-		eraseCookie('profile');
 		$.each(windows, function(){
 			eraseCookie('window.'+this);
 		});
+		createCookie('desktop', true, expires);	
 		createCookie('theme', defaultTheme, expires);
 		createCookie('release', version, expires);
 		location.reload();
@@ -533,7 +526,7 @@ $(function(){
 				systemReady();
 			}
 			// windows
-			else if(command == "config" || command == "profile" || command == "gallery" || command == "music"){
+			else if(command == "config" || command == "gallery" || command == "music"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				if(command == "music") {

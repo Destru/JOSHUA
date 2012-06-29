@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * tron
+ */
 body {
 	background-color:#000;
 	color:#fff;
@@ -305,11 +307,4 @@ h1 {
 }
 .tron .tiny .orange {
 	background-color:#eb7129;
-}
-#profile .image {
-	margin-left:10px;
-	margin-right:20px;
-}
-#profile {
-	font-size:11px;
 }

@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * pirate
+ */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 body {
 	background-color:#141414;
@@ -97,7 +99,7 @@ a.close:hover {
 	background-color:#00bff3;
 	color:#00bff3;
 }
-a.close, #profile .image, .image {
+a.close, .image, .image {
 	border-radius:3px;
 }
 .tracks a {
@@ -115,6 +117,6 @@ a.close, #profile .image, .image {
 	background-color:#00bff3;
 	color:#fff;
 }
-#alexander p, #fx {
+#fx {
 	margin-bottom:0;
 }

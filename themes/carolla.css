@@ -1,4 +1,6 @@
-/* alexander@binaerpilot.no */
+/*
+ * nextgen: carolla
+ */
 .pink {color:#f09;}
 body {background-color:#02262e;color:#fff;}
 #joshua {background-color:#02343e;}
@@ -14,13 +16,9 @@ a, .joshua, .error {color:#fbb11a;}
 .window a {
 	color:#02343e;
 }
-#profile .dark, .window {
+.window {
 	color:#1c0900;
 }
-#profile .dark {
-	opacity:0.5;
-}
-/* images */
 ul.icons li a {
 	background-image:url("../images/iconsCarolla.png");
 }
