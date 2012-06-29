@@ -105,7 +105,6 @@ td.command {
 #superplastic {
 	z-index:21;
 	width:580px;
-	height:380px;
 	position:absolute;
 	left:50% !important; top:50% !important;
 	margin-left:-290px;
