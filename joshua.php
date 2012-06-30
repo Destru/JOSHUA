@@ -449,12 +449,13 @@ if(empty($output)) {
 			$scores[$entry]['name'] = $score[1];
 		}
 		rsort($scores);
-		print '<h2>Season IV</h2><ol>';
-		$count = 10;
-		for ($i = 0; $i < $count; $i++){
-			print '<li><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
+		print '<h2>Season IV</h2><ul>';
+		for ($i = 0; $i < 60; $i++){
+			$pos = $i+1;
+			if($pos < 10) $pos = '0'.$pos;
+			print '<li><span class="pos">'.$pos.'</span><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
-		print '</ol>'; $output = 1;
+		print '</ul>';$output = 1;
 	}
 
 	// calc
