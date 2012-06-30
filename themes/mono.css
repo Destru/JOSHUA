@@ -86,3 +86,10 @@ img, .image {
 td .image {
 	margin-right:14px;
 }
+#joshua h1 {
+	text-indent:-9999px;
+	background-image:url("../images/logoMono.png");
+	background-repeat:no-repeat;
+	width:89px;
+	height:15px;
+}

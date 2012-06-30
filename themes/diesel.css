@@ -149,12 +149,6 @@ table td {
 .image {
 	margin-top:3px;
 }
-#header {
-	height:26px;
-	padding-bottom:15px;
-	padding-left:10px;
-	border-bottom:solid 1px #464740;
-}
 .prompt {
 	border-top:solid 5px #464740;
 	margin:20px 0 10px 0;
@@ -211,4 +205,13 @@ table td {
 }
 .brush {
 	background-image:url("../images/brushDiesel.png");
+}
+#joshua h1 {
+	text-indent:-9999px;
+	background-image:url("../images/logoDiesel.png");
+	background-position:10px 0;
+	background-repeat:no-repeat;
+	height:26px;
+	padding-bottom:20px;
+	border-bottom:solid 1px #464740;
 }
