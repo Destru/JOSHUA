@@ -283,6 +283,10 @@ $static = array(
 			<td class="command fixed-width">9.0</td>
 			<td>Mono means back to minimalism. Removed some pointless windows and tweaked the ones that are needed. Themes and presets can (finally) be loaded from the prompt.</td>
 		</tr>
+		<tr>
+			<td class="command fixed-width">9.1</td>
+			<td>Since Youtube added support for duration in their API, hello videos!</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 

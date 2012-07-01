@@ -1,6 +1,6 @@
 <?php session_start(); // initialize session
 	// global settings
-	$version = '9.0';
+	$version = '9.1';
 	$versionName = 'Mono';
 	$defaultTheme = 'mono';
 	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';

@@ -37,7 +37,7 @@ function clearInput(){
 }
 function scrollCheck(){
 	if(terminal){
-		$('body').attr({ scrollTop: $("body").attr("scrollHeight") });
+		$('html, body').animate({scrollTop: $(document).height()}, 1000);
 		$('.output:last .prompt').prepend(termPrompt);
 	}
 	else {
@@ -494,7 +494,7 @@ $(function(){
 			// engine
 			else {
 				if(command){
-					$('#loader').fadeIn(fadeFast); // loader
+					$('#loader').fadeIn(fade); // loader
 					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function(){
 						$('#output').append(content);
 						init();
