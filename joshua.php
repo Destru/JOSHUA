@@ -262,7 +262,7 @@ if(empty($output)) {
 				}
 			}
 			$messages = array_reverse($messages);
-			$output = '<table class="fluid">';
+			$output = '<table class="fluid msg">';
 			$limit = 20;
 			if($option == "listall") $limit = count($messages);
 			for ($i = 0; $i < $limit; $i++){
@@ -428,8 +428,25 @@ if(empty($output)) {
 		}
 		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
 	}
-	
+
 	// presets
+	if($command == "preset" || $command == "presets"){
+		$presets = array('rachael', 'gamer');
+		sort($presets);
+		if(isset($option) && in_array($option, $presets)){
+			if($option == "gamer"){
+				setcookie('theme', 'carolla', $expires, '/');
+				setcookie('background', 'atari', $expires, '/');
+				setcookie('fx', 'sparks', $expires, '/');
+			}
+			else if($option == "rachael"){
+				setcookie('theme', 'penguin', $expires, '/');
+				setcookie('background', 'rachael', $expires, '/');
+			}
+			output('<meta http-equiv="refresh" content="0">');
+		}
+		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($presets).'.</p><p class="example">'.$command.' '.$presets[rand(0,count($presets)-1)].'</p>');
+	}
 
 	// superplastic
 	if($command == "superplastic"){
@@ -450,10 +467,10 @@ if(empty($output)) {
 		}
 		rsort($scores);
 		print '<h2>Season IV Highscores</h2><ul>';
-		for ($i = 0; $i <50; $i++){
+		for ($i = 0; $i<30; $i++){
 			$pos = $i+1;
 			if($pos < 10) $pos = '0'.$pos;
-			print '<li><span class="pos">'.$pos.'</span><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
+			print '<li><span class="pos">'.$pos.'.</span><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
 		print '</ul>';$output = 1;
 	}

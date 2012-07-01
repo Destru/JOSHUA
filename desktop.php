@@ -1,7 +1,7 @@
 <ul class="icons">
 	<li><a class="open" id="superplasticOpen">Superplastic</a></li>
 	<li><a class="open" id="musicOpen">MP3 Player</a></li>
-	<li><a class="open" id="galleryOpen">Slick Gallery</a></li>
+	<li><a class="open" id="galleryOpen">Gallery</a></li>
 	<li><a class="open" id="customizeOpen">Customization</a></li>
 </ul>
 <ul id="links" class="icons">

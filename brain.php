@@ -450,7 +450,7 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://ericmmartin.com/">Eric Martin</a> for SimpleModal.
 		<a href="http://www.stilbuero.de/">Klaus Hartl</a> for jQuery Cookie.
 		<a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a> for his pixel fonts.
-		<a href="http://www.sedgeman.com/" class="blank">Luke Sedgeman</a> for his pixel people.
+		<a href="http://www.sedgeman.com/" class="blank">Luke Sedgeman</a> for his pixel Yoda.
 		<a href="http://keith-wood.name/">Keith Wood</a> for jQuery Countdown.
 		<a href="http://vision-media.ca/">Vision Media</a> for the sparks effect.
 		<a href="http://elliottkember.com/">Elliott Kember</a> for the spin effect.

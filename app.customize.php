@@ -14,8 +14,9 @@
 	<ul id="fx" class="tiny">
 		<li class="none">None</li>
 		<li class="sparks">Sparks</li>
-		<li class="malkovich">Malkovich</li>
 		<li class="draw">Draw</li>
+		<li class="pulsar">Pulsar</li>
+		<li class="malkovich">Malkovich</li>
 		<li class="spin">Spin</li>
 	</ul>
 	<div class="tron extra">

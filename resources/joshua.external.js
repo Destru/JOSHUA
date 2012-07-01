@@ -50,11 +50,6 @@ function pulsar() {
 		backgroundPosition: '0 0',
 		backgroundRepeat: 'repeat-y'
 	});
-	$('ul.icons li a').css({
-		color:'#000000',
-		backgroundImage:'url("images/iconsPulsar.png")',
-		opacity:'0.25'
-	});
 	$('body').animate({backgroundColor:"#e93b73"}, 5000)
 		.animate({backgroundColor:"#ff6a00"}, 5000)
 		.animate({backgroundColor:"#e7e93b"}, 5000)

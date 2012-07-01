@@ -12,9 +12,6 @@ body {
 a {
 	text-decoration:none;
 }
-a:hover {
-	text-decoration:underline;
-}
 #joshua {
 	padding:14px;
 	width:772px;
@@ -50,14 +47,26 @@ a, .light {
 	color:#000;
 	padding:14px;
 }
+.tracks a {
+	color:#000;
+}
+.tracks .playing {
+	background-color:#000;
+	color:#fff;
+}
 .window, #superplastic {
 	position:fixed;
 }
 h1, h2 {
 	text-transform:uppercase;
 }
+.msg span.light {
+	background-color:#fff;
+	color:#000;
+}
 #customize.window {
 	width:140px;
+	padding-bottom:0;
 }
 .close {
 	float:left;

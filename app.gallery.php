@@ -1,17 +1,16 @@
 <div id="gallery" class="window">
-	<h1>Slick Gallery</h1>
+	<h1>Gallery</h1>
 	<div id="slick">
 		<div class="slideshow">
 <?php // slick gallery
-	$d = scandir("gallery");
-	foreach($d as $file) {
-		if(stristr($file, '.jpg') || stristr($file, '.png')) {
+	foreach(scandir("gallery") as $file){
+		if(stristr($file, '.jpg') || stristr($file, '.png')){
 			$images[] = $file;
 		}
 	}
 	shuffle($images);
 	// images
-	foreach($images as $image) {
+	foreach($images as $image){
 		print "\t\t\t".'<div class="slide"><img src="gallery/'.$image.'" width="560" height="345" alt=""></div>'."\n";
 	}
 ?>
@@ -24,7 +23,7 @@ $(function(){
 	$('#slick .slideshow').before('<ul class="thumbs clearfix"/>').cycle({
 	    speed:  500,
 	    timeout: 5000,
-		delay: 2000,
+		delay: 5000,
 		pause: true,
 		pauseOnPagerHover: true,
 	    pager: '.thumbs', 

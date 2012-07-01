@@ -26,9 +26,6 @@ body {
 	color:#666;
 	border:solid 1px #333;
 }
-p {
-	padding:10px;
-}
 #startGame, #submitForm {
 	float:right;
 	position:fixed;
@@ -37,7 +34,7 @@ p {
 strong {
 	color:#ccc
 }
-p, ol {
+p, ul {
 	margin-bottom:10px;
 }
 #hud, ul {
@@ -61,14 +58,15 @@ input.text {
 }
 #highscore ul {
 	list-style-type:none;
-	column-count: 4;  
-    column-gap: 20px;  
-	-webkit-column-count: 4;  
-    -webkit-column-gap: 20px;  
-	-moz-column-count: 4;  
-    -moz-column-gap: 20px;  
+	column-count: 3;  
+    column-gap: 50px;  
+	-webkit-column-count: 3;  
+    -webkit-column-gap: 50px;  
+	-moz-column-count: 3;  
+    -moz-column-gap: 50px;  
 }
 .button, input {
+	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 }
@@ -81,11 +79,17 @@ input.text {
 	background-color:#111;
 }
 h2 {
+	margin-top:20px;
 	margin-bottom:10px;
-	font-weight:bold;
 	color:#666;
+	border-top:solid 1px #333;
+	text-align:center;
+	font-size:10px;
 	text-transform:uppercase;
-	font-size:11px;
+}
+ul {
+	padding-bottom:10px;
+	border-bottom:solid 1px #333;
 }
 .pos {
 	display:inline-block;
@@ -95,6 +99,9 @@ h2 {
 .score {
 	float:right;
 }
+.gameContainer {
+	padding:10px;
+}
 #highscore {
-	padding:0 10px;
+	width:560px;
 }

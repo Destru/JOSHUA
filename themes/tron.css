@@ -103,6 +103,8 @@ h1 a, h2 a {
 }
 .example {
 	margin-top:-5px;
+	font-size:12px;
+	font-style:italic;
 }
 p, table, pre {
 	margin-bottom:10px;
