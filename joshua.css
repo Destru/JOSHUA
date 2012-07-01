@@ -208,6 +208,11 @@ pre.ascii {
 .capitalize, ul.menu a {
 	text-transform:capitalize;
 }
+.window {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
 
 /* effects */
 .brush {
