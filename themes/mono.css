@@ -54,6 +54,9 @@ a, .light {
 	background-color:#000;
 	color:#fff;
 }
+.menu .playing a {
+	color:#fff;
+}
 .window, #superplastic {
 	position:fixed;
 }

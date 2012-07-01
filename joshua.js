@@ -10,7 +10,7 @@ muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
 terminals = ['pirate', 'helvetica', 'mono'],
-windows = ['customize', 'music', 'gallery', 'superplastic', 'video'];
+windows = ['customize', 'music', 'gallery', 'superplastic', 'videos'];
 
 // helpers
 function systemReady(){
@@ -479,12 +479,10 @@ $(function(){
 				systemReady();
 			}
 			// windows
-			else if(command == "customize" || command == "gallery" || command == "music" || command == "video"){
+			else if(command == "customize" || command == "gallery" || command == "music" || command == "videos"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
-				if(command == "music") {
-					if(muted)	mute(); // if sound is muted, unmute!
-				}
+				if(command == "music") if(muted) mute(); // if sound is muted, unmute!
 				systemReady();
 			}
 			// superplastic
