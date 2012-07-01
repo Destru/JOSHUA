@@ -32,7 +32,7 @@ table td {
 	font-size:14px;
 	line-height:14px;
 }
-ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .window .tiny, #output {
+ul.menu, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .window .tiny, #output {
 	border-radius:9px;
 	-webkit-border-radius:9px;
 	-moz-border-radius:9px;
@@ -41,7 +41,7 @@ ul.tracks, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua
 	background-color:#000;
 	padding:11px;
 }
-ul.tracks {
+ul.menu {
 	background-color:#000;
 	padding:18px;
 	color:#fc9;
@@ -174,14 +174,14 @@ strong {
 #music .st, #music {
 	background-color:#fc9;
 }
-ul.tracks a {
+ul.menu a {
 	color:#c66;
 	display:block;
 	border-left:solid 10px #833;
 	padding-left:10px;
 	margin-top:6px;
 }
-ul.tracks a.play, ul.tracks a:hover {
+ul.menu a.play, ul.menu a:hover {
 	border-color:#c66;
 }
 #superplastic {

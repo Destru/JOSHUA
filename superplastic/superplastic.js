@@ -16,7 +16,7 @@ timeOfRespawn = 0,
 hasShot = false,
 gameOver = false,
 gameStarted = false,
-spawnTime = 500;
+spawnTime = 1000;
 
 // player data
 var playerName = "Anonymous",
@@ -39,7 +39,7 @@ function explodePlayer(playerNode){
 function timer(){
 	if(!gameOver) {
 		seconds = seconds+1;
-		if(spawnTime > 200) spawnTime = spawnTime-0.25; // virtual levels
+		if(spawnTime > 200) spawnTime = spawnTime-1; // virtual levels
 	}
     setTimeout('timer()', 10);
 }
@@ -499,6 +499,6 @@ $(function(){
 	// stop shot spams
 	setInterval(function(){
 		hasShot = false;
-	}, 350);
+	}, 500);
 
 });

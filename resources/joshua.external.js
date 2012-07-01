@@ -71,3 +71,17 @@ if(!konami) {
 		}, true);
 	}
 }
+// cylon
+function cylon(){
+	var cylonize = $(document).width()-$('#cylon').width();
+	$('#cylon').animate({
+		opacity: 1,
+		marginLeft: '+='+cylonize+'px'
+	}, 1500, 'swing', function() {
+		$('#cylon').animate({
+			marginLeft: '0'
+		}, 1500, 'swing', function() {
+			cylon();
+		});
+	});
+}

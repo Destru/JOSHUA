@@ -191,21 +191,21 @@ table.torrents td a:hover {
 }
 
 /* mp3 player */
-.tracks {
+.menu {
 	margin:0;
 }
-.tracks li {
+.menu li {
 	margin-top:5px;
 }
-.tracks li a {
+.menu li a {
 	display:block;
 	text-transform:capitalize;
 }
-.tracks li a.playing, .tracks li a.playing:hover {
+.menu li a.playing, .menu li a.playing:hover {
 	background-color:#68b8ff;
 	opacity:1;
 }
-.tracks li a:hover {
+.menu li a:hover {
 	opacity:0.5;
 }
 
@@ -238,7 +238,7 @@ h1 {
 	padding:0 10px;
 	border:solid 1px #555;
 }
-.tracks li a, h2, .prompt {
+.menu li a, h2, .prompt {
 	font-weight:bold;
 	font-size:11px;
 	line-height:18px;

@@ -60,16 +60,16 @@ div {
 	left:-10px;
 	width:340px;
 }
-#desktop li a, .tracks li a, .tiny li {
+#desktop li a, .menu li a, .tiny li {
 	border-top:solid 1px #464740;
 	padding:5px 10px;
 	line-height:15px;
 }
-.tracks li a {
+.menu li a {
 	display:block;
 	text-transform:capitalize;
 }
-.tracks {
+.menu {
 	margin-bottom:-5px;
 }
 .tiny li {
@@ -121,14 +121,14 @@ div {
 .close:hover {
 	background-color:#c9db67;
 }
-#desktop ul li a, .tiny li, .tracks li a, .window h1, .window h2, .dark, .prompt {
+#desktop ul li a, .tiny li, .menu li a, .window h1, .window h2, .dark, .prompt {
 	color:#565750;
 }
 .window p {
 	color:#767770;
 	line-height:16px;
 }
-.tracks li a:hover, .tracks li a.playing, a, .command, .example, .light {
+.menu li a:hover, .menu li a.playing, a, .command, .example, .light {
 	color:#c9db67;
 }
 .joshua, .error {

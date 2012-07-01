@@ -257,10 +257,10 @@ ul#links {
 }
 
 /* music player */
-ul.tracks {
+ul.menu {
 	margin-bottom:-2px;
 }
-.tracks .button {
+.menu .button {
 	display:block;
 	margin-right:none;
 	margin-bottom:2px;

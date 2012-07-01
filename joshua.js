@@ -10,7 +10,7 @@ muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
 terminals = ['pirate', 'helvetica', 'mono'],
-windows = ['customize', 'music', 'gallery', 'superplastic'];
+windows = ['customize', 'music', 'gallery', 'superplastic', 'video'];
 
 // helpers
 function systemReady(){
@@ -70,7 +70,7 @@ function mute(){
 function fxStop(){
 	var cookie = readCookie('fx');
 	if(cookie){
-		$('.spark, #malkovich, .brush').remove();
+		$('.spark, #malkovich, .brush, #cylon').remove();
 		if(cookie != "none"){
 			eraseCookie('fx');
 		}
@@ -146,6 +146,10 @@ function fxInit(fx, runOnce){
 		setTimeout(function(){
 			$('#ultraviolence').fadeOut(2000);
 		}, 5000);
+	}
+	else if(fx == "cylon"){
+		$('body').append('<div id="cylon"/>');
+		cylon();
 	}
 }
 
@@ -339,7 +343,7 @@ function chromeMagic(){
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
 				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny li:hover, .close:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
 				'#desktop li a.active {color:#'+color+'}'+
-				'.tracks li a.playing, .tracks li a.playing:hover {background-color:#'+color+'}'+
+				'.menu li a.playing, .menu li a.playing:hover {background-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
 			$('body').append('<div id="custom">');
 			$('#custom').html('<style type="text/css">'+css+'</style>');
@@ -399,12 +403,8 @@ function boot(){
 	var versionCheck = readCookie('release');
 	if(version > versionCheck){ // upgrade to latest version
 		$('title').html(title+'Upgrading...');
-		eraseCookie('background');
-		eraseCookie('superplastic');
-		eraseCookie('music');
-		eraseCookie('gallery');
-		eraseCookie('fx');
 		$.each(windows, function(){
+			eraseCookie(this);
 			eraseCookie('window.'+this);
 		});
 		createCookie('theme', defaultTheme, expires);
@@ -479,7 +479,7 @@ $(function(){
 				systemReady();
 			}
 			// windows
-			else if(command == "customize" || command == "gallery" || command == "music"){
+			else if(command == "customize" || command == "gallery" || command == "music" || command == "video"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				if(command == "music") {

@@ -47,10 +47,10 @@ a, .light {
 	color:#000;
 	padding:14px;
 }
-.tracks a {
+.menu a {
 	color:#000;
 }
-.tracks .playing {
+.menu .playing {
 	background-color:#000;
 	color:#fff;
 }

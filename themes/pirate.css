@@ -101,12 +101,12 @@ a.close:hover {
 a.close, .image, .image {
 	border-radius:3px;
 }
-.tracks a {
+.menu a {
 	display:block;
 	color:#888;
 	margin-top:5px;
 }
-.tiny li:hover , .tracks a:hover, a.playing {
+.tiny li:hover , .menu a:hover, a.playing {
 	color:#00bff3;
 }
 .tiny {

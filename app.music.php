@@ -9,7 +9,7 @@
 		}
 	}
 	shuffle($tracks);
-	print "\t".'<ul class="tracks">';
+	print "\t".'<ul class="menu">';
 	for ($i = 0; $i < count($tracks); $i++) {
 		$title = str_replace('binaerpilot - ','',str_replace('_',' ',str_replace('.mp3','',$tracks[$i])));
 		print "\n\t\t".'<li><a href="'.$dir.'/'.$tracks[$i].'">'.$title.'</a></li>';
