@@ -46,8 +46,8 @@ b, b {
 		linear,
 		left top,
 		right top,
-		color-stop(1, hsl(0,0%,95%)),
-		color-stop(0.0, hsl(0,0%,100%))
+		color-stop(1, hsl(0,0%,90%)),
+		color-stop(0.0, hsl(0,0%,95%))
 	);
 	font-size:12px;
 	line-height:18px;

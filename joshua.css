@@ -6,6 +6,11 @@
 	font-family:'ProFont';
 	src: url('fonts/profont.ttf') format("truetype");
 }
+* {
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select:none;
+}
 html, body {
 	height:100%;
 	color:#fff;
@@ -208,12 +213,11 @@ pre.ascii {
 .capitalize, ul.menu a {
 	text-transform:capitalize;
 }
-.window {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
+.output, input {
+	-webkit-user-select:text;
+	-moz-user-select:text;
+	user-select:text;
 }
-
 /* effects */
 .brush {
 	z-index:30;
@@ -318,12 +322,12 @@ pre.ascii {
 }
 #videos .menu {
 	text-align:left;
-	column-count:2;  
-    column-gap:10px;  
-	-webkit-column-count:2;  
-    -webkit-column-gap:10px;  
-	-moz-column-count:2;  
-    -moz-column-gap:10px;
+	column-count:2;
+	column-gap:10px;
+	-webkit-column-count:2;
+	-webkit-column-gap:10px;
+	-moz-column-count:2;
+	-moz-column-gap:10px;
 }
 #videos .menu .button {
 	white-space: nowrap;

@@ -212,16 +212,21 @@ function chromeInit(){
 	});
 	// open windows
 	$('.open').click(function(){
-		var id = this.getAttribute('id').replace(/Open/,'');
-		if(id == "superplastic"){
-			loadSuperplastic();
+		var id = $(this).attr('id').replace(/Open/,'');
+		if($('#'+id).is(":hidden")){
+			if(id == "superplastic") loadSuperplastic();
+			else {
+				createCookie(id, true, expires);
+				if(id == "music") if(muted) mute();				
+			}
+			$('#'+id).fadeIn(fade);
+			$(this).addClass('active');
 		}
 		else {
-			createCookie(id, true, expires);
-			if(id == "music") if(muted) mute();
-		}
-		$('#'+id+':hidden').fadeIn(fade);
-		$(this).addClass('active');		
+			eraseCookie(id);
+			$('#'+id).fadeOut(fade);
+			$(this).removeClass('active');
+		}		
 	});
 	// view images
 	$('a.view').click(function(event){
@@ -298,12 +303,8 @@ function chromeMagic(){
 	if(theme == "nextgen" || $.inArray(theme, nextgen) > -1){
 		var background = readCookie('background'),
 		opacity = readCookie('opacity');
-		if(background){
-			$('#joshua').addClass(background);
-		}
-		if(!opacity){
-			opacity = 1;
-		}
+		if(background) $('#joshua').addClass(background);
+		if(!opacity) opacity = 1;
 		$('#opacity').slider({
 			max: 20,
 			min: 3,
@@ -322,7 +323,7 @@ function chromeMagic(){
 		// contra
 		if(theme == "contra"){
 			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
-			$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
+			$('body').animate({backgroundColor:"#fff"}, 250).animate({backgroundColor:"#152521"}, 1000);
 		}
 	}
 	else if(theme == "tron"){
@@ -373,7 +374,7 @@ function chromeMagic(){
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = 225;
+		var lcarsChrome = 210;
 		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function(){
 			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
