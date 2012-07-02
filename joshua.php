@@ -1,7 +1,7 @@
 <?php // joshua engine <alexander@binaerpilot.no>
 session_start(); // sudo commands
 if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1; // development mode set
-if(!empty($_POST['command'])) $command = strip_tags(trim($_POST['command']));
+if(!empty($_POST['command'])) $command = strtolower(strip_tags(trim($_POST['command'])));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);

@@ -48,8 +48,8 @@ a {
 	overflow:hidden;
 	margin-left:2px;
 	text-transform:lowercase;
-	height:15px;
-	padding-top:3px;
+	height:18px;
+	line-height:18px;
 	color:#fff;
 }
 h1 {

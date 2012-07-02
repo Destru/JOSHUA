@@ -280,12 +280,12 @@ $static = array(
 			<td>There is now a load indicator (top right) when requests are running.</td>
 		</tr>
 		<tr class="major">
-			<td class="command fixed-width">9.0</td>
+			<td class="command fixed-width">9.0 <span class="dark">Mono</span></td>
 			<td>Mono means back to minimalism. Removed some pointless windows and tweaked the ones that are needed. Themes and presets can (finally) be loaded from the prompt.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">9.1</td>
-			<td>Since Youtube added support for duration in their API, hello videos!</td>
+			<td>Since Youtube added support for duration in their API, hello <span class="command">videos</span>!</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',

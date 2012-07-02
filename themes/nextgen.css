@@ -27,16 +27,16 @@
 	margin-top: -285px;
 	background-position:50% 50%;
 	background-repeat:no-repeat;
+	width:740px;
 }
 #input {
 	margin-top:10px;
 	padding:5px;
 }
-#joshua, #output {
-	width:740px;
-}
 #output {
 	height:450px;
+	padding:0 10px;
+	width:720px;
 }
 pre, p, input#prompt {
 	width:720px;
@@ -53,8 +53,8 @@ input#prompt {
 	overflow:hidden;
 	margin-left:2px;
 	text-transform:lowercase;
-	height:15px;
-	padding-top:3px;
+	height:18px;
+	line-height:18px;
 }
 
 /* blocks */
@@ -294,12 +294,10 @@ ul.menu {
 	padding-left:13px;
 	padding-right:13px;
 	text-indent:-6px;
-	margin-bottom:5px;
 }
 #sliders .frame, .ui-slider {
 	width:254px;
 }
-
 .ui-slider {
 	position: relative;
 	text-align: left;
@@ -315,7 +313,7 @@ ul.menu {
 	z-index:24;
 }
 .ui-slider .ui-slider-handle {
-	height:12px; width:20px;
+	height:13px; width:20px;
 	margin-top:-1px;
 	margin-left:-10px;
 }
