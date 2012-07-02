@@ -384,7 +384,7 @@ if(empty($output)) {
 			$url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&rows='.$rows.'&sort=seeds';
 			$content = get($url);
 			if($content){
-				print '<div class="prompt">'.$command.' <strong>'.$query.'</strong></div>';
+				print '<div class="prompt">'.$command.' <b>'.$query.'</b></div>';
 				$c = json_decode($content, true);
 				if($c['total_results'] > 0){
 					print '<table class="torrents">';
@@ -466,11 +466,11 @@ if(empty($output)) {
 			$scores[$entry]['name'] = $score[1];
 		}
 		rsort($scores);
-		print '<h2>Season IV Highscores</h2><ul>';
+		print '<h2>Season V Highscores</h2><ul>';
 		for ($i = 0; $i<30; $i++){
 			$pos = $i+1;
 			if($pos < 10) $pos = '0'.$pos;
-			print '<li><span class="pos">'.$pos.'.</span><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
+			print '<li><span class="pos">'.$pos.'.</span><b>'.$scores[$i]['name'].'</b> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
 		print '</ul>';$output = 1;
 	}
@@ -542,7 +542,7 @@ if(empty($output)) {
 			if(stristr($file, '.css')) $themes = $themes+1;
 		}
 		if(file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
-		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
+		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2828; // from season 1-4
 		$commands = count($static)+30; // guesstimate
 		$quotes = count($motd)+count($bash)+count($pearls);
 		$reviews = count($reviews);

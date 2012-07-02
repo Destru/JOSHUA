@@ -134,7 +134,7 @@ div {
 .joshua, .error {
 	color:#f92666;
 }
-strong {
+b {
 	font-weight:bold;
 	letter-spacing:-1px;
 }
@@ -156,7 +156,7 @@ table td {
 	width:660px !important;
 	font-size:12px;
 }
-.prompt strong {
+.prompt b {
 	letter-spacing:0;
 }
 .example {

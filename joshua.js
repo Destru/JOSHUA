@@ -5,7 +5,6 @@ var hist = [], // history (arrow up/down)
 position = 0, // position in history
 expires = 1095, // cookie dies in 3 years
 fade = 350, // ui fade delay
-fadeFast = 150,
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
@@ -494,11 +493,11 @@ $(function(){
 			// engine
 			else {
 				if(command){
-					$('#loader').fadeIn(fade); // loader
+					$('#loader').fadeIn(250); // loader
 					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function(){
 						$('#output').append(content);
 						init();
-						$('#loader').fadeOut(fadeFast);
+						$('#loader').fadeOut(250);
 					});
 				}
 				else {

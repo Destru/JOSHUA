@@ -147,7 +147,7 @@ ol, ul, .motd, .prompt {
 .clear {
 	clear:both;
 }
-.prompt strong {
+.prompt b {
 	font-weight:normal;
 }
 table.torrents .torrent {
