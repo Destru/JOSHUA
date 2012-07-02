@@ -27,14 +27,11 @@ h1, h2, h3, h4 {
 #prompt {
 	background-color:transparent;
 }
-.output a {
-	text-decoration:underline;
-}
 .countdown * {
 	display:inline;
 }
 .scratch {
-	text-decoration: line-through;
+	text-decoration:line-through;
 }
 .clear {
 	clear:both;
@@ -213,7 +210,7 @@ pre.ascii {
 .capitalize, ul.menu a {
 	text-transform:capitalize;
 }
-.output, input {
+.output *, input {
 	-webkit-user-select:text;
 	-moz-user-select:text;
 	user-select:text;

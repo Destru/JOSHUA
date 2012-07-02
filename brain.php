@@ -292,18 +292,16 @@ $static = array(
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I work for <a href="http://finn.no">FINN</a> as a front end web developer.
+		My name is Alexander Støver. I work as a front end web developer.
 		That\'s a fancy way of saying I\'m neither a designer or developer but sort of both.
 		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
-
 	<p>
 		JOSHUA is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
 		The name is a reference to \'War Games\' (Shall we play a game?).
 		Special <span class="command">thanks</span> to <a href="http://twitter.com/ehjelle">Eirik</a> and <a href="http://twitter.com/elektronaut">Inge</a> for answering stupid questions.
 		This site fueled by sleep deprivation.
 	</p>
-
 	<p>
 		Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever perceived.
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
@@ -379,7 +377,7 @@ $static = array(
 		<tr><td class="label dark">Status</td><td><a href="http://rachaelivy.com">Happily married</a></td></tr>
 		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
 		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
-		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">@binaerpilot.no</a></td></tr>
+		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">alexander@binaerpilot.no</a></td></tr>
 	</table>
 	<p>
 		I do front end development for <a href="http://finn.no/torget">FINN</a>.

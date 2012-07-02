@@ -11,6 +11,8 @@ body {
 }
 a {
 	text-decoration:none;
+	background-color:#fff;
+	color:#000;
 }
 #joshua {
 	padding:14px;
@@ -28,9 +30,6 @@ a {
 }
 .prefix, .prompt, #prompt {
 	color:#ccc;
-}
-a, .light {
-	color:#fff;
 }
 .dark, .example {
 	color:#666;
@@ -106,4 +105,14 @@ td .image {
 	background-repeat:no-repeat;
 	width:89px;
 	height:15px;
+}
+::selection {
+	background:#fff;
+	color:#000;
+}
+.light, .error, .joshua, .command {
+	color:#fff;
+}
+#desktop {
+	display:none;
 }
