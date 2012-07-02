@@ -33,7 +33,7 @@
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-	<script type="text/javascript" src="resources/jquery.ui.custom.js"></script>
+	<script type="text/javascript" src="resources/jquery-ui-1.8.21.custom.min.js"></script>
 	<script type="text/javascript" src="resources/joshua.external.js"></script>
 	<script type="text/javascript">
 		// global settings
