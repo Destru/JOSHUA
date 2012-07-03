@@ -211,13 +211,11 @@ function chromeInit(){
 			}
 			$('#'+id).fadeIn(fade);
 			$(this).addClass('active');
-			console.log('shown '+id);
 		}
 		else {
 			eraseCookie(id);
 			$('#'+id).fadeOut(fade);
 			$(this).removeClass('active');
-			console.log('hid '+id);
 		}		
 	});
 	// view images
@@ -391,9 +389,9 @@ function clearScreen(){
 // booting up joshua
 function boot(){
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
-	// version check
+	// upgrading
 	var versionCheck = readCookie('release');
-	if(version > versionCheck){ // upgrade to latest version
+	if(parseInt(version) > versionCheck){ // upgrade to latest version
 		$('title').html(title+'Upgrading...');
 		$.each(windows, function(){
 			eraseCookie(this);
@@ -404,8 +402,7 @@ function boot(){
 		location.reload();
 	}
 	// load effects
-	var fx = readCookie('fx');
-	if(fx) fxInit(fx, true);
+	var fx = readCookie('fx'); if(fx) fxInit(fx, true);
 	// window positions
 	$.each(windows,function(){
 		var cookie = readCookie('window.'+this);

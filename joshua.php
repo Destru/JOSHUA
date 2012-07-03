@@ -425,7 +425,7 @@ if(empty($output)) {
 		sort($themes);
 		if(isset($option) && in_array($option, $themes)){
 			setcookie('theme', $option, $expires, '/');
-			output('<meta http-equiv="refresh" content="0">');
+			output('<p class="joshua">'.$joshua.'Your browser will now refresh automatically.</p><script>location.reload();</script>');
 		}
 		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
 	}

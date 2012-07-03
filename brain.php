@@ -287,6 +287,10 @@ $static = array(
 			<td class="command fixed-width">9.1</td>
 			<td>Since Youtube added support for duration in their API, hello <span class="command">videos</span>!</td>
 		</tr>
+		<tr>
+			<td class="command fixed-width">9.2</td>
+			<td>Upgraded to use jQuery 1.7.2 (from 1.4.2). No more jScrollPane, rather use native (where possible). Upgrading should no longer reset settings beyond new default theme.</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
