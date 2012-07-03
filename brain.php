@@ -446,7 +446,6 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://onaluf.org/">Selim Arsever</a> for gameQuery.
 		<a href="http://schillmania.com/">Scott Schiller</a> for SoundManager2.
 		<a href="http://paulbakaus.com/">Paul Bakaus</a> and the jQuery UI team.
-		<a href="http://www.kelvinluck.com/">Kelvin Luck</a> for jScrollPane.
 		<a href="http://brandonaaron.net/">Brandon Aaron</a> for jQuery Mousewheel.
 		<a href="http://malsup.com/">Mike Alsup</a> for jQuery Cycle.
 		<a href="http://ericmmartin.com/">Eric Martin</a> for SimpleModal.

@@ -3,8 +3,8 @@
  */
 body {background-color:#420127;color:#fff;}
 #sliders .frame, .tiny li, .button, #joshua {background-color:#66013c;}
-.button.playing, .tiny li:hover, .button:hover, .jScrollPaneDrag {background-color:#ae2a78;}
-.ui-slider-handle, .window, h1, #input, .jScrollPaneTrack {background-color:#4a012c;}
+.button.playing, .tiny li:hover, .button:hover {background-color:#ae2a78;}
+.ui-slider-handle, .window, h1, #input {background-color:#4a012c;}
 .button, .button.paused, #sliders .frame, .tiny li, .light, .command, .example, a, .joshua, .error {color:#ff8acf;}
 .close, .close:hover, .dark, .prompt {color:#ff34ab;}
 .pink {color:#f09;}
