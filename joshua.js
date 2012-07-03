@@ -40,17 +40,7 @@ function scrollCheck(){
 		$('.output:last .prompt').prepend(termPrompt);
 	}
 	else {
-		var autoScroll = $('#output').data('jScrollPanePosition') == $('#output').data('jScrollPaneMaxScroll');
-		$('#output').jScrollPane({
-			scrollbarWidth:10,
-			scrollbarMargin:10,
-			enableKeyboardNavigation:false,
-			animateTo: true,
-			animateInterval:25
-		});
-		if (autoScroll){
-			$('#output')[0].scrollTo($('#output').data('jScrollPaneMaxScroll'));
-		}
+		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 1000);
 	}
 }
 function mute(){
@@ -221,11 +211,13 @@ function chromeInit(){
 			}
 			$('#'+id).fadeIn(fade);
 			$(this).addClass('active');
+			console.log('shown '+id);
 		}
 		else {
 			eraseCookie(id);
 			$('#'+id).fadeOut(fade);
 			$(this).removeClass('active');
+			console.log('hid '+id);
 		}		
 	});
 	// view images
@@ -359,7 +351,7 @@ function chromeMagic(){
 		var dieselChrome = 250;
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
-			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
+			$('#output').css("height", $(window).height()-dieselChrome);
 			scrollCheck();
 		});
 	}
@@ -377,7 +369,7 @@ function chromeMagic(){
 		var lcarsChrome = 210;
 		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function(){
-			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
+			$('#output').css("height", $(window).height()-lcarsChrome);
 			scrollCheck();
 		});
 	}
@@ -454,16 +446,14 @@ $(function(){
 			}
 			// js commands
 			if(command == "clear" || command == "cls") clearScreen();
-			else if(command == "exit" || input == "quit" || input == "logout"){ window.location = "http://binaerpilot.no"; }
+			else if(command == "exit" || input == "quit" || input == "logout") window.location = "http://binaerpilot.no";
 			// rachael
 			else if(command == "rachael"){
 				var current = new Date();
 				var currentYear = current.getFullYear();
 				var birthday = new Date(currentYear, 6-1, 29);
 				var married = new Date(2009, 10-1, 7);
-				if(current > birthday){
-					birthday = new Date(currentYear+1, 6-1, 29);
-				}
+				if(current > birthday) birthday = new Date(currentYear+1, 6-1, 29);
 				$('#output').append('<div class="output"><div class="prompt">rachael</div><p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist. We\'ve been happily married for <span class="countdown married pink"/>, her birthday is in <span class="countdown birthday pink"/> and I am still madly in love. You can <a href="http://rachaelivy.com">visit her homepage</a> if you\'d like to know more. (Potential stalkers be warned: I carry an axe.)</p></div>');
 				$('.birthday').countdown({until: birthday, compact: true, format: 'OWDHMS'});
 				$('.married').countdown({since: married, compact: true, format: 'OWDHMS'});

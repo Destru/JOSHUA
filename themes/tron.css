@@ -17,6 +17,7 @@ body {
 #joshua {
 	z-index:10;
 	height:480px;
+	width:800px;
 	padding:10px;
 	position:absolute;
 	left:50%; top:50%;
@@ -28,8 +29,9 @@ body {
 	margin-top:10px;
 	padding:5px;
 }
-#joshua, #output {
-	width:800px;
+#output {
+	width:790px;
+	padding-right:10px;
 }
 pre, p, #prompt, table {
 	width:760px;
@@ -251,14 +253,6 @@ h1 {
 #input {
 	border:solid 2px #68b8ff;
 }
-.jScrollPaneDrag {
-	width:8px !important;
-	border:solid 1px #555;
-	background-color:transparent;
-}
-.jScrollPaneTrack {
-	background-color:transparent;
-}
 .image {
 	margin-top:4px;
 }
@@ -272,7 +266,7 @@ h1 {
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 }
-.tiny li, h2, .close, .jScrollPaneDrag {
+.tiny li, h2, .close {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 }
@@ -303,4 +297,25 @@ h1 {
 }
 .tron .tiny .orange {
 	background-color:#eb7129;
+}
+
+/*
+ * scrollbars
+ */
+ html, body {
+	overflow:hidden;
+ }
+ #output {
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+::-webkit-scrollbar {
+    width:8px;
+}
+::-webkit-scrollbar-thumb {
+	border:solid 1px #555;
+	background-color:transparent;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
 }

@@ -28,10 +28,6 @@ table {
 	padding:0 10px;
 	margin-bottom:10px;
 }
-#output table {
-	max-width:670px;
-	padding-right:0;
-}
 a {
 	text-decoration:none;
 }
@@ -168,12 +164,6 @@ table td {
 	font-size:14px;
 	line-height:14px;
 }
-.jScrollPaneDrag {
-	background-color:#464740;
-}
-.jScrollPaneTrack {
-	background-color:transparent;
-}
 #desktop {
 	padding:30px;
 	padding-right:10px;
@@ -211,4 +201,21 @@ table td {
 	height:26px;
 	padding-bottom:20px;
 	border-bottom:solid 1px #464740;
+}
+
+/*
+ * scrollbars
+ */
+ html, body {
+	overflow:hidden;
+ }
+ #output {
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#464740;
 }

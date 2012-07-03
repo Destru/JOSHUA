@@ -2,7 +2,7 @@
  * white
  */
 body {background-color:#eee;color:#444;}
-.jScrollPaneDrag {background-color:#c4c4c4;}
+
 .button:hover, .tiny li:hover, .button.playing, #joshua {background-color:#fff;}
 .button:hover, .tiny li:hover, .button.playing {
 	color:#999;
@@ -16,7 +16,7 @@ body {background-color:#eee;color:#444;}
 	padding:0;
 }
 
-#sliders .frame, .tiny li, #input, .button, .jScrollPaneTrack  {
+#sliders .frame, .tiny li, #input, .button  {
 	background-color:#e4e4e4;
 }
 #joshua h1 {
@@ -63,4 +63,11 @@ body {
 }
 .brush {
 	background-image:url("images/brushWhite.png");
+}
+
+::-webkit-scrollbar-thumb {
+	background-color:#c4c4c4;
+}
+::-webkit-scrollbar-track {
+	background-color:#e4e4e4;
 }

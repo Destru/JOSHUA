@@ -240,39 +240,6 @@ pre.ascii {
 	cursor:pointer;
 }
 
-/* scrollpane */
-.jScrollPaneContainer {
-	position: relative;
-	overflow: hidden;
-	z-index: 1;
-}
-.jScrollPaneTrack {
-	position: absolute;
-	cursor: pointer;
-	right: 0;
-	top: 0;
-	height: 100%;
-	background: #383838;
-}
-.jScrollPaneDrag {
-	position: absolute;
-	background: #666;
-	cursor: pointer;
-	overflow: hidden;
-}
-.jScrollPaneDragTop {
-	position: absolute;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-}
-.jScrollPaneDragBottom {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
-}
-
 /*
  * loader only works in webkit (like everything else on this site)
  */

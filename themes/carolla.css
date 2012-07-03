@@ -30,3 +30,6 @@ body {
 .button.playing, .button:hover, .tiny li:hover, .ui-slider-handle {
 	background-color:#d35300;
 }
+::-webkit-scrollbar-thumb {
+	background-color:#002933;
+}

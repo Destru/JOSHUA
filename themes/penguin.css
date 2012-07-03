@@ -30,3 +30,10 @@ body {
 	right:10px;
 }
 .tiny li:hover, .button:hover, .button.playing {color:#4a012c;}
+
+::-webkit-scrollbar-thumb {
+	background-color:#ae2a78;
+}
+::-webkit-scrollbar-track {
+	background-color:#4a012c;
+}

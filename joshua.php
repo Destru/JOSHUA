@@ -266,7 +266,8 @@ if(empty($output)) {
 			$limit = 20;
 			if($option == "listall") $limit = count($messages);
 			for ($i = 0; $i < $limit; $i++){
-				$output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
+				if(isset($messages[$i]['ip'])) $output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
+				else  $output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td></td></tr>';
 			}
 			$output .= '</table>';
 			print '<div class="prompt">'.$command.'</div>'.$output;
