@@ -346,7 +346,7 @@ function chromeMagic(){
 		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
 	else if(theme == "diesel"){
-		var dieselChrome = 250;
+		var dieselChrome = 240;
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
 			$('#output').css("height", $(window).height()-dieselChrome);

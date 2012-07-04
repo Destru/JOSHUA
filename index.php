@@ -25,6 +25,7 @@
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
 	<link rel="icon" type="image/png" href="images/favicon.png">
+	<link rel="image_src" href="images/thumbnail.png">
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen">
 <?php // theme handling
 	$theme = $_COOKIE['theme'];
