@@ -1,6 +1,6 @@
 <?php session_start(); // initialize session
 	// global settings
-	$version = '9.1';
+	$version = '9.2';
 	$versionName = 'Mono';
 	$defaultTheme = 'mono';
 	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
@@ -33,7 +33,7 @@
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="resources/jquery.ui.custom.js"></script>
+	<script type="text/javascript" src="resources/jquery-ui-1.8.21.custom.min.js"></script>
 	<script type="text/javascript" src="resources/joshua.external.js"></script>
 	<script type="text/javascript">
 		// global settings
@@ -50,7 +50,7 @@
 	<div id="joshua"></div>
 	<div id="desktop"><?php include 'desktop.php' ?></div>
 <?php // fetch apps and games
-	$d = scandir('.');
+	$d = scandir('.');		
 	foreach ($d as $file) {
 		if(stristr($file, 'app.')) $app[] = $file;
 		if(stristr($file, 'game.')) $game[] = $file;

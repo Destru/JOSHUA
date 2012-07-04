@@ -1,11 +1,11 @@
 <div id="videos" class="window">
 	<h1>Video Player</h1>
-	<input type="search" placeholder="Search..." results="5" name="search">
+	<input type="search" placeholder="Search..." class="clearfix">
 </div>
 <script type="text/javascript">
 	$(function(){
 		var url = 'http://gdata.youtube.com/feeds/api/videos?v=2&max-results=20&duration=long&alt=json&q=';
-		$('input[type=search]').on('keyup', function(){
+		$('input[type=search]').bind('keyup', function(){
 			var query = $(this).val();
 			$.getJSON(url+query+'&callback=?', function(data){
 				var videos = new Array(), menu = '';
@@ -18,7 +18,7 @@
 				if($('#videos').has('iframe').length == 0) $('#videos').append('<iframe src="" width="560" height="315" frameborder="0" allowfullscreen style="display:none"/>');
 				if($('#videos').has('ul').length == 0) $('#videos').append('<ul class="menu">'+menu+'</ul>');
 				else $('#videos ul').html(menu);
-				$('#videos ul li').on('click', function(e){
+				$('#videos ul li').bind('click', function(e){
 					e.preventDefault();
 					$('#videos .playing').removeClass('playing');
 					var id = $(this).attr('id');

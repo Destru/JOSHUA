@@ -1,13 +1,13 @@
 <?php $motd = array(
 	'Some say the world will end in fire,<br>
-	Some say in ice.<br>
-	From what I\'ve tasted of desire<br>
-	I hold with those who favor fire.<br>
-	But if it had to perish twice,<br>
-	I think I know enough of hate<br>
-	To say that for destruction ice<br>
-	Is also great<br>
-	And would suffice.',
+		Some say in ice.<br>
+		From what I\'ve tasted of desire<br>
+		I hold with those who favor fire.<br>
+		But if it had to perish twice,<br>
+		I think I know enough of hate<br>
+		To say that for destruction ice<br>
+		Is also great<br>
+		And would suffice.',
 	'The world is your oyster, because that\'s all the world is.',
 	'I am Joshua of Borg. Prepare to be assimilated.',
 	'Transmitting from the Nostromo.',
@@ -21,9 +21,9 @@
 	'Smoke me a kipper, I\'ll be back for breakfast.',
 	'Joshua Bullet: Cybernautic Detective.',
 	'It\'s cold outside, there\'s no kind of atmosphere<br>
-	I\'m all alone, more or less<br>
-	Let me fly, far away from here<br>
-	Fun, fun, fun, in the sun, sun, sun...',
+		I\'m all alone, more or less<br>
+		Let me fly, far away from here<br>
+		Fun, fun, fun, in the sun, sun, sun...',
 	'I was wondering when El Capitan was gonna get a chance to use his popgun.',
 	'Maybe we\'re at war with Norway?',
 	'There\'s something in the fog!',
@@ -44,5 +44,11 @@
 	'I\'m Joshua Skywalker, I\'m here to rescue you.',
 	'Help me Joshu-Wan Kenobi. You\'re my only hope.',
 	'Space... The final frontier. These are the voyages of the starship Joshua. It\'s continuing mission, to explore strange new worlds. To seek out new life and new civilizations. To boldly go where no one has gone before.',
-	'HOONA IGNA CHOWA NEHA!'
+	'HOONA IGNA CHOWA NEHA!',
+	'Ladies and gentlemen of the press, at 26:14 on the flight clock, we begin the major experiment of this shuttle mission.
+		Commander Joshua Crichton will pilot a craft of his own design in a dangerous attempt to use our planet\'s gravity as a speed booster, slingshotting him off into space at previously unrecorded speeds.
+		If successful, the results are anticipated as the first concrete steps toward interstellar travel.',
+	'Have we sent the "don\'t shoot us we\'re pathetic" transmission yet?',
+	'Who\'s your daddy? C\'mon, you know who your daddy is. Who\'s your daddy?<br> D\'Argo, tell him who his daddy is.',
+	'My progeny were tiny. Tiny and handsome, like their father.'
 ); ?>

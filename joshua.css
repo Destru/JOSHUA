@@ -6,6 +6,11 @@
 	font-family:'ProFont';
 	src: url('fonts/profont.ttf') format("truetype");
 }
+* {
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select:none;
+}
 html, body {
 	height:100%;
 	color:#fff;
@@ -22,14 +27,11 @@ h1, h2, h3, h4 {
 #prompt {
 	background-color:transparent;
 }
-.output a {
-	text-decoration:underline;
-}
 .countdown * {
 	display:inline;
 }
 .scratch {
-	text-decoration: line-through;
+	text-decoration:line-through;
 }
 .clear {
 	clear:both;
@@ -96,7 +98,7 @@ td.command {
 }
 #customize.window {
 	z-index:21;
-	width:320px;
+	width:280px;
 }
 #music.window {
 	z-index:21;
@@ -208,12 +210,11 @@ pre.ascii {
 .capitalize, ul.menu a {
 	text-transform:capitalize;
 }
-.window {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
+.output *, input {
+	-webkit-user-select:text;
+	-moz-user-select:text;
+	user-select:text;
 }
-
 /* effects */
 .brush {
 	z-index:30;
@@ -237,39 +238,6 @@ pre.ascii {
 }
 .modalClose {
 	cursor:pointer;
-}
-
-/* scrollpane */
-.jScrollPaneContainer {
-	position: relative;
-	overflow: hidden;
-	z-index: 1;
-}
-.jScrollPaneTrack {
-	position: absolute;
-	cursor: pointer;
-	right: 0;
-	top: 0;
-	height: 100%;
-	background: #383838;
-}
-.jScrollPaneDrag {
-	position: absolute;
-	background: #666;
-	cursor: pointer;
-	overflow: hidden;
-}
-.jScrollPaneDragTop {
-	position: absolute;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-}
-.jScrollPaneDragBottom {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
 }
 
 /*
@@ -318,12 +286,12 @@ pre.ascii {
 }
 #videos .menu {
 	text-align:left;
-	column-count:2;  
-    column-gap:10px;  
-	-webkit-column-count:2;  
-    -webkit-column-gap:10px;  
-	-moz-column-count:2;  
-    -moz-column-gap:10px;
+	column-count:2;
+	column-gap:10px;
+	-webkit-column-count:2;
+	-webkit-column-gap:10px;
+	-moz-column-count:2;
+	-moz-column-gap:10px;
 }
 #videos .menu .button {
 	white-space: nowrap;

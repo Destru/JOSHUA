@@ -32,7 +32,7 @@ table td {
 	font-size:14px;
 	line-height:14px;
 }
-ul.menu, .prompt, .jScrollPaneDrag, .jScrollPaneTrack, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .window .tiny, #output {
+ul.menu, .prompt, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .window .tiny, #output {
 	border-radius:9px;
 	-webkit-border-radius:9px;
 	-moz-border-radius:9px;
@@ -49,6 +49,9 @@ ul.menu {
 .st h1, .st h2 {
 	display:inline;
 	background-color:#000;
+}
+.prompt {
+	margin-right:9px;
 }
 .output p, .prompt, .output, table {
 	margin-bottom:10px;
@@ -128,7 +131,7 @@ h1, h2 {
 .error {
 	color:#c69;
 }
-strong {
+b {
 	font-weight:bold;
 	letter-spacing:-1px;
 }
@@ -164,12 +167,6 @@ strong {
 }
 .output, .prompt {
 	margin-bottom:20px;
-}
-.jScrollPaneDrag {
-	background-color:#fc9;
-}
-.jScrollPaneTrack {
-	background-color:transparent;
 }
 #music .st, #music {
 	background-color:#fc9;
@@ -222,4 +219,24 @@ h1, h2 {
 }
 .window, .window .st, #joshua .st {
 	background-color:#f90;
+}
+
+/*
+ * scrollbars
+ */
+ html, body {
+	overflow:hidden;
+ }
+ #output {
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+::-webkit-scrollbar {
+    width: 9px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#fc9;
+	border-radius:9px;
+	-webkit-border-radius:9px;
+	-moz-border-radius:9px;
 }

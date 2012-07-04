@@ -68,7 +68,7 @@ td {
 .joshua, .error, a {
 	color:#00bff3;
 }
-.prompt strong, .prefix strong {
+.prompt b, .prefix b {
 	font-weight:normal;
 	color:#666;
 }

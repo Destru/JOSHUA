@@ -1,6 +1,9 @@
 /*
  * nextgen
  */
+ html, body {
+	overflow:hidden;
+ }
 @font-face {
 	font-family:'Tempesta';
 	src: url('../fonts/pf_tempesta_seven.ttf') format("truetype");
@@ -27,22 +30,24 @@
 	margin-top: -285px;
 	background-position:50% 50%;
 	background-repeat:no-repeat;
+	width:740px;
 }
 #input {
 	margin-top:10px;
 	padding:5px;
 }
-#joshua, #output {
-	width:740px;
-}
 #output {
 	height:450px;
+	padding:0 10px;
+	width:720px;
+	overflow-x:hidden;
+	overflow-y:auto;
 }
-pre, p, input#prompt {
+input#prompt {
 	width:720px;
 	border-collapse:collapse;
 }
-table {
+p, pre, table {
 	width:710px;
 }
 input#prompt {
@@ -53,8 +58,8 @@ input#prompt {
 	overflow:hidden;
 	margin-left:2px;
 	text-transform:lowercase;
-	height:15px;
-	padding-top:3px;
+	height:18px;
+	line-height:18px;
 }
 
 /* blocks */
@@ -126,7 +131,7 @@ h1, h2, #input {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 }
-.speechBubble, #sliders .frame, .ui-slider-handle, .button, .tiny li, .jScrollPaneDrag, .jScrollPaneTrack {
+.speechBubble, #sliders .frame, .ui-slider-handle, .button, .tiny li {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	border-radius:3px;
@@ -225,7 +230,7 @@ ul.icons li a.application, ul.icons li a.preset {
 ul.icons li a.external-page {
 	background-position:37px -192px;
 }
-ul.icons li a:hover {
+ul.icons li a:hover, ul.icons li a.active {
 	opacity:1;
 }
 ul#links {
@@ -294,12 +299,10 @@ ul.menu {
 	padding-left:13px;
 	padding-right:13px;
 	text-indent:-6px;
-	margin-bottom:5px;
 }
 #sliders .frame, .ui-slider {
 	width:254px;
 }
-
 .ui-slider {
 	position: relative;
 	text-align: left;
@@ -315,7 +318,7 @@ ul.menu {
 	z-index:24;
 }
 .ui-slider .ui-slider-handle {
-	height:12px; width:20px;
+	height:13px; width:20px;
 	margin-top:-1px;
 	margin-left:-10px;
 }
@@ -331,7 +334,7 @@ body {
 #joshua {
 	background-color:#262626;
 }
-#sliders .frame, .jScrollPaneDrag {
+#sliders .frame {
 	background-color:#444;
 }
 .button, .window {
@@ -356,7 +359,7 @@ body {
 ul.icons li a {
 	background-image:url("../images/icons.png");
 }
-.window h1, h2, h1, #input, .jScrollPaneTrack {
+.window h1, h2, h1, #input {
 	background-color:#181818;
 }
 .example, .light, .command, a, .joshua, .error {
@@ -390,4 +393,18 @@ h2.presets {
 }
 .window h2 {
 	font-family:"Tempesta Extended Bold";
+}
+
+/*
+ * scrollbars
+ */
+::-webkit-scrollbar {
+    width:10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#181818;
+	border-radius:5px;
+}
+::-webkit-scrollbar-track {
+	border-radius:5px;
 }

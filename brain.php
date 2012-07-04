@@ -280,30 +280,32 @@ $static = array(
 			<td>There is now a load indicator (top right) when requests are running.</td>
 		</tr>
 		<tr class="major">
-			<td class="command fixed-width">9.0</td>
+			<td class="command fixed-width">9.0 <span class="dark">Mono</span></td>
 			<td>Mono means back to minimalism. Removed some pointless windows and tweaked the ones that are needed. Themes and presets can (finally) be loaded from the prompt.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">9.1</td>
-			<td>Since Youtube added support for duration in their API, hello videos!</td>
+			<td>Since Youtube added support for duration in their API, hello <span class="command">videos</span>!</td>
+		</tr>
+		<tr>
+			<td class="command fixed-width">9.2</td>
+			<td>Upgraded to use jQuery 1.7.2 (from 1.4.2). No more jScrollPane, rather use native (where possible). Upgrading should no longer reset settings beyond new default theme.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I work for <a href="http://finn.no">FINN</a> as a front end web developer.
+		My name is Alexander Støver. I work as a front end web developer.
 		That\'s a fancy way of saying I\'m neither a designer or developer but sort of both.
 		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
-
 	<p>
 		JOSHUA is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
 		The name is a reference to \'War Games\' (Shall we play a game?).
 		Special <span class="command">thanks</span> to <a href="http://twitter.com/ehjelle">Eirik</a> and <a href="http://twitter.com/elektronaut">Inge</a> for answering stupid questions.
 		This site fueled by sleep deprivation.
 	</p>
-
 	<p>
 		Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever perceived.
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
@@ -379,7 +381,7 @@ $static = array(
 		<tr><td class="label dark">Status</td><td><a href="http://rachaelivy.com">Happily married</a></td></tr>
 		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
 		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
-		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">@binaerpilot.no</a></td></tr>
+		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">alexander@binaerpilot.no</a></td></tr>
 	</table>
 	<p>
 		I do front end development for <a href="http://finn.no/torget">FINN</a>.
@@ -448,7 +450,6 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://onaluf.org/">Selim Arsever</a> for gameQuery.
 		<a href="http://schillmania.com/">Scott Schiller</a> for SoundManager2.
 		<a href="http://paulbakaus.com/">Paul Bakaus</a> and the jQuery UI team.
-		<a href="http://www.kelvinluck.com/">Kelvin Luck</a> for jScrollPane.
 		<a href="http://brandonaaron.net/">Brandon Aaron</a> for jQuery Mousewheel.
 		<a href="http://malsup.com/">Mike Alsup</a> for jQuery Cycle.
 		<a href="http://ericmmartin.com/">Eric Martin</a> for SimpleModal.

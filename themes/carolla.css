@@ -4,9 +4,8 @@
 .pink {color:#f09;}
 body {background-color:#02262e;color:#fff;}
 #joshua {background-color:#02343e;}
-.jScrollPaneDrag {background-color:#3495a5;}
  .window {background-color:#ff7800;}
-h1, #input, .jScrollPaneTrack {background-color:#002933;}
+h1, #input {background-color:#002933;}
 .dark, .prompt {color:#92d0e0;}
 a, .joshua, .error {color:#fbb11a;}
 .example, .light, .command {color:#48b2ce;}
@@ -29,4 +28,7 @@ body {
 }
 .button.playing, .button:hover, .tiny li:hover, .ui-slider-handle {
 	background-color:#d35300;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#002933;
 }

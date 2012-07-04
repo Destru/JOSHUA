@@ -1,7 +1,7 @@
 <?php // joshua engine <alexander@binaerpilot.no>
 session_start(); // sudo commands
 if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1; // development mode set
-if(!empty($_POST['command'])) $command = strip_tags(trim($_POST['command']));
+if(!empty($_POST['command'])) $command = strtolower(strip_tags(trim($_POST['command'])));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
@@ -266,7 +266,8 @@ if(empty($output)) {
 			$limit = 20;
 			if($option == "listall") $limit = count($messages);
 			for ($i = 0; $i < $limit; $i++){
-				$output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
+				if(isset($messages[$i]['ip'])) $output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
+				else  $output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td></td></tr>';
 			}
 			$output .= '</table>';
 			print '<div class="prompt">'.$command.'</div>'.$output;
@@ -384,7 +385,7 @@ if(empty($output)) {
 			$url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&rows='.$rows.'&sort=seeds';
 			$content = get($url);
 			if($content){
-				print '<div class="prompt">'.$command.' <strong>'.$query.'</strong></div>';
+				print '<div class="prompt">'.$command.' <b>'.$query.'</b></div>';
 				$c = json_decode($content, true);
 				if($c['total_results'] > 0){
 					print '<table class="torrents">';
@@ -424,7 +425,7 @@ if(empty($output)) {
 		sort($themes);
 		if(isset($option) && in_array($option, $themes)){
 			setcookie('theme', $option, $expires, '/');
-			output('<meta http-equiv="refresh" content="0">');
+			output('<p class="joshua">'.$joshua.'Your browser will now refresh automatically.</p><script>location.reload();</script>');
 		}
 		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
 	}
@@ -466,11 +467,11 @@ if(empty($output)) {
 			$scores[$entry]['name'] = $score[1];
 		}
 		rsort($scores);
-		print '<h2>Season IV Highscores</h2><ul>';
+		print '<h2>Season V Highscores</h2><ul>';
 		for ($i = 0; $i<30; $i++){
 			$pos = $i+1;
 			if($pos < 10) $pos = '0'.$pos;
-			print '<li><span class="pos">'.$pos.'.</span><strong>'.$scores[$i]['name'].'</strong> <span class="score">'.$scores[$i]['score'].'</span></li>';
+			print '<li><span class="pos">'.$pos.'.</span><b>'.$scores[$i]['name'].'</b> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
 		print '</ul>';$output = 1;
 	}
@@ -542,7 +543,7 @@ if(empty($output)) {
 			if(stristr($file, '.css')) $themes = $themes+1;
 		}
 		if(file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
-		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2147; // from version 1, 1.1, 1.2, 1.3
+		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2828; // from season 1-4
 		$commands = count($static)+30; // guesstimate
 		$quotes = count($motd)+count($bash)+count($pearls);
 		$reviews = count($reviews);

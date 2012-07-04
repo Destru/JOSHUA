@@ -28,10 +28,6 @@ table {
 	padding:0 10px;
 	margin-bottom:10px;
 }
-#output table {
-	max-width:670px;
-	padding-right:0;
-}
 a {
 	text-decoration:none;
 }
@@ -134,7 +130,7 @@ div {
 .joshua, .error {
 	color:#f92666;
 }
-strong {
+b {
 	font-weight:bold;
 	letter-spacing:-1px;
 }
@@ -156,7 +152,7 @@ table td {
 	width:660px !important;
 	font-size:12px;
 }
-.prompt strong {
+.prompt b {
 	letter-spacing:0;
 }
 .example {
@@ -167,12 +163,6 @@ table td {
 	text-transform:lowercase;
 	font-size:14px;
 	line-height:14px;
-}
-.jScrollPaneDrag {
-	background-color:#464740;
-}
-.jScrollPaneTrack {
-	background-color:transparent;
 }
 #desktop {
 	padding:30px;
@@ -211,4 +201,21 @@ table td {
 	height:26px;
 	padding-bottom:20px;
 	border-bottom:solid 1px #464740;
+}
+
+/*
+ * scrollbars
+ */
+ html, body {
+	overflow:hidden;
+ }
+ #output {
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#464740;
 }

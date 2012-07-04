@@ -30,11 +30,8 @@ a, .joshua, .error {color:#ccab60;}
 	color:#fff;
 	padding:0;
 }
- #input, .jScrollPaneTrack, h1 {
+ #input, h1 {
 	background-color:#152521;
-}
-.jScrollPaneDrag {
-	background-color:#ccab60;
 }
 .window .close {
 	position:absolute;

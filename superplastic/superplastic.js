@@ -318,7 +318,7 @@ $(function(){
 	// game logic
 	$().playground().registerCallback(function(){
 		if(!gameOver){
-			$("#hud").html('Time: <strong>'+seconds+'</strong> Points: <strong>'+points+'</strong> Shield: <strong>'+playerShield+'</strong>');
+			$("#hud").html('Time: <b>'+seconds+'</b> Points: <b>'+points+'</b> Shield: <b>'+playerShield+'</b>');
 			// movement
 			if(!playerHit){
 				$("#player")[0].player.update();
@@ -357,7 +357,8 @@ $(function(){
 						$("#actors,#playerMissiles").fadeTo(500,0);
 						$("#background").fadeTo(1500,0);
 						var cookie = readCookie('player'); if(cookie) playerName = cookie;
-						$(".gameContainer").append('<p>You survied for <strong>'+seconds+'</strong> miliseconds and scored <strong>'+points+'</strong> bonus points.<br/>Your total score is <strong>'+playerScore+'</strong>.</p>');
+						$(".gameContainer").append('<div id="gameOver">Game over</div>');
+						$(".gameContainer").append('<p>You survied for <b>'+seconds+'</b> miliseconds and scored <b>'+points+'</b> bonus points.<br/>Your total score is <b>'+playerScore+'</b>.</p>');
 						$(".gameContainer").append('<div id="submitForm"><input id="playerName" class="text" value="'+playerName+'" maxlength="9" onFocus="this.value=\'\';"/>'+'<div class="button" onClick="submitScore();">Submit score</div></div>');
 						gameOver = true;
 					} else {

@@ -5,7 +5,6 @@ var hist = [], // history (arrow up/down)
 position = 0, // position in history
 expires = 1095, // cookie dies in 3 years
 fade = 350, // ui fade delay
-fadeFast = 150,
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
@@ -41,17 +40,7 @@ function scrollCheck(){
 		$('.output:last .prompt').prepend(termPrompt);
 	}
 	else {
-		var autoScroll = $('#output').data('jScrollPanePosition') == $('#output').data('jScrollPaneMaxScroll');
-		$('#output').jScrollPane({
-			scrollbarWidth:10,
-			scrollbarMargin:10,
-			enableKeyboardNavigation:false,
-			animateTo: true,
-			animateInterval:25
-		});
-		if (autoScroll){
-			$('#output')[0].scrollTo($('#output').data('jScrollPaneMaxScroll'));
-		}
+		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 1000);
 	}
 }
 function mute(){
@@ -213,16 +202,21 @@ function chromeInit(){
 	});
 	// open windows
 	$('.open').click(function(){
-		var id = this.getAttribute('id').replace(/Open/,'');
-		if(id == "superplastic"){
-			loadSuperplastic();
+		var id = $(this).attr('id').replace(/Open/,'');
+		if($('#'+id).is(":hidden")){
+			if(id == "superplastic") loadSuperplastic();
+			else {
+				createCookie(id, true, expires);
+				if(id == "music") if(muted) mute();				
+			}
+			$('#'+id).fadeIn(fade);
+			$(this).addClass('active');
 		}
 		else {
-			createCookie(id, true, expires);
-			if(id == "music") if(muted) mute();
-		}
-		$('#'+id+':hidden').fadeIn(fade);
-		$(this).addClass('active');		
+			eraseCookie(id);
+			$('#'+id).fadeOut(fade);
+			$(this).removeClass('active');
+		}		
 	});
 	// view images
 	$('a.view').click(function(event){
@@ -299,12 +293,8 @@ function chromeMagic(){
 	if(theme == "nextgen" || $.inArray(theme, nextgen) > -1){
 		var background = readCookie('background'),
 		opacity = readCookie('opacity');
-		if(background){
-			$('#joshua').addClass(background);
-		}
-		if(!opacity){
-			opacity = 1;
-		}
+		if(background) $('#joshua').addClass(background);
+		if(!opacity) opacity = 1;
 		$('#opacity').slider({
 			max: 20,
 			min: 3,
@@ -323,7 +313,7 @@ function chromeMagic(){
 		// contra
 		if(theme == "contra"){
 			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
-			$('body').animate({delay: 1}, 750).animate({backgroundColor:"#fff"}, 500).animate({backgroundColor:"#152521"}, 3500);
+			$('body').animate({backgroundColor:"#fff"}, 250).animate({backgroundColor:"#152521"}, 1000);
 		}
 	}
 	else if(theme == "tron"){
@@ -359,7 +349,7 @@ function chromeMagic(){
 		var dieselChrome = 250;
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
-			$('#output, .jScrollPaneContainer').css("height", $(window).height()-dieselChrome);
+			$('#output').css("height", $(window).height()-dieselChrome);
 			scrollCheck();
 		});
 	}
@@ -374,10 +364,10 @@ function chromeMagic(){
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = 225;
+		var lcarsChrome = 210;
 		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function(){
-			$('#output, .jScrollPaneContainer').css("height", $(window).height()-lcarsChrome);
+			$('#output').css("height", $(window).height()-lcarsChrome);
 			scrollCheck();
 		});
 	}
@@ -399,9 +389,9 @@ function clearScreen(){
 // booting up joshua
 function boot(){
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
-	// version check
+	// upgrading
 	var versionCheck = readCookie('release');
-	if(version > versionCheck){ // upgrade to latest version
+	if(parseInt(version) > versionCheck){ // upgrade to latest version
 		$('title').html(title+'Upgrading...');
 		$.each(windows, function(){
 			eraseCookie(this);
@@ -412,8 +402,7 @@ function boot(){
 		location.reload();
 	}
 	// load effects
-	var fx = readCookie('fx');
-	if(fx) fxInit(fx, true);
+	var fx = readCookie('fx'); if(fx) fxInit(fx, true);
 	// window positions
 	$.each(windows,function(){
 		var cookie = readCookie('window.'+this);
@@ -454,16 +443,14 @@ $(function(){
 			}
 			// js commands
 			if(command == "clear" || command == "cls") clearScreen();
-			else if(command == "exit" || input == "quit" || input == "logout"){ window.location = "http://binaerpilot.no"; }
+			else if(command == "exit" || input == "quit" || input == "logout") window.location = "http://binaerpilot.no";
 			// rachael
 			else if(command == "rachael"){
 				var current = new Date();
 				var currentYear = current.getFullYear();
 				var birthday = new Date(currentYear, 6-1, 29);
 				var married = new Date(2009, 10-1, 7);
-				if(current > birthday){
-					birthday = new Date(currentYear+1, 6-1, 29);
-				}
+				if(current > birthday) birthday = new Date(currentYear+1, 6-1, 29);
 				$('#output').append('<div class="output"><div class="prompt">rachael</div><p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist. We\'ve been happily married for <span class="countdown married pink"/>, her birthday is in <span class="countdown birthday pink"/> and I am still madly in love. You can <a href="http://rachaelivy.com">visit her homepage</a> if you\'d like to know more. (Potential stalkers be warned: I carry an axe.)</p></div>');
 				$('.birthday').countdown({until: birthday, compact: true, format: 'OWDHMS'});
 				$('.married').countdown({since: married, compact: true, format: 'OWDHMS'});
@@ -494,11 +481,11 @@ $(function(){
 			// engine
 			else {
 				if(command){
-					$('#loader').fadeIn(fade); // loader
+					$('#loader').fadeIn(250); // loader
 					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function(){
 						$('#output').append(content);
 						init();
-						$('#loader').fadeOut(fadeFast);
+						$('#loader').fadeOut(250);
 					});
 				}
 				else {

@@ -10,7 +10,7 @@
 			<p class="irc dark">inge: this is an ed wood flick, i forgot to mention it.<br>
 			alexandr: a true classic in other words<br>
 			inge: right.</p>
-			<p>Yeah sure, my old self, if by <em>classic</em> you mean <em>crime against film</em>.
+			<p>Yeah sure, my old self, if by <i>classic</i> you mean <i>crime against film</i>.
 			It\'s a waste of bandwith. Don\'t bother.</p>
 			<p class="irc dark">inge: this movie has no redeeming qualities, whatsoever<br>
 			alexandr: ooo, tits<br>
