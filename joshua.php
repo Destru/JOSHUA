@@ -421,7 +421,7 @@ if(empty($output)) {
 							print '<tr><td class="torrent"><a href="'.$link.'" title="'.$title.'">'.$name.'</a></td><td class="dark">'.$seeds.'/'.$leechers.'</td></tr>';
 						}
 					}
-					print '</table>';
+					print '</table>'; $output = 1;
 				}
 				else output('<p class="error">'.$joshua.'There were no results for <b>'.$query.'</b>.</p>');
 			}
