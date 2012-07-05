@@ -444,6 +444,13 @@ Rachael: HAHAHA!</pre>',
 'git' => 'Git is awesome. I don\'t know how I survived without it.<br><a class="external" href="http://github.com/destru/">Follow me at GitHub.</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
 
+'resume' => '<p>Ok, resume time! I am super nice to work with and rad to the power of sick. What? You need more?</p>
+	<p>I have been doing front end development for 15 years.
+	For recent samples of my work your best bet would be <a href="http://manualdesign.no">Manual design</a>
+	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (second largest website in Norway and my current employer).</p>
+	<p>I am not looking for work, but if you represent a NY/SF/LA-based company I would be happy to
+	<a href="mailto:alexander@binaerpilot.no">hear from you</a> as I\'m planning to move out of Norway soon. How\'s that?</p>',
+
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to Joshua. Thank you for being awesome.<p>
 	<p>
 		<a href="http://ejohn.org/">John Resig</a> for jQuery.
