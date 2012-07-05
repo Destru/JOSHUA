@@ -29,8 +29,8 @@
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen">
 <?php // theme handling
 	$theme = $_COOKIE['theme'];
-	$nextgen = array('carolla', 'contra', 'penguin', 'white');
-	if(in_array($theme, $nextgen)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
+	$nextgenThemes = array('carolla', 'contra', 'penguin', 'white');
+	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -41,9 +41,10 @@
 		var version = '<?php echo $version; ?>',
 		header = '<?php echo $header; ?>',
 		title = '<?php echo $title; ?>',
+		theme = '<?php echo $theme; ?>',
 		defaultTheme = '<?php echo $defaultTheme; ?>',
 		termPrompt = '<?php echo $termPrompt; ?>',
-		nextgen = ["<?php echo implode('","', $nextgen); ?>"];
+		nextgenThemes = ["<?php echo implode('","', $nextgenThemes); ?>"];
 	</script>
 	<script type="text/javascript" src="joshua.js"></script>	
 </head>

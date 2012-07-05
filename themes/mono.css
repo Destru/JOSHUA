@@ -1,7 +1,7 @@
 /*
  * retro mono
  */
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic);
 body {
 	background-color:#000;
 	font-family:'Ubuntu Mono', fixed-width;
@@ -15,7 +15,7 @@ a {
 	color:#000;
 }
 #joshua {
-	padding:14px;
+	padding:28px;
 	width:772px;
 }
 #prompt {
@@ -45,6 +45,7 @@ a {
 	background-color:#fff;
 	color:#000;
 	padding:14px;
+	margin:14px;
 }
 .menu a {
 	color:#000;

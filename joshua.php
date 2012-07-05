@@ -161,6 +161,25 @@ if(empty($output)) {
 			output($quote);
 		}
 	}
+	
+
+	// motd 
+	if($command == "motd"){
+		$count = count($motd)-1; $rand = rand(0,$count);
+		if(isset($option) && $option == "clean"){
+			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
+		}
+		else {
+			output($motd[$rand]);
+		}
+	}
+
+	// uptime and date
+	if($command == "uptime" || $command == "date"){
+		$return = trim(exec($command));
+		if(!empty($return))	output($return);
+		else error('noreturn');
+	}
 
 	// whois
 	if($command == "whois"){
@@ -241,6 +260,7 @@ if(empty($output)) {
 			}
 		}
 	}
+
 	// msg
 	if($command == "msg"){
 		$storage = "msg.data";

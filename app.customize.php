@@ -8,6 +8,7 @@
 			<li class="pirate">Pirate</li>
 			<li class="rachael">Rachael</li>
 			<li class="sleep">Sleep</li>
+			<li class="illuminati">Illuminati</li>
 		</ul>
 	</div>
 	<h2>Effects</h2>

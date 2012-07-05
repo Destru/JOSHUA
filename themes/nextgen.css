@@ -391,6 +391,10 @@ h2.presets {
 #joshua.rachael {
 	background-image:url("../images/joshuaRachael.png");
 }
+#joshua.illuminati {
+	background-image:url("../images/joshuaIlluminati.png");
+	background-position:120px -300px;
+}
 .window h2 {
 	font-family:"Tempesta Extended Bold";
 }

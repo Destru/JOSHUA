@@ -8,8 +8,10 @@ fade = 350, // ui fade delay
 muted = false, // sound
 drawing = false, // drawing?
 terminal = false, // terminal style layout
-terminals = ['pirate', 'helvetica', 'mono'],
-windows = ['customize', 'music', 'gallery', 'superplastic', 'videos'];
+terminals = ['pirate', 'helvetica', 'mono'], // terminal themes
+windows = ['customize', 'music', 'gallery', 'superplastic', 'videos']; // common windows
+if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true; // nextgen themes
+if(nextgen) windows.push('joshua');
 
 // helpers
 function systemReady(){
@@ -21,12 +23,6 @@ function stealFocus(){
 		$('#prompt').focus();
 	});
 	$('#prompt').focus();
-}
-function loseFocus(){
-	$('#prompt').blur();
-	setTimeout(function(){
-		$('#prompt').blur();
-	}, 50);
 }
 function clearInput(){
 	$('#prompt').blur().val('');
@@ -86,7 +82,7 @@ function fxInit(fx, runOnce){
 		}
 	}
 	else if(fx == "malkovich"){
-		$('body').append('<div id="malkovich">');
+		$('body').append('<div id="malkovich"/>');
 		$('body').mousemove(function(event){
 			$('#malkovich').css({
 				top: (event.pageY+10)+'px',
@@ -165,22 +161,23 @@ function loadSuperplastic(){
 		 $('#superplastic iframe').attr("src", $('#superplastic iframe').attr("src"));
 	}
 	$('#superplastic:hidden').fadeIn(fade);
-	loseFocus();
 	systemReady();
 }
 
 // init chrome
 function chromeInit(){
 	// drag windows
-	$('.window').draggable({
-		distance:10,
-		stop: function(event){
-			var window = 'window.'+$(this).attr('id'),
-			left = $(this).css('left'),
-			right = $(this).css('right'),
-			top = $(this).css('top');
-			createCookie(window, left+','+right+','+top, expires);
-		}
+	$.each(windows, function(){
+		$('#'+this).draggable({
+			distance:10,
+			stop: function(event){
+				var window = 'window.'+$(this).attr('id'),
+				left = $(this).css('left'),
+				right = $(this).css('right'),
+				top = $(this).css('top');
+				createCookie(window, left+','+right+','+top, expires);
+			}
+		});
 	});
 	// x marks the spot
 	$('.window h1:not(:has(.close))').append('<a class="close">x</a>');
@@ -288,9 +285,8 @@ function chromeInit(){
 
 // chrome magic
 function chromeMagic(){
-	var theme = readCookie('theme');
 	// nextgen themes
-	if(theme == "nextgen" || $.inArray(theme, nextgen) > -1){
+	if(nextgen){
 		var background = readCookie('background'),
 		opacity = readCookie('opacity');
 		if(background) $('#joshua').addClass(background);
@@ -346,7 +342,7 @@ function chromeMagic(){
 		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
 	else if(theme == "diesel"){
-		var dieselChrome = 240;
+		var dieselChrome = 235;
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function(){
 			$('#output').css("height", $(window).height()-dieselChrome);
@@ -405,7 +401,8 @@ function boot(){
 	var fx = readCookie('fx'); if(fx) fxInit(fx, true);
 	// window positions
 	$.each(windows,function(){
-		var cookie = readCookie('window.'+this);
+		var cookie = readCookie('window.'+this),
+		theme = readCookie('theme');
 		if(cookie){
 			var pos = cookie.split(',');
 			$('#'+this).css({
@@ -469,6 +466,7 @@ $(function(){
 			else if(command == "customize" || command == "gallery" || command == "music" || command == "videos"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
+				$('#'+command+'Open').addClass('active');
 				if(command == "music") if(muted) mute(); // if sound is muted, unmute!
 				systemReady();
 			}
@@ -488,9 +486,7 @@ $(function(){
 						$('#loader').fadeOut(250);
 					});
 				}
-				else {
-					systemReady();
-				}
+				else systemReady();
 			}
 			// clear input data
 			$("#prompt").val('');
@@ -502,12 +498,8 @@ $(function(){
 		}
 		else if(e.which == 40){
 			if(position < hist.length){ position = position+1; }
-			if(position == hist.length){
-				$(this).val('');
-			}
-			else {
-				$(this).val(hist[position]);
-			}
+			if(position == hist.length) $(this).val('');
+			else $(this).val(hist[position]);
 		}
 	});
 });
