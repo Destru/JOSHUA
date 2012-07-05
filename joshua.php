@@ -162,7 +162,6 @@ if(empty($output)) {
 		}
 	}
 	
-
 	// motd 
 	if($command == "motd"){
 		$count = count($motd)-1; $rand = rand(0,$count);
@@ -582,6 +581,12 @@ if(empty($output)) {
 		output($stats);
 	}
 
+	// hi reddit
+	if($command == "let's" || $command == "lets"){
+		$prompt = '<div class="prompt">reddit</div>';
+		output('<p>'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');
+	}
+	
 	// fallback
 	if(empty($output)){
 		foreach ($static as $key => $value){
