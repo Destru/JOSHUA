@@ -45,20 +45,20 @@ $static = array(
 			<td>Answer your questions Yoda will</td>
 		</tr>
 		<tr>
-			<td class="command">bash / fml</td>
-			<td>Our infinite stupidity as documented through bash and fml</td>
-		</tr>
-		<tr>
-			<td class="command">last.fm</td>
-			<td>Recent tracks and other Last.FM data</td>
-		</tr>
-		<tr>
 			<td class="command">get <span class="dark">query</span></td>
 			<td>Search and download torrents</td>
 		</tr>
 		<tr>
+			<td class="command">bash</td>
+			<td>Our infinite stupidity as documented through bash</td>
+		</tr>
+		<tr>
 			<td class="command">games <span class="dark">name</span></td>
 			<td>Favorite games and things I made for them</td>
+		</tr>
+		<tr>
+			<td class="command">last.fm</td>
+			<td>Recent tracks and other Last.FM data</td>
 		</tr>
 		<tr>
 			<td class="command">locate <span class="dark">ip</span></td>
@@ -301,13 +301,13 @@ $static = array(
 		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
 	<p>
-		JOSHUA is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
+		Joshua is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
 		The name is a reference to \'War Games\' (Shall we play a game?).
 		Special <span class="command">thanks</span> to <a href="http://twitter.com/ehjelle">Eirik</a> and <a href="http://twitter.com/elektronaut">Inge</a> for answering stupid questions.
 		This site fueled by sleep deprivation.
 	</p>
 	<p>
-		Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever perceived.
+		Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever conceived.
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
 	</p>',
 
@@ -398,7 +398,7 @@ $static = array(
 'prudiful' => 'A mix of "Pretty" and "Beautiful". A synomyn for Rachael.',
 'hot' => 'One of the hottest things on the planet, the infamous <a href="misc/deadsexy.jpg" class="view">Peter Andersen</a>.',
 'asimov' => 'Individual science fiction stories may seem as trivial as ever to the blinder critics and philosophers of today. But the core of science fiction, its essence, has become crucial to our salvation if we are to be saved at all.',
-'joshua' => '<p>JOSHUA is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="command">about</span>.<br><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a></p>',
+'joshua' => '<p>Joshua is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="command">about</span>.<br><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a></p>',
 'hidden' => 'Look closer! Have you tried cheating? To <span class="command">cheat</span> or not to <span class="command">cheat</span>, that is the question.',
 'sharks' => 'Don\'t poop. Ever. They\'re like the Thunderdome, only two men enter and no man leaves.',
 'lamb' => 'A lamb stays a lamb. Forever. Sheep are not lambs, they are a different species entirely. Dr. Young, the world renowned lambologist, has done research into the matter.',
@@ -413,11 +413,12 @@ $static = array(
 'purpose' => 'Matthew thinks that Joshua <a href="http://mwholt.com">has no real purpose</a>. Yet his site uses a console interface for the exact same reason mine does. Then again, this site is more about having fun rather than coming off as pretentious.',
 'stupid' => 'I try to fill my life with the things I love, whether or not they hold meaning to anyone else is besides the point.',
 'batdog' => 'Who is batdog? <a href="misc/batdog.jpg" class="view">He is the bat</a>, Rachael\'s guardian.',
-'smeg' => 'We are <a href="http://steamcommunity.com/groups/clansmeg">Clan SMEG</a>. Also known as The Boys From The Dwarf. For more information see <span class="dark">game cs:s</span>.',
+'smeg' => 'We are <a href="http://steamcommunity.com/groups/clansmeg">Clan SMEG</a>. Also known as The Boys From The Dwarf. Also known as me and my friends when we play Counter-Strike: Source.',
 'coffee' => 'Cheers, I take mine black. Rachael? Non-fat half the syrup double tall white chocolate almond mocha...',
 'blocktrix' => 'The greatest game in the world. It\'s like <a href="http://en.tetrinet.no/">Tetris on steroids</a>.',
 'trick' => '"Luckily I don\'t have a trick knee like grandpa over here." Quoth Rachael, the harpy.',
 'illuminati' => 'Novus Ordo Seclorum',
+'reddit' => 'We had joy, we had fun, we had seasons in the sun. But the hills that we climbed were just seasons out of time. (Thanks for taking Joshua to the front page!)',
 
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
@@ -444,7 +445,7 @@ Rachael: HAHAHA!</pre>',
 'git' => 'Git is awesome. I don\'t know how I survived without it.<br><a class="external" href="http://github.com/destru/">Follow me at GitHub.</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
 
-'resume' => '<p>Ok, resume time! I am super nice to work with and rad to the power of sick. What? You need more?</p>
+'resume' => '<p>Ok, resume time. I am super awesome to work with and rad to the power of sick. What? You need more?</p>
 	<p>I have been doing front end development for 15 years.
 	For recent samples of my work your best bet would be <a href="http://manualdesign.no">Manual design</a>
 	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (second largest website in Norway and my current employer).</p>

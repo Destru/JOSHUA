@@ -143,13 +143,18 @@ if($command == "xbox"){
 	get($url, $cache);
 	$json = load($cache);
 	$gameList = array();
-	foreach($json->RecentGames as $game) $gameList[] = $game->Name;
-	output('<table class="fluid">'.
-		'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.$json->Player->Avatar->Gamerpic->Large.'\');width:64px;height:64px;"></div></td></tr>'.
-		'<tr><td class="dark">Gamertag</td><td>'.$json->Player->Gamertag.'</td></tr>'.
-		'<tr><td class="dark">Activity</td><td>'.$json->Player->Status->Online_Status.'</td></tr>'.
-		'<tr><td class="dark">Recently</td><td>'.implodeHuman($gameList).'</td></tr>'.
-		'<tr><td class="dark">Gamerscore</td><td>'.$json->Player->Gamerscore.'</td></tr></table>');
+	if($json->Success){
+		foreach($json->RecentGames as $game) $gameList[] = $game->Name;
+		output('<table class="fluid">'.
+			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.$json->Player->Avatar->Gamerpic->Large.'\');width:64px;height:64px;"></div></td></tr>'.
+			'<tr><td class="dark">Gamertag</td><td>'.$json->Player->Gamertag.'</td></tr>'.
+			'<tr><td class="dark">Activity</td><td>'.$json->Player->Status->Online_Status.'</td></tr>'.
+			'<tr><td class="dark">Recently</td><td>'.implodeHuman($gameList).'</td></tr>'.
+			'<tr><td class="dark">Gamerscore</td><td>'.$json->Player->Gamerscore.'</td></tr></table>');		
+	}
+	else {
+		error('empty');
+	}
 }
 
 ?>

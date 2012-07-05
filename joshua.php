@@ -126,7 +126,7 @@ $error = array(
 // security and prompt
 if(!empty($command)){
 	$noReturn = array('msg', 'reply', 'sudo', 'yoda'); // these commands should not return input
-	$pattern = "/^[[:alnum:][:space:]:.\,\'-?!\*+%]{0,160}$/";
+	$pattern = "/^[[:alnum:][:space:]:.\,\'\'-?!\*+%]{0,160}$/";
 	if(!empty($dump) && preg_match($pattern, $dump) || empty($dump)){
 		if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
 		else $prompt = '<div class="prompt">'.$command.'</div>';
