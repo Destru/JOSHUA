@@ -5,7 +5,7 @@ $games = array(
 		'format' => 'xml',
 		'about' => '<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none. '.
 			'In awe of the sheer size and complexity of the game I quickly found myself completely immersed in it. '.
-			'I made <a href="misc/aoscripts.rar">some scripts</a> that make things easier.</p>'
+			'I made <a href="ao/aoscripts.rar">some scripts</a> that make things easier.</p>'
 	),
 	'eve' => array(
 		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327',
