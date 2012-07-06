@@ -296,8 +296,9 @@ $static = array(
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I work as a front end web developer.
+		My name is Alexander Støver. I was born in 1982. I live in Oslo and work for <a href="http://finn.no">FINN.no</a> as a senior front end web developer.
 		That\'s a fancy way of saying I\'m neither a designer or developer but sort of both.
+		For more information about me try the <span class="command">alexander</span> or <span class="command">resume</span> commands.
 		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
 	<p>
@@ -375,19 +376,20 @@ $static = array(
 'peter' => 'Real men are not afraid to show their emotions. <a href="misc/malebonding.gif" class="view">Like me and Peter</a>.',
 
 'alexander' => '<table class="fluid">
-		<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
+		<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
 		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
 		<tr><td class="label dark">Alias</td><td>Destru Kaneda</td></tr>
-		<tr><td class="label dark">Status</td><td><a href="http://rachaelivy.com">Happily married</a></td></tr>
+		<tr><td class="label dark">Location</td><td>Oslo, Norway</td></tr>
+		<tr><td class="label dark">Status</td><td>Happily married</td></tr>
 		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
 		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
 		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">alexander@binaerpilot.no</a></td></tr>
 	</table>
 	<p>
-		I do front end development for <a href="http://finn.no/torget">FINN</a>.
+		I do front end web development (see <span class="command">resume</span>).
 		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
 		I am, what is colloquially known as, a massive nerd.
-		Also, I kiss penguins. Well, one penguin.
+		Also, I kiss penguins. Well, <a href="http://rachaelivy.com">one penguin</a>.
 	</p>',
 
 'kgb' => '<p class="joshua">'.$joshua.'That information is classified.',
@@ -419,6 +421,7 @@ $static = array(
 'trick' => '"Luckily I don\'t have a trick knee like grandpa over here." Quoth Rachael, the harpy.',
 'illuminati' => 'Novus Ordo Seclorum',
 'reddit' => 'We had joy, we had fun, we had seasons in the sun. But the hills that we climbed were just seasons out of time. (Thanks for taking Joshua to the front page!)',
+'penguin' => 'Synonymous with Rachael.',
 
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
@@ -445,12 +448,12 @@ Rachael: HAHAHA!</pre>',
 'git' => 'Git is awesome. I don\'t know how I survived without it.<br><a class="external" href="http://github.com/destru/">Follow me at GitHub.</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
 
-'resume' => '<p>Ok, resume time. I am super awesome to work with and rad to the power of sick. What? You need more?</p>
-	<p>I have been doing front end development for 15 years.
+'resume' => '<p>I am super awesome to work with and rad to the power of sick. What? You need more?</p>
+	<p>I have been doing front end development for 13 years (left school at 17 after being offered a job).
 	For recent samples of my work your best bet would be <a href="http://manualdesign.no">Manual design</a>
-	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (second largest website in Norway and my current employer).</p>
-	<p>I am not looking for work, but if you represent a NY/SF/LA-based company I would be happy to
-	<a href="mailto:alexander@binaerpilot.no">hear from you</a> as I\'m planning to move out of Norway soon. How\'s that?</p>',
+	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (second largest website in Norway).</p>
+	<p>Currently not looking for work, but if you represent a NY/SF/LA-based company I would be happy to
+	<a href="mailto:alexander@binaerpilot.no">hear from you</a> as I\'m planning to move out of Norway soon.</p>',
 
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to Joshua. Thank you for being awesome.<p>
 	<p>
