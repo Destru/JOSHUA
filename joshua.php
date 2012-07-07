@@ -269,10 +269,13 @@ if(empty($output)) {
 		$message = trim(str_replace($command, '', $dump));
 		if(strlen($message) > 0){
 			if($option != "list" && $option != "listall"){
-				if(!file_exists($storage)) touch($storage);
-				$fp = fopen($storage, 'a');
-				fwrite($fp, gmdate("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
-				fclose($fp);
+				if(strlen($message) < 10) $msgTooShort = true;
+				else {
+					if(!file_exists($storage)) touch($storage);
+					$fp = fopen($storage, 'a');
+					fwrite($fp, gmdate("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
+					fclose($fp);					
+				}
 			}
 			$db = dbFile($storage);
 			$messages = array();
@@ -292,8 +295,8 @@ if(empty($output)) {
 				else  $output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td></td></tr>';
 			}
 			$output .= '</table>';
-			print '<div class="prompt">'.$command.'</div>'.$output;
-			$output = 1;
+			if(isset($msgTooShort)) output('<p class="error">'.$joshua.'Message is too short.</p>');
+			else output($output);
 		}
 		else output('<p class="error">'.$joshua.'Message can\'t be empty.</p><p class="example">msg joshua needs more ultraviolence</p>');
 	}
@@ -585,9 +588,13 @@ if(empty($output)) {
 	}
 
 	// hi reddit
-	if($command == "let's" || $command == "lets"){
-		$prompt = '<div class="prompt">reddit</div>';
-		output('<p>'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');
+	if($command == "let's" || $command == "lets" || $command == "how"){
+		$wargames = array("let's play thermonuclear war", "lets play thermonuclear war", "how about global thermonuclear war", "how about global thermonuclear war?");
+		if(in_array(strtolower($dump), $wargames)){
+			$prompt = '<div class="prompt">'.$dump.'</div>';
+			output('<p class="joshua">'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');
+			
+		}
 	}
 	
 	// fallback
