@@ -4,13 +4,16 @@
 if($command == "sudo"){
 	if(empty($option)) error('password');
 	else {
-		if(md5($option) == "7f307a13c39f73fdc18a11ef01e05661"){
-			$_SESSION['sudo'] = 1;
-			output('<p class="joshua">'.$joshua.'Authentification successful.</p>');
-		}
+		if($dump == "sudo make me a sandwich") output('<p class="joshua">'.$joshua.'Okay.</p>');
 		else {
-			unset($_SESSION['sudo']);
-			error('password');
+			if(md5($option) == "7f307a13c39f73fdc18a11ef01e05661"){
+				$_SESSION['sudo'] = 1;
+				output('<p class="joshua">'.$joshua.'Authentification successful.</p>');
+			}
+			else {
+				unset($_SESSION['sudo']);
+				error('password');
+			}			
 		}
 	}
 }
@@ -42,7 +45,8 @@ if($command == "invalid"){
 }
 
 // various *nix commands
-$nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail', 'ifconfig', 'ipconfig', 'del');
+$nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail',
+	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl');
 if(in_array($command, $nix)){
 	if(isset($_SESSION['sudo'])){
 		if($command == "ls") $return = shell_exec("ls");
