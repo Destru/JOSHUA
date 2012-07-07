@@ -32,6 +32,15 @@ if($command == "reply"){
 	else error('auth');
 }
 
+// invalid commands
+if($command == "invalid"){
+	if(isset($_SESSION['sudo'])){
+		$db = array_unique(dbFile('invalid.data'));
+		output(implodeHuman($db));
+	}
+	else error('auth');	
+}
+
 // various *nix commands
 $nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail', 'ifconfig', 'ipconfig', 'del');
 if(in_array($command, $nix)){

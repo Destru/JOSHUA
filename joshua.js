@@ -209,7 +209,7 @@ function chromeInit(){
 			$('#'+id).fadeIn(fade);
 			$(this).addClass('active');
 		}
-		else {
+		else if($('#'+id).is(":visible")){
 			eraseCookie(id);
 			$('#'+id).fadeOut(fade);
 			$(this).removeClass('active');

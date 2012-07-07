@@ -91,9 +91,12 @@ function dbFile($file){
 	if(file_exists($file)){
 		$file = file($file);
 		$data = array();
+		$sep = '^';
 		foreach ($file as $lineNum => $line){
-			if(!empty($line))
-				$data[$lineNum] = explode('^', trim($line));
+			if(!empty($line)){
+				if(strpos($line, $sep) !== false) $data[$lineNum] = explode($sep, trim($line));
+				else $data[$lineNum] = trim($line);
+			}
 			else return false;
 		}
 		return $data;		
@@ -592,7 +595,16 @@ if(empty($output)) {
 		foreach ($static as $key => $value){
 			if ($key == $command) output($value);
 		}
-		if(empty($output)) error('invalid');
+		if(empty($output)){
+			// lets store commands that fail and populate them
+			$storage = "invalid.data";
+			if(!file_exists($storage)) touch($storage);
+			$fp = fopen($storage, 'a');
+			fwrite($fp, $dump."\n");
+			fclose($fp);
+			// feedback
+			error('invalid');
+		}
 	}
 }
 
