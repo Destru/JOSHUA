@@ -15,14 +15,15 @@ if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = tru
 if(nextgen) windows.push('joshua');
 
 // helpers
-function stealFocus(){
-	if(focus){
-		$('#prompt').on('blur', function(){
-			$(this).focus();
-		}).focus();
+function stealFocus(off){
+	if(off){
+		$('#prompt').off('blur');
 	}
 	else {
-		$('#prompt').off('blur');
+		$('#prompt').off('blur').on('blur', function(){
+			$('#prompt').focus();
+		});
+		$('#prompt').focus();
 	}
 }
 function systemReady(){
@@ -167,13 +168,13 @@ function loadSuperplastic(){
 	}
 	$('#superplastic:hidden').fadeIn(fade);
 	systemReady();
-	focus = false;
+	stealFocus(true);
 }
 function loadVideos(){
 	createCookie('videos', true, expires);
 	$('#videos:hidden').fadeIn(fade);
 	systemReady();
-	focus = false;
+	stealFocus(true);
 }
 
 // init chrome
@@ -209,6 +210,7 @@ function chromeInit(){
 		}
 		$('#'+id+'Open').removeClass('active');
 		focus = true;
+		stealFocus();
 	});
 	// open windows
 	$('.open').click(function(){
@@ -427,12 +429,12 @@ function boot(){
 		motd.appendTo('#output');
 		init('boot'); // initialize
 	});
+	stealFocus();
 }
 
 // let's go
 $(function(){
 	boot();
-	setInterval("stealFocus()", 500); // continuously steal focus
 	$('#prompt').keydown(function(e){ // key pressed
 		$('title').html(title+'Listening...'); // listening to input
 		if(e.which == 13){ // command issued with enter
