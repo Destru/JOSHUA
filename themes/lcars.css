@@ -41,7 +41,7 @@ ul.menu, .prompt, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .windo
 	background-color:#000;
 	padding:11px;
 }
-ul.menu {
+.menu {
 	background-color:#000;
 	padding:18px;
 	color:#fc9;
@@ -63,17 +63,16 @@ ul.menu {
 	float:right;
 	padding:0 2px;
 	background-color:#000;
-	color:#f90;
+	color:#c69;
 }
 .close:hover {
 	color:#fc9;
 }
 h1, h2 {
-	line-height:18px;
 	color:#99c;
 	border-left:solid 3px #99c;
 	border-right:solid 3px #99c;
-	padding:0 6px;
+	padding:0 12px;
 }
 .tiny li {
 	float:left;
@@ -163,7 +162,7 @@ b {
 .prompt {
 	background-color:#fc9;
 	color:#000;
-	padding:5px 20px;
+	padding:0 20px;
 }
 .output, .prompt {
 	margin-bottom:20px;
@@ -171,14 +170,14 @@ b {
 #music .st, #music {
 	background-color:#fc9;
 }
-ul.menu a {
+.menu a {
 	color:#c66;
 	display:block;
 	border-left:solid 10px #833;
 	padding-left:10px;
 	margin-top:6px;
 }
-ul.menu a.play, ul.menu a:hover {
+.menu a.playing, .menu a:hover {
 	border-color:#c66;
 }
 #superplastic {
@@ -198,16 +197,15 @@ ul.menu a.play, ul.menu a:hover {
 }
 h1, h2 {
 	font-size:22px;
-	line-height:0.8em;
+	line-height:18px;
 }
 .prompt {
 	font-size:20px;
-	line-height:12px;
-}
-.window .st, #joshua .st, .tng {
-	height:18px;
+	line-height:18px;
+	height:20px;
 }
 .window .st, #joshua .st {
+	height:20px;
 	overflow:hidden;
 }
 .tng {

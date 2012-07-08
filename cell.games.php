@@ -22,12 +22,6 @@ $games = array(
 			'So far I\'ve played a coulple characters to end-game and messed around with more PvP alts than I can remember. '.
 			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed.</p>'		
 	),
-	'sto' => array(
-		'api' => 'http://www.startrekonline.com/character_profiles/918798/xml',
-		'format' => 'xml',
-		'about' => '<p>I didn\'t play <b>Star Trek Online</b> long enough for an well-rounded opinion. '.
-			'That being said I did have fun, 70 hours worth according to Steam. Ultimately though the game didn\'t grip me.</p>'
-	),
 	'swtor' => array(
 		'about' => '<p><b>Star Wars: The Old Republic</b> is a fantastic RPG, but unfortunately a terrible MMORPG. '.
 			'I had a great time leveling my Bounty Hunter, but when the time came to PvP I was so put off by how poorly it played that my subscription ran out without me noticing. '.
@@ -39,6 +33,10 @@ $games = array(
 		'about' => '<p><b>Diablo 3</b> is tons of fun. Easy enough to pick up and play casually, but the best part is the hardcore mode. '.
 			'The repeating storyline as you progress through the difficulty levels is the only tedious thing about this game. '.
 			'Which is funny, because it\'s basically one big gear grind...</p>'
+	),
+	'tsw' => array(
+		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
+			'I will be playing this for quite some time. Here\'s hoping an API will come soon.</p>'
 	)
 );
 
@@ -95,15 +93,6 @@ function api($game, $api){
 			'<tr><td class="dark">Recent Activity</td><td>';
 		foreach($events as $event) $output .= $event.'<br/>';
 		$output .= '</td></tr></table>';
-	}
-	else if($game == 'sto'){
-		$output = '<table class="fluid">'.
-			'<tr><td class="dark">Name</td><td><a href="http://www.startrekonline.com/character_profiles/'.$charid.'">'.$api->cdata->name.'@'.$api->cdata->display_name.'</a></td></tr>'.
-			'<tr><td class="dark">Class</td><td>'.str_replace('_', ' ', $api->cdata->class).'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$api->cdata->rank.' ('.$api->cdata->level.')</td></tr>'.
-			'<tr><td class="dark">Ship</td><td>'.$api->ship->name.'</td></tr>'.
-			'<tr><td class="dark">Serial</td><td>'.$api->ship->serial.'</td></tr>'.
-			'</table>';
 	}
 	else if($game == 'd3'){
 		foreach($api->heroes as $hero){

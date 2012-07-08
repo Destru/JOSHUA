@@ -446,6 +446,7 @@ $static = array(
 'derp' => 'herp',
 'goodbye' => 'Hasta la vista, baby.',
 'asdf' => 'qwerty',
+'tron' => 'He fights for the Users.',
 
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
