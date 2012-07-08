@@ -14,15 +14,17 @@ if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = tru
 if(nextgen) windows.push('joshua');
 
 // helpers
+function stealFocus(on){
+	if(on) {
+		$('#prompt').on('blur', function(){
+			$(this).focus();
+		}).focus();		
+	}
+	else $('#prompt').off('blur');
+}
 function systemReady(){
 	$('title').text(title+'Ready');
 	$('#joshua').css('cursor', 'auto');
-}
-function stealFocus(){
-	$('#joshua').click(function(){
-		$('#prompt').focus();
-	});
-	$('#prompt').focus();
 }
 function clearInput(){
 	$('#prompt').blur().val('');
@@ -170,6 +172,7 @@ function chromeInit(){
 	$.each(windows, function(){
 		$('#'+this).draggable({
 			distance:10,
+			handle:"h1",
 			stop: function(event){
 				var window = 'window.'+$(this).attr('id'),
 				left = $(this).css('left'),
@@ -195,25 +198,19 @@ function chromeInit(){
 			if(!muted) mute();
 		}
 		$('#'+id+'Open').removeClass('active');
-		stealFocus();
+		stealFocus(true);
 	});
 	// open windows
 	$('.open').click(function(){
 		var id = $(this).attr('id').replace(/Open/,'');
-		if($('#'+id).is(":hidden")){
-			if(id == "superplastic") loadSuperplastic();
-			else {
-				createCookie(id, true, expires);
-				if(id == "music") if(muted) mute();				
-			}
-			$('#'+id).fadeIn(fade);
-			$(this).addClass('active');
-		}
+		if(id == "superplastic") loadSuperplastic();
 		else {
-			eraseCookie(id);
-			$('#'+id).fadeOut(fade);
-			$(this).removeClass('active');
-		}		
+			createCookie(id, true, expires);
+			if(id == "music") if(muted) mute();				
+		}
+		$('#'+id).fadeIn(fade);
+		$(this).addClass('active');
+		stealFocus(false);
 	});
 	// view images
 	$('a.view').click(function(event){
@@ -237,7 +234,6 @@ function chromeInit(){
 							dialog.container.fadeOut(fade);
 							dialog.overlay.fadeOut(fade, function(){
 								$.modal.close();
-								stealFocus();
 							});
 					});
 				}
@@ -374,8 +370,8 @@ function init(option){
 	chromeInit();
 	if(option && option == "boot") chromeMagic();
 	scrollCheck();
-	stealFocus();
 	systemReady();
+	stealFocus(true);
 }
 function clearScreen(){
 	$('#output').html('');
@@ -454,14 +450,14 @@ $(function(){
 				scrollCheck();
 				systemReady();
 			}
-			// quit smoking
+			/* quit smoking
 			else if(command == "smoking"){
 				var quit = new Date(2010, 10-1, 1, 13, 37);
 				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 13 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
 				scrollCheck();
 				systemReady();
-			}
+			} */
 			// windows
 			else if(command == "customize" || command == "gallery" || command == "music" || command == "videos"){
 				createCookie(command,'true',expires);
@@ -469,6 +465,7 @@ $(function(){
 				$('#'+command+'Open').addClass('active');
 				if(command == "music") if(muted) mute(); // if sound is muted, unmute!
 				systemReady();
+				stealFocus(false);
 			}
 			// superplastic
 			else if(command == "superplastic") loadSuperplastic();
