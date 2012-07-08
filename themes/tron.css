@@ -16,13 +16,13 @@ body {
 /* joshua */
 #joshua {
 	z-index:10;
-	height:480px;
+	height:460px;
 	width:800px;
 	padding:10px;
 	position:absolute;
 	left:50%; top:50%;
-	margin-left:-410px;
-	margin-top:-250px;
+	margin-left:-400px;
+	margin-top:-230px;
 	background-color:rgba(0,0,0,0.85);
 }
 #input {
@@ -40,7 +40,7 @@ a {
 	text-decoration:none;
 }
 #output {
-	height:402px;
+	height:382px;
 }
 #prompt {
 	font-family:Helvetica, Arial;
@@ -122,7 +122,7 @@ ol, ul, .motd, .prompt {
 	color:#777;
 }
 #customize.window {
-	width:340px;
+	width:280px;
 }
 
 /* tiny buttons */
@@ -131,7 +131,7 @@ ol, ul, .motd, .prompt {
 	margin-bottom:10px;
 }
 .tiny li {
-	display:inline-block;
+	float:left;
 	margin-right:5px;
 	margin-top:5px;
 	padding:3px 6px;

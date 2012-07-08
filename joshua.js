@@ -345,7 +345,7 @@ function chromeMagic(){
 			$('body').append('<div id="custom">');
 			$('#custom').html('<style type="text/css">'+css+'</style>');
 		}
-		$('div.tron div.tiny li').click(function(){
+		$('.tron .tiny li').click(function(){
 			var team = this.getAttribute('class');
 			createCookie('tron.team', team, expires);
 			location.reload();
