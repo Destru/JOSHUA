@@ -145,9 +145,9 @@ if(empty($output)) {
 	// we need to load the brain
 	include('brain.php');
 	// quotes, pearls, bash
-	if($command == "bash" || $command == "pearl"){
+	if($command == "bash" || $command == "pearl" || $command == "quote"){
 		if($command == "bash") $array = $bash;
-		elseif($command == "pearl") $array = $pearls;
+		elseif($command == "pearl" || $command == "quote") $array = $pearls;
 		$count = count($array)-1; $rand = rand(0,$count);
 		if(!empty($option) && $option == "all"){
 			foreach($array as $quote){

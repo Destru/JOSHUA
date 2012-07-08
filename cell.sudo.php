@@ -46,7 +46,7 @@ if($command == "invalid"){
 
 // various *nix commands
 $nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail',
-	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl');
+	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl', 'pwd', 'dir');
 if(in_array($command, $nix)){
 	if(isset($_SESSION['sudo'])){
 		if($command == "ls") $return = shell_exec("ls");

@@ -426,6 +426,21 @@ $static = array(
 'illuminati' => 'Novus Ordo Seclorum',
 'reddit' => 'We had joy, we had fun, we had seasons in the sun. But the hills that we climbed were just seasons out of time. (Thanks for taking Joshua to the front page!)',
 'penguin' => 'Synonymous with Rachael.',
+'vagina' => '<i>Why do people say "Grow some balls"? Balls are weak and sensitive! If you really wanna get tough, grow a vagina! Those things take a pounding!</i> - Betty White',
+'sup' => 'nammach, u?',
+'echo' => 'Is not actually a function.',
+'finger' => 'How dare you.',
+'tell' => 'A gentleman never does.',
+'what' => 'Who?',
+'where' => 'When?',
+'yes' => 'Aw yiss.',
+'robot' => 'if(!full(battery)) { charge(battery); } else { for(i = 0; i < 4; i++) { var we = \"the robots\"; } }',
+'meaning' => 'I\'m too tired for this Zen bullshit. YOLO.',
+'format' => '<p class="joshua">'.$joshua.'Come on, did you really expect that to work?</p>',
+'fuck' => 'Possibly the best word in the English language, you fucker.',
+'pointless' => 'A circle.',
+'haha' => 'Hehe, right?',
+'hehe' => 'Dude, yes.',
 
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
