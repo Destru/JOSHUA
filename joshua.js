@@ -20,11 +20,9 @@ function stealFocus(){
 		$('#prompt').on('blur', function(){
 			$(this).focus();
 		}).focus();
-		console.log('stealing focus');
 	}
 	else {
 		$('#prompt').off('blur');
-		console.log('releasing focus');	
 	}
 }
 function systemReady(){
