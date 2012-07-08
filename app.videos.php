@@ -1,11 +1,11 @@
 <div id="videos" class="window">
 	<h1>Video Player</h1>
-	<input type="search" placeholder="Search..." class="clearfix">
+	<input id="ytSearch" type="search" placeholder="Search..." class="clearfix">
 </div>
 <script type="text/javascript">
 	$(function(){
 		var url = 'http://gdata.youtube.com/feeds/api/videos?v=2&max-results=20&duration=long&alt=json&q=';
-		$('input[type=search]').bind('keyup', function(){
+		$('#ytSearch').on('keyup', function(){
 			var query = $(this).val();
 			$.getJSON(url+query+'&callback=?', function(data){
 				var videos = new Array(), menu = '';

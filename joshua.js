@@ -7,6 +7,7 @@ expires = 1095, // cookie dies in 3 years
 fade = 350, // ui fade delay
 muted = false, // sound
 drawing = false, // drawing?
+focus = true, // steal focus
 terminal = false, // terminal style layout
 terminals = ['pirate', 'helvetica', 'mono'], // terminal themes
 windows = ['customize', 'music', 'gallery', 'superplastic', 'videos']; // common windows
@@ -14,13 +15,17 @@ if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = tru
 if(nextgen) windows.push('joshua');
 
 // helpers
-function stealFocus(on){
-	if(on) {
+function stealFocus(){
+	if(focus){
 		$('#prompt').on('blur', function(){
 			$(this).focus();
-		}).focus();		
+		}).focus();
+		console.log('stealing focus');
 	}
-	else $('#prompt').off('blur');
+	else {
+		$('#prompt').off('blur');
+		console.log('releasing focus');	
+	}
 }
 function systemReady(){
 	$('title').text(title+'Ready');
@@ -164,6 +169,13 @@ function loadSuperplastic(){
 	}
 	$('#superplastic:hidden').fadeIn(fade);
 	systemReady();
+	focus = false;
+}
+function loadVideos(){
+	createCookie('videos', true, expires);
+	$('#videos:hidden').fadeIn(fade);
+	systemReady();
+	focus = false;
 }
 
 // init chrome
@@ -192,25 +204,25 @@ function chromeInit(){
 		if(id == "superplastic"){
 			$('#'+id+' iframe').remove();
 			var fx = readCookie('fx');
-			if(fx)fxInit(fx);
+			if(fx) fxInit(fx);
 		}
 		else if(id == "music"){
-			if(!muted) mute();
+		 if(!muted) mute();	
 		}
 		$('#'+id+'Open').removeClass('active');
-		stealFocus(true);
+		focus = true;
 	});
 	// open windows
 	$('.open').click(function(){
 		var id = $(this).attr('id').replace(/Open/,'');
 		if(id == "superplastic") loadSuperplastic();
+		else if(id == "videos") loadVideos();
 		else {
 			createCookie(id, true, expires);
-			if(id == "music") if(muted) mute();				
+			if(id == "music") if(muted) mute();
 		}
 		$('#'+id).fadeIn(fade);
 		$(this).addClass('active');
-		stealFocus(false);
 	});
 	// view images
 	$('a.view').click(function(event){
@@ -249,6 +261,9 @@ function chromeInit(){
 	});
 	if(readCookie('superplastic')){
 		loadSuperplastic();
+	}
+	if(readCookie('videos')){
+		loadVideos();
 	}
 	// customizations
 	$('#fx li').click(function(){
@@ -371,7 +386,6 @@ function init(option){
 	if(option && option == "boot") chromeMagic();
 	scrollCheck();
 	systemReady();
-	stealFocus(true);
 }
 function clearScreen(){
 	$('#output').html('');
@@ -420,6 +434,7 @@ function boot(){
 // let's go
 $(function(){
 	boot();
+	setInterval("stealFocus()", 500); // continuously steal focus
 	$('#prompt').keydown(function(e){ // key pressed
 		$('title').html(title+'Listening...'); // listening to input
 		if(e.which == 13){ // command issued with enter
@@ -459,16 +474,18 @@ $(function(){
 				systemReady();
 			} */
 			// windows
-			else if(command == "customize" || command == "gallery" || command == "music" || command == "videos"){
+			else if(command == "customize" || command == "gallery" || command == "music"){
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				$('#'+command+'Open').addClass('active');
-				if(command == "music") if(muted) mute(); // if sound is muted, unmute!
+				if(command == "music") {
+					if(muted) mute();
+				}
 				systemReady();
-				stealFocus(false);
 			}
 			// superplastic
 			else if(command == "superplastic") loadSuperplastic();
+			else if(command == "videos") loadVideos();
 			else if(command == "mute") mute();
 			else if(command == "reset") reset();
 			// come on my droogs
