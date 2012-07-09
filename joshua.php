@@ -475,7 +475,7 @@ if(empty($output)) {
 				deleteCookie('fx');
 				deleteCookie('opacity');
 			}
-			else if($option == "tr2n"){
+			else if($option == "tron"){
 				setcookie('theme', 'tron', $expires, '/');
 				deleteCookie('background');
 				setcookie('fx', 'sparks', $expires, '/');
