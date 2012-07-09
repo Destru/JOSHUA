@@ -1,4 +1,4 @@
-<?php $pearls = array(
+<?php $quotes = array(
 	"How does someone reach the point where they get turned on by Brazilian fart porn? They were masturbating behind the couch as a kid when suddenly their mom farted. Damage done.",
 	"I'm sad because I'm just smart enough to realize the stupid people have more fun.",
 	"Sometimes I'll hear a great song from a band I don't like and get mad, because apparently I'm a sad and bitter old bastard.",

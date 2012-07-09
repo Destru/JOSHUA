@@ -30,7 +30,11 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command">customize</td>
-			<td>Additional customization options (some theme specific)</td>
+			<td>Customization options (some theme specific)</td>
+		</tr>
+		<tr>
+			<td class="command">preset <span class="dark">preset</span></td>
+			<td>Predefined custom settings (theme, effects, backgrounds)</td>
 		</tr>
 		<tr>
 			<td class="command">msg <span class="dark">message</span></td>
@@ -49,10 +53,6 @@ $static = array(
 			<td>Search and download torrents</td>
 		</tr>
 		<tr>
-			<td class="command">bash</td>
-			<td>Our infinite stupidity as documented through bash</td>
-		</tr>
-		<tr>
 			<td class="command">games <span class="dark">name</span></td>
 			<td>Favorite games and things I made for them</td>
 		</tr>
@@ -61,12 +61,24 @@ $static = array(
 			<td>Recent tracks and other Last.FM data</td>
 		</tr>
 		<tr>
+			<td class="command">xbox</td>
+			<td>My gamerscore (terrible) and the games I play</td>
+		</tr>
+		<tr>
+			<td class="command">bash</td>
+			<td>Our infinite stupidity as documented through bash</td>
+		</tr>
+		<tr>
 			<td class="command">locate <span class="dark">ip</span></td>
 			<td>Find out where IP is located</td>
 		</tr>
 		<tr>
 			<td class="command">whois <span class="dark">domain</span></td>
 			<td>Look up whois information</td>
+		</tr>
+		<tr>
+			<td class="command">md5 <span class="dark">string</span></td>
+			<td>Calculates an MD5 hash for string</td>
 		</tr>
 		<tr>
 			<td class="command">uptime</td>
@@ -502,18 +514,18 @@ Rachael: HAHAHA!</pre>',
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
-'porn' =>'<pre>Perfect Breasts             <span class="pink">(o)(o)</span>
-Fake Silicone Breasts       <span class="pink">( + )( + )</span>
-High Nipple Breasts         <span class="pink">(*)(*)</span>
-Big Nipple Breasts          <span class="pink">(@)(@)</span>
-A Cups                      <span class="pink">oo</span>
-D Cups                      <span class="pink">{ O }{ O }</span>
-Wonder Bra Breasts          <span class="pink">(oYo)</span>
-Cold Breasts                <span class="pink">( ^ )( ^ )</span>
-Lopsided Breasts            <span class="pink">(o)(O)</span>
-Pierced Breasts             <span class="pink">(Q)(Q)</span>
-Hanging Tassels Breasts     <span class="pink">(p)(p)</span>
-Against-The-Shower-Door     <span class="pink">(  -  )(  -  )</span>
-Android Breasts             <span class="pink">|o||o|</span>
-Porn Star Breasts           <span class="pink">($)($)</span></pre>');
+'porn' =>'<pre>Perfect Breasts             <span class="light">(o)(o)</span>
+Fake Silicone Breasts       <span class="light">( + )( + )</span>
+High Nipple Breasts         <span class="light">(*)(*)</span>
+Big Nipple Breasts          <span class="light">(@)(@)</span>
+A Cups                      <span class="light">oo</span>
+D Cups                      <span class="light">{ O }{ O }</span>
+Wonder Bra Breasts          <span class="light">(oYo)</span>
+Cold Breasts                <span class="light">( ^ )( ^ )</span>
+Lopsided Breasts            <span class="light">(o)(O)</span>
+Pierced Breasts             <span class="light">(Q)(Q)</span>
+Hanging Tassels Breasts     <span class="light">(p)(p)</span>
+Against-The-Shower-Door     <span class="light">(  -  )(  -  )</span>
+Android Breasts             <span class="light">|o||o|</span>
+Porn Star Breasts           <span class="light">($)($)</span></pre>');
 ?>

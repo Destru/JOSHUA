@@ -103,10 +103,13 @@ function dbFile($file){
 	}
 	else error('localcache');
 }
-function implodeHuman($a) { 
+function implodeHuman($a){
 	$last = array_pop($a); 
 	if (!count($a)) return $last;
 	return implode (', ', $a).' and '.$last; 
+}
+function deleteCookie($cookie){
+	setcookie($cookie, '', time()-60*60*24*365, '/');
 }
 
 // errors	
@@ -144,10 +147,10 @@ if(!empty($command)){
 if(empty($output)) {
 	// we need to load the brain
 	include('brain.php');
-	// quotes, pearls, bash
-	if($command == "bash" || $command == "pearl" || $command == "quote"){
+	// quotes, bash
+	if($command == "bash" || $command == "quote"){
 		if($command == "bash") $array = $bash;
-		elseif($command == "pearl" || $command == "quote") $array = $pearls;
+		elseif($command == "quote") $array = $quotes;
 		$count = count($array)-1; $rand = rand(0,$count);
 		if(!empty($option) && $option == "all"){
 			foreach($array as $quote){
@@ -444,7 +447,7 @@ if(empty($output)) {
 		foreach(scandir("themes") as $file){
 			if(stristr($file, '.css')){
 				$theme = str_replace('.css', '', $file);
-				if($theme != "contra") $themes[] = $theme;	
+				if($theme != "contra") $themes[] = $theme;
 			}
 		}
 		sort($themes);
@@ -457,17 +460,27 @@ if(empty($output)) {
 
 	// presets
 	if($command == "preset" || $command == "presets"){
-		$presets = array('rachael', 'gamer');
+		$presets = array('rachael', 'gamer', 'tron');
 		sort($presets);
 		if(isset($option) && in_array($option, $presets)){
 			if($option == "gamer"){
 				setcookie('theme', 'carolla', $expires, '/');
 				setcookie('background', 'atari', $expires, '/');
 				setcookie('fx', 'sparks', $expires, '/');
+				deleteCookie('opacity');
 			}
 			else if($option == "rachael"){
 				setcookie('theme', 'penguin', $expires, '/');
 				setcookie('background', 'rachael', $expires, '/');
+				deleteCookie('fx');
+				deleteCookie('opacity');
+			}
+			else if($option == "tr2n"){
+				setcookie('theme', 'tron', $expires, '/');
+				deleteCookie('background');
+				setcookie('fx', 'sparks', $expires, '/');
+				deleteCookie('opacity');
+				setcookie('tron.team', 'pink', $expires, '/');
 			}
 			output('<meta http-equiv="refresh" content="0">');
 		}
@@ -514,6 +527,15 @@ if(empty($output)) {
 			else output('<p class="error">'.$joshua.'Does not compute.</p>');
 		}
 		else output('<p class="error">'.$joshua.'There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
+	}
+	
+	// md5
+	if($command == "md5"){
+		if(isset($option)) {
+			output('<p>'.md5($option).'</p>');
+		}
+		else output('<p class="error">'.$joshua.'You need to specify a string.</p><p class="example">md5 joshua</p>');
+		
 	}
 
 	// reviews

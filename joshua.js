@@ -2,19 +2,32 @@
 // http://binaerpilot.no/alexander/
 // alexander@binaerpilot.no
 var hist = [], // history (arrow up/down)
-position = 0, // position in history
-expires = 1095, // cookie dies in 3 years
-fade = 350, // ui fade delay
-muted = false, // sound
-drawing = false, // drawing?
-focus = true, // steal focus
-terminal = false, // terminal style layout
-terminals = ['pirate', 'helvetica', 'mono'], // terminal themes
-windows = ['customize', 'music', 'gallery', 'superplastic', 'videos']; // common windows
+	position = 0, // position in history
+	expires = 1095, // cookie dies in 3 years
+	fade = 350, // ui fade delay
+	muted = false, // sound
+	drawing = false, // drawing?
+	focus = true, // steal focus
+	terminal = false, // terminal style layout
+	terminals = ['pirate', 'helvetica', 'mono'], // terminal themes
+	windows = ['customize', 'music', 'gallery', 'superplastic', 'videos']; // common windows
 if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true; // nextgen themes
 if(nextgen) windows.push('joshua');
 
 // helpers
+function reset(){
+	eraseCookie('joshua');
+	eraseCookie('release');
+	eraseCookie('theme');
+	eraseCookie('background');
+	eraseCookie('fx');
+	eraseCookie('opacity');
+	$.each(windows, function(){
+		eraseCookie(this);
+		eraseCookie('window.'+this);
+	});
+	location.reload();
+}
 function stealFocus(off){
 	if(off){
 		$('#prompt').off('blur');
@@ -142,19 +155,6 @@ function fxInit(fx, runOnce){
 		$('body').append('<div id="cylon"/>');
 		cylon();
 	}
-}
-
-function reset(){
-	eraseCookie('release');
-	eraseCookie('theme');
-	eraseCookie('background');
-	eraseCookie('fx');
-	eraseCookie('opacity');
-	$.each(windows,function(){
-		eraseCookie(this);
-		eraseCookie('window.'+this);
-	});
-	location.reload();
 }
 
 // application loaders
@@ -435,14 +435,15 @@ function boot(){
 // let's go
 $(function(){
 	boot();
-	$('#prompt').keydown(function(e){ // key pressed
+	$('#prompt').on('keydown', function(e){ // key pressed
 		$('title').html(title+'Listening...'); // listening to input
-		if(e.which == 13){ // command issued with enter
+		if(e.which == 13){ // command issued with enter	
 			$('title').html(title+'Running...'); // running command
 			$('#joshua').css('cursor', 'wait');
 			var dump = $(this).val(), // grab the input
 			input = dump.split(' '), // split the input
 			command = input[0],	option = input[1]; // command (option)
+			_gaq.push(['_trackPageview', '/'+command]); // track as a page view in analytics
 			// store history
 			if(command){
 				hist.push(dump);
@@ -459,7 +460,7 @@ $(function(){
 				var birthday = new Date(currentYear, 6-1, 29);
 				var married = new Date(2009, 10-1, 7);
 				if(current > birthday) birthday = new Date(currentYear+1, 6-1, 29);
-				$('#output').append('<div class="output"><div class="prompt">rachael</div><p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist. We\'ve been happily married for <span class="countdown married pink"/>, her birthday is in <span class="countdown birthday pink"/> and I am still madly in love. You can <a href="http://rachaelivy.com">visit her homepage</a> if you\'d like to know more. (Potential stalkers be warned: I carry an axe.)</p></div>');
+				$('#output').append('<div class="output"><div class="prompt">rachael</div><p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist. We\'ve been happily married for <span class="countdown married light"/>, her birthday is in <span class="countdown birthday light"/> and I am still madly in love. You can <a href="http://rachaelivy.com">visit her homepage</a> if you\'d like to know more. (Potential stalkers be warned: I carry an axe.)</p></div>');
 				$('.birthday').countdown({until: birthday, compact: true, format: 'OWDHMS'});
 				$('.married').countdown({since: married, compact: true, format: 'OWDHMS'});
 				scrollCheck();

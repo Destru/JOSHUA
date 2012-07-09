@@ -40,7 +40,7 @@
 	Zybl0re: get up<br>
 	Zybl0re: get on up<br>
 	phxl|paper: and DANCE<br>
-	<span class=\"pink\">* nmp3bot dances :D-<br>
+	<span class=\"light\">* nmp3bot dances :D-<br>
 	* nmp3bot dances :D|-<br>
 	* nmp3bot dances :D/-</span><br>
 	[SA]HatfulOfHollow: i'm going to become rich and famous after i invent a device that allows you to stab people in the face over the internet",
@@ -111,7 +111,7 @@
 	
 	"DragonflyBlade21: A woman has a close male friend. This means that he is probably interested in her, which is why he hangs around so much. She sees him strictly as a friend. This always starts out with, you're a great guy, but I don't like you in that way. This is roughly the equivalent for the guy of going to a job interview and the company saying, You have a great resume, you have all the qualifications we are looking for, but we're not going to hire you. We will, however, use your resume as the basis for comparison for all other applicants. But, we're going to hire somebody who is far less qualified and is probably an alcoholic. And if he doesn't work out, we'll hire somebody else, but still not you. In fact, we will never hire you. But we will call you from time to time to complain about the person that we hired.",
 
-	"<span class=\"pink\">* ab is away - gone, if anyone talks in the next 25 minutes as me it's bm being an asshole -</span><br>         
+	"<span class=\"light\">* ab is away - gone, if anyone talks in the next 25 minutes as me it's bm being an asshole -</span><br>         
 	ab: HAHAHA DISREGARD THAT, I SUCK COCKS",
 
 	"Khassaki: HI EVERYBODY!!!!!!!!!!<br>
@@ -258,7 +258,7 @@
 	zeep: oic<br>
 	Batty: Though you could also say it's missing an e<br>
 	zeep: wtf is erap?<br>
-	<span class=\"pink\">* Batty bangs his head repeatedly against a wall</span>",
+	<span class=\"light\">* Batty bangs his head repeatedly against a wall</span>",
 	
 	"reo4k: just type /quit whoever, and it'll quit them from irc<br>
 	<span class=\"light\">* luckyb1tch has quit IRC (r`heaven)<br>

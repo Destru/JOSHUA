@@ -138,8 +138,8 @@ if($command == "xbox"){
 			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.$json->Player->Avatar->Gamerpic->Large.'\');width:64px;height:64px;"></div></td></tr>'.
 			'<tr><td class="dark">Gamertag</td><td>'.$json->Player->Gamertag.'</td></tr>'.
 			'<tr><td class="dark">Activity</td><td>'.$json->Player->Status->Online_Status.'</td></tr>'.
-			'<tr><td class="dark">Recently</td><td>'.implodeHuman($gameList).'</td></tr>'.
-			'<tr><td class="dark">Gamerscore</td><td>'.$json->Player->Gamerscore.'</td></tr></table>');		
+			'<tr><td class="dark">Gamerscore</td><td>'.$json->Player->Gamerscore.'</td></tr>'.
+			'<tr><td class="dark">Recently</td><td>'.implodeHuman($gameList).'</td></tr></table>');
 	}
 	else {
 		error('empty');
