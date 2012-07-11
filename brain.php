@@ -364,6 +364,7 @@ $static = array(
 'test' => 'I rarely test, but I frequently break.',
 'pooper' => 'Are you twelve?',
 'smart' => 'I am Mount Cleverest!',
+'education' => '<i>I\'ve never let my school interfere with my education.</i><br>Mark Twain',
 'tetris' => 'The greatest game ever written. Bar none. Fight me on <a href="http://tetrisfriends.com">Tetris Friends</a> (I\'m DestruKaneda).',
 'poop' => 'And farts! Don\'t forget farts!',
 'yarr' => 'Harr harr! You\'d be wise to try the pirate style, matey!',

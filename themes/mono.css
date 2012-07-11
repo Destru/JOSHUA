@@ -89,6 +89,9 @@ h1, h2 {
 	background-color:#fff;
 	color:#000;
 }
+.prompt .prefix {
+	color:#000;
+}
 img, .image, iframe {
 	-webkit-filter: grayscale(1);
 	-moz-filter: grayscale(1);
