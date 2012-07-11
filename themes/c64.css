@@ -1,0 +1,63 @@
+/*
+ * commodore 64
+ */
+@font-face {
+	font-family:'C64';
+	src: url('../fonts/c64.ttf') format("truetype");
+}
+body {
+	font-family:'C64';
+	font-size:14px;
+	line-height:1.6em;
+	background-color:hsl(247,59%,65%);
+}
+#joshua {
+	padding:40px;
+	background-color:hsl(247,54%,41%);
+	border:solid 80px hsl(247,59%,65%);
+}
+a {
+	text-decoration:none;
+}
+body, #joshua, #prompt {
+	color:hsl(247,59%,65%);
+}
+.prefix, .prompt {
+	display:none;
+}
+#joshua h1 {
+	text-align:center;
+	margin-bottom:20px;
+}
+h1, h2 {
+	text-transform:uppercase;
+}
+h1, h2, p, table {
+	margin-bottom:20px;
+}
+.prompt {
+	text-transform:uppercase;
+}
+.window {
+	position:fixed;
+	background-color:#cbc9ff;
+	padding:20px;
+	color:hsl(247,59%,75%);
+	box-shadow:10px 10px 0 hsla(0,0%,0%,0.15);
+}
+.window a {
+	color:hsl(247,59%,75%);
+}
+.close {
+	float:right;
+	text-transform:uppercase;
+}
+.light, .command, a {
+	color:hsl(247,59%,75%);
+}
+.menu .playing {
+	color:hsl(247,59%,35%);
+}
+.command {
+	text-transform:uppercase;
+}

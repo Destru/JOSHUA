@@ -16,7 +16,7 @@ a {
 }
 #joshua {
 	padding:28px;
-	width:772px;
+	width:744px;
 }
 #prompt {
 	padding:0;
@@ -30,6 +30,9 @@ a {
 }
 .prefix, .prompt, #prompt {
 	color:#ccc;
+}
+.prompt .prefix {
+	color:#000;
 }
 .dark, .example {
 	color:#666;
@@ -52,9 +55,6 @@ a {
 }
 .menu .playing {
 	background-color:#000;
-	color:#fff;
-}
-.menu .playing a {
 	color:#fff;
 }
 .window, #superplastic {

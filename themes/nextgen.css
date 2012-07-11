@@ -164,7 +164,7 @@ h1 b, h2 b {
 	float:right;
 	text-transform:uppercase;
 }
-table.version td.command {
+.version td:first-child {
 	vertical-align:top;
 }
 table.torrents .torrent {

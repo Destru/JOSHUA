@@ -16,7 +16,7 @@ html, body {
 	color:#fff;
 }
 a {
-	color:#fff;
+	text-decoration:none;
 }
 h1, h2, h3, h4 {
 	cursor:default;
@@ -27,8 +27,8 @@ h1, h2, h3, h4 {
 #prompt {
 	background-color:transparent;
 }
-.countdown * {
-	display:inline;
+.countdown div {
+	display:inline-block;
 }
 .scratch {
 	text-decoration:line-through;
@@ -56,10 +56,7 @@ tr td:last-child {
 	padding-right:0;
 }
 td.command {
-	min-width:150px;
-}
-.stats td.light {
-	width:100px;
+	white-space:nowrap;
 }
 
 /* pixel people! */
@@ -130,10 +127,10 @@ td.command {
 table.fluid {
 	width:auto;
 }
-table.version td.command {
+.version td:first-child {
 	vertical-align:top;
 }
-.menu li a {
+.menu a {
 	display:block;
 }
 
@@ -149,9 +146,6 @@ table.version td.command {
 }
 tr.major .command {
 	text-transform:lowercase;
-}
-.pink {
-	color:#f09;
 }
 
 /* gallery */
@@ -174,7 +168,7 @@ tr.major .command {
 	padding-top:0px;
 	padding-left:0px;
 }
-ul.thumbs li {
+.thumbs li {
 	cursor:pointer;
 	display:block;
 	float:left;
@@ -183,10 +177,10 @@ ul.thumbs li {
 	margin-top:10px;
 	opacity:0.25;
 }
-ul.thumbs li.noMargin {
+.thumbs li.noMargin {
 	margin-left:0;
 }
-ul.thumbs li:hover, ul.thumbs li.activeSlide {
+.thumbs li:hover, .thumbs li.activeSlide {
 	opacity:1;
 }
 
@@ -207,7 +201,7 @@ pre, .pre, p.irc, .fixed-width {
 pre.ascii {
 	line-height:1.2em;
 }
-.capitalize, ul.menu a {
+.capitalize, .menu a {
 	text-transform:capitalize;
 }
 .output *, input {
