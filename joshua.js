@@ -9,7 +9,7 @@ var hist = [], // history (arrow up/down)
 	drawing = false, // drawing?
 	focus = true, // steal focus
 	terminal = false, // terminal style layout
-	terminals = ['pirate', 'helvetica', 'mono'], // terminal themes
+	terminals = ['pirate', 'helvetica', 'mono', 'c64'], // terminal themes
 	windows = ['customize', 'music', 'gallery', 'superplastic', 'videos']; // common windows
 if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true; // nextgen themes
 if(nextgen) windows.push('joshua');
@@ -52,7 +52,7 @@ function clearInput(){
 function scrollCheck(){
 	if(terminal){
 		$('html, body').animate({scrollTop: $(document).height()}, 1000);
-		$('.output:last .prompt').prepend(termPrompt);
+		$('.output:last .prompt').prepend('<span class="prefix">'+termPrompt+'</span>');
 	}
 	else {
 		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 1000);
@@ -362,9 +362,15 @@ function chromeMagic(){
 	}
 	else if($.inArray(theme, terminals) > -1){
 		terminal = true;
-		if(theme == "pirate") $('#joshua h1').remove();
+		if(theme == "pirate"){
+			$('#joshua h1').remove();	
+		}
+		else if(theme == "c64"){
+			termPrompt = "Ready.";
+			$('#joshua h1').html('**** JOSHUA 64 BASIC V'+version+' ****');			
+		}
 		$('#presets').prev('h2').remove();
-		$('#input').prepend('<div class="prefix">'+termPrompt+'</div>');
+		$('#input').prepend('<span class="prefix">'+termPrompt+'</span>');
 		$('#desktop').remove();
 	}
 	else if(theme == "lcars"){

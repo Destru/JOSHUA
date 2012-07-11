@@ -172,7 +172,7 @@ if(empty($output)) {
 	if($command == "motd"){
 		$count = count($motd)-1; $rand = rand(0,$count);
 		if(isset($option) && $option == "clean"){
-			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <b>help</b> for commands.</p>'; $output = 1;
+			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <span class="command">help</span> for commands.</p>'; $output = 1;
 		}
 		else {
 			output($motd[$rand]);

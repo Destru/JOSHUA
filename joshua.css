@@ -16,7 +16,7 @@ html, body {
 	color:#fff;
 }
 a {
-	color:#fff;
+	text-decoration:none;
 }
 h1, h2, h3, h4 {
 	cursor:default;
@@ -54,12 +54,6 @@ td .image {
 }
 tr td:last-child {
 	padding-right:0;
-}
-td.command {
-	min-width:150px;
-}
-.stats td.light {
-	width:100px;
 }
 
 /* pixel people! */
@@ -130,7 +124,7 @@ td.command {
 table.fluid {
 	width:auto;
 }
-table.version td.command {
+.version td:first-child {
 	vertical-align:top;
 }
 .menu a {

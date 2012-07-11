@@ -31,6 +31,9 @@ a {
 .prefix, .prompt, #prompt {
 	color:#ccc;
 }
+.prompt .prefix {
+	color:#000;
+}
 .dark, .example {
 	color:#666;
 	font-weight:normal;

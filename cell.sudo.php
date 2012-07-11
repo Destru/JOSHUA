@@ -38,8 +38,17 @@ if($command == "reply"){
 // invalid commands
 if($command == "invalid"){
 	if(isset($_SESSION['sudo'])){
-		$db = array_unique(dbFile('invalid.data'));
-		output(implodeHuman($db));
+		$storage = "invalid.data";
+		if(isset($option) && $option == "clear"){
+			$fp = fopen($storage,'w');
+			fclose($fp);
+			output('<p class="joshua">'.$joshua.'Invalid command log cleared.');
+		}
+		else {
+			$db = dbFile($storage);
+			array_unique($db);
+			output(implodeHuman($db));			
+		}
 	}
 	else error('auth');	
 }
