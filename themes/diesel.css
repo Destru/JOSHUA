@@ -133,6 +133,10 @@ div {
 .joshua, .error {
 	color:#f92666;
 }
+.joshua .command {
+	color:#f92666;
+	font-weight:bold;
+}
 b {
 	font-weight:bold;
 	letter-spacing:-1px;

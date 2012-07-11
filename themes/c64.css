@@ -7,20 +7,20 @@
 }
 body {
 	font-family:'C64';
-	font-size:12px;
-	line-height:1.4em;
-	background-color:#a0a0ff;
+	font-size:14px;
+	line-height:1.6em;
+	background-color:hsl(247,59%,65%);
 }
 #joshua {
 	padding:40px;
-	background-color:#4040e0;
-	border:solid 40px #a0a0ff;
+	background-color:hsl(247,54%,41%);
+	border:solid 80px hsl(247,59%,65%);
 }
 a {
 	text-decoration:none;
 }
-a, body, #prompt {
-	color:#a0a0ff;
+body, #joshua, #prompt {
+	color:hsl(247,59%,65%);
 }
 .prefix, .prompt {
 	display:none;
@@ -33,21 +33,31 @@ h1, h2 {
 	text-transform:uppercase;
 }
 h1, h2, p, table {
-	margin-bottom:10px;
+	margin-bottom:20px;
 }
 .prompt {
 	text-transform:uppercase;
 }
 .window {
-	background-color:#a0a0ff;
+	position:fixed;
+	background-color:#cbc9ff;
 	padding:20px;
-	color:#4040e0;
+	color:hsl(247,59%,75%);
+	box-shadow:10px 10px 0 hsla(0,0%,0%,0.15);
 }
 .window a {
-	color:#4040e0;	
+	color:hsl(247,59%,75%);
 }
 .close {
 	float:right;
-	color:#4040e0;
+	text-transform:uppercase;
+}
+.light, .command, a {
+	color:hsl(247,59%,75%);
+}
+.menu .playing {
+	color:hsl(247,59%,35%);
+}
+.command {
 	text-transform:uppercase;
 }

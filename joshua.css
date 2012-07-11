@@ -55,6 +55,9 @@ td .image {
 tr td:last-child {
 	padding-right:0;
 }
+td.command {
+	white-space:nowrap;
+}
 
 /* pixel people! */
 .speechBubble {
