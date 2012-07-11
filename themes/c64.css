@@ -40,13 +40,13 @@ h1, h2, p, table {
 }
 .window {
 	position:fixed;
-	background-color:#cbc9ff;
+	background-color:hsl(247,59%,75%);
 	padding:20px;
-	color:hsl(247,59%,75%);
-	box-shadow:10px 10px 0 hsla(0,0%,0%,0.15);
+	color:hsl(247,59%,55%);
+	box-shadow:10px 10px 0 hsla(247,59%,10%,0.15);
 }
 .window a {
-	color:hsl(247,59%,75%);
+	color:hsl(247,59%,55%);
 }
 .close {
 	float:right;
