@@ -592,7 +592,7 @@ if(empty($output)) {
 		if(file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
 		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2828; // from season 1-4
 		$commands = count($static)+30; // guesstimate
-		$quotes = count($motd)+count($bash)+count($pearls);
+		$quotes = count($motd)+count($bash)+count($quotes);
 		$reviews = count($reviews);
 		$stats = '<table class="stats">'.
 			'<tr><td class="light">Commands</td><td>'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
