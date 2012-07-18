@@ -366,7 +366,7 @@ if(empty($output)) {
 	}
 
 	// wtfig
-	if($command == "wtfig"){
+	if($command == "wtfig" || $command == "figlet"){
 		if(!isset($option)){
 			output('<p class="error">'.$joshua.'You need to specify font and caption. See available fonts with <span class="command">wtfig list</span>.</p><p class="example">wtfig chunky Awesome!</p>');
 		}

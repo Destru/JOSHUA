@@ -12,15 +12,15 @@ $games = array(
 		'format' => 'xml',
 		'about' => '<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
 			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
-			'Supporting the harshest PVP-enviroment in any MMO today, this one is certainly not for the faint-hearted. '.
+			'Supporting the harshest PVP-environment in any MMO today, this one is certainly not for the faint-hearted. '.
 			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>. But be careful, this game is digital crack and has no pause button.</p>'
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
 		'format' => 'json',
 		'about' => '<p><b>World of Warcraft</b> has been a guilty pleasure of mine on and off for years. '.
-			'So far I\'ve played a coulple characters to end-game and messed around with more PvP alts than I can remember. '.
-			'Even a die hard science fiction fan like myself must admit that the game is simply breath-takingly well executed.</p>'		
+			'So far I\'ve played a couple characters to end-game and messed around with more PvP alts than I can remember. '.
+			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.</p>'		
 	),
 	'swtor' => array(
 		'about' => '<p><b>Star Wars: The Old Republic</b> is a fantastic RPG, but unfortunately a terrible MMORPG. '.
