@@ -1,13 +1,12 @@
 <?php // joshua engine <alexander@binaerpilot.no>
 session_start(); // sudo commands
+include 'inc.global.php';
 if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1; // development mode set
 if(!empty($_POST['command'])) $command = strtolower(strip_tags(trim($_POST['command'])));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
-$joshua = "<b>JOSHUA:</b> ";
-$expires = time()+60*60*24*365;
 unset($output);
 
 // functions
@@ -66,6 +65,7 @@ function get($url, $cache=null, $inline=null){
 function load($file, $inline=null){
 	if(file_exists($file)){
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
+		libxml_use_internal_errors(true);
 		if($ext == 'xml'){
 			if(simplexml_load_file($file) && filesize($file) > 350) return simplexml_load_file($file);
 			else {
@@ -74,9 +74,15 @@ function load($file, $inline=null){
 			}
 		}
 		else if($ext == 'json'){
-			$fgc = file_get_contents($file,0,null,null);
-			if($fgc) return json_decode($fgc);
-			else error('invalidjson');			
+			$json = file_get_contents($file,0,null,null);
+			if($json) return json_decode($json);
+			else error('invalidjson');
+		}
+		else if($ext == 'data'){
+			$dom = new DOMDocument();
+			$dom->preserveWhiteSpace = false;
+			if($dom->loadHTMLFile($file)) return $dom;
+			else error('invalidhtml');
 		}
 	}
 	else {
@@ -125,6 +131,7 @@ $error = array(
 	'empty' => 'API is not responding.',
 	'invalidxml' => 'API returned malformed XML.',
 	'invalidjson' => 'API returned malformed JSON.',
+	'invalidhtml' => 'API returned malformed HTML.',
 	'localcache' => 'Local cache does not exist.',
 	'password' => 'Incorrect password.'
 );

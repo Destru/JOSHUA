@@ -14,7 +14,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command">superplastic</td>
-			<td>My first attempt at gamedesign; A tiny space shooter!</td>
+			<td>My first attempt at game design; A tiny space shooter!</td>
 		</tr>
 		<tr>
 			<td class="command">numbers</td>
@@ -86,7 +86,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command">rachael</td>
-			<td>Joshua\'s first command (husband cheat-sheet)</td>
+			<td>JOSHUA\'s first command (husband cheat-sheet)</td>
 		</tr>
 		<tr>
 			<td class="command">prime <span class="dark">number</span></td>
@@ -113,11 +113,11 @@ $static = array(
 	<table class="version">
 		<tr class="major">
 			<td class="command fixed-width">1.0 <span class="dark">Beta</span></td>
-			<td>The first version of Joshua. Apart from the UI only minor alterations were made to the <a href="http://miklos.ca/cmd.html">Osenoa</a> JS. Still using XML. Wrote two PHP commands, <span class="command">uptime</span> and <span class="command">whois</span>.</td>
+			<td>The first version of JOSHUA. Apart from the UI only minor alterations were made to the <a href="http://miklos.ca/cmd.html">Osenoa</a> JS. Still using XML. Wrote two PHP commands, <span class="command">uptime</span> and <span class="command">whois</span>.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">1.1</td>
-			<td>Added themes. (Mmm, fluff.) Joshua now responds to standard *nix commands.</td>
+			<td>Added themes. (Mmm, fluff.) JOSHUA now responds to standard *nix commands.</td>
 		</tr>
 		<tr class="major">
 			<td class="command fixed-width">2.0 <span class="dark">PHP</span></td>
@@ -153,7 +153,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">4.4</td>
-			<td>More hidden commands and added desktop emulation for all the non-Joshua content.</td>
+			<td>More hidden commands and added desktop emulation for all the non-JOSHUA content.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">4.5</td>
@@ -161,7 +161,7 @@ $static = array(
 		</tr>
 		<tr class="major">
 			<td class="command fixed-width">5.0 <span class="dark">Next-Gen</span></td>
-			<td>Redid the Joshua chrome to (almost) completely rely on CSS+JS. Wrote a new Gallery. Made new themes. Added a handful of statics and other junk. Good times!</td>
+			<td>Redid the JOSHUA chrome to (almost) completely rely on CSS+JS. Wrote a new Gallery. Made new themes. Added a handful of statics and other junk. Good times!</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">5.1</td>
@@ -173,7 +173,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">5.3</td>
-			<td>Joshua will now remember what windows you have open and input history (finally got around to it). <span class="command">Music</span> was asked for so I made a tiny MP3 player.</td>
+			<td>JOSHUA will now remember what windows you have open and input history (finally got around to it). <span class="command">Music</span> was asked for so I made a tiny MP3 player.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">5.4</td>
@@ -229,7 +229,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">7.3</td>
-			<td>Added mouse and title-indication when Joshua is processing commands (waiting cursor not behaving correctly in WebKit, bug report submitted). New Pirate-stylesheet and several minor tweaks to existing styles.</td>
+			<td>Added mouse and title-indication when JOSHUA is processing commands (waiting cursor not behaving correctly in WebKit, bug report submitted). New Pirate-stylesheet and several minor tweaks to existing styles.</td>
 		</tr>
 		<tr>
 			<td class="command fixed-width">7.4</td>
@@ -305,7 +305,11 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="command fixed-width">9.3</td>
-			<td>Ze reddit patch (fixes based on feedback from posting Joshua). Windows should no longer flicker (removed toggling), stealFocus should now be more invasive and consequently useful. Several new commands and will now be storing input that fails.</td>
+			<td>Ze reddit patch (fixes based on feedback from posting JOSHUA). Windows should no longer flicker (removed toggling), stealFocus should now be more invasive and consequently useful. Several new commands and will now be storing input that fails.</td>
+		</tr>
+		<tr>
+			<td class="command fixed-width">9.4</td>
+			<td>A bunch of new commands based on invalid input. Support for HTML fetching when developers are too lazy to write an API. Open Graph support to keep up with sharing. Started work on a C64 theme (live but not complete). TSW and Diablo 3 are fun games.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
@@ -318,14 +322,31 @@ $static = array(
 		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
 	</p>
 	<p>
-		Joshua is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
+		JOSHUA is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
 		The name is a reference to \'War Games\' (Shall we play a game?).
 		Special <span class="command">thanks</span> to <a href="http://twitter.com/ehjelle">Eirik</a> and <a href="http://twitter.com/elektronaut">Inge</a> for answering stupid questions.
 		This site fueled by sleep deprivation.
 	</p>
 	<p>
-		Making Joshua has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever conceived.
+		Making JOSHUA has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever conceived.
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
+	</p>',
+	
+'alexander' => '<table class="fluid">
+		<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
+		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
+		<tr><td class="label dark">Alias</td><td>Destru Kaneda</td></tr>
+		<tr><td class="label dark">Location</td><td>Oslo, Norway</td></tr>
+		<tr><td class="label dark">Status</td><td>Happily married</td></tr>
+		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
+		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
+		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">alexander@binaerpilot.no</a></td></tr>
+	</table>
+	<p>
+		I do front end web development (see <span class="command">resume</span>).
+		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
+		I am, what is colloquially known as, a massive nerd.
+		Also, I kiss penguins. Well, <a href="http://rachaelivy.com">one penguin</a>.
 	</p>',
 
 'destru' => '<p><b>Destru Kaneda</b> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira". '.
@@ -345,13 +366,13 @@ $static = array(
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',
 'geek' => '<pre>GMU d-(---)pu s+++:-- a-- C++++$ U>+++ P+ L+ E---- W+++$ w PS+++ PE-- Y++ PGP-- t+ tv-- b+ D++ G e- h r++ y+*</pre>',
 'ip' => $_SERVER['REMOTE_ADDR'],
+'user' => $_SERVER['HTTP_USER_AGENT'],
+'whoami' => $_SERVER['REMOTE_ADDR'].' on '.$_SERVER['HTTP_USER_AGENT'],
 'lol' => 'stfu nub',
 'omg' => 'lol',
 'stfu' => 'wat lol',
 'wat' => 'lol',
-'flattr' => 'I can dig the concept. Here\'s hoping it catches on beyond Germany. You can <a href="http://flattr.com/thing/58145/">flattr Joshua</a>.',
-'farts' => 'Would you look at that? A lil mouse ran in and tooted.',
-'fart' => 'Rachael? Are you pluggin stuff into Joshua again?',
+'flattr' => 'I can dig the concept. Here\'s hoping it catches on beyond Germany. You can <a href="http://flattr.com/thing/58145/">flattr JOSHUA</a>.',
 'elp' => 'Looks like you might need some... Type slower!',
 'hello' => '<p class="joshua">'.$joshua.'I am currently unable to provide stimulating conversation. Please try again at a later point in time.',
 'hi' => 'yo',
@@ -376,12 +397,15 @@ $static = array(
 'sifl' => 'Is crescent fresh.',
 'olly' => 'Is also crescent fresh.',
 'test' => 'I rarely test, but I frequently break.',
-'pooper' => 'Are you twelve?',
 'smart' => 'I am Mount Cleverest!',
 'valhalla' => 'My first lap dance at the Spearmint Rhino in Vegas. It was ordered by a friend (who had no idea her stripper name was Valhalla), and she completely blew my mind.',
 'education' => '<i>I\'ve never let my school interfere with my education.</i><br>&mdash; Mark Twain',
 'tetris' => 'The greatest game ever written. Bar none. Fight me on <a href="http://tetrisfriends.com">Tetris Friends</a> (I\'m DestruKaneda).',
 'poop' => 'And farts! Don\'t forget farts!',
+'pooper' => 'Are you twelve?',
+'fart' => 'Rachael? Are you pluggin stuff into JOSHUA again?',
+'farts' => 'Would you look at that? A lil mouse ran in and tooted.',
+'shit' => 'NO U',
 'yarr' => 'Harr harr! You\'d be wise to try the pirate style, matey!',
 'nintendo' => '<p>When I say nintendo you say rock.</p><p>Nintendo!</p>',
 'rock' => 'Nintendo!',
@@ -394,48 +418,30 @@ $static = array(
 'pnk' => 'Hei Eirik, slutt snokinga etter kommandoer. Kom heller og ta en øl.',
 'inge' => 'Behold the majesty that is <a href="misc/ingusmccloud.jpg" class="view">Ingus McCloud</a>.',
 'peter' => 'Real men are not afraid to show their emotions. <a href="misc/malebonding.gif" class="view">Like me and Peter</a>.',
-
-'alexander' => '<table class="fluid">
-		<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
-		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
-		<tr><td class="label dark">Alias</td><td>Destru Kaneda</td></tr>
-		<tr><td class="label dark">Location</td><td>Oslo, Norway</td></tr>
-		<tr><td class="label dark">Status</td><td>Happily married</td></tr>
-		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
-		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
-		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">alexander@binaerpilot.no</a></td></tr>
-	</table>
-	<p>
-		I do front end web development (see <span class="command">resume</span>).
-		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
-		I am, what is colloquially known as, a massive nerd.
-		Also, I kiss penguins. Well, <a href="http://rachaelivy.com">one penguin</a>.
-	</p>',
-
 'kgb' => '<p class="joshua">'.$joshua.'That information is classified.',
 'paranoid' => 'Just because you\'re paranoid, don\'t mean they\'re not <a href="misc/kgb.jpg" class="view">after you</a>.',
-'host' => 'Joshua is hosted by <a href="http://optical.no" class="blank">Optical</a>. I strongly recommend them.',
+'host' => 'JOSHUA is hosted by <a href="http://optical.no" class="blank">Optical</a>. I strongly recommend them.',
 'sleep' => 'I just wanna tell you that there is no sleep in here.',
 'konami' => 'Do you speak Konami? Tell me the code.',
 'prudiful' => 'A mix of "Pretty" and "Beautiful". A synomyn for Rachael.',
 'hot' => 'One of the hottest things on the planet, the infamous <a href="misc/deadsexy.jpg" class="view">Peter Andersen</a>.',
 'asimov' => 'Individual science fiction stories may seem as trivial as ever to the blinder critics and philosophers of today. But the core of science fiction, its essence, has become crucial to our salvation if we are to be saved at all.',
-'joshua' => '<p>Joshua is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="command">about</span>.<br><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a></p>',
+'joshua' => '<p>JOSHUA is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="command">about</span>.<br><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a></p>',
 'hidden' => 'Look closer! Have you tried cheating? To <span class="command">cheat</span> or not to <span class="command">cheat</span>, that is the question.',
 'sharks' => 'Don\'t poop. Ever. They\'re like the Thunderdome, only two men enter and no man leaves.',
 'lamb' => 'A lamb stays a lamb. Forever. Sheep are not lambs, they are a different species entirely. Dr. Young, the world renowned lambologist, has done research into the matter.',
 'mouse' => 'Pro mouse w/steelmat? <a class="view" href="misc/donald.jpg">I has one</a>.',
 'butts' => 'Cuz I\'m buuuurnin\', buuuuuurnin\', burnin\' with deeeesiiire.',
-'user' => $_SERVER['HTTP_USER_AGENT'],
 'sick' => 'Rad to the power of awesome!',
 'bugger' => 'Oh dear.',
 'home' => '<i>Home is where the heart lies, but if the heart lies where is home?</i><br>&mdash; Fish',
-'server' => '<p class="joshua">'.$joshua.'Currently running on '.$_SERVER['SERVER_SOFTWARE'],
+'server' => '<p class="joshua">'.$joshua.'Currently running on '.$_SERVER['SERVER_SOFTWARE'].'</p>',
+'deploy' => 'JOSHUA '.$version.' ('.$versionName.') is deployed.',
 'henrik' => 'Lillebroren min som skal bli rockestjerne.',
 'freiburg' => 'I don\'t know why I hate you so much.',
 'survice' => 'How Alexander spells "survive" apparently. Brain tumor, anyone?',
 'almond' => 'Giving an almond is when you go down on a woman. At least according to Dr. Alxaendr, the illiterate cage monkey.',
-'purpose' => 'Matthew thinks that Joshua <a href="http://mwholt.com">has no real purpose</a>. Yet his site uses a console interface for the exact same reason mine does. Then again, this site is more about having fun rather than coming off as pretentious.',
+'purpose' => 'Matthew thinks that JOSHUA <a href="http://mwholt.com">has no real purpose</a>. Yet his site uses a console interface for the exact same reason mine does. Then again, this site is more about having fun rather than coming off as pretentious.',
 'stupid' => 'I try to fill my life with the things I love, whether or not they hold meaning to anyone else is besides the point.',
 'batdog' => 'Who is batdog? <a href="misc/batdog.jpg" class="view">He is the bat</a>, Rachael\'s guardian.',
 'smeg' => 'We are <a href="http://steamcommunity.com/groups/clansmeg">Clan SMEG</a>. Also known as The Boys From The Dwarf. Also known as me and my friends when we play Counter-Strike: Source.',
@@ -443,7 +449,7 @@ $static = array(
 'blocktrix' => 'The greatest game in the world. It\'s like <a href="http://en.tetrinet.no/">Tetris on steroids</a>.',
 'trick' => '"Luckily I don\'t have a trick knee like grandpa over here." Quoth Rachael, the harpy.',
 'illuminati' => 'Novus Ordo Seclorum',
-'reddit' => 'We had joy, we had fun, we had seasons in the sun. But the hills that we climbed were just seasons out of time. (Thanks for taking Joshua to the front page!)',
+'reddit' => 'We had joy, we had fun, we had seasons in the sun. But the hills that we climbed were just seasons out of time. (Thanks for taking JOSHUA to the front page!)',
 'penguin' => 'Synonymous with Rachael.',
 'vagina' => '<i>Why do people say "Grow some balls"? Balls are weak and sensitive! If you really wanna get tough, grow a vagina! Those things take a pounding!</i><br>&mdash; Betty White',
 'sup' => 'nammach, u?',
@@ -504,10 +510,10 @@ Rachael: HAHAHA!</pre>',
 	<p>Currently not looking for work, but if you represent a NY/SF/LA-based company I would be happy to
 	<a href="mailto:alexander@binaerpilot.no">hear from you</a> as I\'m planning to move out of Norway soon.</p>',
 
-'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to Joshua. Thank you for being awesome.<p>
+'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to JOSHUA. Thank you for being awesome.<p>
 	<p>
 		<a href="http://ejohn.org/">John Resig</a> for jQuery.
-		<a href="http://miklos.ca/">Miklos Bacso</a> for Osenoa (Joshua\'s Father).
+		<a href="http://miklos.ca/">Miklos Bacso</a> for Osenoa (JOSHUA\'s Father).
 		<a href="http://onaluf.org/">Selim Arsever</a> for gameQuery.
 		<a href="http://schillmania.com/">Scott Schiller</a> for SoundManager2.
 		<a href="http://paulbakaus.com/">Paul Bakaus</a> and the jQuery UI team.

@@ -1,12 +1,4 @@
-<?php session_start(); // initialize session
-	// global settings
-	$version = '9.3';
-	$versionName = 'Mono';
-	$defaultTheme = 'mono';
-	$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
-	$title = 'JOSHUA '.$version.': ';
-	$termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
-?>
+<?php include 'inc.global.php'; ?>
 <!doctype html>
 <html lang="en">
 <!--
@@ -19,11 +11,17 @@
 	<meta name="robots" content="index,follow,noarchive">
 	<meta name="language" content="en">
 	<title>JOSHUA (jQuery Operating System, HUA!)</title>
-	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named Joshua. Go Team Norway!">
+	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named JOSHUA. Go Team Norway!">
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
+		<!-- open graph -->
+		<meta property="og:image" content="http://binaerpilot.no/alexander/images/thumbnail.jpg"> 
+		<meta property="og:site_name" content="jQuery Operating System, HUA!"> 
+		<meta property="og:title" content="Personal homepage of Alexander Støver"> 
+		<meta property="og:url" content="http://binaerpilot.no/alexander/"> 
+		<meta property="og:description" content="Almost as nuts as its creator"> 
+		<meta property="og:type" content="personal">
 	<link rel="icon" type="image/png" href="images/favicon.png">
-	<link rel="image_src" href="images/thumbnail.png">
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen">
 <?php // theme handling
 	$theme = $_COOKIE['theme'];

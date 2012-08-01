@@ -35,6 +35,8 @@ $games = array(
 			'Which is funny, because it\'s basically one big gear grind...</p>'
 	),
 	'tsw' => array(
+		'api' => 'http://chronicle.thesecretworld.com/character/Tehlirian',
+		'format' => 'data',
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
 			'I will be playing this for quite some time. Here\'s hoping an API will come soon.</p>'
 	)
@@ -103,6 +105,16 @@ function api($game, $api){
 			else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
 			$output .= '</table>';
 		}
+	}
+	else if($game == 'tsw'){
+		$output = '<table class="fluid">'.
+			'<tr><td rowspan="10"><div class="image" style="background-image:url(\''.$api->getElementById('character-header')->getElementsByTagName('img')->item(0)->getAttribute('src').'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td>'.$api->getElementById('character-header')->getElementsByTagName('h2')->item(0)->nodeValue.'</td></tr>';
+		$xpath = new DOMXPath($api);
+		foreach($xpath->query('//div[contains(@class, "char-stat")]') as $stat){
+			$output .= '<tr><td class="dark">'.$stat->getElementsByTagName('h4')->item(0)->nodeValue.'</td><td>'.$stat->getElementsByTagName('div')->item(0)->nodeValue.'</td></tr>';
+		}
+		$output .= '</table>';
 	}
 	return $output;
 }
