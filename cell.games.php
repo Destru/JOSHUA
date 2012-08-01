@@ -38,7 +38,7 @@ $games = array(
 		'api' => 'http://chronicle.thesecretworld.com/character/Tehlirian',
 		'format' => 'data',
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
-			'I will be playing this for quite some time. Here\'s hoping an API will come soon.</p>'
+			'I will be playing this for quite some time.</p>'
 	)
 );
 
