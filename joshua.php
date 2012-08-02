@@ -28,14 +28,18 @@ function get($url, $cache=null, $inline=null){
 	$secondsBeforeUpdate = 60;
 	if(!isset($dev)){
 		if(!empty($cache)){
-			if(!file_exists($cache)) touch($cache);
+			if(!file_exists($cache)) {
+				touch($cache);
+				$firstRun = true;
+			}
 			$lastModified = filemtime($cache);
-			if(time() - $lastModified > $secondsBeforeUpdate){
+			if(isset($firstRun) || time() - $lastModified > $secondsBeforeUpdate){
 				$ch = curl_init();
 				curl_setopt ($ch, CURLOPT_URL, $url);
 				curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 				curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
 				$urlData = curl_exec($ch);
+				curl_close($ch);
 				if(!empty($urlData)){
 					$handle = fopen($cache, "w");
 					fwrite($handle, $urlData);
@@ -45,7 +49,6 @@ function get($url, $cache=null, $inline=null){
 					if($inline) error('empty', 1);
 					else error('empty');
 				}
-				curl_close($ch);
 			}
 		}
 		else {
