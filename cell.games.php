@@ -35,10 +35,10 @@ $games = array(
 			'Which is funny, because it\'s basically one big gear grind...</p>'
 	),
 	'tsw' => array(
-		'api' => 'http://chronicle.thesecretworld.com/character/Tehlirian',
-		'format' => 'data',
+		'api' => 'http://binaerpilot.no/alexander/tsw/tehlirian.json',
+		'format' => 'json',
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
-			'I will be playing this for quite some time.</p>'
+			'I\'ve made <a href="http://binaerpilot.no/alexander/tsw/">a JSON API for Chronicle</a> (TSW\'s armory).</p>'
 	)
 );
 
@@ -108,11 +108,10 @@ function api($game, $api){
 	}
 	else if($game == 'tsw'){
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="10"><div class="image" style="background-image:url(\''.$api->getElementById('character-header')->getElementsByTagName('img')->item(0)->getAttribute('src').'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$api->getElementById('character-header')->getElementsByTagName('h2')->item(0)->nodeValue.'</td></tr>';
-		$xpath = new DOMXPath($api);
-		foreach($xpath->query('//div[contains(@class, "char-stat")]') as $stat){
-			$output .= '<tr><td class="dark">'.$stat->getElementsByTagName('h4')->item(0)->nodeValue.'</td><td>'.$stat->getElementsByTagName('div')->item(0)->nodeValue.'</td></tr>';
+			'<tr><td rowspan="10"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>';
+		foreach($api->stats as $key => $value){
+			$output .= '<tr><td class="dark">'.deCamel($key).'</td><td>'.$value.'</td></tr>';
 		}
 		$output .= '</table>';
 	}
