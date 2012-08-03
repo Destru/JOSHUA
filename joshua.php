@@ -117,6 +117,9 @@ function implodeHuman($a){
 function deleteCookie($cookie){
 	setcookie($cookie, '', time()-60*60*24*365, '/');
 }
+function deCamel($s){
+	return ucfirst(preg_replace( '/([a-z0-9])([A-Z])/', "$1 $2", $s));
+}
 
 // errors	
 $error = array(
