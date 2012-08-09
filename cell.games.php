@@ -32,13 +32,14 @@ $games = array(
 		'format' => 'json',
 		'about' => '<p><b>Diablo 3</b> is tons of fun. Easy enough to pick up and play casually, but the best part is the hardcore mode. '.
 			'The repeating storyline as you progress through the difficulty levels is the only tedious thing about this game. '.
-			'Which is funny, because it\'s basically one big gear grind...</p>'
+			'Which is funny, since it\'s basically one big gear grind.</p>'
 	),
 	'tsw' => array(
-		'api' => 'http://binaerpilot.no/alexander/tsw/tehlirian.json',
+		'api' => 'http://chronicless.einhyrning.com/destru.json',
 		'format' => 'json',
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
-			'I\'ve made <a href="http://binaerpilot.no/alexander/tsw/">a JSON API for Chronicle</a> (TSW\'s armory).</p>'
+			'The game is scary, difficult and outright intimidating. Funcom definitely has a sleeper hit on their hands. '.
+			'I like it so much that I\'ve made a <a href="http://chronicless.einhyrning.com/">JSON API</a> for it.</p>'
 	)
 );
 
@@ -108,11 +109,11 @@ function api($game, $api){
 	}
 	else if($game == 'tsw'){
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="10"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>';
-		foreach($api->stats as $key => $value){
-			$output .= '<tr><td class="dark">'.deCamel($key).'</td><td>'.$value.'</td></tr>';
-		}
+			'<tr><td rowspan="5"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
+			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
+			'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
+			'<tr><td class="dark">Rank</td><td>'.$api->faction->title.'</td></tr>'.
 		$output .= '</table>';
 	}
 	return $output;
