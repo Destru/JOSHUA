@@ -503,6 +503,9 @@ Rachael: HAHAHA!</pre>',
 'everywhere' => '<p>Can you hear me calling<br>Out your name<br>You know that I\'m falling<br>And I don\'t know what to say<br>I\'ll speak a little louder<br>I\'ll even shout<br>You know that I\'m proud<br>And I can\'t get the words out</p><p>Oh I...<br>I want to be with you everywhere</span></p>',
 'git' => 'Git is awesome. I don\'t know how I survived without it.<br><a class="external" href="http://github.com/destru/">Follow me at GitHub.</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
+'draw' => 'Sure, choose "Draw" in the <span class="command">customize</span> menu and have at it.',
+'love' => 'Baby don\'t hurt me, don\'t hurt me, no more.',
+'api' => 'I\'m a little confused as to why you tried this command, but I have made an API.<br><a class="external href="http://chronicless.einhyrning.com">JSON API for The Secret World.</a>',
 
 'resume' => '<p>I am super awesome to work with and rad to the power of sick. What? You need more?</p>
 	<p>I have been doing front end development for 13 years (left school at 17 after being offered a job).

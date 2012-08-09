@@ -161,9 +161,9 @@ if(empty($output)) {
 	// we need to load the brain
 	include('brain.php');
 	// quotes, bash
-	if($command == "bash" || $command == "quote"){
+	if($command == "bash" || $command == "quote" || $command == "quotes"){
 		if($command == "bash") $array = $bash;
-		elseif($command == "quote") $array = $quotes;
+		elseif($command == "quote" || $command == "quotes") $array = $quotes;
 		$count = count($array)-1; $rand = rand(0,$count);
 		if(!empty($option) && $option == "all"){
 			foreach($array as $quote){
@@ -199,21 +199,26 @@ if(empty($output)) {
 		else error('noreturn');
 	}
 
-	// whois
-	if($command == "whois"){
+	// whois and ping
+	if($command == "whois" || $command == "ping"){
 		if(!empty($option)){
 			$pattern = "/^[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,4}$/";
-			if (preg_match($pattern, $option)){
-				$return = shell_exec('whois '.$option);
+			if(preg_match($pattern, $option)){
+				if($command == "ping"){
+					$return = shell_exec('ping -c1 '.$option);
+				}
+				elseif($command == "whois"){
+					$return = shell_exec('whois '.$option);				
+				}
 				if(!empty($return)){
-					$return = utf8_encode($return);
+					$return = trim(utf8_encode($return));
 					output('<pre>'.$return.'</pre>');
 				}
 				else error('noreturn');
 			}
 			else error('notdomain');
 		}
-		else output('<p class="error">'.$joshua.'You need to specify a domain name.</p><p class="example">whois binaerpilot.no</p>');
+		else output('<p class="error">'.$joshua.'You need to specify a domain name.</p><p class="example">'.$command.' binaerpilot.no</p>');
 	}
 
 	// prime number
@@ -234,11 +239,10 @@ if(empty($output)) {
 
 	// locate
 	if($command == "locate"){
-		$lookup = "http://api.hostip.info/get_html.php?position=true&ip=";
+		$lookup = 'http://api.hostip.info/get_html.php?position=true&ip=';
 		if(!empty($option)) $ip = $option;
 		else $ip = $_SERVER['REMOTE_ADDR'];
-		$match = "/^[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3}$/";
-		if(preg_match($pattern, $ip)){
+		if(filter_var($ip, FILTER_VALIDATE_IP) !== false){
 			$request = $lookup.$ip;
 			$output = get($request);
 			// google maps link
