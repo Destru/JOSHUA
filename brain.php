@@ -506,6 +506,16 @@ Rachael: HAHAHA!</pre>',
 'draw' => 'Sure, choose "Draw" in the <span class="command">customize</span> menu and have at it.',
 'love' => 'Baby don\'t hurt me, don\'t hurt me, no more.',
 'api' => 'I\'m a little confused as to why you tried this command, but I have made an API.<br><a class="external href="http://chronicless.einhyrning.com">JSON API for The Secret World.</a>',
+'contact' => 'You can leave a <span class="command">msg</span> or <a href="mailto:alexander@binaerpilot.no">send me an email</a> and I\'ll be in touch.',
+'motherfucker' => 'You got me, I did in fact have sex with your mother. On multiple occasions. I\'d like to take this opportunity to apologize.',
+'motherfuckers' => 'Wanna get with me. Lay with me, love with me, all right.',
+'sex' => 'It\'s a good thing.',
+'nice' => 'Thanks!',
+'you' => 'Me?',
+'me' => 'You?',
+'anyone' => 'Everyone?',
+'moo' => 'Hah, you don\'t fool me. Cows can\'t type.',
+'lalala' => '<a href="http://www.youtube.com/watch?v=1ygdAiDxKfI&t=0m57s">Hilipati hilipati hilipati hillaa.</a>',
 
 'resume' => '<p>I am super awesome to work with and rad to the power of sick. What? You need more?</p>
 	<p>I have been doing front end development for 13 years (left school at 17 after being offered a job).
