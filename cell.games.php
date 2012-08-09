@@ -109,11 +109,12 @@ function api($game, $api){
 	}
 	else if($game == 'tsw'){
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="5"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
+			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
 			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
 			'<tr><td class="dark">Rank</td><td>'.$api->faction->title.'</td></tr>'.
+			'<tr><td class="dark">Skills</td><td>'.$api->abilityWheel->totalCompletion.'</td></tr>';
 		$output .= '</table>';
 	}
 	return $output;
