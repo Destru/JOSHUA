@@ -39,7 +39,7 @@ $games = array(
 		'format' => 'json',
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
 			'The game is scary, difficult and outright intimidating. Funcom definitely has a sleeper hit on their hands. '.
-			'I like it so much that I\'ve made a <a href="http://chronicless.einhyrning.com/">JSON API</a> for it.</p>'
+			'I like it so much that I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).</p>'
 	)
 );
 
@@ -98,23 +98,38 @@ function api($game, $api){
 		$output .= '</td></tr></table>';
 	}
 	else if($game == 'd3'){
-		foreach($api->heroes as $hero){
-			$output .= '<table class="fluid">'.
-				'<tr><td class="dark">Name</td><td>'.$hero->name.'</td></tr>'.
-				'<tr><td class="dark">Class</td><td class="capitalize">'.str_replace('-', ' ', $hero->class).'</td></tr>';				
-			if($hero->hardcore == true) $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.' <span class="light">Hardcore</span></td></tr>';
-			else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
-			$output .= '</table>';
+		if($api->heroes){
+			foreach($api->heroes as $hero){
+				$output .= '<table class="fluid">'.
+					'<tr><td class="dark">Name</td><td>'.$hero->name.'</td></tr>'.
+					'<tr><td class="dark">Class</td><td class="capitalize">'.str_replace('-', ' ', $hero->class).'</td></tr>';				
+				if($hero->hardcore == true) $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.' <span class="light">Hardcore</span></td></tr>';
+				else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
+			}
+			$output .= '</table>';			
 		}
 	}
 	else if($game == 'tsw'){
+		$actives = ''; $passives = '';
+		$iconSize = '32';
+		foreach($api->actives as $slot){
+			$actives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;">'.
+				'<img src="'.$slot->image->background.'" class="background" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:1;">'.
+				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:2;">'.
+				'</div>';
+		}
+		foreach($api->passives as $slot){
+			$passives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;">'.
+				'<img src="'.$slot->image->background.'" class="background" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:1;">'.
+				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:2;">'.
+				'</div>';
+		}
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
+			'<tr><td rowspan="5"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
-			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$api->faction->title.'</td></tr>'.
-			'<tr><td class="dark">Skills</td><td>'.$api->abilityWheel->totalCompletion.'</td></tr>';
+			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
+			'<tr><td class="dark">Build</td><td>'.$actives.'<br>'.$passives.'</td></tr>';
 		$output .= '</table>';
 	}
 	return $output;

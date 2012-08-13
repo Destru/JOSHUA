@@ -9,5 +9,7 @@
 	"I'm starting a band called \"Nude Celebrity Photos\" with song titles like \"Natalie Portman\" and \"Winona Ryder\". Oh yes, let it sink in.",
 	"Anti-cool is an oxymoron.",
 	"My dick shake brings all the boys to the yard. They're like: \"It's bigger than ours!\" Damn right, it's bigger than yours. I could beat you, with my dick so large.",
-	"Most people who do great things didn't have it easy in school."
+	"Most people who do great things didn't have it easy in school.",
+	"In a sandbox you can do anything. In a theme park you can do any thing.",
+	"Melee always gets the short end of the stick."
 ); ?>
