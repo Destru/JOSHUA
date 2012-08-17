@@ -7,9 +7,12 @@
 }
 body {
 	font-family:'C64';
-	font-size:14px;
+	font-size:12px;
 	line-height:1.6em;
 	background-color:hsl(247,59%,65%);
+}
+* {
+	text-transform:uppercase;
 }
 #joshua {
 	padding:40px;
@@ -28,9 +31,6 @@ body, #joshua, #prompt {
 #joshua h1 {
 	text-align:center;
 	margin-bottom:20px;
-}
-h1, h2 {
-	text-transform:uppercase;
 }
 h1, h2, p, table {
 	margin-bottom:20px;

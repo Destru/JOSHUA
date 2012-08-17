@@ -398,7 +398,7 @@ $static = array(
 'olly' => 'Is also crescent fresh.',
 'test' => 'I rarely test, but I frequently break.',
 'smart' => 'I am Mount Cleverest!',
-'valhalla' => 'My first lap dance at the Spearmint Rhino in Vegas. It was ordered by a friend (who had no idea her stripper name was Valhalla), and she completely blew my mind.',
+'valhalla' => 'My first lap dance at the Spearmint Rhino in Vegas.',
 'education' => '<i>I\'ve never let my school interfere with my education.</i><br>&mdash; Mark Twain',
 'tetris' => 'The greatest game ever written. Bar none. Fight me on <a href="http://tetrisfriends.com">Tetris Friends</a> (I\'m DestruKaneda).',
 'poop' => 'And farts! Don\'t forget farts!',
@@ -516,6 +516,12 @@ Rachael: HAHAHA!</pre>',
 'anyone' => 'Everyone?',
 'moo' => 'Hah, you don\'t fool me. Cows can\'t type.',
 'lalala' => '<a href="http://www.youtube.com/watch?v=1ygdAiDxKfI&t=0m57s">Hilipati hilipati hilipati hillaa.</a>',
+'awesomeness' => 'Why, thank you.',
+'snap' => 'Rhythm is a dancer.',
+'rly' => 'srsly',
+'firefly' => 'One of the best sci-fi shows ever made.',
+'nananana' => 'Hey hey hey, goodbye!',
+'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 
 'resume' => '<p>I am super awesome to work with and rad to the power of sick. What? You need more?</p>
 	<p>I have been doing front end development for 13 years (left school at 17 after being offered a job).
