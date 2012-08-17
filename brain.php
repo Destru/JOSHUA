@@ -522,6 +522,7 @@ Rachael: HAHAHA!</pre>',
 'firefly' => 'One of the best sci-fi shows ever made.',
 'nananana' => 'Hey hey hey, goodbye!',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
+'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 
 'resume' => '<p>I am super awesome to work with and rad to the power of sick. What? You need more?</p>
 	<p>I have been doing front end development for 13 years (left school at 17 after being offered a job).
