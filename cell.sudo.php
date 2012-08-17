@@ -56,13 +56,13 @@ if($command == "invalid") {
 // various *nix commands
 $nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail',
 	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl', 'pwd', 'dir', 'mysql', 'su', 'netstat', 'login');
-if() {($command, $nix)) {
+if(in_array($command, $nix)) {
 	if(isset($_SESSION['sudo'])) {
 		if($command == "ll") {
 			$return = run("ls -al");
 		}
 		elseif($command == "df") {
-			$return = run("df -h");		
+			$return = run("df -h");
 		}
 		if(isset($return) && !empty($return)) {
 			output('<pre>'.$return.'</pre>');
@@ -71,4 +71,5 @@ if() {($command, $nix)) {
 	}
 	else error('auth');
 }
+
 ?>
