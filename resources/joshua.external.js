@@ -58,7 +58,7 @@ var konami = readCookie('konami');
 if(!konami) {
 	var keySequence = [], konamiCode = '38,38,40,40,37,39,37,39,66,65';
 	if(window.addEventListener) {
-		window.addEventListener('keydown', function(e){
+		window.addEventListener('keydown', function(e) {
 			keySequence.push(e.keyCode);
 			if(keySequence.toString().indexOf(konamiCode) >= 0) {
 				eraseCookie('fx'); createCookie('theme', 'contra', expires); createCookie('konami', ' true', expires);
