@@ -17,6 +17,7 @@ html, body {
 }
 a {
 	text-decoration:none;
+	color:#fff;
 }
 h1, h2, h3, h4 {
 	cursor:default;

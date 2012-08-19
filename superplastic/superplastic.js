@@ -31,27 +31,27 @@ var seconds = 0,
 points = 0;
 
 // helper functions
-function explodePlayer(playerNode){
+function explodePlayer(playerNode) {
 	playerNode.children().hide();
 	playerNode.addSprite("explosion",{animation: playerAnimation["explode"], width: 40, height: 23});
 	playerHit = true;
 }
-function timer(){
+function timer() {
 	if(!gameOver) {
 		seconds = seconds+1;
 		if(spawnTime > 200) spawnTime = spawnTime-1; // virtual levels
 	}
     setTimeout('timer()', 10);
 }
-function submitScore(){
+function submitScore() {
 	var playerName = $('#playerName').val();
-	var saveScore = $('<div id="highscore"/>').load('../joshua.php', {command: "superplastic", name: playerName, score: playerScore}, function(){
+	var saveScore = $('<div id="highscore"/>').load('../joshua.php', {command: "superplastic", name: playerName, score: playerScore}, function() {
 		if(playerName != "Anonymous") createCookie("player", playerName, 1095);
 		window.location.reload();
 	});
 }
-function spawnMobs(){
-	if(!gameOver){
+function spawnMobs() {
+	if(!gameOver) {
 		if(Math.random() < 0.25) {
 			var name = "enemy1_"+Math.ceil(Math.random()*1000);
 			$("#actors").addSprite(name, {animation: enemy[0]["idle"], posx: gameWidth, posy: Math.random()*gameHeight,width: 38, height: 32});
@@ -93,7 +93,7 @@ function spawnMobs(){
 }
 
 // objects
-function Player(node){
+function Player(node) {
 
 	this.node = node;
 	//this.animations = animations;
@@ -104,10 +104,10 @@ function Player(node){
 	this.respawnTime = -1;
 	
 	// damage or destroy ship 
-	this.damage = function(){
-		if(!this.gracePeriod){
+	this.damage = function() {
+		if(!this.gracePeriod) {
 			this.shield--;
-			if (this.shield == 0){
+			if (this.shield == 0) {
 				return true;
 			}
 			return false;
@@ -116,9 +116,9 @@ function Player(node){
 	};
 	
 	// respawn or end game
-	this.respawn = function(){
+	this.respawn = function() {
 		this.replay--;
-		if(this.replay == 0){
+		if(this.replay == 0) {
 			return true;
 		}
 		
@@ -129,8 +129,8 @@ function Player(node){
 		$(this.node).fadeTo(0, 0.5); 
 		return false;
 	};
-	this.update = function(){
-		if((this.respawnTime > 0) && (((new Date()).getTime()-this.respawnTime) > 3000)){
+	this.update = function() {
+		if((this.respawnTime > 0) && (((new Date()).getTime()-this.respawnTime) > 3000)) {
 			this.gracePeriod = false;
 			$(this.node).fadeTo(500, 1); 
 			this.respawnTime = -1;
@@ -139,56 +139,56 @@ function Player(node){
 	return true;
 }
 
-function Enemy(node){
+function Enemy(node) {
 	this.shield	= 1;
 	this.speedx	= -8;
 	this.speedy = 1;
 	this.node = $(node);
 	
 	// damage taken
-	this.damage = function(){
+	this.damage = function() {
 		this.shield--;
-		if(this.shield == 0){
+		if(this.shield == 0) {
 			return true;
 		}
 		return false;
 	};
 	
 	// movement
-	this.update = function(playerNode){
+	this.update = function(playerNode) {
 		this.updateX(playerNode);
 		this.updateY(playerNode);
 	};	
-	this.updateX = function(playerNode){
+	this.updateX = function(playerNode) {
 		var newpos = parseInt(this.node.css("left"))+this.speedx;
 		this.node.css("left",""+newpos+"px");
 	};
-	this.updateY= function(playerNode){
+	this.updateY= function(playerNode) {
 		var newpos = parseInt(this.node.css("top"))+this.speedy;
 		this.node.css("top",""+newpos+"px");
 	};
 }
 
-function freight(node){
+function freight(node) {
 	this.node = $(node);
 }
 freight.prototype = new Enemy();
-freight.prototype.updateY = function(playerNode){
-	if((this.node[0].gameQuery.posy+this.alignmentOffset) > $(playerNode)[0].gameQuery.posy){
+freight.prototype.updateY = function(playerNode) {
+	if((this.node[0].gameQuery.posy+this.alignmentOffset) > $(playerNode)[0].gameQuery.posy) {
 		var newpos = parseInt(this.node.css("top"))-this.speedy;
 		this.node.css("top",""+newpos+"px");
-	} else if((this.node[0].gameQuery.posy+this.alignmentOffset) < $(playerNode)[0].gameQuery.posy){
+	} else if((this.node[0].gameQuery.posy+this.alignmentOffset) < $(playerNode)[0].gameQuery.posy) {
 		var newpos = parseInt(this.node.css("top"))+this.speedy;
 		this.node.css("top",""+newpos+"px");
 	}
 }
-function rabbit(node){
+function rabbit(node) {
 	this.node = $(node);
 	this.speedx = -14;
 }
 rabbit.prototype = new freight();
 
-function spike(node){
+function spike(node) {
 	this.node = $(node);
 	this.speedx = -8;
 	this.alignmentOffset = 10;
@@ -196,7 +196,7 @@ function spike(node){
 }
 spike.prototype = new freight();
 
-function dart(node){
+function dart(node) {
 	this.node = $(node);
 	this.speedx	= -18;
 	this.speedy = 2;
@@ -204,7 +204,7 @@ function dart(node){
 }
 dart.prototype = new freight();
 
-function axe(node){
+function axe(node) {
 	this.node = $(node);
 	this.speedx = -4;
 	this.alignmentOffset = 120;
@@ -212,7 +212,7 @@ function axe(node){
 }
 axe.prototype = new freight();
 
-function shoe(node){
+function shoe(node) {
 	this.node = $(node);
 	this.speedx = -10;
 	this.alignmentOffset = 5;
@@ -221,9 +221,9 @@ shoe.prototype = new freight();
 
 
 // game framework
-$(function(){
+$(function() {
 	// load highscores
-	var result = $('<div id="highscore"/>').load('../joshua.php', {command: "superplastic"}, function(){
+	var result = $('<div id="highscore"/>').load('../joshua.php', {command: "superplastic"}, function() {
 		result.appendTo('#welcome');
 	});
 
@@ -296,10 +296,10 @@ $(function(){
 	$("#overlay").append('<p id="hud"/><div id="message"/>');
 
 	// start the game
-	window.addEventListener('keydown', function(e){
+	window.addEventListener('keydown', function(e) {
 		if(e.which == 13 && !gameStarted) {
-			$().playground().startGame(function(){
-				$("#welcome").fadeTo(1000,0,function(){$(this).remove();});
+			$().playground().startGame(function() {
+				$("#welcome").fadeTo(1000,0,function() {$(this).remove();});
 				gameStarted = true;
 				timer();
 				spawnMobs();
@@ -307,51 +307,51 @@ $(function(){
 		}
 		else if(e.which == 13 && gameOver) submitScore();
 	});
-	$("#startGame").click(function(){
-		$().playground().startGame(function(){
-			$("#welcome").fadeTo(1000,0,function(){$(this).remove();});
+	$("#startGame").click(function() {
+		$().playground().startGame(function() {
+			$("#welcome").fadeTo(1000,0,function() {$(this).remove();});
 			timer();
 			spawnMobs();
 		});
 	})
 	
 	// game logic
-	$().playground().registerCallback(function(){
-		if(!gameOver){
+	$().playground().registerCallback(function() {
+		if(!gameOver) {
 			$("#hud").html('Time: <b>'+seconds+'</b> Points: <b>'+points+'</b> Shield: <b>'+playerShield+'</b>');
 			// movement
-			if(!playerHit){
+			if(!playerHit) {
 				$("#player")[0].player.update();
-				if(jQuery.gameQuery.keyTracker[65]){ // (a)
+				if(jQuery.gameQuery.keyTracker[65]) { // (a)
 					var nextpos = parseInt($("#player").css("left"))-playerSpeed;
-					if(nextpos > 0){
+					if(nextpos > 0) {
 						$("#player").css("left", ""+nextpos+"px");
 					}
 				}
-				if(jQuery.gameQuery.keyTracker[68]){ // (d)
+				if(jQuery.gameQuery.keyTracker[68]) { // (d)
 					var nextpos = parseInt($("#player").css("left"))+playerSpeed;
-					if(nextpos < gameWidth - 100){
+					if(nextpos < gameWidth - 100) {
 						$("#player").css("left", ""+nextpos+"px");
 					}
 				}
-				if(jQuery.gameQuery.keyTracker[87]){ // (w)
+				if(jQuery.gameQuery.keyTracker[87]) { // (w)
 					var nextpos = parseInt($("#player").css("top"))-playerSpeedVertical;
-					if(nextpos > 0){
+					if(nextpos > 0) {
 						$("#player").css("top", ""+nextpos+"px");
 					}
 				}
-				if(jQuery.gameQuery.keyTracker[83]){ // (s)
+				if(jQuery.gameQuery.keyTracker[83]) { // (s)
 					var nextpos = parseInt($("#player").css("top"))+playerSpeedVertical;
-					if(nextpos < gameHeight - 30){
+					if(nextpos < gameHeight - 30) {
 						$("#player").css("top", ""+nextpos+"px");
 					}
 				}
 			} else {
 				var posy = parseInt($("#player").css("top"))+5;
 				var posx = parseInt($("#player").css("left"))-5;
-				if(posy > gameHeight){
+				if(posy > gameHeight) {
 					// game over
-					if($("#player")[0].player.respawn()){
+					if($("#player")[0].player.respawn()) {
 						playerScore = seconds+points;
 						$("#hud").fadeOut(200);
 						$("#actors,#playerMissiles").fadeTo(500,0);
@@ -375,39 +375,39 @@ $(function(){
 			}
 			
 			// enemy move
-			$(".enemy").each(function(){
+			$(".enemy").each(function() {
 					this.enemy.update($("#player"));
 					var posx = parseInt($(this).css("left"));
-					if((posx + 100) < 0){
+					if((posx + 100) < 0) {
 						$(this).remove();
 						return;
 					}
 					// collision test
 					var collided = $(this).collision("#playerBody,.group");
-					if(collided.length > 0){
+					if(collided.length > 0) {
 						if(this.enemy instanceof spike) {
-							$(this).setAnimation(enemy[1]["explode"], function(node){$(node).remove();});
+							$(this).setAnimation(enemy[1]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 61);
 						} else if (this.enemy instanceof dart) {
-							$(this).setAnimation(enemy[2]["explode"], function(node){$(node).remove();});
+							$(this).setAnimation(enemy[2]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 47);
 						} else if (this.enemy instanceof axe) {
-							$(this).setAnimation(enemy[3]["explode"], function(node){$(node).remove();});
+							$(this).setAnimation(enemy[3]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 43);
 						} else if (this.enemy instanceof rabbit) {
-							$(this).setAnimation(enemy[4]["explode"], function(node){$(node).remove();});
+							$(this).setAnimation(enemy[4]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 43);
 						} else if (this.enemy instanceof shoe) {
-							$(this).setAnimation(enemy[5]["explode"], function(node){$(node).remove();});
+							$(this).setAnimation(enemy[5]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 56);
 						} else {
-							$(this).setAnimation(enemy[0]["explode"], function(node){$(node).remove();});
+							$(this).setAnimation(enemy[0]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 38);
 						}
 						$(this).removeClass("enemy");
 						// player was hit
 						$('#message').fadeIn(50).fadeOut(150);
-						if($("#player")[0].player.damage()){
+						if($("#player")[0].player.damage()) {
 							explodePlayer($("#player"));
 						}
 						playerShield = playerShield-1;
@@ -415,41 +415,41 @@ $(function(){
 				});
 			
 			// missile movement
-			$(".playerMissiles").each(function(){
+			$(".playerMissiles").each(function() {
 				var posx = parseInt($(this).css("left"));
-				if(posx > gameWidth){
+				if(posx > gameWidth) {
 					$(this).remove();
 					return;
 				}
 				$(this).css("left", ""+(posx+missileSpeed)+"px");
 				// collisions
 				var collided = $(this).collision(".group,.enemy");
-				if(collided.length > 0){
+				if(collided.length > 0) {
 					// enemy was hit!
-					collided.each(function(){
-							if($(this)[0].enemy.damage()){
+					collided.each(function() {
+							if($(this)[0].enemy.damage()) {
 								if(this.enemy instanceof spike) {
-									$(this).setAnimation(enemy[1]["explode"], function(node){$(node).remove();});
+									$(this).setAnimation(enemy[1]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 61);
 									points = points+50;
 								} else if (this.enemy instanceof dart) {
-									$(this).setAnimation(enemy[2]["explode"], function(node){$(node).remove();});
+									$(this).setAnimation(enemy[2]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 47);
 									points = points+50;
 								} else if (this.enemy instanceof axe) {
-									$(this).setAnimation(enemy[3]["explode"], function(node){$(node).remove();});
+									$(this).setAnimation(enemy[3]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 43);
 									points = points+100;
 								} else if (this.enemy instanceof rabbit) {
-									$(this).setAnimation(enemy[4]["explode"], function(node){$(node).remove();});
+									$(this).setAnimation(enemy[4]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 43);
 									points = points+25;
 								} else if (this.enemy instanceof shoe) {
-									$(this).setAnimation(enemy[5]["explode"], function(node){$(node).remove();});
+									$(this).setAnimation(enemy[5]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 56);
 									points = points+25;
 								} else {
-									$(this).setAnimation(enemy[0]["explode"], function(node){$(node).remove();});
+									$(this).setAnimation(enemy[0]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 38);
 									points = points+25;
 								}
@@ -457,7 +457,7 @@ $(function(){
 							}
 							$(this).fadeOut(20).fadeIn(100);
 						})
-					$(this).setAnimation(missile["playerexplode"], function(node){$(node).remove();});
+					$(this).setAnimation(missile["playerexplode"], function(node) {$(node).remove();});
 					$(this).css("width", 40);
 					$(this).css("height", 23);
 					$(this).css("top", parseInt($(this).css("top"))-7);
@@ -468,7 +468,7 @@ $(function(){
 	}, refreshRate);
 
 	// background animation
-	$().playground().registerCallback(function(){
+	$().playground().registerCallback(function() {
 		var newPos = (parseInt($("#stars").css("left")) - 10 - gameWidth) % (-2 * gameWidth) + gameWidth;
 		$("#stars").css("left", newPos);
 		var newPos = (parseInt($("#stars2").css("left")) - 10 - gameWidth) % (-2 * gameWidth) + gameWidth;
@@ -482,9 +482,9 @@ $(function(){
 	}, refreshRate);
 	
 	// keyhandling
-	$(document).keydown(function(e){
-		if(!gameOver && !playerHit && !hasShot){
-			switch(e.keyCode){
+	$(document).keydown(function(e) {
+		if(!gameOver && !playerHit && !hasShot) {
+			switch(e.keyCode) {
 				case 75: // shoot
 					hasShot = true;
 					var playerposx = parseInt($("#player").css("left"));
@@ -498,7 +498,7 @@ $(function(){
 	});
 	
 	// stop shot spams
-	setInterval(function(){
+	setInterval(function() {
 		hasShot = false;
 	}, 500);
 

@@ -39,13 +39,13 @@ $games = array(
 		'format' => 'json',
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
 			'The game is scary, difficult and outright intimidating. Funcom definitely has a sleeper hit on their hands. '.
-			'I like it so much that I\'ve made a <a href="http://chronicless.einhyrning.com/">JSON API</a> for it.</p>'
+			'I like it so much that I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).</p>'
 	)
 );
 
 // see, we had all these API's...
-function api($game, $api){
-	if($game == 'ao'){
+function api($game, $api) {
+	if($game == 'ao') {
 		$output = '<table class="fluid">'.
 			'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
 			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->firstname.' "'.$api->name->nick.'" '.$api->name->lastname.'</a></td></tr>'.
@@ -56,7 +56,7 @@ function api($game, $api){
 			'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
 			'</table>';
 	}
-	else if($game == 'eve'){
+	else if($game == 'eve') {
 		$output = '<table class="fluid">'.
 			'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$api->result->characterName.'</td></tr>'.
@@ -66,7 +66,7 @@ function api($game, $api){
 			'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
 			'</table>';
 	}
-	else if($game == 'wow'){
+	else if($game == 'wow') {
 		// get specs
 		foreach($api->talents as $talent) $talents[] = $talent->name.' ('.$talent->trees[0]->total.'/'.$talent->trees[1]->total.'/'.$talent->trees[2]->total.')';
 		// set correct title
@@ -74,14 +74,14 @@ function api($game, $api){
 		if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
 		else $name = $api->name;
 		// grab recent events
-		$feed = array_filter($api->feed, function($i){
+		$feed = array_filter($api->feed, function($i) {
 			if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
 		});	
 		$feed = array_values($feed);
-		for($i = 0; $i < 5; $i++){
+		for($i = 0; $i < 5; $i++) {
 			$title = $feed[$i]->achievement->title;
 			$points = $feed[$i]->achievement->points;
-			if(!empty($title)){
+			if(!empty($title)) {
 				if(!empty($points)) $events[] = $title.' <span class="light">+'.$points.'</span>';
 				else $events[] = $title;				
 			}
@@ -97,37 +97,56 @@ function api($game, $api){
 		foreach($events as $event) $output .= $event.'<br/>';
 		$output .= '</td></tr></table>';
 	}
-	else if($game == 'd3'){
-		foreach($api->heroes as $hero){
-			$output .= '<table class="fluid">'.
-				'<tr><td class="dark">Name</td><td>'.$hero->name.'</td></tr>'.
-				'<tr><td class="dark">Class</td><td class="capitalize">'.str_replace('-', ' ', $hero->class).'</td></tr>';				
-			if($hero->hardcore == true) $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.' <span class="light">Hardcore</span></td></tr>';
-			else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
-			$output .= '</table>';
+	else if($game == 'd3') {
+		if($api->heroes) {
+			foreach($api->heroes as $hero) {
+				$output .= '<table class="fluid">'.
+					'<tr><td class="dark">Name</td><td>'.$hero->name.'</td></tr>'.
+					'<tr><td class="dark">Class</td><td class="capitalize">'.str_replace('-', ' ', $hero->class).'</td></tr>';				
+				if($hero->hardcore == true) $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.' <span class="light">Hardcore</span></td></tr>';
+				else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
+			}
+			$output .= '</table>';			
 		}
 	}
-	else if($game == 'tsw'){
+	else if($game == 'tsw') {
+		$actives = ''; $passives = '';
+		$iconSize = '32';
+		foreach($api->actives as $slot) {
+			$actives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;">'.
+				'<img src="'.$slot->image->background.'" class="background" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:1;">'.
+				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:2;">'.
+				'</div>';
+		}
+		foreach($api->passives as $slot) {
+			$passives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;">'.
+				'<img src="'.$slot->image->background.'" class="background" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:1;">'.
+				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:2;">'.
+				'</div>';
+		}
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
+			'<tr><td rowspan="5"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
-			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
-			'<tr><td class="dark">Rank</td><td>'.$api->faction->title.'</td></tr>'.
-			'<tr><td class="dark">Skills</td><td>'.$api->abilityWheel->totalCompletion.'</td></tr>';
+			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
+			'<tr><td class="dark">Build</td><td>'.$actives.'<br>'.$passives.'</td></tr>';
 		$output .= '</table>';
 	}
 	return $output;
 }
 
 // games
-if($command == 'games' || $command == 'game'){
-	$gameList = array_keys($games);
-	sort($gameList);
-	if(isset($option) && !empty($games[$option])){
+$gameList = array_keys($games);
+sort($gameList);
+if($command == 'games' || $command == 'game' || in_array($command, $gameList)) {
+	if(in_array($command, $gameList)) {
+		$option = $command;
+		$command = 'game';	
+	}
+	if(isset($option) && !empty($games[$option])) {
 		$game = $option;
 		print $prompt.$games[$game]['about'];
-		if(!empty($games[$game]['api']) && !empty($games[$game]['format'])){
+		if(!empty($games[$game]['api']) && !empty($games[$game]['format'])) {
 			$cache = $game.'.'.$games[$game]['format'];
 			get($games[$game]['api'], $cache, 1);
 			$api = load($cache, 1);
@@ -139,13 +158,13 @@ if($command == 'games' || $command == 'game'){
 }
 
 // xbox
-if($command == "xbox"){
+if($command == "xbox") {
 	$url = 'https://xboxapi.com/profile/Destru+Kaneda';
 	$cache = 'xbox.json';
 	get($url, $cache);
 	$json = load($cache);
 	$gameList = array();
-	if($json->Success){
+	if($json->Success) {
 		foreach($json->RecentGames as $game) $gameList[] = $game->Name;
 		output('<table class="fluid">'.
 			'<tr><td rowspan="6"><div class="image" style="background-image:url(\''.$json->Player->Avatar->Gamerpic->Large.'\');width:64px;height:64px;"></div></td></tr>'.

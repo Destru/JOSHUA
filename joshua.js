@@ -15,42 +15,42 @@ if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = tru
 if(nextgen) windows.push('joshua');
 
 // helpers
-function reset(){
+function reset() {
 	eraseCookie('joshua');
 	eraseCookie('release');
 	eraseCookie('theme');
 	eraseCookie('background');
 	eraseCookie('fx');
 	eraseCookie('opacity');
-	$.each(windows, function(){
+	$.each(windows, function() {
 		eraseCookie(this);
 		eraseCookie('window.'+this);
 	});
 	location.reload();
 }
-function stealFocus(off){
-	if(off){
+function stealFocus(off) {
+	if(off) {
 		$('#prompt').off('blur');
 	}
 	else {
-		$('#prompt').off('blur').on('blur', function(){
+		$('#prompt').off('blur').on('blur', function() {
 			$('#prompt').focus();
 		});
 		$('#prompt').focus();
 	}
 }
-function systemReady(){
+function systemReady() {
 	$('title').text(title+'Ready');
 	$('#joshua').css('cursor', 'auto');
 }
-function clearInput(){
+function clearInput() {
 	$('#prompt').blur().val('');
-	setTimeout(function(){
+	setTimeout(function() {
 		$('#prompt').focus();
 	}, 50);
 }
-function scrollCheck(){
-	if(terminal){
+function scrollCheck() {
+	if(terminal) {
 		$('html, body').animate({scrollTop: $(document).height()}, 1000);
 		$('.output:last .prompt').prepend('<span class="prefix">'+termPrompt+'</span>');
 	}
@@ -58,8 +58,8 @@ function scrollCheck(){
 		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 1000);
 	}
 }
-function mute(){
-	if(!muted){
+function mute() {
+	if(!muted) {
 		soundManager.mute();
 		muted = true;
 	}
@@ -71,38 +71,38 @@ function mute(){
 }
 
 // effects
-function fxStop(){
+function fxStop() {
 	var cookie = readCookie('fx');
-	if(cookie){
+	if(cookie) {
 		$('.spark, #malkovich, .brush, #cylon').remove();
-		if(cookie != "none"){
+		if(cookie != "none") {
 			eraseCookie('fx');
 		}
-		if(cookie == "pulsar" || cookie == "spin"){
+		if(cookie == "pulsar" || cookie == "spin") {
 			location.reload();
 		}
-		if(cookie == "draw"){
+		if(cookie == "draw") {
 			$(document).unbind('mousedown');
 			$(document).unbind('mouseup');
 			$(document).unbind('mousemove');
 		}
 	}
 }
-function fxInit(fx, runOnce){
-	if(!runOnce){
+function fxInit(fx, runOnce) {
+	if(!runOnce) {
 		fxStop();
 		createCookie('fx', fx, expires);
 	}
-	if(fx == "sparks"){
+	if(fx == "sparks") {
 		var totalSparks = 42;
 		var sparks = [];
-		for (i = 0; i < totalSparks; i++){
+		for (i = 0; i < totalSparks; i++) {
 			sparks[i] = new Spark(50);
 		}
 	}
-	else if(fx == "malkovich"){
+	else if(fx == "malkovich") {
 		$('body').append('<div id="malkovich"/>');
-		$('body').mousemove(function(event){
+		$('body').mousemove(function(event) {
 			$('#malkovich').css({
 				top: (event.pageY+10)+'px',
 				left: (event.pageX+15)+'px'
@@ -110,24 +110,24 @@ function fxInit(fx, runOnce){
 			$('#malkovich:hidden').fadeIn(fade);
 		});
 	}
-	else if(fx == "spin"){
+	else if(fx == "spin") {
 		$('#joshua, .window').spin(10);
 	}
-	else if(fx == "pulsar"){
+	else if(fx == "pulsar") {
 		pulsar();
 		setInterval(pulsar, 30000);
 	}
-	else if(fx == "draw"){
+	else if(fx == "draw") {
 		var brush;
 		$('body').css('-webkit-user-select', 'none');
-		$(document).mousedown(function(){
+		$(document).mousedown(function() {
 			drawing = true;
 		});
-		$(document).mouseup(function(){
+		$(document).mouseup(function() {
 			drawing = false;
 		});
-		$(document).mousemove(function(e){
-			if(drawing){
+		$(document).mousemove(function(e) {
+			if(drawing) {
 				brush = $('<div/>').addClass('brush').hide();
 				$(document.body).append(brush);
 				brush.css({
@@ -137,7 +137,7 @@ function fxInit(fx, runOnce){
 			}
 		});
 	}
-	else if(fx == "ultraviolence"){
+	else if(fx == "ultraviolence") {
 		$('body').append('<div id="ultraviolence" class="overlay">');
 		$('#ultraviolence').css({
 			'background-image': 'url("images/ultraviolence.jpg")',
@@ -147,20 +147,20 @@ function fxInit(fx, runOnce){
 			'width': $(document).width()
 		});
 		$('#ultraviolence').fadeIn(2000);
-		setTimeout(function(){
+		setTimeout(function() {
 			$('#ultraviolence').fadeOut(2000);
 		}, 5000);
 	}
-	else if(fx == "cylon"){
+	else if(fx == "cylon") {
 		$('body').append('<div id="cylon"/>');
 		cylon();
 	}
 }
 
 // application loaders
-function loadSuperplastic(){
+function loadSuperplastic() {
 	createCookie('superplastic', true, expires);
-	if($('#superplastic').has('iframe').length == 0){
+	if($('#superplastic').has('iframe').length == 0) {
 		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no">')		
 	}
 	else {
@@ -170,7 +170,7 @@ function loadSuperplastic(){
 	systemReady();
 	stealFocus(true);
 }
-function loadVideos(){
+function loadVideos() {
 	createCookie('videos', true, expires);
 	$('#videos:hidden').fadeIn(fade);
 	systemReady();
@@ -178,13 +178,13 @@ function loadVideos(){
 }
 
 // init chrome
-function chromeInit(){
+function chromeInit() {
 	// drag windows
-	$.each(windows, function(){
+	$.each(windows, function() {
 		$('#'+this).draggable({
 			distance:10,
 			handle:"h1",
-			stop: function(event){
+			stop: function(event) {
 				var window = 'window.'+$(this).attr('id'),
 				left = $(this).css('left'),
 				right = $(this).css('right'),
@@ -196,16 +196,16 @@ function chromeInit(){
 	// x marks the spot
 	$('.window h1:not(:has(.close))').append('<a class="close">x</a>');
 	// close windows
-	$('.close').click(function(){
+	$('.close').click(function() {
 		var id = $(this).closest("div").attr("id");
 		eraseCookie(id);
 		$('#'+id+':visible').fadeOut(fade);
-		if(id == "superplastic"){
+		if(id == "superplastic") {
 			$('#'+id+' iframe').remove();
 			var fx = readCookie('fx');
 			if(fx) fxInit(fx);
 		}
-		else if(id == "music"){
+		else if(id == "music") {
 		 if(!muted) mute();	
 		}
 		$('#'+id+'Open').removeClass('active');
@@ -213,7 +213,7 @@ function chromeInit(){
 		stealFocus();
 	});
 	// open windows
-	$('.open').click(function(){
+	$('.open').click(function() {
 		var id = $(this).attr('id').replace(/Open/,'');
 		if(id == "superplastic") loadSuperplastic();
 		else if(id == "videos") loadVideos();
@@ -225,26 +225,26 @@ function chromeInit(){
 		$(this).addClass('active');
 	});
 	// view images
-	$('a.view').click(function(event){
+	$('a.view').click(function(event) {
 		event.preventDefault();
 		var imageSource = $(this).attr('href');
-		$("<img/>").attr("src", imageSource).load(function(){
+		$("<img/>").attr("src", imageSource).load(function() {
 			$('<div class="modalClose"><img src="'+imageSource+'" width="'+this.width+'" height="'+ this.height+'"/></div>').modal({
 				overlayId: 'modalOverlay',
 				containerId : 'modalContainer',
 				dataId: 'modalData',
 				closeClass: 'modalClose',
 				overlayClose: true,
-				onOpen: function(dialog){
-					dialog.overlay.fadeIn(fade, function(){
+				onOpen: function(dialog) {
+					dialog.overlay.fadeIn(fade, function() {
 						dialog.container.fadeIn(fade);
 						dialog.data.fadeIn(fade);
 					});
 				},
-				onClose: function(dialog){
+				onClose: function(dialog) {
 					dialog.data.fadeOut(fade, function () {
 							dialog.container.fadeOut(fade);
-							dialog.overlay.fadeOut(fade, function(){
+							dialog.overlay.fadeOut(fade, function() {
 								$.modal.close();
 							});
 					});
@@ -253,39 +253,39 @@ function chromeInit(){
 		});
 	});
 	// window events
-	$.each(windows,function(index, window){
-		if(readCookie(window)){
+	$.each(windows,function(index, window) {
+		if(readCookie(window)) {
 			$('#'+window+'Open').addClass('active');
 			$('#'+window+':hidden').show();
 		}
 	});
-	if(readCookie('superplastic')){
+	if(readCookie('superplastic')) {
 		loadSuperplastic();
 	}
-	if(readCookie('videos')){
+	if(readCookie('videos')) {
 		loadVideos();
 	}
 	// customizations
-	$('#fx li').click(function(){
+	$('#fx li').click(function() {
 		$('#fx li').removeClass('selected');
 		var fx = this.getAttribute('class');
 		var cookie = readCookie('fx');
-		if(fx == "none"){
+		if(fx == "none") {
 			fxStop();
 		}
-		else if(fx != cookie){
+		else if(fx != cookie) {
 			fxInit(fx);
 		}
 	});
 	// backgrounds
-	$('#backgrounds li').click(function(){
+	$('#backgrounds li').click(function() {
 		var background = this.getAttribute('class');
 		$('#joshua').removeClass().addClass(background);
 		createCookie('background', background, expires);
 	});
 	// miscellaneous
 	$('.version tr.major').show(); // version log
-	$('.version .toggle').click(function(){
+	$('.version .toggle').click(function() {
 		$(this).remove();
 		$('.version tr').show();
 		scrollCheck();
@@ -295,9 +295,9 @@ function chromeInit(){
 }
 
 // chrome magic
-function chromeMagic(){
+function chromeMagic() {
 	// nextgen themes
-	if(nextgen){
+	if(nextgen) {
 		var background = readCookie('background'),
 		opacity = readCookie('opacity');
 		if(background) $('#joshua').addClass(background);
@@ -306,11 +306,11 @@ function chromeMagic(){
 			max: 20,
 			min: 3,
 			value: opacity*20,
-			slide: function(event, ui){
+			slide: function(event, ui) {
 				opacity = ui.value/20;
 				$('#joshua, .window').css('opacity', opacity);
 			},
-			change: function(event, ui){
+			change: function(event, ui) {
 				opacity = ui.value/20;
 				$('#joshua, .window').css('opacity', opacity);
 				createCookie('opacity', opacity, expires);
@@ -318,17 +318,17 @@ function chromeMagic(){
 		});
 		$('#joshua, .window').css('opacity', opacity);
 		// contra
-		if(theme == "contra"){
+		if(theme == "contra") {
 			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
 			$('body').animate({backgroundColor:"#fff"}, 250).animate({backgroundColor:"#152521"}, 1000);
 		}
 	}
-	else if(theme == "tron"){
+	else if(theme == "tron") {
 		var team = readCookie('tron.team');
-		if(!team){
+		if(!team) {
 			createCookie('tron.team', 'blue', expires);
 		}
-		else if(team && team != "blue"){
+		else if(team && team != "blue") {
 			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff','eb7129'], color = '';
 			if(team == "pink") color = colors[0];
 			else if(team == "red") color = colors[1];
@@ -345,27 +345,27 @@ function chromeMagic(){
 			$('body').append('<div id="custom">');
 			$('#custom').html('<style type="text/css">'+css+'</style>');
 		}
-		$('.tron .tiny li').click(function(){
+		$('.tron .tiny li').click(function() {
 			var team = this.getAttribute('class');
 			createCookie('tron.team', team, expires);
 			location.reload();
 		});
 		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
-	else if(theme == "diesel"){
+	else if(theme == "diesel") {
 		var dieselChrome = 235;
 		$('#output').css("height", $(window).height()-dieselChrome);
-		$(window).resize(function(){
+		$(window).resize(function() {
 			$('#output').css("height", $(window).height()-dieselChrome);
 			scrollCheck();
 		});
 	}
-	else if($.inArray(theme, terminals) > -1){
+	else if($.inArray(theme, terminals) > -1) {
 		terminal = true;
-		if(theme == "pirate"){
+		if(theme == "pirate") {
 			$('#joshua h1').remove();	
 		}
-		else if(theme == "c64"){
+		else if(theme == "c64") {
 			termPrompt = "Ready.";
 			$('#joshua h1').html('**** JOSHUA 64 BASIC V'+version+' ****');			
 		}
@@ -373,13 +373,13 @@ function chromeMagic(){
 		$('#input').prepend('<span class="prefix">'+termPrompt+'</span>');
 		$('#desktop').remove();
 	}
-	else if(theme == "lcars"){
+	else if(theme == "lcars") {
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
 		var lcarsChrome = 210;
 		$('#output').css("height", $(window).height()-lcarsChrome);
-		$(window).resize(function(){
+		$(window).resize(function() {
 			$('#output').css("height", $(window).height()-lcarsChrome);
 			scrollCheck();
 		});
@@ -387,25 +387,25 @@ function chromeMagic(){
 }
 
 // initializer
-function init(option){
+function init(option) {
 	chromeInit();
 	if(option && option == "boot") chromeMagic();
 	scrollCheck();
 	systemReady();
 }
-function clearScreen(){
+function clearScreen() {
 	$('#output').html('');
 	init();
 }
 
 // booting up joshua
-function boot(){
+function boot() {
 	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
 	// upgrading
 	var versionCheck = readCookie('release');
-	if(parseInt(version) > versionCheck){ // upgrade to latest version
+	if(parseInt(version) > versionCheck) { // upgrade to latest version
 		$('title').html(title+'Upgrading...');
-		$.each(windows, function(){
+		$.each(windows, function() {
 			eraseCookie(this);
 			eraseCookie('window.'+this);
 		});
@@ -416,10 +416,10 @@ function boot(){
 	// load effects
 	var fx = readCookie('fx'); if(fx) fxInit(fx, true);
 	// window positions
-	$.each(windows,function(){
+	$.each(windows,function() {
 		var cookie = readCookie('window.'+this),
 		theme = readCookie('theme');
-		if(cookie){
+		if(cookie) {
 			var pos = cookie.split(',');
 			$('#'+this).css({
 				position: 'absolute',
@@ -431,7 +431,7 @@ function boot(){
 	});
 	// ready prompt
 	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
-	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd", option: "clean"}, function(){
+	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd", option: "clean"}, function() {
 		motd.appendTo('#output');
 		init('boot'); // initialize
 	});
@@ -439,11 +439,11 @@ function boot(){
 }
 
 // let's go
-$(function(){
+$(function() {
 	boot();
-	$('#prompt').on('keydown', function(e){ // key pressed
+	$('#prompt').on('keydown', function(e) { // key pressed
 		$('title').html(title+'Listening...'); // listening to input
-		if(e.which == 13){ // command issued with enter	
+		if(e.which == 13) { // command issued with enter	
 			$('title').html(title+'Running...'); // running command
 			$('#joshua').css('cursor', 'wait');
 			var dump = $(this).val(), // grab the input
@@ -451,7 +451,7 @@ $(function(){
 			command = input[0],	option = input[1]; // command (option)
 			_gaq.push(['_trackPageview', '/'+command]); // track as a page view in analytics
 			// store history
-			if(command){
+			if(command) {
 				hist.push(dump);
 				hist.unique();
 				position = hist.length;
@@ -460,7 +460,7 @@ $(function(){
 			if(command == "clear" || command == "cls") clearScreen();
 			else if(command == "exit" || input == "quit" || input == "logout") window.location = "http://binaerpilot.no";
 			// rachael
-			else if(command == "rachael"){
+			else if(command == "rachael") {
 				var current = new Date();
 				var currentYear = current.getFullYear();
 				var birthday = new Date(currentYear, 6-1, 29);
@@ -473,7 +473,7 @@ $(function(){
 				systemReady();
 			}
 			/* quit smoking
-			else if(command == "smoking"){
+			else if(command == "smoking") {
 				var quit = new Date(2010, 10-1, 1, 13, 37);
 				$('#output').append('<div class="output"><div class="prompt">smoking</div><p>After having this nasty habit for 13 years, I\'ve been smoke free for <span class="countdown smoking light"/>. Huzzah!</p></div>');
 				$('.smoking').countdown({since: quit, compact: true, format: 'OWDHMS'});
@@ -481,7 +481,7 @@ $(function(){
 				systemReady();
 			} */
 			// windows
-			else if(command == "customize" || command == "gallery" || command == "music"){
+			else if(command == "customize" || command == "gallery" || command == "music") {
 				createCookie(command,'true',expires);
 				$('#'+command+':hidden').fadeIn(fade);
 				$('#'+command+'Open').addClass('active');
@@ -499,9 +499,9 @@ $(function(){
 			else if(command == "ultraviolence") fxInit('ultraviolence', true);
 			// engine
 			else {
-				if(command){
+				if(command) {
 					$('#loader').fadeIn(250); // loader
-					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function(){
+					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
 						$('#output').append(content);
 						init();
 						$('#loader').fadeOut(250);
@@ -513,12 +513,12 @@ $(function(){
 			$("#prompt").val('');
 		}
 		// access history
-		else if(e.which == 38){
-			if(position > 0){ position = position-1; }
+		else if(e.which == 38) {
+			if(position > 0) { position = position-1; }
 			$(this).val(hist[position]);
 		}
-		else if(e.which == 40){
-			if(position < hist.length){ position = position+1; }
+		else if(e.which == 40) {
+			if(position < hist.length) { position = position+1; }
 			if(position == hist.length) $(this).val('');
 			else $(this).val(hist[position]);
 		}

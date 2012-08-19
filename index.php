@@ -45,7 +45,7 @@
 </head>
 <body>
 	<div id="joshua"></div>
-	<div id="desktop"><?php include 'desktop.php' ?></div>
+	<div id="desktop"><?php include 'inc.desktop.php'; ?></div>
 <?php // fetch apps and games
 	$d = scandir('.');		
 	foreach ($d as $file) {
