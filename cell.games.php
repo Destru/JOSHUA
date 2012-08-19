@@ -35,7 +35,7 @@ $games = array(
 			'Which is funny, since it\'s basically one big gear grind.</p>'
 	),
 	'tsw' => array(
-		'api' => 'http://chronicless.einhyrning.com/destru.json',
+		'api' => 'http://chronicless.einhyrning.com/character/destru.json',
 		'format' => 'json',
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
 			'The game is scary, difficult and outright intimidating. Funcom definitely has a sleeper hit on their hands. '.
