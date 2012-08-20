@@ -1,4 +1,4 @@
-<?php $yoda = array(
+<?php $yodaQuotes = array(
 	'Difficult to see. Always in motion is the future.',
 	'A Jedi craves not these things.',
 	'Try not. Do, or do not. There is no try.',

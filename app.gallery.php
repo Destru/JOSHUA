@@ -17,7 +17,7 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
+<script>
 	$(function() {
 		// slideshow with pager
 		$('#slick .slideshow').before('<ul class="thumbs clearfix"/>').cycle({

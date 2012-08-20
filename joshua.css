@@ -28,9 +28,6 @@ h1, h2, h3, h4 {
 #prompt {
 	background-color:transparent;
 }
-.countdown div {
-	display:inline-block;
-}
 .scratch {
 	text-decoration:line-through;
 }

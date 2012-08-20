@@ -129,6 +129,10 @@ function deleteCookie($cookie) {
 function deCamel($s) {
 	return ucfirst(preg_replace( '/([a-z0-9])([A-Z])/', "$1 $2", $s));
 }
+function cakeDay($date) {
+	$cake = (strtotime(date("Ymd")) > strtotime(date("Y/$date"))) ? strtotime(date("Y/$date", strtotime("+1 year"))) : strtotime(date("Y/$date"));
+	return round(($cake-strtotime(date("Ymd")))/86400);
+}
 
 // errors	
 $error = array(
@@ -150,7 +154,7 @@ $error = array(
 
 // security and prompt
 if(!empty($command)) {
-	$noReturn = array('msg', 'reply', 'sudo', 'yoda'); // these commands should not return input
+	$noReturn = array('msg', 'reply', 'sudo'); // these commands should not return input
 	$pattern = "/^[[:alnum:][:space:]:.\,\'\'-?!\*+%]{0,160}$/";
 	if(!empty($dump) && preg_match($pattern, $dump) || empty($dump)) {
 		if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
@@ -328,16 +332,15 @@ if(empty($output)) {
 
 	// yoda
 	if($command == "yoda") {
-		$yodaPixel = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
-		$length = strlen($dump);
-		if($length > 6	) {
-			$question = str_replace('yoda ','',$dump);
+		$yoda = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
+		$question = trim(str_replace($command, '', $dump));
+		if(strlen($question) > 0) {
 			if(!stristr($question, '?')) $question .= '?';
-			$count = count($yoda)-1; $rand = rand(0,$count);
-			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yoda[$rand].'</div>'.$yodaPixel;
+			$count = count($yodaQuotes)-1; $rand = rand(0,$count);
+			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yodaQuotes[$rand].'</div>'.$yoda;
 			$output = 1;
 		}
-		else output('<p class="speechBubble">Ask a question you must.</p>'.$yodaPixel);
+		else output('<p class="speechBubble">Ask a question you must.</p>'.$yoda);
 	}
 
 	// fml
@@ -475,7 +478,7 @@ if(empty($output)) {
 		sort($themes);
 		if(isset($option) && in_array($option, $themes)) {
 			setcookie('theme', $option, $expires, '/');
-			output('<p class="joshua">'.$joshua.'Your browser will now refresh automatically.</p><script>location.reload();</script>');
+			output('<script>location.reload();</script>');
 		}
 		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
 	}
@@ -557,7 +560,6 @@ if(empty($output)) {
 			output('<p>'.md5($option).'</p>');
 		}
 		else output('<p class="error">'.$joshua.'You need to specify a string.</p><p class="example">md5 joshua</p>');
-		
 	}
 
 	// reviews
@@ -641,6 +643,17 @@ if(empty($output)) {
 		}
 	}
 	
+	// say
+	if($command == "say") {
+		$say = trim(str_replace($command, '', $dump));
+		if(strlen($say) > 0) {
+			print '<div class="prompt">'.$command.' <b>'.$say.'</b></div>'.
+				'<script>speak(\''.$say.'\', { pitch:75, speed:120 });</script>';
+			$output = 1;
+		}
+		else output('<p class="error">'.$joshua.'You need to specify a string.</p><p class="example">say hello</p>');
+	}
+
 	// fallback
 	if(empty($output)) {
 		foreach ($static as $key => $value) {

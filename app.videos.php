@@ -2,7 +2,7 @@
 	<h1>Video Player</h1>
 	<input id="ytSearch" type="search" placeholder="Search..." class="clearfix">
 </div>
-<script type="text/javascript">
+<script>
 	$(function() {
 		var url = 'http://gdata.youtube.com/feeds/api/videos?v=2&max-results=20&duration=long&alt=json&q=';
 		$('#ytSearch').on('keyup', function() {

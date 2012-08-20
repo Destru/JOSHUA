@@ -29,9 +29,9 @@
 	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="resources/joshua.external.js"></script>
-	<script type="text/javascript">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="resources/joshua.external.js"></script>
+	<script>
 		// global settings
 		var version = '<?php echo $version; ?>',
 		header = '<?php echo $header; ?>',
@@ -41,7 +41,7 @@
 		termPrompt = '<?php echo $termPrompt; ?>',
 		nextgenThemes = ["<?php echo implode('","', $nextgenThemes); ?>"];
 	</script>
-	<script type="text/javascript" src="joshua.js"></script>	
+	<script src="joshua.js"></script>	
 </head>
 <body>
 	<div id="joshua"></div>

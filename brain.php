@@ -33,10 +33,6 @@ $static = array(
 			<td>Customization options (some theme specific)</td>
 		</tr>
 		<tr>
-			<td class="command">preset <span class="dark">preset</span></td>
-			<td>Predefined custom settings (theme, effects, backgrounds)</td>
-		</tr>
-		<tr>
 			<td class="command">msg <span class="dark">message</span></td>
 			<td>Leave me a message (use <span class="dark">msg list</span> to read)</td>
 		</tr>
@@ -45,8 +41,8 @@ $static = array(
 			<td>Do you ASCII? Figlet generator extraordinaire</td>
 		</tr>
 		<tr>
-			<td class="command">yoda <span class="dark">question</span></td>
-			<td>Answer your questions Yoda will</td>
+			<td class="command">say <span class="dark">something</span></td>
+			<td>What? Your website doesn\'t talk?</td>
 		</tr>
 		<tr>
 			<td class="command">get <span class="dark">query</span></td>
@@ -55,6 +51,10 @@ $static = array(
 		<tr>
 			<td class="command">games <span class="dark">name</span></td>
 			<td>Favorite games and things I made for them</td>
+		</tr>
+		<tr>
+			<td class="command">yoda <span class="dark">question</span></td>
+			<td>Answer your questions Yoda will</td>
 		</tr>
 		<tr>
 			<td class="command">last.fm</td>
@@ -75,10 +75,6 @@ $static = array(
 		<tr>
 			<td class="command">whois <span class="dark">domain</span></td>
 			<td>Look up whois information</td>
-		</tr>
-		<tr>
-			<td class="command">md5 <span class="dark">string</span></td>
-			<td>Calculates an MD5 hash for string</td>
 		</tr>
 		<tr>
 			<td class="command">uptime</td>
@@ -311,6 +307,10 @@ $static = array(
 			<td class="command fixed-width">9.4</td>
 			<td>A bunch of new commands based on invalid input. Support for HTML fetching when developers are too lazy to write an API. Open Graph support to keep up with sharing. Started work on a C64 theme (live but not complete). TSW and Diablo 3 are fun games.</td>
 		</tr>
+		<tr>
+			<td class="command fixed-width">9.5</td>
+			<td>You asked for it, JOSHUA can now talk. Use <span class="command">say</span> to play around with Text-to-Speech.</td>
+		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',
 
@@ -523,13 +523,17 @@ Rachael: HAHAHA!</pre>',
 'nananana' => 'Hey hey hey, goodbye!',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
-
+'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
 'resume' => '<p>I am super awesome to work with and rad to the power of sick. What? You need more?</p>
 	<p>I have been doing front end development for 13 years (left school at 17 after being offered a job).
 	For recent samples of my work your best bet would be <a href="http://manualdesign.no">Manual design</a>
 	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (second largest website in Norway).</p>
 	<p>Currently not looking for work, but if you represent a NY/SF/LA-based company I would be happy to
 	<a href="mailto:alexander@binaerpilot.no">hear from you</a> as I\'m planning to move out of Norway soon.</p>',
+'rachael' => '<p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist.
+	We\'ve been happily married for <span class="light">'.round((strtotime(date("Ymd"))-strtotime("2009/10/07"))/86400).'</span> days
+	and her birthday is in <span class="light">'.cakeDay("06/29").'</span> days
+	(so remember to buy her something nice). <a href="http://rachaelivy.com">Visit her homepage</a> for more information about her acting.</p>',
 
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to JOSHUA. Thank you for being awesome.<p>
 	<p>
@@ -544,11 +548,11 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://www.stilbuero.de/">Klaus Hartl</a> for jQuery Cookie.
 		<a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a> for his pixel fonts.
 		<a href="http://www.sedgeman.com/" class="blank">Luke Sedgeman</a> for his pixel Yoda.
-		<a href="http://keith-wood.name/">Keith Wood</a> for jQuery Countdown.
 		<a href="http://vision-media.ca/">Vision Media</a> for the sparks effect.
 		<a href="http://elliottkember.com/">Elliott Kember</a> for the spin effect.
 		<a href="http://lucasbaltes.com/">Lucas Baltes</a> for his Figlet PHP class.
 		<a href="http://bananarenders.com/">Bananarenders</a> for the original TR2N background.
+		<a href="https://github.com/kripken/">Alon Zakai</a> for his JavaScript TTS.
 		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
