@@ -136,20 +136,20 @@ function cakeDay($date) {
 
 // errors	
 $error = array(
-	'404' => 'Invalid option.',
-	'invalid' => 'The command <b>'.$command.'</b> is invalid.',
-	'blocked' => 'Input did not pass security.',
-	'notip' => 'Not a valid IP address.',
-	'notdomain' => 'Illegal domain name.',
-	'noreturn' => 'Executing <b>'.$command.'</b> returned nothing.',
-	'auth' => 'You are not authorized to issue that command.',
-	'timeout' => 'Request timed out. Please try again later.',
-	'empty' => 'API is not responding.',
-	'invalidxml' => 'API returned malformed XML.',
-	'invalidjson' => 'API returned malformed JSON.',
-	'invalidhtml' => 'API returned malformed HTML.',
-	'localcache' => 'Local cache does not exist.',
-	'password' => 'Incorrect password.'
+	'404' => 'I couldn\'t find that.',
+	'invalid' => 'Invalid command.',
+	'blocked' => 'That input shall not pass!',
+	'notip' => 'That\'s not an IP. Regex never lies.',
+	'notdomain' => 'You call that a domain name?',
+	'noreturn' => 'Executing <b>'.$command.'</b> on this system returned nothing. I am disappoint.',
+	'timeout' => 'I\'m asking nicely but the server did not respond.',
+	'empty' => 'That API is not responding. Or I have been throttled. Either way it sucks.',
+	'invalidxml' => 'API returned malformed XML. A common mistake.',
+	'invalidjson' => 'API returned malformed JSON. How can you mess up JSON?',
+	'invalidhtml' => 'API returned malformed HTML. Is there even such a thing as well-formed HTML?',
+	'localcache' => 'Local cache does not exist. IT\'S GONE! ALL GONE!',
+	'auth' => 'You are not authorized.',
+	'password' => 'Wrong password.'
 );
 
 // security and prompt
@@ -227,7 +227,7 @@ if(empty($output)) {
 			}
 			else error('notdomain');
 		}
-		else output('<p class="error">'.$joshua.'You need to specify a domain name.</p><p class="example">'.$command.' binaerpilot.no</p>');
+		else output('<p class="error">'.$joshua.'I need a domain to lookup.</p><p class="example">'.$command.' binaerpilot.no</p>');
 	}
 
 	// prime number
@@ -243,7 +243,7 @@ if(empty($output)) {
 			}
 			else output($option.' is a prime number.');
 		}
-		else output('<p class="error">'.$joshua.'You need to specify a number.</p><p class="example">prime 13</p>');
+		else output('<p class="error">'.$joshua.'You have to tell me a number.</p><p class="example">prime 13</p>');
 	}
 
 	// locate
@@ -393,7 +393,7 @@ if(empty($output)) {
 	// wtfig
 	if($command == "wtfig" || $command == "figlet") {
 		if(!isset($option)) {
-			output('<p class="error">'.$joshua.'You need to specify font and caption. See available fonts with <span class="command">wtfig list</span>.</p><p class="example">wtfig chunky Awesome!</p>');
+			output('<p class="error">'.$joshua.'Tell me which font to use and what you want to figletize. (See available fonts with <span class="command">wtfig list</span>.)</p><p class="example">wtfig chunky w00t!</p>');
 		}
 		else {
 			if(file_exists("wtfig/fonts/$option.flf")) {
@@ -424,7 +424,7 @@ if(empty($output)) {
 				sort($fontList); $fonts = implodeHuman($fontList);
 				$output = '<p>'.$fonts.'.</p>';
 				if($option != "list") {
-					$output = '<p class="error">'.$joshua.'Invalid font. See list below.</p>'.$output;
+					$output = '<p class="error">'.$joshua.'I don\'t have that font. See list below.</p>'.$output;
 				}
 				output($output);
 			}
@@ -456,13 +456,13 @@ if(empty($output)) {
 					}
 					print '</table>'; $output = 1;
 				}
-				else output('<p class="error">'.$joshua.'There were no results for <b>'.$query.'</b>.</p>');
+				else output('<p class="error">'.$joshua.'<b>'.$query.'</b> returned nothing.</p>');
 			}
 			else {
 				error('timeout');
 			}
 		}
-		else output('<p class="error">'.$joshua.'You need to specify something to look for.</p><p class="example">get binaerpilot</p>');
+		else output('<p class="error">'.$joshua.'You need to tell me something to look for.</p><p class="example">get binaerpilot</p>');
 	}
 
 	// themes
@@ -480,7 +480,7 @@ if(empty($output)) {
 			setcookie('theme', $option, $expires, '/');
 			output('<script>location.reload();</script>');
 		}
-		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
+		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
 	}
 
 	// presets
@@ -509,11 +509,11 @@ if(empty($output)) {
 			}
 			output('<meta http-equiv="refresh" content="0">');
 		}
-		else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($presets).'.</p><p class="example">'.$command.' '.$presets[rand(0,count($presets)-1)].'</p>');
+		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($presets).'.</p><p class="example">'.$command.' '.$presets[rand(0,count($presets)-1)].'</p>');
 	}
 
-	// superplastic
-	if($command == "superplastic") {
+	// superplastic scores
+	if($command == "scores") {
 		if(!empty($_POST['name'])) $name = strip_tags(trim($_POST['name']));
 		if(!empty($_POST['score'])) $score = strip_tags(trim($_POST['score']));
 		$storage = "superplastic.data";
@@ -559,7 +559,7 @@ if(empty($output)) {
 		if(isset($option)) {
 			output('<p>'.md5($option).'</p>');
 		}
-		else output('<p class="error">'.$joshua.'You need to specify a string.</p><p class="example">md5 joshua</p>');
+		else output('<p class="error">'.$joshua.'Can\'t encode an empty string.</p><p class="example">md5 joshua</p>');
 	}
 
 	// reviews
@@ -651,7 +651,33 @@ if(empty($output)) {
 				'<script>speak(\''.$say.'\', { pitch:75, speed:120 });</script>';
 			$output = 1;
 		}
-		else output('<p class="error">'.$joshua.'You need to specify a string.</p><p class="example">say hello</p>');
+		else output('<p class="error">'.$joshua.'What do you want me to say?</p><p class="example">say hello</p>');
+	}
+	
+	// window management
+	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'gallery', 'music', 'videos', 'superplastic');
+	if(in_array($command, $jsCommands)) {
+		if($command == "clear" || $command == "cls") {
+			$js = 'clearScreen();';
+		}
+		else if($command == "exit" || $command == "quit" || $command == "logout") {
+			$js = 'window.location = "http://einhyrning.com"';
+		}
+		else if($command == "superplastic") {
+			$js = 'loadSuperplastic();';
+		}
+		else if($command == "videos") {
+			$js = 'loadVideos();';
+		}
+		else if($command == "customize" || $command == "gallery" || $command == "music") {
+			setcookie($command, true, $expires, '/');
+			$js = '$("#'.$command.':hidden").fadeIn(fade); $("#'.$command.'Open").addClass("active");';
+			if($command == "music") {
+				$js .= 'mute();';
+			}
+		}
+		$js .= 'systemReady();';
+		output('<script>'.$js.'</script>');
 	}
 
 	// fallback

@@ -45,7 +45,7 @@ function timer() {
 }
 function submitScore() {
 	var playerName = $('#playerName').val();
-	var saveScore = $('<div id="highscore"/>').load('../joshua.php', {command: "superplastic", name: playerName, score: playerScore}, function() {
+	var saveScore = $('<div id="highscore"/>').load('../joshua.php', {command: "scores", name: playerName, score: playerScore}, function() {
 		if(playerName != "Anonymous") createCookie("player", playerName, 1095);
 		window.location.reload();
 	});
@@ -223,7 +223,7 @@ shoe.prototype = new freight();
 // game framework
 $(function() {
 	// load highscores
-	var result = $('<div id="highscore"/>').load('../joshua.php', {command: "superplastic"}, function() {
+	var result = $('<div id="highscore"/>').load('../joshua.php', {command: "scores"}, function() {
 		result.appendTo('#welcome');
 	});
 

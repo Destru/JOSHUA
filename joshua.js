@@ -443,51 +443,30 @@ $(function() {
 	boot();
 	$('#prompt').on('keydown', function(e) { // key pressed
 		$('title').html(title+'Listening...'); // listening to input
-		if(e.which == 13) { // command issued with enter	
+		if(e.which == 13) { // enter
 			$('title').html(title+'Running...'); // running command
 			$('#joshua').css('cursor', 'wait');
 			var dump = $(this).val(), // grab the input
 			input = dump.split(' '), // split the input
 			command = input[0],	option = input[1]; // command (option)
 			_gaq.push(['_trackPageview', '/'+command]); // track as a page view in analytics
-			// store history
 			if(command) {
+				// store history
 				hist.push(dump);
 				hist.unique();
 				position = hist.length;
+				$('#loader').fadeIn(250); // loader
+				// perform command
+				var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
+					$('#output').append(content);
+					init();
+					$('#loader').fadeOut(250);
+				});
 			}
-			// js commands
-			if(command == "clear" || command == "cls") clearScreen();
-			else if(command == "exit" || input == "quit" || input == "logout") window.location = "http://einhyrning.com";
-			// windows
-			else if(command == "customize" || command == "gallery" || command == "music") {
-				createCookie(command,'true',expires);
-				$('#'+command+':hidden').fadeIn(fade);
-				$('#'+command+'Open').addClass('active');
-				if(command == "music") {
-					if(muted) mute();
-				}
+			else {
 				systemReady();
 			}
-			else if(command == "superplastic") loadSuperplastic();
-			else if(command == "videos") loadVideos();
-			else if(command == "mute") mute();
-			else if(command == "reset") reset();
-			// come on my droogs
-			else if(command == "ultraviolence") fxInit('ultraviolence', true);
-			// engine
-			else {
-				if(command) {
-					$('#loader').fadeIn(250); // loader
-					var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
-						$('#output').append(content);
-						init();
-						$('#loader').fadeOut(250);
-					});
-				}
-				else systemReady();
-			}
-			// clear input data
+			// clear input
 			$("#prompt").val('');
 		}
 		// access history
