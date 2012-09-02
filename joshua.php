@@ -655,19 +655,22 @@ if(empty($output)) {
 	}
 	
 	// window management
-	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'gallery', 'music', 'videos', 'superplastic');
+	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'gallery', 'music', 'videos', 'superplastic', 'reset');
 	if(in_array($command, $jsCommands)) {
 		if($command == "clear" || $command == "cls") {
 			$js = 'clearScreen();';
 		}
 		else if($command == "exit" || $command == "quit" || $command == "logout") {
-			$js = 'window.location = "http://einhyrning.com"';
+			$js = 'window.location = "http://binaerpilot.no"';
 		}
 		else if($command == "superplastic") {
 			$js = 'loadSuperplastic();';
 		}
 		else if($command == "videos") {
 			$js = 'loadVideos();';
+		}
+		else if($command == "reset") {
+			$js = 'reset();';
 		}
 		else if($command == "customize" || $command == "gallery" || $command == "music") {
 			setcookie($command, true, $expires, '/');
@@ -677,7 +680,8 @@ if(empty($output)) {
 			}
 		}
 		$js .= 'systemReady();';
-		output('<script>'.$js.'</script>');
+		print '<script>'.$js.'</script>';
+		$output = 1;
 	}
 
 	// fallback
