@@ -138,7 +138,7 @@ function cakeDay($date) {
 $error = array(
 	'404' => 'I couldn\'t find that.',
 	'invalid' => 'Invalid command.',
-	'blocked' => 'That input shall not pass!',
+	'blocked' => 'You shall not pass!',
 	'notip' => 'That\'s not an IP. Regex never lies.',
 	'notdomain' => 'You call that a domain name?',
 	'noreturn' => 'Executing <b>'.$command.'</b> on this system returned nothing. I am disappoint.',
@@ -161,7 +161,7 @@ if(!empty($command)) {
 		else $prompt = '<div class="prompt">'.$command.'</div>';
 	}
 	else {
-		$prompt = '<div class="prompt"></div>';
+		$prompt = '<div class="prompt">blocked</div>';
 		error('blocked');
 	}
 }
