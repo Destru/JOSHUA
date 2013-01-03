@@ -111,17 +111,15 @@ function api($game, $api) {
 	}
 	else if($game == 'tsw') {
 		$actives = ''; $passives = '';
-		$iconSize = '32';
+		$iconSize = '24';
 		foreach($api->actives as $slot) {
-			$actives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;">'.
-				'<img src="'.$slot->image->background.'" class="background" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:1;">'.
-				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:2;">'.
+			$actives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.35);padding:2px;">'.
+				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
 				'</div>';
 		}
 		foreach($api->passives as $slot) {
-			$passives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;">'.
-				'<img src="'.$slot->image->background.'" class="background" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:1;">'.
-				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'" style="position:absolute;z-index:2;">'.
+			$passives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.15);padding:2px;">'.
+				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
 				'</div>';
 		}
 		$output = '<table class="fluid">'.
@@ -129,7 +127,7 @@ function api($game, $api) {
 			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
 			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
-			'<tr><td class="dark">Build</td><td>'.$actives.'<br>'.$passives.'</td></tr>';
+			'<tr><td class="dark">Build</td><td style="clear:both;">'.$actives.'<br>'.$passives.'</td></tr>';
 		$output .= '</table>';
 	}
 	return $output;
