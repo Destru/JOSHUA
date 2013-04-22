@@ -50,7 +50,6 @@ function clearInput() {
 	}, 50);
 }
 function scrollCheck() {
-	$('html, body, #output').clearQueue().stop(); // fix stutters
 	if(terminal) {
 		$('html, body').animate({scrollTop: $(document).height()}, 1000);
 		$('.output:last .prompt').prepend('<span class="prefix">'+termPrompt+'</span>');
