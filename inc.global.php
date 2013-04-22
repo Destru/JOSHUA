@@ -4,7 +4,7 @@ if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
 	header("Location: http://joshua.chronicless.com");
 	exit();
 }
-$version = "9.5";
+$version = "9.6";
 $versionName = "Mono";
 $defaultTheme = "mono";
 $header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';

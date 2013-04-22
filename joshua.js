@@ -9,7 +9,7 @@ var hist = [], // history (arrow up/down)
 	drawing = false, // drawing?
 	focus = true, // steal focus
 	terminal = false, // terminal style layout
-	terminals = ['pirate', 'helvetica', 'mono', 'c64'], // terminal themes
+	terminals = ['pirate', 'helvetica', 'mono', 'c64', 'eve'], // terminal themes
 	windows = ['customize', 'music', 'gallery', 'superplastic', 'videos']; // common windows
 if(theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true; // nextgen themes
 if(nextgen) windows.push('joshua');
@@ -50,6 +50,7 @@ function clearInput() {
 	}, 50);
 }
 function scrollCheck() {
+	$('html, body, #output').clearQueue().stop(); // fix stutters
 	if(terminal) {
 		$('html, body').animate({scrollTop: $(document).height()}, 1000);
 		$('.output:last .prompt').prepend('<span class="prefix">'+termPrompt+'</span>');
@@ -284,14 +285,21 @@ function chromeInit() {
 		createCookie('background', background, expires);
 	});
 	// miscellaneous
-	$('.version tr.major').show(); // version log
-	$('.version .toggle').click(function() {
+	$('#version tr.major').show(); // version log
+	$('#version .toggle').click(function() {
 		$(this).remove();
-		$('.version tr').show();
+		$('#version tr').show();
 		scrollCheck();
 	});
 	$("a[href^='http']").attr('target','_blank'); // ext. links in new window
 	$('#desktop, .tiny').addClass('clearfix'); // floats
+	// mouse helpers
+	$('.command').off('click');
+	$('.command').on('click', function(e){
+		var command = $(this).text(),
+			e = $.Event('keydown', { which: $.ui.keyCode.ENTER });
+		$('#prompt').val(command).trigger(e);
+	});
 }
 
 // chrome magic

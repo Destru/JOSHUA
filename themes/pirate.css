@@ -44,7 +44,6 @@ h1, h2 {
 	border:none;
 	width:460px;
 	position:relative;
-	left:-1px;
 }
 .prefix {
 	float:left;

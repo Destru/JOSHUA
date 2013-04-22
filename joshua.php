@@ -13,7 +13,7 @@ unset($output);
 function error($id, $inline=null) {
 	global $error, $command, $prompt, $joshua;
 	if(!$inline) print $prompt;
-	print '<p class="error">'.$joshua.$error[$id].'</p>';
+	print '<p class="joshua error">'.$joshua.$error[$id].'</p>';
 	die();
 }
 function output($response) {
@@ -118,10 +118,16 @@ function dbFile($file) {
 	}
 	else error('localcache');
 }
-function implodeHuman($a) {
+function implodeHuman($a, $command=false) {
 	$last = array_pop($a); 
-	if (!count($a)) return $last;
-	return implode (', ', $a).' and '.$last; 
+	if ($command) {
+		if (!count($a)) return '<span class="command">'.$last.'</span>';
+		return '<span class="command">'.implode('</span>, <span class="command">', $a).'</span> and <span class="command">'.$last.'</span>';
+	}
+	else {
+		if (!count($a)) return $last;
+		return implode(', ', $a).' and '.$last; 	
+	}
 }
 function deleteCookie($cookie) {
 	setcookie($cookie, '', time()-60*60*24*365, '/');
@@ -137,33 +143,26 @@ function cakeDay($date) {
 // errors	
 $error = array(
 	'404' => 'I couldn\'t find that.',
-	'invalid' => 'Invalid command.',
-	'blocked' => 'You shall not pass!',
+	'invalid' => 'I don\'t understand. Do you need some <span class="command">help</span>?',
+	'blocked' => 'Invalid input. This shouldn\'t get triggered anymore so not sure what you\'re doing.',
 	'notip' => 'That\'s not an IP. Regex never lies.',
 	'notdomain' => 'You call that a domain name?',
-	'noreturn' => 'Executing <b>'.$command.'</b> on this system returned nothing. I am disappoint.',
-	'timeout' => 'I\'m asking nicely but the server did not respond.',
+	'noreturn' => 'Executing <span class="command">'.$command.'</span> on this system returned nothing. I am disappoint.',
+	'timeout' => 'I\'m asking ever so nicely but the server did not respond.',
 	'empty' => 'That API is not responding. Or I have been throttled. Either way it sucks.',
-	'invalidxml' => 'API returned malformed XML. A common mistake.',
+	'invalidxml' => 'API returned malformed XML. XML sucks.',
 	'invalidjson' => 'API returned malformed JSON. How can you mess up JSON?',
 	'invalidhtml' => 'API returned malformed HTML. Is there even such a thing as well-formed HTML?',
 	'localcache' => 'Local cache does not exist. IT\'S GONE! ALL GONE!',
-	'auth' => 'You are not authorized.',
+	'auth' => 'You are not authorized. Go away.',
 	'password' => 'Wrong password.'
 );
 
-// security and prompt
+// prompt
 if(!empty($command)) {
 	$noReturn = array('msg', 'reply', 'sudo'); // these commands should not return input
-	$pattern = "/^[[:alnum:][:space:]:.\,\'\'-?!\*+%]{0,160}$/";
-	if(!empty($dump) && preg_match($pattern, $dump) || empty($dump)) {
-		if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
-		else $prompt = '<div class="prompt">'.$command.'</div>';
-	}
-	else {
-		$prompt = '<div class="prompt">blocked</div>';
-		error('blocked');
-	}
+	if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
+	else $prompt = '<div class="prompt">'.$command.'</div>';
 }
 
 // output
@@ -320,8 +319,7 @@ if(empty($output)) {
 			$limit = 20;
 			if($option == "listall") $limit = count($messages);
 			for ($i = 0; $i < $limit; $i++) {
-				if(isset($messages[$i]['ip'])) $output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td class="dark">'.$messages[$i]['ip'].'</td></tr>';
-				else  $output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.$messages[$i]['message'].'</td><td></td></tr>';
+				$output .= '<tr><td class="light">'.$messages[$i]['timestamp'].'</td><td>'.stripslashes($messages[$i]['message']).'</td><td></td></tr>';
 			}
 			$output .= '</table>';
 			if(isset($msgTooShort)) output('<p class="error">'.$joshua.'Message is too short.</p>');

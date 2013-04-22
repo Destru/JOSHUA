@@ -34,7 +34,7 @@ h1, h2, h3, h4 {
 .clear {
 	clear:both;
 }
-#desktop a, .close, .tiny li {
+.command, #desktop a, .close, .tiny li {
 	cursor:pointer;
 }
 .contra, .extra {
@@ -73,13 +73,13 @@ td.command {
 }
 
 /* table expander */
-.version a.toggle, .output a.external {
+#version a.toggle, .output a.external {
 	cursor:pointer;
 	font-size:75%;
 	line-height:25px;
 	font-weight:bold;
 }
-.version tr {
+#version tr {
 	display:none;
 }
 
@@ -121,7 +121,7 @@ td.command {
 table.fluid {
 	width:auto;
 }
-.version td:first-child {
+#version td:first-child {
 	vertical-align:top;
 }
 .menu a {
@@ -137,9 +137,6 @@ table.fluid {
 }
 .tiny .lcars {
 	text-transform:uppercase;
-}
-tr.major .command {
-	text-transform:lowercase;
 }
 
 /* gallery */
@@ -191,6 +188,9 @@ pre, .pre, p.irc, .fixed-width {
 	font-family:'Consolas', 'Monaco';
 	font-size:11px;
 	line-height:1.4em;
+}
+#version .fixed-width {
+	white-space:nowrap;
 }
 pre.ascii {
 	line-height:1.2em;

@@ -184,9 +184,12 @@ table.torrents td a:hover {
 #desktop ul#links {
 	opacity:0.5;
 }
-.tiny li:hover, .close:hover, #desktop a:hover {
+.tiny li:hover, #desktop a:hover {
 	border-color:#68b8ff;
 	color:#68b8ff;
+}
+.close:hover {
+	border-color:#68b8ff;	
 }
 #desktop a.active {
 	color:#68b8ff;

@@ -1,5 +1,5 @@
 /*
- * contra
+ * nextgen: contra
  */
 body {
 	background-color:#152521;
@@ -45,4 +45,7 @@ a, .joshua, .error {color:#ccab60;}
 .tiny li:hover, .button:hover, .button.playing {
 	background-color:#c28934;
 	color:#4e1616;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#152521;
 }

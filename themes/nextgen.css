@@ -20,9 +20,13 @@
 	font-family:'Tempesta Extended Bold';
 	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
 }
+.fixed-width {
+	font-smoothing:none;
+	-webkit-font-smoothing:none;
+}
 #joshua {
 	z-index:10;
-	height:530px;
+	height:525px;
 	padding:10px;
 	position:absolute;
 	left:50%; top:50%;
@@ -37,7 +41,7 @@
 	padding:5px;
 }
 #output {
-	height:450px;
+	height:445px;
 	padding:0 10px;
 	width:720px;
 	overflow-x:hidden;
@@ -51,21 +55,25 @@ p, pre, table {
 	width:710px;
 }
 input#prompt {
-	font-family:Helvetica, Arial;
-	font-size:12px;
+	font-smoothing:none;
+	-webkit-font-smoothing: none;
+	font-family:'Tempesta', Helvetica, Arial;
+	font-size:8px;
 	background:transparent;
 	border:none;
 	overflow:hidden;
 	margin-left:2px;
 	text-transform:lowercase;
 	height:18px;
-	line-height:18px;
+	line-height:14px;
 }
 
 /* blocks */
 body {
-	font-family:Helvetica, Arial;
-	font-size:14px;
+	font-smoothing:none;
+	-webkit-font-smoothing: none;
+	font-family:'Tempesta',Helvetica, Arial;
+	font-size:8px;
 }
 h1 {
 	cursor:move !important;
@@ -92,6 +100,8 @@ td.command {
 	min-width:150px;
 }
 .close {
+	font-smoothing:none;
+	-webkit-font-smoothing: none;
 	font-family:'Tempesta';
 	font-size:9px;
 	float:right;
@@ -141,7 +151,7 @@ h1, h2, #input {
 
 /* typography */
 p, ul, ol, table {
-	line-height:18px;
+	line-height:14px;
 }
 h1, h2, h1 b, h2 b {
 	font-family: 'Tempesta Extended', Helvetica, Arial;

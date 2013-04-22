@@ -24,7 +24,7 @@ body {background-color:#eee;color:#444;}
 	color:#777;
 	text-transform:uppercase;
 	line-height:9px;
-	padding:10px 0;
+	padding:10px 10px;
 }
 .example, .light, a, .joshua, .error, .command {color:#09f;}
 .close, .close:hover {color:#999;}
