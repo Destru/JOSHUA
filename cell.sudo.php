@@ -6,7 +6,7 @@ if($command == "sudo") {
 	else {
 		if($dump == "sudo make me a sandwich") output('<p class="joshua">'.$joshua.'Okay.</p>');
 		else {
-			if(md5($option) == "7f307a13c39f73fdc18a11ef01e05661") {
+			if(hash('sha512', $option) == '289f1f350289cc9493ce6c83d378e068c7c481e3dd8c8572e084dc532468a5e0f462f003612098d11618910294008e063b868edc845cd95a68cee5af3a71fcbf') {
 				$_SESSION['sudo'] = 1;
 				output('<p class="joshua">'.$joshua.'Authentification successful.</p>');
 			}

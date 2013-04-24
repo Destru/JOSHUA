@@ -160,7 +160,7 @@ $error = array(
 
 // prompt
 if(!empty($command)) {
-	$noReturn = array('msg', 'reply', 'sudo'); // these commands should not return input
+	$noReturn = array('msg', 'reply', 'sudo', 'hash'); // these commands should not return input
 	if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
 	else $prompt = '<div class="prompt">'.$command.'</div>';
 }
@@ -552,12 +552,19 @@ if(empty($output)) {
 		else output('<p class="error">'.$joshua.'There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
 	}
 	
-	// md5
-	if($command == "md5") {
+	// hashing
+	if($command == "hash" || $command == "crypt" || $command == "md5" || $command == "sha1") {
+		$example = '<p class="example">hash md5 joshua</p>';
 		if(isset($option)) {
-			output('<p>'.md5($option).'</p>');
+			$string = trim(str_replace($option, '', str_replace($command, '', $dump)));
+			if(strlen($string) > 0) {
+				output('<p>'.hash($option, $string).'</p>');
+			}
+			else {
+				output('<p class="error">'.$joshua.'You need to specify both an algorithm and a string.</p>'.$example);
+			}
 		}
-		else output('<p class="error">'.$joshua.'Can\'t encode an empty string.</p><p class="example">md5 joshua</p>');
+		else output('<p class="error">'.$joshua.'Can\'t hash an empty string.</p>'.$example);
 	}
 
 	// reviews
