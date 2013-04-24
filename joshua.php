@@ -319,7 +319,7 @@ if(empty($output)) {
 			$limit = 20;
 			if($option == "listall") $limit = count($messages);
 			for ($i = 0; $i < $limit; $i++) {
-				$output .= '<tr><td class="light fixed-width">'.$messages[$i]['timestamp'].'</td><td>'.stripslashes($messages[$i]['message']).'</td><td></td></tr>';
+				$output .= '<tr><td class="dark fixed-width">'.$messages[$i]['timestamp'].'</td><td>'.stripslashes($messages[$i]['message']).'</td><td></td></tr>';
 			}
 			$output .= '</table>';
 			if(isset($msgTooShort)) output('<p class="error">'.$joshua.'Message is too short.</p>');

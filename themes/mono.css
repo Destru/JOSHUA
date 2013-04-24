@@ -25,6 +25,9 @@ a {
 	position:relative;
 	left:-1px; top:3px;
 }
+.fixed-width {
+	font-family:'Ubuntu Mono', fixed-width;
+}
 .prefix {
 	float:left;
 }
