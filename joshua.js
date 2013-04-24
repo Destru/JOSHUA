@@ -51,11 +51,11 @@ function clearInput() {
 }
 function scrollCheck() {
 	if(terminal) {
-		$('html, body').animate({scrollTop: $(document).height()}, 1000);
+		$('html, body').animate({scrollTop: $(document).height()}, 250);
 		$('.output:last .prompt').prepend('<span class="prefix">'+termPrompt+'</span>');
 	}
 	else {
-		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 1000);
+		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 250);
 	}
 }
 function mute() {
