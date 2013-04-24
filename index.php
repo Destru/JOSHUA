@@ -10,7 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="robots" content="index,follow,noarchive">
 	<meta name="language" content="en">
-	<title>JOSHUA (jQuery Operating System, HUA!)</title>
+	<title>JOSHUA (jQuery Operating System, HUA!) - Alexander Støver's Homepage</title>
 	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named JOSHUA. Go Team Norway!">
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
@@ -29,7 +29,7 @@
 	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="resources/joshua.external.js"></script>
 	<script>
 		// global settings

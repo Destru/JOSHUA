@@ -313,7 +313,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="fixed-width">9.6</td>
-			<td>Usability update: More relaxed security, possible to click commands, other miscellaneous tweaks.</td>
+			<td>Usability/compability update. More relaxed security, possible to click commands, upgraded all externals where relevant, several tweaks to existing themes.</td>
 		</tr>
 		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
 	</table>',

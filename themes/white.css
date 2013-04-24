@@ -20,11 +20,16 @@ body {background-color:#eee;color:#444;}
 	background-color:#e4e4e4;
 }
 #joshua h1 {
+	position:relative;
+	z-index:10;
 	background-color:transparent;
 	color:#777;
 	text-transform:uppercase;
 	line-height:9px;
-	padding:10px 10px;
+	margin-bottom:0;
+}
+#output {
+	height:450px;
 }
 .example, .light, a, .joshua, .error, .command {color:#09f;}
 .close, .close:hover {color:#999;}
@@ -37,8 +42,8 @@ h1 .dark {
 }
 /* images */
 ul.icons li a {
-	color:#555;
-	background-image:url("../images/icons.png");
+	color:rgba(0,0,0,0.5);
+	background-image:url("../images/iconsWhite.png");
 }
 
 body {
@@ -70,4 +75,10 @@ body {
 }
 ::-webkit-scrollbar-track {
 	background-color:#e4e4e4;
+}
+#output:before {
+	background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+#input:before {
+	background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
 }

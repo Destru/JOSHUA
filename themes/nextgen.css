@@ -20,13 +20,9 @@
 	font-family:'Tempesta Extended Bold';
 	src: url('../fonts/pf_tempesta_seven_extended_bold.ttf') format("truetype");
 }
-.fixed-width {
-	font-smoothing:none;
-	-webkit-font-smoothing:none;
-}
 #joshua {
 	z-index:10;
-	height:525px;
+	height:520px;
 	padding:10px;
 	position:absolute;
 	left:50%; top:50%;
@@ -41,7 +37,7 @@
 	padding:5px;
 }
 #output {
-	height:445px;
+	height:440px;
 	padding:0 10px;
 	width:720px;
 	overflow-x:hidden;
@@ -103,7 +99,7 @@ td.command {
 	font-smoothing:none;
 	-webkit-font-smoothing: none;
 	font-family:'Tempesta';
-	font-size:9px;
+	font-size:8px;
 	float:right;
 	position:absolute;
 	top:15px;
@@ -128,7 +124,7 @@ ol, ul, .motd, .prompt {
 	margin-bottom:10px;
 }
 .output {
-	margin-bottom:20px;
+	margin:10px 0 20px 0;
 }
 
 /* rounders, cursors */
@@ -231,7 +227,7 @@ ul.icons li a {
 	background-repeat:no-repeat;
 	background-position:36px 0;
 	padding-top:36px;
-	opacity:0.75;
+	opacity:0.5;
 }
 ul.icons li a.external {
 	background-position:37px -64px;
@@ -344,7 +340,7 @@ body {
 	color:#fff;
 }
 #joshua {
-	background-color:#262626;
+	background-color:rgb(40,40,40);
 }
 #sliders .frame {
 	background-color:#444;
@@ -423,4 +419,22 @@ h2.presets {
 }
 ::-webkit-scrollbar-track {
 	border-radius:5px;
+}
+
+/* shaders
+ */
+#output:before {
+	position:absolute;
+	content:"";
+	width:720px;
+	height:10px;
+	background: linear-gradient(to bottom, rgba(40,40,40,1), rgba(40,40,40,0));
+}
+#input:before {
+	position:absolute;
+	content:"";
+	width:720px;
+	height:10px;
+	background: linear-gradient(to top, rgba(40,40,40,1), rgba(40,40,40,0));
+	margin-top:-25px;
 }

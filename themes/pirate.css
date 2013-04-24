@@ -15,6 +15,9 @@ body {
 a {
 	text-decoration:none;
 }
+p a {
+	border-bottom:solid 1px #004353;
+}
 .window {
 	background-color:rgba(24,24,24,0.5);
 	color:#ccc;
@@ -65,7 +68,7 @@ td {
 	padding-left:10px;
 }
 .joshua, .error, a {
-	color:#00bff3;
+	color:#00becd;
 }
 .prompt b, .prefix b {
 	font-weight:normal;
@@ -75,7 +78,7 @@ td {
 	color:#00e5f3;
 }
 .window a {
-	color:#00bff3;
+	color:#00becd;
 }
 .tiny li {
 	float:left;
@@ -94,8 +97,8 @@ a.close {
 	color:#333;
 }
 a.close:hover {
-	background-color:#00bff3;
-	color:#00bff3;
+	background-color:#00becd;
+	color:#00becd;
 }
 a.close, .image, .image {
 	border-radius:3px;
@@ -106,13 +109,13 @@ a.close, .image, .image {
 	margin-top:5px;
 }
 .tiny li:hover , .menu a:hover, a.playing {
-	color:#00bff3;
+	color:#00becd;
 }
 .tiny {
 	margin-bottom:20px;
 }
 ::selection {
-	background-color:#00bff3;
+	background-color:#00becd;
 	color:#fff;
 }
 #fx {

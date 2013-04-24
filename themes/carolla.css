@@ -32,3 +32,9 @@ body {
 ::-webkit-scrollbar-thumb {
 	background-color:#002933;
 }
+#output:before {
+	background: linear-gradient(to bottom, rgba(2,52,62,1), rgba(2,52,62,0));
+}
+#input:before {
+	background: linear-gradient(to top, rgba(2,52,62,1), rgba(2,52,62,0));
+}
