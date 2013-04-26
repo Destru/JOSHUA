@@ -215,7 +215,7 @@ table.torrents td a:hover {
 }
 
 /* colors */
-h1 .dark, #input #prompt, .error, .joshua, a, .command, .example {
+h1 .dark, #input #prompt, .joshua, a, .command, .example {
 	color:#68b8ff;
 }
 .dark {
@@ -228,7 +228,7 @@ h1 .dark, #input #prompt, .error, .joshua, a, .command, .example {
 .black {
 	display:none;
 }
-.pink, .error {
+.pink, .error, .error .command {
 	color:#f0f;
 }
 .light {
@@ -236,6 +236,9 @@ h1 .dark, #input #prompt, .error, .joshua, a, .command, .example {
 }
 .command {
 	text-transform:lowercase;
+}
+p .command {
+	font-weight:bold;
 }
 h1 {
 	line-height:24px;
