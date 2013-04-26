@@ -298,28 +298,22 @@ input[type="search"] {
 
 /* pulsar */
 body.pulsar {
-	-webkit-animation:pulsar 50s infinite linear;
+	-webkit-animation:pulsar 60s infinite linear;
 }
 @-webkit-keyframes pulsar {
 	0% {
-		background-color:#e93b73;
+		background-color:#5AAC00;
 	}
-	15% {
-		background-color:#ff6a00;
+	25% {
+		background-color:#004C79;
 	}
-	30% {
-		background-color:#e7e93b;
-	}
-	45% {
-		background-color:#47e93b;
-	}
-	60% {
-		background-color:#3bd2e9;
+	50% {
+		background-color:#BE6900;
 	}
 	75% {
-		background-color:#3bd2e9;
+		background-color:#A6003D;
 	}
 	100% {
-		background-color:#e93b73;
+		background-color:#5AAC00;
 	}
 }

@@ -339,9 +339,10 @@ function chromeMagic() {
 			else if(team == "orange") color = colors[5];
 			team = team.charAt(0).toUpperCase() + team.slice(1);
 			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny li:hover, .close:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
+				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny li:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
 				'#desktop li a.active {color:#'+color+'}'+
 				'.menu li a.playing, .menu li a.playing:hover {background-color:#'+color+'}'+
+				'.close:hover {border-color:#'+color+'}'+
 				'.light {color:#'+color+'; opacity:0.5;}';
 			$('body').append('<div id="custom">');
 			$('#custom').html('<style type="text/css">'+css+'</style>');
