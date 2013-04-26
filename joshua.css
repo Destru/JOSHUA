@@ -59,8 +59,8 @@ td.command {
 
 /* pixel people! */
 .speechBubble {
-	padding:5px 10px;
-	margin-bottom:0px;
+	padding:5px 10px !important;
+	margin-bottom:0 !important;
 	max-width:225px;
 	background-color:#fff;
 	color:#000;
