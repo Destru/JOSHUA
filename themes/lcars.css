@@ -148,6 +148,9 @@ b {
 #joshua .st {
 	margin-bottom:18px;
 }
+.window, .window .st {
+	background-color:#fc9;
+}
 #prompt {
 	margin-top:20px;
 	padding:3px 10px;
@@ -175,19 +178,10 @@ b {
 	display:block;
 	border-left:solid 10px #833;
 	padding-left:10px;
-	margin-top:6px;
+	outline:solid 2px #000;
 }
 .menu a.playing, .menu a:hover {
 	border-color:#c66;
-}
-#superplastic {
-	padding:0 !important;
-}
-#superplastic .st {
-	border-top-left-radius:10px;
-	border-top-right-radius:10px;
-	-webkit-border-top-left-radius:10px;
-	-webkit-border-top-right-radius:10px;
 }
 #desktop a, .tiny li, .prompt, h1, h2 {
 	font-size:18px;
@@ -215,7 +209,7 @@ h1, h2 {
 	background-color:#000;
 	float:left;
 }
-.window, .window .st, #joshua .st {
+#joshua .st {
 	background-color:#f90;
 }
 

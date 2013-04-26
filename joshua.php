@@ -432,23 +432,27 @@ if(empty($output)) {
 	// get (torrents)
 	if($command == "get" || $command == "torrents" || $command == "torrent") {
 		if(isset($option)) {
-			$rows = 20; $query = str_replace($command.' ', '', $dump);
-			$url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&rows='.$rows.'&sort=seeds';
+			$query = str_replace($command.' ', '', $dump);
+			$rows = 25; $url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&sort=seeds&rows='.$rows;
 			$content = get($url);
 			if($content) {
 				print '<div class="prompt">'.$command.' <b>'.$query.'</b></div>';
 				$c = json_decode($content, true);
-				if($c['total_results'] > 0) {
+				$hits = $c['total_results'];
+				if ($hits > 0) {
 					print '<table class="torrents">';
+					if ($rows > $hits) $rows = $hits;
 					for ($i = 0; $i < $rows; $i++) {
 						$name = $c['items']['list'][$i]['title'];
 						$link = $c['items']['list'][$i]['link'];
 						$size = $c['items']['list'][$i]['size'];
 						$seeds = $c['items']['list'][$i]['Seeds'];
 						$leechers = $c['items']['list'][$i]['leechers'];
+						if (!$seeds) $seeds = 0;
+						if (!$leechers) $leechers = 0;						
 						$title = $name.' ('.$size.')';
 						if(strlen($name) > 83) $name = substr($name, 0, 80).'...';
-						if(!empty($link) && !empty($seeds)) {
+						if(!empty($link)) {
 							print '<tr><td class="torrent"><a href="'.$link.'" title="'.$title.'">'.$name.'</a></td><td class="dark">'.$seeds.'/'.$leechers.'</td></tr>';
 						}
 					}
