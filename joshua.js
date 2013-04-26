@@ -75,11 +75,9 @@ function fxStop() {
 	var cookie = readCookie('fx');
 	if(cookie) {
 		$('.spark, #malkovich, .brush, #cylon').remove();
+		$('body').removeClass('pulsar');
 		if(cookie != "none") {
 			eraseCookie('fx');
-		}
-		if(cookie == "pulsar" || cookie == "spin") {
-			location.reload();
 		}
 		if(cookie == "draw") {
 			$(document).unbind('mousedown');
@@ -110,12 +108,8 @@ function fxInit(fx, runOnce) {
 			$('#malkovich:hidden').fadeIn(fade);
 		});
 	}
-	else if(fx == "spin") {
-		$('#joshua, .window').spin(10);
-	}
 	else if(fx == "pulsar") {
-		pulsar();
-		setInterval(pulsar, 30000);
+		$('body').addClass('pulsar');
 	}
 	else if(fx == "draw") {
 		var brush;
@@ -360,7 +354,7 @@ function chromeMagic() {
 		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
 	else if(theme == "diesel") {
-		var dieselChrome = 235;
+		var dieselChrome = $('#desktop').outerHeight()+120;
 		$('#output').css("height", $(window).height()-dieselChrome);
 		$(window).resize(function() {
 			$('#output').css("height", $(window).height()-dieselChrome);
@@ -384,7 +378,7 @@ function chromeMagic() {
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = 210;
+		var lcarsChrome = $('#desktop').outerHeight()+145;
 		$('#output').css("height", $(window).height()-lcarsChrome);
 		$(window).resize(function() {
 			$('#output').css("height", $(window).height()-lcarsChrome);
@@ -462,12 +456,12 @@ $(function() {
 				hist.push(dump);
 				hist.unique();
 				position = hist.length;
-				$('#loader').fadeIn(250); // loader
+				$('#loader').fadeIn(100); // loader
 				// perform command
 				var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
 					$('#output').append(content);
 					init();
-					$('#loader').fadeOut(250);
+					$('#loader').fadeOut(100);
 				});
 			}
 			else {

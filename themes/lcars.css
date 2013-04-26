@@ -8,7 +8,7 @@ body {
 	color:#fff;
 	font-size:14px;
 	line-height:18px;
-	background-image:url("../images/lcars.png");
+	background-image:url("../images/LCARS.png");
 	background-repeat:no-repeat;
 	background-position:50% 50%;
 	background-attachment:fixed;
@@ -237,4 +237,11 @@ h1, h2 {
 	border-radius:9px;
 	-webkit-border-radius:9px;
 	-moz-border-radius:9px;
+}
+
+#loader {
+	top:50%;left:50%;
+	width:200px;height:200px;
+	margin-left:-100px;margin-top:-100px;
+	background:url('../images/loaderLCARS.png') no-repeat center center;
 }

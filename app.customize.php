@@ -19,7 +19,6 @@
 		<li class="pulsar">Pulsar</li>
 		<li class="cylon">Cylon</li>
 		<li class="malkovich">Malkovich</li>
-		<li class="spin">Spin</li>
 	</ul>
 	<div class="tron extra">
 		<h2>Team</h2>

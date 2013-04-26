@@ -229,25 +229,28 @@ pre.ascii {
 }
 
 /*
- * loader only works in webkit (like everything else on this site)
+ * loader
  */
 #loader {
 	display:none;
-	z-index:100;
-	background:url(images/loader.png) no-repeat center center;
 	position:fixed;
-	top:20px; right:20px;
+	top:20px;right:20px;
+	z-index:100;
 	height:28px; width:28px;
-	border:2px solid hsla(0,0%,100%,0.25);
-	border-top:2px solid hsla(0,0%,100%,0);
-	border-bottom:2px solid hsla(0,0%,100%,0);
-	border-radius:28px;
-	-webkit-animation:spin 1s infinite linear;
+	background:url('images/loader.png') no-repeat center 6px;
+	border:none;
+	-webkit-animation:load 0.2s infinite linear;
 }
-@-webkit-keyframes spin {
-	0% { -webkit-transform:rotate(20deg); }
-	50% { -webkit-transform:rotate(-40deg); }
-	100% { -webkit-transform:rotate(-360deg); }
+@-webkit-keyframes load {
+	0% {
+		opacity:1;
+	}
+	50% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
 }
 
 /* cylon */
@@ -291,4 +294,32 @@ input[type="search"] {
 	width:560px;
 	font-family:Helvetica, Arial;
 	font-size:16px;
+}
+
+/* pulsar */
+body.pulsar {
+	-webkit-animation:pulsar 50s infinite linear;
+}
+@-webkit-keyframes pulsar {
+	0% {
+		background-color:#e93b73;
+	}
+	15% {
+		background-color:#ff6a00;
+	}
+	30% {
+		background-color:#e7e93b;
+	}
+	45% {
+		background-color:#47e93b;
+	}
+	60% {
+		background-color:#3bd2e9;
+	}
+	75% {
+		background-color:#3bd2e9;
+	}
+	100% {
+		background-color:#e93b73;
+	}
 }

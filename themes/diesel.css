@@ -226,3 +226,11 @@ table td {
 ::-webkit-scrollbar-thumb {
 	background-color:#464740;
 }
+
+/* 
+ * loader
+ */
+#loader {
+	background:url('../images/loaderDiesel.png') no-repeat center 6px;
+	-webkit-animation:load 0.2s infinite linear;
+}

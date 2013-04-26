@@ -133,3 +133,6 @@ td {
 .window, #superplastic {
 	position:fixed;
 }
+#loader {
+	background:url('../images/loaderWhite.png') no-repeat center 6px;
+}

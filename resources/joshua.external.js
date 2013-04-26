@@ -33,26 +33,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 */
 
 // sparks
-var Spark=function(a){var b=this;this.b='http://binaerpilot.no/alexander/images/';this.s=['spark.png','spark2.png','spark3.png','spark4.png'];this.i=this.s[this.random(this.s.length)];this.f=this.b+this.i;this.n=document.createElement('img');this.newSpeed().newPoint().display(a).newPoint().fly()};Spark.prototype.display=function(){$(this.n).attr('src',this.f).addClass("spark").css('position','absolute').css('z-index',this.random(9)).css('top',this.pointY).css('left',this.pointX);$(document.body).append(this.n);return this};Spark.prototype.fly=function(){var a=this;$(this.n).animate({"top":this.pointY,"left":this.pointX},this.speed,'linear',function(){a.newSpeed().newPoint().fly()})};Spark.prototype.newSpeed=function(){this.speed=(this.random(10)+5)*3000;return this};Spark.prototype.newPoint=function(){this.pointX=this.random(window.innerWidth-100);this.pointY=this.random(window.innerHeight-100);return this};Spark.prototype.random=function(a){return Math.ceil(Math.random()*a)-1}
-// spin 
-$.fn.spin=function(a){moz=$(this).css('-moz-transform');webkit=$(this).css('webkit-transform');already_rotating=((moz!='none'&&webkit=='')||(moz==''&&webkit!='none'));var b=0;var c=0;if(already_rotating){return false}else if(a=='fast'){c=0.3}else if(a=='slow'){c=0.1}else if(typeof(a)=='number'){c=a/10}var d=this;setInterval(function(){b+=c;jQuery(d).css('webkit-transform','rotate(-'+b+'deg)');jQuery(d).css('-moz-transform','rotate(-'+b+'deg)')},50)}
-// color animations
-jQuery.each(['backgroundColor','borderBottomColor','borderLeftColor','borderRightColor','borderTopColor','color','outlineColor'],function(i,b){jQuery.fx.step[b]=function(a){if(a.state==0){a.start=getColor(a.elem,b);a.end=getRGB(a.end)}a.elem.style[b]="rgb("+[Math.max(Math.min(parseInt((a.pos*(a.end[0]-a.start[0]))+a.start[0]),255),0),Math.max(Math.min(parseInt((a.pos*(a.end[1]-a.start[1]))+a.start[1]),255),0),Math.max(Math.min(parseInt((a.pos*(a.end[2]-a.start[2]))+a.start[2]),255),0)].join(",")+")"}});function getRGB(a){var b;if(a&&a.constructor==Array&&a.length==3)return a;if(b=/rgb\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*\)/.exec(a))return[parseInt(b[1]),parseInt(b[2]),parseInt(b[3])];if(b=/rgb\(\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*\)/.exec(a))return[parseFloat(b[1])*2.55,parseFloat(b[2])*2.55,parseFloat(b[3])*2.55];if(b=/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/.exec(a))return[parseInt(b[1],16),parseInt(b[2],16),parseInt(b[3],16)];if(b=/#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])/.exec(a))return[parseInt(b[1]+b[1],16),parseInt(b[2]+b[2],16),parseInt(b[3]+b[3],16)];return colors[jQuery.trim(a).toLowerCase()]}function getColor(a,b){var c;do{c=jQuery.curCSS(a,b);if(c!=''&&c!='transparent'||jQuery.nodeName(a,"body"))break;b="backgroundColor"}while(a=a.parentNode);return getRGB(c)};
-// pulsar
-function pulsar() {
-	$('body').animate({backgroundColor:"#aa3be9"}, 1000);
-	$('body').css({
-		backgroundImage: 'url("images/pulsar.png")',
-		backgroundPosition: '0 0',
-		backgroundRepeat: 'repeat-y'
-	});
-	$('body').animate({backgroundColor:"#e93b73"}, 5000)
-		.animate({backgroundColor:"#ff6a00"}, 5000)
-		.animate({backgroundColor:"#e7e93b"}, 5000)
-		.animate({backgroundColor:"#47e93b"}, 5000)
-		.animate({backgroundColor:"#3bd2e9"}, 5000)
-		.animate({backgroundColor:"#aa3be9"}, 5000);
-}
+var Spark=function(a){var b=this;this.b='http://joshua.einhyrning.com/images/';this.s=['spark.png','spark2.png','spark3.png','spark4.png'];this.i=this.s[this.random(this.s.length)];this.f=this.b+this.i;this.n=document.createElement('img');this.newSpeed().newPoint().display(a).newPoint().fly()};Spark.prototype.display=function(){$(this.n).attr('src',this.f).addClass("spark").css('position','absolute').css('z-index',this.random(9)).css('top',this.pointY).css('left',this.pointX);$(document.body).append(this.n);return this};Spark.prototype.fly=function(){var a=this;$(this.n).animate({"top":this.pointY,"left":this.pointX},this.speed,'linear',function(){a.newSpeed().newPoint().fly()})};Spark.prototype.newSpeed=function(){this.speed=(this.random(10)+5)*3000;return this};Spark.prototype.newPoint=function(){this.pointX=this.random(window.innerWidth-100);this.pointY=this.random(window.innerHeight-100);return this};Spark.prototype.random=function(a){return Math.ceil(Math.random()*a)-1}
 // konami code
 var konami = readCookie('konami');
 if(!konami) {
