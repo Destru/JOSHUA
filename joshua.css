@@ -298,22 +298,22 @@ input[type="search"] {
 
 /* pulsar */
 body.pulsar {
-	-webkit-animation:pulsar 60s infinite linear;
+	-webkit-animation:pulsar 120s infinite linear;
 }
 @-webkit-keyframes pulsar {
 	0% {
-		background-color:#5AAC00;
-	}
-	25% {
 		background-color:#004C79;
 	}
-	50% {
+	25% {
 		background-color:#BE6900;
 	}
-	75% {
+	50% {
 		background-color:#A6003D;
 	}
-	100% {
+	75% {
 		background-color:#5AAC00;
+	}
+	100% {
+		background-color:#004C79;
 	}
 }
