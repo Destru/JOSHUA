@@ -119,8 +119,11 @@ td .image {
 	border-bottom:solid 1px rgba(255,255,255,0.5);
 	padding-bottom:1px;
 }
-.pulsar .prompt, .pulsar .msg span.light, .pulsar ::selection, .pulsar p a {
+.pulsar .prompt, .pulsar .msg span.light, .pulsar ::selection, .pulsar a, .pulsar .image {
 	opacity:0.5;
+}
+.pulsar a:hover {
+	opacity:0.85;
 }
 .pulsar .window {
 	opacity:0.85;

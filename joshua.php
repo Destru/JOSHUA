@@ -72,7 +72,8 @@ function load($file, $inline=null) {
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
 		libxml_use_internal_errors(true);
 		if($ext == 'xml') {
-			if(simplexml_load_file($file) && filesize($file) > 350) return simplexml_load_file($file);
+			$xml = simplexml_load_file($file);
+			if($xml) return $xml;
 			else {
 				if($inline) error('invalidxml', 1);
 				else error('invalidxml');
@@ -153,6 +154,7 @@ $error = array(
 	'invalidxml' => 'API returned malformed XML. XML sucks.',
 	'invalidjson' => 'API returned malformed JSON. How can you mess up JSON?',
 	'invalidhtml' => 'API returned malformed HTML. Is there even such a thing as well-formed HTML?',
+	'invalidrequest' => 'API threw an error. This is bad and I should feel bad.',
 	'localcache' => 'Local cache does not exist. IT\'S GONE! ALL GONE!',
 	'auth' => 'You are not authorized. Go away.',
 	'password' => 'Wrong password.'
@@ -160,7 +162,7 @@ $error = array(
 
 // prompt
 if(!empty($command)) {
-	$noReturn = array('msg', 'reply', 'sudo', 'hash'); // these commands should not return input
+	$noReturn = array('msg', 'reply', 'sudo', 'hash', 'imdb'); // these commands should not return input
 	if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
 	else $prompt = '<div class="prompt">'.$command.'</div>';
 }
@@ -691,6 +693,27 @@ if(empty($output)) {
 		$js .= 'systemReady();';
 		print '<script>'.$js.'</script>';
 		$output = 1;
+	}
+	
+	// imdb
+	if ($command == "imdb") {
+		if(isset($option)) {
+			$query = trim(str_replace($command, '', $dump));
+			$url = 'http://imdbapi.org/?title='.$query.'&limit=10&lang=en-US';
+			$api = file_get_contents($url);
+			if ($api) {
+				$result = json_decode($api);
+				if (!$result->error) {
+					foreach ($result as $movie) {
+						$movies .= '<tr><td class="light">'.$movie->rating.'</td><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td></tr>';
+					}
+					output('<table class="ratings fluid">'.$movies.'</table>');					
+				}
+				else error('invalidjson');
+			}
+			else error('timeout');
+		}
+		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">imdb blade runner</p>');		
 	}
 
 	// fallback

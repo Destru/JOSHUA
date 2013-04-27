@@ -57,6 +57,10 @@ $static = array(
 			<td>Answer your questions Yoda will</td>
 		</tr>
 		<tr>
+			<td><span class="command">imdb</span> <span class="dark">title</span></td>
+			<td>Look up IMDb ratings</td>
+		</tr>
+		<tr>
 			<td><span class="command">last.fm</span></td>
 			<td>Recent tracks and other Last.FM data</td>
 		</tr>

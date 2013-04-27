@@ -22,18 +22,6 @@ $games = array(
 			'So far I\'ve played a couple characters to end-game and messed around with more PvP alts than I can remember. '.
 			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.</p>'		
 	),
-	'swtor' => array(
-		'about' => '<p><b>Star Wars: The Old Republic</b> is a fantastic RPG, but unfortunately a terrible MMORPG. '.
-			'I had a great time leveling my Bounty Hunter, but when the time came to PvP I was so put off by how poorly it played that my subscription ran out without me noticing. '.
-			'I will probably give it another try in the future, but apart from a fantastic single-player experience the game was a disappointment.</p>'
-	),
-	'd3' => array(
-		'api' => 'http://eu.battle.net/api/d3/account/Destru-2757',
-		'format' => 'json',
-		'about' => '<p><b>Diablo 3</b> is tons of fun. Easy enough to pick up and play casually, but the best part is the hardcore mode. '.
-			'The repeating storyline as you progress through the difficulty levels is the only tedious thing about this game. '.
-			'Which is funny, since it\'s basically one big gear grind.</p>'
-	),
 	'tsw' => array(
 		'api' => 'http://chronicless.einhyrning.com/character/destru.json',
 		'format' => 'json',
@@ -46,25 +34,31 @@ $games = array(
 // see, we had all these API's...
 function api($game, $api) {
 	if($game == 'ao') {
-		$output = '<table class="fluid">'.
-			'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
-			'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->firstname.' "'.$api->name->nick.'" '.$api->name->lastname.'</a></td></tr>'.
-			'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->profession.'</td></tr>'.
-			'<tr><td class="dark">Level</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
-			'<tr><td class="dark">Defender</td><td>'.$api->basic_stats->defender_rank.' ('.$api->basic_stats->defender_rank_id.')</td></tr>'.
-			'<tr><td class="dark">Faction</td><td>'.$api->basic_stats->faction.'</td></tr>'.
-			'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
-			'</table>';
+		if ($api->name) {
+			$output = '<table class="fluid">'.
+				'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
+				'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->firstname.' "'.$api->name->nick.'" '.$api->name->lastname.'</a></td></tr>'.
+				'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->profession.'</td></tr>'.
+				'<tr><td class="dark">Level</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
+				'<tr><td class="dark">Defender</td><td>'.$api->basic_stats->defender_rank.' ('.$api->basic_stats->defender_rank_id.')</td></tr>'.
+				'<tr><td class="dark">Faction</td><td>'.$api->basic_stats->faction.'</td></tr>'.
+				'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
+				'</table>';			
+		}
+		else error('invalidxml', 1);
 	}
 	else if($game == 'eve') {
-		$output = '<table class="fluid">'.
-			'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td>'.$api->result->characterName.'</td></tr>'.
-			'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
-			'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
-			'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.
-			'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
-			'</table>';
+		if ($api->result->characterName) {
+			$output = '<table class="fluid">'.
+				'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
+				'<tr><td class="dark">Name</td><td>'.$api->result->characterName.'</td></tr>'.
+				'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
+				'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
+				'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.
+				'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
+				'</table>';
+			}
+			else error('invalidxml', 1);
 	}
 	else if($game == 'wow') {
 		// get specs
@@ -96,18 +90,6 @@ function api($game, $api) {
 			'<tr><td class="dark">Recent Activity</td><td>';
 		foreach($events as $event) $output .= $event.'<br/>';
 		$output .= '</td></tr></table>';
-	}
-	else if($game == 'd3') {
-		if($api->heroes) {
-			foreach($api->heroes as $hero) {
-				$output .= '<table class="fluid">'.
-					'<tr><td class="dark">Name</td><td>'.$hero->name.'</td></tr>'.
-					'<tr><td class="dark">Class</td><td class="capitalize">'.str_replace('-', ' ', $hero->class).'</td></tr>';				
-				if($hero->hardcore == true) $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.' <span class="light">Hardcore</span></td></tr>';
-				else $output .= '<tr><td class="dark">Level</td><td>'.$hero->level.'</td></tr>';
-			}
-			$output .= '</table>';			
-		}
 	}
 	else if($game == 'tsw') {
 		$actives = ''; $passives = '';
