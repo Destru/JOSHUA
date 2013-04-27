@@ -298,7 +298,7 @@ input[type="search"] {
 
 /* pulsar */
 body.pulsar {
-	-webkit-animation:pulsar 120s infinite linear;
+	-webkit-animation:pulsar 180s infinite linear;
 }
 @-webkit-keyframes pulsar {
 	0% {

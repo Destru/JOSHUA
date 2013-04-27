@@ -162,7 +162,7 @@ $error = array(
 
 // prompt
 if(!empty($command)) {
-	$noReturn = array('msg', 'reply', 'sudo', 'hash', 'imdb'); // these commands should not return input
+	$noReturn = array('msg', 'reply', 'sudo', 'hash', 'imdb', 'torrent', 'get'); // these commands should not return input
 	if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
 	else $prompt = '<div class="prompt">'.$command.'</div>';
 }
@@ -432,7 +432,7 @@ if(empty($output)) {
 	}
 
 	// get (torrents)
-	if($command == "get" || $command == "torrents" || $command == "torrent") {
+	if($command == "get" || $command == "torrent") {
 		if(isset($option)) {
 			$query = str_replace($command.' ', '', $dump);
 			$rows = 25; $url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&sort=seeds&rows='.$rows;
@@ -452,10 +452,9 @@ if(empty($output)) {
 						$leechers = $c['items']['list'][$i]['leechers'];
 						if (!$seeds) $seeds = 0;
 						if (!$leechers) $leechers = 0;						
-						$title = $name.' ('.$size.')';
-						if(strlen($name) > 83) $name = substr($name, 0, 80).'...';
+						if(strlen($name) > 70) $name = substr($name, 0, 67).'...';
 						if(!empty($link)) {
-							print '<tr><td class="torrent"><a href="'.$link.'" title="'.$title.'">'.$name.'</a></td><td class="dark">'.$seeds.'/'.$leechers.'</td></tr>';
+							print '<tr><td class="torrent"><a href="'.$link.'">'.$name.'</a></td><td>'.$size.'</td><td class="dark">'.$seeds.'/'.$leechers.'</td></tr>';
 						}
 					}
 					print '</table>'; $output = 1;

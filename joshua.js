@@ -412,6 +412,7 @@ function boot() {
 			eraseCookie('window.'+this);
 		});
 		createCookie('theme', defaultTheme, expires);
+		createCookie('fx', defaultFx, expires);
 		createCookie('release', version, expires);
 		location.reload();
 	}

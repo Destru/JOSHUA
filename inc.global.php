@@ -7,6 +7,7 @@ if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
 $version = "9.6";
 $versionName = "Mono";
 $defaultTheme = "mono";
+$defaultFx = "pulsar";
 $header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
 $title = 'JOSHUA '.$version.': ';
 $termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';

@@ -325,3 +325,6 @@ h1 {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 }
+body.pulsar {
+	-webkit-animation:none;
+}
