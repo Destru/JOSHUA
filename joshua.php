@@ -677,7 +677,7 @@ if(empty($output)) {
 		if(isset($input)) {
 			$output = '';
 			$query = urlencode($input);
-			$limit = 10;
+			$limit = 5;
 			$imdb = 'http://imdbapi.org/?title='.$query.'&limit='.$limit.'&lang=en-US';
 			$rt = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q='.$query.'&page_limit='.$limit.'&apikey=m4x7r8qu99bsamd9era6qqzb';
 			$imdb = file_get_contents($imdb);
@@ -689,7 +689,7 @@ if(empty($output)) {
 				foreach ($imdb as $movie) {
 					if ($movie->title) $imdbHits .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$movie->rating.'</td></tr>';
 				}
-				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="3">IMDb</th></tr>'.$imdbHits.'</table>';
+				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="3"><b>IMDb</b></th></tr>'.$imdbHits.'</table>';
 				// rt
 				$rt = json_decode($rt);
 				$rtHits = '';
@@ -702,7 +702,7 @@ if(empty($output)) {
 						$rtHits .= '<tr><td><a href="'.$movie->links->alternate.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$critics.'</td><td>'.$audience.'</td></tr>';						
 					}
 				}
-				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="4">Rotten Tomatoes</th></tr>'.$rtHits.'</table>';
+				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="4"><b>Rotten Tomatoes</b></th></tr>'.$rtHits.'</table>';
 				// post
 				if (strlen($output) > 0) output($output);
 				else output('<p class="error">'.$joshua.'Searching for '.$input.' returned nothing. So, check your spelling?</p>');
