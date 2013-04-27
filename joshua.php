@@ -162,7 +162,7 @@ $error = array(
 
 // prompt
 if(!empty($command)) {
-	$noReturn = array('msg', 'reply', 'sudo', 'hash', 'imdb', 'torrent', 'get'); // these commands should not return input
+	$noReturn = array('msg', 'reply', 'sudo', 'hash', 'get', 'imdb');
 	if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
 	else $prompt = '<div class="prompt">'.$command.'</div>';
 }
@@ -624,7 +624,9 @@ if(empty($output)) {
 			if(stristr($file, '.css')) $themes = $themes+1;
 		}
 		if(file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
+		else $messages = 0;
 		if(file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2828; // from season 1-4
+		else $scores = 0;
 		$commands = count($static)+30; // guesstimate
 		$quotes = count($motd)+count($bash)+count($quotes);
 		$reviews = count($reviews);
@@ -703,10 +705,12 @@ if(empty($output)) {
 			if ($api) {
 				$result = json_decode($api);
 				if (!$result->error) {
+					$movies = '';
 					foreach ($result as $movie) {
 						$movies .= '<tr><td class="light">'.$movie->rating.'</td><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td></tr>';
 					}
-					output('<table class="ratings fluid">'.$movies.'</table>');					
+					print '<div class="prompt">'.$command.' <b>'.$query.'</b></div><table class="ratings fluid">'.$movies.'</table>';
+					$output = 1;
 				}
 				else error('invalidjson');
 			}
