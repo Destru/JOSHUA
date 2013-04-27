@@ -1,12 +1,15 @@
 <?php // joshua engine <alexander@binaerpilot.no>
-session_start(); // sudo commands
+session_start();
 include 'inc.global.php';
-if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1; // development mode set
+if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1;
 if(!empty($_POST['command'])) $command = strtolower(strip_tags(trim($_POST['command'])));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
+$pos = strpos($dump, $command);
+if ($pos !== false) $input = substr_replace($dump, '', $pos, strlen($command));
+if(empty($input)) unset($input);
 unset($output);
 
 // functions
@@ -17,7 +20,7 @@ function error($id, $inline=null) {
 	die();
 }
 function output($response) {
-	global $output, $command, $option, $prompt;
+	global $output, $command, $option, $input, $prompt;
 	if(stristr($response,'<p') || stristr($response,'<table')) print $prompt.$response;
 	else print $prompt.'<p>'.$response.'</p>';
 	$output = 1;
@@ -162,8 +165,10 @@ $error = array(
 
 // prompt
 if(!empty($command)) {
-	$noReturn = array('msg', 'reply', 'sudo', 'hash', 'get', 'imdb');
-	if(!empty($option) and !in_array($command, $noReturn)) $prompt = '<div class="prompt">'.$command.' <b>'.$option.'</b></div>';
+	$noReturn = array('sudo');
+	if(!empty($input) and !in_array($command, $noReturn)) {
+		$prompt = '<div class="prompt">'.$command.' <b>'.$input.'</b></div>';
+	}
 	else $prompt = '<div class="prompt">'.$command.'</div>';
 }
 
@@ -195,8 +200,9 @@ if(empty($output)) {
 	// motd 
 	if($command == "motd") {
 		$count = count($motd)-1; $rand = rand(0,$count);
-		if(isset($option) && $option == "clean") {
-			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <span class="command">help</span> for commands.</p>'; $output = 1;
+		if(isset($option) && $option == "inline") {
+			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <span class="command">help</span> for commands.</p>';
+			$output = 1;
 		}
 		else {
 			output($motd[$rand]);
@@ -265,8 +271,9 @@ if(empty($output)) {
 		}
 		else error('notip');
 	}
+
 	// numbers
-	if($command == "numbers" || $command == "number" || $command == "n") {
+	if($command == "numbers" || $command == "number") {
 		$levels = count($numbers);
 		if(empty($_SESSION['numbers'])) $_SESSION['numbers'] = 0;
 		if(isset($option) && $option == "reset") {
@@ -274,7 +281,7 @@ if(empty($output)) {
 			output('<p class="joshua">'.$joshua.'Game reset.</p>');
 		}
 		else if($_SESSION['numbers'] == $levels) {
-			output('<p class="joshua">'.$joshua.'You have beaten the game! Use the code <b>idkfa</b> to list all the hidden commands.</p>');
+			output('<p class="joshua">'.$joshua.'You have beaten the game! Use <span class="command">idkfa</span> to list all the static keys.</p>');
 		}
 		else {
 			if(empty($option)) {
@@ -296,14 +303,13 @@ if(empty($output)) {
 	// msg
 	if($command == "msg") {
 		$storage = "msg.data";
-		$message = trim(str_replace($command, '', $dump));
-		if(strlen($message) > 0) {
+		if($input) {
 			if($option != "list" && $option != "listall") {
-				if(strlen($message) < 10) $msgTooShort = true;
+				if(strlen($input) < 10) $msgTooShort = true;
 				else {
 					if(!file_exists($storage)) touch($storage);
 					$fp = fopen($storage, 'a');
-					fwrite($fp, gmdate("d/m/y").'^'.$message.'^'.$_SERVER['REMOTE_ADDR']."\n");
+					fwrite($fp, gmdate("d/m/y").'^'.$input.'^'.$_SERVER['REMOTE_ADDR']."\n");
 					fclose($fp);					
 				}
 			}
@@ -333,12 +339,9 @@ if(empty($output)) {
 	// yoda
 	if($command == "yoda") {
 		$yoda = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
-		$question = trim(str_replace($command, '', $dump));
-		if(strlen($question) > 0) {
-			if(!stristr($question, '?')) $question .= '?';
+		if($input) {
 			$count = count($yodaQuotes)-1; $rand = rand(0,$count);
-			print '<div class="prompt">'.$command.' <b>'.$question.'</b></div><div class="speechBubble">'.$yodaQuotes[$rand].'</div>'.$yoda;
-			$output = 1;
+			output('<div class="speechBubble">'.$yodaQuotes[$rand].'</div>'.$yoda);
 		}
 		else output('<p class="speechBubble">Ask a question you must.</p>'.$yoda);
 	}
@@ -355,39 +358,39 @@ if(empty($output)) {
 	// cheat
 	if($command == "idkfa") {
 		foreach ($static as $key => $value) $commands[] .= $key;
-		sort($commands); $commands = implodeHuman($commands);
+		sort($commands); $commands = implodeHuman($commands, true);
 		output($commands);
 	}
 
 	// lastfm
 	if($command == "last.fm" || $command == "lastfm") {
-		print $prompt.'<p>';
+		$output = '';
 		if(!empty($option) && $option == "loved") {
 			// loved tracks
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 			$count = 10; $cache = 'lastfm.loved.xml';
-			get($url, $cache, 1);
-			$xml = load($cache, 1);
+			get($url, $cache);
+			$xml = load($cache);
 			for ($i = 0; $i < $count; $i++) {
 				$track = $xml->lovedtracks->track[$i]->name;
 				$artist = $xml->lovedtracks->track[$i]->artist->name;
-				print $artist.' - '.$track.'<br>'."\r";
+				$output .= $artist.' - '.$track.'<br>'."\r";
 			}	
 		}
 		else {
 			// recent tracks
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 			$count = 10; $cache = 'lastfm.xml';
-			get($url, $cache, 1);
-			$xml = load($cache, 1);
+			get($url, $cache);
+			$xml = load($cache);
 			for ($i = 0; $i < $count; $i++) {
 				$track = $xml->recenttracks->track[$i]->name;
 				$artist =$xml->recenttracks->track[$i]->artist;
-				print $artist.' - '.$track.'<br>'."\r";
+				$output .= $artist.' - '.$track.'<br>'."\r";
 			}
 		}
-		print '<a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>';
-		$output = 1;	
+		$output .= '<a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>';
+		output($output);
 	}
 
 	// wtfig
@@ -398,13 +401,13 @@ if(empty($output)) {
 		else {
 			if(file_exists("wtfig/fonts/$option.flf")) {
 				$font =  $option.'.flf';
-				$caption = trim(str_replace($option, '', str_replace($command, '', $dump)));
-				if(strlen($caption) > 0) {
+				$string = trim(str_replace($option, '', $input));
+				if(strlen($string) > 0) {
 					// load class
 					require("wtfig/class.figlet.php");
 					$phpFiglet = new phpFiglet();
 					if ($phpFiglet->loadFont("wtfig/fonts/".$font)) {
-						$wtFIG = $phpFiglet->fetch($caption);
+						$wtFIG = $phpFiglet->fetch($string);
 						output('<pre class="ascii">'.$wtFIG.'</pre>');
 					}
 				}
@@ -434,11 +437,10 @@ if(empty($output)) {
 	// get (torrents)
 	if($command == "get" || $command == "torrent") {
 		if(isset($option)) {
-			$query = str_replace($command.' ', '', $dump);
-			$rows = 25; $url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($query).'&start=0&sort=seeds&rows='.$rows;
+			$rows = 25; $url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($input).'&start=0&sort=seeds&rows='.$rows;
 			$content = get($url);
 			if($content) {
-				print '<div class="prompt">'.$command.' <b>'.$query.'</b></div>';
+				print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>';
 				$c = json_decode($content, true);
 				$hits = $c['total_results'];
 				if ($hits > 0) {
@@ -459,7 +461,7 @@ if(empty($output)) {
 					}
 					print '</table>'; $output = 1;
 				}
-				else output('<p class="error">'.$joshua.'<b>'.$query.'</b> returned nothing.</p>');
+				else output('<p class="error">'.$joshua.'<b>'.$input.'</b> returned nothing.</p>');
 			}
 			else {
 				error('timeout');
@@ -488,7 +490,7 @@ if(empty($output)) {
 
 	// presets
 	if($command == "preset" || $command == "presets") {
-		$presets = array('rachael', 'gamer', 'tron');
+		$presets = array('alexander', 'rachael', 'gamer', 'tron');
 		sort($presets);
 		if(isset($option) && in_array($option, $presets)) {
 			if($option == "gamer") {
@@ -507,8 +509,12 @@ if(empty($output)) {
 				setcookie('theme', 'tron', $expires, '/');
 				deleteCookie('background');
 				setcookie('fx', 'sparks', $expires, '/');
-				deleteCookie('opacity');
-				setcookie('tron.team', 'pink', $expires, '/');
+				setcookie('tron.team', 'purple', $expires, '/');
+			}
+			else if($option == "alexander") {
+				setcookie('theme', 'mono', $expires, '/');
+				deleteCookie('background');
+				setcookie('fx', 'pulsar', $expires, '/');
 			}
 			output('<meta http-equiv="refresh" content="0">');
 		}
@@ -539,7 +545,8 @@ if(empty($output)) {
 			if($pos < 10) $pos = '0'.$pos;
 			print '<li><span class="pos">'.$pos.'.</span><b>'.$scores[$i]['name'].'</b> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
-		print '</ul>';$output = 1;
+		print '</ul>';
+		$output = 1;
 	}
 
 	// calc
@@ -561,7 +568,7 @@ if(empty($output)) {
 	if($command == "hash" || $command == "crypt" || $command == "md5" || $command == "sha1") {
 		$example = '<p class="example">hash md5 joshua</p>';
 		if(isset($option)) {
-			$string = trim(str_replace($option, '', str_replace($command, '', $dump)));
+			$string = trim(str_replace($option, '', $input));
 			if(strlen($string) > 0) {
 				output('<p>'.hash($option, $string).'</p>');
 			}
@@ -580,7 +587,7 @@ if(empty($output)) {
 				'In retrospect, it might not have been the greatest of ideas. ';
 			print '<table class="reviews fluid">';
 			foreach ($reviews as $key => $value) {
-				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].' ('.$value['year'].')</td><td class="dark">'.$value['rating'].'/10</td></tr>';
+				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].'</td><td class="dark">'.$value['year'].'</td><td>'.$value['rating'].'/10</td></tr>';
 			}
 			print '</table>';
 			print '<p class="joshua">'.$joshua.'Type <b>review (x)</b> to read a review.</p><p class="example">review '.rand(0,count($reviews)-1).'</p>';
@@ -657,15 +664,54 @@ if(empty($output)) {
 	
 	// say
 	if($command == "say") {
-		$say = trim(str_replace($command, '', $dump));
-		if(strlen($say) > 0) {
-			print '<div class="prompt">'.$command.' <b>'.$say.'</b></div>'.
-				'<script>speak(\''.$say.'\', { pitch:75, speed:120 });</script>';
+		if($input) {
+			print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>'.
+				'<script>speak(\''.$input.'\', { pitch:50, speed:120 });</script>';
 			$output = 1;
 		}
 		else output('<p class="error">'.$joshua.'What do you want me to say?</p><p class="example">say hello</p>');
 	}
-	
+
+	// rate
+	if ($command == "rate") {
+		if(isset($input)) {
+			$output = '';
+			$query = urlencode($input);
+			$limit = 10;
+			$imdb = 'http://imdbapi.org/?title='.$query.'&limit='.$limit.'&lang=en-US';
+			$rt = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q='.$query.'&page_limit='.$limit.'&apikey=m4x7r8qu99bsamd9era6qqzb';
+			$imdb = file_get_contents($imdb);
+			$rt = file_get_contents($rt);
+			if ($imdb && $rt) {
+				// imdb
+				$imdb = json_decode($imdb); 
+				$imdbHits = ''; 
+				foreach ($imdb as $movie) {
+					if ($movie->title) $imdbHits .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$movie->rating.'</td></tr>';
+				}
+				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="3">IMDb</th></tr>'.$imdbHits.'</table>';
+				// rt
+				$rt = json_decode($rt);
+				$rtHits = '';
+				foreach ($rt->movies as $movie) {
+					if ($movie->title) {
+						$critics = $movie->ratings->critics_score;
+						if ($critics >= 0) $critics .= '%'; else $critics = 'N/A';
+						$audience = $movie->ratings->audience_score;
+						if ($audience >= 0) $audience .= '%'; else $audience = 'N/A';
+						$rtHits .= '<tr><td><a href="'.$movie->links->alternate.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$critics.'</td><td>'.$audience.'</td></tr>';						
+					}
+				}
+				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="4">Rotten Tomatoes</th></tr>'.$rtHits.'</table>';
+				// post
+				if (strlen($output) > 0) output($output);
+				else output('<p class="error">'.$joshua.'Searching for '.$input.' returned nothing. So, check your spelling?</p>');
+			}
+			else error('empty');
+		}
+		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' blade runner</p>');		
+	}
+
 	// window management
 	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'gallery', 'music', 'videos', 'superplastic', 'reset');
 	if(in_array($command, $jsCommands)) {
@@ -696,29 +742,6 @@ if(empty($output)) {
 		$output = 1;
 	}
 	
-	// imdb
-	if ($command == "imdb") {
-		if(isset($option)) {
-			$query = trim(str_replace($command, '', $dump));
-			$url = 'http://imdbapi.org/?title='.$query.'&limit=10&lang=en-US';
-			$api = file_get_contents($url);
-			if ($api) {
-				$result = json_decode($api);
-				if (!$result->error) {
-					$movies = '';
-					foreach ($result as $movie) {
-						$movies .= '<tr><td class="light">'.$movie->rating.'</td><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td></tr>';
-					}
-					print '<div class="prompt">'.$command.' <b>'.$query.'</b></div><table class="ratings fluid">'.$movies.'</table>';
-					$output = 1;
-				}
-				else error('invalidjson');
-			}
-			else error('timeout');
-		}
-		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">imdb blade runner</p>');		
-	}
-
 	// fallback
 	if(empty($output)) {
 		foreach ($static as $key => $value) {

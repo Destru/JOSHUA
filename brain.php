@@ -53,12 +53,12 @@ $static = array(
 			<td>Favorite games and things I made for them</td>
 		</tr>
 		<tr>
-			<td><span class="command">yoda</span> <span class="dark">question</span></td>
-			<td>Answer your questions Yoda will</td>
+			<td><span class="command">rate</span> <span class="dark">title</span></td>
+			<td>Checks for ratings on IMDb and Rotten Tomatoes</td>
 		</tr>
 		<tr>
-			<td><span class="command">imdb</span> <span class="dark">title</span></td>
-			<td>Look up IMDb ratings</td>
+			<td><span class="command">yoda</span> <span class="dark">question</span></td>
+			<td>Answer your questions Yoda will</td>
 		</tr>
 		<tr>
 			<td><span class="command">last.fm</span></td>
@@ -420,7 +420,7 @@ $static = array(
 'rock' => 'Nintendo!',
 'hamburger' => 'The <a href="http://www.recipezaar.com/Royal-Red-Robin-Burger-143864" class="blank">Royal Red Robin Burger</a> is the king of all hamburgers. And I should know, <a href="misc/alexander_the_burger_king.jpg" class="view">I eat a lot of junk food</a>.',
 'dentist' => '<p>When I was a kid I soon realized that my teeth were made of glass. Because every time I sat in a dentist chair they wouldn\'t let me leave until at least three or four cavities were taken care of. So naturally I developed a fear of the dentist. Now that I\'m older that means I won\'t go before the pain is tantamount to getting kicked in the balls repeatedly by a field goal kicker.</p><p>But you know what would ease my pain? Not being charged an arm and a leg for this torture. What the fuck, Norway? You mean to tell me I can go to the hospital and a surgeon will fix me up practically for free, but a dentist will charge me half a months paycheck for less work? Guess I\'m chewing painkillers and booking a flight to Poland.</p>',
-'sheldon' => 'Sheldon is a genius. Really.',
+'sheldon' => 'Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock, and as it always has, rock crushes scissors.',
 'wtf' => 'Can you pay them? The people who put everything together? That\'s the only way I can explain it.',
 'armadillo' => 'Do not hurt the infamous armadillo, whose tales of awesometude have reached even the cold shores of Norway. We, the vikings of this barren land, will fight to preserve this majestic creature\'s right to proper lodgings. Something something, axe murder.',
 'toes' => '<i>I don\'t care much for toes. Sure, they help you keep your balance, but name me one more useful thing about them?</i> Ouch! That\'s how I used to feel about toes, but <a href="misc/toes.jpg" class="view">that was before I met these guys</a>. Dey r super ql an fun to b aroun lol!',
