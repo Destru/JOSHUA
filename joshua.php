@@ -7,8 +7,10 @@ if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
 if(!empty($option) && $option == "undefined") unset($option);
 if(!empty($dump) && $dump == "undefined") unset($dump);
-$pos = strpos($dump, $command);
-if ($pos !== false) $input = substr_replace($dump, '', $pos, strlen($command));
+if(isset($command) && isset($dump)) {
+	$pos = strpos($dump, $command);
+	if ($pos !== false) $input = substr_replace($dump, '', $pos, strlen($command));
+}
 if(empty($input)) unset($input);
 unset($output);
 
@@ -673,7 +675,7 @@ if(empty($output)) {
 	}
 
 	// rate
-	if ($command == "rate") {
+	if ($command == "rate" || $command == "rating" || $command == "imdb") {
 		if(isset($input)) {
 			$output = '';
 			$query = urlencode($input);
@@ -687,14 +689,17 @@ if(empty($output)) {
 				$imdb = json_decode($imdb); 
 				$imdbHits = ''; 
 				foreach ($imdb as $movie) {
-					if ($movie->title) $imdbHits .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$movie->rating.'</td></tr>';
+					if (isset($movie->title)) {
+						if (isset($movie->rating)) $rating = $movie->rating; else $rating = 'N/A';
+						$imdbHits .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$rating.'</td></tr>';
+					}
 				}
 				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="3"><b>IMDb</b></th></tr>'.$imdbHits.'</table>';
 				// rt
 				$rt = json_decode($rt);
 				$rtHits = '';
 				foreach ($rt->movies as $movie) {
-					if ($movie->title) {
+					if (isset($movie->title)) {
 						$critics = $movie->ratings->critics_score;
 						if ($critics >= 0) $critics .= '%'; else $critics = 'N/A';
 						$audience = $movie->ratings->audience_score;

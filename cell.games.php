@@ -10,10 +10,10 @@ $games = array(
 	'eve' => array(
 		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327',
 		'format' => 'xml',
-		'about' => '<p><b>EVE Online</b> is a well-crafted world for those with enough time to invest. '.
-			'Being a sandbox-game, it will be intimidating for new players as there is no clear path cut out for you. '.
-			'Supporting the harshest PVP-environment in any MMO today, this one is certainly not for the faint-hearted. '.
-			'There\'s a <a href="https://secure.eve-online.com/ft/?aid=103557">14-day trial available</a>. But be careful, this game is digital crack and has no pause button.</p>'
+		'about' => '<p><b>EVE Online</b> is a what every MMO should aspire to be; Another world. '.
+			'It will be intimidating for new players as there is no clear path cut out for you, but for those that persist it is very rewarding. '.
+			'Supporting the harshest PVP-environment of any MMO available today, this one is certainly not for the faint-hearted.</p>'.
+			'<p><a href="https://secure.eveonline.com/trial/?invc=f861919b-eb94-437b-80d6-df84d952885f&action=buddy">Grab a free 21-day trial here.</a></p>'
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
