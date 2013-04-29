@@ -4,7 +4,7 @@
 var hist = [], // history (arrow up/down)
 	position = 0, // position in history
 	expires = 1095, // cookie dies in 3 years
-	fade = 350, // ui fade delay
+	fade = 150, // ui fade delay
 	muted = false, // sound
 	drawing = false, // drawing?
 	focus = true, // steal focus
@@ -220,9 +220,11 @@ function chromeInit() {
 	});
 	// view images
 	$('a.view').click(function(event) {
+		$('#loader').fadeIn(fade);
 		event.preventDefault();
 		var imageSource = $(this).attr('href');
 		$("<img/>").attr("src", imageSource).load(function() {
+			$('#loader').fadeOut(fade);
 			$('<div class="modalClose"><img src="'+imageSource+'" width="'+this.width+'" height="'+ this.height+'"/></div>').modal({
 				overlayId: 'modalOverlay',
 				containerId : 'modalContainer',
@@ -412,7 +414,6 @@ function boot() {
 			eraseCookie('window.'+this);
 		});
 		createCookie('theme', defaultTheme, expires);
-		createCookie('fx', defaultFx, expires);
 		createCookie('release', version, expires);
 		location.reload();
 	}
@@ -458,12 +459,12 @@ $(function() {
 				hist.push(dump);
 				hist.unique();
 				position = hist.length;
-				$('#loader').fadeIn(100); // loader
+				$('#loader').fadeIn(fade); // loader
 				// perform command
 				var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
 					$('#output').append(content);
 					init();
-					$('#loader').fadeOut(100);
+					$('#loader').fadeOut(fade);
 				});
 			}
 			else {

@@ -38,7 +38,6 @@
 		title = '<?php echo $title; ?>',
 		theme = '<?php echo $theme; ?>',
 		defaultTheme = '<?php echo $defaultTheme; ?>',
-		defaultFx = '<?php echo $defaultFx; ?>',
 		termPrompt = '<?php echo $termPrompt; ?>',
 		nextgenThemes = ["<?php echo implode('","', $nextgenThemes); ?>"];
 	</script>

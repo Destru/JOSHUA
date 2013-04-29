@@ -1,7 +1,6 @@
 <?php // joshua engine <alexander@binaerpilot.no>
 session_start();
 include 'inc.global.php';
-if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") $dev = 1;
 if(!empty($_POST['command'])) $command = strtolower(strip_tags(trim($_POST['command'])));
 if(!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
 if(!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
@@ -23,53 +22,47 @@ function error($id, $inline=null) {
 }
 function output($response) {
 	global $output, $command, $option, $input, $prompt;
-	if(stristr($response,'<p') || stristr($response,'<table')) print $prompt.$response;
+	if(stristr($response,'<p') || stristr($response,'<table')|| stristr($response,'<ul')) print $prompt.$response;
 	else print $prompt.'<p>'.$response.'</p>';
 	$output = 1;
 }
 
 function get($url, $cache=null, $inline=null) {
-	global $dev;
 	clearstatcache();
 	$timeout = 10;
 	$secondsBeforeUpdate = 60;
-	if(!isset($dev)) {
-		if(!empty($cache)) {
-			$timeout = 10;
-			$secondsBeforeUpdate = 60*60*12;
-			if(!file_exists($cache) || filesize($cache) == 0) {
-				file_put_contents($cache, null);
-				$firstRun = true;
-			}
-			$lastModified = filemtime($cache);
-			if(isset($firstRun) || time() - $lastModified > $secondsBeforeUpdate) {
-				$ch = curl_init();
-				curl_setopt ($ch, CURLOPT_URL, $url);
-				curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-				curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
-				$data = curl_exec($ch);
-				curl_close($ch);
-				if(!empty($data)) {
-					file_put_contents($cache, $data, LOCK_EX);
-				}
-				else {
-					if($inline) error('empty', 1);
-					else error('empty');
-				}
-			}
+	if(!empty($cache)) {
+		$timeout = 10;
+		$secondsBeforeUpdate = 60*60*12;
+		if(!file_exists($cache) || filesize($cache) == 0) {
+			file_put_contents($cache, null);
+			$firstRun = true;
 		}
-		else {
+		$lastModified = filemtime($cache);
+		if(isset($firstRun) || time() - $lastModified > $secondsBeforeUpdate) {
 			$ch = curl_init();
 			curl_setopt ($ch, CURLOPT_URL, $url);
 			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
 			$data = curl_exec($ch);
 			curl_close($ch);
-			return $data;
+			if(!empty($data)) {
+				file_put_contents($cache, $data, LOCK_EX);
+			}
+			else {
+				if($inline) error('empty', 1);
+				else error('empty');
+			}
 		}
 	}
 	else {
-		if(empty($cache)) error('noreturn');
+		$ch = curl_init();
+		curl_setopt ($ch, CURLOPT_URL, $url);
+		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
+		$data = curl_exec($ch);
+		curl_close($ch);
+		return $data;
 	}
 }
 function load($file, $inline=null) {
@@ -682,8 +675,7 @@ if(empty($output)) {
 			$limit = 5;
 			$imdb = 'http://imdbapi.org/?title='.$query.'&limit='.$limit.'&lang=en-US';
 			$rt = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q='.$query.'&page_limit='.$limit.'&apikey=m4x7r8qu99bsamd9era6qqzb';
-			$imdb = file_get_contents($imdb);
-			$rt = file_get_contents($rt);
+			$imdb = get($imdb); $rt = get($rt);
 			if ($imdb && $rt) {
 				// imdb
 				$imdb = json_decode($imdb); 
@@ -715,6 +707,28 @@ if(empty($output)) {
 			else error('empty');
 		}
 		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' blade runner</p>');		
+	}
+	
+	// img
+	if ($command == "img" || $command == "image" || $command == "images") {
+		if(isset($input)) {
+			$tag = str_replace(' ','', $input);
+			$instagram = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id=c0f8f9f1e63a4e1c8a45846bb5db52db&count=16';
+			$instagram = get($instagram);
+			if ($instagram) {
+				$output = '';
+				$result = json_decode($instagram);
+				if ($result->data) {
+					foreach ($result->data as $image) {
+						$output .= '<a href="'.$image->images->standard_resolution->url.'" class="view image"><img src="'.$image->images->low_resolution->url.'" width="128" height="128"></a>';
+					}
+					output('<p id="img">'.$output.'</p>');
+				}
+				else output('<p class="error">'.$joshua.'Found nothing tagged with '.$input.'. (Instagram filters the API rigorously.)</p>');
+			}
+			else error('empty');
+		}
+		else output('<p class="error">'.$joshua.'Give me something to search for.</p><p class="example">'.$command.' daft punk</p>');					
 	}
 
 	// window management

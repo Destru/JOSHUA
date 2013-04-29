@@ -124,3 +124,12 @@ a.close, .image, .image {
 .window, #superplastic {
 	position:fixed;
 }
+
+/* no pulsar
+*/
+li.pulsar {
+	display:none;
+}
+body.pulsar {
+	-webkit-animation:none;
+}

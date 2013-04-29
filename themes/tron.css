@@ -325,6 +325,12 @@ h1 {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 }
+
+/* no pulsar
+*/
+li.pulsar {
+	display:none;
+}
 body.pulsar {
 	-webkit-animation:none;
 }

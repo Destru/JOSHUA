@@ -57,6 +57,10 @@ $static = array(
 			<td>Checks for ratings on IMDb and Rotten Tomatoes</td>
 		</tr>
 		<tr>
+			<td><span class="command">img</span> <span class="dark">query</span></td>
+			<td>A basic image search (currently only Instagram)</td>
+		</tr>
+		<tr>
 			<td><span class="command">yoda</span> <span class="dark">question</span></td>
 			<td>Answer your questions Yoda will</td>
 		</tr>
@@ -531,6 +535,9 @@ Rachael: HAHAHA!</pre>',
 'primus' => 'As the toys go winding down.',
 'firefly' => 'One of the best sci-fi shows ever made.',
 'nananana' => 'Hey hey hey, goodbye!',
+'rock' => 'Paper! Hah!',
+'paper' => 'Scissor! What do you mean I\'m cheating?',
+'scissor' => 'Rock! You won\'t win, I am really good at this game.',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',

@@ -116,6 +116,7 @@ td.command {
 
 /* miscellaneous */
 .image {
+	display:inline-block;
 	line-height:1px;
 }
 table.fluid {
@@ -127,7 +128,10 @@ table.fluid {
 .menu a {
 	display:block;
 }
-
+#img .image {
+	margin-right:10px;
+	margin-bottom:10px;
+}
 /* tiny */
 .tiny {
 	text-transform:capitalize;
@@ -261,7 +265,6 @@ pre.ascii {
 	background: -moz-linear-gradient(left,  hsla(0,0%,0%,0) 0%, hsla(0,100%,60%,1) 50%, hsla(0,0%,0%,0) 100%);
 	background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsla(0,0%,0%,0)), color-stop(50%,hsla(0,100%,60%,1)), color-stop(100%,hsla(0,0%,0%,0)));
 	background: -webkit-linear-gradient(left,  hsla(0,0%,0%,0) 0%,hsla(0,100%,60%,1) 50%,hsla(0,0%,0%,0) 100%);
-	background: -o-linear-gradient(left,  hsla(0,0%,0%,0) 0%,hsla(0,100%,60%,1) 50%,hsla(0,0%,0%,0) 100%);
 	background: -ms-linear-gradient(left,  hsla(0,0%,0%,0) 0%,hsla(0,100%,60%,1) 50%,hsla(0,0%,0%,0) 100%);
 	background: linear-gradient(to right,  hsla(0,0%,0%,0) 0%,hsla(0,100%,60%,1) 50%,hsla(0,0%,0%,0) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 );

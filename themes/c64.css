@@ -61,6 +61,12 @@ h1, h2, p, table {
 .command {
 	text-transform:uppercase;
 }
+
+/* no pulsar
+*/
+li.pulsar {
+	display:none;
+}
 body.pulsar {
 	-webkit-animation:none;
 }

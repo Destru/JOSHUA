@@ -234,6 +234,12 @@ table td {
 	background:url('../images/loaderDiesel.png') no-repeat center 6px;
 	-webkit-animation:load 0.2s infinite linear;
 }
-.pulsar {
+
+/* no pulsar
+*/
+li.pulsar {
+	display:none;
+}
+body.pulsar {
 	-webkit-animation:none;
 }
