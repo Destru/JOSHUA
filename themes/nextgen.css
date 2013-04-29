@@ -384,6 +384,8 @@ h2.presets {
 }
 .image {
 	margin-top:4px;
+}
+.image img {
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 }

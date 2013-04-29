@@ -100,8 +100,11 @@ a.close:hover {
 	background-color:#00becd;
 	color:#00becd;
 }
-a.close, .image, .image {
+a.close, .image img {
 	border-radius:3px;
+}
+#img .image {
+	border:none;
 }
 .menu a {
 	display:block;
