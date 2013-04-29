@@ -713,7 +713,7 @@ if(empty($output)) {
 	if ($command == "img" || $command == "image" || $command == "images") {
 		if(isset($input)) {
 			$tag = str_replace(' ','', $input);
-			$instagram = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id=c0f8f9f1e63a4e1c8a45846bb5db52db&count=16';
+			$instagram = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id=c0f8f9f1e63a4e1c8a45846bb5db52db&count=15';
 			$instagram = get($instagram);
 			if ($instagram) {
 				$output = '';
