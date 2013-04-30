@@ -298,7 +298,7 @@ if(empty($output)) {
 	// msg
 	if($command == "msg") {
 		$storage = "msg.data";
-		if($input) {
+		if(isset($input)) {
 			if($option != "list" && $option != "listall") {
 				if(strlen($input) < 10) $msgTooShort = true;
 				else {
@@ -334,7 +334,7 @@ if(empty($output)) {
 	// yoda
 	if($command == "yoda") {
 		$yoda = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
-		if($input) {
+		if(isset($input)) {
 			$count = count($yodaQuotes)-1; $rand = rand(0,$count);
 			output('<div class="speechBubble">'.$yodaQuotes[$rand].'</div>'.$yoda);
 		}
@@ -659,7 +659,7 @@ if(empty($output)) {
 	
 	// say
 	if($command == "say") {
-		if($input) {
+		if(isset($input)) {
 			print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>'.
 				'<script>speak(\''.$input.'\', { pitch:50, speed:120 });</script>';
 			$output = 1;
