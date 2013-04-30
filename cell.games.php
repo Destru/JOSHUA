@@ -1,7 +1,7 @@
 <?php // static
 $games = array(
 	'ao' => array(
-		'api' => 'http://people.anarchy-online.com/character/bio/d/1/name/binaerpilot/bio.xml',
+		'api' => 'http://people.anarchy-online.com/character/bio/d/5/name/binaerpilot/bio.xml',
 		'format' => 'xml',
 		'about' => '<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none. '.
 			'In awe of the sheer size and complexity of the game I quickly found myself completely immersed in it. '.
