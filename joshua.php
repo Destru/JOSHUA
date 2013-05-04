@@ -213,7 +213,7 @@ if(empty($output)) {
 
 	// whois and ping
 	if($command == "whois" || $command == "ping") {
-		if(!empty($option)) {
+		if(isset($option)) {
 			$pattern = "/^[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,4}$/";
 			if(preg_match($pattern, $option)) {
 				if($command == "ping") {
@@ -730,6 +730,18 @@ if(empty($output)) {
 		}
 		else output('<p class="error">'.$joshua.'Give me something to search for.</p><p class="example">'.$command.' daft punk</p>');					
 	}
+	
+	// rand
+	if ($command == "rand") {
+		if(isset($input)) {
+			if(is_numeric($input)) {
+				output(rand(1, $input));
+			}
+			else output('<p class="error">'.$joshua.' '.$input.' is not numeric. Come on man.');
+		}
+		else output('<p class="error">'.$joshua.'Between how many numbers?</p><p class="example">'.$command.' '.rand(0,10).'</p>');					
+	}
+	
 
 	// window management
 	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'gallery', 'music', 'videos', 'superplastic', 'reset');
