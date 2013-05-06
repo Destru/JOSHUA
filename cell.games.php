@@ -1,9 +1,9 @@
 <?php // static
 $games = array(
 	'ao' => array(
-		'api' => 'http://people.anarchy-online.com/character/bio/d/1/name/binaerpilot/bio.xml',
+		'api' => 'http://people.anarchy-online.com/character/bio/d/5/name/binaerpilot/bio.xml',
 		'format' => 'xml',
-		'about' => '<p><b>Anarchy Online</b> blew my mind when I first played it 6 years ago and it\'s still my greatest game experience bar none. '.
+		'about' => '<p><b>Anarchy Online</b> blew my mind when I first played it '.(date("Y")-2003).' years ago and it\'s still my greatest game experience bar none. '.
 			'In awe of the sheer size and complexity of the game I quickly found myself completely immersed in it. '.
 			'I made <a href="ao/aoscripts.rar">some scripts</a> that make things easier.</p>'
 	),
@@ -61,8 +61,6 @@ function api($game, $api) {
 			else error('invalidxml', 1);
 	}
 	else if($game == 'wow') {
-		// get specs
-		foreach($api->talents as $talent) $talents[] = $talent->name.' ('.$talent->trees[0]->total.'/'.$talent->trees[1]->total.'/'.$talent->trees[2]->total.')';
 		// set correct title
 		foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
 		if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
@@ -81,10 +79,9 @@ function api($game, $api) {
 			}
 		}
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
+			'<tr><td rowspan="6"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$name.'</a></td></tr>'.
 			'<tr><td class="dark">Realm</td><td>'.$api->realm.' ('.$api->battlegroup.')</td></tr>'.
-			'<tr><td class="dark">Talents</td><td>'.implodeHuman($talents).'</td></tr>'.
 			'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</td></tr>'.
 			'<tr><td class="dark">Honorable Kills</td><td>'.$api->pvp->totalHonorableKills.'</td></tr>'.
 			'<tr><td class="dark">Recent Activity</td><td>';
@@ -105,7 +102,6 @@ function api($game, $api) {
 				'</div>';
 		}
 		$output = '<table class="fluid">'.
-			'<tr><td rowspan="5"><div class="image" style="background-image:url(\''.$api->faction->logo.'\');width:72px;height:72px;background-position:center center;"></div></td></tr>'.
 			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
 			'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
 			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.

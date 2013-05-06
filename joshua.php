@@ -145,7 +145,7 @@ if(empty($output)) {
 
 	// whois and ping
 	if($command == "whois" || $command == "ping") {
-		if(!empty($option)) {
+		if(isset($option)) {
 			$pattern = "/^[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,4}$/";
 			if(preg_match($pattern, $option)) {
 				if($command == "ping") {
@@ -230,7 +230,7 @@ if(empty($output)) {
 	// msg
 	if($command == "msg") {
 		$storage = "msg.data";
-		if($input) {
+		if(isset($input)) {
 			if($option != "list" && $option != "listall") {
 				if(strlen($input) < 10) $msgTooShort = true;
 				else {
@@ -266,7 +266,7 @@ if(empty($output)) {
 	// yoda
 	if($command == "yoda") {
 		$yoda = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
-		if($input) {
+		if(isset($input)) {
 			$count = count($yodaQuotes)-1; $rand = rand(0,$count);
 			output('<div class="speechBubble">'.$yodaQuotes[$rand].'</div>'.$yoda);
 		}
@@ -591,7 +591,7 @@ if(empty($output)) {
 	
 	// say
 	if($command == "say") {
-		if($input) {
+		if(isset($input)) {
 			print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>'.
 				'<script>speak(\''.$input.'\', { pitch:50, speed:120 });</script>';
 			$output = 1;
@@ -663,6 +663,18 @@ if(empty($output)) {
 		}
 		else output('<p class="error">'.$joshua.'Give me something to search for.</p><p class="example">'.$command.' daft punk</p>');					
 	}
+	
+	// rand
+	if ($command == "rand") {
+		if(isset($input)) {
+			if(is_numeric($input)) {
+				output(rand(1, $input));
+			}
+			else output('<p class="error">'.$joshua.' '.$input.' is not numeric. Come on man.');
+		}
+		else output('<p class="error">'.$joshua.'Between how many numbers?</p><p class="example">'.$command.' '.rand(0,10).'</p>');					
+	}
+	
 
 	// window management
 	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'gallery', 'music', 'videos', 'superplastic', 'reset');
