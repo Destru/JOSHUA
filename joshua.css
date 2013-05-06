@@ -143,22 +143,22 @@ table.fluid {
 	text-transform:uppercase;
 }
 
-/* gallery */
+/* images */
 #gallery.window {
-	width:560px;
+	width:468px;
 }
 #slick {
-	width:560px;
-	height:345px;
+	width:468px;
+	height:468px;
 	overflow:hidden;
 	position:relative;
 }
 #slick ul {
 	background-image:url("images/backgroundSlick.png");
-	top:345px;
+	top:468px;
 	position:absolute;
 	z-index:21;
-	width:580px;
+	width:488px;
 	padding:10px;
 	padding-top:0px;
 	padding-left:0px;
@@ -170,7 +170,7 @@ table.fluid {
 	line-height:1px;
 	margin-left:10px;
 	margin-top:10px;
-	opacity:0.25;
+	opacity:0.5;
 }
 .thumbs li.noMargin {
 	margin-left:0;
