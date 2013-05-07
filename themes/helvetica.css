@@ -135,3 +135,9 @@ td {
 #loader {
 	background:url('../images/loaderWhite.png') no-repeat center 6px;
 }
+#music .link {
+	margin-top:20px;
+	background-image:url("../images/mp3PlayerBlack.png");
+	opacity:0.5;
+	border:none;
+}

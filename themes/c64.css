@@ -70,3 +70,7 @@ li.pulsar {
 body.pulsar {
 	-webkit-animation:none;
 }
+
+#music .link {
+	display:none;
+}

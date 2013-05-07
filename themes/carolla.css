@@ -38,3 +38,6 @@ body {
 #input:before {
 	background: linear-gradient(to top, rgba(2,52,62,1), rgba(2,52,62,0));
 }
+#music .link {
+	background-image:url("../images/mp3PlayerBlack.png");
+}

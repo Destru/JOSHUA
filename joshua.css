@@ -98,7 +98,14 @@ td.command {
 #music.window {
 	z-index:21;
 }
-
+#music .link {
+	display:inline-block;
+	width:109px;
+	height:13px;
+	background-image:url("images/mp3Player.png");
+	background-repeat:no-repeat;
+	margin-top:10px;
+}
 /* superplastic */
 #superplastic {
 	z-index:21;

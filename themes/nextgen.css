@@ -440,3 +440,8 @@ h2.presets {
 	background: linear-gradient(to top, rgba(40,40,40,1), rgba(40,40,40,0));
 	margin-top:-25px;
 }
+#music .link {
+	width:220px;
+	background-position:50% 50%;	
+	opacity:0.5;
+}

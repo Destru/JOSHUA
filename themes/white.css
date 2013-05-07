@@ -88,3 +88,6 @@ body {
 #loader {
 	background:url('../images/loaderWhite.png') no-repeat center 6px;
 }
+#music .link {
+	background-image:url("../images/mp3PlayerBlack.png");
+}

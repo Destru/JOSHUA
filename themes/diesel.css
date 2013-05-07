@@ -243,3 +243,12 @@ li.pulsar {
 body.pulsar {
 	-webkit-animation:none;
 }
+
+#music .link {
+	border-top:solid 1px #464740;
+	width:180px;
+	height:28px;
+	margin-top:5px;
+	background-position:50% 100%;
+	opacity:0.25;
+}

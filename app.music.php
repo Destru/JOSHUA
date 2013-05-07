@@ -11,6 +11,7 @@
 			print '<li><a href="'.$track->url.'" class="mp3">'.$track->title.'</a><li>';
 		}
 		print '</ul>';
+		print '<a class="link" href="http://binaerpilot.no/'.$albums[$r]->folder.'/'.$albums[$r]->safeTitle.'"></a>';
 	}
 	else {
 		print '<a href="http://binaerpilot.no">API not responding.</a>';

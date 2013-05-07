@@ -128,3 +128,9 @@ td .image {
 .pulsar .window {
 	opacity:0.85;
 }
+#music .link {
+	background-image:url("../images/mp3PlayerBlack.png");
+	width:109px;
+	height:13px;
+	opacity:1;
+}

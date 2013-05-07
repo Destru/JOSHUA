@@ -334,3 +334,12 @@ li.pulsar {
 body.pulsar {
 	-webkit-animation:none;
 }
+
+#music .link {
+	width:220px;
+	background-position:50% 50%;
+	opacity:0.5;
+}
+#music .link:hover {
+	opacity:1;
+}
