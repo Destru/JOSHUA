@@ -119,14 +119,17 @@ td .image {
 	-ms-filter:grayscale(1);
 	filter:grayscale(1);
 }
-.pulsar .prompt, .pulsar .msg span.light, .pulsar ::selection, .pulsar a, .pulsar .image {
+.pulsar .prompt, .pulsar .msg span.light, .pulsar a {
 	opacity:0.5;
 }
 .pulsar a:hover {
 	opacity:0.85;
 }
-.pulsar .window {
-	opacity:0.85;
+.pulsar .image, .pulsar embed, .pulsar img {
+	-webkit-filter:grayscale(0);
+	-moz-filter:grayscale(0);
+	-ms-filter:grayscale(0);
+	filter:grayscale(0);
 }
 #music .link {
 	background-image:url("../images/mp3PlayerBlack.png");
