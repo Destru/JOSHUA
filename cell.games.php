@@ -51,7 +51,7 @@ function api($game, $api) {
 		if ($api->result->characterName) {
 			$output = '<table class="fluid">'.
 				'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
-				'<tr><td class="dark">Name</td><td>'.$api->result->characterName.'</td></tr>'.
+				'<tr><td class="dark">Name</td><td><a href="http://eve.battleclinic.com/killboard/combat_record.php?type=player&name=Destru+Kaneda">'.$api->result->characterName.'</a></td></tr>'.
 				'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
 				'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
 				'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.

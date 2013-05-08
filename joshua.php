@@ -580,12 +580,10 @@ if(empty($output)) {
 	}
 
 	// hi reddit
-	if($command == "let's" || $command == "lets" || $command == "how") {
-		$wargames = array("let's play global thermonuclear war", "lets play global thermonuclear war", "how about global thermonuclear war", "how about global thermonuclear war?");
-		if(in_array(strtolower($dump), $wargames)) {
-			$prompt = '<div class="prompt">'.$dump.'</div>';
-			output('<p class="joshua">'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');
-			
+	if($command == "let\'s" || $command == "lets" || $command == "how") {
+		if(preg_match('/thermonuclear/i', $dump)) {
+			$prompt = '<div class="prompt">how about global thermonuclear war?</div>';
+			output('<p class="joshua">'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');		
 		}
 	}
 	
