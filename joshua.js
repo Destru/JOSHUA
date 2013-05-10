@@ -74,7 +74,7 @@ function mute() {
 function fxStop() {
 	var cookie = readCookie('fx');
 	if(cookie) {
-		$('.spark, #malkovich, .brush, #cylon').remove();
+		$('.spark, #malkovich, .brush, #cylon, #matrix').remove();
 		$('body').removeClass('pulsar');
 		if(cookie != "none") {
 			eraseCookie('fx');
@@ -148,6 +148,10 @@ function fxInit(fx, runOnce) {
 	else if(fx == "cylon") {
 		$('body').append('<div id="cylon"/>');
 		cylon();
+	}
+	else if(fx == "matrix") {
+		$('body').prepend('<div id="matrix"/>');
+		matrix();
 	}
 }
 

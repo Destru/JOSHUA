@@ -17,6 +17,7 @@
 		<li class="sparks">Sparks</li>
 		<li class="draw">Draw</li>
 		<li class="pulsar">Pulsar</li>
+		<li class="matrix">Matrix</li>
 		<li class="cylon">Cylon</li>
 		<li class="malkovich">Malkovich</li>
 	</ul>
