@@ -588,7 +588,7 @@ if(empty($output)) {
 	}
 	
 	// say
-	if($command == "say") {
+	if($command == "say" || $command == "talk" || $command == "speak") {
 		if(isset($input)) {
 			print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>'.
 				'<script>speak(\''.$input.'\', { pitch:50, speed:120 });</script>';
