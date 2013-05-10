@@ -573,6 +573,7 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://bananarenders.com/">Bananarenders</a> for the original TR2N background.
 		<a href="https://github.com/kripken/">Alon Zakai</a> for his JavaScript TTS.
 		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
+		Prowareness for his <a href="http://www.prowareness.com/blog/matrix-effect-using-jquery/">Matrix effect</a>.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
