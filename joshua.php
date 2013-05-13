@@ -167,15 +167,18 @@ if(empty($output)) {
 	// prime number
 	if($command == "prime") {
 		if(!empty($option)) {
-			$i = 0; $unary = '';
-			while($i++ < $option) {
-				$unary = $unary.'1';
+			if(strlen($option) <= 5) {
+				$i = 0; $unary = '';
+				while($i++ < $option) {
+					$unary = $unary.'1';
+				}
+				$pattern = '/^1?$|^(11+?)\1+$/';
+				if (preg_match($pattern, $unary)) {
+					output($option.' is not a prime number.');
+				}
+				else output($option.' is a prime number.');				
 			}
-			$pattern = '/^1?$|^(11+?)\1+$/';
-			if (preg_match($pattern, $unary)) {
-				output($option.' is not a prime number.');
-			}
-			else output($option.' is a prime number.');
+			else output('<p class="error">'.$joshua.'The number is too damn high (for regex).</p>');
 		}
 		else output('<p class="error">'.$joshua.'You have to tell me a number.</p><p class="example">prime 13</p>');
 	}
@@ -588,7 +591,7 @@ if(empty($output)) {
 	}
 	
 	// say
-	if($command == "say") {
+	if($command == "say" || $command == "talk" || $command == "speak") {
 		if(isset($input)) {
 			print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>'.
 				'<script>speak(\''.$input.'\', { pitch:50, speed:120 });</script>';
