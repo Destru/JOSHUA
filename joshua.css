@@ -327,3 +327,20 @@ body.pulsar {
 		background-color:#004C79;
 	}
 }
+
+/* matrix */
+@font-face {
+	font-family:'Matrix';
+	src: url('fonts/matrix.ttf') format("truetype");
+}
+#matrix {
+	position:fixed;
+	z-index:0;
+}
+#matrix .thread {
+	font-family: 'Matrix';
+	position:absolute;
+	top:0px;
+	color:#0f0;
+	overflow:hidden;
+}

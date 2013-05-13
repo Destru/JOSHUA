@@ -15,7 +15,7 @@
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
 		<!-- open graph -->
-		<meta property="og:image" content="http://binaerpilot.no/alexander/images/thumbnail.jpg"> 
+		<meta property="og:image" content="http://joshua.einhyrning.com/images/thumbnail.jpg"> 
 		<meta property="og:site_name" content="jQuery Operating System, HUA!"> 
 		<meta property="og:title" content="Personal homepage of Alexander Støver"> 
 		<meta property="og:url" content="http://binaerpilot.no/alexander/"> 
