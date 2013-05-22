@@ -16,12 +16,14 @@
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
 		<!-- open graph -->
-		<meta property="og:image" content="http://joshua.einhyrning.com/images/thumbnail.jpg"> 
+		<meta property="og:image" content="http://joshua.einhyrning.com/images/opengraph.jpg">
 		<meta property="og:site_name" content="jQuery Operating System, HUA!"> 
 		<meta property="og:title" content="Personal homepage of Alexander Støver"> 
 		<meta property="og:url" content="http://joshua.einhyrning.com/"> 
 		<meta property="og:description" content="Quite possibly the nerdiest homepage ever made."> 
 		<meta property="og:type" content="website">
+		<!--  fallback -->
+		<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg">
 	<link rel="icon" type="image/png" href="images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen">
 <?php // theme handling
