@@ -71,14 +71,11 @@ td.fixed-width {
 	color:rgba(255,255,255,0.25);
 }
 .close:hover {
-	color:rgba(255,255,255,0.5);
+	color:rgba(255,255,255,0.4);
 }
 #output {
 	margin-top:20px;
 	padding:0 40px;
-}
-p.example {
-	margin-top:-20px;
 }
 .light, .command, .joshua, .error {
 	color:rgb(255,255,255);
@@ -92,7 +89,7 @@ b, .active, .playing {
 	text-align:right;
 }
 .dark, .example {
-	color:rgba(255,255,255,0.5);
+	color:rgba(255,255,255,0.4);
 }
 p a, .pink {
 	color:rgb(255,55,142);
@@ -225,18 +222,24 @@ td {
 .pulsar, h2 {
 	display:none;
 }
+p.example {
+	margin-top:0px;
+}
 .example:before {
 	border: solid transparent;
 	content: " ";
 	height: 0;
 	width: 0;
 	float:left;
-	margin-top:px;
+	margin-top:7px;
 	pointer-events: none;
 	border-color: transparent);
 	border-left-color: rgba(255, 255, 255, 0.5);
-	border-width:5px;
+	border-width:3px;
 	margin-right:2px;
+}
+.playing:before {
+	border-left-color:rgb(255,255,255);
 }
 
 /* shaders
@@ -250,6 +253,7 @@ td {
 }
 
 #music .link {
+	margin-top:20px;
 	float:right;
 }
 #music .link:hover {
