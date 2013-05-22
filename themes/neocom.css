@@ -71,10 +71,8 @@ b {
 #output {
 	padding:0px 40px 20px 40px;
 }
-.joshua b, .error b {
-	font-family:'EVE', Helvetica, Arial;
-	font-weight:normal;
-	letter-spacing:0;
+p.example {
+	margin-top:-20px;
 }
 .prompt b {
 	letter-spacing:0;
@@ -92,7 +90,7 @@ b {
 	opacity:0.15;
 	text-align:right;
 }
-.dark {
+.dark, .example {
 	color:rgba(255,255,255,0.5);
 }
 p a, .pink {
@@ -123,7 +121,7 @@ h1, .prompt {
 	font-size:18px;
 	line-height:18px;
 	text-transform:uppercase;
-	padding:10px 0;
+	padding:11px 0 10px 0;
 	border-top:solid 1px rgba(255,255,255,0.15);
 	border-bottom:solid 1px rgba(255,255,255,0.15);
 }
@@ -234,4 +232,17 @@ td {
 }
 .pulsar, h2 {
 	display:none;
+}
+.example:before {
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	float:left;
+	margin-top:px;
+	pointer-events: none;
+	border-color: transparent);
+	border-left-color: rgba(255, 255, 255, 0.5);
+	border-width:5px;
+	margin-right:2px;
 }
