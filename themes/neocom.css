@@ -1,24 +1,21 @@
 /* eve
  */
-@font-face {
-	font-family: 'EVE';
-	src: url('../fonts/eve.woff');
-}
-
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Signika+Negative);
 body {
 	background-color:rgb(0,0,0);
-	font-family:Helvetica, Arial;
+	font-family:'Source Sans Pro', Helvetica, Arial;
+	font-weight:400;
 	font-size:14px;
 	line-height:1.4em;
 	color:rgba(255,255,255,0.75);
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
-p, .output, table, .prompt, h1, h2 {
-	margin-bottom:20px;
+p, .output, table, .prompt {
+	margin-top:20px;
 }
-b {
-	letter-spacing:-1px;
+h1, h2 {
+	margin-bottom:20px;
 }
 .command {
 	border-bottom:solid 1px rgba(255,255,255,0.25);
@@ -29,6 +26,10 @@ b {
 	left: -50%; 
 	width: 200%; 
 	height: 200%;
+}
+td.fixed-width {
+	padding-top:4px;
+	font-size:10px;
 }
 #nebula img {
 	position: absolute; 
@@ -47,7 +48,11 @@ b {
 	box-shadow:0 0 10px rgba(0,0,0,0.25);
 }
 #joshua {
-	background-color:rgba(0,0,0,0.5);
+	background-image: -webkit-gradient(
+		linear, left top, left bottom,
+		color-stop(0%, rgba(0,0,0,1)),
+		color-stop(100%, rgba(0,0,0,0.15))
+	);
 	position:absolute;
 	top:0;
 	left:48px;
@@ -69,21 +74,17 @@ b {
 	color:rgba(255,255,255,0.5);
 }
 #output {
-	padding:0px 40px 20px 40px;
+	margin-top:20px;
+	padding:0 40px;
 }
 p.example {
 	margin-top:-20px;
 }
-.prompt b {
-	letter-spacing:0;
-	font-weight:normal;
-}
 .light, .command, .joshua, .error {
 	color:rgb(255,255,255);
 }
-.active, .playing {
-	font-weight:bold;
-	letter-spacing:-1px;
+b, .active, .playing {
+	font-weight:700;
 }
 #music .link {
 	display:inline-block;
@@ -104,7 +105,7 @@ p a {
 	padding:8px 10px;
 	width:700px;
 	color:rgba(255,255,255,0.75);
-	background-color: rgba(0,0,0,0.25);
+	background-color: rgba(255,255,255,0.1);
 	-webkit-font-smoothing: antialiased;
 	box-shadow:inset 3px 3px 10px rgba(0,0,0,0.5);
 	border-radius:5px;
@@ -113,14 +114,12 @@ p a {
 	cursor:move;
 }
 #joshua h1 {
-	margin:40px 40px 20px 40px;
+	display:none;
 }
 h1, .prompt {
-	color:rgb(255,255,255);
-	font-family:'EVE', Helvetica, Arial;
-	font-size:18px;
-	line-height:18px;
 	text-transform:uppercase;
+	color:rgb(255,255,255);
+	font-weight:700;
 	padding:10px 0;
 	border-top:solid 1px rgba(255,255,255,0.15);
 	border-bottom:solid 1px rgba(255,255,255,0.15);
@@ -146,7 +145,7 @@ td {
 }
 ::-webkit-scrollbar-thumb {
 	border:none;
-	background-color:rgba(0,0,0,0.25);
+	background-color: rgba(255,255,255,0.1);
 }
 
 /* desktop
@@ -176,9 +175,7 @@ td {
 	background-color:rgba(0,0,0,0.25);
 }
 #desktop a:hover, #desktop .active {
-	background-color:rgba(255,255,255,0.15);
-}
-.icons {
+	background-color:rgba(255,255,255,0.05);
 }
 .icons a, #neocom {
 	height:48px;
@@ -188,10 +185,7 @@ td {
 	background-repeat:no-repeat;
 }
 .icons a {
-	border-top:solid 1px rgba(255,255,255,0.1);
-}
-.icons {
-	border-bottom:solid 1px rgba(255,255,255,0.1);
+	margin:1px 0;
 }
 #links {
 	display:none;
@@ -243,4 +237,21 @@ td {
 	border-left-color: rgba(255, 255, 255, 0.5);
 	border-width:5px;
 	margin-right:2px;
+}
+
+/* shaders
+ */
+#output:before {
+	position:absolute;
+	content:"";
+	width:720px;
+	height:10px;
+	background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+#music .link {
+	float:right;
+}
+#music .link:hover {
+	opacity:0.25;
 }
