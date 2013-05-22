@@ -1,7 +1,7 @@
 // constants
 var gameWidth = 580,
 gameHeight = 340,
-refreshRate	= 20,
+refreshRate	= 25,
 gracePeriod	= 3000,
 missileSpeed = 20;
 

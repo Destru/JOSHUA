@@ -455,6 +455,7 @@ if (empty($output)) {
 	if ($command == "scores") {
 		if (!empty($_POST['name'])) $name = strip_tags(trim($_POST['name']));
 		if (!empty($_POST['score'])) $score = strip_tags(trim($_POST['score']));
+		if (!is_numeric($score)) unset($score);
 		$storage = "superplastic.data";
 		if (!empty($name) && !empty($score)) {
 			if (!file_exists($storage)) touch($storage);
@@ -469,7 +470,7 @@ if (empty($output)) {
 			$scores[$entry]['name'] = $score[1];
 		}
 		rsort($scores);
-		print '<h2>Season V Highscores</h2><ul>';
+		print '<h2>Season X High Scores</h2><ul>';
 		for ($i = 0; $i<30; $i++) {
 			$pos = $i+1;
 			if ($pos < 10) $pos = '0'.$pos;
