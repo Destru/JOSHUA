@@ -19,8 +19,8 @@
 		<meta property="og:image" content="http://joshua.einhyrning.com/images/thumbnail.jpg"> 
 		<meta property="og:site_name" content="jQuery Operating System, HUA!"> 
 		<meta property="og:title" content="Personal homepage of Alexander Støver"> 
-		<meta property="og:url" content="http://binaerpilot.no/alexander/"> 
-		<meta property="og:description" content="The most awkward way of navigating a website ever conceived"> 
+		<meta property="og:url" content="http://joshua.einhyrning.com/"> 
+		<meta property="og:description" content="Quite possibly the nerdiest homepage ever made."> 
 		<meta property="og:type" content="website">
 	<link rel="icon" type="image/png" href="images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen">
