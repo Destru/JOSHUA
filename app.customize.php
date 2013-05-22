@@ -13,7 +13,6 @@
 	</div>
 	<h2>Effects</h2>
 	<ul id="fx" class="tiny">
-		<li class="none">None</li>
 		<li class="sparks">Sparks</li>
 		<li class="draw">Draw</li>
 		<li class="pulsar">Pulsar</li>

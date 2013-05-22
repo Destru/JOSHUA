@@ -351,7 +351,7 @@ body {
 .window h1, .window h2 {
 	color:#fff;
 }
-.button:hover, .button:hover, .tiny li:hover, .button.playing {
+.button:hover, .button:hover, .tiny li:hover, .button.playing, .tiny .active {
 	background-color:#fc0;
 	color:#363636;
 }

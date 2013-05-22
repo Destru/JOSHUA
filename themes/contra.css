@@ -43,7 +43,7 @@ a, .joshua, .error {color:#ccab60;}
 	background-color:#3e0e0c;
 	color:#d19f9c;
 }
-.tiny li:hover, .button:hover, .button.playing {
+.tiny li:hover, .button:hover, .button.playing, .tiny .active {
 	background-color:#c28934;
 	color:#4e1616;
 }

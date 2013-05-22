@@ -91,3 +91,6 @@ body {
 #music .link {
 	background-image:url("../images/mp3PlayerBlack.png");
 }
+#matrix .thread {
+	color:rgba(0,0,0,0.15);
+}

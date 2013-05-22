@@ -1,0 +1,237 @@
+/* eve
+ */
+@font-face {
+	font-family: 'EVE';
+	src: url('../fonts/eve.woff');
+}
+
+body {
+	background-color:rgb(0,0,0);
+	font-family:Helvetica, Arial;
+	font-size:14px;
+	line-height:1.4em;
+	color:rgba(255,255,255,0.75);
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+p, .output, table, .prompt, h1, h2 {
+	margin-bottom:20px;
+}
+b {
+	letter-spacing:-1px;
+}
+.command {
+	border-bottom:solid 1px rgba(255,255,255,0.25);
+}
+#nebula {
+	position: fixed;
+	top: -50%; 
+	left: -50%; 
+	width: 200%; 
+	height: 200%;
+}
+#nebula img {
+	position: absolute; 
+	z-index:0;
+	top: 0;
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	margin: auto; 
+	min-width: 50%;
+	min-height: 50%;
+	-webkit-user-select:none;
+	user-select:none;
+}
+#joshua, .window {
+	box-shadow:0 0 10px rgba(0,0,0,0.25);
+}
+#joshua {
+	background-color:rgba(0,0,0,0.5);
+	position:absolute;
+	top:0;
+	left:40px;
+	height:100%;
+	width:780px;
+}
+.window {
+	background-color:rgb(0,0,0);
+	padding:20px;
+}
+.close {
+	float:right;
+	height:18px;
+	width:18px;
+	text-align:center;
+	color:rgba(255,255,255,0.25);
+}
+.close:hover {
+	color:rgba(255,255,255,0.5);
+}
+#output {
+	padding:0px 40px 20px 40px;
+}
+.joshua b, .error b {
+	font-family:'EVE', Helvetica, Arial;
+	font-weight:normal;
+	letter-spacing:0;
+}
+.prompt b {
+	letter-spacing:0;
+	font-weight:normal;
+}
+.light, .command, .joshua, .error {
+	color:rgb(255,255,255);
+}
+.active, .playing {
+	font-weight:bold;
+	letter-spacing:-1px;
+}
+#music .link {
+	display:inline-block;
+	opacity:0.15;
+	text-align:right;
+}
+.dark {
+	color:rgba(255,255,255,0.5);
+}
+p a, .pink {
+	color:rgb(255,55,142);
+}
+p a {
+	border-bottom:solid 1px rgba(255,55,142,0.25);;
+}
+#prompt {
+	margin:20px 30px 0 30px;
+	padding:8px 10px;
+	width:700px;
+	color:rgba(255,255,255,0.75);
+	background-color: rgba(0,0,0,0.25);
+	-webkit-font-smoothing: antialiased;
+	box-shadow:inset 3px 3px 10px rgba(0,0,0,0.5);
+	border-radius:5px;
+}
+.window h1 {
+	cursor:move;
+}
+#joshua h1 {
+	margin:40px 40px 20px 40px;
+}
+h1, .prompt {
+	color:rgb(255,255,255);
+	font-family:'EVE', Helvetica, Arial;
+	font-size:18px;
+	line-height:18px;
+	text-transform:uppercase;
+	padding:10px 0;
+	border-top:solid 1px rgba(255,255,255,0.15);
+	border-bottom:solid 1px rgba(255,255,255,0.15);
+}
+.prompt b {
+	font-weight:normal;
+}
+td {
+	padding-right:20px;
+}
+
+/* scrollbars
+ */
+ html, body {
+	overflow:hidden;
+ }
+ #output {
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+::-webkit-scrollbar {
+    width:5px;
+}
+::-webkit-scrollbar-thumb {
+	border:none;
+	background-color:rgba(0,0,0,0.25);
+}
+
+/* desktop
+*/
+.icons {
+	text-indent:-9999px;
+}
+#desktop {
+	color:transparent;
+	position:absolute;
+	z-index:1;
+	top:0;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+	background-image: -webkit-gradient(
+		linear, left top, right top,
+		color-stop(0%, rgba(0,0,0,0.25)),
+		color-stop(98%, rgba(255,255,255,0.15)),
+		color-stop(100%, rgba(0,0,0,0.15))
+	);
+	height:100%;
+	width:40px;
+	box-shadow:0px 0px 10px rgba(0,0,0,0.25);
+}
+#desktop a {
+	display:block;
+	width:40px;
+	height:40px;
+	background-color:rgba(0,0,0,0.25);
+}
+#desktop a:hover, #desktop .active {
+	background-color:rgba(255,255,255,0.15);
+}
+.icons {
+}
+.icons a, #neocom {
+	height:40px;
+	width:40px;
+	text-align:center;
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+}
+.icons a {
+	border-top:solid 1px rgba(255,255,255,0.1);
+}
+.icons {
+	border-bottom:solid 1px rgba(255,255,255,0.1);
+}
+#links {
+	display:none;
+}
+#superplasticOpen {
+	background-image:url("../images/neocom/superplastic.png");	
+}
+#musicOpen {
+	background-image:url("../images/neocom/music.png");		
+}
+#videosOpen {
+	background-image:url("../images/neocom/videos.png");		
+}
+#customizeOpen {
+	background-image:url("../images/neocom/customize.png");		
+}
+#neocom {
+	display:table-cell;
+	vertical-align:middle;
+	background-image: -webkit-gradient(
+		linear, left top, left bottom,
+		color-stop(0%, rgba(255,255,255,0.15)),
+		color-stop(100%, rgba(0,0,0,0.15))
+	);
+}
+
+/* loader */
+#loader {
+	background-image:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:40px;
+	height:40px;
+	background-color:rgba(255,255,255,0.15);
+}
+.pulsar, h2 {
+	display:none;
+}

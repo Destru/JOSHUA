@@ -70,7 +70,7 @@ p.note {
 	float:left;
 	margin-right:10px;
 }
-a:hover, .tiny li:hover {
+a:hover, .tiny li:hover, .tiny .active {
 	border-color:rgba(255,0,0,0.75);
 }
 #joshua {
@@ -140,4 +140,10 @@ td {
 	background-image:url("../images/mp3PlayerBlack.png");
 	opacity:0.5;
 	border:none;
+}
+.sparks, .draw {
+	display:none;
+}
+#matrix .thread {
+	color:rgba(0,0,0,0.15);
 }

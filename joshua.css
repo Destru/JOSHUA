@@ -22,6 +22,9 @@ a {
 h1, h2, h3, h4 {
 	cursor:default;
 }
+#joshua, #output {
+	z-index:10;
+}
 #joshua input {
 	display:block;
 }
@@ -70,17 +73,6 @@ td.command {
 	background-image: url("images/pixelChat.png");
 	background-repeat:no-repeat;
 	padding-top:8px;
-}
-
-/* table expander */
-#version a.toggle, .output a.external {
-	cursor:pointer;
-	font-size:75%;
-	line-height:25px;
-	font-weight:bold;
-}
-#version tr {
-	display:none;
 }
 
 /* windows */
@@ -335,12 +327,13 @@ body.pulsar {
 }
 #matrix {
 	position:fixed;
-	z-index:0;
+	z-index:1;
 }
 #matrix .thread {
 	font-family: 'Matrix';
 	position:absolute;
 	top:0px;
-	color:#0f0;
+	color:rgba(255,255,255,0.25);
 	overflow:hidden;
+	text-overflow:'';
 }

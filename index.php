@@ -1,3 +1,4 @@
+
 <?php include 'inc.global.php'; ?>
 <!doctype html>
 <html lang="en">

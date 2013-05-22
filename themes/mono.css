@@ -53,7 +53,7 @@ a {
 .menu a {
 	color:#000;
 }
-.menu .playing {
+.menu .playing, .active {
 	background-color:#000;
 	color:#fff;
 }

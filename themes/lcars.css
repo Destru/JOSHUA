@@ -12,6 +12,9 @@ body {
 	background-repeat:no-repeat;
 	background-position:50% 50%;
 	background-attachment:fixed;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+
 }
 a {
 	color:#f90;
@@ -81,7 +84,7 @@ h1, h2 {
 	color:#000;
 	margin:3px;
 }
-.tiny li:hover {
+.tiny li:hover, .tiny li.active {
 	background-color:#f96;
 }
 #desktop {

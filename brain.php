@@ -323,21 +323,17 @@ $static = array(
 			<td class="fixed-width">9.6</td>
 			<td>Usability/compability update. More relaxed security, possible to click commands, upgraded all externals where relevant, several tweaks to existing themes.</td>
 		</tr>
-		<tr class="major"><td></td><td><a class="toggle">See full history.</a></td></tr>
+		<tr class="major">
+			<td class="fixed-width">10 <span class="dark">Neocom</span></td>
+			<td>New theme, a new matrix effect, (arguably) better effect and window management, gallery refactored as a fancy <span class="command">image</span> search interface, <span class="command">rate</span> has been added, tons of QOL fixes.</td>
+		</tr>
 	</table>',
 
 'about' => '
 	<p>
-		My name is Alexander Støver. I was born in 1982. I live in Oslo and work for <a href="http://finn.no">FINN.no</a> as a senior front end web developer.
-		That\'s a fancy way of saying I\'m neither a designer or developer but sort of both.
-		For more information about me try the <span class="command">alexander</span> or <span class="command">resume</span> commands.
-		On my spare time I make <a href="http://binaerpilot.no">robot music</a> and play <span class="command">games</span>.
-	</p>
-	<p>
 		JOSHUA is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
 		The name is a reference to \'War Games\' (Shall we play a game?).
-		Special <span class="command">thanks</span> to <a href="http://twitter.com/ehjelle">Eirik</a> and <a href="http://twitter.com/elektronaut">Inge</a> for answering stupid questions.
-		This site fueled by sleep deprivation.
+		My name is <span class="command">alexander</span> and this site is fueled by sleep deprivation.
 	</p>
 	<p>
 		Making JOSHUA has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever conceived.
@@ -455,6 +451,7 @@ $static = array(
 'deploy' => 'JOSHUA '.$version.' ('.$versionName.') is deployed.',
 'henrik' => 'Lillebroren min som skal bli rockestjerne.',
 'freiburg' => 'I don\'t know why I hate you so much.',
+'osenoa' => '<p class="joshua">'.$joshua.'Daddy?',
 'survice' => 'How Alexander spells "survive" apparently. Brain tumor, anyone?',
 'almond' => 'Giving an almond is when you go down on a woman. At least according to Dr. Alxaendr, the illiterate cage monkey.',
 'purpose' => 'Matthew thinks that JOSHUA <a href="http://mwholt.com">has no real purpose</a>. Yet his site uses a console interface for the exact same reason mine does. Then again, this site is more about having fun rather than coming off as pretentious.',
@@ -544,6 +541,7 @@ Rachael: HAHAHA!</pre>',
 'teemo' => 'Never underestimate the power of the Scout\'s code.',
 'xd' => 'ᕙ(⇀‸↼‶)ᕗ',
 'rage' => '(╯°□°）╯︵ ┻━┻',
+'tits' => '<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/GreatTit002.jpg/220px-GreatTit002.jpg">A beautiful pair of tits.</a>',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
@@ -579,7 +577,7 @@ Rachael: HAHAHA!</pre>',
 		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
 		Prowareness for his <a href="http://www.prowareness.com/blog/matrix-effect-using-jquery/">Matrix effect</a>.
 	</p>
-	<p>I\'d also like to thank Rachael for being patient with me while working on this, George McGinley Smith for his work on easing methods and an  unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
+	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
 'porn' =>'<pre>Perfect Breasts             <span class="light">(o)(o)</span>
 Fake Silicone Breasts       <span class="light">( + )( + )</span>

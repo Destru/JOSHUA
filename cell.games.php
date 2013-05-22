@@ -28,6 +28,10 @@ $games = array(
 		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
 			'The game is scary, difficult and outright intimidating. Funcom definitely has a sleeper hit on their hands. '.
 			'I like it so much that I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).</p>'
+	),
+	'lol' => array(
+		'about' => '<p><b>League of Legends</b> is an awesome, twitchy game with a surprising amount of depth. '.
+			'My summoner name is "Destru Kaneda" on EU West (and Nordic, but I rarely play there).</p>'
 	)
 );
 

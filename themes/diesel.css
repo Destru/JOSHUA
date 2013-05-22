@@ -11,9 +11,6 @@ body {
 table {
 	margin-bottom:10px;
 }
-#joshua, #output {
-	z-index:10;
-}
 #joshua {
 	padding:30px;
 }
@@ -187,7 +184,7 @@ table td {
 	overflow:hidden;
 	margin-right:20px;
 }
-#desktop a.active, #desktop ul li a:hover {
+#desktop a.active, #desktop ul li a:hover, .active {
 	color:#f92666;
 	font-weight:bold;
 }

@@ -55,7 +55,7 @@ h1, h2, p, table {
 .light, .command, a {
 	color:hsl(247,59%,75%);
 }
-.menu .playing {
+.menu .playing, .tiny .active {
 	color:hsl(247,59%,35%);
 }
 .command {
@@ -71,6 +71,9 @@ body.pulsar {
 	-webkit-animation:none;
 }
 
-#music .link {
+h2, #music .link {
 	display:none;
+}
+#loader {
+	background-image:none;
 }
