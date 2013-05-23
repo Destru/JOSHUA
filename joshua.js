@@ -405,9 +405,9 @@ function chromeMagic() {
 	else if (theme == "neocom") {
 		$('body').prepend('<div id="nebula"><img src="images/backgroundNeocom.jpg"></div>');
 		$('#desktop').prepend('<a href="/"><div id="neocom"><img src="images/neocom/logo.png" width="20" height="20" alt="JOSHUA"></div></a>');
-		$('#output').css("height", $(window).height()-192);
+		$('#output').css("height", $(window).height()-92);
 		$(window).resize(function() {
-			$('#output').css("height", $(window).height()-192);
+			$('#output').css("height", $(window).height()-92);
 			scrollCheck();
 		});
 		$('#nebula').on('click', function(){

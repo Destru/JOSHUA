@@ -1,24 +1,21 @@
 /* eve
  */
-@font-face {
-	font-family: 'EVE';
-	src: url('../fonts/eve.woff');
-}
-
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Signika+Negative);
 body {
 	background-color:rgb(0,0,0);
-	font-family:Helvetica, Arial;
+	font-family:'Source Sans Pro', Helvetica, Arial;
+	font-weight:400;
 	font-size:14px;
 	line-height:1.4em;
 	color:rgba(255,255,255,0.75);
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
-p, .output, table, .prompt, h1, h2 {
-	margin-bottom:20px;
+p, .output, table, .prompt, pre {
+	margin-top:20px;
 }
-b {
-	letter-spacing:-1px;
+h1, h2 {
+	margin-bottom:20px;
 }
 .command {
 	border-bottom:solid 1px rgba(255,255,255,0.25);
@@ -29,6 +26,10 @@ b {
 	left: -50%; 
 	width: 200%; 
 	height: 200%;
+}
+td.fixed-width {
+	padding-top:4px;
+	font-size:10px;
 }
 #nebula img {
 	position: absolute; 
@@ -43,16 +44,21 @@ b {
 	-webkit-user-select:none;
 	user-select:none;
 }
-#joshua, .window {
-	box-shadow:0 0 10px rgba(0,0,0,0.25);
+.window {
+	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
 }
 #joshua {
-	background-color:rgba(0,0,0,0.5);
+	background-image: -webkit-gradient(
+		linear, left top, left bottom,
+		color-stop(0%, rgba(0,0,0,1)),
+		color-stop(100%, rgba(0,0,0,0.15))
+	);
 	position:absolute;
 	top:0;
 	left:48px;
 	height:100%;
-	width:780px;
+	width:680px;
+	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
 }
 .window {
 	background-color:rgb(0,0,0);
@@ -66,24 +72,17 @@ b {
 	color:rgba(255,255,255,0.25);
 }
 .close:hover {
-	color:rgba(255,255,255,0.5);
+	color:rgba(255,255,255,0.4);
 }
 #output {
-	padding:0px 40px 20px 40px;
-}
-p.example {
-	margin-top:-20px;
-}
-.prompt b {
-	letter-spacing:0;
-	font-weight:normal;
+	margin-top:20px;
+	padding:0 40px;
 }
 .light, .command, .joshua, .error {
 	color:rgb(255,255,255);
 }
-.active, .playing {
-	font-weight:bold;
-	letter-spacing:-1px;
+b, .active, .playing {
+	font-weight:700;
 }
 #music .link {
 	display:inline-block;
@@ -91,20 +90,20 @@ p.example {
 	text-align:right;
 }
 .dark, .example {
-	color:rgba(255,255,255,0.5);
+	color:rgba(255,255,255,0.4);
 }
 p a, .pink {
 	color:rgb(255,55,142);
 }
 p a {
-	border-bottom:solid 1px rgba(255,55,142,0.25);;
+	border-bottom:solid 1px rgba(255,55,142,0.25);
 }
 #prompt {
 	margin:20px 30px 0 30px;
 	padding:8px 10px;
-	width:700px;
+	width:600px;
 	color:rgba(255,255,255,0.75);
-	background-color: rgba(0,0,0,0.25);
+	background-color: rgba(255,255,255,0.1);
 	-webkit-font-smoothing: antialiased;
 	box-shadow:inset 3px 3px 10px rgba(0,0,0,0.5);
 	border-radius:5px;
@@ -116,14 +115,12 @@ p a {
 	cursor:move;
 }
 #joshua h1 {
-	margin:40px 40px 20px 40px;
+	display:none;
 }
 h1, .prompt {
-	color:rgb(255,255,255);
-	font-family:'EVE', Helvetica, Arial;
-	font-size:18px;
-	line-height:18px;
 	text-transform:uppercase;
+	color:rgb(255,255,255);
+	font-weight:700;
 	padding:10px 0;
 	border-top:solid 1px rgba(255,255,255,0.15);
 	border-bottom:solid 1px rgba(255,255,255,0.15);
@@ -149,7 +146,7 @@ td {
 }
 ::-webkit-scrollbar-thumb {
 	border:none;
-	background-color:rgba(0,0,0,0.25);
+	background-color: rgba(255,255,255,0.1);
 }
 
 /* desktop
@@ -163,25 +160,22 @@ td {
 	z-index:1;
 	top:0;
 	left:0;
-	background-color:rgba(0,0,0,0.5);
+	background-color:rgba(0,0,0,0.75);
 	background-image: -webkit-gradient(
 		linear, left top, right top,
-		color-stop(0%, rgba(0,0,0,0.25)),
-		color-stop(98%, rgba(255,255,255,0.15)),
-		color-stop(100%, rgba(0,0,0,0.15))
+		color-stop(0%, rgba(255,255,255,0.05)),
+		color-stop(100%, rgba(255,255,255,0.2))
 	);
 	height:100%;
 	width:48px;
-	box-shadow:0px 0px 10px rgba(0,0,0,0.25);
+	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
 }
 #desktop a {
 	display:block;
 	background-color:rgba(0,0,0,0.25);
 }
 #desktop a:hover, #desktop .active {
-	background-color:rgba(255,255,255,0.15);
-}
-.icons {
+	background-color:rgba(255,255,255,0.05);
 }
 .icons a, #neocom {
 	height:48px;
@@ -191,10 +185,7 @@ td {
 	background-repeat:no-repeat;
 }
 .icons a {
-	border-top:solid 1px rgba(255,255,255,0.1);
-}
-.icons {
-	border-bottom:solid 1px rgba(255,255,255,0.1);
+	margin:1px 0;
 }
 #links {
 	display:none;
@@ -231,8 +222,11 @@ td {
 	height:48px;
 	background-color:rgba(255,255,255,0.15);
 }
-.pulsar, h2 {
+h2 {
 	display:none;
+}
+p.example {
+	margin-top:0px;
 }
 .example:before {
 	border: solid transparent;
@@ -240,10 +234,34 @@ td {
 	height: 0;
 	width: 0;
 	float:left;
-	margin-top:px;
+	margin-top:7px;
 	pointer-events: none;
 	border-color: transparent);
 	border-left-color: rgba(255, 255, 255, 0.5);
-	border-width:5px;
+	border-width:3px;
 	margin-right:2px;
+}
+.playing:before {
+	border-left-color:rgb(255,255,255);
+}
+
+/* shaders
+ */
+#output:before {
+	position:absolute;
+	content:"";
+	width:620px;
+	height:10px;
+	background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+#music .link {
+	margin-top:20px;
+	float:right;
+}
+#music .link:hover {
+	opacity:0.25;
+}
+.pulsar #nebula {
+	display:none;
 }
