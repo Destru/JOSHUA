@@ -41,3 +41,24 @@ body {
 #music .link {
 	background-image:url("../images/mp3PlayerBlack.png");
 }
+li.pulsar {
+	display:none;
+}
+body.pulsar {
+	-webkit-animation:none;
+}
+#cylon {
+	background: -webkit-linear-gradient(left, rgba(2,36,44,0) 0%, #ff7800 50%, rgba(2,36,44,0) 100%);
+	background: -moz-linear-gradient(left, rgba(2,36,44,0) 0%, #ff7800 50%, rgba(2,36,44,0) 100%);
+	background: -ms-linear-gradient(left, rgba(2,36,44,0) 0%, #ff7800 50%, rgba(2,36,44,0) 100%);
+	background: linear-gradient(left, rgba(2,36,44,0) 0%, #ff7800 50%, rgba(2,36,44,0) 100%);
+}
+.brush {
+    background: -webkit-radial-gradient(center center, circle contain, #ff7800 0%, rgba(2, 36, 44, 0) 100%);
+    background: -moz-radial-gradient(center center, circle contain, #ff7800 0%, rgba(2, 36, 44, 0) 100%);  
+    background: -ms-radial-gradient(center center, circle contain, #ff7800 0%, rgba(2, 36, 44, 0) 100%);
+    background: radial-gradient(center center, circle contain, #ff7800 0%, rgba(2, 36, 44, 0) 100%);
+}
+#loader {
+	background:url('../images/loaderCarolla.png') no-repeat center 6px;
+}

@@ -3,7 +3,7 @@
  */
 body {
 	background-color:#152521;
-	background-image:url("../images/backgroundKonami.png");
+	background-image:url("../images/backgroundContra.png");
 	background-position:98% 95%;
 }
 
@@ -13,7 +13,7 @@ body {
 
 /* images */
 ul.icons li a {
-	background-image:url("../images/iconsKonami.png");
+	background-image:url("../images/iconsContra.png");
 	color:#c28934;
 	opacity:0.75;
 }
@@ -55,4 +55,25 @@ a, .joshua, .error {color:#ccab60;}
 }
 #input:before {
 	background: linear-gradient(to top, rgba(27,46,42,1), rgba(27,46,42,0));
+}
+li.pulsar {
+	display:none;
+}
+body.pulsar {
+	-webkit-animation:none;
+}
+#cylon {
+	background: -webkit-linear-gradient(left, rgba(21,37,33,0) 0%, #c28934 50%, rgba(21,37,33,0) 100%);
+	background: -moz-linear-gradient(left, rgba(21,37,33,0) 0%, #c28934 50%, rgba(21,37,33,0) 100%);
+	background: -ms-linear-gradient(left, rgba(21,37,33,0) 0%, #c28934 50%, rgba(21,37,33,0) 100%);
+	background: linear-gradient(left, rgba(21,37,33,0) 0%, #c28934 50%, rgba(21,37,33,0) 100%);
+}
+.brush {
+    background: -webkit-radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);
+    background: -moz-radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);  
+    background: -ms-radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);
+    background: radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);
+}
+#loader {
+	background:url('../images/loaderContra.png') no-repeat center 6px;
 }

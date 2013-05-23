@@ -3,8 +3,8 @@
  */	
 body {background-color:#eee;color:#444;}
 
-.button:hover, .tiny li:hover, .button.playing, #joshua {background-color:#fff;}
-.button:hover, .tiny li:hover, .button.playing {
+.button:hover, .tiny li:hover, .button.playing, #joshua, .tiny .active {background-color:#fff;}
+.button:hover, .tiny li:hover, .button.playing, .tiny .active {
 	color:#999;
 }
 .window {
@@ -68,9 +68,6 @@ body {
 .next-gen.extra, #tip {
 	display:none;
 }
-.brush {
-	background-image:url('../images/brushWhite.png');
-}
 
 ::-webkit-scrollbar-thumb {
 	background-color:#c4c4c4;
@@ -93,4 +90,16 @@ body {
 }
 #matrix .thread {
 	color:rgba(0,0,0,0.15);
+}
+#cylon {
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, #09f 50%, rgba(255,255,255,0) 100%);
+	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, #09f 50%,rgba(255,255,255,0) 100%);
+	background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, #09f 50%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(left, rgba(255,255,255,0) 0%, #09f 50%, rgba(255,255,255,0) 100%);
+}
+.brush {
+    background: -webkit-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+    background: -moz-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+    background: -ms-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+    background: radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
 }

@@ -43,3 +43,18 @@ body {
 #input:before {
 	background: linear-gradient(to top, rgba(102,1,60,1), rgba(102,1,60,0));
 }
+#cylon {
+	background: -webkit-linear-gradient(left, rgba(66,1,39,0) 0%, #ff8acf 50%, rgba(66,1,39,0) 100%);
+	background: -moz-linear-gradient(left, rgba(66,1,39,0) 0%, #ff8acf 50%,rgba(66,1,39,0) 100%);
+	background: -ms-linear-gradient(left, rgba(66,1,39,0) 0%, #ff8acf 50%, rgba(66,1,39,0) 100%);
+	background: linear-gradient(left, rgba(66,1,39,0) 0%, #ff8acf 50%, rgba(66,1,39,0) 100%);
+}
+.brush {
+    background: -webkit-radial-gradient(center center, circle contain, #ff8acf 0%, rgba(66,1,39,0) 100%);
+    background: -moz-radial-gradient(center center, circle contain, #ff8acf 0%, rgba(66,1,39,0) 100%);
+    background: -ms-radial-gradient(center center, circle contain, #ff8acf 0%, rgba(66,1,39,0) 100%);
+    background: radial-gradient(center center, circle contain, #ff8acf 0%, rgba(66,1,39,0) 100%);
+}
+#loader {
+	background:url('../images/loaderPenguin.png') no-repeat center 6px;
+}

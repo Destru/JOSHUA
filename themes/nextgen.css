@@ -445,3 +445,18 @@ h2.presets {
 	background-position:50% 50%;	
 	opacity:0.5;
 }
+#cylon {
+	background: -webkit-linear-gradient(left, #181818 0%, #fc0 50%, #181818 100%);
+	background: -moz-linear-gradient(left, #181818 0%, #fc0 50%, #181818 100%);
+	background: -ms-linear-gradient(left, #181818 0%, #fc0 50%, #181818 100%);
+	background: linear-gradient(left, #181818 0%, #fc0 50%, #181818 100%);
+}
+.brush {
+    background: -webkit-radial-gradient(center center, circle contain, #fc0 0%, rgba(24,25,25,0) 100%);
+    background: -moz-radial-gradient(center center, circle contain, #fc0 0%, rgba(24,25,25,0) 100%);
+    background: -ms-radial-gradient(center center, circle contain, #fc0 0%, rgba(24,25,25,0) 100%);
+    background: radial-gradient(center center, circle contain, #fc0 0%, rgba(24,25,25,0) 100%);
+}
+#loader {
+	background:url('../images/loaderNextgen.png') no-repeat center 6px;
+}

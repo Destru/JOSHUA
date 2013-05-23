@@ -194,9 +194,6 @@ table td {
 #fx {
 	margin-bottom:0;
 }
-.brush {
-	background-image:url("../images/brushDiesel.png");
-}
 #joshua h1 {
 	text-indent:-9999px;
 	background-image:url("../images/logoDiesel.png");
@@ -223,24 +220,15 @@ table td {
 ::-webkit-scrollbar-thumb {
 	background-color:#464740;
 }
-
-/* 
- * loader
- */
 #loader {
 	background:url('../images/loaderDiesel.png') no-repeat center 6px;
-	-webkit-animation:load 0.2s infinite linear;
 }
-
-/* no pulsar
-*/
 li.pulsar {
 	display:none;
 }
 body.pulsar {
 	-webkit-animation:none;
 }
-
 #music .link {
 	border-top:solid 1px #464740;
 	width:180px;
@@ -248,4 +236,16 @@ body.pulsar {
 	margin-top:5px;
 	background-position:50% 100%;
 	opacity:0.2;
+}
+#cylon {
+	background: -webkit-linear-gradient(left, transparent 0%, #f92666 50%, transparent 100%);
+	background: -moz-linear-gradient(left, transparent 0%, #f92666 50%, transparent 100%);
+	background: -ms-linear-gradient(left, transparent 0%, #f92666 50%, transparent 100%);
+	background: linear-gradient(left, transparent 0%, #f92666 50%, transparent 100%);
+}
+.brush {
+    background: -webkit-radial-gradient(center center, circle contain, #f92666 0%, rgba(29,31,23,0) 100%);
+    background: -moz-radial-gradient(center center, circle contain, #f92666 0%, rgba(29,31,23,0) 100%);  
+    background: -ms-radial-gradient(center center, circle contain, #f92666 0%, rgba(29,31,23,0) 100%);
+    background: radial-gradient(center center, circle contain, #f92666 0%, rgba(29,31,23,0) 100%);
 }

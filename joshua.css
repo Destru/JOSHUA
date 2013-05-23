@@ -210,9 +210,12 @@ pre.ascii {
 .brush {
 	z-index:30;
 	position:absolute;
-	width:21px;
-	height:21px;
-	background-image:url("images/brushWhite.png");
+	width:32px;
+	height:32px;
+    background: -webkit-radial-gradient(center center, circle contain, white 0%, transparent 100%);
+    background: -moz-radial-gradient(center center, circle contain, white 0%, transparent 100%);  
+    background: -ms-radial-gradient(center center, circle contain, white 0%, transparent 100%);
+    background: radial-gradient(center center, circle contain, white 0%, transparent 100%);
 }
 .overlay {
 	display:none;
@@ -238,7 +241,7 @@ pre.ascii {
 	display:none;
 	position:fixed;
 	top:20px;right:20px;
-	z-index:100;
+	z-index:41;
 	height:28px; width:28px;
 	background:url('images/loader.png') no-repeat center 6px;
 	border:none;
@@ -261,12 +264,10 @@ pre.ascii {
 	z-index:31;
 	position:fixed;	top:0;
 	width:120px; height:5px;
-	background: -moz-linear-gradient(left,  hsla(0,0%,0%,0) 0%, hsla(0,100%,60%,1) 50%, hsla(0,0%,0%,0) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsla(0,0%,0%,0)), color-stop(50%,hsla(0,100%,60%,1)), color-stop(100%,hsla(0,0%,0%,0)));
-	background: -webkit-linear-gradient(left,  hsla(0,0%,0%,0) 0%,hsla(0,100%,60%,1) 50%,hsla(0,0%,0%,0) 100%);
-	background: -ms-linear-gradient(left,  hsla(0,0%,0%,0) 0%,hsla(0,100%,60%,1) 50%,hsla(0,0%,0%,0) 100%);
-	background: linear-gradient(to right,  hsla(0,0%,0%,0) 0%,hsla(0,100%,60%,1) 50%,hsla(0,0%,0%,0) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 );
+	background: -webkit-linear-gradient(left, transparent 0%, red 50%, transparent 100%);
+	background: -moz-linear-gradient(left, transparent 0%, red 50%, transparent 100%);
+	background: -ms-linear-gradient(left, transparent 0%, red 50%, transparent 100%);
+	background: linear-gradient(left, transparent 0%, red 50%, transparent 100%);
 }
 
 /* videos */

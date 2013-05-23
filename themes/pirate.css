@@ -127,12 +127,21 @@ a.close, .image img {
 .window, #superplastic {
 	position:fixed;
 }
-
-/* no pulsar
-*/
 li.pulsar {
 	display:none;
 }
 body.pulsar {
 	-webkit-animation:none;
+}
+#cylon {
+	background: -webkit-linear-gradient(left, transparent 0%, #00becd 50%, transparent 100%);
+	background: -moz-linear-gradient(left, transparent 0%, #00becd 50%, transparent 100%);
+	background: -ms-linear-gradient(left, transparent 0%, #00becd 50%, transparent 100%);
+	background: linear-gradient(left, transparent 0%, #00becd 50%, transparent 100%);
+}
+.brush {
+    background: -webkit-radial-gradient(center center, circle contain, #00becd 0%, rgba(20,20,20,0) 100%);
+    background: -moz-radial-gradient(center center, circle contain, #00becd 0%, rgba(20,20,20,0) 100%);
+    background: -ms-radial-gradient(center center, circle contain, #00becd 0%, rgba(20,20,20,0) 100%);
+    background: radial-gradient(center center, circle contain, #00becd 0%, rgba(20,20,20,0) 100%);
 }

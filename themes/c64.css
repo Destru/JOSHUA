@@ -61,19 +61,18 @@ h1, h2, p, table {
 .command {
 	text-transform:uppercase;
 }
-
-/* no pulsar
-*/
 li.pulsar {
 	display:none;
 }
 body.pulsar {
 	-webkit-animation:none;
 }
-
 h2, #music .link {
 	display:none;
 }
 #loader {
 	background-image:none;
+}
+#cylon, .brush {
+	background: hsl(247,54%,41%);
 }
