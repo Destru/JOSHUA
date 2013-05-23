@@ -109,6 +109,9 @@ p a {
 	box-shadow:inset 3px 3px 10px rgba(0,0,0,0.5);
 	border-radius:5px;
 }
+.image {
+	border-radius:3px;
+}
 .window h1 {
 	cursor:move;
 }
