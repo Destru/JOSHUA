@@ -219,7 +219,7 @@ td {
 	height:48px;
 	background-color:rgba(255,255,255,0.15);
 }
-.pulsar, h2 {
+h2 {
 	display:none;
 }
 p.example {
@@ -258,4 +258,7 @@ p.example {
 }
 #music .link:hover {
 	opacity:0.25;
+}
+.pulsar #nebula {
+	display:none;
 }

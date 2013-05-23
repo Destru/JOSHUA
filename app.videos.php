@@ -23,7 +23,7 @@
 					$('#videos .playing').removeClass('playing');
 					var id = $(this).attr('id');
 					$(this).find('a').addClass('playing');
-					$('#videos iframe').attr('src', 'http://www.youtube.com/embed/'+id).show();
+					$('#videos iframe').attr('src', 'http://www.youtube.com/embed/'+id+'?color=white').show();
 				});
 			});
 		});
