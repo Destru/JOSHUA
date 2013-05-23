@@ -327,6 +327,11 @@ $static = array(
 			<td class="fixed-width">10 <span class="dark">Neocom</span></td>
 			<td>New theme, a new matrix effect, (arguably) better effect and window management, gallery refactored as a fancy <span class="command">image</span> search interface, <span class="command">rate</span> has been added, tons of QOL fixes.</td>
 		</tr>
+		<tr>
+			<td class="fixed-width">10.1</td>
+			<td>Why use PNG\'s for the drawing brushes when CSS3 has radial gradient? Custom effects fixed for all skins.</td>
+		</tr>
+
 	</table>',
 
 'about' => '
