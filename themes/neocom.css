@@ -9,6 +9,8 @@ body {
 	line-height:1.4em;
 	color:rgba(255,255,255,0.75);
 	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
 p, .output, table, .prompt, pre {
@@ -54,7 +56,7 @@ td.fixed-width {
 	top:0;
 	left:48px;
 	height:100%;
-	width:680px;
+	width:740px;
 	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
 }
 .window {
@@ -99,7 +101,7 @@ p a {
 #prompt {
 	margin:20px 30px 0 30px;
 	padding:8px 10px;
-	width:600px;
+	width:660px;
 	color:rgba(255,255,255,0.75);
 	background-color: rgba(255,255,255,0.1);
 	-webkit-font-smoothing: antialiased;

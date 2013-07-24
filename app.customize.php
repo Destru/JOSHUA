@@ -14,7 +14,7 @@
 	<h2>Effects</h2>
 	<ul id="fx" class="tiny">
 		<li class="sparks">Sparks</li>
-		<li class="draw">Draw</li>
+		<li class="draw" title="Click and hold down mousebutton">Draw</li>
 		<li class="pulsar">Pulsar</li>
 		<li class="matrix">Matrix</li>
 		<li class="cylon">Cylon</li>
