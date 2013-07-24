@@ -550,12 +550,15 @@ Rachael: HAHAHA!</pre>',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
-'resume' => '<p>I am super awesome to work with and rad to the power of sick. What? You need more?</p>
-	<p>I have been doing front end development for 13 years (left school at 17 after being offered a job).
-	For recent samples of my work your best bet would be <a href="http://manualdesign.no">Manual design</a>
-	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (second largest website in Norway).</p>
-	<p>Currently not looking for work, but if you represent a NY/SF/LA-based company I would be happy to
-	<a href="mailto:alexander@binaerpilot.no">hear from you</a> as I\'m planning to move out of Norway soon.</p>',
+'resume' => '<p>I have been doing front end development for the past '.(date("Y")-1998).' years.
+	I landed my first paid gig when I was 14 years old and, apart from a brief study to get certified in Norway (at age 17), have been actively working with the web ever since.</p>
+	<p>For recent samples of my work you can look at <a href="http://manualdesign.no">Manual design</a>
+	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (the second largest Norwegian website, and my current employer).</p>
+	<p>At FINN I am mainly responsible for prototyping new solutions with an emphasis on bringing emerging technology to the forefront of future development.
+	For obvious reasons I am unable to show any of that work on this site.</p>
+	<p><a href="http://www.linkedin.com/in/astoever">I am currently actively looking for work in New York.</a></p>
+	<p>As a testament to how much I love web development, I still to this day enjoy doing random projects on my spare time for fun.
+	One of the more noteworthy (and recent) being <a href="http://chronicless.einhyrning.com">ChronicLESS</a>, a JSON API for Funcom\'s The Secret World.',
 'rachael' => '<p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist.
 	We\'ve been happily married for <span class="light">'.round((strtotime(date("Ymd"))-strtotime("2009/10/07"))/86400).'</span> days
 	and her birthday is in <span class="light">'.cakeDay("06/29").'</span> days
