@@ -113,6 +113,7 @@ $static = array(
 			<td>Useless information that I think is really neat</td>
 		</tr>
 	</table>',
+
 'version' => '
 	<table id="version">
 		<tr class="major">
@@ -331,7 +332,10 @@ $static = array(
 			<td class="fixed-width">10.1</td>
 			<td>Why use PNG\'s for the drawing brushes when CSS3 has radial gradient? Custom effects fixed for all skins.</td>
 		</tr>
-
+		<tr>
+			<td class="fixed-width">10.2</td>
+			<td>Random theme on first time init. Rate command fixed (API changed). Minor tweaks.</td>
+		</tr>
 	</table>',
 
 'about' => '

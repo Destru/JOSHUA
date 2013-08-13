@@ -1,6 +1,12 @@
 /*
  * tron
  */
+body, input {
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
 body {
 	background-color:#000;
 	color:#fff;
@@ -11,20 +17,20 @@ body {
 	background-position:50% 50%;
 	background-repeat:no-repeat;
 	background-attachment:fixed;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
 }
 
 /* joshua */
 #joshua {
 	z-index:10;
-	height:460px;
+	height:500px;
 	width:800px;
 	padding:10px;
-	position:absolute;
-	left:50%; top:50%;
-	margin-left:-400px;
-	margin-top:-230px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	background-color:rgba(0,0,0,0.85);
 }
 #input {
@@ -42,7 +48,7 @@ a {
 	text-decoration:none;
 }
 #output {
-	height:382px;
+	height:422px;
 }
 #prompt {
 	font-family:Helvetica, Arial;
@@ -67,6 +73,10 @@ h1 {
 .tron ul {
 	margin-bottom:0;
 }
+b {
+	font-weight: bold;
+	letter-spacing: -1px;
+}
 
 /* blocks */
 h1, h2 {
@@ -82,7 +92,6 @@ h1 a, h2 a {
 }
 .window h1, .close, #desktop ul li a {
 	font-size:10px;
-	font-weight:bold;
 	text-transform:uppercase;
 }
 .close {
@@ -217,15 +226,11 @@ table.torrents td a:hover {
 }
 
 /* colors */
-h1 .dark, #input #prompt, .joshua, a, .command, .example {
+h1 .dark, .light, #input #prompt, .joshua, a, .command, .example {
 	color:#68b8ff;
 }
 .dark {
 	color:#777;
-}
-.error, .joshua {
-	font-size:12px;
-	line-height:12px;
 }
 .black {
 	display:none;
@@ -233,14 +238,10 @@ h1 .dark, #input #prompt, .joshua, a, .command, .example {
 .pink, .error, .error .command {
 	color:#f0f;
 }
-.light {
-	color:#0e7fd4;
-}
 .command {
 	text-transform:lowercase;
-}
-p .command {
-	font-weight:bold;
+	font-weight: bold;
+	letter-spacing: -1px;
 }
 h1 {
 	line-height:24px;
@@ -249,7 +250,7 @@ h1 {
 	border:solid 1px #555;
 }
 .menu li a, h2, .prompt {
-	font-weight:bold;
+	font-weight: bold;
 	font-size:11px;
 	line-height:18px;
 	height:18px;

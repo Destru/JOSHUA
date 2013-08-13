@@ -1,6 +1,12 @@
 /*
  * diesel
  */
+body, input {
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
 body {
 	background-color:#1d1f17;
 	color:#fff;
@@ -15,13 +21,13 @@ table {
 	padding:30px;
 }
 #joshua .prompt, #joshua, #input, #output {
-	width:680px;
+	width:660px;
 }
 #output {
-	width:700px;
+	width:680px;
 }
 #output p, #output pre, #output table, #output .pre, #output ul {
-	max-width:660px;
+	max-width:640px;
 	padding:0 10px;
 	margin-bottom:10px;
 }
@@ -39,7 +45,7 @@ a {
 	border-bottom:solid 1px #464740;
 }
 #prompt {
-	width:660px;
+	width:640px;
 	padding:6px 10px;
 	border:none;
 	background-color:transparent;
@@ -153,7 +159,7 @@ table td {
 	border-top:solid 5px #464740;
 	margin:20px 0 10px 0;
 	padding:5px 10px;
-	width:660px !important;
+	width:640px !important;
 	font-size:12px;
 }
 .prompt b {

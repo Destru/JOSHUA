@@ -1,6 +1,6 @@
 <div id="videos" class="window">
 	<h1>Video Player</h1>
-	<input id="ytSearch" type="search" placeholder="Search..." class="clearfix">
+	<input id="ytSearch" type="search" results="10" autosave="<?php print session_id(); ?>" class="clearfix">
 </div>
 <script>
 	$(function() {

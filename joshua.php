@@ -1,5 +1,4 @@
 <?php // joshua engine <alexander@binaerpilot.no>
-session_start();
 include 'inc.global.php';
 if (!empty($_POST['command'])) $command = strtolower(strip_tags(trim($_POST['command'])));
 if (!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
@@ -607,7 +606,7 @@ if (empty($output)) {
 			$output = '';
 			$query = urlencode($input);
 			$limit = 5;
-			$imdb = 'http://imdbapi.org/?title='.$query.'&limit='.$limit.'&lang=en-US';
+			$imdb = 'http://mymovieapi.com/?title='.$query.'&limit='.$limit.'&lang=en-US';
 			$rt = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q='.$query.'&page_limit='.$limit.'&apikey=m4x7r8qu99bsamd9era6qqzb';
 			$imdb = get($imdb); $rt = get($rt);
 			if ($imdb && $rt) {
@@ -620,7 +619,7 @@ if (empty($output)) {
 						$imdbHits .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$rating.'</td></tr>';
 					}
 				}
-				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="3"><b>IMDb</b></th></tr>'.$imdbHits.'</table>';
+				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid">'.$imdbHits.'</table>';
 				// rt
 				$rt = json_decode($rt);
 				$rtHits = '';
@@ -633,7 +632,7 @@ if (empty($output)) {
 						$rtHits .= '<tr><td><a href="'.$movie->links->alternate.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$critics.'</td><td>'.$audience.'</td></tr>';						
 					}
 				}
-				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid"><tr><th colspan="4"><b>Rotten Tomatoes</b></th></tr>'.$rtHits.'</table>';
+				if (strlen($rtHits) > 0) $output .= '<table class="ratings fluid">'.$rtHits.'</table>';
 				// post
 				if (strlen($output) > 0) output($output);
 				else output('<p class="error">'.$joshua.'Searching for '.$input.' returned nothing. So, check your spelling?</p>');
