@@ -292,10 +292,10 @@ p.example {
 	margin: auto;
 	border: none;
 	text-indent:-9999px;
-	background-image:url("../images/neocom/logoType.png");
+	background-image:url("../images/neocom/background.png");
 	background-repeat:no-repeat;
 	background-position: 50% 50%;
-	width: 460px;
-	height: 45px;
+	width: 600px;
+	height: 100px;
 	opacity: .1;
 }
