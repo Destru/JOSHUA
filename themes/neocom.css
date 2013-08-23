@@ -75,6 +75,7 @@ td.fixed-width {
 	color:rgba(255,255,255,0.4);
 }
 #output {
+	z-index: 1;
 	margin-top:20px;
 	padding:0 40px;
 }
@@ -244,6 +245,7 @@ p.example {
  */
 #output:before {
 	position:absolute;
+	z-index: 2;
 	content:"";
 	width: 620px;
 	height: 10px;
@@ -296,5 +298,5 @@ p.example {
 	background-position: 50% 50%;
 	width: 460px;
 	height: 45px;
-	opacity: .15;
+	opacity: .15	;
 }
