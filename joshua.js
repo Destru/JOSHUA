@@ -430,7 +430,6 @@ function clearScreen() {
 
 // booting up joshua
 function boot() {
-	$('#joshua').html('<h1>'+header+'</h1><div id="output"/>').append('<div id="input"/>');
 	// upgrading
 	var versionCheck = readCookie('release');
 	if (parseInt(version) > versionCheck) { // upgrade to latest version

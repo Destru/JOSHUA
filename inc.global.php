@@ -68,8 +68,8 @@ function load($file, $inline=null) {
 			}
 		}
 		else if($ext == 'json') {
-			$json = file_get_contents($file,0,null,null);
-			if($json) return json_decode($json);
+			$json = json_decode(file_get_contents($file,0,null,null));
+			if($json) return $json;
 			else error('invalidjson');
 		}
 		else if($ext == 'data') {

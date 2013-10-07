@@ -36,7 +36,6 @@
 	<script>
 		// global settings
 		var version = '<?php echo $version; ?>',
-		header = '<?php echo $header; ?>',
 		title = '<?php echo $title; ?>',
 		theme = '<?php echo $theme; ?>',
 		defaultTheme = '<?php echo $defaultTheme; ?>',
@@ -46,7 +45,11 @@
 	<script src="joshua.js"></script>	
 </head>
 <body>
-	<div id="joshua"></div>
+	<div id="joshua">
+		<h1><?php echo $header; ?></h1>
+		<div id="output"></div>
+		<div id="input"></div>
+	</div>
 	<div id="desktop"><?php include 'inc.desktop.php'; ?></div>
 <?php // fetch apps and games
 	$d = scandir('.');		

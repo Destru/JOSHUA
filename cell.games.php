@@ -49,7 +49,7 @@ function api($game, $api) {
 				'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
 				'</table>';			
 		}
-		else error('invalidxml', 1);
+		else error('outdatedapi', 1);
 	}
 	else if($game == 'eve') {
 		if ($api->result->characterName) {
@@ -62,55 +62,61 @@ function api($game, $api) {
 				'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
 				'</table>';
 			}
-			else error('invalidxml', 1);
+			else error('outdatedapi', 1);
 	}
 	else if($game == 'wow') {
-		// set correct title
-		foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
-		if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
-		else $name = $api->name;
-		// grab recent events
-		$feed = array_filter($api->feed, function($i) {
-			if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
-		});	
-		$feed = array_values($feed);
-		for($i = 0; $i < 5; $i++) {
-			$title = $feed[$i]->achievement->title;
-			$points = $feed[$i]->achievement->points;
-			if(!empty($title)) {
-				if(!empty($points)) $events[] = $title.' <span class="light">+'.$points.'</span>';
-				else $events[] = $title;				
+		if ($api->name) {
+			// set correct title
+			foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
+			if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
+			else $name = $api->name;
+			// grab recent events
+			$feed = array_filter($api->feed, function($i) {
+				if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
+			});	
+			$feed = array_values($feed);
+			for($i = 0; $i < 5; $i++) {
+				$title = $feed[$i]->achievement->title;
+				$points = $feed[$i]->achievement->points;
+				if(!empty($title)) {
+					if(!empty($points)) $events[] = $title.' <span class="light">+'.$points.'</span>';
+					else $events[] = $title;				
+				}
 			}
+			$output = '<table class="fluid">'.
+				'<tr><td rowspan="6"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
+				'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$name.'</a></td></tr>'.
+				'<tr><td class="dark">Realm</td><td>'.$api->realm.' ('.$api->battlegroup.')</td></tr>'.
+				'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</td></tr>'.
+				'<tr><td class="dark">Honorable Kills</td><td>'.$api->pvp->totalHonorableKills.'</td></tr>'.
+				'<tr><td class="dark">Recent Activity</td><td>';
+			foreach($events as $event) $output .= $event.'<br/>';
+			$output .= '</td></tr></table>';			
 		}
-		$output = '<table class="fluid">'.
-			'<tr><td rowspan="6"><div class="image" style="background-image:url(\'http://eu.battle.net/static-render/eu/'.$api->thumbnail.'\');width:84px;height:84px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="http://eu.battle.net/wow/en/character/'.$api->realm.'/'.$api->name.'/simple">'.$name.'</a></td></tr>'.
-			'<tr><td class="dark">Realm</td><td>'.$api->realm.' ('.$api->battlegroup.')</td></tr>'.
-			'<tr><td class="dark">Achievements</td><td>'.$api->achievementPoints.'</td></tr>'.
-			'<tr><td class="dark">Honorable Kills</td><td>'.$api->pvp->totalHonorableKills.'</td></tr>'.
-			'<tr><td class="dark">Recent Activity</td><td>';
-		foreach($events as $event) $output .= $event.'<br/>';
-		$output .= '</td></tr></table>';
+		else error('outdatedapi', 1);
 	}
 	else if($game == 'tsw') {
-		$actives = ''; $passives = '';
-		$iconSize = '24';
-		foreach($api->actives as $slot) {
-			$actives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.35);padding:2px;">'.
-				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
-				'</div>';
+		if ($api->name) {
+			$actives = ''; $passives = '';
+			$iconSize = '24';
+			foreach($api->actives as $slot) {
+				$actives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.35);padding:2px;">'.
+					'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
+					'</div>';
+			}
+			foreach($api->passives as $slot) {
+				$passives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.15);padding:2px;">'.
+					'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
+					'</div>';
+			}
+			$output = '<table class="fluid">'.
+				'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
+				'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
+				'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
+				'<tr><td class="dark">Build</td><td style="clear:both;">'.$actives.'<br>'.$passives.'</td></tr>';
+			$output .= '</table>';			
 		}
-		foreach($api->passives as $slot) {
-			$passives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.15);padding:2px;">'.
-				'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
-				'</div>';
-		}
-		$output = '<table class="fluid">'.
-			'<tr><td class="dark">Name</td><td>'.$api->name.'</td></tr>'.
-			'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
-			'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
-			'<tr><td class="dark">Build</td><td style="clear:both;">'.$actives.'<br>'.$passives.'</td></tr>';
-		$output .= '</table>';
+		else error('outdatedapi', 1);
 	}
 	return $output;
 }

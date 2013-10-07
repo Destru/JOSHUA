@@ -86,7 +86,8 @@ $error = array(
 	'invalidrequest' => 'API threw an error. This is bad and I should feel bad.',
 	'localcache' => 'Local cache does not exist. IT\'S GONE! ALL GONE!',
 	'auth' => 'You are not authorized. Go away.',
-	'password' => 'Wrong password.'
+	'password' => 'Wrong password.',
+	'outdatedapi' => 'API returned something, but not what I expected. Probably needs an update.'
 );
 
 // prompt
@@ -603,41 +604,40 @@ if (empty($output)) {
 	// rate
 	if ($command == "rate" || $command == "rating" || $command == "imdb") {
 		if (isset($input)) {
-			$output = '';
+			$output;
 			$query = urlencode($input);
-			$limit = 5;
+			$limit = 10;
+			// imdb
 			$imdb = 'http://mymovieapi.com/?title='.$query.'&limit='.$limit.'&lang=en-US';
-			$rt = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q='.$query.'&page_limit='.$limit.'&apikey=m4x7r8qu99bsamd9era6qqzb';
-			$imdb = get($imdb); $rt = get($rt);
-			if ($imdb && $rt) {
-				// imdb
-				$imdb = json_decode($imdb); 
-				$imdbHits = ''; 
+			$imdb = json_decode(get($imdb));
+			if ($imdb) {
+				$output .= '<table class="ratings fluid">';
 				foreach ($imdb as $movie) {
 					if (isset($movie->title)) {
 						if (isset($movie->rating)) $rating = $movie->rating; else $rating = 'N/A';
-						$imdbHits .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$rating.'</td></tr>';
+						$output .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$rating.'</td></tr>';
 					}
 				}
-				if (strlen($imdbHits) > 0) $output .= '<table class="ratings fluid">'.$imdbHits.'</table>';
-				// rt
-				$rt = json_decode($rt);
-				$rtHits = '';
+				$output .= '</table>';
+			}
+			// rt
+			$rt = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q='.$query.'&page_limit='.$limit.'&apikey=m4x7r8qu99bsamd9era6qqzb';
+			$rt = json_decode(get($rt));
+			if ($rt && $rt->movies) {
+				$output .= '<table class="ratings fluid">';
 				foreach ($rt->movies as $movie) {
 					if (isset($movie->title)) {
 						$critics = $movie->ratings->critics_score;
 						if ($critics >= 0) $critics .= '%'; else $critics = 'N/A';
 						$audience = $movie->ratings->audience_score;
 						if ($audience >= 0) $audience .= '%'; else $audience = 'N/A';
-						$rtHits .= '<tr><td><a href="'.$movie->links->alternate.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$critics.'</td><td>'.$audience.'</td></tr>';						
+						$output .= '<tr><td><a href="'.$movie->links->alternate.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$critics.'</td><td>'.$audience.'</td></tr>';						
 					}
 				}
-				if (strlen($rtHits) > 0) $output .= '<table class="ratings fluid">'.$rtHits.'</table>';
-				// post
-				if (strlen($output) > 0) output($output);
-				else output('<p class="error">'.$joshua.'Searching for '.$input.' returned nothing. So, check your spelling?</p>');
+				$output .= '</table>';
 			}
-			else error('empty');
+			if (!empty($output)) output($output);
+			else output('<p class="error">'.$joshua.'IMDb and Rotten Tomatoes returned nothing for that title.</p>');
 		}
 		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' blade runner</p>');		
 	}
