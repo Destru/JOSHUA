@@ -336,6 +336,10 @@ $static = array(
 			<td class="fixed-width">10.2</td>
 			<td>Random theme on first time init. Rate command fixed (API changed). Minor tweaks.</td>
 		</tr>
+		<tr>
+			<td class="fixed-width">10.3</td>
+			<td>Neocom II</td>
+		</tr>
 	</table>',
 
 'about' => '
@@ -589,6 +593,7 @@ Rachael: HAHAHA!</pre>',
 		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
 		Prowareness for his <a href="http://www.prowareness.com/blog/matrix-effect-using-jquery/">Matrix effect</a>.
 		Brsev for <a href="http://brsev.deviantart.com/art/Token-128429570">Token</a>.
+		<a href="http://deadendthrills.com/">DET</a> for the original Neocom background.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
