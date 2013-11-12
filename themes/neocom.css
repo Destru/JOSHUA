@@ -47,16 +47,15 @@ td.fixed-width {
 	user-select:none;
 }
 #joshua {
-	background-image: -webkit-gradient(
-		linear, left top, left bottom,
-		color-stop(0%, rgba(0,0,0,1)),
-		color-stop(100%, rgba(0,0,0,0.5))
-	);
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);  
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);
 	position:absolute;
 	top: 0;
 	left: 48px;
 	height: 100%;
-	width: 800px;
+	width: 752px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .window {
@@ -76,7 +75,6 @@ td.fixed-width {
 }
 #output {
 	z-index: 1;
-	margin-top: 10px;
 	padding:0 40px;
 }
 .light, .command, .joshua, .error {
@@ -100,14 +98,26 @@ p a {
 	border-bottom:solid 1px rgba(255,55,142,0.25);
 }
 #prompt {
-	margin:20px 40px 0 40px;
+	width:672px;
+	margin:30px 40px 0 40px;
 	padding:5px 0px;
-	width:720px;
 	color:rgb(255,55,142);
+	border-top:solid 1px rgba(255,55,142,.5);
+	border-bottom:solid 1px rgba(255,55,142,.5);
 	-webkit-font-smoothing: antialiased;
-	border-top:solid 1px rgba(255,55,142,.25);
-	border-bottom:solid 1px rgba(255,55,142,.25);
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 }
+#output:before {
+	width: 672px;
+	position:absolute;
+	z-index: 2;
+	content:"";
+	height: 80px;
+	background: linear-gradient(to bottom, black, transparent);
+}
+
 .image {
 	border-radius:3px;
 }
@@ -196,11 +206,10 @@ html, body {
 #neocom {
 	display:table-cell;
 	vertical-align:middle;
-	background-image: -webkit-gradient(
-		linear, left top, left bottom,
-		color-stop(0%, rgba(255,255,255,0.15)),
-		color-stop(100%, rgba(0,0,0,0.15))
-	);
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);  
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);
+  background-image: linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);
 }
 
 /* loader */
@@ -211,7 +220,7 @@ html, body {
 	left:0;
 	width:48px;
 	height:48px;
-	background-color:rgba(255,55,142,0.25);
+	background-color: rgba(255,55,142,.25);
 }
 h2 {
 	display:none;
@@ -235,18 +244,6 @@ p.example {
 .playing:before {
 	border-left-color:rgb(255,255,255);
 }
-
-/* shaders
- */
-#output:before {
-	position:absolute;
-	z-index: 2;
-	content:"";
-	width: 720px;
-	height: 20px;
-	background: linear-gradient(to bottom, black, transparent);
-}
-
 #music .link {
 	margin-top:20px;
 	float:right;
