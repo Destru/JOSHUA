@@ -301,9 +301,6 @@ function chromeInit() {
 			fxInit(fx);
 		}
 	});
-	// miscellaneous
-	$("a[href^='http']").attr('target','_blank'); // ext. links in new window
-	$('#desktop, .tiny').addClass('clearfix'); // floats
 	// mouse helpers
 	$('.command').off('click');
 	$('.command').on('click', function(e){
