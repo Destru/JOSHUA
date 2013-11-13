@@ -652,11 +652,13 @@ if (empty($output)) {
 				$output = '';
 				$result = json_decode($instagram);
 				if ($result->data) {
-					for ($i = 0; $i<18; $i++) {
+					$resultCount = count($result->data);
+					$thumbnails = ($resultCount > 18) ? 18 : $resultCount;
+					for ($i = 0; $i<$thumbnails; $i++) {
 						$image = $result->data[$i];
 						$output .= '<div class="slide"><img src="'.$image->images->standard_resolution->url.'" width="468" height="468"></div>';
 					}
-					print '<script>$("#slick .slideshow").html(\''.$output.'\'); galleryInit(); $("#gallery:hidden").fadeIn(fade); $("#galleryOpen").addClass("active");</script>';
+					print $prompt.'<script>$("#slick .slideshow").html(\''.$output.'\'); galleryInit(); $("#gallery:hidden").fadeIn(fade); $("#galleryOpen").addClass("active");</script>';
 					$output = 1;
 				}
 				else output('<p class="error">'.$joshua.'Found nothing tagged with '.$input.'. (Instagram filters the API rigorously.)</p>');

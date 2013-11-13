@@ -47,10 +47,10 @@ td.fixed-width {
 	user-select:none;
 }
 #joshua {
-	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);  
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);
-  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.45) 100%);
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);  
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
 	position:absolute;
 	top: 0;
 	left: 48px;
@@ -58,8 +58,19 @@ td.fixed-width {
 	width: 752px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+#superplastic.window {
+	background-color: #000;
+}
+#customize.window {
+	width: 160px;
+}
 .window {
-	background-color:rgb(0,0,0);
+	top: 0;
+	right: 0;
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);  
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
 	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
 	padding:20px;
 }
@@ -91,7 +102,7 @@ b, .active, .playing {
 .dark, .example {
 	color:rgba(255,255,255,0.4);
 }
-p a, .pink {
+p a, .pink, .error {
 	color:rgb(255,55,142);
 }
 p a {
@@ -109,13 +120,16 @@ p a {
 	-ms-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
-#output:before {
+#output.overflow:before {
 	width: 672px;
 	position:absolute;
 	z-index: 2;
 	content:"";
-	height: 80px;
-	background: linear-gradient(to bottom, black, transparent);
+	height: 100px;
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);  
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
 }
 
 .image {
@@ -166,7 +180,7 @@ html, body {
 	z-index:1;
 	top:0;
 	left:0;
-	background-color: rgba(0,0,0,.85);
+	background-color: rgba(0,0,0,.95);
 	height:100%;
 	width:48px;
 	box-shadow:0px 0px 10px rgba(0,0,0,.5);
@@ -176,7 +190,7 @@ html, body {
 	background-color:rgba(0,0,0,.5);
 }
 #desktop a:hover, #desktop .active {
-	background-color:rgba(255,255,255,0.05);
+	background-color:rgba(255,255,255,0.15);
 }
 .icons a, #neocom {
 	height:48px;
@@ -255,13 +269,11 @@ p.example {
 	display:none;
 }
 .pulsar #desktop {
-	background-color:rgba(0,0,0,0.25);
+	background-color:rgba(0,0,0,0.75);
 }
-.pulsar .window {
-	background-color:rgba(0,0,0,0.5);
-}
-.pulsar #superplastic {
-	background-color:rgb(0,0,0);
+.pulsar #prompt {
+	color: rgba(255,255,255,.75);
+	border-color: rgba(255,255,255,.25);
 }
 #cylon {
 	background: -webkit-linear-gradient(left, transparent 0%, #ff3082 50%, transparent 100%);
@@ -275,6 +287,6 @@ p.example {
     background: -ms-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
     background: radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
 }
-#joshua h1, .motd {
+#joshua h1 {
 	display: none;
 }

@@ -10,8 +10,8 @@
 		$('#slick .thumbs').remove();
 		$('.slideshow').before('<ul class="thumbs clearfix"/>').cycle({
 			speed:  500,
-			timeout: 5000,
-			delay: 5000,
+			timeout: 2000,
+			delay: 0,
 			pause: true,
 			pauseOnPagerHover: true,
 			pager: '.thumbs', 

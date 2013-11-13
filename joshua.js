@@ -59,6 +59,14 @@ function scrollCheck() {
 		$('#output').stop();
 		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 250);
 	}
+	// scrollbars present?
+	var output = $('#output');
+	if (output.height() < output.get(0).scrollHeight) {
+		output.addClass('overflow');
+	}
+	else {
+		output.removeClass('overflow');
+	}
 }
 function mute() {
 	if (!muted) {

@@ -33,6 +33,7 @@
 ?>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="resources/joshua.external.js"></script>
+	<script src="resources/joshua.effects.js"></script>
 	<script>
 		// global settings
 		var version = '<?php echo $version; ?>',
