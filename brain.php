@@ -338,7 +338,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="fixed-width">10.3</td>
-			<td>Neocom II</td>
+			<td>Neocom II: Beastmode. New CSS3 effects and transitions.</td>
 		</tr>
 	</table>',
 

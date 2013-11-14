@@ -86,7 +86,7 @@ function fxStop() {
 	if (cookie) {
 		$('#fx li').removeClass('active');
 		$('.spark, #malkovich, .brush, #cylon, #matrix').remove();
-		$('body').removeClass('pulsar');
+		$('html').removeClass();
 		if (cookie == "draw") {
 			$(document).off('mousedown');
 			$(document).off('mouseup');
@@ -111,8 +111,8 @@ function fxInit(fx, runOnce) {
 		}
 	}
 	else if (fx == "malkovich") {
-		$('body').append('<div id="malkovich"/>');
-		$('body').on('mousemove', function(e) {
+		$('#wrapper').append('<div id="malkovich"/>');
+		$('#wrapper').on('mousemove', function(e) {
 			$('#malkovich').css({
 				top: (e.pageY+10)+'px',
 				left: (e.pageX+15)+'px'
@@ -120,8 +120,8 @@ function fxInit(fx, runOnce) {
 			$('#malkovich:hidden').fadeIn(fade);
 		});
 	}
-	else if (fx == "pulsar") {
-		$('body').addClass('pulsar');
+	else if (fx == "pulsar" || fx == "drunk" || fx == "hipster" || fx == "invert") {
+		$('html').addClass(fx);
 	}
 	else if (fx == "draw") {
 		var brush;
@@ -158,11 +158,11 @@ function fxInit(fx, runOnce) {
 		}, 5000);
 	}
 	else if (fx == "cylon") {
-		$('body').append('<div id="cylon"/>');
+		$('#wrapper').prepend('<div id="cylon"/>');
 		cylon();
 	}
 	else if (fx == "matrix") {
-		$('body').prepend('<div id="matrix"/>');
+		$('#wrapper').prepend('<div id="matrix"/>');
 		matrix();
 	}
 	$('#fx li.'+fx).addClass('active');
@@ -408,7 +408,7 @@ function chromeMagic() {
 		});
 	}
 	else if (theme == "neocom") {
-		$('body').prepend('<div id="nebula"><img src="images/backgroundNeocom.jpg"></div>');
+		$('#wrapper').prepend('<div id="nebula"><img src="images/backgroundNeocom.jpg"></div>');
 		$('#desktop').prepend('<a href="/"><div id="neocom"><img src="images/neocom/logo.png" width="20" height="20" alt="JOSHUA"></div></a>');
 		$('#output').css("height", $(window).height()-82);
 		$(window).resize(function() {

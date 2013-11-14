@@ -2,7 +2,7 @@
 	<h1>Customization</h1>
 	<div class="nextgen extra">
 		<h2>Background</h2>
-		<ul id="backgrounds" class="tiny">
+		<ul id="backgrounds" class="tiny clearfix">
 			<li class="none">None</li>
 			<li class="atari">Atari</li>
 			<li class="pirate">Pirate</li>
@@ -12,18 +12,20 @@
 		</ul>
 	</div>
 	<h2>Effects</h2>
-	<ul id="fx" class="tiny">
+	<ul id="fx" class="tiny clearfix">
 		<li class="sparks">Sparks</li>
 		<li class="draw" title="Click and hold down mousebutton">Draw</li>
 		<li class="pulsar">Pulsar</li>
 		<li class="matrix">Matrix</li>
 		<li class="cylon">Cylon</li>
 		<li class="malkovich">Malkovich</li>
-		<li class="beer">Beer</li>
+		<li class="drunk">Drunk</li>
+		<li class="hipster">Hipster</li>
+		<li class="invert">Invert</li>
 	</ul>
 	<div class="tron extra">
 		<h2>Team</h2>
-		<ul class="tiny">
+		<ul class="tiny clearfix">
 			<li class="blue"></li>
 			<li class="purple"></li>
 			<li class="pink"></li>

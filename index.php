@@ -46,12 +46,13 @@
 	<script src="joshua.js"></script>	
 </head>
 <body>
-	<div id="joshua">
-		<h1><?php echo $header; ?></h1>
-		<div id="output"></div>
-		<div id="input"></div>
-	</div>
-	<div id="desktop"><?php include 'inc.desktop.php'; ?></div>
+	<div id="wrapper">
+		<div id="joshua">
+			<h1><?php echo $header; ?></h1>
+			<div id="output"></div>
+			<div id="input"></div>
+		</div>
+		<div id="desktop"><?php include 'inc.desktop.php'; ?></div>
 <?php // fetch apps and games
 	$d = scandir('.');		
 	foreach ($d as $file) {
@@ -59,9 +60,10 @@
 		if(stristr($file, 'game.')) $game[] = $file;
 	}
 ?>
-	<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
-	<div id="games"><?php foreach ($game as $file) include $file; ?></div>
-	<div id="loader"></div>
+		<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
+		<div id="games"><?php foreach ($game as $file) include $file; ?></div>
+		<div id="loader"></div>
+	</div>
 	<!-- analytics -->
 	<script type="text/javascript">
 		var _gaq = _gaq || [];

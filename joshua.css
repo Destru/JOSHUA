@@ -343,3 +343,17 @@ body.pulsar {
 #ytSearch {
 	padding: 5px;
 }
+
+/* css effects */
+html.drunk {
+	-webkit-transition: -webkit-filter 5s linear;
+	-webkit-filter: blur(2px);
+}
+html.invert {
+	-webkit-transition: -webkit-filter 250ms linear;
+	-webkit-filter: invert(1);	
+}
+html.hipster {
+	-webkit-transition: -webkit-filter 250ms linear;
+	-webkit-filter: sepia(1);	
+}
