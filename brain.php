@@ -357,7 +357,7 @@ $static = array(
 		<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
 		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
 		<tr><td class="label dark">Alias</td><td>Destru Kaneda</td></tr>
-		<tr><td class="label dark">Location</td><td>Oslo, Norway</td></tr>
+		<tr><td class="label dark">Location</td><td>Brooklyn, New York</td></tr>
 		<tr><td class="label dark">Status</td><td>Happily married</td></tr>
 		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
 		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
@@ -367,7 +367,6 @@ $static = array(
 		I do front end web development (see <span class="command">resume</span>).
 		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
 		I am, what is colloquially known as, a massive nerd.
-		Also, I kiss penguins. Well, <a href="http://rachaelivy.com">one penguin</a>.
 	</p>',
 
 'destru' => '<p><b>Destru Kaneda</b> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira". '.
@@ -558,15 +557,15 @@ Rachael: HAHAHA!</pre>',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
-'resume' => '<p>I have been doing front end development for the past '.(date("Y")-1998).' years.
-	I landed my first paid gig when I was 14 years old and, apart from a brief study to get certified in Norway (at age 17), have been actively working with the web ever since.</p>
-	<p>For recent samples of my work you can look at <a href="http://manualdesign.no">Manual design</a>
-	where I worked three years before accepting an offer from <a href="http://finn.no">FINN</a> (the second largest Norwegian website, and my current employer).</p>
-	<p>At FINN I am mainly responsible for prototyping new solutions with an emphasis on bringing emerging technology to the forefront of future development.
-	For obvious reasons I am unable to show any of that work on this site.</p>
-	<p><a href="http://www.linkedin.com/in/astoever">I am currently actively looking for work in New York.</a></p>
-	<p>As a testament to how much I love web development, I still to this day enjoy doing random projects on my spare time for fun.
-	One of the more noteworthy (and recent) being <a href="http://chronicless.einhyrning.com">ChronicLESS</a>, a JSON API for Funcom\'s The Secret World.',
+'resume' => '<p><a href="http://www.linkedin.com/in/astoever">I am currently working for This Life Inc. in New York.</a>
+	<p>The majority of my professional career is spent in private repositories, but some notable sites I have worked on are
+		<a href="http://www.travelocity.com/">Travelocity</a>,
+		<a href="http://finn.no">FINN</a> and
+		<a href="">HowAboutWe</a> (currently).
+		To this day I still enjoy doing random projects on my spare time for fun.
+		One of the more noteworthy being <a href="http://chronicless.einhyrning.com">ChronicLESS</a>, a JSON API for Funcom\'s The Secret World.
+	<p>I am currently not looking for work, but feel free to <a href="mailto:alexander@binaerpilot.no">mail me</a> if you have any questions.
+	',
 'rachael' => '<p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist.
 	We\'ve been happily married for <span class="light">'.round((strtotime(date("Ymd"))-strtotime("2009/10/07"))/86400).'</span> days
 	and her birthday is in <span class="light">'.cakeDay("06/29").'</span> days
