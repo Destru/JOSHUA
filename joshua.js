@@ -464,7 +464,6 @@ function boot() {
 		}
 	});
 	// ready prompt
-	$('#input').html('<input type="text" id="prompt" autocomplete="off"/>');
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd", option: "inline"}, function() {
 		motd.appendTo('#output');
 		init('boot'); // initialize

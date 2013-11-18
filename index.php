@@ -50,7 +50,9 @@
 		<div id="joshua">
 			<h1><?php echo $header; ?></h1>
 			<div id="output"></div>
-			<div id="input"></div>
+			<div id="input">
+				<input type="text" id="prompt" autocomplete="off">
+			</div>
 		</div>
 		<div id="desktop"><?php include 'inc.desktop.php'; ?></div>
 <?php // fetch apps and games
