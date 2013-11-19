@@ -13,7 +13,10 @@ $games = array(
 		'about' => '<p><b>EVE Online</b> is a what every MMO should aspire to be; Another world. '.
 			'It will be intimidating for new players as there is no clear path cut out for you, but for those that persist it is very rewarding. '.
 			'Supporting the harshest PVP-environment of any MMO available today, this one is certainly not for the faint-hearted.</p>'.
-			'<p><a href="https://secure.eveonline.com/trial/?invc=f861919b-eb94-437b-80d6-df84d952885f&action=buddy">Grab a free 21-day trial here.</a></p>'
+			'<p>Rifter'.
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=19494065">Comet</a>'.
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=18952577">Prophecy</a>'.
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21072479">Wolf</a>'
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
@@ -31,7 +34,7 @@ $games = array(
 	),
 	'lol' => array(
 		'about' => '<p><b>League of Legends</b> is an awesome, twitchy game with a surprising amount of depth. '.
-			'My summoner name is "Destru Kaneda" on EU West (and Nordic, but I rarely play there).</p>'
+			'My summoner name is "Destru Kaneda" on NA.</p>'
 	)
 );
 
