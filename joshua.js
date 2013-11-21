@@ -478,7 +478,7 @@ $(function() {
 		$('title').html(title+'Listening...'); // listening to input
 		if (e.which == 13) { // enter
 			$('title').html(title+'Running...'); // running command
-			$('#joshua').css('cursor', 'wait');
+			$('body').css('cursor', 'wait');
 			var dump = $(this).val(), // grab the input
 			input = dump.split(' '), // split the input
 			command = input[0],	option = input[1]; // command (option)

@@ -32,7 +32,7 @@
 	'Hmm. Control, control. You must learn control.',
 	'Powerful you have become, the dark side I sense in you.',
 	'Once you start down the dark path, forever will it dominate your destiny, consume you it will.',
-	'A puppet am I, from beath the floor a man does control me. Yeees.',
+	'A puppet am I, from beneath the floor a man does control me. Yeees.',
 	'When 900 years you reach, look as good, you will not.',
 	'Beware of the dark side.',
 	'You will know when you are calm, at peace. Passive. A Jedi uses the Force for knowledge and defense, never for attack.',
