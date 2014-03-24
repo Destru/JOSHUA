@@ -41,7 +41,7 @@ function stealFocus(off) {
 }
 function systemReady() {
 	$('title').text(title+'Ready');
-	$('#joshua').css('cursor', 'auto');
+	$('body').css('cursor', 'auto');
 }
 function clearInput() {
 	$('#prompt').blur().val('');
@@ -121,6 +121,7 @@ function fxInit(fx, runOnce) {
 		});
 	}
 	else if (fx == "pulsar" || fx == "drunk" || fx == "hipster" || fx == "invert") {
+		console.log(fx);
 		$('html').addClass(fx);
 	}
 	else if (fx == "draw") {
@@ -474,32 +475,30 @@ function boot() {
 // let's go
 $(function() {
 	boot();
-	$('#prompt').on('keydown', function(e) { // key pressed
-		$('title').html(title+'Listening...'); // listening to input
-		if (e.which == 13) { // enter
-			$('title').html(title+'Running...'); // running command
+	$('#prompt').on('keydown', function(e) {
+		$('title').html(title+'Listening...');
+		if (e.which == 13) {
+			$('title').html(title+'Running...');
 			$('body').css('cursor', 'wait');
-			var dump = $(this).val(), // grab the input
-			input = dump.split(' '), // split the input
-			command = input[0],	option = input[1]; // command (option)
-			_gaq.push(['_trackPageview', '/'+command]); // track as a page view in analytics
+			var dump = $(this).val(),
+			input = dump.split(' '),
+			command = input[0],	option = input[1];
 			if (command) {
-				// store history
 				hist.push(dump);
 				hist.unique();
 				position = hist.length;
-				$('#loader').fadeIn(fade); // loader
-				// perform command
+				$('#loader').fadeIn(fade);
 				var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
 					$('#output').append(content);
 					init();
+					if (typeof ga == 'function') ga('send', 'pageview', '/'+command); 
 					$('#loader').fadeOut(fade);
+					systemReady();
 				});
 			}
 			else {
 				systemReady();
 			}
-			// clear input
 			$("#prompt").val('');
 		}
 		// access history

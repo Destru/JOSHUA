@@ -217,7 +217,7 @@ if (empty($output)) {
 			if (empty($option)) {
 				$level = $_SESSION['numbers']+1;
 				if ($level != 1) output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p>');
-				else output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p><p class="joshua">'.$joshua.'Type <b>number (x)</b> to answer the riddle.</p><p class="example">number 1</p>');
+				else output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p><p class="error">'.$joshua.'Type <b>number (x)</b> to answer the riddle.</p><p class="example">number 1</p>');
 			}
 			else {
 				if ($option == $numbers[$_SESSION['numbers']][1]) {
@@ -521,7 +521,7 @@ if (empty($output)) {
 				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].'</td><td class="dark">'.$value['year'].'</td><td>'.$value['rating'].'/10</td></tr>';
 			}
 			print '</table>';
-			print '<p class="joshua">'.$joshua.'Type <b>review (x)</b> to read a review.</p><p class="example">review '.rand(0,count($reviews)-1).'</p>';
+			print '<p class="error">'.$joshua.'Type <b>review (x)</b> to read a review.</p><p class="example">review '.rand(0,count($reviews)-1).'</p>';
 			$output = 1;
 		}
 		else {
@@ -569,16 +569,16 @@ if (empty($output)) {
 		$quotes = count($motd)+count($bash)+count($quotes);
 		$reviews = count($reviews);
 		$stats = '<table class="stats">'.
-			'<tr><td class="light">Commands</td><td>'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
-			'<tr><td class="light">Brain cells</td><td>'.$brainCells.'</td><td class="dark">All external files loaded by the brain</td></tr>'.
-			'<tr><td class="light">Themes</td><td>'.$themes.'</td><td class="dark">Some themes have to be unlocked...</td></tr>'.
-			'<tr><td class="light">Bytes</td><td>'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++ and TextMate</td></tr>'.
-			'<tr><td class="light">Lines</td><td>'.$lines.'</td><td class="dark">Lines of code (no externals)</td></tr>'.
-			'<tr><td class="light">Messages</td><td>'.$messages.'</td><td class="dark">Left with the msg command</td></tr>'.
-			'<tr><td class="light">Reviews</td><td>'.$reviews.'</td><td class="dark">Reviews of terrible movies</td></tr>'.
-			'<tr><td class="light">Scores</td><td>'.$scores.'</td><td class="dark">Superplastic record attempts</td></tr>'.
-			'<tr><td class="light">Quotes</td><td>'.$quotes.'</td><td class="dark">Includes MOTD\'s and bash.org quotes</td></tr>'.
-			'<tr><td class="light">Timer</td><td>'.microtimer($timestamp).'</td><td class="dark">The seconds it took to compile these stats</td></tr>'.
+			'<tr><td>Commands</td><td class="light">'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
+			'<tr><td>Brain cells</td><td class="light">'.$brainCells.'</td><td class="dark">All external files loaded by the brain</td></tr>'.
+			'<tr><td>Themes</td><td class="light">'.$themes.'</td><td class="dark">Some themes have to be unlocked...</td></tr>'.
+			'<tr><td>Bytes</td><td class="light">'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++ and TextMate</td></tr>'.
+			'<tr><td>Lines</td><td class="light">'.$lines.'</td><td class="dark">Lines of code (no externals)</td></tr>'.
+			'<tr><td>Messages</td><td class="light">'.$messages.'</td><td class="dark">Left with the msg command</td></tr>'.
+			'<tr><td>Reviews</td><td class="light">'.$reviews.'</td><td class="dark">Reviews of terrible movies</td></tr>'.
+			'<tr><td>Scores</td><td class="light">'.$scores.'</td><td class="dark">Superplastic record attempts</td></tr>'.
+			'<tr><td>Quotes</td><td class="light">'.$quotes.'</td><td class="dark">Includes MOTD\'s and bash.org quotes</td></tr>'.
+			'<tr><td>Timer</td><td class="light">'.microtimer($timestamp).'</td><td class="dark">The seconds it took to compile these stats</td></tr>'.
 			'</table>';
 		output($stats);
 	}

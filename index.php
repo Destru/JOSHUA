@@ -21,7 +21,7 @@
 		<meta property="og:url" content="http://joshua.einhyrning.com/"> 
 		<meta property="og:description" content="Quite possibly the nerdiest homepage ever made."> 
 		<meta property="og:type" content="website">
-		<!--  fallback -->
+		<!-- fallback -->
 		<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg">
 	<link rel="icon" type="image/png" href="images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen">
@@ -31,7 +31,18 @@
 	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
 ?>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<!-- analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-139019-9', 'einhyrning.com');
+	  ga('send', 'pageview');
+	</script>
+	<!-- javascript -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="resources/joshua.external.js"></script>
 	<script src="resources/joshua.effects.js"></script>
 	<script>
@@ -60,22 +71,10 @@
 	foreach ($d as $file) {
 		if(stristr($file, 'app.')) $app[] = $file;
 		if(stristr($file, 'game.')) $game[] = $file;
-	}
-?>
+	} ?>
 		<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
 		<div id="games"><?php foreach ($game as $file) include $file; ?></div>
 		<div id="loader"></div>
 	</div>
-	<!-- analytics -->
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-139019-9']);
-		_gaq.push(['_trackPageview']);
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
 </body>
 </html>

@@ -300,10 +300,28 @@ input[type="search"] {
 }
 
 /* pulsar */
-body.pulsar {
+.pulsar body {
 	-webkit-animation:pulsar 180s infinite linear;
+	animation:pulsar 180s infinite linear;
 }
 @-webkit-keyframes pulsar {
+	0% {
+		background-color:#004C79;
+	}
+	25% {
+		background-color:#BE6900;
+	}
+	50% {
+		background-color:#A6003D;
+	}
+	75% {
+		background-color:#5AAC00;
+	}
+	100% {
+		background-color:#004C79;
+	}
+}
+@keyframes pulsar {
 	0% {
 		background-color:#004C79;
 	}
