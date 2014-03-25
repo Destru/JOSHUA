@@ -470,7 +470,7 @@ if (empty($output)) {
 			$scores[$entry]['name'] = $score[1];
 		}
 		rsort($scores);
-		print '<h2>Season X High Scores</h2><ul>';
+		print '<ul>';
 		for ($i = 0; $i<30; $i++) {
 			$pos = $i+1;
 			if ($pos < 10) $pos = '0'.$pos;
@@ -563,7 +563,7 @@ if (empty($output)) {
 		}
 		if (file_exists('msg.data')) $messages = count(explode("\n", file_get_contents('msg.data')));
 		else $messages = 0;
-		if (file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+2828; // from season 1-4
+		if (file_exists('superplastic.data')) $scores = count(explode("\n", file_get_contents('superplastic.data')))+5000;
 		else $scores = 0;
 		$commands = count($static)+30; // guesstimate
 		$quotes = count($motd)+count($bash)+count($quotes);

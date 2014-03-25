@@ -5,7 +5,7 @@ body {
 	background-color:rgb(0,0,0);
 	font-family:'Source Sans Pro', Helvetica, Arial;
 	font-weight:400;
-	font-size:15px;
+	font-size:14px;
 	line-height:1.4em;
 	color: #fff;
 }
@@ -40,10 +40,10 @@ td.fixed-width {
 	user-select:none;
 }
 #joshua, .window {
-	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);  
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
-  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 100%);
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);  
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);
 	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
 }
 #joshua {
@@ -152,20 +152,17 @@ html, body {
 }
 #desktop a {
 	display:block;
-	background-color:rgba(0,0,0,.5);
 }
 #desktop a:hover, #desktop .active {
-	background-color:rgba(255,255,255,0.2);
+	background-color:rgba(255,255,255,0.15);
 }
+
 .icons a, #neocom {
 	height:48px;
 	width:48px;
 	text-align:center;
 	background-position:50% 50%;
 	background-repeat:no-repeat;
-}
-.icons a {
-	margin:1px 0;
 }
 #links {
 	display:none;
@@ -269,11 +266,11 @@ p a {
 	color: #ffbe7d;
 	border-top: solid 1px #ffbe7d;
 }
-.pink, .error {
-	color: #ff8f8f;
-}
 .joshua {
 	color: #9affd9;
+}
+.pink, .error {
+	color: #ff8f8f;
 }
 .example {
 	color: #ff8f8f;

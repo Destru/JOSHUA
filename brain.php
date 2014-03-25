@@ -562,10 +562,10 @@ Rachael: HAHAHA!</pre>',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
 'resume' => '<p><a href="http://www.linkedin.com/in/astoever">I am currently working for This Life Inc. in New York.</a>
-	<p>The majority of my professional career is spent in private repositories, but some notable sites I have worked on are
+	<p>The majority of my professional career is spent in private repositories, but some sites I have worked on are
 		<a href="http://www.travelocity.com/">Travelocity</a>,
 		<a href="http://finn.no">FINN</a> and
-		<a href="">HowAboutWe</a> (currently).
+		<a href="http://howaboutwe.com">HowAboutWe</a> (currently).
 		To this day I still enjoy doing random projects on my spare time for fun.
 		One of the more noteworthy being <a href="http://chronicless.einhyrning.com">ChronicLESS</a>, a JSON API for Funcom\'s The Secret World.
 	<p>I am currently not looking for work, but feel free to <a href="mailto:alexander@binaerpilot.no">mail me</a> if you have any questions.

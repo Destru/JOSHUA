@@ -2,7 +2,7 @@
 var gameWidth = 580,
 gameHeight = 340,
 refreshRate	= 25,
-gracePeriod	= 3000,
+gracePeriod	= 1000,
 missileSpeed = 20;
 
 // animation containers
@@ -20,8 +20,8 @@ spawnTime = 1000;
 
 // player data
 var playerName = "Anonymous",
-playerSpeed = 4,
-playerSpeedVertical = 4,
+playerSpeed = 3,
+playerSpeedVertical = 3,
 playerScore = 0,
 playerShield = 3,
 playerLives = 1;
@@ -39,7 +39,7 @@ function explodePlayer(playerNode) {
 function timer() {
 	if(!gameOver) {
 		seconds = seconds+1;
-		if(spawnTime > 200) spawnTime = spawnTime-1; // virtual levels
+		if(spawnTime > 100) spawnTime = spawnTime-1; // virtual levels
 	}
     setTimeout('timer()', 10);
 }
@@ -293,7 +293,7 @@ $(function() {
 	$("#player")[0].player = new Player($("#player"));
 	
 	// heads-up display
-	$("#overlay").append('<p id="hud"/><div id="message"/>');
+	$("#overlay").append('<div id="hud"/><div id="message"/>');
 
 	// start the game
 	window.addEventListener('keydown', function(e) {
@@ -357,9 +357,7 @@ $(function() {
 						$("#actors,#playerMissiles").fadeTo(500,0);
 						$("#background").fadeTo(1500,0);
 						var cookie = readCookie('player'); if(cookie) playerName = cookie;
-						$(".gameContainer").append('<div id="gameOver">Game over</div>');
-						$(".gameContainer").append('<p>You survied for <b>'+seconds+'</b> miliseconds and scored <b>'+points+'</b> bonus points.<br/>Your total score is <b>'+playerScore+'</b>.</p>');
-						$(".gameContainer").append('<div id="submitForm"><input id="playerName" class="text" value="'+playerName+'" maxlength="9" onFocus="this.value=\'\';"/>'+'<div class="button" onClick="submitScore();">Submit score</div></div>');
+						$(".gameContainer").append('<div id="gameOver"><p>You have failed to escape...</p><p>You survied for <b>'+seconds+'</b> miliseconds and scored <b>'+points+'</b> bonus points.<br/>Your total score is <b>'+playerScore+'</b>.</p><div id="submitForm"><input id="playerName" class="text" value="'+playerName+'" maxlength="9" onFocus="this.value=\'\';"/>'+'<div class="button" onClick="submitScore();">Try again</div></div></div>');
 						gameOver = true;
 					} else {
 						$("#explosion").remove();
