@@ -32,9 +32,9 @@ $games = array(
 			'The game is scary, difficult and outright intimidating. Funcom definitely has a sleeper hit on their hands. '.
 			'I like it so much that I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).</p>'
 	),
-	'lol' => array(
+	'league' => array(
 		'about' => '<p><b>League of Legends</b> is an awesome, twitchy game with a surprising amount of depth. '.
-			'My summoner name is "Destru Kaneda" on NA.</p>'
+			'My summoner name is <a href="http://www.lolking.net/summoner/na/50759316">Destru Kaneda</a> and I am absolutely terrible. Dropped from Silver II to Bronze IV and still trying to climb back.</p>'
 	)
 );
 

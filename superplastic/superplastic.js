@@ -2,8 +2,8 @@
 var gameWidth = 580,
 gameHeight = 340,
 refreshRate	= 25,
-gracePeriod	= 1000,
-missileSpeed = 20;
+gracePeriod	= 2000,
+missileSpeed = 30;
 
 // animation containers
 var playerAnimation = new Array();
@@ -20,8 +20,8 @@ spawnTime = 1000;
 
 // player data
 var playerName = "Anonymous",
-playerSpeed = 3,
-playerSpeedVertical = 3,
+playerSpeed = 5,
+playerSpeedVertical = 5,
 playerScore = 0,
 playerShield = 3,
 playerLives = 1;
@@ -39,7 +39,7 @@ function explodePlayer(playerNode) {
 function timer() {
 	if(!gameOver) {
 		seconds = seconds+1;
-		if(spawnTime > 100) spawnTime = spawnTime-1; // virtual levels
+		if(spawnTime > 200) spawnTime = spawnTime-1; // virtual levels
 	}
     setTimeout('timer()', 10);
 }
@@ -59,30 +59,18 @@ function spawnMobs() {
 			$("#"+name)[0].enemy = new freight($("#"+name));
 		}
 		else if (Math.random() < 0.45) {
-			var name = "enemy5_"+Math.ceil(Math.random()*1000);
-			$("#actors").addSprite(name, {animation: enemy[4]["idle"], posx: gameWidth, posy: Math.random()*gameHeight,width: 43, height: 30});
-			$("#"+name).addClass("enemy");
-			$("#"+name)[0].enemy = new rabbit($("#"+name));
-		}
-		else if (Math.random() < 0.45) {
-			var name = "enemy6_"+Math.ceil(Math.random()*1000);
-			$("#actors").addSprite(name, {animation: enemy[5]["idle"], posx: gameWidth, posy: Math.random()*gameHeight,width: 56, height: 35});
-			$("#"+name).addClass("enemy");
-			$("#"+name)[0].enemy = new shoe($("#"+name));
-		}
-		else if (Math.random() < 0.6) {
 			var name = "enemy2_"+Math.ceil(Math.random()*1000);
 			$("#actors").addSprite(name, {animation: enemy[1]["idle"], posx: gameWidth, posy: Math.random()*gameHeight,width: 61, height: 48});
 			$("#"+name).addClass("enemy");
 			$("#"+name)[0].enemy = new spike($("#"+name));
 		}
-		else if (Math.random() < 0.8) {
+		else if (Math.random() < 0.75) {
 			var name = "enemy3_"+Math.ceil(Math.random()*1000);
 			$("#actors").addSprite(name, {animation: enemy[2]["idle"], posx: gameWidth, posy: Math.random()*gameHeight,width: 47, height: 19});
 			$("#"+name).addClass("enemy");
 			$("#"+name)[0].enemy = new dart($("#"+name));
 		}
-		else if (Math.random() < 0.95) {
+		else if (Math.random() < 0.99) {
 			var name = "enemy4_"+Math.ceil(Math.random()*1000);
 			$("#actors").addSprite(name, {animation: enemy[3]["idle"], posx: gameWidth, posy: Math.random()*gameHeight,width: 43, height: 256});
 			$("#"+name).addClass("enemy");
@@ -182,11 +170,6 @@ freight.prototype.updateY = function(playerNode) {
 		this.node.css("top",""+newpos+"px");
 	}
 }
-function rabbit(node) {
-	this.node = $(node);
-	this.speedx = -14;
-}
-rabbit.prototype = new freight();
 
 function spike(node) {
 	this.node = $(node);
@@ -206,19 +189,11 @@ dart.prototype = new freight();
 
 function axe(node) {
 	this.node = $(node);
-	this.speedx = -4;
+	this.speedx = -2;
 	this.alignmentOffset = 120;
-	this.shield = 7;
+	this.shield = 5;
 }
 axe.prototype = new freight();
-
-function shoe(node) {
-	this.node = $(node);
-	this.speedx = -10;
-	this.alignmentOffset = 5;
-}
-shoe.prototype = new freight();
-
 
 // game framework
 $(function() {
@@ -232,7 +207,6 @@ $(function() {
 	var background2 = new Animation({imageURL: "background2.png"});
 	var background3 = new Animation({imageURL: "background3.png"});
 	var background4 = new Animation({imageURL: "background4.png"});
-	// var deathstar = new Animation({imageURL: "deathstar.png"});
 	
 	// player
 	playerAnimation["idle"]	= new Animation({imageURL: "player.png"});
@@ -258,16 +232,6 @@ $(function() {
 	enemy[3]["idle"]	= new Animation({imageURL: "axe.png"});
 	enemy[3]["explode"] = new Animation({imageURL: "axe_explode.png", numberOfFrame: 3, delta: 256, rate: 100, type: Animation.VERTICAL | Animation.CALLBACK});
 
-	// rabbit
-	enemy[4] = new Array();
-	enemy[4]["idle"]	= new Animation({imageURL: "rabbit.png"});
-	enemy[4]["explode"] = new Animation({imageURL: "rabbit_explode.png", numberOfFrame: 3, delta: 30, rate: 100, type: Animation.VERTICAL | Animation.CALLBACK});
-
-	// shoe
-	enemy[5] = new Array();
-	enemy[5]["idle"]	= new Animation({imageURL: "shoe.png"});
-	enemy[5]["explode"] = new Animation({imageURL: "shoe_explode.png", numberOfFrame: 3, delta: 35, rate: 100, type: Animation.VERTICAL | Animation.CALLBACK});
-	
 	// missiles
 	missile["player"] = new Animation({imageURL: "player_missile.png"});
 	
@@ -276,7 +240,6 @@ $(function() {
 				
 	// stage
 	$().playground().addGroup("background", {width: gameWidth, height: gameHeight})
-						// .addSprite("deathstar", {animation: deathstar, width: gameWidth, height: gameHeight, posx: gameWidth})
 						.addSprite("stars", {animation: background, width: gameWidth, height: gameHeight})
 						.addSprite("stars2", {animation: background2, width: gameWidth, height: gameHeight, posx: gameWidth})
 						.addSprite("stars3", {animation: background3, width: gameWidth, height: gameHeight})
@@ -357,8 +320,7 @@ $(function() {
 						$("#actors,#playerMissiles").fadeTo(500,0);
 						$("#background").fadeTo(1500,0);
 						var cookie = readCookie('player'); if(cookie) playerName = cookie;
-						$(".gameContainer").append('<div id="gameOver"><p>You have failed to escape...</p><p>You survied for <b>'+seconds+'</b> miliseconds and scored <b>'+points+'</b> bonus points.<br/>Your total score is <b>'+playerScore+'</b>.</p><div id="submitForm"><input id="playerName" class="text" value="'+playerName+'" maxlength="9" onFocus="this.value=\'\';"/>'+'<div class="button" onClick="submitScore();">Try again</div></div></div>');
-						gameOver = true;
+						$(".gameContainer").html('<div id="gameOver"><h1>Game over</h1><p>You survived for <b>'+seconds+'</b> miliseconds and scored <b>'+points+'</b> bonus points.<br/>Your total score is <b>'+playerScore+'</b>.</p><div id="submitForm"><label class="arrow_box">Your name</label><input id="playerName" class="text" value="'+playerName+'" maxlength="9" onFocus="this.value=\'\';"/>'+'<div class="button" onClick="submitScore();">Try Again</div></div></div>');
 					} else {
 						$("#explosion").remove();
 						$("#player").children().show();
@@ -392,12 +354,6 @@ $(function() {
 						} else if (this.enemy instanceof axe) {
 							$(this).setAnimation(enemy[3]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 43);
-						} else if (this.enemy instanceof rabbit) {
-							$(this).setAnimation(enemy[4]["explode"], function(node) {$(node).remove();});
-							$(this).css("width", 43);
-						} else if (this.enemy instanceof shoe) {
-							$(this).setAnimation(enemy[5]["explode"], function(node) {$(node).remove();});
-							$(this).css("width", 56);
 						} else {
 							$(this).setAnimation(enemy[0]["explode"], function(node) {$(node).remove();});
 							$(this).css("width", 38);
@@ -442,10 +398,6 @@ $(function() {
 									$(this).setAnimation(enemy[4]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 43);
 									points = points+25;
-								} else if (this.enemy instanceof shoe) {
-									$(this).setAnimation(enemy[5]["explode"], function(node) {$(node).remove();});
-									$(this).css("width", 56);
-									points = points+25;
 								} else {
 									$(this).setAnimation(enemy[0]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 38);
@@ -475,8 +427,6 @@ $(function() {
 		$("#stars3").css("left", newPos);
 		var newPos = (parseInt($("#stars4").css("left")) - 6 - gameWidth) % (-2 * gameWidth) + gameWidth;
 		$("#stars4").css("left", newPos);
-		// var newPos = (parseInt($("#deathstar").css("left")) - 1 - gameWidth) % (-2 * gameWidth) + gameWidth;
-		// $("#deathstar").css("left", newPos);		
 	}, refreshRate);
 	
 	// keyhandling
@@ -498,6 +448,6 @@ $(function() {
 	// stop shot spams
 	setInterval(function() {
 		hasShot = false;
-	}, 500);
+	}, 450);
 
 });

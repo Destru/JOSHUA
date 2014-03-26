@@ -6,9 +6,8 @@ if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
 }
 session_start();
 $version = "10.4";
-$versionName = "Neocom II";
-$defaultThemes = array('neocom', 'mono', 'diesel', 'tron', 'lcars');
-$defaultTheme = $defaultThemes[array_rand($defaultThemes)]; // random theme
+$versionName = "Neocom X";
+$defaultTheme = "neocom";
 $header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
 $title = 'JOSHUA '.$version.': ';
 $termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';

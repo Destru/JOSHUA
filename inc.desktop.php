@@ -1,8 +1,8 @@
 <ul class="icons clearfix">
+  <li><a class="open" id="customizeOpen" title="Customization options and effects">Customize</a></li>
 	<li><a class="open" id="superplasticOpen" title="You must escape!">Superplastic</a></li>
-	<li><a class="open" id="musicOpen" title="Listen to my music">MP3 Player</a></li>
 	<li><a class="open" id="videosOpen" title="Stream (long) videos on YouTube">Video Player</a></li>
-	<li><a class="open" id="customizeOpen" title="Customization options and effects">Customize</a></li>
+  <li><a class="open" id="musicOpen" title="Listen to my music">MP3 Player</a></li>
 </ul>
 <ul id="links" class="icons clearfix">
 	<li><a id="binaerpilot" class="external" href="code/" title="Robot music for hackers and other nerds">Binärpilot</a></li>

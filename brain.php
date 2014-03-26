@@ -306,7 +306,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="fixed-width">9.2</td>
-			<td>Upgraded to use jQuery 1.7.2 (from 1.4.2). No more jScrollPane, rather use native (where possible). Upgrading should no longer reset settings beyond new default theme.</td>
+			<td>No more jScrollPane, rather use native (where possible). Upgrading should no longer reset settings beyond new default theme.</td>
 		</tr>
 		<tr>
 			<td class="fixed-width">9.3</td>
@@ -342,7 +342,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="fixed-width">10.4</td>
-			<td>QOL updates and tweaked Neocom.</td>
+			<td>QOL updates and tweaks. Neocom III: Colors. Superplastic has been tweaked fairly heavily and scores reset.</td>
 		</tr>
 	</table>',
 
@@ -574,6 +574,8 @@ Rachael: HAHAHA!</pre>',
 	We\'ve been happily married for <span class="light">'.round((strtotime(date("Ymd"))-strtotime("2009/10/07"))/86400).'</span> days
 	and her birthday is in <span class="light">'.cakeDay("06/29").'</span> days
 	(so remember to buy her something nice). <a href="http://rachaelivy.com">Visit her homepage</a> for more information about her acting.</p>',
+
+'rachel' => '<p class="joshua">'.$joshua.'Did you mean <span class="command">rachael</span>? You better have. She doesn\'t like being called Rachel.</p>',
 
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to JOSHUA. Thank you for being awesome.<p>
 	<p>

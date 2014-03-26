@@ -518,7 +518,7 @@ if (empty($output)) {
 				'In retrospect, it might not have been the greatest of ideas. ';
 			print '<table class="reviews fluid">';
 			foreach ($reviews as $key => $value) {
-				print '<tr><td class="light">'.($key+1).'</td><td>'.$value['title'].'</td><td class="dark">'.$value['year'].'</td><td>'.$value['rating'].'/10</td></tr>';
+				print '<tr><td><span class="command">review '.($key+1).'</span></td><td>'.$value['title'].'</td><td class="dark">'.$value['year'].'</td><td class="light">'.$value['rating'].'/10</td></tr>';
 			}
 			print '</table>';
 			print '<p class="error">'.$joshua.'Type <b>review (x)</b> to read a review.</p><p class="example">review '.rand(0,count($reviews)-1).'</p>';
