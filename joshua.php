@@ -415,7 +415,11 @@ if (empty($output)) {
 			setcookie('theme', $option, $expires, '/');
 			output('<script>location.reload();</script>');
 		}
-		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($themes).'.</p><p class="example">'.$command.' '.$themes[rand(0,count($themes)-1)].'</p>');
+		else if (isset($option) && $option == "random") {
+			setcookie('theme', $themes[rand(0,count($themes)-1)], $expires, '/');
+			output('<script>location.reload();</script>');
+		}
+		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($themes).'.</p><p class="example">'.$command.' random</p>');
 	}
 
 	// presets
@@ -446,7 +450,7 @@ if (empty($output)) {
 				deleteCookie('background');
 				setcookie('fx', 'pulsar', $expires, '/');
 			}
-			output('<meta http-equiv="refresh" content="0">');
+			output('<script>location.reload();</script>');
 		}
 		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($presets).'.</p><p class="example">'.$command.' '.$presets[rand(0,count($presets)-1)].'</p>');
 	}
@@ -678,7 +682,6 @@ if (empty($output)) {
 		}
 		else output('<p class="error">'.$joshua.'Between how many numbers?</p><p class="example">'.$command.' '.rand(0,10).'</p>');					
 	}
-	
 
 	// window management
 	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'music', 'videos', 'superplastic', 'reset');
