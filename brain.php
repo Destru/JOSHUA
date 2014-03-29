@@ -602,7 +602,7 @@ Rachael: HAHAHA!</pre>',
 		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
 		Prowareness for his <a href="http://www.prowareness.com/blog/matrix-effect-using-jquery/">Matrix effect</a>.
 		Brsev for <a href="http://brsev.deviantart.com/art/Token-128429570">Token</a>.
-		<a href="http://www.tigaer-design.com/">Christian Hecker</a> for the color profile of the Neocom background.
+		<a href="http://hubblesource.stsci.edu//">The Hubble</a> for the Neocom background.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
