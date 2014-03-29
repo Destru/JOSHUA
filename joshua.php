@@ -278,7 +278,7 @@ if (empty($output)) {
 
 	// fml
 	if ($command == "fml") {
-		$url = "http://feeds.feedburner.com/fmylife?format=xml";
+		$url = "http://feedpress.me/fmylife";
 		$cache = "fml.xml";
 		get($url, $cache);
 		$xml = load($cache);
