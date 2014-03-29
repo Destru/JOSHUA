@@ -394,10 +394,6 @@ $(function() {
 									$(this).setAnimation(enemy[3]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 43);
 									points = points+100;
-								} else if (this.enemy instanceof rabbit) {
-									$(this).setAnimation(enemy[4]["explode"], function(node) {$(node).remove();});
-									$(this).css("width", 43);
-									points = points+25;
 								} else {
 									$(this).setAnimation(enemy[0]["explode"], function(node) {$(node).remove();});
 									$(this).css("width", 38);
