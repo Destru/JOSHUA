@@ -488,7 +488,8 @@ if (empty($output)) {
 	if ($command == "calc") {
 		if (isset($option)) {
 			if (preg_match('/^([0-9]+[+-\/*%][0-9]+)*$/', $option)) {
-				$return = shell_exec("awk 'BEGIN {print $option}'");
+				if ($option == "6*9") $return = 42;
+				else $return = shell_exec("awk 'BEGIN {print $option}'");
 				if (!empty($return)) {
 					output($return);
 				}
