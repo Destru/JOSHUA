@@ -344,6 +344,10 @@ $static = array(
 			<td class="fixed-width">10.4</td>
 			<td>QOL updates and tweaks. Neocom III: Colors. Superplastic has been tweaked fairly heavily and scores reset.</td>
 		</tr>
+		<tr>
+			<td class="fixed-width">10.5</td>
+			<td>Neocom Director\'s Cut.</td>
+		</tr>
 	</table>',
 
 'about' => '

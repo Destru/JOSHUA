@@ -5,8 +5,8 @@ if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
 	exit();
 }
 session_start();
-$version = "10.4";
-$versionName = "Neocom X";
+$version = "10.5";
+$versionName = "Neocom";
 $defaultTheme = "neocom";
 $header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
 $title = 'JOSHUA '.$version.': ';
