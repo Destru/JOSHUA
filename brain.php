@@ -346,7 +346,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td class="fixed-width">10.5</td>
-			<td>Neocom Director\'s Cut.</td>
+			<td>Neocom Director\'s Cut. Command examples are now clickable.</td>
 		</tr>
 	</table>',
 

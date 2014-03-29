@@ -266,6 +266,10 @@ p a {
 	color: #9affd9;
 	border-bottom: solid 1px #9affd9;
 }
+.example {
+	display: inline-block;
+	border-bottom: solid 1px #ff8f8f;
+}
 #prompt {
 	color: #9affd9;
 	border-top: solid 1px #9affd9;

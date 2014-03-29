@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 .clear {
 	clear:both;
 }
-.command, #desktop a, .close, .tiny li {
+.command, .example, #desktop a, .close, .tiny li {
 	cursor:pointer;
 }
 .contra, .extra {
@@ -185,7 +185,9 @@ pre.messages {
 pre.messages .dark {
 	display:none;
 }
-
+p.example {
+	display: inline-block;
+}
 /* content */
 pre, .pre, p.irc, .fixed-width {
 	font-family:'Consolas', 'Monaco';

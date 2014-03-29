@@ -303,8 +303,8 @@ function chromeInit() {
 		}
 	});
 	// mouse helpers
-	$('.command').off('click');
-	$('.command').on('click', function(e){
+	$('.command, .example').off('click');
+	$('.command, .example').on('click', function(e){
 		var command = $(this).text(),
 			e = $.Event('keydown', { which: $.ui.keyCode.ENTER });
 		$('#prompt').val(command).trigger(e);
