@@ -308,6 +308,7 @@ function chromeInit() {
 		var command = $(this).text(),
 			e = $.Event('keydown', { which: $.ui.keyCode.ENTER });
 		$('#prompt').val(command).trigger(e);
+		stealFocus();
 	});
 }
 
