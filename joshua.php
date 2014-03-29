@@ -236,6 +236,7 @@ if (empty($output)) {
 		if (isset($input)) {
 			if ($option != "list" && $option != "listall") {
 				if (strlen($input) < 10) $msgTooShort = true;
+				else if (trim($input) == "joshua needs more ultraviolence") $msgExample = true;
 				else {
 					if (!file_exists($storage)) touch($storage);
 					$fp = fopen($storage, 'a');
@@ -261,6 +262,7 @@ if (empty($output)) {
 			}
 			$output .= '</table>';
 			if (isset($msgTooShort)) output('<p class="error">'.$joshua.'Message is too short.</p>');
+			else if (isset($msgExample)) output('<p class="joshua">'.$joshua.'Yes, that is how it works, but that comment is an example.</p>');
 			else output($output);
 		}
 		else output('<p class="error">'.$joshua.'Message can\'t be empty.</p><p class="example">msg joshua needs more ultraviolence</p>');
