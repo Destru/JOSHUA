@@ -103,12 +103,12 @@ function api($game, $api) {
 			$actives = ''; $passives = '';
 			$iconSize = '24';
 			foreach($api->actives as $slot) {
-				$actives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.35);padding:2px;">'.
+				$actives .= '<div class="tsw-actives image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;padding:2px;">'.
 					'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
 					'</div>';
 			}
 			foreach($api->passives as $slot) {
-				$passives .= '<div class="image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;background-color:rgba(255,255,255,0.15);padding:2px;">'.
+				$passives .= '<div class="tsw-passives image icon" title="'.$slot->name.'" style="display:inline-block;width:'.$iconSize.'px;height:'.$iconSize.'px;margin-right:5px;padding:2px;">'.
 					'<img src="'.$slot->image->icon.'" class="icon" width="'.$iconSize.'" height="'.$iconSize.'">'.
 					'</div>';
 			}

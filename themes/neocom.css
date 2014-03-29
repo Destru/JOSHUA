@@ -12,7 +12,7 @@ body {
 p, .output, table, .prompt, pre {
 	margin-top:20px;
 }
-h1, h2 {
+, h2 {
 	margin-bottom:20px;
 }
 #nebula {
@@ -243,7 +243,7 @@ p.example {
     background: radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
 }
 #joshua h1 {
-	display: none;
+	margin: 20px 40px 0 40px;
 }
 
 /* colors */
@@ -293,4 +293,10 @@ p a {
 	color: #000;
 	text-transform: lowercase;
 	height: 21px;
+}
+.tsw-actives {
+	background-color: #8f2b33;
+}
+.tsw-passives {
+	background-color: #b2783b;
 }
