@@ -89,7 +89,7 @@ b, .active, .playing {
 	position:absolute;
 	z-index: 2;
 	content:"";
-	height: 100px;
+	height: 50px;
 	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);  
   background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
