@@ -390,6 +390,7 @@ $static = array(
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
+'clg' => 'Rush Hour #CLG #ibelieve',
 'ultraviolence' => '<script>fxInit(\'ultraviolence\', true);</script>',
 'pvp' => 'PVP > PVE',
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',

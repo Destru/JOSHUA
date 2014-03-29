@@ -243,6 +243,8 @@ p.example {
     background: radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
 }
 #joshua h1 {
+	color: #ff8f8f;
+	border-color: #ff8f8f;
 	margin: 20px 40px 0 40px;
 }
 
