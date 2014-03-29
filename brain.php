@@ -43,11 +43,11 @@ $static = array(
 		<tr>
 			<td><span class="command">say</span> <span class="dark">text</span></td>
 			<td>What? Your website doesn\'t talk?</td>
-		</tr>
+		</tr> <!-- API down/outdated
 		<tr>
 			<td><span class="command">get</span> <span class="dark">query</span></td>
 			<td>Search and download torrents</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td><span class="command">game</span> <span class="dark">name</span></td>
 			<td>Favorite games and things I made for them</td>
@@ -67,11 +67,11 @@ $static = array(
 		<tr>
 			<td><span class="command">last.fm</span></td>
 			<td>Recent tracks and other Last.FM data</td>
-		</tr>
+		</tr><!-- API down/outdated
 		<tr>
 			<td><span class="command">xbox</span></td>
 			<td>My gamerscore (terrible) and the games I play</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td><span class="command">bash</span></td>
 			<td>Our infinite stupidity as documented through bash</td>
