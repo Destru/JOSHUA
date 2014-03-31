@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 .clear {
 	clear:both;
 }
-.command, .example, #desktop a, .close, .tiny li {
+.toggle, .command, .example, #desktop a, .close, .tiny li {
 	cursor:pointer;
 }
 .contra, .extra {
@@ -123,6 +123,12 @@ table.fluid {
 }
 #version td:first-child {
 	vertical-align:top;
+}
+#version tr {
+	display:none;
+}
+#version tr.major {
+	display:table-row;
 }
 .menu a {
 	display:block;

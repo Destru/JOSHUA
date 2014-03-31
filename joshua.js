@@ -10,7 +10,7 @@ var hist = [], // history (arrow up/down)
 	focus = true, // steal focus
 	terminal = false, // terminal style layout
 	terminals = ['pirate', 'helvetica', 'mono', 'c64'], // terminal themes
-	windows = ['customize', 'music', 'superplastic', 'videos']; // common windows
+	windows = ['customize', 'music', 'superplastic', 'videos', 'gallery']; // windows
 if (theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true; // nextgen themes
 if (nextgen) windows.push('joshua');
 
@@ -205,8 +205,6 @@ function chromeInit() {
 			}
 		});
 	});
-	// x marks the spot
-	$('.window h1:not(:has(.close))').append('<a class="close">x</a>');
 	// close windows
 	$('.close').off('click');
 	$('.close').on('click', function() {
@@ -506,6 +504,7 @@ $(function() {
 		}
 		// access history
 		else if (e.which == 38) {
+			e.preventDefault(); // default behavior moves caret to beginning
 			if (position > 0) { position = position-1; }
 			$(this).val(hist[position]);
 		}

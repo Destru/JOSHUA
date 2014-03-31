@@ -1,5 +1,8 @@
 <div id="customize" class="window">
-	<h1>Customization</h1>
+	<h1>
+		Customization
+		<a class="close">x</a>
+	</h1>
 	<div class="nextgen extra">
 		<h2>Background</h2>
 		<ul id="backgrounds" class="tiny clearfix">

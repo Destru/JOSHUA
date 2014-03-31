@@ -1,5 +1,8 @@
 <div id="music" class="window">
-	<h1>MP3 Player</h1>
+	<h1>
+		MP3 Player
+		<a class="close">x</a>
+	</h1>
 <?php
 	get('http://binaerpilot.no/albums.json', 'binaerpilot.json');
 	$albums = load('binaerpilot.json');

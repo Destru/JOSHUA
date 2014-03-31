@@ -566,14 +566,14 @@ Rachael: HAHAHA!</pre>',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
-'resume' => '<p><a href="http://www.linkedin.com/in/astoever">I work This Life Inc. in New York.</a> It is awesome. They are awesome.
+'resume' => '<p><a href="http://www.linkedin.com/in/astoever">I currently work for This Life Inc. in New York.</a> It is awesome. They are awesome.
 	<p>The majority of my professional career is spent in private repositories, but some sites I have worked on are
 		<a href="http://www.travelocity.com/">Travelocity</a>,
 		<a href="http://finn.no">FINN</a> and
 		<a href="http://howaboutwe.com">HowAboutWe</a> (currently).
 		To this day I still enjoy doing random projects on my spare time for fun.
 		One of the more noteworthy being <a href="http://chronicless.einhyrning.com">ChronicLESS</a>, a JSON API for Funcom\'s The Secret World.
-	<p>I am currently not looking for work, but feel free to <a href="mailto:alexander@binaerpilot.no">mail me</a> if you have any questions.
+	<p>While I am not looking for work right now, feel free to <a href="mailto:alexander@binaerpilot.no">mail me</a> if you have any questions.
 	',
 'rachael' => '<p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist.
 	We\'ve been happily married for <span class="light">'.round((strtotime(date("Ymd"))-strtotime("2009/10/07"))/86400).'</span> days
@@ -603,7 +603,7 @@ Rachael: HAHAHA!</pre>',
 		Andrew Welch, Carl Osterwald and Steve Gilardi for <a href="http://en.wikipedia.org/wiki/ProFont">ProFont</a>.
 		Prowareness for his <a href="http://www.prowareness.com/blog/matrix-effect-using-jquery/">Matrix effect</a>.
 		Brsev for <a href="http://brsev.deviantart.com/art/Token-128429570">Token</a>.
-		<a href="http://hubblesource.stsci.edu//">The Hubble</a> for the Neocom background.
+		<a href="http://hubblesource.stsci.edu//">The Hubble</a> for the original Neocom background.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
