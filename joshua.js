@@ -43,12 +43,6 @@ function systemReady() {
 	$('title').text(title+'Ready');
 	$('body').css('cursor', 'auto');
 }
-function clearInput() {
-	$('#prompt').blur().val('');
-	setTimeout(function() {
-		$('#prompt').focus();
-	}, 50);
-}
 function scrollCheck() {
 	if (terminal) {
 		$('html, body').stop();

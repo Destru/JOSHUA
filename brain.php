@@ -117,7 +117,7 @@ $static = array(
 'version' => '
 	<table id="version">
 		<tr class="major">
-			<td class="fixed-width">1.0 <span class="dark">Beta</span></td>
+			<td class="fixed-width">1 <span class="dark">Beta</span></td>
 			<td>The first version of JOSHUA. Apart from the UI only minor alterations were made to the <a href="http://miklos.ca/cmd.html">Osenoa</a> JS. Still using XML. Wrote two PHP commands, <span class="command">uptime</span> and <span class="command">whois</span>.</td>
 		</tr>
 		<tr>
@@ -125,7 +125,7 @@ $static = array(
 			<td>Added themes. (Mmm, fluff.) JOSHUA now responds to standard *nix commands.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">2.0 <span class="dark">PHP</span></td>
+			<td class="fixed-width">2 <span class="dark">PHP</span></td>
 			<td>Completely rewrote the JS (-40 lines) and made the entire engine solely rely on PHP for content. Added view, easter-eggs and wtFIG.</td>
 		</tr>
 		<tr>
@@ -137,11 +137,11 @@ $static = array(
 			<td>Security, output and error handling is now exlusively PHP\'s domain.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">3.0 <span class="dark">XBrowser</span></td>
+			<td class="fixed-width">3 <span class="dark">XBrowser</span></td>
 			<td>Rewrote the JS again (!) and optimized the PHP engine. Added a brand new GUI to combat the WebKit issues. Everything should run smoothly crossbrowser now.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">4.0 <span class="dark">Clean</span></td>
+			<td class="fixed-width">4 <span class="dark">Clean</span></td>
 			<td>Who needs content? New GUI, again. Themes need to be updated, but it will be worth it.	No more fixed-width fontage (that breaks cross-OS) and pretty scrollbar is pretty.</td>
 		</tr>
 		<tr>
@@ -165,7 +165,7 @@ $static = array(
 			<td>Fixed a couple of interface/performance issues and added <span class="command">last.fm</span>.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">5.0 <span class="dark">Next-Gen</span></td>
+			<td class="fixed-width">5 <span class="dark">Next-Gen</span></td>
 			<td>Redid the JOSHUA chrome to (almost) completely rely on CSS+JS. Wrote a new Gallery. Made new themes. Added a handful of statics and other junk. Good times!</td>
 		</tr>
 		<tr>
@@ -205,7 +205,7 @@ $static = array(
 			<td>Minor bugfixes and new version-handling. More content and the <span class="command">xbox</span> command.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">6.0 <span class="dark">Content</span></td>
+			<td class="fixed-width">6 <span class="dark">Content</span></td>
 			<td>A lot of content added. Mobile (iPhone/Android) placeholder. Discovered and fixed a bug with Safari (apparently \'version\' is an illegal cookie-name).</td>
 		</tr>
 		<tr>
@@ -221,7 +221,7 @@ $static = array(
 			<td>Geolocation with <span class="command">trace</span> added. Minor theme fixes. Superplastic bugfix. More useless stats.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">7.0 <span class="dark">Diesel</span></td>
+			<td class="fixed-width">7 <span class="dark">Diesel</span></td>
 			<td>Diesel introduced; Stand-alone design with several interface tweaks. Removed a lot of unnecessary junk.</td>
 		</tr>
 		<tr>
@@ -261,7 +261,7 @@ $static = array(
 			<td>Backend reworked (again?! yes!). Streamlined themes, fixed some initializing glitches. Simple <span class="command">calc</span> and a method to check for <span class="command">prime</span> numbers.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">8.0 <span class="dark">Stable</span></td>
+			<td class="fixed-width">8 <span class="dark">Stable</span></td>
 			<td>First stable release, well, on WebKit-based platforms. (I use Chrome and this site is maintained by the WFMWF-principle.)</td>
 		</tr>
 		<tr>
@@ -297,7 +297,7 @@ $static = array(
 			<td>There is now a load indicator (top right) when requests are running.</td>
 		</tr>
 		<tr class="major">
-			<td class="fixed-width">9.0 <span class="dark">Mono</span></td>
+			<td class="fixed-width">9 <span class="dark">Mono</span></td>
 			<td>Mono means back to minimalism. Removed some pointless windows and tweaked the ones that are needed. Themes and presets can (finally) be loaded from the prompt.</td>
 		</tr>
 		<tr>
