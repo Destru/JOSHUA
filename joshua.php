@@ -1,8 +1,8 @@
 <?php // joshua engine <alexander@binaerpilot.no>
 include 'inc.global.php';
-if (!empty($_POST['command'])) $command = strtolower(strip_tags(trim($_POST['command'])));
-if (!empty($_POST['option'])) $option = strip_tags(trim($_POST['option']));
-if (!empty($_POST['dump'])) $dump = strip_tags(trim($_POST['dump']));
+if (!empty($_POST['command'])) $command = strtolower(userInput($_POST['command']));
+if (!empty($_POST['option'])) $option = userInput($_POST['option']);
+if (!empty($_POST['dump'])) $dump = userInput($_POST['dump']);
 if (!empty($option) && $option == "undefined") unset($option);
 if (!empty($dump) && $dump == "undefined") unset($dump);
 if (isset($command) && isset($dump)) {
@@ -367,31 +367,26 @@ if (empty($output)) {
 	}
 
 	// get (torrents)
-	if ($command == "get" || $command == "torrent") {
+	if ($command == "get" || $command == "torrent" || $command == "magnet") {
 		if (isset($option)) {
-			$rows = 25; $url = 'http://ca.isohunt.com/js/json.php?ihq='.urlencode($input).'&start=0&sort=seeds&rows='.$rows;
+			$url = 'http://apify.heroku.com/api/tpb.json?word='.urlencode($input);
 			$content = get($url);
 			if ($content) {
 				print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>';
-				$c = json_decode($content, true);
-				$hits = $c['total_results'];
-				if ($hits > 0) {
+				$hits = json_decode($content, true);
+				if (count($hits)) {
 					print '<table class="torrents">';
-					if ($rows > $hits) $rows = $hits;
-					for ($i = 0; $i < $rows; $i++) {
-						$name = $c['items']['list'][$i]['title'];
-						$link = $c['items']['list'][$i]['link'];
-						$size = $c['items']['list'][$i]['size'];
-						$seeds = $c['items']['list'][$i]['Seeds'];
-						$leechers = $c['items']['list'][$i]['leechers'];
-						if (!$seeds) $seeds = 0;
-						if (!$leechers) $leechers = 0;						
-						if (strlen($name) > 70) $name = substr($name, 0, 67).'...';
-						if (!empty($link)) {
-							print '<tr><td class="torrent"><a href="'.$link.'">'.$name.'</a></td><td>'.$size.'</td><td class="dark">'.$seeds.'/'.$leechers.'</td></tr>';
+					foreach($hits as $i) {
+						$title = $i['title'];
+						$link = $i['data'];
+						$seeders = $i['seeders'];
+						$leechers = $i['leechers'];
+						if ($title) {
+							print '<tr><td class="torrent"><a href="'.$link.'">'.$title.'</a></td><td class="dark">'.$seeders.'/'.$leechers.'</td></tr>';							
 						}
 					}
-					print '</table>'; $output = 1;
+					print '</table>';
+					$output = 1;
 				}
 				else output('<p class="error">'.$joshua.'<b>'.$input.'</b> returned nothing.</p>');
 			}
@@ -457,10 +452,10 @@ if (empty($output)) {
 		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($presets).'.</p><p class="example">'.$command.' '.$presets[rand(0,count($presets)-1)].'</p>');
 	}
 
-	// superplastic scores
+	// scores (superplastic)
 	if ($command == "scores") {
-		if (!empty($_POST['name'])) $name = strip_tags(trim($_POST['name']));
-		if (!empty($_POST['score'])) $score = strip_tags(trim($_POST['score']));
+		if (!empty($_POST['name'])) $name = userInput($_POST['name']);
+		if (!empty($_POST['score'])) $score = userInput($_POST['score']);
 		if (!is_numeric($score)) unset($score);
 		$storage = "superplastic.data";
 		if (!empty($name) && !empty($score)) {
@@ -502,7 +497,7 @@ if (empty($output)) {
 		else output('<p class="error">'.$joshua.'There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
 	}
 	
-	// hashing
+	// hash
 	if ($command == "hash" || $command == "crypt" || $command == "md5" || $command == "sha1") {
 		$example = '<p class="example">hash md5 joshua</p>';
 		if (isset($option)) {

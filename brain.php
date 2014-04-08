@@ -1,10 +1,10 @@
-<?php // joshua brain <alexander@binaerpilot.no>
-// brain cells (modules)
+<?php
+// brain cells
 $d = scandir(".");
 foreach($d as $file) {
 	if(stristr($file, 'cell.')) include $file;
 }
-// static information
+
 $static = array(
 'help' => '
 	<table id="help">
@@ -604,6 +604,7 @@ Rachael: HAHAHA!</pre>',
 		Prowareness for his <a href="http://www.prowareness.com/blog/matrix-effect-using-jquery/">Matrix effect</a>.
 		Brsev for <a href="http://brsev.deviantart.com/art/Token-128429570">Token</a>.
 		<a href="http://hubblesource.stsci.edu//">The Hubble</a> for the original Neocom background.
+		Whoever is behind <a href="http://apify.heroku.com/">APIfy</a>.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 

@@ -1,9 +1,10 @@
-<?php // global settings
+<?php
 if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
 	header("HTTP/1.1 301 Moved Permanently"); 
 	header("Location: http://joshua.chronicless.com");
 	exit();
 }
+
 session_start();
 $version = "10.5";
 $versionName = "Neocom";
@@ -13,9 +14,8 @@ $title = 'JOSHUA '.$version.': ';
 $termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
 $joshua = "<b>JOSHUA:</b> ";
 $expires = time()+60*60*24*365;
-date_default_timezone_set("Europe/Oslo");
+date_default_timezone_set("America/New_York");
 
-// functions
 function get($url, $cache=null, $inline=null) {
 	clearstatcache();
 	$timeout = 10;
@@ -54,6 +54,7 @@ function get($url, $cache=null, $inline=null) {
 		return $data;
 	}
 }
+
 function load($file, $inline=null) {
 	if(file_exists($file)) {
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
@@ -82,5 +83,9 @@ function load($file, $inline=null) {
 		if($inline) error('localcache', 1);
 		else error('localcache');
 	}
+}
+
+function userInput($string) {
+	return strip_tags(trim($string));
 }
 ?>
