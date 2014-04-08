@@ -498,8 +498,9 @@ if (empty($output)) {
 	}
 	
 	// hash
-	if ($command == "hash" || $command == "crypt" || $command == "md5" || $command == "sha1") {
+	if ($command == "hash" || $command == "md5" || $command == "sha1") {
 		$example = '<p class="example">hash md5 joshua</p>';
+		if ($command == "md5" || $command == "sha1") $option = $command;
 		if (isset($option)) {
 			$string = trim(str_replace($option, '', $input));
 			if (strlen($string) > 0) {
