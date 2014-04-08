@@ -1,4 +1,4 @@
-<?php // joshua engine <alexander@binaerpilot.no>
+<?php
 include 'inc.global.php';
 if (!empty($_POST['command'])) $command = strtolower(userInput($_POST['command']));
 if (!empty($_POST['option'])) $option = userInput($_POST['option']);
@@ -12,26 +12,29 @@ if (isset($command) && isset($dump)) {
 if (empty($input)) unset($input);
 unset($output);
 
-// functions
 function error($id, $inline=null) {
 	global $error, $command, $prompt, $joshua;
 	if (!$inline) print $prompt;
 	print '<p class="joshua error">'.$joshua.$error[$id].'</p>';
 	die();
 }
+
 function output($response) {
 	global $output, $command, $option, $input, $prompt;
 	if (stristr($response,'<p') || stristr($response,'<table')|| stristr($response,'<ul')) print $prompt.$response;
 	else print $prompt.'<p>'.$response.'</p>';
 	$output = 1;
 }
+
 function run($cmd, $opt=null) {
 	$timeout = 10;
 	return trim(utf8_encode(shell_exec('timeout '.$timeout.' '.$cmd.' '.$opt)));
 }
+
 function microtimer($timestamp) {
 	return round(microtime(true)-$timestamp, 5);
 }
+
 function dbFile($file) {
 	if (file_exists($file)) {
 		$file = file($file);
@@ -48,6 +51,7 @@ function dbFile($file) {
 	}
 	else error('localcache');
 }
+
 function implodeHuman($a, $command=false) {
 	$last = array_pop($a); 
 	if ($command) {
@@ -59,12 +63,15 @@ function implodeHuman($a, $command=false) {
 		return implode(', ', $a).' and '.$last; 	
 	}
 }
+
 function deleteCookie($cookie) {
 	setcookie($cookie, '', time()-60*60*24*365, '/');
 }
+
 function deCamel($s) {
 	return ucfirst(preg_replace( '/([a-z0-9])([A-Z])/', "$1 $2", $s));
 }
+
 function cakeDay($date) {
 	$cake = (strtotime(date("Ymd")) > strtotime(date("Y/$date"))) ? strtotime(date("Y/$date", strtotime("+1 year"))) : strtotime(date("Y/$date"));
 	return round(($cake-strtotime(date("Ymd")))/86400);
@@ -503,11 +510,16 @@ if (empty($output)) {
 		if ($command == "md5" || $command == "sha1") $option = $command;
 		if (isset($option)) {
 			$string = trim(str_replace($option, '', $input));
-			if (strlen($string) > 0) {
-				output('<p>'.hash($option, $string).'</p>');
+			if (in_array($option, hash_algos())) {
+				if (strlen($string) > 0) {
+					output('<p>'.hash($option, $string).'</p>');
+				}
+				else {
+					output('<p class="error">'.$joshua.'You need to specify both an algorithm and a string.</p>'.$example);
+				}
 			}
 			else {
-				output('<p class="error">'.$joshua.'You need to specify both an algorithm and a string.</p>'.$example);
+				output('<p class="error">'.$joshua.'Valid options are '.implodeHuman(hash_algos()).'.</p>'.$example);
 			}
 		}
 		else output('<p class="error">'.$joshua.'Can\'t hash an empty string.</p>'.$example);
