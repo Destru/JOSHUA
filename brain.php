@@ -54,7 +54,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td><span class="command">rate</span> <span class="dark">title</span></td>
-			<td>Checks for ratings on IMDb and Rotten Tomatoes</td>
+			<td>Look up ratings on IMDb, Rotten Tomatoes and Metacritic</td>
 		</tr>
 		<tr>
 			<td><span class="command">img</span> <span class="dark">query</span></td>
@@ -605,6 +605,7 @@ Rachael: HAHAHA!</pre>',
 		Brsev for <a href="http://brsev.deviantart.com/art/Token-128429570">Token</a>.
 		<a href="http://hubblesource.stsci.edu//">The Hubble</a> for the original Neocom background.
 		Whoever is behind <a href="http://apify.heroku.com/">APIfy</a>.
+		<a href="http://www.omdbapi.com/">Brian Fritz</a> for OMDb.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 

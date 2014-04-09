@@ -7,7 +7,7 @@ if (!empty($option) && $option == "undefined") unset($option);
 if (!empty($dump) && $dump == "undefined") unset($dump);
 if (isset($command) && isset($dump)) {
 	$pos = strpos($dump, $command);
-	if ($pos !== false) $input = substr_replace($dump, '', $pos, strlen($command));
+	if ($pos !== false) $input = trim(substr_replace($dump, '', $pos, strlen($command)));
 }
 if (empty($input)) unset($input);
 unset($output);
@@ -544,7 +544,7 @@ if (empty($output)) {
 			if (preg_match($pattern, $option)) {
 				$id = $option-1;
 				if (!empty($reviews[$id])) {
-					print $prompt.'<p><b>'.$reviews[$id]['title'].'</b> ('.$reviews[$id]['year'].') <span class="dark">'.$reviews[$id]['rating'].'/10</span></p>'.
+					print $prompt.'<p><b class="light">'.$reviews[$id]['title'].'</b> <span class="dark">('.$reviews[$id]['year'].')</span> '.$reviews[$id]['rating'].'/10</p>'.
 						$reviews[$id]['review'].
 						'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a></p>';
 					$output = 1;
@@ -617,42 +617,23 @@ if (empty($output)) {
 	}
 
 	// rate
-	if ($command == "rate" || $command == "rating" || $command == "imdb") {
+	if ($command == "rate" || $command == "rating") {
 		if (isset($input)) {
-			$output;
-			$query = urlencode($input);
-			$limit = 10;
-			// imdb
-			$imdb = 'http://mymovieapi.com/?title='.$query.'&limit='.$limit.'&lang=en-US';
-			$imdb = json_decode(get($imdb));
-			if ($imdb) {
-				$output .= '<table class="ratings fluid">';
-				foreach ($imdb as $movie) {
-					if (isset($movie->title)) {
-						if (isset($movie->rating)) $rating = $movie->rating; else $rating = 'N/A';
-						$output .= '<tr><td><a href="'.$movie->imdb_url.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$rating.'</td></tr>';
-					}
-				}
-				$output .= '</table>';
+			$omdb = 'http://www.omdbapi.com/?t='.urlencode($input).'&tomatoes=true';
+			$omdb = json_decode(get($omdb));
+			if (filter_var($omdb->Response, FILTER_VALIDATE_BOOLEAN)) {
+				output('<p><b class="light">'.$omdb->Title.'</b> <span class="dark">('.$omdb->Year.')</span><br>'.
+					'<span class="dark">'.$omdb->Genre.'</span></p>'.
+					'<p>'.$omdb->Plot.'</p>'.
+					'<table class="fluid rate">'.
+						'<tr><td>IMDb Rating</td><td class="light">'.$omdb->imdbRating.'</td></tr>'.
+						'<tr><td>Tomato Meter</td><td class="light">'.$omdb->tomatoMeter.'</td></tr>'.
+						'<tr><td>Metascore</td><td class="light">'.$omdb->Metascore.'</td></tr>'.
+					'</table>'.
+					'<p class="dark">'.$omdb->tomatoConsensus.'</p>'
+				);
 			}
-			// rt
-			$rt = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q='.$query.'&page_limit='.$limit.'&apikey=m4x7r8qu99bsamd9era6qqzb';
-			$rt = json_decode(get($rt));
-			if ($rt && $rt->movies) {
-				$output .= '<table class="ratings fluid">';
-				foreach ($rt->movies as $movie) {
-					if (isset($movie->title)) {
-						$critics = $movie->ratings->critics_score;
-						if ($critics >= 0) $critics .= '%'; else $critics = 'N/A';
-						$audience = $movie->ratings->audience_score;
-						if ($audience >= 0) $audience .= '%'; else $audience = 'N/A';
-						$output .= '<tr><td><a href="'.$movie->links->alternate.'">'.$movie->title.'</a></td><td class="dark">'.$movie->year.'</td><td class="light">'.$critics.'</td><td>'.$audience.'</td></tr>';						
-					}
-				}
-				$output .= '</table>';
-			}
-			if (!empty($output)) output($output);
-			else output('<p class="error">'.$joshua.'IMDb and Rotten Tomatoes returned nothing for that title.</p>');
+			else error('404');
 		}
 		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' blade runner</p>');		
 	}
