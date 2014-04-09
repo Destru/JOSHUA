@@ -6,7 +6,7 @@ if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
 }
 
 session_start();
-$version = "10.5";
+$version = "10.6";
 $versionName = "Neocom";
 $defaultTheme = "neocom";
 $header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
@@ -33,6 +33,7 @@ function get($url, $cache=null, $inline=null) {
 			curl_setopt ($ch, CURLOPT_URL, $url);
 			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
+			curl_setopt ($ch, CURLOPT_USERAGENT, 'JOSHUA');
 			$data = curl_exec($ch);
 			curl_close($ch);
 			if(!empty($data)) {
@@ -49,6 +50,7 @@ function get($url, $cache=null, $inline=null) {
 		curl_setopt ($ch, CURLOPT_URL, $url);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
+		curl_setopt ($ch, CURLOPT_USERAGENT, 'JOSHUA');
 		$data = curl_exec($ch);
 		curl_close($ch);
 		return $data;

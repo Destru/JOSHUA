@@ -24,12 +24,12 @@
 		<!-- fallback -->
 		<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg">
 	<link rel="icon" type="image/png" href="images/favicon.png">
-	<link rel="stylesheet" type="text/css" href="joshua.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="joshua.css?<?= $version ?>" media="screen">
 <?php // theme handling
 	$theme = $_COOKIE['theme'];
 	$nextgenThemes = array('carolla', 'contra', 'penguin', 'white');
 	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
-	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css" media="screen">'."\n";
+	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css?'.$version.'" media="screen">'."\n";
 ?>
 	<!-- analytics -->
 	<script>
@@ -47,19 +47,19 @@
 	<script src="resources/joshua.effects.js"></script>
 	<script>
 		// global settings
-		var version = '<?php echo $version; ?>',
-		title = '<?php echo $title; ?>',
-		theme = '<?php echo $theme; ?>',
-		defaultTheme = '<?php echo $defaultTheme; ?>',
-		termPrompt = '<?php echo $termPrompt; ?>',
-		nextgenThemes = ["<?php echo implode('","', $nextgenThemes); ?>"];
+		var version = '<?= $version ?>',
+		title = '<?= $title ?>',
+		theme = '<?= $theme ?>',
+		defaultTheme = '<?= $defaultTheme ?>',
+		termPrompt = '<?= $termPrompt ?>',
+		nextgenThemes = ["<?= implode('","', $nextgenThemes) ?>"];
 	</script>
 	<script src="joshua.js"></script>	
 </head>
 <body>
 	<div id="wrapper">
 		<div id="joshua">
-			<h1><?php echo $header; ?></h1>
+			<h1><?= $header ?></h1>
 			<div id="output"></div>
 			<div id="input">
 				<input type="text" id="prompt" autocomplete="off">

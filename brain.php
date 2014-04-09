@@ -106,7 +106,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td><span class="command">version</span></td>
-			<td>Captain\'s log (lists version changes)</td>
+			<td>Captain\'s log (use <span class="command">git log</span> for more details)</td>
 		</tr>
 		<tr>
 			<td><span class="command">stats</span></td>
@@ -534,7 +534,6 @@ Rachael: HAHAHA!</pre>',
 'fizzbuzz' => '&lt;?while($i++<100)echo$i%15?$i%5?$i%3?$i:"Fizz":"Buzz":"FizzBuzz","\n";?&gt;',
 'justmtv' => 'An amazing idea I had that never will be realized. Streaming music videos without interruption online. Or in other words, what MTV should be.',
 'everywhere' => '<p>Can you hear me calling<br>Out your name<br>You know that I\'m falling<br>And I don\'t know what to say<br>I\'ll speak a little louder<br>I\'ll even shout<br>You know that I\'m proud<br>And I can\'t get the words out</p><p>Oh I...<br>I want to be with you everywhere</span></p>',
-'git' => 'Git is awesome. I don\'t know how I survived without it.<br><a class="external" href="http://github.com/destru/">Follow me at GitHub.</a>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
 'draw' => 'Sure, choose "Draw" in the <span class="command">customize</span> menu and have at it.',
 'love' => 'Baby don\'t hurt me, don\'t hurt me, no more.',

@@ -92,7 +92,7 @@ $error = array(
 	'invalidhtml' => 'API returned malformed HTML. Is there even such a thing as well-formed HTML?',
 	'invalidrequest' => 'API threw an error. This is bad and I should feel bad.',
 	'localcache' => 'Local cache does not exist. IT\'S GONE! ALL GONE!',
-	'auth' => 'You are not authorized. Go away.',
+	'auth' => 'You are not authorized to issue that command.',
 	'password' => 'Wrong password.',
 	'outdatedapi' => 'API returned something, but not what I expected. Probably needs an update.'
 );
@@ -379,7 +379,7 @@ if (empty($output)) {
 			$url = 'http://apify.heroku.com/api/tpb.json?word='.urlencode($input);
 			$content = get($url);
 			if ($content) {
-				print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>';
+				print $prompt;
 				$hits = json_decode($content, true);
 				if (count($hits)) {
 					print '<table class="torrents">';
@@ -692,6 +692,29 @@ if (empty($output)) {
 			else output('<p class="error">'.$joshua.' '.$input.' is not numeric. Come on man.');
 		}
 		else output('<p class="error">'.$joshua.'Between how many numbers?</p><p class="example">'.$command.' '.rand(0,10).'</p>');					
+	}
+
+	// git
+	if ($command == "git") {
+		if (isset($option)) {
+			if ($option == "log") {
+				$url = 'https://api.github.com/repos/destru/joshua/commits';
+				$commits = json_decode(get($url));
+				if (count($commits)) {
+					print $prompt;
+					foreach (array_reverse($commits) as $i) {
+						print '<p>'.
+							'<span class="dark">'.date("F j, Y", strtotime($i->commit->author->date)).'</span><br>'.
+							$i->commit->message.'<br>'.
+							'<a class="external fixed-width" href="'.$i->html_url.'">'.substr($i->sha, 0, 7).'</a>'.
+							'</p>';
+					}
+					$output = 1;
+				}
+			}
+			else error('auth');
+		}
+		else output('<p class="error">'.$joshua.'Please specify an operation to perform.</p><p class="example">'.$command.' log</p>');	
 	}
 
 	// window management
