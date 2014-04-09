@@ -76,7 +76,7 @@
 	Guo_Si: Hey, you know what just isn't cool?<br>
 	TheXPhial: lava?",
 
-	/*	"DeadMansHand: haha, last night, me and pete went out to celebrate his engagement and got hugely drunk<br>
+	"DeadMansHand: haha, last night, me and pete went out to celebrate his engagement and got hugely drunk<br>
 	DeadMansHand: we got this great idea to bury eachother in the sand close to the water and see who would chicken out first<br>
 	DeadMansHand: took about a half hour, but the water got up to my face so i freaked and got out<br>
 	DeadMansHand: i looked around for pete and he must've chickened out before me and stumbled home or something heh<br>
@@ -98,7 +98,7 @@
 	PeteRepeat: if ken shows up, make sure he doesn't know that im at the beach digging for his body. i don't want him to think i care or anything.<br>
 	<span class=\"light\">quit: (PeteRepeat)</span><br>
 	Thirteen-: rofl. Those 2 are going to get a huge surprise when they meet at the beach.<br>
-	Tyran: i can't beleive how perfect their timing was", */
+	Tyran: i can't beleive how perfect their timing was",
 	
 	"anamexis: oh man<br>
 	anamexis: I was opening a coke, right<br>

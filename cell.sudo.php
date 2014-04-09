@@ -1,6 +1,4 @@
-<?php // su-su-sussdio
-
-// sudo
+<?php // sudo
 if($command == "sudo") {
 	if(empty($option)) error('password');
 	else {
@@ -35,7 +33,7 @@ if($command == "reply") {
 	else error('auth');
 }
 
-// invalid commands
+// invalid
 if($command == "invalid") {
 	if(isset($_SESSION['sudo'])) {
 		$storage = "invalid.data";
@@ -53,7 +51,7 @@ if($command == "invalid") {
 	else error('auth');	
 }
 
-// various *nix commands
+// *nix
 $nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail',
 	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl', 'pwd', 'dir', 'mysql', 'su', 'netstat', 'login', 'ssh', 'irssi');
 if(in_array($command, $nix)) {

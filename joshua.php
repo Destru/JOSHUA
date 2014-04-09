@@ -108,9 +108,9 @@ if (!empty($command)) {
 
 // output
 if (empty($output)) {
-	// we need to load the brain
 	include('brain.php');
-	// quotes, bash
+
+	// quotes and bash
 	if ($command == "bash" || $command == "quote" || $command == "quotes") {
 		if ($command == "bash") $array = $bash;
 		elseif ($command == "quote" || $command == "quotes") $array = $quotes;
@@ -171,7 +171,7 @@ if (empty($output)) {
 		else output('<p class="error">'.$joshua.'I need a domain to lookup.</p><p class="example">'.$command.' binaerpilot.no</p>');
 	}
 
-	// prime number
+	// prime
 	if ($command == "prime") {
 		if (!empty($option)) {
 			if (strlen($option) <= 5) {
@@ -198,7 +198,6 @@ if (empty($output)) {
 		if (filter_var($ip, FILTER_VALIDATE_IP) !== false) {
 			$request = $lookup.$ip;
 			$output = get($request);
-			// google maps link
 			$latitude = trim(array_shift(explode('Longitude', array_pop(explode('Latitude:', $output)))));
 			$longitude = trim(array_shift(explode('IP', array_pop(explode('Longitude:', $output)))));
 			if (!empty($latitude) && !empty($longitude)) {
@@ -305,7 +304,6 @@ if (empty($output)) {
 	if ($command == "last.fm" || $command == "lastfm") {
 		$output = '';
 		if (!empty($option) && $option == "loved") {
-			// loved tracks
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 			$count = 10; $cache = 'lastfm.loved.xml';
 			get($url, $cache);
@@ -317,7 +315,6 @@ if (empty($output)) {
 			}	
 		}
 		else {
-			// recent tracks
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
 			$count = 10; $cache = 'lastfm.xml';
 			get($url, $cache);
@@ -342,7 +339,6 @@ if (empty($output)) {
 				$font =  $option.'.flf';
 				$string = trim(str_replace($option, '', $input));
 				if (strlen($string) > 0) {
-					// load class
 					require("wtfig/class.figlet.php");
 					$phpFiglet = new phpFiglet();
 					if ($phpFiglet->loadFont("wtfig/fonts/".$font)) {
@@ -373,7 +369,7 @@ if (empty($output)) {
 		}
 	}
 
-	// get (torrents)
+	// get
 	if ($command == "get" || $command == "torrent" || $command == "magnet") {
 		if (isset($option)) {
 			$url = 'http://apify.heroku.com/api/tpb.json?word='.urlencode($input);
@@ -734,13 +730,11 @@ if (empty($output)) {
 			if ($key == $command) output($value);
 		}
 		if (empty($output)) {
-			// lets store commands that fail and populate them
 			$storage = "invalid.data";
 			if (!file_exists($storage)) touch($storage);
 			$fp = fopen($storage, 'a');
 			fwrite($fp, $dump."\n");
 			fclose($fp);
-			// feedback
 			error('invalid');
 		}
 	}

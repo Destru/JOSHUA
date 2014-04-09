@@ -9,7 +9,7 @@
 </div>
 <script>
 	function galleryInit() {
-		// slideshow with pager
+		// slideshow
 		$('#slick .thumbs').remove();
 		$('.slideshow').before('<ul class="thumbs clearfix"/>').cycle({
 			speed:  500,
@@ -25,7 +25,7 @@
 		});
 	}
 	$(function() {
-		// slide down pager
+		// pager
 		var adjust;
 		$('#slick').hover(function() {
 			adjust = $(this).find('ul').height()+10;

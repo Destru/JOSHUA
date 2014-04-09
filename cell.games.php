@@ -1,5 +1,4 @@
-<?php // static
-$games = array(
+<?php $games = array(
 	'ao' => array(
 		'api' => 'http://people.anarchy-online.com/character/bio/d/5/name/binaerpilot/bio.xml',
 		'format' => 'xml',
@@ -38,7 +37,6 @@ $games = array(
 	)
 );
 
-// see, we had all these API's...
 function api($game, $api) {
 	if($game == 'ao') {
 		if ($api->name) {
@@ -124,7 +122,6 @@ function api($game, $api) {
 	return $output;
 }
 
-// games
 $gameList = array_keys($games);
 sort($gameList);
 if($command == 'games' || $command == 'game' || in_array($command, $gameList)) {

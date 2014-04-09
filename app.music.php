@@ -9,7 +9,6 @@
 	if ($albums) {
 		$r = rand(0,count($albums)-1);
 		print '<ul class="menu">';
-		// random album
 		foreach ($albums[$r]->tracks as $track) {
 			print '<li><a href="'.$track->url.'" class="mp3">'.$track->title.'</a><li>';
 		}
