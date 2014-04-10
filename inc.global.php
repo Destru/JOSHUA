@@ -5,6 +5,10 @@ if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
 	exit();
 }
 
+if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
+  ini_set("zlib.output_compression", 1);
+}
+
 session_start();
 $version = "10.6";
 $versionName = "Neocom";

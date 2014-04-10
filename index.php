@@ -43,8 +43,8 @@
 	</script>
 	<!-- javascript -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-	<script src="resources/joshua.external.js"></script>
-	<script src="resources/joshua.effects.js"></script>
+	<script src="resources/joshua.external.min.js"></script>
+	<script src="resources/joshua.effects.min.js"></script>
 	<script>
 		// global settings
 		var version = '<?= $version ?>',
@@ -54,7 +54,7 @@
 		termPrompt = '<?= $termPrompt ?>',
 		nextgenThemes = ["<?= implode('","', $nextgenThemes) ?>"];
 	</script>
-	<script src="joshua.js"></script>
+	<script src="joshua.min.js?<?= $version ?>"></script>
 </head>
 <body>
 	<div id="wrapper">
