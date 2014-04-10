@@ -67,11 +67,9 @@ function api($game, $api) {
 	}
 	else if($game == 'wow') {
 		if ($api->name) {
-			// set correct title
 			foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
 			if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
 			else $name = $api->name;
-			// grab recent events
 			$feed = array_filter($api->feed, function($i) {
 				if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
 			});	
@@ -138,7 +136,7 @@ if($command == 'games' || $command == 'game' || in_array($command, $gameList)) {
 			$api = load($cache, 1);
 			print api($game, $api);
 		}
-		$output = 1;
+		$output = true;
 	}
 	else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($gameList, true).'.</p><p class="example">'.$command.' '.$gameList[rand(0,count($gameList)-1)].'</p>');
 }

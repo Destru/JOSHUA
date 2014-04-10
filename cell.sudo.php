@@ -26,7 +26,7 @@ if($command == "reply") {
 			fwrite($fp, date("d/m/y").'^<span class="light">'.$message.'</span>^127.0.0.1'."\n");
 			fclose($fp);
 			print '<div class="prompt">'.$command.'</div><p class="joshua">'.$joshua.'Reply stored.</p>';
-			$output = 1;
+			$output = true;
 		}
 		else output('<p class="error">'.$joshua.'Reply can\'t be empty.</p>');
 	}

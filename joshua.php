@@ -629,6 +629,7 @@ if (empty($output)) {
 						'<tr><td>Metascore</td><td class="light">'.$omdb->Metascore.'</td></tr>'.
 					'</table>';
 				if ($omdb->tomatoConsensus != "N/A") print '<p class="dark">'.$omdb->tomatoConsensus.'</p>';
+				print '<p><span class="command">get '.strtolower($omdb->Title).'</span></p>';
 				$output = true;
 			}
 			else error('404');

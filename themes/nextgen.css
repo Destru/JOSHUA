@@ -156,7 +156,7 @@ h1, h2, h1 b, h2 b {
 h1 b, h2 b {
 	font-family: 'Tempesta Extended Bold', Helvetica, Arial;
 }
-#sliders .frame, .speechBubble, .tiny li, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
+.fixed-width, #sliders .frame, .speechBubble, .tiny li, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
 	font-family: 'Tempesta', Helvetica, Arial;
 	font-size:8px; line-height:1.2em;
 	text-transform:uppercase;
