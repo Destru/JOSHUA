@@ -23,7 +23,7 @@ function output($response) {
 	global $output, $command, $option, $input, $prompt;
 	if (stristr($response,'<p') || stristr($response,'<table')|| stristr($response,'<ul')) print $prompt.$response;
 	else print $prompt.'<p>'.$response.'</p>';
-	$output = 1;
+	$output = true;
 }
 
 function run($cmd, $opt=null) {
@@ -122,7 +122,8 @@ if (empty($output)) {
 			}
 		}
 		elseif (isset($option) && $option == "clean") {
-			print $array[$rand]; $output = 1;
+			print $array[$rand];
+			$output = true;
 		}
 		else {
 			$quote = $array[$rand];
@@ -136,7 +137,7 @@ if (empty($output)) {
 		$count = count($motd)-1; $rand = rand(0,$count);
 		if (isset($option) && $option == "inline") {
 			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <span class="command">help</span> for commands.</p>';
-			$output = 1;
+			$output = true;
 		}
 		else {
 			output($motd[$rand]);
@@ -389,7 +390,7 @@ if (empty($output)) {
 						}
 					}
 					print '</table>';
-					$output = 1;
+					$output = true;
 				}
 				else output('<p class="error">'.$joshua.'<b>'.$input.'</b> returned nothing.</p>');
 			}
@@ -481,7 +482,7 @@ if (empty($output)) {
 			print '<li><span class="pos">'.$pos.'.</span><b>'.$scores[$i]['name'].'</b> <span class="score">'.$scores[$i]['score'].'</span></li>';
 		}
 		print '</ul>';
-		$output = 1;
+		$output = true;
 	}
 
 	// calc
@@ -533,7 +534,7 @@ if (empty($output)) {
 			}
 			print '</table>';
 			print '<p class="error">'.$joshua.'Type <b>review (x)</b> to read a review.</p><p class="example">review '.rand(0,count($reviews)-1).'</p>';
-			$output = 1;
+			$output = true;
 		}
 		else {
 			$pattern = "/^[0-9]+$/";
@@ -543,7 +544,7 @@ if (empty($output)) {
 					print $prompt.'<p><b class="light">'.$reviews[$id]['title'].'</b> <span class="dark">('.$reviews[$id]['year'].')</span> '.$reviews[$id]['rating'].'/10</p>'.
 						$reviews[$id]['review'].
 						'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a></p>';
-					$output = 1;
+					$output = true;
 				}
 				else error("404");
 			}
@@ -607,7 +608,7 @@ if (empty($output)) {
 		if (isset($input)) {
 			print '<div class="prompt">'.$command.' <b>'.$input.'</b></div>'.
 				'<script>speak(\''.$input.'\', { pitch:50, speed:120 });</script>';
-			$output = 1;
+			$output = true;
 		}
 		else output('<p class="error">'.$joshua.'What do you want me to say?</p><p class="example">say hello</p>');
 	}
@@ -618,16 +619,17 @@ if (empty($output)) {
 			$omdb = 'http://www.omdbapi.com/?t='.urlencode($input).'&tomatoes=true';
 			$omdb = json_decode(get($omdb));
 			if (filter_var($omdb->Response, FILTER_VALIDATE_BOOLEAN)) {
-				output('<p><b class="light">'.$omdb->Title.'</b> <span class="dark">('.$omdb->Year.')</span><br>'.
-					'<span class="dark">'.$omdb->Genre.'</span></p>'.
-					'<p>'.$omdb->Plot.'</p>'.
-					'<table class="fluid rate">'.
-						'<tr><td>IMDb Rating</td><td class="light">'.$omdb->imdbRating.'</td></tr>'.
-						'<tr><td>Tomato Meter</td><td class="light">'.$omdb->tomatoMeter.'</td></tr>'.
+				print $prompt.
+					'<p><b class="light">'.$omdb->Title.'</b> <span class="dark">('.$omdb->Year.')</span><br>'.
+					'<span class="dark">'.$omdb->Genre.'</span></p>';
+				if ($omdb->Plot != "N/A") print '<p>'.$omdb->Plot.'</p>';
+				print '<table class="fluid rate">'.
+						'<tr><td>IMDb</td><td class="light">'.$omdb->imdbRating.'</td></tr>'.
+						'<tr><td>Tomatometer</td><td class="light">'.$omdb->tomatoMeter.'</td></tr>'.
 						'<tr><td>Metascore</td><td class="light">'.$omdb->Metascore.'</td></tr>'.
-					'</table>'.
-					'<p class="dark">'.$omdb->tomatoConsensus.'</p>'
-				);
+					'</table>';
+				if ($omdb->tomatoConsensus != "N/A") print '<p class="dark">'.$omdb->tomatoConsensus.'</p>';
+				$output = true;
 			}
 			else error('404');
 		}
@@ -651,7 +653,7 @@ if (empty($output)) {
 						$output .= '<div class="slide"><img src="'.$image->images->standard_resolution->url.'" width="468" height="468"></div>';
 					}
 					print $prompt.'<script>$("#slick .slideshow").html(\''.$output.'\'); galleryInit(); $("#gallery:hidden").fadeIn(fade); $("#galleryOpen").addClass("active");</script>';
-					$output = 1;
+					$output = true;
 				}
 				else output('<p class="error">'.$joshua.'Found nothing tagged with '.$input.'. (Instagram filters the API rigorously.)</p>');
 			}
@@ -686,7 +688,7 @@ if (empty($output)) {
 							'<a class="external fixed-width" href="'.$i->html_url.'">'.substr($i->sha, 0, 7).'</a>'.
 							'</p>';
 					}
-					$output = 1;
+					$output = true;
 				}
 			}
 			else error('auth');
@@ -721,7 +723,7 @@ if (empty($output)) {
 		}
 		$js .= 'systemReady();';
 		print '<script>'.$js.'</script>';
-		$output = 1;
+		$output = true;
 	}
 	
 	// fallback
@@ -735,9 +737,8 @@ if (empty($output)) {
 			$fp = fopen($storage, 'a');
 			fwrite($fp, $dump."\n");
 			fclose($fp);
-			error('invalid');
+			error('invalid');		
 		}
 	}
 }
-
 ?>
