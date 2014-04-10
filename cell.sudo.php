@@ -11,7 +11,7 @@ if($command == "sudo") {
 			else {
 				unset($_SESSION['sudo']);
 				error('password');
-			}			
+			}
 		}
 	}
 }
@@ -45,27 +45,29 @@ if($command == "invalid") {
 		else {
 			$db = dbFile($storage);
 			array_unique($db);
-			output(implodeHuman($db));			
+			output(implodeHuman($db));
 		}
 	}
-	else error('auth');	
+	else error('auth');
 }
 
 // *nix
 $nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail',
-	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl', 'pwd', 'dir', 'mysql', 'su', 'netstat', 'login', 'ssh', 'irssi');
+	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl', 'pwd', 'dir', 'mysql', 'su', 'netstat', 'login', 'ssh', 'irssi', 'shutdown');
 if(in_array($command, $nix)) {
 	if(isset($_SESSION['sudo'])) {
+		unset($return);
 		if($command == "ll") {
 			$return = run("ls -al");
 		}
 		elseif($command == "df") {
 			$return = run("df -h");
 		}
-		if(isset($return) && !empty($return)) {
-			output('<pre>'.$return.'</pre>');
+		if(isset($return)) {
+			if (!empty($return)) output('<pre>'.$return.'</pre>');
+			else error('noreturn');
 		}
-		else error('noreturn');		
+		else error('noreturn');
 	}
 	else error('auth');
 }

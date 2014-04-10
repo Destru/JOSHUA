@@ -1,6 +1,3 @@
-/*
- * pirate
- */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 body {
 	background-color:#141414;
@@ -22,7 +19,7 @@ p a {
 	background-color:rgba(24,24,24,0.5);
 	color:#ccc;
 	padding:10px;
-	border-radius:5px;	
+	border-radius:5px;
 }
 .window h1, .window h2 {
 	color:#fff;

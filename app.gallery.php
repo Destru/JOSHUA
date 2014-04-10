@@ -17,7 +17,7 @@
 			delay: 0,
 			pause: true,
 			pauseOnPagerHover: true,
-			pager: '.thumbs', 
+			pager: '.thumbs',
 			pagerAnchorBuilder: function(idx, slide) {
 				var item = '<img src="'+$(slide).find('img').attr('src')+'" width="41" height="41">';
 				return '<li>'+item+'</li>';
@@ -38,4 +38,4 @@
 			});
 		});
 	});
-</script> 
+</script>

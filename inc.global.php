@@ -1,6 +1,6 @@
 <?php
 if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
-	header("HTTP/1.1 301 Moved Permanently"); 
+	header("HTTP/1.1 301 Moved Permanently");
 	header("Location: http://joshua.chronicless.com");
 	exit();
 }

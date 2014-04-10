@@ -26,7 +26,7 @@
 			It features ninja cheerleaders with nice tits, evil catholic schoolgirl ninjas of some sort, also bearing nice tits.
 			A porn star, a bunch of trekkies, a writer that actually is funny and your regular assortment of freaks and geeks.
 			This is one kick-ass flick that I\'d love seing again. I actually saw it twice.</p>
-			
+
 			<p>At first we started out trying to warm up for the trashing but soon realized
 			this was no ordinary <i>no budget to speak of</i>-movie.
 			The acting was shit, but it had it\'s charms.
@@ -34,13 +34,13 @@
 			The characters were stereotypical, perverted and vulgar.
 			So naturally we started thinking <i>"Hey, this might not be so shit."</i>
 			And it wasn\'t. I laughed my ass off.</p>
-			
+
 			<p class="irc dark">alexandr: ahahahaaha<br>
 			inge: these are the worst ninjas ever<br>
 			inge: but +1 for the panties shot<br>
 			alexandr: hamster cam pwns<br>
 			alexandr: AHAHAHAHAHAAHA</p>
-			
+
 			<p>So great, this movie was, that we completely forgot about actually writing down comments.
 			The logfile is probably the smallest for a POOP-session ever.
 			If I\'m to judge by that this is probably the most enjoyable POOP experience so far.</p>
@@ -50,7 +50,7 @@
 			alexandr: omfgomfogmogmfomfofg<br>
 			inge: i\'m dying<br>
 			inge: DYING</p>
-			
+
 			<p>And they laughed their heads off all the way through the night.
 			Favorite scene: It\'s either the <i>American Beauty</i>-spoof or
 			when the two monsters battle it out using gigantic rubber dildos while being cheered on by bystanders.
@@ -171,7 +171,7 @@
 			Fy faen.
 			Det er alt jeg har å si.
 			Kunne sikkert spurt hva Peter og Sveum synes om "filmen" men jeg har ikke lyst på bank.</p>'
-	),	
+	),
 	array(
 		'title' => 'I Accuse My Parents',
 		'year' => '1944',
@@ -183,7 +183,7 @@
 			<p class="irc dark">inge: første poop-filmen jeg har grua meg til<br>
 			inge: hysj, dette er nok mer underholdende enn filmen</p>
 
-			<p>Det skjer faktisk ingenting. De har en krangel og 40 minutter har gått. 
+			<p>Det skjer faktisk ingenting. De har en krangel og 40 minutter har gått.
 			Så kjedelig at vi begynner snakke om filmer som er dårligere for å drepe tid.</p>
 
 			<p class="irc dark">
@@ -288,7 +288,7 @@
 			<p>Not technically a poop-session, but after I saw it, I was never in doubt that it belonged here.
 			What a piece of shit movie. Everybody has been talking about it. <i>"Real sex scenes"</i> blabla.
 			<i>"Provoking movie"</i> horseshit. </i>"From the guy who made <i>Kids"</i> like that\'s the hallmark of quality.</p>
-			
+
 			<p>I enjoyed <i>Kids</i>, but this movie was a huge windup for nothing. It doesn\'t even make sense.
 			<i>"But it really has something to say."</i> Haha, are you high? About what? It only provokes for the sake of provoking.
 			Tell me how essential for the movie the threesome was? Oh yeah, let\'s just suddenly cut to three teens
@@ -328,7 +328,7 @@
 			 peter: hun bodde jo med general sprø<br>
 			 alexander: ehehe, general sprø<br>
 			 alexander: general marbles [Brak Show]</p>
-			 
+
 			<p>Jævlig kule aliens til tross...</P>
 
 			<p class="irc dark">peter: aliensene er ihvertfall tøff, selv om de har dårlig tv<br>
@@ -412,7 +412,7 @@
 			inge: hvordan klarte torgo å limpe vekk fra vinduet så fort? damn, han var rask<br>
 			alexander: han er rask når det gjelder, sjekke, han tar jo helt av nå</p>
 
-			<p>Det blir bare verre og verre egentlig. Jeg ler stort sett ganske ofte, det er bare ikke til å tro 
+			<p>Det blir bare verre og verre egentlig. Jeg ler stort sett ganske ofte, det er bare ikke til å tro
 			handlingen som utspiller seg foran øynene mine. Mirakuløst miserabelt.</p>
 
 			<p class="irc dark">inge: "oh manos, thou of primal darkness"<br>

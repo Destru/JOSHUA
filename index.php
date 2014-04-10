@@ -16,10 +16,10 @@
 	<meta name="author" content="alexander@binaerpilot.no">
 		<!-- open graph -->
 		<meta property="og:image" content="http://joshua.einhyrning.com/images/opengraph.jpg">
-		<meta property="og:site_name" content="jQuery Operating System, HUA!"> 
-		<meta property="og:title" content="Personal homepage of Alexander Støver"> 
-		<meta property="og:url" content="http://joshua.einhyrning.com/"> 
-		<meta property="og:description" content="Quite possibly the nerdiest homepage ever made."> 
+		<meta property="og:site_name" content="jQuery Operating System, HUA!">
+		<meta property="og:title" content="Personal homepage of Alexander Støver">
+		<meta property="og:url" content="http://joshua.einhyrning.com/">
+		<meta property="og:description" content="Quite possibly the nerdiest homepage ever made.">
 		<meta property="og:type" content="website">
 		<!-- fallback -->
 		<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg">
@@ -54,7 +54,7 @@
 		termPrompt = '<?= $termPrompt ?>',
 		nextgenThemes = ["<?= implode('","', $nextgenThemes) ?>"];
 	</script>
-	<script src="joshua.js"></script>	
+	<script src="joshua.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -67,7 +67,7 @@
 		</div>
 		<div id="desktop"><?php include 'inc.desktop.php'; ?></div>
 <?php // fetch apps and games
-	$d = scandir('.');		
+	$d = scandir('.');
 	foreach ($d as $file) {
 		if(stristr($file, 'app.')) $app[] = $file;
 		if(stristr($file, 'game.')) $game[] = $file;

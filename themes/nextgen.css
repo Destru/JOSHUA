@@ -1,7 +1,4 @@
-/*
- * nextgen
- */
- html, body {
+html, body {
 	overflow:hidden;
  }
 @font-face {
@@ -442,7 +439,7 @@ h2.presets {
 }
 #music .link {
 	width:220px;
-	background-position:50% 50%;	
+	background-position:50% 50%;
 	opacity:0.5;
 }
 #cylon {

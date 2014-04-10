@@ -1,6 +1,3 @@
-/*
- * white
- */	
 body {background-color:#eee;color:#444;}
 
 .button:hover, .tiny li:hover, .button.playing, #joshua, .tiny .active {background-color:#fff;}

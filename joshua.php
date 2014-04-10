@@ -47,20 +47,20 @@ function dbFile($file) {
 			}
 			else return false;
 		}
-		return $data;		
+		return $data;
 	}
 	else error('localcache');
 }
 
 function implodeHuman($a, $command=false) {
-	$last = array_pop($a); 
+	$last = array_pop($a);
 	if ($command) {
 		if (!count($a)) return '<span class="command">'.$last.'</span>';
 		return '<span class="command">'.implode('</span>, <span class="command">', $a).'</span> and <span class="command">'.$last.'</span>';
 	}
 	else {
 		if (!count($a)) return $last;
-		return implode(', ', $a).' and '.$last; 	
+		return implode(', ', $a).' and '.$last;
 	}
 }
 
@@ -77,7 +77,7 @@ function cakeDay($date) {
 	return round(($cake-strtotime(date("Ymd")))/86400);
 }
 
-// errors	
+// errors
 $error = array(
 	'404' => 'I couldn\'t find that.',
 	'invalid' => 'I don\'t understand. Do you need some <span class="command">help</span>?',
@@ -131,8 +131,8 @@ if (empty($output)) {
 			output($quote);
 		}
 	}
-	
-	// motd 
+
+	// motd
 	if ($command == "motd") {
 		$count = count($motd)-1; $rand = rand(0,$count);
 		if (isset($option) && $option == "inline") {
@@ -147,7 +147,7 @@ if (empty($output)) {
 	// uptime and date
 	if ($command == "uptime" || $command == "date") {
 		$return = run($command);
-		if (!empty($return))	output($return);
+		if (!empty($return)) output($return);
 		else error('noreturn');
 	}
 
@@ -184,7 +184,7 @@ if (empty($output)) {
 				if (preg_match($pattern, $unary)) {
 					output($option.' is not a prime number.');
 				}
-				else output($option.' is a prime number.');				
+				else output($option.' is a prime number.');
 			}
 			else output('<p class="error">'.$joshua.'The number is too damn high (for regex).</p>');
 		}
@@ -248,7 +248,7 @@ if (empty($output)) {
 					if (!file_exists($storage)) touch($storage);
 					$fp = fopen($storage, 'a');
 					fwrite($fp, gmdate("d/m/y").'^'.$input.'^'.$_SERVER['REMOTE_ADDR']."\n");
-					fclose($fp);					
+					fclose($fp);
 				}
 			}
 			$db = dbFile($storage);
@@ -313,7 +313,7 @@ if (empty($output)) {
 				$track = $xml->lovedtracks->track[$i]->name;
 				$artist = $xml->lovedtracks->track[$i]->artist->name;
 				$output .= $artist.' - '.$track.'<br>'."\r";
-			}	
+			}
 		}
 		else {
 			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
@@ -386,7 +386,7 @@ if (empty($output)) {
 						$seeders = $i['seeders'];
 						$leechers = $i['leechers'];
 						if ($title) {
-							print '<tr><td class="torrent"><a href="'.$link.'">'.$title.'</a></td><td class="dark">'.$seeders.'/'.$leechers.'</td></tr>';							
+							print '<tr><td class="torrent"><a href="'.$link.'">'.$title.'</a></td><td class="dark">'.$seeders.'/'.$leechers.'</td></tr>';
 						}
 					}
 					print '</table>';
@@ -500,7 +500,7 @@ if (empty($output)) {
 		}
 		else output('<p class="error">'.$joshua.'There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
 	}
-	
+
 	// hash
 	if ($command == "hash" || $command == "md5" || $command == "sha1") {
 		$example = '<p class="example">hash md5 joshua</p>';
@@ -562,7 +562,7 @@ if (empty($output)) {
 				$bytes = $bytes + filesize($file);
 				$lines = $lines + count(file($file));
 			}
-			if (stristr($file, 'cell.'))	$brainCells = $brainCells+1;
+			if (stristr($file, 'cell.')) $brainCells = $brainCells+1;
 			else if (stristr($file, '.xml')) $brainCells = $brainCells+1;
 		}
 		$dir = 'themes/'; $scan = scandir($dir);
@@ -599,10 +599,10 @@ if (empty($output)) {
 	if ($command == "let\'s" || $command == "lets" || $command == "how") {
 		if (preg_match('/thermonuclear/i', $dump)) {
 			$prompt = '<div class="prompt">how about global thermonuclear war?</div>';
-			output('<p class="joshua">'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');		
+			output('<p class="joshua">'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');
 		}
 	}
-	
+
 	// say
 	if ($command == "say" || $command == "talk" || $command == "speak") {
 		if (isset($input)) {
@@ -634,9 +634,9 @@ if (empty($output)) {
 			}
 			else error('404');
 		}
-		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' blade runner</p>');		
+		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' blade runner</p>');
 	}
-	
+
 	// img
 	if ($command == "img" || $command == "image" || $command == "images") {
 		if (isset($input)) {
@@ -660,18 +660,18 @@ if (empty($output)) {
 			}
 			else error('empty');
 		}
-		else output('<p class="error">'.$joshua.'Give me something to search for.</p><p class="example">'.$command.' daft punk</p>');					
+		else output('<p class="error">'.$joshua.'Give me something to search for.</p><p class="example">'.$command.' daft punk</p>');
 	}
-	
+
 	// rand
 	if ($command == "rand") {
-		if (isset($input)) {
-			if (is_numeric($input)) {
-				output(rand(1, $input));
+		if (isset($option)) {
+			if (is_numeric($option)) {
+				output(rand(1, $option));
 			}
-			else output('<p class="error">'.$joshua.' '.$input.' is not numeric. Come on man.');
+			else output('<p class="error">'.$joshua.' '.$option.' is not a number. This error message will hopefully never be seen.');
 		}
-		else output('<p class="error">'.$joshua.'Between how many numbers?</p><p class="example">'.$command.' '.rand(0,10).'</p>');					
+		else output('<p class="error">'.$joshua.'Between how many numbers?</p><p class="example">'.$command.' '.rand(0,10).'</p>');
 	}
 
 	// git
@@ -694,7 +694,54 @@ if (empty($output)) {
 			}
 			else error('auth');
 		}
-		else output('<p class="error">'.$joshua.'Please specify an operation to perform.</p><p class="example">'.$command.' log</p>');	
+		else output('<p class="error">'.$joshua.'Please specify an operation to perform.</p><p class="example">'.$command.' log</p>');
+	}
+
+	// flip
+	if ($command == "flip") {
+		if (isset($input)) {
+			$flipped = array(
+				'a' => '\u0250',
+				'b' => 'q',
+				'c' => '\u0254',
+				'd' => 'p',
+				'e' => '\u01DD',
+				'f' => '\u025F',
+				'g' => 'b',
+				'h' => '\u0265',
+				'i' => '\u0131\u0323',
+				'j' => '\u0638',
+				'k' => '\u029E',
+				'l' => '\u05DF',
+				'm' => '\u026F',
+				'n' => 'u',
+				'o' => 'o',
+				'p' => 'd',
+				'q' => 'b',
+				'r' => '\u0279',
+				's' => 's',
+				't' => '\u0287',
+				'u' => 'n',
+				'v' => '\u028C',
+				'w' => '\u028D',
+				'x' => 'x',
+				'y' => '\u028E',
+				'z' => 'z',
+				'.' => '\u02D9',
+				'?' => '\u00BF',
+				'!' => '\u00A1',
+				'\'' => ',',
+				',' => '\'',
+				' ' => ' '
+			);
+			$chars = str_split(strrev(strtolower($input)));
+			$output .= '(╯°□°）╯︵ ';
+			foreach($chars as $char) {
+				$output .= json_decode('"'.$flipped[$char].'"');
+			}
+			output($output);
+		}
+		else output('<p class="error">'.$joshua.'What do you want flipped?</p><p class="example">'.$command.' seahawks rule</p>');
 	}
 
 	// window management
@@ -726,7 +773,7 @@ if (empty($output)) {
 		print '<script>'.$js.'</script>';
 		$output = true;
 	}
-	
+
 	// fallback
 	if (empty($output)) {
 		foreach ($static as $key => $value) {
@@ -738,7 +785,7 @@ if (empty($output)) {
 			$fp = fopen($storage, 'a');
 			fwrite($fp, $dump."\n");
 			fclose($fp);
-			error('invalid');		
+			error('invalid');
 		}
 	}
 }

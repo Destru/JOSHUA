@@ -22,7 +22,7 @@
 		'format' => 'json',
 		'about' => '<p><b>World of Warcraft</b> has been a guilty pleasure of mine on and off for years. '.
 			'So far I\'ve played a couple characters to end-game and messed around with more PvP alts than I can remember. '.
-			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.</p>'		
+			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.</p>'
 	),
 	'tsw' => array(
 		'api' => 'http://chronicless.einhyrning.com/character/destru.json',
@@ -41,14 +41,14 @@ function api($game, $api) {
 	if($game == 'ao') {
 		if ($api->name) {
 			$output = '<table class="fluid">'.
-				'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.		
+				'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.
 				'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->firstname.' "'.$api->name->nick.'" '.$api->name->lastname.'</a></td></tr>'.
 				'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->profession.'</td></tr>'.
 				'<tr><td class="dark">Level</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
 				'<tr><td class="dark">Defender</td><td>'.$api->basic_stats->defender_rank.' ('.$api->basic_stats->defender_rank_id.')</td></tr>'.
 				'<tr><td class="dark">Faction</td><td>'.$api->basic_stats->faction.'</td></tr>'.
 				'<tr><td class="dark">Organization</td><td>'.$api->organization_membership->organization_name.'</td></tr>'.
-				'</table>';			
+				'</table>';
 		}
 		else error('outdatedapi', 1);
 	}
@@ -72,14 +72,14 @@ function api($game, $api) {
 			else $name = $api->name;
 			$feed = array_filter($api->feed, function($i) {
 				if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
-			});	
+			});
 			$feed = array_values($feed);
 			for($i = 0; $i < 5; $i++) {
 				$title = $feed[$i]->achievement->title;
 				$points = $feed[$i]->achievement->points;
 				if(!empty($title)) {
 					if(!empty($points)) $events[] = $title.' <span class="light">+'.$points.'</span>';
-					else $events[] = $title;				
+					else $events[] = $title;
 				}
 			}
 			$output = '<table class="fluid">'.
@@ -90,7 +90,7 @@ function api($game, $api) {
 				'<tr><td class="dark">Honorable Kills</td><td>'.$api->pvp->totalHonorableKills.'</td></tr>'.
 				'<tr><td class="dark">Recent Activity</td><td>';
 			foreach($events as $event) $output .= $event.'<br/>';
-			$output .= '</td></tr></table>';			
+			$output .= '</td></tr></table>';
 		}
 		else error('outdatedapi', 1);
 	}
@@ -113,7 +113,7 @@ function api($game, $api) {
 				'<tr><td class="dark">Faction</td><td>'.$api->faction->name.'</td></tr>'.
 				'<tr><td class="dark">Cabal</td><td>'.$api->cabal.'</td></tr>'.
 				'<tr><td class="dark">Build</td><td style="clear:both;">'.$actives.'<br>'.$passives.'</td></tr>';
-			$output .= '</table>';			
+			$output .= '</table>';
 		}
 		else error('outdatedapi', 1);
 	}
@@ -125,7 +125,7 @@ sort($gameList);
 if($command == 'games' || $command == 'game' || in_array($command, $gameList)) {
 	if(in_array($command, $gameList)) {
 		$option = $command;
-		$command = 'game';	
+		$command = 'game';
 	}
 	if(isset($option) && !empty($games[$option])) {
 		$game = $option;

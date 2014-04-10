@@ -1,5 +1,3 @@
-/* eve
- */
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Share+Tech);
 body {
 	background-color:rgb(0,0,0);
@@ -17,9 +15,9 @@ h1, h2 {
 }
 #nebula {
 	position: fixed;
-	top: -50%; 
-	left: -50%; 
-	width: 200%; 
+	top: -50%;
+	left: -50%;
+	width: 200%;
 	height: 200%;
 }
 td.fixed-width {
@@ -27,13 +25,13 @@ td.fixed-width {
 	font-size:10px;
 }
 #nebula img {
-	position: absolute; 
+	position: absolute;
 	z-index:0;
 	top: 0;
-	left: 0; 
-	right: 0; 
-	bottom: 0; 
-	margin: auto; 
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 	min-width: 50%;
 	min-height: 50%;
 	-webkit-user-select:none;
@@ -41,7 +39,7 @@ td.fixed-width {
 }
 #joshua, .window {
 	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);  
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);
   background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);
   background-image: linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 100%);
 	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
@@ -91,7 +89,7 @@ b, .active, .playing {
 	content:"";
 	height: 50px;
 	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);  
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
   background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
   background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
 }
@@ -192,7 +190,7 @@ html, body {
 	display:table-cell;
 	vertical-align:middle;
 	background-image: -webkit-linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);
-  background-image: -moz-linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);  
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);
   background-image: -ms-linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);
   background-image: linear-gradient(top, rgba(255,255,255,.15) 0%, rgba(0,0,0,.15) 100%);
 }
@@ -238,7 +236,7 @@ p.example {
 }
 .brush {
     background: -webkit-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
-    background: -moz-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);  
+    background: -moz-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
     background: -ms-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
     background: radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
 }

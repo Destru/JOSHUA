@@ -1,6 +1,3 @@
-/*
- * nextgen: contra
- */
 body {
 	background-color:#152521;
 	background-image:url("../images/backgroundContra.png");
@@ -70,7 +67,7 @@ body.pulsar {
 }
 .brush {
     background: -webkit-radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);
-    background: -moz-radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);  
+    background: -moz-radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);
     background: -ms-radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);
     background: radial-gradient(center center, circle contain, #c28934 0%, rgba(21, 37, 33, 0) 100%);
 }

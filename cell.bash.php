@@ -34,7 +34,7 @@
 	CRCError: right<br>
 	heartless: Right.<br>
 	r3v: right",
-	
+
 	"Zybl0re: get up<br>
 	Zybl0re: get on up<br>
 	Zybl0re: get up<br>
@@ -44,7 +44,7 @@
 	* nmp3bot dances :D|-<br>
 	* nmp3bot dances :D/-</span><br>
 	[SA]HatfulOfHollow: i'm going to become rich and famous after i invent a device that allows you to stab people in the face over the internet",
-	
+
 	"Cthon98: hey, if you type in your pw, it will show as stars<br>
 	Cthon98: ********* see!<br>
 	AzureDiamond: hunter2<br>
@@ -62,13 +62,13 @@
 	AzureDiamond: wait, how do you know my pw?<br>
 	Cthon98: er, I just copy pasted YOUR ******'s and it appears to YOU as hunter2 cause its your pw<br>
 	AzureDiamond: oh, ok.",
-	
+
 	"tatclass: YOU ALL SUCK DICK<br>
 	tatclass: er.<br>
 	tatclass: hi.<br>
 	andy\code: A common typo.<br>
 	tatclass: the keys are like right next to each other.",
-	
+
 	"Guo_Si: Hey, you know what sucks?<br>
 	TheXPhial: vaccuums<br>
 	Guo_Si: Hey, you know what sucks in a metaphorical sense?<br>
@@ -99,7 +99,7 @@
 	<span class=\"light\">quit: (PeteRepeat)</span><br>
 	Thirteen-: rofl. Those 2 are going to get a huge surprise when they meet at the beach.<br>
 	Tyran: i can't beleive how perfect their timing was",
-	
+
 	"anamexis: oh man<br>
 	anamexis: I was opening a coke, right<br>
 	<span class=\"light\">--: Beefpile (~mbeefpile@cloaked.wi.rr.com) has joined #themacmind</span><br>
@@ -108,21 +108,21 @@
 	anamexis: but I got it away just in time<br>
 	<span class=\"light\">-- Beefpile has quit (sick fuckers)</span><br>
 	anamexis: :",
-	
+
 	"DragonflyBlade21: A woman has a close male friend. This means that he is probably interested in her, which is why he hangs around so much. She sees him strictly as a friend. This always starts out with, you're a great guy, but I don't like you in that way. This is roughly the equivalent for the guy of going to a job interview and the company saying, You have a great resume, you have all the qualifications we are looking for, but we're not going to hire you. We will, however, use your resume as the basis for comparison for all other applicants. But, we're going to hire somebody who is far less qualified and is probably an alcoholic. And if he doesn't work out, we'll hire somebody else, but still not you. In fact, we will never hire you. But we will call you from time to time to complain about the person that we hired.",
 
-	"<span class=\"light\">* ab is away - gone, if anyone talks in the next 25 minutes as me it's bm being an asshole -</span><br>         
+	"<span class=\"light\">* ab is away - gone, if anyone talks in the next 25 minutes as me it's bm being an asshole -</span><br>
 	ab: HAHAHA DISREGARD THAT, I SUCK COCKS",
 
 	"Khassaki: HI EVERYBODY!!!!!!!!!!<br>
 	Judge-Mental: try pressing the the Caps Lock key<br>
 	Khassaki: O THANKS!!! ITS SO MUCH EASIER TO WRITE NOW!!!!!!!<br>
 	Judge-Mental: fuck me",
-	
+
 	"mage: what should I give sister for unzipping?<br>
 	Kevyn: Um. Ten bucks?<br>
 	mage: no I mean like, WinZip?",
-	
+
 	"Ben174: If they only realized 90% of the overtime they pay me is only cause i like staying here playing with Kazaa when the bandwidth picks up after hours.<br>
 	ChrisLMB: If any of my employees did that they'd be fired instantly.<br>
 	Ben174: Where u work?<br>
@@ -134,7 +134,7 @@
 	T-Wolf: ya, why man?<br>
 	RdAwG20: lol, just wondering, was her namne alisson?<br>
 	T-Wolf: you mother fucker",
-	
+
 	"Rabidplaybunny87: Okay, so my neighbors officially hate me<br>
 	GarbageStan23: why?<br>
 	Rabidplaybunny87: Well, me, david and andrew were having a bonfire in the backyard, and we were making s'mores and all... and suddenly we here sirens, and see a firetruck turn into the street in front of us.<br>
@@ -143,9 +143,9 @@
 	Rabidplaybunny87: Yeah, and when we got there, the wife was crying into her husbands arms, and we were just kinda standing there, and then she saw us, and then like for 10 seconds, gave us the dirtiest look ever<br>
 	Rabidplaybunny87: Turns out, we were still holding our sticks with marshmallows on it, watching the fire....<br>
 	Rabidplaybunny87: talk about bad timing...",
-	
+
 	"xterm: The problem with America is stupidity. I'm not saying there should be a capital punishment for stupidity, but why don't we just take the safety labels off of everything and let the problem solve itself?",
-	
+
 	"death09: my girlfriend broke up with me and sent me pix of her and her new boyfriend in bed<br>
 	ktp753: ouch.<br>
 	death09: yeah.i sent them to her dad",
@@ -164,7 +164,7 @@
 	"jeebus: the \"bishop\" came to our church today<br>
 	jeebus: he was a fucken impostor<br>
 	jeebus: never once moved diagonally",
-	
+
 	"NES: lol<br>
 	NES: I download something from Napster<br>
 	NES: And the same guy I downloaded it from starts downloading it from me when I'm done<br>
@@ -176,13 +176,13 @@
 	RageAgainsttheAmish: why the clown<br>
 	Th3No0b: See? no one cares about the jews<br>
 	RageAgainsttheAmish: lmao",
-	
+
 	"Jeedo: hey baby, whats up?<br>
 	Indidge: umm....nothing?<br>
 	Jeedo: So....want me to like come over today so we can fuck?<br>
 	Indidge: Wait....did you want to speak to my daughter?<br>
 	Jeedo: Yes  Mrs.Miller.. :-/",
-	
+
 	"MooseOnDaLoose: Hey Mike<br>
 	goatboy: what?<br>
 	MooseOnDaLoose: Pussy.<br>
@@ -195,32 +195,32 @@
 	goatboy: i dont get it<br>
 	MooseOnDaLoose: AND YOU NEVER WILL.<br>
 	goatboy: bastard",
-	
+
 	"kow`: \"There are 10 types of people in the world... those who understand binary and those who don't.\"<br>
 	SpaceRain: That's only 2 types of people, kow.<br>
 	SpaceRain: STUPID",
-	
+
 	"Night-hen-gayle: I gotta go.  There's a dude next to me and he's watching me type, which is sort of starting to creep me out.  Yes dude next to me, I mean you.",
-	
+
 	"Eticam: I was in biology class once, and the teacher said there was sugar in sperm<br>
 	Eticam: And a girl asked why doesn't it taste sweet then<br>
 	Eticam: When she realised what she said her face became red like a spanked monkey ass<br>
 	Eticam: Then the teacher said, because you taste sweetness with the front of your tongue, not the part of your tongue back in your throat<br>
 	Eticam: The girl started crying and left class ^^",
-	
+
 	"AgentSmith: It seems you have been leading two lives, Mr. Anderson. In one life, you are Robert Anderson, assistant cook at a Jack in the Box in Mesquite....in the other...you go by the chat alias \"Randerson\"...spreading homosexual propoganda, lying, and being a generally immature pest...<br>
 	AgentSmith: One of these...has a future.<br>
 	Randerson: LMAO OMFG where's the phone, I have to tell Dean about this<br>
 	AgentSmith: How can you use the phone when you cannot...speak?<br>
 	<span class=\"light\">*** AgentSmith sets mode: +m</span>",
-	
+
 	"Sonium: someone speak python here?<br>
 	lucky: HHHHHSSSSSHSSS<br>
 	lucky: SSSSS<br>
 	Sonium: the programming language",
-	
+
 	"Reverend: IRC is just multiplayer notepad.",
-	
+
 	"<span class=\"light\">*** Topic in #doghouse is 'Our hearts are extended to the 17 victims of the recent internet fraud'<br>
 	* Anubis has joined #doghouse</span><br>
 	Anubis: what fraud?<br>
@@ -229,12 +229,12 @@
 	Kadmium: You can read the full story at <a href=\"http://www.tubgirl.com\">http://www.tubgirl.com</a><br>
 	Anubis: omg wtf!<br>
 	<span class=\"light\">*** Kadmium changes topic to 'Our hearts are extended to the 18 victims of the recent internet fraud'</span>",
-	
+
 	"Sui88: 67% of girls are stupid<br>
 	V-girl: i belong with the other 13%",
-	
+
 	"h|tler: HOW THE FUCK CAN YOU TELL THAT I'M 13 BY LOOKING AT WHAT I'M WRITEING ?????????????????????????????????????????????????????",
-	
+
 	"LordChewy: so my dad found my porn folder<br>
 	LordChewy: and he was getting all pissed<br>
 	LordChewy: so its all like \"does this surprise you? i'm not stupid you know\"<br>
@@ -244,13 +244,13 @@
 	LordChewy: and he just shut up<br>
 	kingKahn: what is it?<br>
 	LordChewy: its his porn folder",
-	
-	
+
+
 	"[BAC]Draxon|TWL: \"The animals will hear!\" bellowed the ear licking penguin as the awesomely endowed midget sucked her oozing charlies and plugged his purple middle leg into her festering cunt.<br>
 	[BAC]Draxon|TWL: oops<br>
 	[BAC]Draxon|TWL: wrong window<br>
 	d|syztem: what the FUCK",
-	
+
 	"Batty: Euch, rap is just missing one letter. c.<br>
 	zeep: rapc?<br>
 	Batty: ...<br>
@@ -259,7 +259,7 @@
 	Batty: Though you could also say it's missing an e<br>
 	zeep: wtf is erap?<br>
 	<span class=\"light\">* Batty bangs his head repeatedly against a wall</span>",
-	
+
 	"reo4k: just type /quit whoever, and it'll quit them from irc<br>
 	<span class=\"light\">* luckyb1tch has quit IRC (r`heaven)<br>
 	* r3devl has quit IRC (r`heaven)<br>
@@ -268,7 +268,7 @@
 	* blackersnake has quit IRC (r`heaven)</span><br>
 	ibaN`reo4k[ex]: that's gotta hurt<br>
 	r`heaven :(",
-	
+
 	"kylev: BAHAHAHAHAHAHAHAHA<br>
 	kylev: hahahahaha<br>
 	kylev: some girl just came onto our floor<br>
@@ -276,22 +276,22 @@
 	kylev: i just asked her what the paper was about<br>
 	kylev: and she said the accomplishments and growth of feminism<br>
 	`Neo: bahahahaha",
-	
+
 	"Beeth: Girls are like internet domain names, the ones I like are already taken.<br>
 	honx: well, you can stil get one from a strange country :-P",
-	
+
 	"@Chin^: My sister caught me jacking off the other week and calls me a pervert<br>
 	@Chin^: just the other day i walked into my room and caught my sister masturbating<br>
 	@Chin^: So she calls me a pervert again?!?<br>
 	@Chin^: there is no justice in the world...",
-	
+
 	"Fashykekes: Capitalization is the difference between \"I had to help my uncle Jack off a horse..\" and \"I had to help my uncle jack off a horse..\"",
-	
+
 	"Mootar: these people who live in my apartment complex are connected to my wireless<br>
 	Mootar: they must think they're super-cool hackers by breaking into my completely unsecure network<br>
 	Mootar: unfortunatly, the connection works both ways<br>
 	Mootar: long story short, they now have loads of horse porn on their computer",
-	
+
 	"Mendo: lmao there's a wicked lookign spider on my monitor and if i move the mouse around he chases after it<br>
 	spitfire: haha mendo<br>
 	spitfire: take a screen shot<br>

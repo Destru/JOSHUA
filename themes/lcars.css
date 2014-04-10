@@ -1,6 +1,3 @@
-/*
- * lcars
- */
 @import url(http://fonts.googleapis.com/css?family=Anton);
 body {
 	font-family:Helvetica, Arial;
@@ -265,7 +262,7 @@ body.pulsar {
 }
 .brush {
     background: -webkit-radial-gradient(center center, circle contain, #f90 0%, rgba(0,0,0,0) 100%);
-    background: -moz-radial-gradient(center center, circle contain, #f90 0%, rgba(0,0,0,0) 100%);  
+    background: -moz-radial-gradient(center center, circle contain, #f90 0%, rgba(0,0,0,0) 100%);
     background: -ms-radial-gradient(center center, circle contain, #f90 0%, rgba(0,0,0,0) 100%);
     background: radial-gradient(center center, circle contain, #f90 0%, rgba(0,0,0,0) 100%);
 }

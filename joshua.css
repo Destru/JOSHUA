@@ -1,6 +1,3 @@
-/*
- * joshua base
- */
 @import "resources/reset.css";
 @font-face {
 	font-family:'ProFont';
@@ -221,7 +218,7 @@ pre.ascii {
 	width:32px;
 	height:32px;
     background: -webkit-radial-gradient(center center, circle contain, white 0%, transparent 100%);
-    background: -moz-radial-gradient(center center, circle contain, white 0%, transparent 100%);  
+    background: -moz-radial-gradient(center center, circle contain, white 0%, transparent 100%);
     background: -ms-radial-gradient(center center, circle contain, white 0%, transparent 100%);
     background: radial-gradient(center center, circle contain, white 0%, transparent 100%);
 }
@@ -377,9 +374,9 @@ html.drunk {
 }
 html.invert {
 	-webkit-transition: -webkit-filter 250ms linear;
-	-webkit-filter: invert(1);	
+	-webkit-filter: invert(1);
 }
 html.hipster {
 	-webkit-transition: -webkit-filter 250ms linear;
-	-webkit-filter: sepia(1);	
+	-webkit-filter: sepia(1);
 }

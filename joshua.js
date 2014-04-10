@@ -1,20 +1,16 @@
-// joshua (jquery operating system)
-// http://binaerpilot.no/alexander/
-// alexander@binaerpilot.no
-var hist = [], // history (arrow up/down)
-	position = 0, // position in history
-	expires = 1095, // cookie dies in 3 years
-	fade = 150, // ui fade delay
-	muted = false, // sound
-	drawing = false, // drawing?
-	focus = true, // steal focus
-	terminal = false, // terminal style layout
-	terminals = ['pirate', 'helvetica', 'mono', 'c64'], // terminal themes
-	windows = ['customize', 'music', 'superplastic', 'videos', 'gallery']; // windows
-if (theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true; // nextgen themes
+var hist = [],
+	position = 0,
+	expires = 1095,
+	fade = 150,
+	muted = false,
+	drawing = false,
+	focus = true,
+	terminal = false,
+	terminals = ['pirate', 'helvetica', 'mono', 'c64'],
+	windows = ['customize', 'music', 'superplastic', 'videos', 'gallery'];
+if (theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true;
 if (nextgen) windows.push('joshua');
 
-// helpers
 function reset() {
 	eraseCookie('joshua');
 	eraseCookie('release');
@@ -28,6 +24,12 @@ function reset() {
 	});
 	location.reload();
 }
+
+function clearScreen() {
+	$('#output').html('');
+	init();
+}
+
 function stealFocus(off) {
 	if (off) {
 		$('#prompt').off('blur');
@@ -39,10 +41,12 @@ function stealFocus(off) {
 		$('#prompt').focus();
 	}
 }
+
 function systemReady() {
 	$('title').text(title+'Ready');
 	$('body').css('cursor', 'auto');
 }
+
 function scrollCheck() {
 	if (terminal) {
 		$('html, body').stop();
@@ -53,7 +57,7 @@ function scrollCheck() {
 		$('#output').stop();
 		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 250);
 	}
-	// scrollbars present?
+	// overflown
 	var output = $('#output');
 	if (output.height() < output.get(0).scrollHeight) {
 		output.addClass('overflow');
@@ -62,6 +66,7 @@ function scrollCheck() {
 		output.removeClass('overflow');
 	}
 }
+
 function mute() {
 	if (!muted) {
 		soundManager.mute();
@@ -92,6 +97,7 @@ function fxStop() {
 		eraseCookie('fx');
 	}
 }
+
 function fxInit(fx, runOnce) {
 	if (!runOnce) {
 		fxStop();
@@ -163,11 +169,11 @@ function fxInit(fx, runOnce) {
 	$('#fx li.'+fx).addClass('active');
 }
 
-// application loaders
+// applications
 function loadSuperplastic() {
 	createCookie('superplastic', true, expires);
 	if ($('#superplastic').has('iframe').length == 0) {
-		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no">')		
+		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no">')
 	}
 	else {
 		 $('#superplastic iframe').attr("src", $('#superplastic iframe').attr("src"));
@@ -176,6 +182,7 @@ function loadSuperplastic() {
 	systemReady();
 	stealFocus(true);
 }
+
 function loadVideos() {
 	createCookie('videos', true, expires);
 	$('#videos:hidden').fadeIn(fade);
@@ -183,7 +190,7 @@ function loadVideos() {
 	stealFocus(true);
 }
 
-// init chrome
+// chrome
 function chromeInit() {
 	// drag windows
 	$.each(windows, function() {
@@ -211,7 +218,7 @@ function chromeInit() {
 			if (fx) fxInit(fx);
 		}
 		else if (id == "music") {
-		 if (!muted) mute();	
+		 if (!muted) mute();
 		}
 		$('#'+id+'Open').removeClass('active');
 		focus = true;
@@ -236,7 +243,7 @@ function chromeInit() {
 				if (id == "music") if (muted) mute();
 			}
 			$('#'+id).fadeIn(fade);
-			button.addClass('active');		
+			button.addClass('active');
 		}
 	});
 	// view images
@@ -304,17 +311,15 @@ function chromeInit() {
 	});
 }
 
-// chrome magic
+// magic
 function chromeMagic() {
-	// nextgen themes
 	if (nextgen) {
 		var background = readCookie('background'),
 		opacity = readCookie('opacity');
 		if (background) $('#joshua').addClass(background);
-		// background handling
 		$('#backgrounds li').on('click', function() {
 			var background = this.getAttribute('class');
-			$('#joshua').removeClass().addClass(background);		
+			$('#joshua').removeClass().addClass(background);
 			createCookie('background', background, expires);
 		});
 		if (!opacity) opacity = 1;
@@ -333,7 +338,6 @@ function chromeMagic() {
 			}
 		});
 		$('#joshua, .window').css('opacity', opacity);
-		// contra
 		if (theme == "contra") {
 			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
 			$('body').animate({backgroundColor:"#fff"}, 250).animate({backgroundColor:"#152521"}, 1000);
@@ -380,11 +384,11 @@ function chromeMagic() {
 	else if ($.inArray(theme, terminals) > -1) {
 		terminal = true;
 		if (theme == "pirate") {
-			$('#joshua h1').remove();	
+			$('#joshua h1').remove();
 		}
 		else if (theme == "c64") {
 			termPrompt = "Ready.";
-			$('#joshua h1').html('**** JOSHUA 64 BASIC V'+version+' ****');			
+			$('#joshua h1').html('**** JOSHUA 64 BASIC V'+version+' ****');
 		}
 		$('#presets').prev('h2').remove();
 		$('#input').prepend('<span class="prefix">'+termPrompt+'</span>');
@@ -414,26 +418,21 @@ function chromeMagic() {
 		$('#nebula').on('click', function(){
 			stealFocus();
 		});
-	}	
+	}
 }
 
-// initializer
+// init
 function init(option) {
 	chromeInit();
 	if (option && option == "boot") chromeMagic();
 	scrollCheck();
 	systemReady();
 }
-function clearScreen() {
-	$('#output').html('');
-	init();
-}
 
-// booting up joshua
+// boot
 function boot() {
-	// upgrading
 	var versionCheck = readCookie('release');
-	if (parseInt(version) > versionCheck) { // upgrade to latest version
+	if (parseInt(version) > versionCheck) {
 		$('title').html(title+'Upgrading...');
 		$.each(windows, function() {
 			eraseCookie(this);
@@ -443,9 +442,7 @@ function boot() {
 		createCookie('release', version, expires);
 		location.reload();
 	}
-	// load effects
 	var fx = readCookie('fx'); if (fx) fxInit(fx, true);
-	// window positions
 	$.each(windows,function() {
 		var cookie = readCookie('window.'+this),
 		theme = readCookie('theme');
@@ -459,15 +456,13 @@ function boot() {
 			});
 		}
 	});
-	// ready prompt
 	var motd = $('<div class="output"/>').load('joshua.php', {command: "motd", option: "inline"}, function() {
 		motd.appendTo('#output');
-		init('boot'); // initialize
+		init('boot');
 	});
 	stealFocus();
 }
 
-// let's go
 $(function() {
 	boot();
 	$('#prompt').on('keydown', function(e) {
@@ -486,7 +481,7 @@ $(function() {
 				var content = $('<div class="output"/>').load('joshua.php', {command: command, option: option, dump: dump}, function() {
 					$('#output').append(content);
 					init();
-					if (typeof ga == 'function') ga('send', 'pageview', '/'+command); 
+					if (typeof ga == 'function') ga('send', 'pageview', '/'+command);
 					$('#loader').fadeOut(fade);
 					systemReady();
 				});
@@ -496,9 +491,9 @@ $(function() {
 			}
 			$("#prompt").val('');
 		}
-		// access history
+		// history
 		else if (e.which == 38) {
-			e.preventDefault(); // default behavior moves caret to beginning
+			e.preventDefault();
 			if (position > 0) { position = position-1; }
 			$(this).val(hist[position]);
 		}

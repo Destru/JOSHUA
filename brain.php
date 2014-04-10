@@ -65,6 +65,10 @@ $static = array(
 			<td>Answer your questions Yoda will</td>
 		</tr>
 		<tr>
+			<td><span class="command">flip</span> <span class="dark">text</span></td>
+			<td>Flips text upside down. Incredibly useful.</td>
+		</tr>
+		<tr>
 			<td><span class="command">hash</span> <span class="dark">algorithm text</span></td>
 			<td>Encrypts strings to (un)safe hashes.</td>
 		</tr>
@@ -360,7 +364,7 @@ $static = array(
 		Making JOSHUA has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever conceived.
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
 	</p>',
-	
+
 'alexander' => '<table class="fluid">
 		<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
 		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
@@ -382,15 +386,18 @@ $static = array(
 	'PEWPWEPWPEPWEPPWEWPEW!</p>',
 
 'ascii' => '<pre class="ascii">
-       dP                   dP                        
-       88                   88                        
+       dP                   dP
+       88                   88
        88 .d8888b. .d8888b. 88d888b. dP    dP .d8888b.
        88 88\'  `88 Y8ooooo. 88\'  `88 88    88 88\'  `88
 88.  .d8P 88.  .88       88 88    88 88.  .88 88.  .88
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
-'clg' => 'Rush Hour #CLG #ibelieve',
+'whatever' => '3edgy5me',
+'demo' => 'This is not a demonstration. This is my life.',
+'gay' => 'There is nothing wrong with being gay. However, calling things gay when you don\'t understand them is idiocy.',
+'clg' => 'Rush Hour #CLG #IBELIEVE',
 'ultraviolence' => '<script>fxInit(\'ultraviolence\', true);</script>',
 'pvp' => 'PVP > PVE',
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',

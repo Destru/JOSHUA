@@ -1,6 +1,3 @@
-/*
- * tron
- */
 body, input {
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
@@ -200,7 +197,7 @@ table.torrents td a:hover {
 	color:#68b8ff;
 }
 .close:hover {
-	border-color:#68b8ff;	
+	border-color:#68b8ff;
 }
 #desktop a.active {
 	color:#68b8ff;
