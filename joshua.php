@@ -28,7 +28,7 @@ function output($response) {
 
 function run($cmd, $opt=null) {
 	$timeout = 10;
-	return trim(utf8_encode(shell_exec('timeout '.$timeout.' '.$cmd.' '.$opt)));
+	return trim(utf8_encode(shell_exec($cmd.' '.$opt)));
 }
 
 function microtimer($timestamp) {

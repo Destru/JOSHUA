@@ -52,22 +52,20 @@ if($command == "invalid") {
 }
 
 // *nix
-$nix = array('ls', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir', 'grep', 'man', 'wget', 'rsync', 'cat', 'tail',
-	'ifconfig', 'ipconfig', 'del', 'make', 'wget', 'curl', 'pwd', 'dir', 'mysql', 'su', 'netstat', 'login', 'ssh', 'irssi', 'shutdown');
+$nix = array('ls', 'ps', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir',
+	'grep', 'man', 'wget', 'rsync', 'cat', 'tail', 'ifconfig', 'ipconfig', 'del',
+	'make', 'wget', 'curl', 'pwd', 'dir', 'mysql', 'su', 'netstat', 'login', 'ssh',
+	'irssi', 'shutdown');
 if(in_array($command, $nix)) {
 	if(isset($_SESSION['sudo'])) {
-		unset($return);
-		if($command == "ll") {
-			$return = run("ls -al");
-		}
-		elseif($command == "df") {
-			$return = run("df -h");
-		}
-		if(isset($return)) {
-			if (!empty($return)) output('<pre>'.$return.'</pre>');
-			else error('noreturn');
-		}
-		else error('noreturn');
+		if($command == "ll") $output = run('ls -al');
+		elseif($command == "df") $output = run('df -h');
+		elseif($command == "pwd") $output = run('pwd');
+		elseif($command == "ifconfig") $output = run('ifconfig');
+		elseif($command == "who") $output = run('who');
+		elseif($command == "ps") $output = run('ps aux');
+		else $output = 'Command not implemented.';
+		output('<pre>'.$output.'</pre>');
 	}
 	else error('auth');
 }
