@@ -7,7 +7,7 @@
 			'I made <a href="ao/aoscripts.rar">some scripts</a> that make things easier.</p>'
 	),
 	'eve' => array(
-		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327',
+		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327&keyId=898288&vCode=FqSqU3bYh3f3tr7FbraCZLz3xh6JwIGIHv1oMoscEua0mQ0H0Br43TZNQnVZn2E7',
 		'format' => 'xml',
 		'about' => '<p><b>EVE Online</b> is a what every MMO should aspire to be; Another world. '.
 			'It will be intimidating for new players as there is no clear path cut out for you, but for those that persist it is very rewarding. '.
@@ -15,7 +15,11 @@
 			'<p>Rifter'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=19494065">Comet</a>'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=18952577">Prophecy</a>'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21072479">Wolf</a>'
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21072479">Wolf</a>'.
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21456324">Firetail</a>'.
+			'<p>Punisher'.
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22512572">Succubus</a>'.
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22524165">Thrasher</a>'
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
@@ -55,12 +59,14 @@ function api($game, $api) {
 	else if($game == 'eve') {
 		if ($api->result->characterName) {
 			$output = '<table class="fluid">'.
-				'<tr><td rowspan="7"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_64.jpg\');width:64px;height:64px;"></div></td></tr>'.
+				'<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_128.jpg\');width:128px;height:128px;"></div></td></tr>'.
 				'<tr><td class="dark">Name</td><td><a href="http://eve.battleclinic.com/killboard/combat_record.php?type=player&name=Destru+Kaneda">'.$api->result->characterName.'</a></td></tr>'.
 				'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
+				'<tr><td class="dark">Skills</td><td>'.round(($api->result->skillPoints/1000000), 2).'m</td></tr>'.
 				'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
 				'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.
 				'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
+				'<tr><td class="dark">Last Seen</td><td>'.$api->result->shipTypeName.' in '.$api->result->lastKnownLocation.'</a></td></tr>'.
 				'</table>';
 			}
 			else error('outdatedapi', 1);

@@ -394,6 +394,8 @@ $static = array(
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
+'thunder' => 'Horse!',
+'meshuggah' => 'The demon\'s name is surveillance.',
 'whatever' => '3edgy5me',
 'demo' => 'This is not a demonstration. This is my life.',
 'gay' => 'There is nothing wrong with being gay. However, calling things gay when you don\'t understand them is idiocy.',
