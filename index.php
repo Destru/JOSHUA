@@ -14,15 +14,13 @@
 	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named JOSHUA. Go Team Norway!">
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
-		<!-- open graph -->
-		<meta property="og:image" content="http://joshua.einhyrning.com/images/opengraph.jpg">
-		<meta property="og:site_name" content="jQuery Operating System, HUA!">
-		<meta property="og:title" content="Personal homepage of Alexander Støver">
-		<meta property="og:url" content="http://joshua.einhyrning.com/">
-		<meta property="og:description" content="Quite possibly the nerdiest homepage ever made.">
-		<meta property="og:type" content="website">
-		<!-- fallback -->
-		<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg">
+	<meta property="og:image" content="http://joshua.einhyrning.com/images/opengraph.jpg">
+	<meta property="og:site_name" content="jQuery Operating System, HUA!">
+	<meta property="og:title" content="Personal homepage of Alexander Støver">
+	<meta property="og:url" content="http://joshua.einhyrning.com/">
+	<meta property="og:description" content="Quite possibly the nerdiest homepage ever made.">
+	<meta property="og:type" content="website">
+	<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg">
 	<link rel="icon" type="image/png" href="images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="joshua.css?<?= $version ?>" media="screen">
 <?php // theme handling
@@ -31,7 +29,6 @@
 	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css?'.$version.'" media="screen">'."\n";
 ?>
-	<!-- analytics -->
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,7 +38,6 @@
 	  ga('create', 'UA-139019-9', 'einhyrning.com');
 	  ga('send', 'pageview');
 	</script>
-	<!-- javascript -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="resources/joshua.external.min.js"></script>
 	<script src="resources/joshua.effects.min.js"></script>
@@ -54,7 +50,7 @@
 		termPrompt = '<?= $termPrompt ?>',
 		nextgenThemes = ["<?= implode('","', $nextgenThemes) ?>"];
 	</script>
-	<script src="joshua.min.js?<?= $version ?>"></script>
+	<script src="joshua.js?<?= $version ?>"></script>
 </head>
 <body>
 	<div id="wrapper">

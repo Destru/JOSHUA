@@ -17,6 +17,7 @@
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=18952577">Prophecy</a>'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21072479">Wolf</a>'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21456324">Firetail</a>'.
+				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21405482">Cormorant</a>'.
 			'<p>Punisher'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22512572">Succubus</a>'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22524165">Thrasher</a>'
@@ -37,7 +38,8 @@
 	),
 	'league' => array(
 		'about' => '<p><b>League of Legends</b> is an awesome, twitchy game with a surprising amount of depth. '.
-			'My summoner name is <a href="http://www.lolking.net/summoner/na/50759316">Destru Kaneda</a> and I am absolutely terrible. Dropped from Silver II to Bronze IV and still trying to climb back.</p>'
+			'My summoner name is <a href="http://www.lolking.net/summoner/na/50759316">Destru Kaneda</a> and I am absolutely terrible. '.
+			'I\'m also a die-hard <span class="command">CLG</span> fan.</p>'
 	)
 );
 
@@ -62,7 +64,7 @@ function api($game, $api) {
 				'<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_128.jpg\');width:128px;height:128px;"></div></td></tr>'.
 				'<tr><td class="dark">Name</td><td><a href="http://eve.battleclinic.com/killboard/combat_record.php?type=player&name=Destru+Kaneda">'.$api->result->characterName.'</a></td></tr>'.
 				'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
-				'<tr><td class="dark">Skills</td><td>'.round(($api->result->skillPoints/1000000), 2).'m</td></tr>'.
+				'<tr><td class="dark">Skills</td><td>'.round(($api->result->skillPoints/1000000), 1).' million</td></tr>'.
 				'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
 				'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.
 				'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.

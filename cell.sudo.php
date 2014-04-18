@@ -55,7 +55,7 @@ if($command == "invalid") {
 $nix = array('ls', 'ps', 'cd', 'top', 'rm', 'cp', 'who', 'kill', 'll', 'df', 'mkdir',
 	'grep', 'man', 'wget', 'rsync', 'cat', 'tail', 'ifconfig', 'ipconfig', 'del',
 	'make', 'wget', 'curl', 'pwd', 'dir', 'mysql', 'su', 'netstat', 'login', 'ssh',
-	'irssi', 'shutdown');
+	'irssi', 'shutdown', 'mail', 'email', 'vi', 'vim', 'emacs', 'subl');
 if(in_array($command, $nix)) {
 	if(isset($_SESSION['sudo'])) {
 		if($command == "ll") $output = run('ls -al');

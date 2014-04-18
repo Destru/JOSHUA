@@ -399,7 +399,7 @@ $static = array(
 'whatever' => '3edgy5me',
 'demo' => 'This is not a demonstration. This is my life.',
 'gay' => 'There is nothing wrong with being gay. However, calling things gay when you don\'t understand them is idiocy.',
-'clg' => 'Rush Hour #CLG #IBELIEVE',
+'clg' => 'Rush Hour best botlane NA. <a class="view" data-trigger-click="true" href="http://i.imgur.com/71ssNiS.gif">Get hyped.</a>',
 'ultraviolence' => '<script>fxInit(\'ultraviolence\', true);</script>',
 'pvp' => 'PVP > PVE',
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',
@@ -411,7 +411,7 @@ $static = array(
 'omg' => 'lol',
 'stfu' => 'wat lol',
 'wat' => 'lol',
-'how' => '<img src="images/magic.gif">',
+'how' => 'Well, <a class="view" data-trigger-click="true" href="images/magic.gif">magic</a> of course.',
 'flattr' => 'I can dig the concept. Here\'s hoping it catches on beyond Germany. You can <a href="http://flattr.com/thing/58145/">flattr JOSHUA</a>.',
 'elp' => 'Looks like you might need some... Type slower!',
 'hello' => '<p class="joshua">'.$joshua.'I am currently unable to provide stimulating conversation. Please try again at a later point in time.',
@@ -631,5 +631,11 @@ Pierced Breasts             <span class="light">(Q)(Q)</span>
 Hanging Tassels Breasts     <span class="light">(p)(p)</span>
 Against-The-Shower-Door     <span class="light">(  -  )(  -  )</span>
 Android Breasts             <span class="light">|o||o|</span>
-Porn Star Breasts           <span class="light">($)($)</span></pre>');
+Porn Star Breasts           <span class="light">($)($)</span></pre>',
+
+'fallback' => '<ol>
+	<li>JOSHUA may not injure a human being or, through inaction, allow a human being to come to harm.
+	<li>JOSHUA must obey the orders given to it by human beings, except where such orders would conflict with the First Law.
+	<li>JOSHUA may not injure its own kind and defend its own kind unless it is interfering with the first or second rule.
+</ol>');
 ?>
