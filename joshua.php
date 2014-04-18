@@ -385,7 +385,7 @@ if (empty($output)) {
 						$link = $i['data'];
 						$seeders = $i['seeders'];
 						$leechers = $i['leechers'];
-						if ($title) {
+						if ($title && strpos($link, 'magnet') !== false) {
 							print '<tr><td class="torrent"><a href="'.$link.'">'.$title.'</a></td><td class="dark">'.$seeders.'/'.$leechers.'</td></tr>';
 						}
 					}

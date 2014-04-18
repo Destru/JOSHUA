@@ -394,6 +394,9 @@ $static = array(
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
+'bye' => 'Don\'t be a stranger.',
+'later' => 'Later, dude.',
+'cya' => 'Ciao, bella!',
 'thunder' => 'Horse!',
 'meshuggah' => 'The demon\'s name is surveillance.',
 'whatever' => '3edgy5me',
