@@ -394,6 +394,12 @@ $static = array(
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
+'points' => "I like big points and I cannot lie. You other coders can't deny.
+	When a story gets pinned with a high numerical int, I click start,
+	wanna plow through this part, filling up velocity like a shopping cart.
+	Deep in the sprint I'm tearing, doing some #SWAG ass motherfucking pairing.
+	Oh baby, I wanna deliver, so give me all that filler.
+	My teammates trying to warn me, but those points you got making me so corny.",
 'bye' => 'Don\'t be a stranger.',
 'later' => 'Later, dude.',
 'cya' => 'Ciao, bella!',

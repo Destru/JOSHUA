@@ -11,16 +11,17 @@
 		'format' => 'xml',
 		'about' => '<p><b>EVE Online</b> is a what every MMO should aspire to be; Another world. '.
 			'It will be intimidating for new players as there is no clear path cut out for you, but for those that persist it is very rewarding. '.
-			'Supporting the harshest PVP-environment of any MMO available today, this one is certainly not for the faint-hearted.</p>'.
+			'Supporting the harshest PVP-environment of any MMO available today, this one is certainly not for the faint-hearted. '.
+			'<p><a class="external" href="http://o.smium.org/profile/887#pfavorites">Loadouts for my favorite ships.</a>'.
 			'<p>Rifter'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=19494065">Comet</a>'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=18952577">Prophecy</a>'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21072479">Wolf</a>'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21456324">Firetail</a>'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21405482">Cormorant</a>'.
-			'<p>Punisher'.
+				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=18952577">Prophecy</a>'.
+				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21072479">Wolf</a>'.
+				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21456324">Firetail</a>'.
+				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21405482">Cormorant</a>'.
+			'<br>Punisher'.
 				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22512572">Succubus</a>'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22524165">Thrasher</a>'
+				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22524165">Thrasher</a>'
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
@@ -68,7 +69,7 @@ function api($game, $api) {
 				'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
 				'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.
 				'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
-				'<tr><td class="dark">Last Seen</td><td>'.$api->result->shipTypeName.' in '.$api->result->lastKnownLocation.'</a></td></tr>'.
+				'<tr><td class="dark">Last Seen</td><td>'.$api->result->shipTypeName.' in <a href="http://evemaps.dotlan.net/search?q='.$api->result->lastKnownLocation.'">'.$api->result->lastKnownLocation.'</a></td></tr>'.
 				'</table>';
 			}
 			else error('outdatedapi', 1);
