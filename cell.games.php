@@ -9,19 +9,10 @@
 	'eve' => array(
 		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327&keyId=898288&vCode=FqSqU3bYh3f3tr7FbraCZLz3xh6JwIGIHv1oMoscEua0mQ0H0Br43TZNQnVZn2E7',
 		'format' => 'xml',
-		'about' => '<p><b>EVE Online</b> is a what every MMO should aspire to be; Another world. '.
+		'about' => '<p><b>EVE Online</b> is a what every MMO should aspire to be; <a href="https://secure.eveonline.com/trial/?invc=f861919b-eb94-437b-80d6-df84d952885f&action=buddy">Another world.</a> '.
 			'It will be intimidating for new players as there is no clear path cut out for you, but for those that persist it is very rewarding. '.
 			'Supporting the harshest PVP-environment of any MMO available today, this one is certainly not for the faint-hearted. '.
-			'<p><a class="external" href="http://o.smium.org/profile/887#pfavorites">Loadouts for my favorite ships.</a>'.
-			'<p>Rifter'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=19494065">Comet</a>'.
-				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=18952577">Prophecy</a>'.
-				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21072479">Wolf</a>'.
-				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21456324">Firetail</a>'.
-				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=21405482">Cormorant</a>'.
-			'<br>Punisher'.
-				' vs. <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22512572">Succubus</a>'.
-				' <a href="http://eve.battleclinic.com/killboard/killmail.php?id=22524165">Thrasher</a>'
+			'<p><a class="external" href="http://o.smium.org/profile/887#pfavorites">Loadouts for my favorite ships.</a>',
 	),
 	'wow' => array(
 		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
@@ -62,7 +53,7 @@ function api($game, $api) {
 	else if($game == 'eve') {
 		if ($api->result->characterName) {
 			$output = '<table class="fluid">'.
-				'<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/'.$api->result->characterID.'_128.jpg\');width:128px;height:128px;"></div></td></tr>'.
+				'<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/1761654327_128.jpg\');width:128px;height:128px;"></div></td></tr>'.
 				'<tr><td class="dark">Name</td><td><a href="http://eve.battleclinic.com/killboard/combat_record.php?type=player&name=Destru+Kaneda">'.$api->result->characterName.'</a></td></tr>'.
 				'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
 				'<tr><td class="dark">Skills</td><td>'.round(($api->result->skillPoints/1000000), 1).' million</td></tr>'.
@@ -71,8 +62,24 @@ function api($game, $api) {
 				'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
 				'<tr><td class="dark">Last Seen</td><td>'.$api->result->shipTypeName.' in <a href="http://evemaps.dotlan.net/search?q='.$api->result->lastKnownLocation.'">'.$api->result->lastKnownLocation.'</a></td></tr>'.
 				'</table>';
+
+			$zkillCache = 'eve.zkill.json';
+			get('https://zkillboard.com/api/solo/kills/characterID/1761654327/limit/5/', $zkillCache, true);
+			$zkills = load($zkillCache);
+			if ($zkills) {
+				$output .= '<table class="fluid">';
+				foreach ($zkills as $kill) {
+					$output .= '<tr>'.
+						'<td class="dark">'.date("F j, Y", strtotime($kill->killTime)).'</td>'.
+						'<td><a class="external" href="https://zkillboard.com/kill/'.$kill->killID.'">'.$kill->victim->characterName.'</a></td>'.
+						'<td>'.$kill->victim->corporationName.'</td>'.
+						'<td class="light">'.round(($kill->zkb->totalValue/1000000), 1).'m</td>'.
+						'</tr>';
+				}
+				$output .= '</table>';
 			}
-			else error('outdatedapi', 1);
+		}
+		else error('outdatedapi', 1);
 	}
 	else if($game == 'wow') {
 		if ($api->name) {
