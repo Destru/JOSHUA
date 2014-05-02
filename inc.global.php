@@ -26,7 +26,6 @@ function get($url, $cache=null, $inline=null) {
 	$secondsBeforeUpdate = 60;
 	if(!empty($cache)) {
 		$timeout = 10;
-		$secondsBeforeUpdate = 60*60*12;
 		if(!file_exists($cache) || filesize($cache) == 0) {
 			file_put_contents($cache, null);
 			$firstRun = true;
