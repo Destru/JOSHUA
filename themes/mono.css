@@ -13,7 +13,8 @@ a {
 }
 #joshua {
 	padding:28px;
-	width:744px;
+	width:80%;
+	max-width: 760px;
 }
 #prompt {
 	padding:0;
@@ -50,7 +51,7 @@ a {
 .menu a {
 	color:#000;
 }
-.menu .playing, .active {
+.menu .playing, .menu a:hover, .tiny li:hover, .active {
 	background-color:#000;
 	color:#fff;
 }
@@ -110,7 +111,7 @@ td .image {
 	border-bottom:solid 1px rgba(255,255,255,0.5);
 	padding-bottom:1px;
 }
-.image, embed, img {
+.image, embed, img, iframe {
 	-webkit-filter:grayscale(1);
 	-moz-filter:grayscale(1);
 	-ms-filter:grayscale(1);
@@ -122,7 +123,7 @@ td .image {
 .pulsar a:hover {
 	opacity:0.85;
 }
-.pulsar .image, .pulsar embed, .pulsar img {
+.pulsar .image, .pulsar embed, .pulsar iframe, .pulsar img {
 	-webkit-filter:grayscale(0);
 	-moz-filter:grayscale(0);
 	-ms-filter:grayscale(0);
@@ -139,4 +140,8 @@ td .image {
 	background: -moz-linear-gradient(left, transparent 0%, white 50%, transparent 100%);
 	background: -ms-linear-gradient(left, transparent 0%, white 50%, transparent 100%);
 	background: linear-gradient(left, transparent 0%, white 50%, transparent 100%);
+}
+input[type="search"] {
+	background-color: black;
+	color: white;
 }

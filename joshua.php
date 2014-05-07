@@ -376,10 +376,10 @@ if (empty($output)) {
 			$url = 'http://apify.heroku.com/api/tpb.json?word='.urlencode($input);
 			$content = get($url);
 			if ($content) {
-				print $prompt;
 				$hits = json_decode($content, true);
 				if (count($hits)) {
-					print '<table class="torrents">';
+					print $prompt.
+						'<table class="torrents">';
 					foreach($hits as $i) {
 						$title = $i['title'];
 						$link = $i['data'];

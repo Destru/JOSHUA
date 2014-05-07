@@ -33,10 +33,10 @@ function get($url, $cache=null, $inline=null) {
 		$lastModified = filemtime($cache);
 		if(isset($firstRun) || time() - $lastModified > $secondsBeforeUpdate) {
 			$ch = curl_init();
-			curl_setopt ($ch, CURLOPT_URL, $url);
-			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
-			curl_setopt ($ch, CURLOPT_USERAGENT, 'JOSHUA');
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+			curl_setopt($ch, CURLOPT_USERAGENT, 'JOSHUA');
 			$data = curl_exec($ch);
 			curl_close($ch);
 			if(!empty($data)) {
@@ -50,10 +50,10 @@ function get($url, $cache=null, $inline=null) {
 	}
 	else {
 		$ch = curl_init();
-		curl_setopt ($ch, CURLOPT_URL, $url);
-		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
-		curl_setopt ($ch, CURLOPT_USERAGENT, 'JOSHUA');
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'JOSHUA');
 		$data = curl_exec($ch);
 		curl_close($ch);
 		return $data;

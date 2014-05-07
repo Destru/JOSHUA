@@ -299,10 +299,12 @@ pre.ascii {
 	text-overflow:ellipsis;
 	cursor:pointer;
 }
-input[type="search"] {
+#videos input[type="search"] {
 	width:560px;
-	font-family:Helvetica, Arial;
-	font-size:16px;
+	font-family: Helvetica, Arial;
+	font-size: 16px;
+	padding: 5px;
+	text-indent: 5px;
 }
 
 /* pulsar */
@@ -361,11 +363,6 @@ input[type="search"] {
 	color:rgba(255,255,255,0.25);
 	overflow:hidden;
 	text-overflow:'';
-}
-
-/* youtube */
-#ytSearch {
-	padding: 5px;
 }
 
 /* css effects */

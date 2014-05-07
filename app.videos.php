@@ -3,12 +3,12 @@
 		Video Player
 		<a class="close">x</a>
 	</h1>
-	<input id="ytSearch" type="search" results="10" autosave="<?php print session_id(); ?>" class="clearfix">
+	<input type="search" results="10" autosave="<?php print session_id(); ?>" class="clearfix">
 </div>
 <script>
 	$(function() {
-		var url = 'http://gdata.youtube.com/feeds/api/videos?v=2&max-results=20&duration=long&alt=json&q=';
-		$('#ytSearch').on('keyup', function() {
+		var url = 'http://gdata.youtube.com/feeds/api/videos?v=2&max-results=40&duration=long&alt=json&q=';
+		$('#videos input[type="search"]').on('keyup', function() {
 			var query = $(this).val();
 			$.getJSON(url+query+'&callback=?', function(data) {
 				var videos = new Array(), menu = '';
