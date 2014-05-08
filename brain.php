@@ -46,7 +46,7 @@ $static = array(
 		</tr>
 		<tr>
 			<td><span class="command">get</span> <span class="dark">query</span></td>
-			<td>Search and download torrents</td>
+			<td>Search and download torrents (use <span class="command">get top</span> for most popular)</td>
 		</tr>
 		<tr>
 			<td><span class="command">game</span> <span class="dark">name</span></td>
@@ -622,7 +622,7 @@ Rachael: HAHAHA!</pre>',
 		Prowareness for his <a href="http://www.prowareness.com/blog/matrix-effect-using-jquery/">Matrix effect</a>.
 		Brsev for <a href="http://brsev.deviantart.com/art/Token-128429570">Token</a>.
 		<a href="http://hubblesource.stsci.edu//">The Hubble</a> for the original Neocom background.
-		Whoever is behind <a href="http://apify.heroku.com/">APIfy</a>.
+		Whoever is behind <a href="http://apify.ifc0nfig.com/">APIfy</a>.
 		<a href="http://www.omdbapi.com/">Brian Fritz</a> for OMDb.
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',

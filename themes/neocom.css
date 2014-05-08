@@ -253,13 +253,13 @@ p.example {
 .dark {
 	opacity: 0.5;
 }
-p a, h1 {
+p a, table a, h1 {
 	color: #fffe8f;
 }
 h1 {
 	border-top: solid 1px #fffe8f;
 }
-p a {
+p a, table a {
 	border-bottom: solid 1px #fffe8f;
 }
 .command {
