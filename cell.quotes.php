@@ -11,5 +11,11 @@
 	"My dick shake brings all the boys to the yard. They're like: \"It's bigger than ours!\" Damn right, it's bigger than yours. I could beat you, with my dick so large.",
 	"Most people who do great things didn't have it easy in school.",
 	"In a sandbox you can do anything. In a theme park you can do any thing.",
-	"Melee always gets the short end of the stick."
+	"Melee always gets the short end of the stick.",
+	"I like big points and I cannot lie. You other coders can't deny.
+		When a story gets pinned with a high numerical int, I click start,
+		wanna plow through this part, filling up velocity like a shopping cart.
+		Deep in the sprint I'm tearing, doing some #SWAG ass motherfucking pairing.
+		Oh baby, I wanna deliver, so give me all that filler.
+		My teammates trying to warn me, but those points you got making me so corny."
 ); ?>

@@ -394,12 +394,7 @@ $static = array(
  `Y8888\'  `88888P\' `88888P\' dP    dP `88888P\' `88888P8
 </pre>',
 
-'points' => "I like big points and I cannot lie. You other coders can't deny.
-	When a story gets pinned with a high numerical int, I click start,
-	wanna plow through this part, filling up velocity like a shopping cart.
-	Deep in the sprint I'm tearing, doing some #SWAG ass motherfucking pairing.
-	Oh baby, I wanna deliver, so give me all that filler.
-	My teammates trying to warn me, but those points you got making me so corny.",
+'chip' => 'It\'s chip to be square.',
 'bye' => 'Don\'t be a stranger.',
 'later' => 'Later, dude.',
 'cya' => 'Ciao, bella!',
@@ -408,7 +403,7 @@ $static = array(
 'whatever' => '3edgy5me',
 'demo' => 'This is not a demonstration. This is my life.',
 'gay' => 'There is nothing wrong with being gay. However, calling things gay when you don\'t understand them is idiocy.',
-'clg' => 'Rush Hour best botlane NA. <a class="view" data-trigger-click="true" href="http://i.imgur.com/71ssNiS.gif">Get hyped.</a>',
+'clg' => 'Rush Hour best botlane NA. <a class="view" href="http://i.imgur.com/71ssNiS.gif">Get hyped.</a>',
 'ultraviolence' => '<script>fxInit(\'ultraviolence\', true);</script>',
 'pvp' => 'PVP > PVE',
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',
@@ -420,7 +415,7 @@ $static = array(
 'omg' => 'lol',
 'stfu' => 'wat lol',
 'wat' => 'lol',
-'how' => 'Well, <a class="view" data-trigger-click="true" href="images/magic.gif">magic</a> of course.',
+'how' => 'Well, <a class="view" href="images/magic.gif">magic</a> of course.',
 'flattr' => 'I can dig the concept. Here\'s hoping it catches on beyond Germany. You can <a href="http://flattr.com/thing/58145/">flattr JOSHUA</a>.',
 'elp' => 'Looks like you might need some... Type slower!',
 'hello' => '<p class="joshua">'.$joshua.'I am currently unable to provide stimulating conversation. Please try again at a later point in time.',

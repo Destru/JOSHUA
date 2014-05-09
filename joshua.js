@@ -309,8 +309,6 @@ function chromeInit() {
 		$('#prompt').val(command).trigger(e);
 		stealFocus();
 	});
-	// triggers
-	$('[data-trigger-click]').trigger('click').removeAttr('data-trigger-click');
 }
 
 // magic

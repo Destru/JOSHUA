@@ -377,7 +377,7 @@ if (empty($output)) {
 			$host = 'http://apify.ifc0nfig.com/tpb/';
 			$key = 'f09fc4d9d5934135b7534e384280bf10';
 			if ($option == "top") $query = 'top?id=all&key='.$key;
-			else $query = 'search/'.urlencode($input).'?key='.$key;
+			else $query = 'search?id='.urlencode($input).'&key='.$key;
 			$content = get($host.$query);
 			if ($content) {
 				$hits = json_decode($content, true);
@@ -392,7 +392,7 @@ if (empty($output)) {
 						if ($title && strpos($link, 'magnet') !== false) {
 							print '<tr>'.
 								'<td class="torrent"><a href="'.$link.'">'.$title.'</a></td>'.
-								'<td class="dark">'.$seeders.'/'.$leechers.'</td>'.
+								'<td>'.$seeders.'/'.$leechers.'</td>'.
 								'<td class="dark">'.$i['size'].'</td>'.
 								'</tr>';
 						}
