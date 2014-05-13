@@ -199,7 +199,9 @@ pre, .pre, p.irc, .fixed-width {
 	line-height:1.4em;
 }
 td.fixed-width {
-	white-space:nowrap;
+	white-space: nowrap;
+	line-height: inherit;
+	vertical-align: middle;
 }
 pre.ascii {
 	line-height:1.2em;
