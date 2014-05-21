@@ -4,7 +4,6 @@ var hist = [],
 	fade = 150,
 	muted = false,
 	drawing = false,
-	focus = true,
 	terminal = false,
 	terminals = ['pirate', 'helvetica', 'mono', 'c64'],
 	windows = ['customize', 'music', 'superplastic', 'videos', 'gallery'];
@@ -30,16 +29,8 @@ function clearScreen() {
 	init();
 }
 
-function stealFocus(off) {
-	if (off) {
-		$('#prompt').off('blur');
-	}
-	else {
-		$('#prompt').off('blur').on('blur', function() {
-			$('#prompt').focus();
-		});
-		$('#prompt').focus();
-	}
+function stealFocus() {
+	$('#prompt').focus();
 }
 
 function systemReady() {
@@ -180,14 +171,12 @@ function loadSuperplastic() {
 	}
 	$('#superplastic:hidden').fadeIn(fade);
 	systemReady();
-	stealFocus(true);
 }
 
 function loadVideos() {
 	createCookie('videos', true, expires);
 	$('#videos:hidden').fadeIn(fade);
 	systemReady();
-	stealFocus(true);
 }
 
 // chrome
@@ -221,7 +210,6 @@ function chromeInit() {
 		 if (!muted) mute();
 		}
 		$('#'+id+'Open').removeClass('active');
-		focus = true;
 		stealFocus();
 	});
 	// open windows
@@ -415,9 +403,6 @@ function chromeMagic() {
 			$('#output').css("height", $(window).height()-neocomChrome);
 			scrollCheck();
 		});
-		$('#nebula').on('click', function(){
-			stealFocus();
-		});
 	}
 }
 
@@ -461,6 +446,10 @@ function boot() {
 		init('boot');
 	});
 	stealFocus();
+	// keyboard helpers
+	$(window).on('keypress', function(){
+		if (!$(document.activeElement).is(':input')) stealFocus();
+	});
 }
 
 $(function() {
