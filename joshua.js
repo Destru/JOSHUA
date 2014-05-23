@@ -10,6 +10,7 @@ var hist = [],
 if (theme == "nextgen" || $.inArray(theme, nextgenThemes) > -1) var nextgen = true;
 if (nextgen) windows.push('joshua');
 
+// helpers
 function reset() {
 	eraseCookie('joshua');
 	eraseCookie('release');
@@ -38,6 +39,16 @@ function systemReady() {
 	$('body').css('cursor', 'auto');
 }
 
+function overflowHelper() {
+	var output = $('#output');
+	if (output.height() < output.get(0).scrollHeight) {
+		output.addClass('overflow');
+	}
+	else {
+		output.removeClass('overflow');
+	}
+}
+
 function scrollCheck() {
 	if (terminal) {
 		$('html, body').stop();
@@ -48,14 +59,22 @@ function scrollCheck() {
 		$('#output').stop();
 		$('#output').animate({scrollTop: $('#output').prop('scrollHeight')}, 250);
 	}
-	// overflown
-	var output = $('#output');
-	if (output.height() < output.get(0).scrollHeight) {
-		output.addClass('overflow');
-	}
-	else {
-		output.removeClass('overflow');
-	}
+	overflowHelper();
+}
+
+function keyboardHelpers() {
+	$(window).on('keypress', function(){
+		if (!$(document.activeElement).is(':input')) stealFocus();
+	});
+}
+
+function mouseHelpers() {
+	$(document).on('click', '.command, .example', function(e){
+		var command = $(this).text(),
+			e = $.Event('keydown', { which: $.ui.keyCode.ENTER });
+		$('#prompt').val(command).trigger(e);
+		stealFocus();
+	});
 }
 
 function mute() {
@@ -112,7 +131,6 @@ function fxInit(fx, runOnce) {
 		});
 	}
 	else if (fx == "pulsar" || fx == "drunk" || fx == "hipster" || fx == "invert") {
-		console.log(fx);
 		$('html').addClass(fx);
 	}
 	else if (fx == "draw") {
@@ -181,7 +199,6 @@ function loadVideos() {
 
 // chrome
 function chromeInit() {
-	// drag windows
 	$.each(windows, function() {
 		$('#'+this).draggable({
 			distance:10,
@@ -195,10 +212,8 @@ function chromeInit() {
 			}
 		});
 	});
-	// close windows
-	$('.close').off('click');
-	$('.close').on('click', function() {
-		var id = $(this).closest("div").attr("id");
+	$(document).on('click', '.close', function() {
+		var id = $(this).closest('div').attr('id');
 		eraseCookie(id);
 		$('#'+id+':visible').fadeOut(fade);
 		if (id == "superplastic") {
@@ -206,17 +221,13 @@ function chromeInit() {
 			var fx = readCookie('fx');
 			if (fx) fxInit(fx);
 		}
-		else if (id == "music") {
-		 if (!muted) mute();
-		}
-		$('#'+id+'Open').removeClass('active');
+		else if (id == "music") if (!muted) mute();
+		$('[data-open-window="'+id+'"]').removeClass('active');
 		stealFocus();
 	});
-	// open windows
-	$('.open').off('click');
-	$('.open').on('click', function() {
+	$(document).on('click', '[data-open-window]', function() {
 		var button = $(this);
-			id = button.attr('id').replace(/Open/,'');
+			id = button.data('open-window');
 		if (button.hasClass('active')) {
 			button.removeClass('active');
 			eraseCookie(id);
@@ -234,11 +245,9 @@ function chromeInit() {
 			button.addClass('active');
 		}
 	});
-	// view images
-	$('a.view').off('click');
-	$('a.view').on('click', function(event) {
+	$(document).on('click', '.view', function(e) {
 		$('#loader').fadeIn(fade);
-		event.preventDefault();
+		e.preventDefault();
 		var imageSource = $(this).attr('href');
 		$("<img/>").attr("src", imageSource).load(function() {
 			$('#loader').fadeOut(fade);
@@ -265,10 +274,9 @@ function chromeInit() {
 			});
 		});
 	});
-	// window events
-	$.each(windows,function(index, window) {
+	$.each(windows, function(index, window) {
 		if (readCookie(window)) {
-			$('#'+window+'Open').addClass('active');
+			$('[data-open-window="'+window+'"]').addClass('active');
 			$('#'+window+':hidden').show();
 		}
 	});
@@ -278,9 +286,7 @@ function chromeInit() {
 	if (readCookie('videos')) {
 		loadVideos();
 	}
-	// customizations
-	$('#fx li').off('click');
-	$('#fx li').on('click', function() {
+	$(document).on('click', '#fx li', function() {
 		if ($(this).hasClass('active')) {
 			fxStop();
 		}
@@ -288,14 +294,6 @@ function chromeInit() {
 			var fx = this.getAttribute('class');
 			fxInit(fx);
 		}
-	});
-	// mouse helpers
-	$('.command, .example').off('click');
-	$('.command, .example').on('click', function(e){
-		var command = $(this).text(),
-			e = $.Event('keydown', { which: $.ui.keyCode.ENTER });
-		$('#prompt').val(command).trigger(e);
-		stealFocus();
 	});
 }
 
@@ -445,11 +443,9 @@ function boot() {
 		motd.appendTo('#output');
 		init('boot');
 	});
+	keyboardHelpers();
+	mouseHelpers();
 	stealFocus();
-	// keyboard helpers
-	$(window).on('keypress', function(){
-		if (!$(document.activeElement).is(':input')) stealFocus();
-	});
 }
 
 $(function() {
