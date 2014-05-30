@@ -151,7 +151,7 @@ html, body {
 	height: 48px;
 	text-align: center;
 }
-.icons li a {
+#windows li a {
 	display: inline-block;
 	margin: 8px;
 	height: 32px;
@@ -162,28 +162,28 @@ html, body {
 #links {
 	display:none;
 }
-#superplasticOpen, #musicOpen, #videosOpen, #customizeOpen {
+#windows li a {
 	background-image:url("../images/iconsNeocom.png");
 }
-#videosOpen {
+[data-window="videos"] {
 	background-position: -32px 0;
 }
-#superplasticOpen {
+[data-window="superplastic"] {
 	background-position: -64px 0;
 }
-#musicOpen {
+[data-window="music"] {
 	background-position: -96px 0;
 }
-#customizeOpen.active {
+[data-window="customize"].active {
 	background-position: 0 -32px;
 }
-#videosOpen.active {
+[data-window="videos"].active {
 	background-position: -32px -32px;
 }
-#superplasticOpen.active {
+[data-window="superplastic"].active {
 	background-position: -64px -32px;
 }
-#musicOpen.active {
+[data-window="music"]	.active {
 	background-position: -96px -32px;
 }
 #neocom {

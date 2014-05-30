@@ -16,28 +16,16 @@
 	</div>
 	<h2>Effects</h2>
 	<ul id="fx" class="tiny clearfix">
-		<li class="sparks">Sparks</li>
-		<li class="draw" title="Click and hold down mousebutton">Draw</li>
-		<li class="pulsar">Pulsar</li>
-		<li class="matrix">Matrix</li>
-		<li class="cylon">Cylon</li>
-		<li class="malkovich">Malkovich</li>
-		<li class="drunk">Drunk</li>
-		<li class="hipster">Hipster</li>
-		<li class="invert">Invert</li>
+		<li data-effect="sparks">Sparks</li>
+		<li data-effect="draw" title="Click and hold down mousebutton">Draw</li>
+		<li data-effect="pulsar">Pulsar</li>
+		<li data-effect="matrix">Matrix</li>
+		<li data-effect="cylon">Cylon</li>
+		<li data-effect="malkovich">Malkovich</li>
+		<li data-effect="drunk">Drunk</li>
+		<li data-effect="hipster">Hipster</li>
+		<li data-effect="invert">Invert</li>
 	</ul>
-	<div class="tron extra">
-		<h2>Team</h2>
-		<ul class="tiny clearfix">
-			<li class="blue"></li>
-			<li class="purple"></li>
-			<li class="pink"></li>
-			<li class="red"></li>
-			<li class="orange"></li>
-			<li class="yellow"></li>
-			<li class="green"></li>
-		</ul>
-	</div>
 	<div class="nextgen extra">
 		<div id="sliders">
 			<div class="frame"><div id="opacity" class="slider">Opacity</div></div>

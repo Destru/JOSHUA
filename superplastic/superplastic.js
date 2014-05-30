@@ -87,11 +87,11 @@ function Player(node) {
 	//this.animations = animations;
 
 	this.gracePeriod = false;
-	this.replay = playerLives; 
-	this.shield = playerShield; 
+	this.replay = playerLives;
+	this.shield = playerShield;
 	this.respawnTime = -1;
-	
-	// damage or destroy ship 
+
+	// damage or destroy ship
 	this.damage = function() {
 		if(!this.gracePeriod) {
 			this.shield--;
@@ -102,25 +102,25 @@ function Player(node) {
 		}
 		return false;
 	};
-	
+
 	// respawn or end game
 	this.respawn = function() {
 		this.replay--;
 		if(this.replay == 0) {
 			return true;
 		}
-		
+
 		this.gracePeriod = true;
 		this.shield	= 5;
-		
+
 		this.respawnTime = (new Date()).getTime();
-		$(this.node).fadeTo(0, 0.5); 
+		$(this.node).fadeTo(0, 0.5);
 		return false;
 	};
 	this.update = function() {
 		if((this.respawnTime > 0) && (((new Date()).getTime()-this.respawnTime) > 3000)) {
 			this.gracePeriod = false;
-			$(this.node).fadeTo(500, 1); 
+			$(this.node).fadeTo(500, 1);
 			this.respawnTime = -1;
 		}
 	}
@@ -132,7 +132,7 @@ function Enemy(node) {
 	this.speedx	= -8;
 	this.speedy = 1;
 	this.node = $(node);
-	
+
 	// damage taken
 	this.damage = function() {
 		this.shield--;
@@ -141,12 +141,12 @@ function Enemy(node) {
 		}
 		return false;
 	};
-	
+
 	// movement
 	this.update = function(playerNode) {
 		this.updateX(playerNode);
 		this.updateY(playerNode);
-	};	
+	};
 	this.updateX = function(playerNode) {
 		var newpos = parseInt(this.node.css("left"))+this.speedx;
 		this.node.css("left",""+newpos+"px");
@@ -207,16 +207,16 @@ $(function() {
 	var background2 = new Animation({imageURL: "background2.png"});
 	var background3 = new Animation({imageURL: "background3.png"});
 	var background4 = new Animation({imageURL: "background4.png"});
-	
+
 	// player
 	playerAnimation["idle"]	= new Animation({imageURL: "player.png"});
 	playerAnimation["explode"] = new Animation({imageURL: "player_explode.png", numberOfFrame: 4, delta: 23, rate: 100, type: Animation.VERTICAL} | Animation.CALLBACK);
-	
+
 	// freight
 	enemy[0] = new Array();
 	enemy[0]["idle"] = new Animation({imageURL: "freight.png"});
 	enemy[0]["explode"] = new Animation({imageURL: "freight_explode.png", numberOfFrame: 3, delta: 32, rate: 100, type: Animation.VERTICAL | Animation.CALLBACK});
-	
+
 	// spike
 	enemy[1] = new Array();
 	enemy[1]["idle"]	= new Animation({imageURL: "spike.png"});
@@ -234,10 +234,10 @@ $(function() {
 
 	// missiles
 	missile["player"] = new Animation({imageURL: "player_missile.png"});
-	
+
 	// initialize
 	$(document).playground(".gameContainer", {height: gameHeight, width: gameWidth, keyTracker: true});
-				
+
 	// stage
 	$().playground().addGroup("background", {width: gameWidth, height: gameHeight})
 						.addSprite("stars", {animation: background, width: gameWidth, height: gameHeight})
@@ -252,9 +252,9 @@ $(function() {
 					.end()
 					.addGroup("playerMissiles",{width: gameWidth, height: gameHeight}).end()
 					.addGroup("overlay",{width: gameWidth, height: gameHeight});
-	
+
 	$("#player")[0].player = new Player($("#player"));
-	
+
 	// heads-up display
 	$("#overlay").append('<div id="hud"/><div id="message"/>');
 
@@ -277,7 +277,7 @@ $(function() {
 			spawnMobs();
 		});
 	})
-	
+
 	// game logic
 	$().playground().registerCallback(function() {
 		if(!gameOver) {
@@ -333,7 +333,7 @@ $(function() {
 					$("#player").css("left", ""+ posx +"px");
 				}
 			}
-			
+
 			// enemy move
 			$(".enemy").each(function() {
 					this.enemy.update($("#player"));
@@ -367,7 +367,7 @@ $(function() {
 						playerShield = playerShield-1;
 					}
 				});
-			
+
 			// missile movement
 			$(".playerMissiles").each(function() {
 				var posx = parseInt($(this).css("left"));
@@ -424,7 +424,7 @@ $(function() {
 		var newPos = (parseInt($("#stars4").css("left")) - 6 - gameWidth) % (-2 * gameWidth) + gameWidth;
 		$("#stars4").css("left", newPos);
 	}, refreshRate);
-	
+
 	// keyhandling
 	$(document).keydown(function(e) {
 		if(!gameOver && !playerHit && !hasShot) {
@@ -440,7 +440,7 @@ $(function() {
 			}
 		}
 	});
-	
+
 	// stop shot spams
 	setInterval(function() {
 		hasShot = false;

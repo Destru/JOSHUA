@@ -641,5 +641,5 @@ Porn Star Breasts           <span class="light">($)($)</span></pre>',
 	<li>JOSHUA may not injure a human being or, through inaction, allow a human being to come to harm.
 	<li>JOSHUA must obey the orders given to it by human beings, except where such orders would conflict with the First Law.
 	<li>JOSHUA may not injure its own kind and defend its own kind unless it is interfering with the first or second rule.
-</ol>');
-?>
+</ol>'
+); ?>

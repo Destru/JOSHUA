@@ -49,6 +49,14 @@ function overflowHelper() {
 	}
 }
 
+function resizeHelper(chrome) {
+	$('#output').css("height", $(window).height()-chrome);
+	$(window).resize(function() {
+		$('#output').css("height", $(window).height()-chrome);
+		scrollCheck();
+	});
+}
+
 function scrollCheck() {
 	if (terminal) {
 		$('html, body').stop();
@@ -122,7 +130,7 @@ function fxInit(fx, runOnce) {
 	}
 	else if (fx == "malkovich") {
 		$('#wrapper').append('<div id="malkovich"/>');
-		$('#wrapper').on('mousemove', function(e) {
+		$(document).on('mousemove', function(e) {
 			$('#malkovich').css({
 				top: (e.pageY+10)+'px',
 				left: (e.pageX+15)+'px'
@@ -175,7 +183,7 @@ function fxInit(fx, runOnce) {
 		$('#wrapper').prepend('<div id="matrix"/>');
 		matrix();
 	}
-	$('#fx li.'+fx).addClass('active');
+	$('[data-effect='+fx+']').addClass('active');
 }
 
 // applications
@@ -200,17 +208,22 @@ function loadVideos() {
 // chrome
 function chromeInit() {
 	$.each(windows, function() {
-		$('#'+this).draggable({
-			distance:10,
-			handle:"h1",
+		var w = this;
+		$('#'+w).draggable({
+			distance: 10,
+			handle: 'h1',
 			stop: function(event) {
-				var window = 'window.'+$(this).attr('id'),
-				left = $(this).css('left'),
-				right = $(this).css('right'),
-				top = $(this).css('top');
-				createCookie(window, left+','+right+','+top, expires);
+				var left = $(this).css('left'),
+					right = $(this).css('right'),
+					top = $(this).css('top');
+				createCookie('window.'+w, left+','+right+','+top, expires);
 			}
 		});
+		if (readCookie(w)) {
+			$('[data-window="'+w+'"]').addClass('active');
+			$('#'+w+':hidden').show();
+		}
+
 	});
 	$(document).on('click', '.close', function() {
 		var id = $(this).closest('div').attr('id');
@@ -222,12 +235,13 @@ function chromeInit() {
 			if (fx) fxInit(fx);
 		}
 		else if (id == "music") if (!muted) mute();
-		$('[data-open-window="'+id+'"]').removeClass('active');
+		$('[data-window="'+id+'"]').removeClass('active');
 		stealFocus();
 	});
-	$(document).on('click', '[data-open-window]', function() {
+	$(document).on('click', '[data-window]', function() {
+		console.log('data window');
 		var button = $(this);
-			id = button.data('open-window');
+			id = button.data('window');
 		if (button.hasClass('active')) {
 			button.removeClass('active');
 			eraseCookie(id);
@@ -274,27 +288,13 @@ function chromeInit() {
 			});
 		});
 	});
-	$.each(windows, function(index, window) {
-		if (readCookie(window)) {
-			$('[data-open-window="'+window+'"]').addClass('active');
-			$('#'+window+':hidden').show();
-		}
+	$(document).on('click', '[data-effect]', function() {
+		console.log('data-effect triggered');
+		if ($(this).hasClass('active')) fxStop();
+		else fxInit($(this).data('effect'));
 	});
-	if (readCookie('superplastic')) {
-		loadSuperplastic();
-	}
-	if (readCookie('videos')) {
-		loadVideos();
-	}
-	$(document).on('click', '#fx li', function() {
-		if ($(this).hasClass('active')) {
-			fxStop();
-		}
-		else {
-			var fx = this.getAttribute('class');
-			fxInit(fx);
-		}
-	});
+	if (readCookie('superplastic')) loadSuperplastic();
+	if (readCookie('videos')) loadVideos();
 }
 
 // magic
@@ -330,42 +330,10 @@ function chromeMagic() {
 		}
 	}
 	else if (theme == "tron") {
-		var team = readCookie('tron.team');
-		if (!team) {
-			createCookie('tron.team', 'blue', expires);
-		}
-		else if (team && team != "blue") {
-			var colors = ['f570f5','e9000f','f0e53a','a4e750','9a65ff','eb7129'], color = '';
-			if (team == "pink") color = colors[0];
-			else if (team == "red") color = colors[1];
-			else if (team == "yellow") color = colors[2];
-			else if (team == "green") color = colors[3];
-			else if (team == "purple") color = colors[4];
-			else if (team == "orange") color = colors[5];
-			team = team.charAt(0).toUpperCase() + team.slice(1);
-			var css = 'body {background-image: url("images/backgroundTron'+team+'.jpg")}'+
-				'#desktop li a:hover, h1 .dark, h1 a, #input #prompt, .error, .joshua, .window p a, .window table a, .output a, .command, .tiny li:hover, #input, .example {color:#'+color+'; border-color:#'+color+'}'+
-				'#desktop li a.active, .tiny .active {color:#'+color+'}'+
-				'.menu li a.playing, .menu li a.playing:hover {background-color:#'+color+'}'+
-				'.close:hover, .tiny .active {border-color:#'+color+'}'+
-				'.light {color:#'+color+'; opacity:0.5;}';
-			$('body').append('<div id="custom">');
-			$('#custom').html('<style type="text/css">'+css+'</style>');
-		}
-		$('.tron .tiny li').on('click', function() {
-			var team = this.getAttribute('class');
-			createCookie('tron.team', team, expires);
-			location.reload();
-		});
 		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
 	else if (theme == "diesel") {
-		var dieselChrome = $('#desktop').outerHeight()+120;
-		$('#output').css("height", $(window).height()-dieselChrome);
-		$(window).resize(function() {
-			$('#output').css("height", $(window).height()-dieselChrome);
-			scrollCheck();
-		});
+		resizeHelper(120);
 	}
 	else if ($.inArray(theme, terminals) > -1) {
 		terminal = true;
@@ -384,30 +352,21 @@ function chromeMagic() {
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
 		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		var lcarsChrome = $('#desktop').outerHeight()+145;
-		$('#output').css("height", $(window).height()-lcarsChrome);
-		$(window).resize(function() {
-			$('#output').css("height", $(window).height()-lcarsChrome);
-			scrollCheck();
-		});
+		resizeHelper(145);
 	}
 	else if (theme == "neocom") {
 		$('#wrapper').prepend('<div id="nebula"><img src="images/backgroundNeocom.jpg"></div>');
 		$('#desktop').prepend('<a href="/"><div id="neocom"><img src="images/logoNeocom.png" width="20" height="20" alt="JOSHUA"></div></a>');
-
-		var neocomChrome = 142;
-		$('#output').css("height", $(window).height()-neocomChrome);
-		$(window).resize(function() {
-			$('#output').css("height", $(window).height()-neocomChrome);
-			scrollCheck();
-		});
+		resizeHelper(142);
 	}
 }
 
 // init
 function init(option) {
-	chromeInit();
-	if (option && option == "boot") chromeMagic();
+	if (option && option == "boot") {
+		chromeInit();
+		chromeMagic();
+	}
 	scrollCheck();
 	systemReady();
 }

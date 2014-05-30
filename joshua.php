@@ -306,7 +306,7 @@ if (empty($output)) {
 	if ($command == "last.fm" || $command == "lastfm") {
 		$output = '';
 		if (!empty($option) && $option == "loved") {
-			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
+			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getlovedtracks&user=astoever&api_key='.$keys['lastfm'];
 			$count = 10; $cache = 'lastfm.loved.xml';
 			get($url, $cache);
 			$xml = load($cache);
@@ -317,7 +317,7 @@ if (empty($output)) {
 			}
 		}
 		else {
-			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key=a2b73335d53c05871eb50607e5df5466';
+			$url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=astoever&api_key='.$keys['lastfm'];
 			$count = 10; $cache = 'lastfm.xml';
 			get($url, $cache);
 			$xml = load($cache);
@@ -375,9 +375,8 @@ if (empty($output)) {
 	if ($command == "get" || $command == "torrent" || $command == "magnet") {
 		if (isset($option)) {
 			$host = 'http://apify.ifc0nfig.com/tpb/';
-			$key = 'f09fc4d9d5934135b7534e384280bf10';
-			if ($option == "top") $query = 'top?id=all&key='.$key;
-			else $query = 'search?id='.urlencode($input).'&key='.$key;
+			if ($option == "top") $query = 'top?id=all&key='.$keys['apify'];
+			else $query = 'search?id='.urlencode($input).'&key='.$keys['apify'];
 			$content = get($host.$query);
 			if ($content) {
 				$hits = json_decode($content, true);
@@ -649,7 +648,7 @@ if (empty($output)) {
 	if ($command == "img" || $command == "image" || $command == "images") {
 		if (isset($input)) {
 			$tag = str_replace(' ','', $input);
-			$instagram = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id=c0f8f9f1e63a4e1c8a45846bb5db52db&count=30';
+			$instagram = 'https://api.instagram.com/v1/tags/'.$tag.'/media/recent?client_id='.$keys['instagram'].'&count=30';
 			$instagram = get($instagram);
 			if ($instagram) {
 				$output = '';

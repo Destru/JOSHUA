@@ -10,7 +10,7 @@ body {
 	font-family:Helvetica, Arial;
 	font-size:14px;
 	line-height:18px;
-	background-image:url("../images/backgroundTronBlue.jpg");
+	background-image:url("../images/backgroundTron.jpg");
 	background-position:50% 50%;
 	background-repeat:no-repeat;
 	background-attachment:fixed;
@@ -282,27 +282,6 @@ h1 {
 	border:none;
 	height:5px;
 	width:10px;
-}
-.tron .tiny .blue {
-	background-color:#68b8ff;
-}
-.tron .tiny .pink {
-	background-color:#f570f5;
-}
-.tron .tiny .red {
-	background-color:#e9000f;
-}
-.tron .tiny .yellow {
-	background-color:#f0e53a;
-}
-.tron .tiny .green {
-	background-color:#a4e750;
-}
-.tron .tiny .purple {
-	background-color:#9a65ff;
-}
-.tron .tiny .orange {
-	background-color:#eb7129;
 }
 
 /*

@@ -7,7 +7,7 @@
 			'I made <a href="ao/aoscripts.rar">some scripts</a> that make things easier.</p>'
 	),
 	'eve' => array(
-		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327&keyId=898288&vCode=FqSqU3bYh3f3tr7FbraCZLz3xh6JwIGIHv1oMoscEua0mQ0H0Br43TZNQnVZn2E7',
+		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327&keyId=898288&vCode='.$keys['eve'],
 		'format' => 'xml',
 		'about' => '<p><b>EVE Online</b> is a what every MMO should aspire to be; <a href="https://secure.eveonline.com/trial/?invc=f861919b-eb94-437b-80d6-df84d952885f&action=buddy">Another world.</a> '.
 			'It will be intimidating for new players as there is no clear path cut out for you, but for those that persist it is very rewarding. '.
@@ -156,5 +156,4 @@ if($command == 'games' || $command == 'game' || in_array($command, $gameList)) {
 	}
 	else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($gameList, true).'.</p><p class="example">'.$command.' '.$gameList[rand(0,count($gameList)-1)].'</p>');
 }
-
 ?>

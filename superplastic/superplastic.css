@@ -66,12 +66,12 @@ ul {
 #highscore ul {
 	margin: 20px;
 	list-style-type:none;
-	column-count: 3;  
-	column-gap: 40px;  
-	-webkit-column-count: 3;  
-	-webkit-column-gap: 50px;  
-	-moz-column-count: 3;  
-  -moz-column-gap: 50px;  
+	column-count: 3;
+	column-gap: 40px;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 50px;
+	-moz-column-count: 3;
+  -moz-column-gap: 50px;
 }
 #message {
 	display:none;

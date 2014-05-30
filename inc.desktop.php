@@ -1,8 +1,8 @@
-<ul class="icons clearfix">
-  <li><a data-open-window="customize" title="Customization options and effects">Customize</a></li>
-  <li><a data-open-window="superplastic" title="You must escape!">Superplastic</a></li>
-  <li><a data-open-window="videos" title="Stream (long) videos on YouTube">Video Player</a></li>
-  <li><a data-open-window="music" title="Listen to my music">MP3 Player</a></li>
+<ul id="windows" class="icons clearfix">
+  <li><a data-window="customize" title="Customization options and effects">Customize</a></li>
+  <li><a data-window="superplastic" title="You must escape!">Superplastic</a></li>
+  <li><a data-window="videos" title="Stream (long) videos on YouTube">Video Player</a></li>
+  <li><a data-window="music" title="Listen to my music">MP3 Player</a></li>
 </ul>
 <ul id="links" class="icons clearfix">
 	<li><a class="external" href="code/" title="Robot music for hackers and other nerds">Binärpilot</a></li>
