@@ -310,7 +310,6 @@ ul.menu {
 }
 .ui-slider {
 	position: relative;
-	text-align: left;
 }
 .ui-slider .ui-slider-handle {
 	position: absolute;
@@ -341,6 +340,7 @@ body {
 }
 #sliders .frame {
 	background-color:#444;
+	margin-top: 10px;
 }
 .button, .window {
 	background-color:#363636;

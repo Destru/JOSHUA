@@ -56,7 +56,7 @@ body {
 	right:10px;
 }
 
-#sliders .frame, .tiny li, .button, .slider {
+#sliders .frame, .tiny li, .button, .ui-slider {
 	color:#777;
 }
 #sliders .ui-slider-handle {

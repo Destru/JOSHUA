@@ -301,15 +301,15 @@ function chromeInit() {
 function chromeMagic() {
 	if (nextgen) {
 		var background = readCookie('background'),
-		opacity = readCookie('opacity');
+			opacity = readCookie('opacity') || 1,
+			hue = readCookie('hue') || 360;
 		if (background) $('#joshua').addClass(background);
 		$('#backgrounds li').on('click', function() {
 			var background = this.getAttribute('class');
 			$('#joshua').removeClass().addClass(background);
 			createCookie('background', background, expires);
 		});
-		if (!opacity) opacity = 1;
-		$('#opacity').slider({
+		$('[data-slider="opacity"]').slider({
 			max: 20,
 			min: 3,
 			value: opacity*20,
@@ -324,9 +324,21 @@ function chromeMagic() {
 			}
 		});
 		$('#joshua, .window').css('opacity', opacity);
+		$('[data-slider="hue"]').slider({
+			max: 360,
+			min: 0,
+			value: hue,
+			slide: function(event, ui) {
+				$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
+			},
+			change: function(event, ui) {
+				$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
+				createCookie('hue', ui.value, expires);
+			}
+		});
+		$('html').css('-webkit-filter', 'hue-rotate('+hue+'deg)');
 		if (theme == "contra") {
 			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
-			$('body').animate({backgroundColor:"#fff"}, 250).animate({backgroundColor:"#152521"}, 1000);
 		}
 	}
 	else if (theme == "tron") {

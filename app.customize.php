@@ -28,7 +28,8 @@
 	</ul>
 	<div class="nextgen extra">
 		<div id="sliders">
-			<div class="frame"><div id="opacity" class="slider">Opacity</div></div>
+			<div class="frame"><div data-slider="opacity">Opacity</div></div>
+			<div class="frame"><div data-slider="hue">Hue</div></div>
 		</div>
 	</div>
 </div>
