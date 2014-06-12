@@ -223,7 +223,6 @@ function chromeInit() {
 			$('[data-window="'+w+'"]').addClass('active');
 			$('#'+w+':hidden').show();
 		}
-
 	});
 	$(document).on('click', '.close', function() {
 		var id = $(this).closest('div').attr('id');
@@ -231,8 +230,7 @@ function chromeInit() {
 		$('#'+id+':visible').fadeOut(fade);
 		if (id == "superplastic") {
 			$('#'+id+' iframe').remove();
-			var fx = readCookie('fx');
-			if (fx) fxInit(fx);
+			if (readCookie('fx')) fxInit(fx);
 		}
 		else if (id == "music") if (!muted) mute();
 		$('[data-window="'+id+'"]').removeClass('active');
@@ -297,46 +295,48 @@ function chromeInit() {
 	if (readCookie('videos')) loadVideos();
 }
 
-// magic
+function initSliders() {
+	var opacity = readCookie('opacity') || 1,
+		hue = readCookie('hue') || 360;
+	$('[data-slider="opacity"]').slider({
+		max: 20,
+		min: 3,
+		value: opacity*20,
+		slide: function(event, ui) {
+			opacity = ui.value/20;
+			$('#joshua, .window').css('opacity', opacity);
+		},
+		change: function(event, ui) {
+			opacity = ui.value/20;
+			$('#joshua, .window').css('opacity', opacity);
+			createCookie('opacity', opacity, expires);
+		}
+	});
+	$('#joshua, .window').css('opacity', opacity);
+	$('[data-slider="hue"]').slider({
+		max: 360,
+		min: 0,
+		value: hue,
+		slide: function(event, ui) {
+			$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
+		},
+		change: function(event, ui) {
+			$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
+			createCookie('hue', ui.value, expires);
+		}
+	});
+	$('html').css('-webkit-filter', 'hue-rotate('+hue+'deg)');
+}
+
 function chromeMagic() {
+	if (nextgen || theme == "tron") initSliders();
 	if (nextgen) {
-		var background = readCookie('background'),
-			opacity = readCookie('opacity') || 1,
-			hue = readCookie('hue') || 360;
-		if (background) $('#joshua').addClass(background);
+		if (readCookie('background')) $('#joshua').addClass(background);
 		$('#backgrounds li').on('click', function() {
 			var background = this.getAttribute('class');
 			$('#joshua').removeClass().addClass(background);
 			createCookie('background', background, expires);
 		});
-		$('[data-slider="opacity"]').slider({
-			max: 20,
-			min: 3,
-			value: opacity*20,
-			slide: function(event, ui) {
-				opacity = ui.value/20;
-				$('#joshua, .window').css('opacity', opacity);
-			},
-			change: function(event, ui) {
-				opacity = ui.value/20;
-				$('#joshua, .window').css('opacity', opacity);
-				createCookie('opacity', opacity, expires);
-			}
-		});
-		$('#joshua, .window').css('opacity', opacity);
-		$('[data-slider="hue"]').slider({
-			max: 360,
-			min: 0,
-			value: hue,
-			slide: function(event, ui) {
-				$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
-			},
-			change: function(event, ui) {
-				$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
-				createCookie('hue', ui.value, expires);
-			}
-		});
-		$('html').css('-webkit-filter', 'hue-rotate('+hue+'deg)');
 		if (theme == "contra") {
 			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
 		}
@@ -345,7 +345,7 @@ function chromeMagic() {
 		$('#joshua h1 b').html('<img src="images/logoTron.png" height="8" width="71" alt="JOSHUA">');
 	}
 	else if (theme == "diesel") {
-		resizeHelper(120);
+		resizeHelper(245);
 	}
 	else if ($.inArray(theme, terminals) > -1) {
 		terminal = true;
@@ -356,15 +356,13 @@ function chromeMagic() {
 			termPrompt = "Ready.";
 			$('#joshua h1').html('**** JOSHUA 64 BASIC V'+version+' ****');
 		}
-		$('#presets').prev('h2').remove();
 		$('#input').prepend('<span class="prefix">'+termPrompt+'</span>');
 		$('#desktop').remove();
 	}
 	else if (theme == "lcars") {
 		$('#joshua h1').html('Joshua <span class="light">LCARS</span>');
-		$('#presets').prev('h2').remove();
 		$('h1, h2').wrap('<p class="st"/>').wrap('<p class="tng"/>');
-		resizeHelper(145);
+		resizeHelper(205);
 	}
 	else if (theme == "neocom") {
 		$('#wrapper').prepend('<div id="nebula"><img src="images/backgroundNeocom.jpg"></div>');

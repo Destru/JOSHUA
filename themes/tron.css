@@ -65,7 +65,8 @@ h1 {
 	font-size:11px;
 }
 .tron.extra {
-	display:block;
+	display: block;
+	margin-top: 20px;
 }
 .tron ul {
 	margin-bottom:0;
@@ -246,7 +247,7 @@ h1 {
 	padding:0 10px;
 	border:solid 1px #555;
 }
-.menu li a, h2, .prompt {
+.menu li a, h2, .prompt, #sliders .frame {
 	font-weight: bold;
 	font-size:11px;
 	line-height:18px;
@@ -327,4 +328,45 @@ body.pulsar {
 	background: -moz-linear-gradient(left, transparent 0%, white 50%, transparent 100%);
 	background: -ms-linear-gradient(left, transparent 0%, white 50%, transparent 100%);
 	background: linear-gradient(left, transparent 0%, white 50%, transparent 100%);
+}
+
+/* sliders */
+#sliders {
+	display:block;
+	clear:both;
+	margin-top:-5px;
+}
+#sliders .frame {
+	padding-left:13px;
+	padding-right:13px;
+	text-indent:-6px;
+}
+#sliders .frame, .ui-slider {
+	width:254px;
+}
+.ui-slider {
+	position: relative;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index:23;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	z-index:24;
+}
+.ui-slider .ui-slider-handle {
+	height:12px; width:20px;
+	margin-top: 3px;
+	margin-left: -10px;
+}
+#sliders .frame {
+	margin-top: 10px;
+	border-radius: 5px;
+}
+.ui-slider-handle {
+	background-color: #000;
+	border-radius: 3px;
 }

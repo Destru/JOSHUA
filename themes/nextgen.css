@@ -341,6 +341,7 @@ body {
 #sliders .frame {
 	background-color:#444;
 	margin-top: 10px;
+	color:#282828;
 }
 .button, .window {
 	background-color:#363636;
@@ -369,12 +370,6 @@ ul.icons li a {
 }
 .example, .light, .command, a, .joshua, .error {
 	color:#fc0;
-}
-#sliders .frame {
-	color:#282828;
-}
-h2.presets {
-	display:none;
 }
 .nextgen.extra {
 	display:inline;

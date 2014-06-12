@@ -26,7 +26,7 @@
 		<li data-effect="hipster">Hipster</li>
 		<li data-effect="invert">Invert</li>
 	</ul>
-	<div class="nextgen extra">
+	<div class="nextgen tron extra">
 		<div id="sliders">
 			<div class="frame"><div data-slider="opacity">Opacity</div></div>
 			<div class="frame"><div data-slider="hue">Hue</div></div>
