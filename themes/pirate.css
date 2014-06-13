@@ -90,8 +90,8 @@ a.close {
 	padding:5px;
 	margin-right:0;
 	font-weight:normal;
-	background-color:#333;
-	color:#333;
+	background-color: rgba(255,255,255,.25);
+	color: rgba(255,255,255,.25);
 }
 a.close:hover {
 	background-color:#00becd;
@@ -123,12 +123,6 @@ a.close, .image img {
 }
 .window, #superplastic {
 	position:fixed;
-}
-li.pulsar {
-	display:none;
-}
-body.pulsar {
-	-webkit-animation:none;
 }
 #cylon {
 	background: -webkit-linear-gradient(left, transparent 0%, #00becd 50%, transparent 100%);

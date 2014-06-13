@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 .toggle, .command, .example, #desktop a, .close, .tiny li {
 	cursor:pointer;
 }
-.contra, .extra {
+.extra {
 	display:none;
 }
 
@@ -346,6 +346,28 @@ pre.ascii {
 	}
 	100% {
 		background-color:#004C79;
+	}
+}
+
+/* contra */
+.contra body {
+	-webkit-animation: contra 1s 1 linear;
+	animation: contra 1s 1 linear;
+}
+@-webkit-keyframes contra {
+	0% {
+		background-color:#fff;
+	}
+	100% {
+		background-color:#152521;
+	}
+}
+@keyframes contra {
+	0% {
+		background-color:#fff;
+	}
+	100% {
+		background-color:#152521;
 	}
 }
 

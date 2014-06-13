@@ -270,7 +270,7 @@ if (empty($output)) {
 			}
 			$output .= '</table>';
 			if (isset($msgTooShort)) output('<p class="error">'.$joshua.'Message is too short.</p>');
-			else if (isset($msgExample)) output('<p class="joshua">'.$joshua.'Yes, that is how it works, but that comment is an example.</p>');
+			else if (isset($msgExample)) output('<p class="joshua">'.$joshua.'Yes, that is how it works, and this message is an example.</p>');
 			else output($output);
 		}
 		else output('<p class="error">'.$joshua.'Message can\'t be empty.</p><p class="example">msg joshua needs more ultraviolence</p>');
@@ -440,23 +440,29 @@ if (empty($output)) {
 				setcookie('background', 'atari', $expires, '/');
 				setcookie('fx', 'sparks', $expires, '/');
 				deleteCookie('opacity');
+				deleteCookie('hue');
+				deleteCookie('saturation');
 			}
 			else if ($option == "rachael") {
-				setcookie('theme', 'penguin', $expires, '/');
+				setcookie('theme', 'rachael', $expires, '/');
 				setcookie('background', 'rachael', $expires, '/');
 				deleteCookie('fx');
 				deleteCookie('opacity');
+				deleteCookie('hue');
+				deleteCookie('saturation');
 			}
 			else if ($option == "tron") {
 				setcookie('theme', 'tron', $expires, '/');
-				deleteCookie('background');
 				setcookie('fx', 'sparks', $expires, '/');
-				setcookie('tron.team', 'purple', $expires, '/');
+				deleteCookie('background');
+				deleteCookie('opacity');
+				deleteCookie('hue');
+				deleteCookie('saturation');
 			}
 			else if ($option == "alexander") {
 				setcookie('theme', 'mono', $expires, '/');
-				deleteCookie('background');
 				setcookie('fx', 'pulsar', $expires, '/');
+				deleteCookie('background');
 			}
 			output('<script>location.reload();</script>');
 		}

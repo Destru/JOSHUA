@@ -29,20 +29,8 @@ body {
 ::-webkit-scrollbar-thumb {
 	background-color:#002933;
 }
-#output:before {
-	background: linear-gradient(to bottom, rgba(2,52,62,1), rgba(2,52,62,0));
-}
-#input:before {
-	background: linear-gradient(to top, rgba(2,52,62,1), rgba(2,52,62,0));
-}
 #music .link {
 	background-image:url("../images/mp3PlayerBlack.png");
-}
-li.pulsar {
-	display:none;
-}
-body.pulsar {
-	-webkit-animation:none;
 }
 #cylon {
 	background: -webkit-linear-gradient(left, rgba(2,36,44,0) 0%, #ff7800 50%, rgba(2,36,44,0) 100%);

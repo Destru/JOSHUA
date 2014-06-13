@@ -6,18 +6,17 @@
 	<div class="nextgen extra">
 		<h2>Background</h2>
 		<ul id="backgrounds" class="tiny clearfix">
-			<li class="none">None</li>
-			<li class="atari">Atari</li>
-			<li class="pirate">Pirate</li>
-			<li class="rachael">Rachael</li>
-			<li class="sleep">Sleep</li>
-			<li class="illuminati">Illuminati</li>
+			<li data-background="atari">Atari</li>
+			<li data-background="pirate">Pirate</li>
+			<li data-background="rachael">Rachael</li>
+			<li data-background="sleep">Sleep</li>
+			<li data-background="illuminati">Illuminati</li>
 		</ul>
 	</div>
 	<h2>Effects</h2>
 	<ul id="fx" class="tiny clearfix">
 		<li data-effect="sparks">Sparks</li>
-		<li data-effect="draw" title="Click and hold down mousebutton">Draw</li>
+		<li data-effect="draw">Draw</li>
 		<li data-effect="pulsar">Pulsar</li>
 		<li data-effect="matrix">Matrix</li>
 		<li data-effect="cylon">Cylon</li>
@@ -30,6 +29,7 @@
 		<div id="sliders">
 			<div class="frame"><div data-slider="opacity">Opacity</div></div>
 			<div class="frame"><div data-slider="hue">Hue</div></div>
+			<div class="frame"><div data-slider="saturation">Saturation</div></div>
 		</div>
 	</div>
 </div>

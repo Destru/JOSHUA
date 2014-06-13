@@ -239,12 +239,15 @@ h1, h2 {
 	margin-left:-100px;margin-top:-100px;
 	background:url('../images/loaderLCARS.png') no-repeat center center;
 }
-li.pulsar {
-	display:none;
+
+/* pulsar */
+[data-effect="pulsar"] {
+	display: none;
 }
-body.pulsar {
+html.pulsar body {
 	-webkit-animation:none;
 }
+
 #music .link {
 	width:100%;
 	background-image:url("../images/mp3PlayerBlack.png");

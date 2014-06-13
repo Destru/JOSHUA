@@ -142,12 +142,20 @@ td {
 #matrix .thread {
 	color:rgba(0,0,0,0.15);
 }
-.sparks, li.pulsar {
-	display:none;
+
+/* pulsar */
+[data-effect="pulsar"] {
+	display: none;
 }
-body.pulsar {
+html.pulsar body {
 	-webkit-animation:none;
 }
+
+/* sparks */
+[data-effect="sparks"], .spark {
+	display: none;
+}
+
 .brush {
     background: -webkit-radial-gradient(center center, circle contain, red 0%, rgba(255,255,255,0) 100%);
     background: -moz-radial-gradient(center center, circle contain, red 0%, rgba(255,255,255,0) 100%);

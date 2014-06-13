@@ -25,7 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="joshua.css?<?= $version ?>" media="screen">
 <?php // theme handling
 	$theme = $_COOKIE['theme'];
-	$nextgenThemes = array('carolla', 'contra', 'penguin', 'white');
+	$nextgenThemes = array('carolla', 'contra', 'rachael', 'white');
 	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css?'.$version.'" media="screen">'."\n";
 ?>

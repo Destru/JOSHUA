@@ -306,15 +306,6 @@ h1 {
 	-webkit-border-radius:3px;
 }
 
-/* no pulsar
-*/
-li.pulsar {
-	display:none;
-}
-body.pulsar {
-	-webkit-animation:none;
-}
-
 #music .link {
 	width:220px;
 	background-position:50% 50%;
@@ -334,7 +325,6 @@ body.pulsar {
 #sliders {
 	display:block;
 	clear:both;
-	margin-top:-5px;
 }
 #sliders .frame {
 	padding-left:13px;
@@ -363,10 +353,25 @@ body.pulsar {
 	margin-left: -10px;
 }
 #sliders .frame {
-	margin-top: 10px;
+	margin-top: 5px;
 	border-radius: 5px;
 }
 .ui-slider-handle {
 	background-color: #000;
 	border-radius: 3px;
+}
+
+/* css effects */
+[data-effect="drunk"],
+[data-effect="hipster"],
+[data-effect="invert"] {
+	display: none;
+}
+
+/* pulsar */
+[data-effect="pulsar"] {
+	display: none;
+}
+html.pulsar body {
+	-webkit-animation:none;
 }

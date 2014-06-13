@@ -47,18 +47,6 @@ a, .joshua, .error {color:#ccab60;}
 ::-webkit-scrollbar-thumb {
 	background-color:#152521;
 }
-#output:before {
-	background: linear-gradient(to bottom, rgba(27,46,42,1), rgba(27,46,42,0));
-}
-#input:before {
-	background: linear-gradient(to top, rgba(27,46,42,1), rgba(27,46,42,0));
-}
-li.pulsar {
-	display:none;
-}
-body.pulsar {
-	-webkit-animation:none;
-}
 #cylon {
 	background: -webkit-linear-gradient(left, rgba(21,37,33,0) 0%, #c28934 50%, rgba(21,37,33,0) 100%);
 	background: -moz-linear-gradient(left, rgba(21,37,33,0) 0%, #c28934 50%, rgba(21,37,33,0) 100%);

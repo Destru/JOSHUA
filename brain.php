@@ -404,6 +404,7 @@ $static = array(
 'demo' => 'This is not a demonstration. This is my life.',
 'gay' => 'There is nothing wrong with being gay. However, calling things gay when you don\'t understand them is idiocy.',
 'clg' => 'Rush Hour best botlane NA. <a class="view" href="http://i.imgur.com/71ssNiS.gif">Get hyped.</a>',
+'tip' => 'ID Software used to have the same cheat codes.',
 'ultraviolence' => '<script>fxInit(\'ultraviolence\', true);</script>',
 'pvp' => 'PVP > PVE',
 'cheese' => 'I\'m in ur fridge, <a href="misc/cheese.jpg" class="view">stealin\' ur cheeze</a>.',

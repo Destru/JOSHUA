@@ -228,21 +228,19 @@ p.example {
 	border-color: rgba(255,255,255,.25);
 }
 #cylon {
-	background: -webkit-linear-gradient(left, transparent 0%, #ff8f8f 50%, transparent 100%);
-	background: -moz-linear-gradient(left, transparent 0%, #ff8f8f 50%, transparent 100%);
-	background: -ms-linear-gradient(left, transparent 0%, #ff8f8f 50%, transparent 100%);
-	background: linear-gradient(left, transparent 0%, #ff8f8f 50%, transparent 100%);
+	background: -webkit-linear-gradient(left, transparent 0%, #fffe8f 50%, transparent 100%);
+	background: -moz-linear-gradient(left, transparent 0%, #fffe8f 50%, transparent 100%);
+	background: -ms-linear-gradient(left, transparent 0%, #fffe8f 50%, transparent 100%);
+	background: linear-gradient(left, transparent 0%, #fffe8f 50%, transparent 100%);
 }
 .brush {
-    background: -webkit-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
-    background: -moz-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
-    background: -ms-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
-    background: radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
+  background: -moz-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
+  background: -ms-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
 }
 #joshua h1 {
-	color: #ff8f8f;
-	border-color: #ff8f8f;
-	margin: 20px 40px 0 40px;
+	display: none;
 }
 
 /* colors */

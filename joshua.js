@@ -18,6 +18,8 @@ function reset() {
 	eraseCookie('background');
 	eraseCookie('fx');
 	eraseCookie('opacity');
+	eraseCookie('hue');
+	eraseCookie('saturation');
 	$.each(windows, function() {
 		eraseCookie(this);
 		eraseCookie('window.'+this);
@@ -192,9 +194,7 @@ function loadSuperplastic() {
 	if ($('#superplastic').has('iframe').length == 0) {
 		$('#superplastic').append('<iframe class="gameFrame" src="superplastic/index.html" width="580" height="340" frameborder="0" scrolling="no">')
 	}
-	else {
-		 $('#superplastic iframe').attr("src", $('#superplastic iframe').attr("src"));
-	}
+	else $('#superplastic iframe').attr("src", $('#superplastic iframe').attr("src"));
 	$('#superplastic:hidden').fadeIn(fade);
 	systemReady();
 }
@@ -230,14 +230,12 @@ function chromeInit() {
 		$('#'+id+':visible').fadeOut(fade);
 		if (id == "superplastic") {
 			$('#'+id+' iframe').remove();
-			if (readCookie('fx')) fxInit(fx);
 		}
 		else if (id == "music") if (!muted) mute();
 		$('[data-window="'+id+'"]').removeClass('active');
 		stealFocus();
 	});
 	$(document).on('click', '[data-window]', function() {
-		console.log('data window');
 		var button = $(this);
 			id = button.data('window');
 		if (button.hasClass('active')) {
@@ -287,7 +285,6 @@ function chromeInit() {
 		});
 	});
 	$(document).on('click', '[data-effect]', function() {
-		console.log('data-effect triggered');
 		if ($(this).hasClass('active')) fxStop();
 		else fxInit($(this).data('effect'));
 	});
@@ -297,16 +294,13 @@ function chromeInit() {
 
 function initSliders() {
 	var opacity = readCookie('opacity') || 1,
-		hue = readCookie('hue') || 360;
+		hue = readCookie('hue') || 360,
+		saturation = readCookie('saturation') || 100;
 	$('[data-slider="opacity"]').slider({
 		max: 20,
 		min: 3,
 		value: opacity*20,
 		slide: function(event, ui) {
-			opacity = ui.value/20;
-			$('#joshua, .window').css('opacity', opacity);
-		},
-		change: function(event, ui) {
 			opacity = ui.value/20;
 			$('#joshua, .window').css('opacity', opacity);
 			createCookie('opacity', opacity, expires);
@@ -318,26 +312,49 @@ function initSliders() {
 		min: 0,
 		value: hue,
 		slide: function(event, ui) {
-			$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
-		},
-		change: function(event, ui) {
-			$('html').css('-webkit-filter', 'hue-rotate('+ui.value+'deg)');
+			$('html').css('-webkit-filter',
+				'hue-rotate('+ui.value+'deg) saturate('+saturation+'%)');
 			createCookie('hue', ui.value, expires);
 		}
 	});
-	$('html').css('-webkit-filter', 'hue-rotate('+hue+'deg)');
+	$('[data-slider="saturation"]').slider({
+		max: 200,
+		min: 0,
+		value: saturation,
+		slide: function(event, ui) {
+			$('html').css('-webkit-filter',
+				'hue-rotate('+hue+'deg) saturate('+ui.value+'%)');
+			createCookie('saturation', ui.value, expires);
+		}
+	});
+	$('html').css('-webkit-filter',
+		'hue-rotate('+hue+'deg) saturate('+saturation+'%)');
 }
 
 function chromeMagic() {
-	if (nextgen || theme == "tron") initSliders();
+	if (nextgen || theme == "tron") {
+		initSliders();
+	}
 	if (nextgen) {
-		if (readCookie('background')) $('#joshua').addClass(background);
-		$('#backgrounds li').on('click', function() {
-			var background = this.getAttribute('class');
-			$('#joshua').removeClass().addClass(background);
-			createCookie('background', background, expires);
+		var b = readCookie('background');
+		if (b) $('#joshua').addClass(b);
+		$('[data-background="'+b+'"]').addClass('active');
+		$(document).on('click', '[data-background]', function() {
+			var b = $(this).data('background');
+			if ($(this).hasClass('active')) {
+				$('#joshua').removeClass(b);
+				$(this).removeClass('active');
+				eraseCookie('background');
+			}
+			else {
+				$('#joshua').removeClass().addClass(b);
+				$('[data-background]').removeClass('active');
+				$('[data-background="'+b+'"]').addClass('active');
+				createCookie('background', b, expires);
+			}
 		});
 		if (theme == "contra") {
+			$('html').addClass('contra');
 			$('#joshua h1').html('<b>JOSHUA</b> Konami Edition <span class="dark">30 lives!</span>');
 		}
 	}
@@ -367,7 +384,7 @@ function chromeMagic() {
 	else if (theme == "neocom") {
 		$('#wrapper').prepend('<div id="nebula"><img src="images/backgroundNeocom.jpg"></div>');
 		$('#desktop').prepend('<a href="/"><div id="neocom"><img src="images/logoNeocom.png" width="20" height="20" alt="JOSHUA"></div></a>');
-		resizeHelper(142);
+		resizeHelper(88);
 	}
 }
 
@@ -394,7 +411,8 @@ function boot() {
 		createCookie('release', version, expires);
 		location.reload();
 	}
-	var fx = readCookie('fx'); if (fx) fxInit(fx, true);
+	var fx = readCookie('fx');
+	if (fx) fxInit(fx, true);
 	$.each(windows,function() {
 		var cookie = readCookie('window.'+this),
 		theme = readCookie('theme');

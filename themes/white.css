@@ -42,8 +42,11 @@ ul.icons li a {
 	color:rgba(0,0,0,0.5);
 	background-image:url("../images/iconsWhite.png");
 }
-.atari, .pirate, .sleep, .illuminati {
-	display:none;
+[data-background="atari"],
+[data-background="pirate"],
+[data-background="sleep"],
+[data-background="illuminati"] {
+	display: none;
 }
 body {
 	background-image:url('../images/backgroundWhite.png');
@@ -72,12 +75,6 @@ body {
 ::-webkit-scrollbar-track {
 	background-color:#e4e4e4;
 }
-#output:before {
-	background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
-}
-#input:before {
-	background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
-}
 
 #loader {
 	background:url('../images/loaderWhite.png') no-repeat center 6px;
@@ -99,4 +96,9 @@ body {
     background: -moz-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
     background: -ms-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
     background: radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+}
+
+/* sparks */
+[data-effect="sparks"], .spark {
+	display: none;
 }

@@ -226,12 +226,15 @@ table td {
 #loader {
 	background:url('../images/loaderDiesel.png') no-repeat center 6px;
 }
-li.pulsar {
-	display:none;
+
+/* pulsar */
+[data-effect="pulsar"] {
+	display: none;
 }
-body.pulsar {
+html.pulsar body {
 	-webkit-animation:none;
 }
+
 #music .link {
 	border-top:solid 1px #464740;
 	width:180px;

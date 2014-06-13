@@ -58,12 +58,6 @@ h1, h2, p, table {
 .command {
 	text-transform:uppercase;
 }
-li.pulsar {
-	display:none;
-}
-body.pulsar {
-	-webkit-animation:none;
-}
 h2, #music .link {
 	display:none;
 }
@@ -72,4 +66,12 @@ h2, #music .link {
 }
 #cylon, .brush {
 	background: hsl(247,54%,41%);
+}
+
+/* pulsar */
+[data-effect="pulsar"] {
+	display: none;
+}
+html.pulsar body {
+	-webkit-animation:none;
 }
