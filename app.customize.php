@@ -7,8 +7,8 @@
 		<h2>Background</h2>
 		<ul id="backgrounds" class="tiny clearfix">
 			<li data-background="atari">Atari</li>
+			<li data-background="clg">CLG</li>
 			<li data-background="pirate">Pirate</li>
-			<li data-background="rachael">Rachael</li>
 			<li data-background="sleep">Sleep</li>
 			<li data-background="illuminati">Illuminati</li>
 		</ul>

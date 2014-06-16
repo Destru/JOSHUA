@@ -193,7 +193,7 @@ p.example {
 	display: inline-block;
 }
 /* content */
-pre, .pre, p.irc, .fixed-width {
+pre, .irc, .fixed-width {
 	font-family:'Consolas', 'Monaco';
 	font-size:11px;
 	line-height:1.4em;

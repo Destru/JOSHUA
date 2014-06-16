@@ -19,9 +19,7 @@ ul.icons li a {
 	background-image:url("../images/iconsCarolla.png");
 }
 body {
-	background-image:url("../images/backgroundCarolla.png");
-	background-repeat:repeat-x;
-	background-position:0% 0%;
+	background-image: none;
 }
 .button.playing, .button:hover, .tiny li:hover, .ui-slider-handle, .tiny .active {
 	background-color:#d35300;

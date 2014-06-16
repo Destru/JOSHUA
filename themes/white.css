@@ -43,9 +43,10 @@ ul.icons li a {
 	background-image:url("../images/iconsWhite.png");
 }
 [data-background="atari"],
+[data-background="clg"],
+[data-background="illuminati"],
 [data-background="pirate"],
-[data-background="sleep"],
-[data-background="illuminati"] {
+[data-background="sleep"] {
 	display: none;
 }
 body {

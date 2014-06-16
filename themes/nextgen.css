@@ -162,6 +162,9 @@ h1 b, h2 b {
 .joshua b, .error b {
 	font-family: 'Tempesta Bold', Helvetica, Arial;
 }
+pre, .irc {
+	font-size:10px;
+}
 
 /* content */
 #tip {
@@ -382,21 +385,25 @@ ul.icons li a {
 	-webkit-border-radius:5px;
 }
 #joshua.atari {
-	background-image:url("../images/joshuaAtari.png");
+	background-image:url("../images/joshuaBackgroundAtari.png");
 }
-#joshua.pirate {
-	background-image:url("../images/joshuaPirate.png");
-}
-#joshua.sleep{
-	background-image:url("../images/joshuaSDE.png");
-}
-#joshua.rachael {
-	background-image:url("../images/joshuaRachael.png");
+#joshua.clg {
+	background-image:url("../images/joshuaBackgroundCLG.png");
 }
 #joshua.illuminati {
-	background-image:url("../images/joshuaIlluminati.png");
+	background-image:url("../images/joshuaBackgroundIlluminati.png");
 	background-position:120px -300px;
 }
+#joshua.pirate {
+	background-image:url("../images/joshuaBackgroundPirate.png");
+}
+#joshua.rachael {
+	background-image:url("../images/joshuaBackgroundRachael.png");
+}
+#joshua.sleep{
+	background-image:url("../images/joshuaBackgroundSDE.png");
+}
+
 .window h2 {
 	font-family:"Tempesta Extended Bold";
 }

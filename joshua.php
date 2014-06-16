@@ -117,7 +117,7 @@ if (empty($output)) {
 		$count = count($array)-1; $rand = rand(0,$count);
 		if (!empty($option) && $option == "all") {
 			foreach($array as $quote) {
-				if ($command == "bash") $quote = '<div class="pre">'.$quote.'</div>';
+				if ($command == "bash") $quote = '<p class="irc">'.$quote.'</p>';
 				output($quote);
 			}
 		}
@@ -127,7 +127,7 @@ if (empty($output)) {
 		}
 		else {
 			$quote = $array[$rand];
-			if ($command == "bash") $quote = '<div class="pre">'.$quote.'</div>';
+			if ($command == "bash") $quote = '<p class="irc">'.$quote.'</p>';
 			output($quote);
 		}
 	}
@@ -432,12 +432,12 @@ if (empty($output)) {
 
 	// presets
 	if ($command == "preset" || $command == "presets") {
-		$presets = array('alexander', 'rachael', 'gamer', 'tron');
+		$presets = array('gamer', 'rachael', 'prometheus');
 		sort($presets);
 		if (isset($option) && in_array($option, $presets)) {
 			if ($option == "gamer") {
 				setcookie('theme', 'carolla', $expires, '/');
-				setcookie('background', 'atari', $expires, '/');
+				setcookie('background', 'clg', $expires, '/');
 				setcookie('fx', 'sparks', $expires, '/');
 				deleteCookie('opacity');
 				deleteCookie('hue');
@@ -451,15 +451,7 @@ if (empty($output)) {
 				deleteCookie('hue');
 				deleteCookie('saturation');
 			}
-			else if ($option == "tron") {
-				setcookie('theme', 'tron', $expires, '/');
-				setcookie('fx', 'sparks', $expires, '/');
-				deleteCookie('background');
-				deleteCookie('opacity');
-				deleteCookie('hue');
-				deleteCookie('saturation');
-			}
-			else if ($option == "alexander") {
+			else if ($option == "prometheus") {
 				setcookie('theme', 'mono', $expires, '/');
 				setcookie('fx', 'pulsar', $expires, '/');
 				deleteCookie('background');
