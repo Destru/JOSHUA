@@ -19,8 +19,8 @@ body {
 /* joshua */
 #joshua {
 	z-index:10;
-	height:500px;
-	width:800px;
+	height:560px;
+	width:900px;
 	padding:10px;
 	margin: auto;
 	position: absolute;
@@ -35,17 +35,17 @@ body {
 	padding:5px;
 }
 #output {
-	width:790px;
+	width:890px;
 	padding-right:10px;
 }
 pre, p, #prompt, table {
-	width:760px;
+	width:860px;
 }
 a {
 	text-decoration:none;
 }
 #output {
-	height:422px;
+	height:482px;
 }
 #prompt {
 	font-family:Helvetica, Arial;
@@ -64,7 +64,7 @@ h1 {
 	height:2px;
 	font-size:11px;
 }
-.tron.extra {
+.theme-specific.tron {
 	display: block;
 	margin-top: 20px;
 }
@@ -135,11 +135,11 @@ ol, ul, .motd, .prompt {
 }
 
 /* tiny buttons */
-.tiny {
+.options {
 	margin-top:-5px;
 	margin-bottom:10px;
 }
-.tiny li {
+.options li {
 	float:left;
 	margin-right:5px;
 	margin-top:5px;
@@ -152,7 +152,7 @@ ol, ul, .motd, .prompt {
 }
 
 /* misc */
-.pre, .tiny, .output p, .output td, .output pre {
+.pre, .options, .output p, .output td, .output pre {
 	padding:0 10px;
 }
 .clear {
@@ -193,7 +193,7 @@ table.torrents td a:hover {
 #desktop ul#links {
 	opacity:0.5;
 }
-.tiny li:hover, #desktop a:hover, .tiny .active {
+.options li:hover, #desktop a:hover, .options .active {
 	border-color:#68b8ff;
 	color:#68b8ff;
 }
@@ -247,7 +247,7 @@ h1 {
 	padding:0 10px;
 	border:solid 1px #555;
 }
-.menu li a, h2, .prompt, #sliders .frame {
+.menu li a, h2, .prompt, .slider-frame {
 	font-weight: bold;
 	font-size:11px;
 	line-height:18px;
@@ -273,13 +273,13 @@ h1 {
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 }
-.tiny li, h2, .close {
+.options li, h2, .close {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 }
 
 /* background */
-.tron .tiny li {
+.tron .options li {
 	border:none;
 	height:5px;
 	width:10px;
@@ -322,16 +322,12 @@ h1 {
 }
 
 /* sliders */
-#sliders {
-	display:block;
-	clear:both;
-}
-#sliders .frame {
+.slider-frame {
 	padding-left:13px;
 	padding-right:13px;
 	text-indent:-6px;
 }
-#sliders .frame, .ui-slider {
+.slider-frame, .ui-slider {
 	width:254px;
 }
 .ui-slider {
@@ -352,7 +348,7 @@ h1 {
 	margin-top: 3px;
 	margin-left: -10px;
 }
-#sliders .frame {
+.slider-frame {
 	margin-top: 5px;
 	border-radius: 5px;
 }
@@ -362,14 +358,14 @@ h1 {
 }
 
 /* css effects */
-[data-effect="drunk"],
-[data-effect="hipster"],
-[data-effect="invert"] {
+li[data-effect="drunk"],
+li[data-effect="hipster"],
+li[data-effect="invert"] {
 	display: none;
 }
 
 /* pulsar */
-[data-effect="pulsar"] {
+li[data-effect="pulsar"] {
 	display: none;
 }
 html.pulsar body {

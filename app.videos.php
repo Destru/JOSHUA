@@ -15,7 +15,7 @@
 				$.each(data.feed.entry, function(i, entry) {
 					var id = entry.id.$t.replace('tag:youtube.com,2008:video:',''),
 					title = entry.title.$t;
-					menu = menu+'<li id="'+id+'"><a class="button" href="http://www.youtube.com/watch?v='+id+'">'+title+'</a></li>';
+					menu = menu+'<li id="'+id+'"><a class="button" href="http://www.youtube.com/watch?v='+id+'">'+title+'</a>';
 					videos.push([id,title]);
 				});
 				if($('#videos').has('iframe').length == 0) $('#videos').append('<iframe src="" width="560" height="315" frameborder="0" allowfullscreen style="display:none"/>');

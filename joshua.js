@@ -103,7 +103,7 @@ function mute() {
 function fxStop() {
 	var cookie = readCookie('fx');
 	if (cookie) {
-		$('#fx li').removeClass('active');
+		$('[data-custom="effects"] li').removeClass('active');
 		$('.spark, #malkovich, .brush, #cylon, #matrix').remove();
 		$('html').removeClass();
 		if (cookie == "draw") {

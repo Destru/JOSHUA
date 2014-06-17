@@ -20,33 +20,33 @@ html, body {
 }
 #joshua {
 	z-index:10;
-	height:520px;
+	height:580px;
 	padding:10px;
 	position:absolute;
 	left:50%; top:50%;
-	margin-left: -380px;
-	margin-top: -285px;
+	margin-left: -450px;
+	margin-top: -300px;
 	background-position:50% 50%;
 	background-repeat:no-repeat;
-	width:740px;
+	width:880px;
 }
 #input {
 	margin-top:10px;
 	padding:5px;
 }
 #output {
-	height:440px;
+	height:500px;
 	padding:0 10px;
-	width:720px;
+	width:860px;
 	overflow-x:hidden;
 	overflow-y:auto;
 }
 input#prompt {
-	width:720px;
+	width:860px;
 	border-collapse:collapse;
 }
 p, pre, table {
-	width:710px;
+	width:850px;
 }
 input#prompt {
 	font-smoothing:none;
@@ -137,7 +137,7 @@ h1, h2, #input {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 }
-.speechBubble, #sliders .frame, .ui-slider-handle, .button, .tiny li {
+.speechBubble, .slider-frame, .ui-slider-handle, .button, .options li {
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	border-radius:3px;
@@ -154,7 +154,7 @@ h1, h2, h1 b, h2 b {
 h1 b, h2 b {
 	font-family: 'Tempesta Extended Bold', Helvetica, Arial;
 }
-.fixed-width, #sliders .frame, .speechBubble, .tiny li, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
+.fixed-width, .slider-frame, .speechBubble, .options li, ul.icons li a, #tip, .button, .command, .example, .prompt, .joshua, .error {
 	font-family: 'Tempesta', Helvetica, Arial;
 	font-size:8px; line-height:1.2em;
 	text-transform:uppercase;
@@ -284,31 +284,28 @@ ul.menu {
 .button.playing, .button.paused {
 	font-family:"Tempesta Bold";
 }
-/* tiny buttons */
-.tiny {
+
+/* inline buttons */
+.options {
 	margin-bottom:10px;
 }
-.tiny li {
-	float:left;
+.options li {
 	color:#fff;
 	margin-right:5px;
 	margin-bottom:5px;
 	cursor:pointer;
 }
-.tiny li, #sliders .frame, .button {
+.options li, .slider-frame, .button {
 	padding:4px 7px 6px 7px;
 }
+
 /* sliders */
-#sliders {
-	display:block;
-	clear:both;
-}
-#sliders .frame {
+.slider-frame {
 	padding-left:13px;
 	padding-right:13px;
 	text-indent:-6px;
 }
-#sliders .frame, .ui-slider {
+.slider-frame, .ui-slider {
 	width:254px;
 }
 .ui-slider {
@@ -341,7 +338,7 @@ body {
 #joshua {
 	background-color:rgb(40,40,40);
 }
-#sliders .frame {
+.slider-frame {
 	background-color:#444;
 	margin-top: 10px;
 	color:#282828;
@@ -352,7 +349,7 @@ body {
 .window h1, .window h2 {
 	color:#fff;
 }
-.button:hover, .button:hover, .tiny li:hover, .button.playing, .tiny .active {
+.button:hover, .button:hover, .options li:hover, .button.playing, .options .active {
 	background-color:#fc0;
 	color:#363636;
 }
@@ -362,7 +359,7 @@ body {
 #prompt, .close:hover {
 	color:#fff;
 }
-.tiny li, .ui-slider-handle, .button, .window h2 {
+.options li, .ui-slider-handle, .button, .window h2 {
 	background-color:#282828;
 }
 ul.icons li a {
@@ -374,8 +371,8 @@ ul.icons li a {
 .example, .light, .command, a, .joshua, .error {
 	color:#fc0;
 }
-.nextgen.extra {
-	display:inline;
+.theme-specific.nextgen {
+	display: inline;
 }
 .image {
 	margin-top:4px;
@@ -444,14 +441,14 @@ ul.icons li a {
 }
 
 /* css effects */
-[data-effect="drunk"],
-[data-effect="hipster"],
-[data-effect="invert"] {
+li[data-effect="drunk"],
+li[data-effect="hipster"],
+li[data-effect="invert"] {
 	display: none;
 }
 
 /* pulsar */
-[data-effect="pulsar"] {
+li[data-effect="pulsar"] {
 	display: none;
 }
 html.pulsar body {

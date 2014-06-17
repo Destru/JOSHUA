@@ -29,12 +29,12 @@ table td {
 	font-size:14px;
 	line-height:14px;
 }
-ul.menu, .prompt, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .window .tiny, #output {
+ul.menu, .prompt, p#bio, #prompt, #joshua .st, p.pearl, #joshua, .window, .window .options, #output {
 	border-radius:9px;
 	-webkit-border-radius:9px;
 	-moz-border-radius:9px;
 }
-.window .tiny {
+.window .options {
 	background-color:#000;
 	padding:11px;
 }
@@ -71,14 +71,13 @@ h1, h2 {
 	border-right:solid 3px #99c;
 	padding:0 12px;
 }
-.tiny li {
-	float:left;
+.options li {
 	padding:3px 6px;
 	background-color:#fc9;
 	color:#000;
 	margin:3px;
 }
-.tiny li:hover, .tiny li.active {
+.options li:hover, .options li.active {
 	background-color:#f96;
 }
 #desktop {
@@ -108,7 +107,7 @@ h1, h2 {
 #links a:hover {
 	background-color:#f96;
 }
-.image, #desktop a, .tiny li {
+.image, #desktop a, .options li {
 	border-radius:3px;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
@@ -180,7 +179,7 @@ b {
 .menu a.playing, .menu a:hover {
 	border-color:#c66;
 }
-#desktop a, .tiny li, .prompt, h1, h2 {
+#desktop a, .options li, .prompt, h1, h2 {
 	font-size:18px;
 	line-height:1em;
 	font-family:'Anton', Helvetica;
@@ -241,7 +240,7 @@ h1, h2 {
 }
 
 /* pulsar */
-[data-effect="pulsar"] {
+li[data-effect="pulsar"] {
 	display: none;
 }
 html.pulsar body {

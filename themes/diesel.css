@@ -54,12 +54,12 @@ div {
 #music {
 	width:180px;
 }
-.tiny {
+.options {
 	position:relative;
 	left:-10px;
 	width:340px;
 }
-#desktop li a, .menu li a, .tiny li {
+#desktop li a, .menu li a, .options li {
 	border-top:solid 1px #464740;
 	padding:5px 10px;
 	line-height:15px;
@@ -71,16 +71,15 @@ div {
 .menu {
 	margin-bottom:-5px;
 }
-.tiny li {
-	float:left;
+.options li {
 	width:80px;
 	margin-left:10px;
 }
-.tiny li:hover {
+.options li:hover {
 	background-color:#464740;
 	color:#22251c;
 }
-.tiny {
+.options {
 	margin-bottom:20px;
 }
 .motd {
@@ -120,7 +119,7 @@ div {
 .close:hover {
 	background-color:#c9db67;
 }
-#desktop ul li a, .tiny li, .menu li a, .window h1, .window h2, .dark, .prompt {
+#desktop ul li a, .options li, .menu li a, .window h1, .window h2, .dark, .prompt {
 	color:#565750;
 }
 .window p {
@@ -179,10 +178,10 @@ table td {
 	max-width:1200px;
 }
 #desktop ul li {
-	display:inline;
+	display: inline;
 }
 #desktop ul li a {
-	float:left;
+	display: inline-block;
 	width:180px;
 	overflow:hidden;
 	margin-right:20px;
@@ -228,7 +227,7 @@ table td {
 }
 
 /* pulsar */
-[data-effect="pulsar"] {
+li[data-effect="pulsar"] {
 	display: none;
 }
 html.pulsar body {

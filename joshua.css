@@ -34,11 +34,11 @@ h1, h2, h3, h4 {
 .clear {
 	clear:both;
 }
-.toggle, .command, .example, #desktop a, .close, .tiny li {
+.toggle, .command, .example, #desktop a, .close, .options li {
 	cursor:pointer;
 }
-.extra {
-	display:none;
+.theme-specific {
+	display: none;
 }
 
 /* tables */
@@ -57,19 +57,26 @@ td.command {
 	white-space:nowrap;
 }
 
-/* pixel people! */
+/* yoda */
 .speechBubble {
-	padding:5px 10px !important;
-	margin-bottom:0 !important;
-	max-width:225px;
-	background-color:#fff;
-	color:#000;
+	background-color: #fff;
+	color: #000;
+	display: inline-block;
+	max-width: 420px; /* hhhehehe */
+	padding: 5px 10px;
 }
-.pixelPerson {
-	margin-bottom:20px;
-	background-image: url("images/pixelChat.png");
-	background-repeat:no-repeat;
-	padding-top:8px;
+.yoda:before {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fff;
+  content: "";
+  height: 0;
+  margin-left: 7px;
+	position: absolute;
+  width: 0;
+}
+.yoda img {
+	margin-top: 16px;
 }
 
 /* windows */
@@ -135,15 +142,14 @@ table.fluid {
 	margin-bottom:10px;
 }
 
-/* tiny */
-.tiny {
-	text-transform:capitalize;
+/* inline list */
+.options li {
+	cursor: pointer;
+	display: inline-block;
+	text-transform: capitalize;
 }
-.tiny li {
-	cursor:pointer;
-}
-.tiny .lcars {
-	text-transform:uppercase;
+.options .lcars {
+	text-transform: uppercase;
 }
 
 /* images */

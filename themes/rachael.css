@@ -1,8 +1,8 @@
 body {background-color:#420127;color:#fff;}
-#sliders .frame, .tiny li, .button, #joshua {background-color:#66013c;}
-.button.playing, .tiny li:hover, .button:hover, .tiny .active {background-color:#ae2a78;}
+.slider-frame, .options li, .button, #joshua {background-color:#66013c;}
+.button.playing, .options li:hover, .button:hover, .options .active {background-color:#ae2a78;}
 .ui-slider-handle, .window, h1, #input {background-color:#4a012c;}
-.button, .button.paused, #sliders .frame, .tiny li, .light, .command, .example, a, .joshua, .error {color:#ff8acf;}
+.button, .button.paused, .slider-frame, .options li, .light, .command, .example, a, .joshua, .error {color:#ff8acf;}
 .close, .close:hover, .dark, .prompt {color:#ff34ab;}
 .pink {color:#f09;}
 .dark {color:#4bccfc;}
@@ -14,10 +14,10 @@ body {background-color:#420127;color:#fff;}
 }
 /* images */
 ul.icons li a {
-	background-image:url("../images/iconsPenguin.png");
+	background-image:url("../images/iconsRachael.png");
 }
 body {
-	background-image:url("../images/backgroundPenguin.png");
+	background-image:url("../images/backgroundRachael.png");
 	background-repeat: no-repeat;
 	background-position:140px 40px;
 }
@@ -26,7 +26,7 @@ body {
 	top:10px;
 	right:10px;
 }
-.tiny li:hover, .button:hover, .button.playing, .tiny .active {color:#4a012c;}
+.options li:hover, .button:hover, .button.playing, .options .active {color:#4a012c;}
 
 ::-webkit-scrollbar-thumb {
 	background-color:#ae2a78;
@@ -48,5 +48,5 @@ body {
     background: radial-gradient(center center, circle contain, #ff8acf 0%, rgba(66,1,39,0) 100%);
 }
 #loader {
-	background:url('../images/loaderPenguin.png') no-repeat center 6px;
+	background:url('../images/loader.png') no-repeat center 6px;
 }

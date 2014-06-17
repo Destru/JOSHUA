@@ -278,7 +278,7 @@ if (empty($output)) {
 
 	// yoda
 	if ($command == "yoda") {
-		$yoda = '<div class="pixelPerson"><img src="images/iconYoda.png" width="27" height="28"></div>';
+		$yoda = '<div class="yoda"><img src="images/iconYoda.png" width="27" height="28"></div>';
 		if (isset($input)) {
 			$count = count($yodaQuotes)-1; $rand = rand(0,$count);
 			output('<div class="speechBubble">'.$yodaQuotes[$rand].'</div>'.$yoda);

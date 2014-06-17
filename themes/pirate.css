@@ -77,7 +77,7 @@ td {
 .window a {
 	color:#00becd;
 }
-.tiny li {
+.options li {
 	float:left;
 	margin-right:10px;
 	margin-top:5px;
@@ -108,10 +108,10 @@ a.close, .image img {
 	color:#888;
 	margin-top:5px;
 }
-.tiny li:hover , .menu a:hover, a.playing, .tiny .active {
+.options li:hover , .menu a:hover, a.playing, .options .active {
 	color:#00becd;
 }
-.tiny {
+.options {
 	margin-bottom:20px;
 }
 ::selection {

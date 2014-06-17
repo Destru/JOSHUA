@@ -1,11 +1,14 @@
-body {background-color:#eee;color:#444;}
+body {
+	background-color:#fff;
+	color:#444;
+}
 
-.button:hover, .tiny li:hover, .button.playing, #joshua, .tiny .active {background-color:#fff;}
-.button:hover, .tiny li:hover, .button.playing, .tiny .active {
+.button:hover, .options li:hover, .button.playing, #joshua, .options .active {background-color:#fff;}
+.button:hover, .options li:hover, .button.playing, .options .active {
 	color:#999;
 }
 .window {
-	background-color:#ddd;
+	background-color: #f4f4f4;
 }
 .window h1, .window h2 {
 	background-color:transparent;
@@ -13,7 +16,7 @@ body {background-color:#eee;color:#444;}
 	padding:0;
 }
 
-#sliders .frame, .tiny li, #input, .button  {
+.slider-frame, .options li, .button  {
 	background-color:#e4e4e4;
 }
 #joshua h1 {
@@ -26,13 +29,19 @@ body {background-color:#eee;color:#444;}
 	margin-bottom:0;
 }
 #output {
-	height:450px;
+	height: 510px;
 }
 .example, .light, a, .joshua, .error, .command {color:#09f;}
 .close, .close:hover {color:#999;}
 .window .close, .window .close:hover {color:#000;}
 .pink, .dark, .prompt {color:#f09;}
-#prompt { color:#222;}
+
+#input {
+	background-color: #f4f4f4;
+}
+#prompt {
+	color: #444;
+}
 
 h1 .dark {
 	color:#ccc;
@@ -40,7 +49,7 @@ h1 .dark {
 /* images */
 ul.icons li a {
 	color:rgba(0,0,0,0.5);
-	background-image:url("../images/iconsWhite.png");
+	background-image:url("../images/iconsWhitewall.png");
 }
 [data-background="atari"],
 [data-background="clg"],
@@ -50,9 +59,8 @@ ul.icons li a {
 	display: none;
 }
 body {
-	background-image:url('../images/backgroundWhite.png');
-	background-repeat:repeat-y;
-	background-position:0 0;
+	background-image: url('../images/patternBrickwall.png');
+	background-repeat: repeat;
 }
 .window .close {
 	position:absolute;
@@ -60,25 +68,25 @@ body {
 	right:10px;
 }
 
-#sliders .frame, .tiny li, .button, .ui-slider {
-	color:#777;
+.slider-frame, .options li, .button, .ui-slider {
+	color:#888;
 }
-#sliders .ui-slider-handle {
-	background-color:#aaa;
+.ui-slider-handle {
+	background-color:#ccc;
 }
-.next-gen.extra, #tip {
+.theme-specific.nextgen[data-custom="backgrounds"] {
 	display:none;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color:#c4c4c4;
+	background-color:#e4e4e4;
 }
 ::-webkit-scrollbar-track {
-	background-color:#e4e4e4;
+	background-color:#f4f4f4;
 }
 
 #loader {
-	background:url('../images/loaderWhite.png') no-repeat center 6px;
+	background:url('../images/loaderWhitewall.png') no-repeat center 6px;
 }
 #music .link {
 	background-image:url("../images/mp3PlayerBlack.png");
@@ -93,13 +101,12 @@ body {
 	background: linear-gradient(left, rgba(255,255,255,0) 0%, #09f 50%, rgba(255,255,255,0) 100%);
 }
 .brush {
-    background: -webkit-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
-    background: -moz-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
-    background: -ms-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
-    background: radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+  background: -webkit-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+  background: -moz-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+  background: -ms-radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
+  background: radial-gradient(center center, circle contain, #09f 0%, rgba(255,255,255,0) 100%);
 }
 
-/* sparks */
-[data-effect="sparks"], .spark {
-	display: none;
+#joshua, .window {
+	box-shadow: 3px 3px 10px rgba(0,0,0,.1);
 }

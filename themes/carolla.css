@@ -6,9 +6,9 @@ h1, #input {background-color:#002933;}
 .dark, .prompt {color:#92d0e0;}
 a, .joshua, .error, .joshua .command {color:#fbb11a;}
 .example, .light, .command {color:#48b2ce;}
-.button.playing, .tiny li, .menu li a, .tiny li:hover, .window h1, .window h2, .button, .button:hover, .window, .window .close, .window .close:hover, .ui-slider, .tiny .active {color:#582023;}
+.button.playing, .options li, .menu li a, .options li:hover, .window h1, .window h2, .button, .button:hover, .window, .window .close, .window .close:hover, .ui-slider, .options .active {color:#582023;}
 .window h1, .window h2 {background-color:#d15213;}
-.tiny li, #sliders .frame, .button, .window h2 {background-color:#e66405;}
+.options li, .slider-frame, .button, .window h2 {background-color:#e66405;}
 .window a {
 	color:#02343e;
 }
@@ -21,7 +21,7 @@ ul.icons li a {
 body {
 	background-image: none;
 }
-.button.playing, .button:hover, .tiny li:hover, .ui-slider-handle, .tiny .active {
+.button.playing, .button:hover, .options li:hover, .ui-slider-handle, .options .active {
 	background-color:#d35300;
 }
 ::-webkit-scrollbar-thumb {

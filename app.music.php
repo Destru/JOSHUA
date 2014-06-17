@@ -10,7 +10,7 @@
 		$r = rand(0,count($albums)-1);
 		print '<ul class="menu">';
 		foreach ($albums[$r]->tracks as $track) {
-			print '<li><a href="'.$track->url.'" class="mp3">'.$track->title.'</a><li>';
+			print '<li><a href="'.$track->url.'" class="mp3">'.$track->title.'</a>';
 		}
 		print '</ul>';
 		print '<a class="link" href="http://binaerpilot.no/'.$albums[$r]->folder.'/'.$albums[$r]->safeTitle.'"></a>';

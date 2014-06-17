@@ -52,7 +52,7 @@ h1, h2, p, table {
 .light, .command, a {
 	color:hsl(247,59%,75%);
 }
-.menu .playing, .tiny .active {
+.menu .playing, .options .active {
 	color:hsl(247,59%,35%);
 }
 .command {
@@ -69,9 +69,14 @@ h2, #music .link {
 }
 
 /* pulsar */
-[data-effect="pulsar"] {
+li[data-effect="pulsar"] {
 	display: none;
 }
 html.pulsar body {
 	-webkit-animation:none;
+}
+
+.options li {
+	display: block;
+	text-transform: uppercase;
 }

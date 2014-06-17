@@ -14,7 +14,7 @@ a {
 #joshua {
 	padding:28px;
 	width:80%;
-	max-width: 760px;
+	max-width: 860px;
 }
 #prompt {
 	padding:0;
@@ -36,7 +36,7 @@ a {
 	color:rgba(255,255,255,0.5);
 	font-weight:normal;
 }
-.prompt, .output, p, table, h1, h2, .tiny {
+.prompt, .output, p, table, h1, h2, .options {
 	margin-bottom:14px;
 }
 .window {
@@ -51,7 +51,7 @@ a {
 .menu a {
 	color:#000;
 }
-.menu .playing, .menu a:hover, .tiny li:hover, .active {
+.menu .playing, .menu a:hover, .options li:hover, .active {
 	background-color:#000;
 	color:#fff;
 }
@@ -144,4 +144,8 @@ td .image {
 input[type="search"] {
 	background-color: black;
 	color: white;
+}
+
+.options li {
+	display: block;
 }
