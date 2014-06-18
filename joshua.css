@@ -8,8 +8,10 @@
 	-moz-user-select:none;
 	user-select:none;
 }
-html, body {
+html, body, #wrapper {
 	height:100%;
+}
+html, body {
 	color:#fff;
 }
 a {
@@ -53,7 +55,7 @@ td .image {
 tr td:last-child {
 	padding-right:0;
 }
-td.command {
+td.command, td.nowrap {
 	white-space:nowrap;
 }
 
@@ -198,6 +200,11 @@ pre.messages .dark {
 p.example {
 	display: inline-block;
 }
+p.snippet {
+	max-width: 580px;
+}
+
+
 /* content */
 pre, .irc, .fixed-width {
 	font-family:'Consolas', 'Monaco';
@@ -220,6 +227,7 @@ pre.ascii {
 	-moz-user-select:text;
 	user-select:text;
 }
+
 /* effects */
 .brush {
 	z-index:30;
@@ -248,9 +256,7 @@ pre.ascii {
 	cursor:pointer;
 }
 
-/*
- * loader
- */
+/* loader */
 #loader {
 	display:none;
 	position:fixed;

@@ -327,7 +327,7 @@ if (empty($output)) {
 				$output .= $artist.' - '.$track.'<br>'."\r";
 			}
 		}
-		$output .= '<a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>';
+		$output .= '<br><a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>';
 		output($output);
 	}
 
@@ -420,11 +420,11 @@ if (empty($output)) {
 		}
 		sort($themes);
 		if (isset($option) && in_array($option, $themes)) {
-			setcookie('theme', $option, $expires, '/');
+			setcookie('theme', $option, $cookieExpires, '/');
 			output('<script>location.reload();</script>');
 		}
 		else if (isset($option) && $option == "random") {
-			setcookie('theme', $themes[rand(0,count($themes)-1)], $expires, '/');
+			setcookie('theme', $themes[rand(0,count($themes)-1)], $cookieExpires, '/');
 			output('<script>location.reload();</script>');
 		}
 		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($themes).'.</p><p class="example">'.$command.' random</p>');
@@ -436,25 +436,24 @@ if (empty($output)) {
 		sort($presets);
 		if (isset($option) && in_array($option, $presets)) {
 			if ($option == "gamer") {
-				setcookie('theme', 'carolla', $expires, '/');
-				setcookie('background', 'clg', $expires, '/');
-				setcookie('fx', 'sparks', $expires, '/');
+				setcookie('theme', 'carolla', $cookieExpires, '/');
+				setcookie('background', 'clg', $cookieExpires, '/');
+				setcookie('fx', 'sparks', $cookieExpires, '/');
 				deleteCookie('opacity');
 				deleteCookie('hue');
 				deleteCookie('saturation');
 			}
 			else if ($option == "rachael") {
-				setcookie('theme', 'rachael', $expires, '/');
-				setcookie('background', 'rachael', $expires, '/');
+				setcookie('theme', 'rachael', $cookieExpires, '/');
+				setcookie('background', 'rachael', $cookieExpires, '/');
 				deleteCookie('fx');
 				deleteCookie('opacity');
 				deleteCookie('hue');
 				deleteCookie('saturation');
 			}
 			else if ($option == "prometheus") {
-				setcookie('theme', 'mono', $expires, '/');
-				setcookie('fx', 'pulsar', $expires, '/');
-				deleteCookie('background');
+				setcookie('theme', 'mono', $cookieExpires, '/');
+				setcookie('fx', 'pulsar', $cookieExpires, '/');
 			}
 			output('<script>location.reload();</script>');
 		}
@@ -658,7 +657,7 @@ if (empty($output)) {
 						$image = $result->data[$i];
 						$output .= '<div class="slide"><img src="'.$image->images->standard_resolution->url.'" width="468" height="468"></div>';
 					}
-					print $prompt.'<script>$("#slick .slideshow").html(\''.$output.'\'); galleryInit(); $("#gallery:hidden").fadeIn(fade); $("#galleryOpen").addClass("active");</script>';
+					print $prompt.'<script>$("#slick .slideshow").html(\''.$output.'\'); galleryInit(); $("#gallery:hidden").fadeIn(fadeDelay); $("#galleryOpen").addClass("active");</script>';
 					$output = true;
 				}
 				else output('<p class="error">'.$joshua.'Found nothing tagged with '.$input.'. (Instagram filters the API rigorously.)</p>');
@@ -759,6 +758,38 @@ if (empty($output)) {
 		else output('<p class="error">'.$joshua.'What do you want flipped?</p><p class="example">'.$command.' seahawks rule</p>');
 	}
 
+	// wiki
+	if ($command == "wiki" || $command == "wikipedia") {
+		if (isset($input)) {
+			$wiki = 'http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch='.urlencode($input).'&srprop=snippet&format=json';
+			$wiki = json_decode(get($wiki));
+			if (count($wiki->query->search) > 0) {
+				print $prompt;
+				foreach ($wiki->query->search as $article) {
+					print '<p>'.
+						'<a href="http://en.wikipedia.org/wiki/'.$article->title.'">'.$article->title.'</a>'.
+						'</p>'.
+						'<p class="snippet">'.str_replace('searchmatch', 'light', $article->snippet).'</p>';
+				}
+				$output = true;
+			}
+			else error('404');
+		}
+		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' wondershowzen</p>');
+	}
+
+	// history
+	if ($command == "history") {
+		if (isset($option) && $option == "clear") {
+			deleteCookie('history');
+			output('<p class="joshua">'.$joshua.'History was cleared.');
+		}
+		else {
+			$history = explode(',', $_COOKIE['history']);
+			output(implodeHuman($history, true).'.');
+		}
+	}
+
 	// window management
 	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'music', 'videos', 'superplastic', 'reset');
 	if (in_array($command, $jsCommands)) {
@@ -778,8 +809,8 @@ if (empty($output)) {
 			$js = 'reset();';
 		}
 		else if ($command == "customize" || $command == "music") {
-			setcookie($command, true, $expires, '/');
-			$js = '$("#'.$command.':hidden").fadeIn(fade); $("#'.$command.'Open").addClass("active");';
+			setcookie($command, true, $cookieExpires, '/');
+			$js = '$("#'.$command.':hidden").fadeIn(fadeDelay); $("#'.$command.'Open").addClass("active");';
 			if ($command == "music") {
 				$js .= 'mute();';
 			}

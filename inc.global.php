@@ -10,7 +10,7 @@ if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
 }
 
 session_start();
-$version = "10.7";
+$version = "10.8";
 $versionName = "Neocom";
 $defaultTheme = "neocom";
 $nextgenThemes = array('carolla', 'contra', 'rachael', 'whitewall');
@@ -18,7 +18,7 @@ $header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dar
 $title = 'JOSHUA '.$version.': ';
 $termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
 $joshua = "<b>JOSHUA:</b> ";
-$expires = time()+60*60*24*365;
+$cookieExpires = time()+60*60*24*365;
 date_default_timezone_set("America/New_York");
 include 'inc.keys.php';
 

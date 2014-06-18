@@ -14,18 +14,19 @@
 	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named JOSHUA. Go Team Norway!">
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
-	<meta property="og:image" content="http://joshua.einhyrning.com/images/opengraph.jpg">
+	<meta property="og:image" content="http://joshua.einhyrning.com/images/opengraph.jpg?<?= $version ?>">
 	<meta property="og:site_name" content="jQuery Operating System, HUA!">
 	<meta property="og:title" content="Personal homepage of Alexander Støver">
 	<meta property="og:url" content="http://joshua.einhyrning.com/">
 	<meta property="og:description" content="Quite possibly the nerdiest homepage ever made.">
 	<meta property="og:type" content="website">
-	<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg">
-	<link rel="icon" type="image/png" href="images/favicon.png">
+	<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg?<?= $version ?>">
+	<link rel="icon" type="image/png" href="images/favicon.png?<?= $version ?>">
 	<link rel="stylesheet" type="text/css" href="joshua.css?<?= $version ?>" media="screen">
 <?php // theme handling
 	$theme = $_COOKIE['theme'];
-	if(in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css" media="screen">'."\n"; // next-gen stylesheets
+	if (empty($theme)) $theme = $defaultTheme;
+	if (in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css?'.$version.'" media="screen">'."\n";
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css?'.$version.'" media="screen">'."\n";
 ?>
 	<script>
@@ -38,14 +39,13 @@
 	  ga('send', 'pageview');
 	</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-	<script src="resources/joshua.external.min.js"></script>
-	<script src="resources/joshua.effects.min.js"></script>
+	<script src="resources/joshua.external.min.js?<?= $version ?>"></script>
+	<script src="resources/joshua.effects.min.js?<?= $version ?>"></script>
 	<script>
 		// global settings
 		var version = '<?= $version ?>',
 		title = '<?= $title ?>',
 		theme = '<?= $theme ?>',
-		defaultTheme = '<?= $defaultTheme ?>',
 		termPrompt = '<?= $termPrompt ?>',
 		nextgenThemes = ["<?= implode('","', $nextgenThemes) ?>"];
 	</script>
@@ -64,8 +64,8 @@
 <?php // fetch apps and games
 	$d = scandir('.');
 	foreach ($d as $file) {
-		if(stristr($file, 'app.')) $app[] = $file;
-		if(stristr($file, 'game.')) $game[] = $file;
+		if (stristr($file, 'app.')) $app[] = $file;
+		if (stristr($file, 'game.')) $game[] = $file;
 	} ?>
 		<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
 		<div id="games"><?php foreach ($game as $file) include $file; ?></div>

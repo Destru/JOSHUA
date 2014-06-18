@@ -37,7 +37,7 @@ a {
 	font-weight:normal;
 }
 .prompt, .output, p, table, h1, h2, .options {
-	margin-bottom:14px;
+	margin-bottom:20px;
 }
 .window {
 	text-align:right;
@@ -45,8 +45,8 @@ a {
 	line-height:1.2em;
 	background-color:#fff;
 	color:#000;
-	padding:14px;
-	margin:14px;
+	padding:20px;
+	margin:20px;
 }
 .menu a {
 	color:#000;
@@ -84,11 +84,11 @@ h1, h2 {
 .prompt .prefix {
 	color:#000;
 }
-.fluid td {
-	padding-right:14px;
+td, .fluid td {
+	padding-right:20px;
 }
 td .image {
-	margin-right:14px;
+	margin-right:20px;
 }
 #joshua h1 {
 	text-indent:-9999px;
