@@ -1,9 +1,6 @@
 <div id="videos" class="window">
-	<h1>
-		Video Player
-		<a class="close">x</a>
-	</h1>
-	<input type="search" results="10" autosave="<?php print session_id(); ?>" class="clearfix">
+	<h1>Video Player</h1>
+	<input type="search" results="10" autosave="<?php print session_id(); ?>">
 </div>
 <script>
 	$(function() {

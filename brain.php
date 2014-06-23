@@ -18,27 +18,27 @@ $static = array(
 		</tr>
 		<tr>
 			<td><span class="command">numbers</span></td>
-			<td>A text-based game where all the answers are numbers</td>
+			<td>A text-based game where all the answers are numbers.</td>
 		</tr>
 		<tr>
 			<td><span class="command">reviews</span></td>
-			<td>Reviews of terrible, terrible movies</td>
+			<td>Reviews of terrible, terrible movies.</td>
 		</tr>
 		<tr>
 			<td><span class="command">theme</span> <span class="dark">name</span></td>
-			<td>Change the look of the command prompt (use <span class="command">reset</span> to undo)</td>
+			<td>Change the look of the command prompt (use <span class="command">reset</span> to undo).</td>
 		</tr>
 		<tr>
 			<td><span class="command">customize</span></td>
-			<td>Customization options (some theme specific)</td>
+			<td>Customization options (some theme specific).</td>
 		</tr>
 		<tr>
 			<td><span class="command">msg</span> <span class="dark">text</span></td>
-			<td>Leave me a message (use <span class="command">msg list</span> to read)</td>
+			<td>Leave me a message (use <span class="command">msg list</span> to read).</td>
 		</tr>
 		<tr>
 			<td><span class="command">wtfig</span> <span class="dark">font text</span></td>
-			<td>Do you ASCII? Figlet generator extraordinaire</td>
+			<td>Do you ASCII? Figlet generator extraordinaire.</td>
 		</tr>
 		<tr>
 			<td><span class="command">say</span> <span class="dark">text</span></td>
@@ -46,23 +46,27 @@ $static = array(
 		</tr>
 		<tr>
 			<td><span class="command">get</span> <span class="dark">query</span></td>
-			<td>Search and download torrents (use <span class="command">get top</span> for most popular)</td>
+			<td>Search and download torrents (use <span class="command">get top</span> for most popular).</td>
 		</tr>
 		<tr>
 			<td><span class="command">game</span> <span class="dark">name</span></td>
-			<td>Favorite games and things I made for them</td>
+			<td>Favorite games and things I made for them.</td>
 		</tr>
 		<tr>
 			<td><span class="command">rate</span> <span class="dark">title</span></td>
-			<td>Look up ratings on IMDb, Rotten Tomatoes and Metacritic</td>
+			<td>Look up ratings on IMDb, Rotten Tomatoes and Metacritic.</td>
 		</tr>
 		<tr>
 			<td><span class="command">img</span> <span class="dark">query</span></td>
-			<td>A basic image search (currently only Instagram)</td>
+			<td>A basic image search (currently only Instagram).</td>
+		</tr>
+		<tr>
+			<td><span class="command">wiki</span> <span class="dark">query</span></td>
+			<td>The sum of all human knowledge.</td>
 		</tr>
 		<tr>
 			<td><span class="command">yoda</span> <span class="dark">question</span></td>
-			<td>Answer your questions Yoda will</td>
+			<td>Answer your questions Yoda will.</td>
 		</tr>
 		<tr>
 			<td><span class="command">flip</span> <span class="dark">text</span></td>
@@ -74,47 +78,47 @@ $static = array(
 		</tr>
 		<tr>
 			<td><span class="command">last.fm</span></td>
-			<td>Recent tracks and other Last.FM data</td>
+			<td>Recent tracks and other Last.FM data.</td>
 		</tr>
 		<tr>
 			<td><span class="command">bash</span></td>
-			<td>Our infinite stupidity as documented through bash</td>
+			<td>Our infinite stupidity as documented through bash.</td>
 		</tr>
 		<tr>
 			<td><span class="command">locate</span> <span class="dark">ip</span></td>
-			<td>Find out where IP is located</td>
+			<td>Find out where IP is located.</td>
 		</tr>
 		<tr>
 			<td><span class="command">whois</span> <span class="dark">domain</span></td>
-			<td>Look up whois information</td>
+			<td>Look up whois information.</td>
 		</tr>
 		<tr>
 			<td><span class="command">uptime</span></td>
-			<td>Server uptime and load averages</td>
+			<td>Server uptime and load averages.</td>
 		</tr>
 		<tr>
 			<td><span class="command">rachael</span></td>
-			<td>JOSHUA\'s first command (husband cheat-sheet)</td>
+			<td>JOSHUA\'s first command (husband cheat-sheet).</td>
 		</tr>
 		<tr>
 			<td><span class="command">prime</span> <span class="dark">number</span></td>
-			<td>Checks if number is prime</td>
+			<td>Checks if number is prime.</td>
 		</tr>
 		<tr>
 			<td><span class="command">calc</span> <span class="dark">operation</span></td>
-			<td>Performs simple calculations (only one operation at a time)</td>
+			<td>Performs simple calculations (only one operation at a time).</td>
 		</tr>
 		<tr>
 			<td><span class="command">thanks</span></td>
-			<td>Credit where credit is due</td>
+			<td>Credit where credit is due.</td>
 		</tr>
 		<tr>
 			<td><span class="command">version</span></td>
-			<td>Captain\'s log (use <span class="command">git log</span> for more details)</td>
+			<td>Captain\'s log (use <span class="command">git log</span> for more details).</td>
 		</tr>
 		<tr>
 			<td><span class="command">stats</span></td>
-			<td>Useless information that I think is really neat</td>
+			<td>Useless information that I think is really neat.</td>
 		</tr>
 	</table>',
 

@@ -30,6 +30,9 @@ html, body {
 	background-repeat:no-repeat;
 	width:880px;
 }
+#joshua .close {
+	display: none;
+}
 #input {
 	margin-top:10px;
 	padding:5px;

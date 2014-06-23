@@ -231,10 +231,10 @@ p.example {
 	background: linear-gradient(left, transparent 0%, #fffe8f 50%, transparent 100%);
 }
 .brush {
-  background: -webkit-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
-  background: -moz-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
-  background: -ms-radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
-  background: radial-gradient(center center, circle contain, rgb(255,55,142) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-radial-gradient(center center, circle contain,#fffe8f 0%, transparent 100%);
+  background: -moz-radial-gradient(center center, circle contain, #fffe8f 0%, transparent 100%);
+  background: -ms-radial-gradient(center center, circle contain, #fffe8f 0%, transparent 100%);
+  background: radial-gradient(center center, circle contain, #fffe8f 0%, transparent 100%);
 }
 #joshua h1 {
 	display: none;
@@ -291,6 +291,7 @@ p a, table a {
 	color: #000;
 	text-transform: lowercase;
 	height: 21px;
+	border-bottom: solid 1px #fffe8f;
 }
 .tsw-actives {
 	background-color: #8f2b33;

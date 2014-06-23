@@ -60,15 +60,29 @@
 				<input type="text" id="prompt" autocomplete="off">
 			</div>
 		</div>
-		<div id="desktop"><?php include 'inc.desktop.php'; ?></div>
-<?php // fetch apps and games
+		<div id="desktop">
+			<ul id="windows" class="icons">
+			  <li><a data-window="customize" title="Customization options and effects">Customize</a>
+			  <li><a data-window="superplastic" title="You must escape!">Superplastic</a>
+			  <li><a data-window="videos" title="Stream (long) videos on YouTube">Video Player</a>
+			  <li><a data-window="music" title="Listen to my music">MP3 Player</a>
+			</ul>
+			<ul id="links" class="icons">
+				<li><a class="external" href="http://binaerpilot.no" title="Robot music for hackers and other nerds">Binärpilot</a>
+				<li><a class="external" href="http://chronicless.einhyrning.com/" title="JSON API for The Secret World">ChronicLESS</a>
+				<li><a class="external-page" href="wtfig/" title="Simple online FIGlet generator">wtFIG</a>
+				<li><a class="external" href="http://einhyrning.com/" title="VGhlIG9jZWFuIG9mIHNwYWNlDQpJcyBleGlzdGVuY2UgaXMgcHVycG9zZQ0KQ2hhbmdlIGlzIGZvcmV2ZXI=">Einhyrning</a>
+			</ul>
+		</div>
+<?php // apps
 	$d = scandir('.');
 	foreach ($d as $file) {
 		if (stristr($file, 'app.')) $app[] = $file;
-		if (stristr($file, 'game.')) $game[] = $file;
 	} ?>
-		<div id="apps"><?php foreach ($app as $file) include $file; ?></div>
-		<div id="games"><?php foreach ($game as $file) include $file; ?></div>
+		<div id="apps">
+			<div id="speak"></div>
+			<?php foreach ($app as $file) include $file; ?>
+		</div>
 		<div id="loader"></div>
 	</div>
 </body>

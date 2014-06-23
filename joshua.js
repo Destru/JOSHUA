@@ -23,11 +23,6 @@ function reset() {
 	location.reload();
 }
 
-function clearScreen() {
-	$('#output').html('');
-	init();
-}
-
 function stealFocus() {
 	$('#prompt').focus();
 }
@@ -140,7 +135,7 @@ function fxInit(fx, runOnce) {
 		var totalSparks = 42;
 		var sparks = [];
 		for (i = 0; i < totalSparks; i++) {
-			sparks[i] = new Spark(50);
+			sparks[i] = new Spark(Math.floor(Math.random()*10));
 		}
 	}
 	else if (fx == "malkovich") {
@@ -221,20 +216,21 @@ function loadVideos() {
 // chrome
 function chromeInit() {
 	$.each(windows, function() {
-		var w = this;
-		$('#'+w).draggable({
+		var $window = $('#'+this),
+			windowName = this;
+		$window.draggable({
 			distance: 10,
 			handle: 'h1',
 			stop: function(event) {
 				var left = $(this).css('left'),
 					right = $(this).css('right'),
 					top = $(this).css('top');
-				createCookie('window.'+w, left+','+right+','+top, cookieExpires);
+				createCookie('window.'+windowName, left+','+right+','+top, cookieExpires);
 			}
-		});
-		if (readCookie(w)) {
-			$('[data-window="'+w+'"]').addClass('active');
-			$('#'+w+':hidden').show();
+		}).find('h1').append('<a class="close">x</a>');
+		if (readCookie(windowName)) {
+			$('[data-window="'+windowName+'"]').addClass('active');
+			$window.show();
 		}
 	});
 	$(document).on('click', '.close', function() {

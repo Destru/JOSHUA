@@ -20,7 +20,6 @@ $termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
 $joshua = "<b>JOSHUA:</b> ";
 $cookieExpires = time()+60*60*24*365;
 date_default_timezone_set("America/New_York");
-include 'inc.keys.php';
 
 function get($url, $cache=null, $inline=null) {
 	clearstatcache();

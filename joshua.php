@@ -1,5 +1,6 @@
 <?php
 include 'inc.global.php';
+include 'inc.keys.php';
 if (!empty($_POST['command'])) $command = strtolower(userInput($_POST['command']));
 if (!empty($_POST['option'])) $option = userInput($_POST['option']);
 if (!empty($_POST['dump'])) $dump = userInput($_POST['dump']);
@@ -767,9 +768,9 @@ if (empty($output)) {
 				print $prompt;
 				foreach ($wiki->query->search as $article) {
 					print '<p>'.
-						'<a href="http://en.wikipedia.org/wiki/'.$article->title.'">'.$article->title.'</a>'.
-						'</p>'.
-						'<p class="snippet">'.str_replace('searchmatch', 'light', $article->snippet).'</p>';
+						str_replace('searchmatch', 'light', $article->snippet).'<br>'.
+						'<a class="external" href="http://en.wikipedia.org/wiki/'.$article->title.'">'.$article->title.'</a>'.
+						'</p>';
 				}
 				$output = true;
 			}
@@ -794,20 +795,14 @@ if (empty($output)) {
 	$jsCommands = array('clear', 'cls', 'exit', 'quit', 'logout', 'customize', 'music', 'videos', 'superplastic', 'reset');
 	if (in_array($command, $jsCommands)) {
 		if ($command == "clear" || $command == "cls") {
-			$js = 'clearScreen();';
+			$js = "$('#output').html('');";
 		}
 		else if ($command == "exit" || $command == "quit" || $command == "logout") {
 			$js = 'location.href = "http://binaerpilot.no";';
 		}
-		else if ($command == "superplastic") {
-			$js = 'loadSuperplastic();';
-		}
-		else if ($command == "videos") {
-			$js = 'loadVideos();';
-		}
-		else if ($command == "reset") {
-			$js = 'reset();';
-		}
+		else if ($command == "superplastic") $js = 'loadSuperplastic();';
+		else if ($command == "videos") $js = 'loadVideos();';
+		else if ($command == "reset") $js = 'reset();';
 		else if ($command == "customize" || $command == "music") {
 			setcookie($command, true, $cookieExpires, '/');
 			$js = '$("#'.$command.':hidden").fadeIn(fadeDelay); $("#'.$command.'Open").addClass("active");';

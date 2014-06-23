@@ -200,10 +200,6 @@ pre.messages .dark {
 p.example {
 	display: inline-block;
 }
-p.snippet {
-	max-width: 580px;
-}
-
 
 /* content */
 pre, .irc, .fixed-width {

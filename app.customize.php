@@ -1,8 +1,5 @@
 <div id="customize" class="window">
-	<h1>
-		Customization
-		<a class="close">x</a>
-	</h1>
+	<h1>Customization</h1>
 	<div data-custom="effects">
 		<h2>Effects</h2>
 		<ul class="options">

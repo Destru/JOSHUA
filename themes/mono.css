@@ -12,14 +12,14 @@ a {
 	color:#000;
 }
 #joshua {
-	padding:28px;
-	width:80%;
+	padding:40px;
+	width: 80%;
 	max-width: 860px;
 }
 #prompt {
 	padding:0;
 	border:none;
-	width:400px;
+	width: 500px;
 	position:relative;
 	left:-1px; top:3px;
 }
@@ -38,6 +38,9 @@ a {
 }
 .prompt, .output, p, table, h1, h2, .options {
 	margin-bottom:20px;
+}
+.output *:last-child {
+	margin-bottom: 0;
 }
 .window {
 	text-align:right;

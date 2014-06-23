@@ -1,17 +1,13 @@
 <div id="gallery" class="window">
-	<h1>
-		Image Gallery
-		<a class="close">x</a>
-	</h1>
+	<h1>Image Gallery</h1>
 	<div id="slick">
 		<div class="slideshow"></div>
 	</div>
 </div>
 <script>
 	function galleryInit() {
-		// slideshow
 		$('#slick .thumbs').remove();
-		$('.slideshow').before('<ul class="thumbs clearfix"/>').cycle({
+		$('.slideshow').before('<ul class="thumbs"/>').cycle({
 			speed:  500,
 			timeout: 2000,
 			delay: 0,
@@ -25,7 +21,6 @@
 		});
 	}
 	$(function() {
-		// pager
 		var adjust;
 		$('#slick').hover(function() {
 			adjust = $(this).find('ul').height()+10;
