@@ -422,7 +422,6 @@ function boot() {
 		chromeInit();
 		chromeMagic();
 		if (fx) fxInit(fx, true);
-
 	});
 	historyHelper();
 	keyboardHelpers();
