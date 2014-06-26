@@ -2,21 +2,26 @@ body {
 	background-color:#fff;
 	background-repeat: repeat;
 	background-image: url("../images/patternCrossword.png");
-	color:#333;
+	color: rgba(0,0,0,.95);
 }
 body, #joshua {
-	font-family:Helvetica, Arial;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif ;
 	font-size:14px;
-	line-height:18px;
+	line-height:20px;
+	font-weight: 200;
 }
 * {
-	text-shadow:rgba(0,0,0,0.05) 1px 1px 1px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.15);
 }
 #joshua h1 {
 	padding-top:40px;
 	padding-left:40px;
 	font-size:48px;
 	line-height:48px;
+	font-weight: 100;
+}
+#joshua h1 b {
+	font-weight: 100;
 }
 #joshua h1 #version {
 	font-size:14px;
@@ -30,9 +35,8 @@ a, .output a, .options li {
 	text-decoration:none;
 	border-bottom:solid 1px rgba(255,0,0,0.15);
 }
-b, b {
-	font-weight:bold;
-	letter-spacing:-1px;
+b {
+	font-weight: normal;
 }
 .speechBubble {
 	border:solid 1px #eee;
@@ -42,11 +46,9 @@ b, b {
 		linear,
 		left top,
 		right top,
-		color-stop(1, hsl(0,0%,90%)),
-		color-stop(0.0, hsl(0,0%,95%))
+		color-stop(1, hsl(0,0%,95%)),
+		color-stop(0.0, hsl(0,0%,100%))
 	);
-	font-size:12px;
-	line-height:18px;
 	padding:20px;
 	color:#888;
 }
@@ -54,14 +56,13 @@ p.note {
 	display:none;
 }
 .window h1 {
-	font-size:18px;
-	line-height:22px;
-	font-weight:bold;
+	font-size:24px;
+	font-weight:100;
 }
 .window h2 {
 	margin-top:20px;
 	font-size:16px;
-	line-height:20px;
+	font-weight:100;
 }
 .options li {
 	float:left;
@@ -72,7 +73,7 @@ a:hover, .options li:hover, .options .active {
 }
 #joshua {
 	min-height:100%;
-	width:650px;
+	width:720px;
 }
 #output {
 	padding-left:40px;
@@ -83,6 +84,7 @@ a:hover, .options li:hover, .options .active {
 	color:#777;
 }
 .close {
+	color: rgba(0,0,0,.15);
 	text-shadow:none;
 	border:none;
 	font-size:12px;
@@ -90,6 +92,9 @@ a:hover, .options li:hover, .options .active {
 	float:right;
 	font-weight:normal;
 	text-transform:uppercase;
+}
+.close:hover {
+	color: rgba(0,0,0,.5);
 }
 h1, h2 {
 	margin-bottom:10px;
@@ -104,6 +109,11 @@ h1, h2 {
 }
 td {
 	padding-right:20px;
+	font-weight: 200;
+}
+.command {
+	font-weight: normal;
+	text-shadow:rgba(0,0,0, .05) 1px 1px 1px;
 }
 #prompt, .prefix, .prompt {
 	color:#333;
@@ -121,7 +131,8 @@ td {
 	float:left;
 }
 .dark {
-	font-style:italic;
+	color: rgba(0,0,0,.65);
+	font-weight: 300;
 }
 .joshua, .command, .light {
 	color:#f00;
@@ -130,7 +141,7 @@ td {
 	position:fixed;
 }
 #loader {
-	background:url('../images/loaderWhite.png') no-repeat center 6px;
+	background:url('../images/loaderWhitewall.png') no-repeat center 6px;
 }
 #music .link {
 	margin-top:20px;
