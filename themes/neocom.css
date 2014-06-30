@@ -293,10 +293,10 @@ p a, table a {
 	height: 21px;
 	border-bottom: solid 1px #fffe8f;
 }
-.tsw-actives {
+.icon.light {
 	background-color: #8f2b33;
 }
-.tsw-passives {
+.icon.dark {
 	background-color: #b2783b;
 }
 pre, .irc, .fixed-width {

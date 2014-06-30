@@ -9,7 +9,7 @@ body {
 	color:#fff;
 	font-family:Helvetica, Arial;
 	font-size:15px;
-	line-height:18px;
+	line-height:20px;
 }
 table {
 	margin-bottom:10px;
@@ -128,6 +128,12 @@ div {
 }
 .menu li a:hover, .menu li a.playing, a, .command, .example, .light {
 	color:#c9db67;
+}
+.icon.light {
+	background-color:#f92666;
+}
+.icon.dark {
+	background-color:#464740;
 }
 .joshua, .error {
 	color:#f92666;

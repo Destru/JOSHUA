@@ -223,6 +223,12 @@ pre.ascii {
 	-moz-user-select:text;
 	user-select:text;
 }
+.icon.light {
+	background-color: rgba(255,255,255,.3);
+}
+.icon.dark {
+	background-color: rgba(255,255,255,.1);
+}
 
 /* effects */
 .brush {
