@@ -4,7 +4,6 @@ body {background-color:#420127;color:#fff;}
 .ui-slider-handle, .window, h1, #input {background-color:#4a012c;}
 .button, .button.paused, .slider-frame, .options li, .light, .command, .example, a, .joshua, .error {color:#ff8acf;}
 .close, .close:hover, .dark, .prompt {color:#ff34ab;}
-.pink {color:#f09;}
 .dark {color:#4bccfc;}
 #prompt { color:#ffdcf0;}
 .window h1, .window h2 {

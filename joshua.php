@@ -768,7 +768,7 @@ if (empty($output)) {
 				print $prompt;
 				foreach ($wiki->query->search as $article) {
 					print '<p>'.
-						str_replace('searchmatch', 'light', $article->snippet).'<br>'.
+						substr(strip_tags($article->snippet), 0, 100).'&hellip;<br>'.
 						'<a class="external" href="http://en.wikipedia.org/wiki/'.$article->title.'">'.$article->title.'</a>'.
 						'</p>';
 				}
@@ -776,7 +776,7 @@ if (empty($output)) {
 			}
 			else error('404');
 		}
-		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' wondershowzen</p>');
+		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' wonder showzen</p>');
 	}
 
 	// history
