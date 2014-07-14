@@ -584,7 +584,8 @@ Rachael: HAHAHA!</pre>',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
-'resume' => '<p><a href="http://www.linkedin.com/in/astoever">I currently work for This Life Inc. in New York.</a> It is awesome. They are awesome.
+'resume' => '<p><a href="http://www.linkedin.com/in/astoever">I currently work for IAC in New York.</a>
+	It is awesome. They are awesome.
 	<p>The majority of my professional career is spent in private repositories, but some sites I have worked on are
 		<a href="http://www.travelocity.com/">Travelocity</a>,
 		<a href="http://finn.no">FINN</a> and
