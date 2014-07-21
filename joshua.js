@@ -1,6 +1,6 @@
 var fadeDelay = 250,
 	cookieExpires = 365,
-	history =  [],
+	historyArray = [],
 	historyPosition = 0,
 	muted = false,
 	drawing = false,
@@ -53,8 +53,8 @@ function resizeHelper(chrome) {
 function historyHelper() {
 	var historyCookie = readCookie('history');
 	if (historyCookie) {
-		history = historyCookie.split(',');
-		historyPosition = history.length;
+		historyArray = historyCookie.split(',');
+		historyPosition = historyArray.length;
 	}
 }
 
@@ -445,10 +445,10 @@ $(function() {
 					systemReady();
 					$('#loader').fadeOut(fadeDelay);
 				});
-				history.push(dump);
-				history = history.filter(function(e,i,a){if(i==a.indexOf(e))return 1;return 0});
-				historyPosition = history.length;
-				createCookie('history', history, cookieExpires);
+				historyArray.push(dump);
+				historyArray = historyArray.filter(function(e,i,a){if(i==a.indexOf(e))return 1;return 0});
+				historyPosition = historyArray.length;
+				createCookie('history', historyArray, cookieExpires);
 			}
 			else {
 				systemReady();
@@ -461,9 +461,9 @@ $(function() {
 			$(this).val(history[historyPosition]);
 		}
 		else if (e.which == 40) {
-			if (historyPosition < history.length) historyPosition = historyPosition + 1;
-			if (historyPosition == history.length) $(this).val('');
-			else $(this).val(history[historyPosition]);
+			if (historyPosition < historyArray.length) historyPosition = historyPosition + 1;
+			if (historyPosition == historyArray.length) $(this).val('');
+			else $(this).val(historyArray[historyPosition]);
 		}
 	});
 });
