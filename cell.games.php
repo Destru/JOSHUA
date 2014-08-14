@@ -64,9 +64,11 @@ function api($game, $api) {
 				'</table>';
 
 			$zkillCache = 'eve.zkill.json';
-			get('https://zkillboard.com/api/solo/kills/characterID/1761654327/limit/5/', $zkillCache, true);
+			$zkillLimit = 10;
+			get('https://zkillboard.com/api/solo/kills/characterID/1761654327/limit/'.$zkillLimit.'/', $zkillCache, true);
 			$zkills = load($zkillCache);
 			if ($zkills) {
+				$killCount = 0;
 				$output .= '<table class="fluid">';
 				foreach ($zkills as $kill) {
 					$output .= '<tr>'.
@@ -75,6 +77,7 @@ function api($game, $api) {
 						'<td>'.$kill->victim->corporationName.'</td>'.
 						'<td class="light">'.round(($kill->zkb->totalValue/1000000), 1).'m</td>'.
 						'</tr>';
+					if (++$killCount == $zkillLimit) break;
 				}
 				$output .= '</table>';
 			}

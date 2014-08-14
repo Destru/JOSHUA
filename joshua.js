@@ -277,15 +277,15 @@ function chromeInit() {
 				closeClass: 'modalClose',
 				overlayClose: true,
 				onOpen: function(dialog) {
-					dialog.overlay.fadeIn(fade, function() {
+					dialog.overlay.fadeIn(fadeDelay, function() {
 						dialog.container.fadeIn(fadeDelay);
 						dialog.data.fadeIn(fadeDelay);
 					});
 				},
 				onClose: function(dialog) {
-					dialog.data.fadeOut(fade, function () {
+					dialog.data.fadeOut(fadeDelay, function () {
 							dialog.container.fadeOut(fadeDelay);
-							dialog.overlay.fadeOut(fade, function() {
+							dialog.overlay.fadeOut(fadeDelay, function() {
 								$.modal.close();
 							});
 					});
@@ -458,7 +458,7 @@ $(function() {
 		else if (e.which == 38) {
 			e.preventDefault();
 			if (historyPosition > 0) historyPosition = historyPosition - 1;
-			$(this).val(history[historyPosition]);
+			$(this).val(historyArray[historyPosition]);
 		}
 		else if (e.which == 40) {
 			if (historyPosition < historyArray.length) historyPosition = historyPosition + 1;
