@@ -504,6 +504,7 @@ $static = array(
 'reddit' => 'We had joy, we had fun, we had seasons in the sun. But the hills that we climbed were just seasons out of time. (Thanks for taking JOSHUA to the front page!)',
 'penguin' => 'Synonymous with Rachael.',
 'vagina' => '<i>Why do people say "Grow some balls"? Balls are weak and sensitive! If you really wanna get tough, grow a vagina! Those things take a pounding!</i><br>&mdash; Betty White',
+'penis' => 'Whipped cream, put it all over your body.',
 'sup' => 'nammach, u?',
 'commands' => 'See <span class="command">help</span> for a list of commands. (But keep in mind there are many, many more hidden ones.)',
 'echo' => 'Is not actually a function.',
@@ -529,6 +530,17 @@ $static = array(
 'goodbye' => 'Hasta la vista, baby.',
 'asdf' => 'qwerty',
 'tron' => 'He fights for the Users.',
+'dickblast' => 'Pussy explosion!',
+'cmd' => '<p class="joshua">'.$joshua.'Are you trying to inception?',
+'larry3d' => 'Does a pair of queens beat 3 deuces?',
+'money' => 'Is a useless measure of wealth.',
+'life' => 'But how to live it?',
+'wip' => '<a href="http://binaerpilot.no/wip/">Work in progress.</a>',
+'ass' => 'Better than titties.',
+'bitch' => 'Love me \'cause they know that I can rock.',
+'sucker' => 'Like in the back seat of a Volkswagen?',
+'rude' => 'Oh fuck off.',
+'nigga' => 'a) You\'re white. b) Watch your mouth.',
 
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
@@ -628,7 +640,7 @@ Rachael: HAHAHA!</pre>',
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
-'porn' =>'<pre>Perfect Breasts             <span class="light">(o)(o)</span>
+'porn' => '<pre>Perfect Breasts             <span class="light">(o)(o)</span>
 Fake Silicone Breasts       <span class="light">( + )( + )</span>
 High Nipple Breasts         <span class="light">(*)(*)</span>
 Big Nipple Breasts          <span class="light">(@)(@)</span>

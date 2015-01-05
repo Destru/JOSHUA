@@ -29,9 +29,14 @@
 			'I like it so much that I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).</p>'
 	),
 	'league' => array(
-		'about' => '<p><b>League of Legends</b> is an awesome, twitchy game with a surprising amount of depth. '.
-			'My summoner name is <a href="http://www.lolking.net/summoner/na/50759316">Destru Kaneda</a> and I am absolutely terrible. '.
-			'I\'m also a die-hard <span class="command">CLG</span> fan.</p>'
+		'about' => '<p><b>League of Legends</b> is an fast-paced, twitchy MOBA with a surprising amount of depth. '.
+			'At first the game seemed fun enough, but it wasn\'t until I saw professional play that I fell in love with it. '.
+			'Barely making it out of S3 relegations, I naturally chose <span class="command">CLG</span> as my favorite team. Because the feels. '.
+			'<p>My summoner name is <a href="http://www.lolking.net/summoner/na/50759316">Destru Kaneda</a> and I am (slowly becoming less) terrible. '.
+			'I prefer jungle and my favorite champions are Ezreal, Riven and Vi. '.
+			'So, two oddly boyish girls and an oddly girlish boy. Take from that what you will. '.
+			'Although <a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">I focus on improving</a> for ranked play, most of my time is spent in normals with friends. '.
+			'We have formed a ranked 5v5 though, so watch out! We will absolutely definitely maybe make it to Silver. '
 	)
 );
 
