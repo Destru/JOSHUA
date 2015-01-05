@@ -529,6 +529,17 @@ $static = array(
 'goodbye' => 'Hasta la vista, baby.',
 'asdf' => 'qwerty',
 'tron' => 'He fights for the Users.',
+'dickblast' => 'Pussy explosion!',
+'cmd' => '<p class="joshua">'.$joshua.'Are you trying to inception?',
+'larry3d' => 'Does a pair of queens beat 3 deuces?',
+'money' => 'Is a useless measure of wealth.',
+'life' => 'But how to live it?',
+'wip' => '<a href="http://binaerpilot.no/wip/">Work in progress.</a>',
+'ass' => 'Better than titties.',
+'bitch' => 'Love me \'cause they know that I can rock.',
+'sucker' => 'Like in the back seat of a Volkswagen?',
+'rude' => 'Oh fuck off.',
+'nigga' => 'a) You\'re white. b) Watch your mouth.',
 
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
@@ -628,7 +639,7 @@ Rachael: HAHAHA!</pre>',
 	</p>
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
 
-'porn' =>'<pre>Perfect Breasts             <span class="light">(o)(o)</span>
+'porn' => '<pre>Perfect Breasts             <span class="light">(o)(o)</span>
 Fake Silicone Breasts       <span class="light">( + )( + )</span>
 High Nipple Breasts         <span class="light">(*)(*)</span>
 Big Nipple Breasts          <span class="light">(@)(@)</span>
