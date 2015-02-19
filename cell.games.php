@@ -33,8 +33,8 @@
 			'At first the game seemed fun enough, but it wasn\'t until I saw professional play that I fell in love with it. '.
 			'Barely making it out of S3 relegations, I naturally chose <span class="command">CLG</span> as my favorite team. Because the feels. '.
 			'<p>My summoner name is <a href="http://www.lolking.net/summoner/na/50759316">Destru Kaneda</a> and I am (slowly becoming less) terrible. '.
-			'I prefer jungle and my favorite champions are Ezreal, Riven and Vi. '.
-			'So, two oddly boyish girls and an oddly girlish boy. Take from that what you will. '.
+			'I prefer jungle and my favorite champions are Riven and Ezreal (ironically neither jungle champions). '.
+			'So, an oddly boyish girl and an oddly girlish boy. Take from that what you will. '.
 			'Although <a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">I focus on improving</a> for ranked play, most of my time is spent in normals with friends. '.
 			'We have formed a ranked 5v5 though, so watch out! We will absolutely definitely maybe make it to Silver. '
 	)
