@@ -43,10 +43,6 @@ function get($url, $cache=null, $inline=null) {
 			if(!empty($data)) {
 				file_put_contents($cache, $data, LOCK_EX);
 			}
-			else {
-				if($inline) error('empty', 1);
-				else error('empty');
-			}
 		}
 	}
 	else {
@@ -76,7 +72,10 @@ function load($file, $inline=null) {
 		else if($ext == 'json') {
 			$json = json_decode(file_get_contents($file,0,null,null));
 			if($json) return $json;
-			else error('invalidjson');
+			else {
+				if($inline) error('invalidjson', 1);
+				else error('invalidjson');
+			}
 		}
 		else if($ext == 'data') {
 			$dom = new DOMDocument();
