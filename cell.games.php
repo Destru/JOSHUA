@@ -62,16 +62,14 @@ function api($game, $api) {
 				'<tr><td class="dark">Name</td><td><a href="http://eve.battleclinic.com/killboard/combat_record.php?type=player&name=Destru+Kaneda">'.$api->result->characterName.'</a></td></tr>'.
 				'<tr><td class="dark">Race</td><td>'.$api->result->race.' ('.$api->result->bloodline.')</td></tr>'.
 				'<tr><td class="dark">Skills</td><td>'.round(($api->result->skillPoints/1000000), 1).' million</td></tr>'.
-				'<tr><td class="dark">Corporation</td><td>'.$api->result->corporation.'</td></tr>'.
-				'<tr><td class="dark">Alliance</td><td><a href="http://rust-in-pieces.org/kills/">'.$api->result->alliance.'</a></td></tr>'.
+				'<tr><td class="dark">Corporation</td><td><a href="http://rzpd.zkillboard.com">'.$api->result->corporation.'</a></td></tr>'.
 				'<tr><td class="dark">Security Status</td><td>'.number_format(floatval($api->result->securityStatus), 2).'</td></tr>'.
 				'<tr><td class="dark">Last Seen</td><td>'.$api->result->shipTypeName.' in <a href="http://evemaps.dotlan.net/search?q='.$api->result->lastKnownLocation.'">'.$api->result->lastKnownLocation.'</a></td></tr>'.
 				'</table>';
 
 			$zkillCache = 'eve.zkill.json';
-			$zkillLimit = 10;
-			get('https://zkillboard.com/api/solo/kills/characterID/1761654327/limit/'.$zkillLimit.'/', $zkillCache, true);
-			$zkills = load($zkillCache);
+			get('https://zkillboard.com/api/solo/kills/characterID/1761654327/limit/10/', $zkillCache, 1);
+			$zkills = load($zkillCache, 1);
 			if ($zkills) {
 				$killCount = 0;
 				$output .= '<table class="fluid">';
@@ -82,7 +80,7 @@ function api($game, $api) {
 						'<td>'.$kill->victim->corporationName.'</td>'.
 						'<td class="light">'.round(($kill->zkb->totalValue/1000000), 1).'m</td>'.
 						'</tr>';
-					if (++$killCount == $zkillLimit) break;
+					if (++$killCount == 10) break;
 				}
 				$output .= '</table>';
 			}

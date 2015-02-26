@@ -540,7 +540,9 @@ $static = array(
 'bitch' => 'Love me \'cause they know that I can rock.',
 'sucker' => 'Like in the back seat of a Volkswagen?',
 'rude' => 'Oh fuck off.',
-'nigga' => 'a) You\'re white. b) Watch your mouth.',
+'aww' => 'Teehee!',
+'reboot' => '<script>location.reload();</script>',
+'nope' => 'Yarp?',
 
 'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!

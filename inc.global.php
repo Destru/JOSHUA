@@ -24,7 +24,17 @@ date_default_timezone_set("America/New_York");
 function get($url, $cache=null, $inline=null) {
 	clearstatcache();
 	$timeout = 10;
-	$secondsBeforeUpdate = 60;
+	$secondsBeforeUpdate = 600;
+	$cURLHeader = array(
+	  'User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12',
+	  'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+	  'Accept-Language: en-us,en;q=0.5',
+	  'Accept-Encoding: gzip,deflate',
+	  'Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7',
+	  'Keep-Alive: 115',
+	  'Connection: keep-alive',
+	);
+
 	if(!empty($cache)) {
 		$timeout = 10;
 		if(!file_exists($cache) || filesize($cache) == 0) {
@@ -37,7 +47,10 @@ function get($url, $cache=null, $inline=null) {
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-			curl_setopt($ch, CURLOPT_USERAGENT, 'JOSHUA');
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($ch, CURLOPT_VERBOSE, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $cURLHeader);
+			curl_setopt($ch, CURLOPT_ENCODING , "gzip");
 			$data = curl_exec($ch);
 			curl_close($ch);
 			if(!empty($data)) {
@@ -50,7 +63,9 @@ function get($url, $cache=null, $inline=null) {
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'JOSHUA');
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $cURLHeader);
+		curl_setopt($ch, CURLOPT_ENCODING , "gzip");
 		$data = curl_exec($ch);
 		curl_close($ch);
 		return $data;
