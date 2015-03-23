@@ -29,13 +29,12 @@
 			'I like it so much that I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).</p>'
 	),
 	'league' => array(
+		'api' => 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/destru%20kaneda?api_key='.$keys['league'],
+		'format' => 'json',
 		'about' => '<p><b>League of Legends</b> is an fast-paced, twitchy MOBA with a surprising amount of depth. '.
 			'At first the game seemed fun enough, but it wasn\'t until I saw professional play that I fell in love with it. '.
 			'Barely making it out of S3 relegations, I naturally chose <span class="command">CLG</span> as my favorite team. Because the feels. '.
-			'<p>My summoner name is <a href="http://www.lolking.net/summoner/na/50759316">Destru Kaneda</a> and I am (slowly becoming less) terrible. '.
-			'I prefer jungle and my favorite champions are Riven and Ezreal (ironically neither jungle champions). '.
-			'So, an oddly boyish girl and an oddly girlish boy. Take from that what you will. '.
-			'Although <a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">I focus on improving</a> for ranked play, most of my time is spent in normals with friends. '.
+			'<p>Although I <a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">focus on improving</a> for ranked play, most of my time is spent in normals with friends. '.
 			'We have formed a ranked 5v5 though, so watch out! We will absolutely definitely maybe make it to Silver. '
 	)
 );
@@ -138,6 +137,19 @@ function api($game, $api) {
 			$output .= '</table>';
 		}
 		else error('outdatedapi', 1);
+	}
+	else if($game == 'league') {
+		$profileIcons = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/';
+		$statsURL = 'http://na.op.gg/summoner/userName=destru%20kaneda';
+		$output = '<table class="fluid">'.
+			'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.$profileIcons.$api->destrukaneda->profileIconId.'.png\');width:128px;height:128px;"></div></td></tr>'.
+			'<tr><td class="dark">Name</td><td><a href="'.$statsURL.'">'.$api->destrukaneda->name.'</a></td></tr>'.
+			'<tr><td class="dark">Primary Role</td><td>Jungler</td></tr>'.
+			'<tr><td class="dark">Ranked Team</td><td>Bubble First</td></tr>'.
+			'<tr><td class="dark">Favorite Champions</td><td>Ezreal, Riven and Katarina</td></tr>'.
+			'<tr><td class="dark">Favorite Players</td><td><a href="http://gfycat.com/AnnualShallowBlackwidowspider">Doublelift and Aphromoo</a></td></tr>'.
+			'<tr><td class="dark">Favorite Casters</td><td>Kobe and Phreak</td></tr>'.
+		$output .= '</table>';
 	}
 	return $output;
 }
