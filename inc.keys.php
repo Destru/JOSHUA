@@ -6,6 +6,7 @@ $keys = array(
   'apify' => 'f09fc4d9d5934135b7534e384280bf10',
   'eve' => 'FqSqU3bYh3f3tr7FbraCZLz3xh6JwIGIHv1oMoscEua0mQ0H0Br43TZNQnVZn2E7',
   'instagram' => 'c0f8f9f1e63a4e1c8a45846bb5db52db',
-  'league' => 'a02a395a-2ad2-4f7c-a4f6-929a70dfe022'
+  'league' => 'a02a395a-2ad2-4f7c-a4f6-929a70dfe022',
+  'battle.net' => 'zahtmfbgbdfart6qsqbwte47rpgmbkbg'
 );
 ?>

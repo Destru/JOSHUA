@@ -23,7 +23,7 @@ body, #joshua {
 #joshua h1 b {
 	font-weight: 100;
 }
-#joshua h1 #version {
+#joshua h1 .version {
 	font-size:14px;
 	color:#888;
 }

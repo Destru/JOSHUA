@@ -1,20 +1,40 @@
 <?php
-if(strpos($_SERVER['HTTP_HOST'], 'joshua.chronicless.com') !== false) {
-	header("HTTP/1.1 301 Moved Permanently");
-	header("Location: http://joshua.chronicless.com");
-	exit();
-}
-
 if (extension_loaded("zlib") && (ini_get("output_handler") != "ob_gzhandler")) {
   ini_set("zlib.output_compression", 1);
 }
 
+function update($force=null) {
+	$cache = 'static.json';
+	$secondsBeforeUpdate = 60*60*24;
+	if (!file_exists($cache) || filesize($cache) == 0) {
+		file_put_contents($cache, null);
+		$force = true;
+	}
+	$lastModified = filemtime($cache);
+	if (isset($force) || time() - $lastModified > $secondsBeforeUpdate) {
+		$commits = json_decode(get('https://api.github.com/repos/destru/joshua/commits', null, 1));
+		$leagueVersion = json_decode(get('http://ddragon.leagueoflegends.com/realms/na.json', null, 1));
+
+		if (count($commits) && !empty($leagueVersion->v)) {
+			$fp = fopen($cache, 'w');
+			fwrite($fp, '{');
+			fwrite($fp, '"sha": "'.$commits{0}->sha.'",');
+			fwrite($fp, '"leagueVersion": "'.$leagueVersion->v.'"');
+			fwrite($fp, '}');
+			fclose($fp);
+		}
+	}
+}
+
 session_start();
+update();
 $version = "10.8";
 $versionName = "Neocom";
 $defaultTheme = "neocom";
 $nextgenThemes = array('carolla', 'contra', 'rachael', 'whitewall');
-$header = '<b>JOSHUA</b> <span id="version">'.$version.'</span> <span class="dark">'.$versionName.'</span>';
+$staticData = load('static.json');
+$sha = $staticData->sha;
+$header = '<b>JOSHUA</b> <span class="version">'.substr($sha, 0, 7).'</span> <span class="dark">'.$versionName.'</span>';
 $title = 'JOSHUA '.$version.': ';
 $termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
 $joshua = "<b>JOSHUA:</b> ";
@@ -35,14 +55,14 @@ function get($url, $cache=null, $inline=null) {
 	  'Connection: keep-alive',
 	);
 
-	if(!empty($cache)) {
+	if (!empty($cache)) {
 		$timeout = 10;
-		if(!file_exists($cache) || filesize($cache) == 0) {
+		if (!file_exists($cache) || filesize($cache) == 0) {
 			file_put_contents($cache, null);
 			$firstRun = true;
 		}
 		$lastModified = filemtime($cache);
-		if(isset($firstRun) || time() - $lastModified > $secondsBeforeUpdate) {
+		if (isset($firstRun) || time() - $lastModified > $secondsBeforeUpdate) {
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -53,7 +73,7 @@ function get($url, $cache=null, $inline=null) {
 			curl_setopt($ch, CURLOPT_ENCODING , "gzip");
 			$data = curl_exec($ch);
 			curl_close($ch);
-			if(!empty($data)) {
+			if (!empty($data)) {
 				file_put_contents($cache, $data, LOCK_EX);
 			}
 		}
@@ -73,34 +93,34 @@ function get($url, $cache=null, $inline=null) {
 }
 
 function load($file, $inline=null) {
-	if(file_exists($file)) {
+	if (file_exists($file)) {
 		$ext = pathinfo($file, PATHINFO_EXTENSION);
 		libxml_use_internal_errors(true);
-		if($ext == 'xml') {
+		if ($ext == 'xml') {
 			$xml = simplexml_load_file($file);
-			if($xml) return $xml;
+			if ($xml) return $xml;
 			else {
-				if($inline) error('invalidxml', 1);
+				if ($inline) error('invalidxml', 1);
 				else error('invalidxml');
 			}
 		}
-		else if($ext == 'json') {
+		else if ($ext == 'json') {
 			$json = json_decode(file_get_contents($file,0,null,null));
-			if($json) return $json;
+			if ($json) return $json;
 			else {
-				if($inline) error('invalidjson', 1);
+				if ($inline) error('invalidjson', 1);
 				else error('invalidjson');
 			}
 		}
-		else if($ext == 'data') {
+		else if ($ext == 'data') {
 			$dom = new DOMDocument();
 			$dom->preserveWhiteSpace = false;
-			if($dom->loadHTMLFile($file)) return $dom;
+			if ($dom->loadHTMLFile($file)) return $dom;
 			else error('invalidhtml');
 		}
 	}
 	else {
-		if($inline) error('localcache', 1);
+		if ($inline) error('localcache', 1);
 		else error('localcache');
 	}
 }

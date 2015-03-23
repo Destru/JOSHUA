@@ -4,7 +4,7 @@
 		'format' => 'xml',
 		'about' => '<p><b>Anarchy Online</b> blew my mind when I first played it '.(date("Y")-2003).' years ago and it\'s still my greatest game experience bar none. '.
 			'In awe of the sheer size and complexity of the game I quickly found myself completely immersed in it. '.
-			'I made <a href="ao/aoscripts.rar">some scripts</a> that make things easier.</p>'
+			'I made <a href="ao/aoscripts.rar">some scripts</a> that make things easier.'
 	),
 	'eve' => array(
 		'api' => 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=1761654327&keyId=898288&vCode='.$keys['eve'],
@@ -15,18 +15,18 @@
 			'<p><a class="external" href="http://o.smium.org/profile/887#pfavorites">Loadouts for my favorite ships.</a>',
 	),
 	'wow' => array(
-		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?fields=pvp,feed,talents,titles',
+		'api' => 'http://eu.battle.net/api/wow/character/outland/destru?locale=en_US&apikey='.$keys['battle.net'],
 		'format' => 'json',
 		'about' => '<p><b>World of Warcraft</b> has been a guilty pleasure of mine on and off for years. '.
 			'So far I\'ve played a couple characters to end-game and messed around with more PvP alts than I can remember. '.
-			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.</p>'
+			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.'
 	),
 	'tsw' => array(
 		'api' => 'http://chronicless.einhyrning.com/character/destru.json',
 		'format' => 'json',
-		'about' => '<p><b>The Secret World</b> is a breath of fresh air. Investigation missions are fantastic, as is character progression. '.
-			'The game is scary, difficult and outright intimidating. Funcom definitely has a sleeper hit on their hands. '.
-			'I like it so much that I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).</p>'
+		'about' => '<p><b>The Secret World</b> is a breath of fresh air. The investigation missions are simply fantastic, as is character progression. '.
+			'The game is scary, difficult and outright intimidating. If it wasn\'t for the lackluster PvP I\'d most likely still be playing. '.
+			'<p>I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).'
 	),
 	'league' => array(
 		'api' => 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/destru%20kaneda?api_key='.$keys['league'],
@@ -34,17 +34,20 @@
 		'about' => '<p><b>League of Legends</b> is an fast-paced, twitchy MOBA with a surprising amount of depth. '.
 			'At first the game seemed fun enough, but it wasn\'t until I saw professional play that I fell in love with it. '.
 			'Barely making it out of S3 relegations, I naturally chose <span class="command">CLG</span> as my favorite team. Because the feels. '.
-			'<p>Although I <a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">focus on improving</a> for ranked play, most of my time is spent in normals with friends. '.
-			'We have formed a ranked 5v5 though, so watch out! We will absolutely definitely maybe make it to Silver. '
+			'<p><a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">Although I focus on improving</a>, most of my time is spent in normals with friends. '.
+			'We have recently formed a ranked 5v5, so watch out LCS! We will absolutely definitely maybe make it to Silver. Maybe. '
 	)
 );
 
 function api($game, $api) {
-	if($game == 'ao') {
+	global $staticData;
+
+	if ($game == 'ao') {
 		if ($api->name) {
+			$cdn = 'http://cdn.funcom.com/billing_files/AO_shop/face/';
 			$output = '<table class="fluid">'.
-				'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('www', 'people', $api->smallpictureurl).'\');width:60px;height:90px;"></div></td></tr>'.
-				'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->firstname.' "'.$api->name->nick.'" '.$api->name->lastname.'</a></td></tr>'.
+				'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.str_replace('http://www.anarchy-online.com/character/smallphotos/', $cdn, trim($api->smallpictureurl)).'\');width:67px;height:100px;"></div></td></tr>'.
+				'<tr><td class="dark">Name</td><td><a href="http://auno.org/ao/equip.php?saveid=177936">'.$api->name->nick.'</a></td></tr>'.
 				'<tr><td class="dark">Profession</td><td>'.$api->basic_stats->profession.'</td></tr>'.
 				'<tr><td class="dark">Level</td><td>'.$api->basic_stats->profession_title.' ('.$api->basic_stats->level.')</td></tr>'.
 				'<tr><td class="dark">Defender</td><td>'.$api->basic_stats->defender_rank.' ('.$api->basic_stats->defender_rank_id.')</td></tr>'.
@@ -54,7 +57,7 @@ function api($game, $api) {
 		}
 		else error('outdatedapi', 1);
 	}
-	else if($game == 'eve') {
+	else if ($game == 'eve') {
 		if ($api->result->characterName) {
 			$output = '<table class="fluid">'.
 				'<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://image.eveonline.com/Character/1761654327_128.jpg\');width:128px;height:128px;"></div></td></tr>'.
@@ -86,20 +89,20 @@ function api($game, $api) {
 		}
 		else error('outdatedapi', 1);
 	}
-	else if($game == 'wow') {
+	else if ($game == 'wow') {
 		if ($api->name) {
-			foreach($api->titles as $title) if(isset($title->selected)) $currentTitle = $title->name;
-			if(isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
+			foreach($api->titles as $title) if (isset($title->selected)) $currentTitle = $title->name;
+			if (isset($currentTitle)) $name = str_replace('%s', $api->name, $currentTitle);
 			else $name = $api->name;
 			$feed = array_filter($api->feed, function($i) {
-				if(in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
+				if (in_array($i->type, array('BOSSKILL', 'ACHIEVEMENT'))) return true;
 			});
 			$feed = array_values($feed);
 			for($i = 0; $i < 5; $i++) {
 				$title = $feed[$i]->achievement->title;
 				$points = $feed[$i]->achievement->points;
-				if(!empty($title)) {
-					if(!empty($points)) $events[] = $title.' <span class="light">+'.$points.'</span>';
+				if (!empty($title)) {
+					if (!empty($points)) $events[] = $title.' <span class="light">+'.$points.'</span>';
 					else $events[] = $title;
 				}
 			}
@@ -115,7 +118,7 @@ function api($game, $api) {
 		}
 		else error('outdatedapi', 1);
 	}
-	else if($game == 'tsw') {
+	else if ($game == 'tsw') {
 		if ($api->name) {
 			$actives = ''; $passives = '';
 			$iconSize = '24';
@@ -138,33 +141,37 @@ function api($game, $api) {
 		}
 		else error('outdatedapi', 1);
 	}
-	else if($game == 'league') {
-		$profileIcons = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/';
-		$statsURL = 'http://na.op.gg/summoner/userName=destru%20kaneda';
-		$output = '<table class="fluid">'.
-			'<tr><td rowspan="7"><div class="image" style="background-image:url(\''.$profileIcons.$api->destrukaneda->profileIconId.'.png\');width:128px;height:128px;"></div></td></tr>'.
-			'<tr><td class="dark">Name</td><td><a href="'.$statsURL.'">'.$api->destrukaneda->name.'</a></td></tr>'.
-			'<tr><td class="dark">Primary Role</td><td>Jungler</td></tr>'.
-			'<tr><td class="dark">Ranked Team</td><td>Bubble First</td></tr>'.
-			'<tr><td class="dark">Favorite Champions</td><td>Ezreal, Riven and Katarina</td></tr>'.
-			'<tr><td class="dark">Favorite Players</td><td><a href="http://gfycat.com/AnnualShallowBlackwidowspider">Doublelift and Aphromoo</a></td></tr>'.
-			'<tr><td class="dark">Favorite Casters</td><td>Kobe and Phreak</td></tr>'.
-		$output .= '</table>';
+	else if ($game == 'league') {
+		$cdn = 'http://ddragon.leagueoflegends.com/cdn/'.$staticData->leagueVersion.'/img/profileicon/';
+		$stats = 'http://na.op.gg/summoner/userName=destru%20kaneda';
+		if ($api->destrukaneda->id) {
+			$output = '<table class="fluid">'.
+				'<tr><td rowspan="8"><div class="image" style="background-image:url(\''.$cdn.$api->destrukaneda->profileIconId.'.png\');width:128px;height:128px;"></div></td></tr>'.
+				'<tr><td class="dark">Name</td><td><a href="'.$stats.'">'.$api->destrukaneda->name.'</a></td></tr>'.
+				'<tr><td class="dark">Realm</td><td>North America</td></tr>'.
+				'<tr><td class="dark">Primary Role</td><td>Jungler</td></tr>'.
+				'<tr><td class="dark">Ranked Team</td><td>Bubble First</td></tr>'.
+				'<tr><td class="dark">Favorite Champions</td><td>Ezreal, Riven and Katarina</td></tr>'.
+				'<tr><td class="dark">Favorite Players</td><td><a href="http://gfycat.com/AnnualShallowBlackwidowspider">Doublelift and Aphromoo</a></td></tr>'.
+				'<tr><td class="dark">Last Online</td><td>'.date("F j, Y", str_replace('000', '.0', $api->destrukaneda->revisionDate)).'</td></tr>'.
+			$output .= '</table>';
+		}
+		else error('outdatedapi', 1);
 	}
 	return $output;
 }
 
 $gameList = array_keys($games);
 sort($gameList);
-if($command == 'games' || $command == 'game' || in_array($command, $gameList)) {
-	if(in_array($command, $gameList)) {
+if ($command == 'games' || $command == 'game' || in_array($command, $gameList)) {
+	if (in_array($command, $gameList)) {
 		$option = $command;
 		$command = 'game';
 	}
-	if(isset($option) && !empty($games[$option])) {
+	if (isset($option) && !empty($games[$option])) {
 		$game = $option;
 		print $prompt.$games[$game]['about'];
-		if(!empty($games[$game]['api']) && !empty($games[$game]['format'])) {
+		if (!empty($games[$game]['api']) && !empty($games[$game]['format'])) {
 			$cache = $game.'.'.$games[$game]['format'];
 			get($games[$game]['api'], $cache, 1);
 			$api = load($cache, 1);
@@ -172,6 +179,6 @@ if($command == 'games' || $command == 'game' || in_array($command, $gameList)) {
 		}
 		$output = true;
 	}
-	else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($gameList, true).'.</p><p class="example">'.$command.' '.$gameList[rand(0,count($gameList)-1)].'</p>');
+	else output('<p class="error">'.$joshua.'Valid options are '.implodeHuman($gameList, true).'.<p class="example">'.$command.' '.$gameList[rand(0,count($gameList)-1)]);
 }
 ?>

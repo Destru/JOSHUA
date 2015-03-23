@@ -15,8 +15,8 @@
 					menu = menu+'<li id="'+id+'"><a class="button" href="http://www.youtube.com/watch?v='+id+'">'+title+'</a>';
 					videos.push([id,title]);
 				});
-				if($('#videos').has('iframe').length == 0) $('#videos').append('<iframe src="" width="560" height="315" frameborder="0" allowfullscreen style="display:none"/>');
-				if($('#videos').has('ul').length == 0) $('#videos').append('<ul class="menu">'+menu+'</ul>');
+				if ($('#videos').has('iframe').length == 0) $('#videos').append('<iframe src="" width="560" height="315" frameborder="0" allowfullscreen style="display:none"/>');
+				if ($('#videos').has('ul').length == 0) $('#videos').append('<ul class="menu">'+menu+'</ul>');
 				else $('#videos ul').html(menu);
 				$('#videos ul li').bind('click', function(e) {
 					e.preventDefault();

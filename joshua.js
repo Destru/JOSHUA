@@ -446,7 +446,7 @@ $(function() {
 					$('#loader').fadeOut(fadeDelay);
 				});
 				historyArray.push(dump);
-				historyArray = historyArray.filter(function(e,i,a){if(i==a.indexOf(e))return 1;return 0});
+				historyArray = historyArray.filter(function(e,i,a){if (i==a.indexOf(e))return 1;return 0});
 				historyPosition = historyArray.length;
 				createCookie('history', historyArray, cookieExpires);
 			}

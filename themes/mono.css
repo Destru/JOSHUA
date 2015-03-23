@@ -100,6 +100,12 @@ td .image {
 	width:89px;
 	height:15px;
 }
+#joshua h1 .version {
+	text-indent: 0;
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+}
 ::selection {
 	background:#fff;
 	color:#000;

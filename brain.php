@@ -2,7 +2,7 @@
 // brain cells
 $d = scandir(".");
 foreach($d as $file) {
-	if(stristr($file, 'cell.')) include $file;
+	if (stristr($file, 'cell.')) include $file;
 }
 
 $static = array(
@@ -356,18 +356,19 @@ $static = array(
 			<td class="fixed-width">10.5</td>
 			<td>Neocom Director\'s Cut. Command examples are now clickable. Executing calc 6*9 should now correctly return 42.</td>
 		</tr>
-	</table>',
+	</table>
+	<p><a href="https://github.com/Destru/JOSHUA/commit/'.$staticData->sha.'">'.$staticData->sha.'</a>',
 
 'about' => '
 	<p>
 		JOSHUA is a shell emulation written in jQuery using a PHP back-end. He was based on <a href="http://miklos.ca/cmd.html" class="blank">Osenoa</a> but has evolved a lot since then.
 		The name is a reference to \'War Games\' (Shall we play a game?).
 		My name is <span class="command">alexander</span> and this site is fueled by sleep deprivation.
-	</p>
+
 	<p>
 		Making JOSHUA has been (and still is) a fun challenge for me. Although in all honesty it\'s pretty much the most awkward way to navigate a website ever conceived.
 		But then again; Mouseclicking is <i>sooo</i> 90\'s.
-	</p>',
+	',
 
 'alexander' => '<table class="fluid">
 		<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
@@ -383,11 +384,11 @@ $static = array(
 		I do front end web development (see <span class="command">resume</span>).
 		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
 		I am, what is colloquially known as, a massive nerd.
-	</p>',
+	',
 
 'destru' => '<p><b>Destru Kaneda</b> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira". '.
 	'When it comes to games my favorite setting is science fiction (duh) with team-based PvP as a favorite gameplay mode. I also prefer games with actual consequences, like EVE Online or anything with a hardcore mode. '.
-	'PEWPWEPWPEPWEPPWEWPEW!</p>',
+	'PEWPWEPWPEPWEPPWEWPEW!',
 
 'ascii' => '<pre class="ascii">
        dP                   dP
@@ -427,7 +428,7 @@ $static = array(
 'helo' => '<p class="joshua">'.$joshua.'Helo ther how er u?',
 'hi' => 'yo',
 'yo' => 'sup dude',
-'drunk' => '<p>Touch your nose. Walk a straight line. Do calculus.</p><p>Hell son, do a flip.</p>',
+'drunk' => '<p>Touch your nose. Walk a straight line. Do calculus.<p>Hell son, do a flip.',
 'dafunk' => 'Back to the punk.',
 'dolphins' => '<a href="http://sncrly.com/?210">Beloved</a> animals.',
 'tongues' => 'Tongues? <a href="misc/tongues.jpg" class="view">We have them</a>.',
@@ -457,10 +458,10 @@ $static = array(
 'farts' => 'Would you look at that? A lil mouse ran in and tooted.',
 'shit' => 'NO U',
 'yarr' => 'Harr harr! You\'d be wise to try the pirate style, matey!',
-'nintendo' => '<p>When I say nintendo you say rock.</p><p>Nintendo!</p>',
+'nintendo' => '<p>When I say nintendo you say rock.<p>Nintendo!',
 'rock' => 'Nintendo!',
 'hamburger' => 'The <a href="http://www.recipezaar.com/Royal-Red-Robin-Burger-143864" class="blank">Royal Red Robin Burger</a> is the king of all hamburgers. And I should know, <a href="misc/alexander_the_burger_king.jpg" class="view">I eat a lot of junk food</a>.',
-'dentist' => '<p>When I was a kid I soon realized that my teeth were made of glass. Because every time I sat in a dentist chair they wouldn\'t let me leave until at least three or four cavities were taken care of. So naturally I developed a fear of the dentist. Now that I\'m older that means I won\'t go before the pain is tantamount to getting kicked in the balls repeatedly by a field goal kicker.</p><p>But you know what would ease my pain? Not being charged an arm and a leg for this torture. What the fuck, Norway? You mean to tell me I can go to the hospital and a surgeon will fix me up practically for free, but a dentist will charge me half a months paycheck for less work? Guess I\'m chewing painkillers and booking a flight to Poland.</p>',
+'dentist' => '<p>When I was a kid I soon realized that my teeth were made of glass. Because every time I sat in a dentist chair they wouldn\'t let me leave until at least three or four cavities were taken care of. So naturally I developed a fear of the dentist. Now that I\'m older that means I won\'t go before the pain is tantamount to getting kicked in the balls repeatedly by a field goal kicker.<p>But you know what would ease my pain? Not being charged an arm and a leg for this torture. What the fuck, Norway? You mean to tell me I can go to the hospital and a surgeon will fix me up practically for free, but a dentist will charge me half a months paycheck for less work? Guess I\'m chewing painkillers and booking a flight to Poland.',
 'sheldon' => 'Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock, and as it always has, rock crushes scissors.',
 'wtf' => 'Can you pay them? The people who put everything together? That\'s the only way I can explain it.',
 'armadillo' => 'Do not hurt the infamous armadillo, whose tales of awesometude have reached even the cold shores of Norway. We, the vikings of this barren land, will fight to preserve this majestic creature\'s right to proper lodgings. Something something, axe murder.',
@@ -476,8 +477,8 @@ $static = array(
 'prudiful' => 'A mix of "Pretty" and "Beautiful". A synomyn for Rachael.',
 'hot' => 'One of the hottest things on the planet, the infamous <a href="misc/deadsexy.jpg" class="view">Peter Andersen</a>.',
 'asimov' => 'Individual science fiction stories may seem as trivial as ever to the blinder critics and philosophers of today. But the core of science fiction, its essence, has become crucial to our salvation if we are to be saved at all.',
-'joshua' => '<p>JOSHUA is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="command">about</span>.<br><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a></p>',
-'source' => '<p><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a></p>',
+'joshua' => '<p>JOSHUA is my homepage. Willfully ignoring any and all conventions that "aren\'t cool" (but absolutely crucial), it has turned into a website that never ceases to entertain me (while developing) and confuse everybody else (while visiting). I work with making the web easy and accesible every day, so consider this my outlet. For more information see <span class="command">about</span>.<br><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a>',
+'source' => '<p><a href="http://github.com/destru/joshua" class="external">Download JOSHUA at GitHub.</a>',
 'hidden' => 'Look closer! Have you tried cheating? To <span class="command">cheat</span> or not to <span class="command">cheat</span>, that is the question.',
 'sharks' => 'Don\'t poop. Ever. They\'re like the Thunderdome, only two men enter and no man leaves.',
 'lamb' => 'A lamb stays a lamb. Forever. Sheep are not lambs, they are a different species entirely. Dr. Young, the world renowned lambologist, has done research into the matter.',
@@ -486,7 +487,7 @@ $static = array(
 'sick' => 'Rad to the power of awesome!',
 'bugger' => 'Oh dear.',
 'home' => '<i>Home is where the heart lies, but if the heart lies where is home?</i><br>&mdash; Fish',
-'server' => '<p class="joshua">'.$joshua.'Currently running on '.$_SERVER['SERVER_SOFTWARE'].'</p>',
+'server' => '<p class="joshua">'.$joshua.'Currently running on '.$_SERVER['SERVER_SOFTWARE'],
 'deploy' => 'JOSHUA '.$version.' ('.$versionName.') is deployed.',
 'henrik' => 'Lillebroren min som skal bli rockestjerne.',
 'freiburg' => 'I don\'t know why I hate you so much.',
@@ -517,9 +518,9 @@ $static = array(
 'pfft' => 'Dude, whatever.',
 'no' => 'Don\'t you mean yes?',
 'cunt' => 'Fuck off, you pissed up slapper.',
-'robot' => 'if(!full(battery)) { charge(battery); } else { for(i = 0; i < 4; i++) { var we = \"the robots\"; } }',
+'robot' => 'if (!full(battery)) { charge(battery); } else { for(i = 0; i < 4; i++) { var we = \"the robots\"; } }',
 'meaning' => 'I\'m too tired for this Zen bullshit. YOLO.',
-'format' => '<p class="joshua">'.$joshua.'Come on, did you really expect that to work?</p>',
+'format' => '<p class="joshua">'.$joshua.'Come on, did you really expect that to work?',
 'fuck' => 'Possibly the best word in the English language, you fucker.',
 'pointless' => 'A circle.',
 'haha' => 'Hehe, right?',
@@ -544,7 +545,7 @@ $static = array(
 'reboot' => '<script>location.reload();</script>',
 'nope' => 'Yarp?',
 
-'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.</p><pre class="dark">
+'homtanks' => '<p>The celebrity renaming game. Created by Yachael Roung.<pre class="dark">
 Alexander: I still think Hom Tanks is the best. tolsen wins!
 Rachael: hahahahaha
 Alexander: BRODO FAGGINS!
@@ -565,7 +566,7 @@ Rachael: HAHAHA!</pre>',
 'time' => gmdate('l jS \of F Y h:i:s A').' UTC',
 'fizzbuzz' => '&lt;?while($i++<100)echo$i%15?$i%5?$i%3?$i:"Fizz":"Buzz":"FizzBuzz","\n";?&gt;',
 'justmtv' => 'An amazing idea I had that never will be realized. Streaming music videos without interruption online. Or in other words, what MTV should be.',
-'everywhere' => '<p>Can you hear me calling<br>Out your name<br>You know that I\'m falling<br>And I don\'t know what to say<br>I\'ll speak a little louder<br>I\'ll even shout<br>You know that I\'m proud<br>And I can\'t get the words out</p><p>Oh I...<br>I want to be with you everywhere</span></p>',
+'everywhere' => '<p>Can you hear me calling<br>Out your name<br>You know that I\'m falling<br>And I don\'t know what to say<br>I\'ll speak a little louder<br>I\'ll even shout<br>You know that I\'m proud<br>And I can\'t get the words out<p>Oh I...<br>I want to be with you everywhere</span>',
 'bomfunk' => 'We grew up on the south side, ghettoblaster was huge!',
 'draw' => 'Sure, choose "Draw" in the <span class="command">customize</span> menu and have at it.',
 'love' => 'Baby don\'t hurt me, don\'t hurt me, no more.',
@@ -611,9 +612,9 @@ Rachael: HAHAHA!</pre>',
 'rachael' => '<p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist.
 	We\'ve been happily married for <span class="light">'.round((strtotime(date("Ymd"))-strtotime("2009/10/07"))/86400).'</span> days
 	and her birthday is in <span class="light">'.cakeDay("06/29").'</span> days
-	(so remember to buy her something nice). <a href="http://rachaelivy.com">Visit her homepage</a> for more information about her acting.</p>',
+	(so remember to buy her something nice). <a href="http://rachaelivy.com">Visit her homepage</a> for more information about her acting.',
 
-'rachel' => '<p class="joshua">'.$joshua.'Did you mean <span class="command">rachael</span>? You better have. She doesn\'t like being called Rachel.</p>',
+'rachel' => '<p class="joshua">'.$joshua.'Did you mean <span class="command">rachael</span>? You better have. She doesn\'t like being called Rachel.',
 
 'thanks' => '<p>I\'m a firm believer in giving credit where credit is due, this is a list over all the people who in some way have contributed to JOSHUA. Thank you for being awesome.<p>
 	<p>
@@ -639,8 +640,8 @@ Rachael: HAHAHA!</pre>',
 		<a href="http://hubblesource.stsci.edu//">The Hubble</a> for the original Neocom background.
 		Whoever is behind <a href="http://apify.ifc0nfig.com/">APIfy</a>.
 		<a href="http://www.omdbapi.com/">Brian Fritz</a> for OMDb.
-	</p>
-	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.</p>',
+
+	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.',
 
 'porn' => '<pre>Perfect Breasts             <span class="light">(o)(o)</span>
 Fake Silicone Breasts       <span class="light">( + )( + )</span>

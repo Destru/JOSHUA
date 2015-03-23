@@ -16,14 +16,14 @@ unset($output);
 function error($id, $inline=null) {
 	global $error, $command, $prompt, $joshua;
 	if (!$inline) print $prompt;
-	print '<p class="joshua error">'.$joshua.$error[$id].'</p>';
+	print '<p class="joshua error">'.$joshua.$error[$id];
 	die();
 }
 
 function output($response) {
 	global $output, $command, $option, $input, $prompt;
 	if (stristr($response,'<p') || stristr($response,'<table')|| stristr($response,'<ul')) print $prompt.$response;
-	else print $prompt.'<p>'.$response.'</p>';
+	else print $prompt.'<p>'.$response;
 	$output = true;
 }
 
@@ -118,7 +118,7 @@ if (empty($output)) {
 		$count = count($array)-1; $rand = rand(0,$count);
 		if (!empty($option) && $option == "all") {
 			foreach($array as $quote) {
-				if ($command == "bash") $quote = '<p class="irc">'.$quote.'</p>';
+				if ($command == "bash") $quote = '<p class="irc">'.$quote;
 				output($quote);
 			}
 		}
@@ -128,7 +128,7 @@ if (empty($output)) {
 		}
 		else {
 			$quote = $array[$rand];
-			if ($command == "bash") $quote = '<p class="irc">'.$quote.'</p>';
+			if ($command == "bash") $quote = '<p class="irc">'.$quote;
 			output($quote);
 		}
 	}
@@ -137,7 +137,7 @@ if (empty($output)) {
 	if ($command == "motd") {
 		$count = count($motd)-1; $rand = rand(0,$count);
 		if (isset($option) && $option == "inline") {
-			print '<p class="dark motd">'.$motd[$rand].'</p><p class="joshua">'.$joshua.'Please enter <span class="command">help</span> for commands.</p>';
+			print '<p class="dark motd">'.$motd[$rand].'<p class="joshua">'.$joshua.'Please enter <span class="command">help</span> for commands.';
 			$output = true;
 		}
 		else {
@@ -170,7 +170,7 @@ if (empty($output)) {
 			}
 			else error('notdomain');
 		}
-		else output('<p class="error">'.$joshua.'I need a domain to lookup.</p><p class="example">'.$command.' binaerpilot.no</p>');
+		else output('<p class="error">'.$joshua.'I need a domain to lookup.<p class="example">'.$command.' binaerpilot.no');
 	}
 
 	// prime
@@ -187,9 +187,9 @@ if (empty($output)) {
 				}
 				else output($option.' is a prime number.');
 			}
-			else output('<p class="error">'.$joshua.'The number is too damn high (for regex).</p>');
+			else output('<p class="error">'.$joshua.'The number is too damn high (for regex).');
 		}
-		else output('<p class="error">'.$joshua.'You have to tell me a number.</p><p class="example">prime 13</p>');
+		else output('<p class="error">'.$joshua.'You have to tell me a number.<p class="example">prime 13');
 	}
 
 	// locate
@@ -204,7 +204,7 @@ if (empty($output)) {
 			$latitude = trim(array_shift(explode('Longitude', array_pop(explode('Latitude:', $output)))));
 			$longitude = trim(array_shift(explode('IP', array_pop(explode('Longitude:', $output)))));
 			if (!empty($latitude) && !empty($longitude)) {
-				output('<pre>'.$output.'</pre><p><a class="external" href="http://maps.google.com/maps?q='.$latitude.'+'.$longitude.'">View at Google Maps.</a></p>');
+				output('<pre>'.$output.'</pre><p><a class="external" href="http://maps.google.com/maps?q='.$latitude.'+'.$longitude.'">View at Google Maps.</a>');
 			}
 			else output('<pre>'.$output.'</pre>');
 		}
@@ -217,24 +217,24 @@ if (empty($output)) {
 		if (empty($_SESSION['numbers'])) $_SESSION['numbers'] = 0;
 		if (isset($option) && $option == "reset") {
 			unset($_SESSION['numbers']);
-			output('<p class="joshua">'.$joshua.'Game reset.</p>');
+			output('<p class="joshua">'.$joshua.'Game reset.');
 		}
 		else if ($_SESSION['numbers'] == $levels) {
-			output('<p class="joshua">'.$joshua.'You have beaten the game! Use <span class="command">idkfa</span> to list all the static keys.</p>');
+			output('<p class="joshua">'.$joshua.'You have beaten the game! Use <span class="command">idkfa</span> to list all the static keys.');
 		}
 		else {
 			if (empty($option)) {
 				$level = $_SESSION['numbers']+1;
-				if ($level != 1) output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p>');
-				else output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p><p class="error">'.$joshua.'Type <b>number (x)</b> to answer the riddle.</p><p class="example">number 1</p>');
+				if ($level != 1) output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0]);
+				else output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'<p class="error">'.$joshua.'Type <b>number (x)</b> to answer the riddle.<p class="example">number 1');
 			}
 			else {
 				if ($option == $numbers[$_SESSION['numbers']][1]) {
 					$_SESSION['numbers'] = $_SESSION['numbers']+1;
 					$level = $_SESSION['numbers']+1;
-					output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0].'</p>');
+					output('<p>Level '.$level.': '.$numbers[$_SESSION['numbers']][0]);
 				}
-				else output('<p class="error">'.$joshua.'Wrong answer. Try again.</p><p>'.$numbers[$_SESSION['numbers']][0].'</p>');
+				else output('<p class="error">'.$joshua.'Wrong answer. Try again.<p>'.$numbers[$_SESSION['numbers']][0]);
 			}
 		}
 	}
@@ -270,11 +270,11 @@ if (empty($output)) {
 				$output .= '<tr><td class="dark fixed-width">'.$messages[$i]['timestamp'].'</td><td>'.stripslashes($messages[$i]['message']).'</td><td></td></tr>';
 			}
 			$output .= '</table>';
-			if (isset($msgTooShort)) output('<p class="error">'.$joshua.'Message is too short.</p>');
-			else if (isset($msgExample)) output('<p class="joshua">'.$joshua.'Yes, that is how it works, and this message is an example.</p>');
+			if (isset($msgTooShort)) output('<p class="error">'.$joshua.'Message is too short.');
+			else if (isset($msgExample)) output('<p class="joshua">'.$joshua.'Yes, that is how it works, and this message is an example.');
 			else output($output);
 		}
-		else output('<p class="error">'.$joshua.'Message can\'t be empty.</p><p class="example">msg joshua needs more ultraviolence</p>');
+		else output('<p class="error">'.$joshua.'Message can\'t be empty.<p class="example">msg joshua needs more ultraviolence');
 	}
 
 	// yoda
@@ -284,7 +284,7 @@ if (empty($output)) {
 			$count = count($yodaQuotes)-1; $rand = rand(0,$count);
 			output('<div class="speechBubble">'.$yodaQuotes[$rand].'</div>'.$yoda);
 		}
-		else output('<p class="speechBubble">Ask a question you must.</p>'.$yoda);
+		else output('<p class="speechBubble">Ask a question you must.'.$yoda);
 	}
 
 	// fml
@@ -328,14 +328,14 @@ if (empty($output)) {
 				$output .= $artist.' - '.$track.'<br>'."\r";
 			}
 		}
-		$output .= '<br><a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a></p>';
+		$output .= '<br><a class="external" href="http://last.fm/user/astoever/" title="Alexander Støver on Last.FM">More useless data.</a>';
 		output($output);
 	}
 
 	// wtfig
 	if ($command == "wtfig" || $command == "figlet") {
 		if (!isset($option)) {
-			output('<p class="error">'.$joshua.'Tell me which font to use and what you want to figletize. (See available fonts with <span class="command">wtfig list</span>.)</p><p class="example">wtfig chunky w00t!</p>');
+			output('<p class="error">'.$joshua.'Tell me which font to use and what you want to figletize. (See available fonts with <span class="command">wtfig list</span>.)<p class="example">wtfig chunky w00t!');
 		}
 		else {
 			if (file_exists("wtfig/fonts/$option.flf")) {
@@ -350,7 +350,7 @@ if (empty($output)) {
 					}
 				}
 				else {
-					output('<p class="error">'.$joshua.'You didn\'t write anything to figletize.</p>');
+					output('<p class="error">'.$joshua.'You didn\'t write anything to figletize.');
 				}
 			}
 			else {
@@ -363,9 +363,9 @@ if (empty($output)) {
 					}
 				}
 				sort($fontList); $fonts = implodeHuman($fontList);
-				$output = '<p>'.$fonts.'.</p>';
+				$output = '<p>'.$fonts.'.';
 				if ($option != "list") {
-					$output = '<p class="error">'.$joshua.'I don\'t have that font. See list below.</p>'.$output;
+					$output = '<p class="error">'.$joshua.'I don\'t have that font. See list below.'.$output;
 				}
 				output($output);
 			}
@@ -400,13 +400,13 @@ if (empty($output)) {
 					print '</table>';
 					$output = true;
 				}
-				else output('<p class="error">'.$joshua.'<b>'.$input.'</b> returned nothing.</p>');
+				else output('<p class="error">'.$joshua.'<b>'.$input.'</b> returned nothing.');
 			}
 			else {
 				error('timeout');
 			}
 		}
-		else output('<p class="error">'.$joshua.'You need to tell me something to look for.</p><p class="example">get binaerpilot</p>');
+		else output('<p class="error">'.$joshua.'You need to tell me something to look for.<p class="example">get binaerpilot');
 	}
 
 	// themes
@@ -428,7 +428,7 @@ if (empty($output)) {
 			setcookie('theme', $themes[rand(0,count($themes)-1)], $cookieExpires, '/');
 			output('<script>location.reload();</script>');
 		}
-		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($themes).'.</p><p class="example">'.$command.' random</p>');
+		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($themes).'.<p class="example">'.$command.' random');
 	}
 
 	// presets
@@ -458,7 +458,7 @@ if (empty($output)) {
 			}
 			output('<script>location.reload();</script>');
 		}
-		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($presets).'.</p><p class="example">'.$command.' '.$presets[rand(0,count($presets)-1)].'</p>');
+		else output('<p class="error">'.$joshua.'Choose between '.implodeHuman($presets).'.<p class="example">'.$command.' '.$presets[rand(0,count($presets)-1)]);
 	}
 
 	// scores (superplastic)
@@ -501,30 +501,30 @@ if (empty($output)) {
 				}
 				else error('noreturn');
 			}
-			else output('<p class="error">'.$joshua.'Does not compute.</p>');
+			else output('<p class="error">'.$joshua.'Does not compute.');
 		}
-		else output('<p class="error">'.$joshua.'There\'s nothing to calculate.</p><p class="example">calc 6*9</p>');
+		else output('<p class="error">'.$joshua.'There\'s nothing to calculate.<p class="example">calc 6*9');
 	}
 
 	// hash
 	if ($command == "hash" || $command == "md5" || $command == "sha1") {
-		$example = '<p class="example">hash md5 joshua</p>';
+		$example = '<p class="example">hash md5 joshua';
 		if ($command == "md5" || $command == "sha1") $option = $command;
 		if (isset($option)) {
 			$string = trim(str_replace($option, '', $input));
 			if (in_array($option, hash_algos())) {
 				if (strlen($string) > 0) {
-					output('<p>'.hash($option, $string).'</p>');
+					output('<p>'.hash($option, $string));
 				}
 				else {
-					output('<p class="error">'.$joshua.'You need to specify both an algorithm and a string.</p>'.$example);
+					output('<p class="error">'.$joshua.'You need to specify both an algorithm and a string.'.$example);
 				}
 			}
 			else {
-				output('<p class="error">'.$joshua.'Valid options are '.implodeHuman(hash_algos()).'.</p>'.$example);
+				output('<p class="error">'.$joshua.'Valid options are '.implodeHuman(hash_algos()).'.'.$example);
 			}
 		}
-		else output('<p class="error">'.$joshua.'Can\'t hash an empty string.</p>'.$example);
+		else output('<p class="error">'.$joshua.'Can\'t hash an empty string.'.$example);
 	}
 
 	// reviews
@@ -538,7 +538,7 @@ if (empty($output)) {
 				print '<tr><td><span class="command">review '.($key+1).'</span></td><td>'.$value['title'].'</td><td class="dark">'.$value['year'].'</td><td class="light">'.$value['rating'].'/10</td></tr>';
 			}
 			print '</table>';
-			print '<p class="error">'.$joshua.'Type <b>review (x)</b> to read a review.</p><p class="example">review '.rand(0,count($reviews)-1).'</p>';
+			print '<p class="error">'.$joshua.'Type <b>review (x)</b> to read a review.<p class="example">review '.rand(0,count($reviews)-1);
 			$output = true;
 		}
 		else {
@@ -546,9 +546,9 @@ if (empty($output)) {
 			if (preg_match($pattern, $option)) {
 				$id = $option-1;
 				if (!empty($reviews[$id])) {
-					print $prompt.'<p><b class="light">'.$reviews[$id]['title'].'</b> <span class="dark">('.$reviews[$id]['year'].')</span> '.$reviews[$id]['rating'].'/10</p>'.
+					print $prompt.'<p><b class="light">'.$reviews[$id]['title'].'</b> <span class="dark">('.$reviews[$id]['year'].')</span> '.$reviews[$id]['rating'].'/10'.
 						$reviews[$id]['review'].
-						'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a></p>';
+						'<p><a class="external" href="http://www.imdb.com/find?s=all;q='.urlencode($reviews[$id]['title'].' '.$reviews[$id]['year']).'">View movie on IMDb.</a>';
 					$output = true;
 				}
 				else error("404");
@@ -589,7 +589,7 @@ if (empty($output)) {
 			'<tr><td>Commands</td><td class="light">'.$commands.'</td><td class="dark">Yes, there are at least that many</td></tr>'.
 			'<tr><td>Brain cells</td><td class="light">'.$brainCells.'</td><td class="dark">All external files loaded by the brain</td></tr>'.
 			'<tr><td>Themes</td><td class="light">'.$themes.'</td><td class="dark">Some themes have to be unlocked...</td></tr>'.
-			'<tr><td>Bytes</td><td class="light">'.$bytes.'</td><td class="dark">Everything hand-coded with Notepad++ and TextMate</td></tr>'.
+			'<tr><td>Bytes</td><td class="light">'.$bytes.'</td><td class="dark">Hand-coded with Notepad++, TextMate and Sublime</td></tr>'.
 			'<tr><td>Lines</td><td class="light">'.$lines.'</td><td class="dark">Lines of code (no externals)</td></tr>'.
 			'<tr><td>Messages</td><td class="light">'.$messages.'</td><td class="dark">Left with the msg command</td></tr>'.
 			'<tr><td>Reviews</td><td class="light">'.$reviews.'</td><td class="dark">Reviews of terrible movies</td></tr>'.
@@ -604,7 +604,7 @@ if (empty($output)) {
 	if ($command == "let\'s" || $command == "lets" || $command == "how") {
 		if (preg_match('/thermonuclear/i', $dump)) {
 			$prompt = '<div class="prompt">how about global thermonuclear war?</div>';
-			output('<p class="joshua">'.$joshua.'Wouldn\'t you prefer a nice game of chess?</p>');
+			output('<p class="joshua">'.$joshua.'Wouldn\'t you prefer a nice game of chess?');
 		}
 	}
 
@@ -615,7 +615,7 @@ if (empty($output)) {
 				'<script>speak(\''.$input.'\', { pitch:50, speed:120 });</script>';
 			$output = true;
 		}
-		else output('<p class="error">'.$joshua.'What do you want me to say?</p><p class="example">say hello</p>');
+		else output('<p class="error">'.$joshua.'What do you want me to say?<p class="example">say hello');
 	}
 
 	// rate
@@ -626,20 +626,20 @@ if (empty($output)) {
 			if (filter_var($omdb->Response, FILTER_VALIDATE_BOOLEAN)) {
 				print $prompt.
 					'<p><b class="light">'.$omdb->Title.'</b> <span class="dark">('.$omdb->Year.')</span><br>'.
-					'<span class="dark">'.$omdb->Genre.'</span></p>';
-				if ($omdb->Plot != "N/A") print '<p>'.$omdb->Plot.'</p>';
+					'<span class="dark">'.$omdb->Genre.'</span>';
+				if ($omdb->Plot != "N/A") print '<p>'.$omdb->Plot;
 				print '<table class="fluid rate">'.
 						'<tr><td>IMDb</td><td class="light">'.$omdb->imdbRating.'</td></tr>'.
 						'<tr><td>Tomatometer</td><td class="light">'.$omdb->tomatoMeter.'</td></tr>'.
 						'<tr><td>Metascore</td><td class="light">'.$omdb->Metascore.'</td></tr>'.
 					'</table>';
-				if ($omdb->tomatoConsensus != "N/A") print '<p class="dark">'.$omdb->tomatoConsensus.'</p>';
-				print '<p><span class="command">get '.strtolower($omdb->Title).'</span></p>';
+				if ($omdb->tomatoConsensus != "N/A") print '<p class="dark">'.$omdb->tomatoConsensus;
+				print '<p><span class="command">get '.strtolower($omdb->Title).'</span>';
 				$output = true;
 			}
 			else error('404');
 		}
-		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' blade runner</p>');
+		else output('<p class="error">'.$joshua.'What am I looking for?<p class="example">'.$command.' blade runner');
 	}
 
 	// img
@@ -661,11 +661,11 @@ if (empty($output)) {
 					print $prompt.'<script>$("#slick .slideshow").html(\''.$output.'\'); galleryInit(); $("#gallery:hidden").fadeIn(fadeDelay); $("#galleryOpen").addClass("active");</script>';
 					$output = true;
 				}
-				else output('<p class="error">'.$joshua.'Found nothing tagged with '.$input.'. (Instagram filters the API rigorously.)</p>');
+				else output('<p class="error">'.$joshua.'Found nothing tagged with '.$input.'. (Instagram filters the API rigorously.)');
 			}
 			else error('empty');
 		}
-		else output('<p class="error">'.$joshua.'Give me something to search for.</p><p class="example">'.$command.' daft punk</p>');
+		else output('<p class="error">'.$joshua.'Give me something to search for.<p class="example">'.$command.' daft punk');
 	}
 
 	// rand
@@ -676,7 +676,7 @@ if (empty($output)) {
 			}
 			else output('<p class="error">'.$joshua.' '.$option.' is not a number. This error message will hopefully never be seen.');
 		}
-		else output('<p class="error">'.$joshua.'Between how many numbers?</p><p class="example">'.$command.' '.rand(0,10).'</p>');
+		else output('<p class="error">'.$joshua.'Between how many numbers?<p class="example">'.$command.' '.rand(0,10));
 	}
 
 	// git
@@ -692,14 +692,14 @@ if (empty($output)) {
 							'<span class="dark">'.date("F j, Y", strtotime($i->commit->author->date)).'</span><br>'.
 							$i->commit->message.'<br>'.
 							'<a class="external fixed-width" href="'.$i->html_url.'">'.substr($i->sha, 0, 7).'</a>'.
-							'</p>';
+							'';
 					}
 					$output = true;
 				}
 			}
 			else error('auth');
 		}
-		else output('<p class="error">'.$joshua.'Please specify an operation to perform.</p><p class="example">'.$command.' log</p>');
+		else output('<p class="error">'.$joshua.'Please specify an operation to perform.<p class="example">'.$command.' log');
 	}
 
 	// flip
@@ -756,7 +756,7 @@ if (empty($output)) {
 			}
 			output($output);
 		}
-		else output('<p class="error">'.$joshua.'What do you want flipped?</p><p class="example">'.$command.' seahawks rule</p>');
+		else output('<p class="error">'.$joshua.'What do you want flipped?<p class="example">'.$command.' seahawks rule');
 	}
 
 	// wiki
@@ -770,13 +770,13 @@ if (empty($output)) {
 					print '<p>'.
 						substr(strip_tags($article->snippet), 0, 100).'&hellip;<br>'.
 						'<a class="external" href="http://en.wikipedia.org/wiki/'.$article->title.'">'.$article->title.'</a>'.
-						'</p>';
+						'';
 				}
 				$output = true;
 			}
 			else error('404');
 		}
-		else output('<p class="error">'.$joshua.'What am I looking for?</p><p class="example">'.$command.' wonder showzen</p>');
+		else output('<p class="error">'.$joshua.'What am I looking for?<p class="example">'.$command.' wonder showzen');
 	}
 
 	// history
