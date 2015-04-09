@@ -375,25 +375,30 @@ if (empty($output)) {
 	// get
 	if ($command == "get" || $command == "torrent" || $command == "magnet") {
 		if (isset($option)) {
-			$host = 'http://apify.ifc0nfig.com/tpb/';
-			if ($option == "top") $query = 'top?id=all&key='.$keys['apify'];
-			else $query = 'search?id='.urlencode($input).'&key='.$keys['apify'];
+			$host = 'http://torrentproject.se/';
+			$query = '?s='.urlencode($input).'&out=json';
 			$content = get($host.$query);
 			if ($content) {
-				$hits = json_decode($content, true);
-				if (count($hits)) {
+				$torrents = json_decode($content, true);
+				if (count($torrents)) {
 					print $prompt.
 						'<table class="torrents">';
-					foreach($hits as $i) {
-						$title = $i['name'];
-						$link = $i['magnet'];
-						$seeders = $i['seeders'];
-						$leechers = $i['leechers'];
-						if ($title && strpos($link, 'magnet') !== false) {
+					foreach($torrents as $i) {
+						if (is_array($i)) {
+							$title = $i['title'];
+							$hash = $i['torrent_hash'];
+							$seeders = $i['seeds'];
+							$leechers = $i['leechs'];
+							$trackers = '&tr=http://bt01.gamebar.com:6969/announce'.
+								'&tr=http://mgtracker.org:2710/announce'.
+								'&tr=http://tracker.blucds.com:2710/announce'.
+								'&tr=udp://open.demonii.com:1337/announce'.
+								'&tr=udp://tracker.coppersurfer.tk:6969/announce'.
+								'&tr=udp://tracker.leechers-paradise.org:6969/announce';
+							$link = 'magnet:?xt=urn:btih:'.$hash.'&dn='.$title.$trackers;
 							print '<tr>'.
 								'<td class="torrent"><a href="'.$link.'">'.$title.'</a></td>'.
 								'<td>'.$seeders.'/'.$leechers.'</td>'.
-								'<td class="dark">'.$i['size'].'</td>'.
 								'</tr>';
 						}
 					}
