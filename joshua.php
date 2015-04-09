@@ -387,6 +387,7 @@ if (empty($output)) {
 						if (is_array($i)) {
 							$title = $i['title'];
 							$hash = $i['torrent_hash'];
+							$size = humanFileSize($i['torrent_size']);
 							$seeders = $i['seeds'];
 							$leechers = $i['leechs'];
 							$trackers = '&tr=http://bt01.gamebar.com:6969/announce'.
@@ -399,6 +400,7 @@ if (empty($output)) {
 							print '<tr>'.
 								'<td class="torrent"><a href="'.$link.'">'.$title.'</a></td>'.
 								'<td>'.$seeders.'/'.$leechers.'</td>'.
+								'<td class="dark">'.$size.'</td>'.
 								'</tr>';
 						}
 					}
