@@ -395,6 +395,9 @@ function chromeMagic() {
 		$('#desktop').prepend('<a href="/"><div id="neocom"><img src="images/logoNeocom.png" width="20" height="20" alt="JOSHUA"></div></a>');
 		resizeHelper(88);
 	}
+	else if (theme == "league") {
+		$('#wrapper').prepend('<div id="theRift"><img src="images/backgroundLeague.jpg"></div>').append('<div id="leagueStatus"/>');
+	}
 }
 
 // boot
