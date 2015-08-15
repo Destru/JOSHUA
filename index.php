@@ -1,4 +1,6 @@
-<?php include 'inc.global.php'; ?>
+<?php // alexander@binaerpilot.no
+	include 'inc.global.php';
+	function error($msg) {} // catch-all ?>
 <!doctype html>
 <html lang="en">
 <!--
@@ -74,15 +76,14 @@
 				<li><a class="external" href="http://einhyrning.com/" title="VGhlIG9jZWFuIG9mIHNwYWNlDQpJcyBleGlzdGVuY2UgaXMgcHVycG9zZQ0KQ2hhbmdlIGlzIGZvcmV2ZXI=">Einhyrning</a>
 			</ul>
 		</div>
-<?php // apps
-	$d = scandir('.');
-	foreach ($d as $file) {
-		if (stristr($file, 'app.')) $app[] = $file;
-	} ?>
 		<div id="apps">
 			<div id="speak"></div>
-			<?php foreach ($app as $file) include $file; ?>
-		</div>
+			<?php // apps
+				$d = scandir('.');
+				foreach ($d as $file) {
+					if (stristr($file, 'app.')) include $file;
+				} ?>
+	</div>
 		<div id="loader"></div>
 	</div>
 </body>
