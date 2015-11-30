@@ -34,8 +34,7 @@
 		'about' => '<p><b>League of Legends</b> is an fast-paced, twitchy MOBA with a surprising amount of depth. '.
 			'At first the game seemed fun enough, but it wasn\'t until I saw professional play that I fell in love with it. '.
 			'Barely making it out of S3 relegations, I naturally chose <span class="command">CLG</span> as my favorite team. Because the feels. '.
-			'<p><a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">Although I focus on improving</a>, most of my time is spent in normals with friends. '.
-			'We have recently formed a ranked 5v5, so watch out LCS! We will absolutely definitely maybe make it to Silver. Maybe. '
+			'<p><a href="https://docs.google.com/document/d/1mjHduFqJGj15sn2UqksTf8bBKC8X1eDDPiKMKibmP9w/edit?usp=sharing">Although I focus on improving</a>, most of my time is spent in normals with friends. '
 	)
 );
 
