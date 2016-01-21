@@ -381,7 +381,7 @@ $static = array(
 		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">alexander@binaerpilot.no</a></td></tr>
 	</table>
 	<p>
-		I do front end web development (see <span class="command">resume</span>).
+		I do front end development (see <span class="command">work</span>).
 		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
 		I am, what is colloquially known as, a massive nerd.
 	',
@@ -526,7 +526,7 @@ $static = array(
 'pointless' => 'A circle.',
 'haha' => 'Hehe, right?',
 'hehe' => 'Dude, yes.',
-'work' => 'I make websites for a living. Bet you didn\'t see that coming.',
+'job' => 'I make websites for a living. Bet you didn\'t see that coming.',
 'herp' => 'Derpderpderp.',
 'derp' => 'herp',
 'goodbye' => 'Hasta la vista, baby.',
@@ -600,15 +600,15 @@ Rachael: HAHAHA!</pre>',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
-'resume' => '<p><a href="http://www.linkedin.com/in/astoever">I currently work for IAC in New York.</a>
-	It is awesome. They are awesome.
-	<p>The majority of my professional career is spent in private repositories, but some sites I have worked on are
+'work' => '<p>I work for <a href="http://datameer.com">Datameer</a> as a UI Engineer.
+	Or: Big data complexity struggles with sensible user interfaces.
+	<p>Some other companies I have worked for are
 		<a href="http://www.travelocity.com/">Travelocity</a>,
 		<a href="http://finn.no">FINN</a> and
-		<a href="http://howaboutwe.com">HowAboutWe</a> (currently).
-		To this day I still enjoy doing random projects on my spare time for fun.
-		One of the more noteworthy being <a href="http://chronicless.einhyrning.com">ChronicLESS</a>, a JSON API for Funcom\'s The Secret World.
-	<p>While I am not looking for work right now, feel free to <a href="mailto:alexander@binaerpilot.no">mail me</a> if you have any questions.
+		<a href="http://iac.com">IAC</a>.
+	<p>I also enjoy random projects on my sparetime under my one-man company <a href="http://einhyrning.com">EINHYRNING</a>.
+		Such as <a href="http://chronicless.einhyrning.com">ChronicLESS</a>, a JSON API for The Secret World.
+	<p><a href="http://www.linkedin.com/in/astoever">You can contact me on LinkedIn.</a>
 	',
 'rachael' => '<p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist.
 	We\'ve been happily married for <span class="light">'.round((strtotime(date("Ymd"))-strtotime("2009/10/07"))/86400).'</span> days
