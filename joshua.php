@@ -375,7 +375,7 @@ if (empty($output)) {
 	// get
 	if ($command == "get" || $command == "torrent" || $command == "magnet") {
 		if (isset($option)) {
-			$host = 'http://torrentproject.se/';
+			$host = 'https://torrentproject.se/';
 			$query = '?s='.urlencode($input).'&out=json';
 			$content = get($host.$query);
 			if ($content) {
@@ -398,7 +398,7 @@ if (empty($output)) {
 								'&tr=udp://tracker.leechers-paradise.org:6969/announce';
 							$link = 'magnet:?xt=urn:btih:'.$hash.'&dn='.$title.$trackers;
 							print '<tr>'.
-								'<td class="torrent"><a href="'.$link.'">'.$title.'</a></td>'.
+								'<td class="torrent"><a href="'.$link.'">'.substr($title, 0, 80).'</a></td>'.
 								'<td>'.$seeders.'/'.$leechers.'</td>'.
 								'<td class="dark">'.$size.'</td>'.
 								'</tr>';

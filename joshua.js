@@ -255,7 +255,6 @@ function chromeInit() {
 		}
 		else {
 			if (id == "superplastic") loadSuperplastic();
-			else if (id == "videos") loadVideos();
 			else {
 				createCookie(id, true, cookieExpires);
 				if (id == "music") if (muted) mute();
