@@ -2,7 +2,7 @@
 	<h1>MP3 Player</h1>
 <?php
 	get('http://binaerpilot.no/albums.json', 'binaerpilot.json');
-	$albums = load('albums.json');
+	$albums = load('binaerpilot.json');
 	if ($albums) {
 		$r = rand(0,count($albums)-1);
 		print '<ul class="menu">';
