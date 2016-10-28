@@ -3,15 +3,4 @@
 *.data
 *.xml
 *.json
-ao/*
-code/*
-eve/*
-gallery/*
 misc/*
-mobile/*
-music/*
-wtfig/*
-backup/*
-tsw/*
-capsuleer/*
-gzip.php

@@ -37,10 +37,6 @@ $static = array(
 			<td>Leave me a message (use <span class="command">msg list</span> to read).</td>
 		</tr>
 		<tr>
-			<td><span class="command">wtfig</span> <span class="dark">font text</span></td>
-			<td>Do you ASCII? Figlet generator extraordinaire.</td>
-		</tr>
-		<tr>
 			<td><span class="command">say</span> <span class="dark">text</span></td>
 			<td>What? Your website doesn\'t talk?</td>
 		</tr>

@@ -332,46 +332,6 @@ if (empty($output)) {
 		output($output);
 	}
 
-	// wtfig
-	if ($command == "wtfig" || $command == "figlet") {
-		if (!isset($option)) {
-			output('<p class="error">'.$joshua.'Tell me which font to use and what you want to figletize. (See available fonts with <span class="command">wtfig list</span>.)<p class="example">wtfig chunky w00t!');
-		}
-		else {
-			if (file_exists("wtfig/fonts/$option.flf")) {
-				$font =  $option.'.flf';
-				$string = trim(str_replace($option, '', $input));
-				if (strlen($string) > 0) {
-					require("wtfig/class.figlet.php");
-					$phpFiglet = new phpFiglet();
-					if ($phpFiglet->loadFont("wtfig/fonts/".$font)) {
-						$wtFIG = $phpFiglet->fetch($string);
-						output('<pre class="ascii">'.$wtFIG.'</pre>');
-					}
-				}
-				else {
-					output('<p class="error">'.$joshua.'You didn\'t write anything to figletize.');
-				}
-			}
-			else {
-				$fontList = array();
-				$dir = scandir("wtfig/fonts/");
-				foreach($dir as $file) {
-					if (strpos($file,".flf")) {
-						$fontName = str_replace('.flf', '', $file);
-						$fontList[] = $fontName;
-					}
-				}
-				sort($fontList); $fonts = implodeHuman($fontList);
-				$output = '<p>'.$fonts.'.';
-				if ($option != "list") {
-					$output = '<p class="error">'.$joshua.'I don\'t have that font. See list below.'.$output;
-				}
-				output($output);
-			}
-		}
-	}
-
 	// get
 	if ($command == "get" || $command == "torrent" || $command == "magnet") {
 		if (isset($option)) {

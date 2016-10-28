@@ -26,8 +26,8 @@
 	<link rel="icon" type="image/png" href="images/favicon.png?<?= $version ?>">
 	<link rel="stylesheet" type="text/css" href="joshua.css?<?= $version ?>" media="screen">
 <?php // theme handling
-	$theme = $_COOKIE['theme'];
-	if (empty($theme)) $theme = $defaultTheme;
+	if (isset($_COOKIE['theme'])) $theme = $_COOKIE['theme'];
+	else $theme = $defaultTheme;
 	if (in_array($theme, $nextgenThemes)) echo "\t".'<link rel="stylesheet" type="text/css" href="themes/nextgen.css?'.$version.'" media="screen">'."\n";
 	echo "\t".'<link rel="stylesheet" type="text/css" href="themes/'.$theme.'.css?'.$version.'" media="screen">'."\n";
 ?>
@@ -72,7 +72,6 @@
 			<ul id="links" class="icons">
     			<li><a class="external" href="http://binaerpilot.no" title="Robot music for hackers and other nerds">BINÆRPILOT</a>
     			<li><a class="external" href="http://chronicless.einhyrning.com/" title="JSON API for The Secret World">ChronicLESS</a>
-    			<li><a class="external-page" href="wtfig/" title="Simple online FIGlet generator">wtFIG</a>
     			<li><a class="external" href="http://einhyrning.com/" title="VGhlIG9jZWFuIG9mIHNwYWNlDQpJcyBleGlzdGVuY2UgaXMgcHVycG9zZQ0KQ2hhbmdlIGlzIGZvcmV2ZXI=">Einhyrning</a>
 			</ul>
 		</div>
