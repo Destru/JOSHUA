@@ -596,13 +596,10 @@ Rachael: HAHAHA!</pre>',
 'moneyball' => 'We play Fantasy Football at work. To combat my lack of knowledge on players these days, I\'m running my team based on Moneyball. Will it succeed? No, it will not. Does it give me an out when people are slaughtering my line-up at the pub? Yes, it does.',
 'einhyrning' => 'QSBkcmVhbQ==<br><a class="external" href="http://einhyrning.com">RHJlYW0gdG9nZXRoZXI=</a>',
 'cakeday' => 'I\'ll be getting some cake in '.cakeDay("10/03").' days.',
-'work' => '<p>I\'m currently employed by <a href="http://datameer.com">Datameer</a> as a UI Engineer.
-    My primary focus is the visualization tools we use in our infographics.
-    	<p>Other notable companies I have worked for:
+'work' => '<p>Notable companies I have worked for:
 		<a href="http://www.travelocity.com/">Travelocity</a>,
 		<a href="http://finn.no">FINN</a> and
 		<a href="http://iac.com">IAC</a>.
-	<p>I also enjoy doing random projects on my sparetime under the <a href="http://einhyrning.com">Einhyrning</a> moniker.
 	<p><a href="http://www.linkedin.com/in/astoever" class="external">View my professional profile on LinkedIn.</a>
 	',
 'rachael' => '<p>Rachael is the most beautiful girl in the world. It\'s a scientific fact. Yes, I am a scientist.
