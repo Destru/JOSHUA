@@ -370,16 +370,14 @@ $static = array(
 		<tr><td rowspan="8"><div class="image" style="background-image:url(\'http://www.gravatar.com/avatar/3005b66c6817d98851a980560a79e231?s=100\');width:100px;height:100px;"></div></td></tr>
 		<tr><td class="label dark">Name</td><td>Alexander Støver</td></tr>
 		<tr><td class="label dark">Alias</td><td>Destru Kaneda</td></tr>
-		<tr><td class="label dark">Location</td><td>Brooklyn, New York</td></tr>
+		<tr><td class="label dark">Location</td><td>Seattle, Washington</td></tr>
 		<tr><td class="label dark">Status</td><td>Happily married</td></tr>
 		<tr><td class="label dark">Motto</td><td>There is no try, only do.</td></tr>
 		<tr><td class="label dark">Gamer</td><td>Killer socializer</td></tr>
-		<tr><td class="label dark">Contact</td><td><a href="mailto:alexander@binaerpilot.no">alexander@binaerpilot.no</a></td></tr>
 	</table>
 	<p>
-		I do front end development (see <span class="command">work</span>).
-		On my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
-		I am, what is colloquially known as, a massive nerd.
+		I <span class="command">work</span> with front end development and
+		on my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
 	',
 
 'destru' => '<p><b>Destru Kaneda</b> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira". '.
