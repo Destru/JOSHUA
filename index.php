@@ -12,17 +12,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="robots" content="index,follow,noarchive">
 	<meta name="language" content="en">
-	<title>JOSHUA (jQuery Operating System, HUA!) - Alexander Støver's Homepage</title>
+	<title>JOSHUA</title>
 	<meta name="description" content="Personal homepage and playground of Alexander Støver. Built around a jQuery operating system (command prompt) named JOSHUA. Go Team Norway!">
 	<meta name="keywords" content="alexander, støver, alexander støver, stoever, astoever, destru kaneda, destru, destryu, jquery, os, command-line, prompt, shell, emulator, javascript">
 	<meta name="author" content="alexander@binaerpilot.no">
-	<meta property="og:image" content="http://joshua.einhyrning.com/images/opengraph.jpg?<?= $version ?>">
+	<meta property="og:image" content="images/opengraph.jpg?<?= $version ?>">
 	<meta property="og:site_name" content="jQuery Operating System, HUA!">
 	<meta property="og:title" content="Personal homepage of Alexander Støver">
-	<meta property="og:url" content="http://joshua.einhyrning.com/">
 	<meta property="og:description" content="Quite possibly the nerdiest homepage ever made.">
 	<meta property="og:type" content="website">
-	<link rel="image_src" href="http://joshua.einhyrning.com/images/opengraph.jpg?<?= $version ?>">
+	<link rel="image_src" href="images/opengraph.jpg?<?= $version ?>">
 	<link rel="icon" type="image/png" href="images/favicon.png?<?= $version ?>">
 	<link rel="stylesheet" type="text/css" href="joshua.css?<?= $version ?>" media="screen">
 <?php // theme handling
@@ -70,9 +69,10 @@
                 <li><a data-window="music" title="Listen to my music">MP3 Player</a>
 			</ul>
 			<ul id="links" class="icons">
-    			<li><a class="external" href="http://binaerpilot.no" title="Robot music for hackers and other nerds">BINÆRPILOT</a>
-    			<li><a class="external" href="http://chronicless.einhyrning.com/" title="JSON API for The Secret World">ChronicLESS</a>
-    			<li><a class="external" href="http://einhyrning.com/" title="VGhlIG9jZWFuIG9mIHNwYWNlDQpJcyBleGlzdGVuY2UgaXMgcHVycG9zZQ0KQ2hhbmdlIGlzIGZvcmV2ZXI=">Einhyrning</a>
+    			<li><a class="external" href="http://soundcloud.com/binaerpilot" title="Robot music for hackers and other nerds">BINÆRPILOT</a>
+    			<li><a class="external" href="http://twitter.com/notdestru">Twitter</a>
+					<li><a class="external" href="http://facebook.com/binaerpilot">Facebook</a>
+    			<li><a class="external" href="http://twitch.com/notdestru">Twitch</a>
 			</ul>
 		</div>
 		<div id="apps">

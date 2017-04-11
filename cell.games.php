@@ -21,13 +21,6 @@
 			'So far I\'ve played a couple characters to end-game and messed around with more PvP alts than I can remember. '.
 			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.'
 	),
-	'tsw' => array(
-		'api' => 'http://chronicless.einhyrning.com/character/destru.json',
-		'format' => 'json',
-		'about' => '<p><b>The Secret World</b> is a breath of fresh air. The investigation missions are simply fantastic, as is character progression. '.
-			'The game is scary, difficult and outright intimidating. If it wasn\'t for the lackluster PvP I\'d most likely still be playing. '.
-			'<p>I even made a <a href="http://chronicless.einhyrning.com/">JSON API for it</a> (as you can see below).'
-	),
 	'league' => array(
 		'api' => 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/destru%20kaneda?api_key='.$keys['league'],
 		'format' => 'json',
