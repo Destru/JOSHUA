@@ -139,8 +139,7 @@ function api($game, $api) {
 			$output = '<table class="fluid">'.
 				'<tr><td rowspan="8"><div class="image" style="background-image:url(\''.$cdn.$api->destrukaneda->profileIconId.'.png\');width:128px;height:128px;"></div></td></tr>'.
 				'<tr><td class="dark">Name</td><td><a href="'.$stats.'">'.$api->destrukaneda->name.'</a></td></tr>'.
-				'<tr><td class="dark">Primary Role</td><td>Jungler</td></tr>'.
-				'<tr><td class="dark">Smurf</td><td>Destru Sucks</td></tr>'.
+				'<tr><td class="dark">Role</td><td>Jungle / Mid</td></tr>'.
 				'<tr><td class="dark">Favorite Champions</td><td>Lee Sin and Ezreal</td></tr>'.
 				'<tr><td class="dark">Favorite Players</td><td><a href="http://gfycat.com/AnnualShallowBlackwidowspider">Doublelift and Aphromoo</a></td></tr>'.
 				'<tr><td class="dark">Last Online</td><td>'.date("F j, Y", str_replace('000', '.0', $api->destrukaneda->revisionDate)).'</td></tr>'.
