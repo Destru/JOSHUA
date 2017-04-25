@@ -28,9 +28,9 @@ function update($force=null) {
 
 session_start();
 update();
-$version = "11";
-$versionName = "Command Line";
-$defaultTheme = "mono";
+$version = "12";
+$versionName = "NeoCom 2.0";
+$defaultTheme = "neocom";
 $nextgenThemes = array('carolla', 'contra', 'rachael', 'whitewall');
 $staticData = load('static.json');
 $sha = $staticData->sha;
