@@ -28,14 +28,14 @@ function update($force=null) {
 
 session_start();
 update();
-$version = "12";
-$versionName = "NeoCom 2.0";
+$version = "12.1";
+$versionName = "NeoCom";
 $defaultTheme = "neocom";
 $nextgenThemes = array('carolla', 'contra', 'rachael', 'whitewall');
 $staticData = load('static.json');
 $sha = $staticData->sha;
 $header = '<b>JOSHUA</b> <span class="version">'.substr($sha, 0, 7).'</span> <span class="dark">'.$versionName.'</span>';
-$title = 'JOSHUA '.$version.': ';
+$title = 'JOSHUA ';
 $termPrompt = $_SERVER['REMOTE_ADDR'].'@<b>JOSHUA</b>/>&nbsp;';
 $joshua = "<b>JOSHUA:</b> ";
 $cookieExpires = time()+60*60*24*365;

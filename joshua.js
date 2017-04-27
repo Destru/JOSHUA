@@ -430,6 +430,7 @@ function boot() {
 
 $(function() {
 	boot();
+	systemReady();
 	$('#prompt').on('keydown', function(e) {
 		$('title').html(title+'Listening...');
 		if (e.which == 13) {
