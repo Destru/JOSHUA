@@ -66,7 +66,7 @@
                 <li><a data-window="customize" title="Customization options and effects">Customize</a>
                 <li><a data-window="superplastic" title="You must escape!">Superplastic</a>
                 <!-- outdated API <li><a data-window="videos" title="Stream (long) videos on YouTube">Video Player</a> -->
-                <li><a data-window="music" title="Listen to my music">MP3 Player</a>
+                <!-- outdated API <li><a data-window="music" title="Listen to my music">MP3 Player</a> -->
 			</ul>
 			<ul id="links" class="icons">
     			<li><a class="external" href="http://soundcloud.com/binaerpilot" title="Robot music for hackers and other nerds">BINÆRPILOT</a>

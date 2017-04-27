@@ -402,7 +402,7 @@ if (empty($output)) {
 
 	// presets
 	if ($command == "preset" || $command == "presets") {
-		$presets = array('gamer', 'rachael', 'prometheus');
+		$presets = array('gamer', 'destru', 'pyskie');
 		sort($presets);
 		if (isset($option) && in_array($option, $presets)) {
 			if ($option == "gamer") {
@@ -413,17 +413,16 @@ if (empty($output)) {
 				deleteCookie('hue');
 				deleteCookie('saturation');
 			}
-			else if ($option == "rachael") {
+			else if ($option == "destru") {
+				setcookie('theme', 'mono', $cookieExpires, '/');
+				setcookie('fx', 'pulsar', $cookieExpires, '/');
+			}
+			else if ($option == "pyskie") {
 				setcookie('theme', 'rachael', $cookieExpires, '/');
-				setcookie('background', 'rachael', $cookieExpires, '/');
 				deleteCookie('fx');
 				deleteCookie('opacity');
 				deleteCookie('hue');
 				deleteCookie('saturation');
-			}
-			else if ($option == "prometheus") {
-				setcookie('theme', 'mono', $cookieExpires, '/');
-				setcookie('fx', 'pulsar', $cookieExpires, '/');
 			}
 			output('<script>location.reload();</script>');
 		}
