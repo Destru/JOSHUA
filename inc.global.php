@@ -16,11 +16,9 @@ function update($force=null) {
 		$leagueVersion = json_decode(get('http://ddragon.leagueoflegends.com/realms/na.json', null, 1));
 
 		if (count($commits) && !empty($leagueVersion->v)) {
+      $string = '{"sha": "'.$commits{0}->sha.'", "leagueVersion": "'.$leagueVersion->v.'"}'."\r";
 			$fp = fopen($cache, 'w');
-			fwrite($fp, '{');
-			fwrite($fp, '"sha": "'.$commits{0}->sha.'",');
-			fwrite($fp, '"leagueVersion": "'.$leagueVersion->v.'"');
-			fwrite($fp, '}');
+			fwrite($fp, $string);
 			fclose($fp);
 		}
 	}

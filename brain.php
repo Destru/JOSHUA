@@ -380,9 +380,9 @@ $static = array(
 		on my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
 	',
 
-'destru' => '<p><b>Destru Kaneda</b> is my gaming alias (+10 nerd points). Destru is a play on Destrega and the word \'destruction\'. Kaneda, as anyone fascinated by manga will tell you, is from the epic "Akira". '.
-	'When it comes to games my favorite setting is science fiction (duh) with team-based PvP as a favorite gameplay mode. I also prefer games with actual consequences, like EVE Online or anything with a hardcore mode. '.
-	'PEWPWEPWPEPWEPPWEWPEW!',
+'destru' => '<p><b>Destru Kaneda</b> means Karate Sudden. Or Rudest Naaked.
+	I like "Akira" and thought "Destrega" was a cool sounding game when
+	I was a kid. Names are meaningless, especially on this shrine for my ego.',
 
 'ascii' => '<pre class="ascii">
        dP                   dP

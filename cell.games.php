@@ -22,7 +22,7 @@
 			'Even a die hard science fiction fan like myself must admit that the game is simply breathtakingly well executed.'
 	),
 	'league' => array(
-		'api' => 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/destru%20kaneda?api_key='.$keys['league'],
+		'api' => 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/destru?api_key='.$keys['league'],
 		'format' => 'json',
 		'about' => '<p><b>League of Legends</b> is an fast-paced, twitchy MOBA with a surprising amount of depth. '.
 			'At first the game seemed fun enough, but it wasn\'t until I saw professional play that I fell in love with it. '.
@@ -134,15 +134,16 @@ function api($game, $api) {
 	}
 	else if ($game == 'league') {
 		$cdn = 'http://ddragon.leagueoflegends.com/cdn/'.$staticData->leagueVersion.'/img/profileicon/';
-		$stats = 'http://na.op.gg/summoner/userName=destru%20kaneda';
-		if ($api->destrukaneda->id) {
+		$stats = 'http://na.op.gg/summoner/userName=destru';
+
+		if ($api->destru->id) {
 			$output = '<table class="fluid">'.
-				'<tr><td rowspan="8"><div class="image" style="background-image:url(\''.$cdn.$api->destrukaneda->profileIconId.'.png\');width:128px;height:128px;"></div></td></tr>'.
-				'<tr><td class="dark">Name</td><td><a href="'.$stats.'">'.$api->destrukaneda->name.'</a></td></tr>'.
+				'<tr><td rowspan="8"><div class="image" style="background-image:url(\''.$cdn.$api->destru->profileIconId.'.png\');width:128px;height:128px;"></div></td></tr>'.
+				'<tr><td class="dark">Name</td><td><a href="'.$stats.'">'.$api->destru->name.'</a></td></tr>'.
 				'<tr><td class="dark">Role</td><td>Jungle / Mid</td></tr>'.
 				'<tr><td class="dark">Favorite Champions</td><td>Lee Sin and Ezreal</td></tr>'.
-				'<tr><td class="dark">Favorite Players</td><td><a href="http://gfycat.com/AnnualShallowBlackwidowspider">Doublelift and Aphromoo</a></td></tr>'.
-				'<tr><td class="dark">Last Online</td><td>'.date("F j, Y", str_replace('000', '.0', $api->destrukaneda->revisionDate)).'</td></tr>'.
+				'<tr><td class="dark">Favorite Players</td><td><s>Doublelift</s> Stixxay and Aphromoo</td></tr>'.
+				'<tr><td class="dark">Last Online</td><td>'.date("F j, Y", str_replace('000', '.0', $api->destru->revisionDate)).'</td></tr>'.
 				'</table>';
 		}
 		else error('outdatedapi', 1);
