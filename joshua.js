@@ -320,7 +320,7 @@ function initSliders() {
 		min: 0,
 		value: hue,
 		slide: function(event, ui) {
-			$('html').css('-webkit-filter',
+			$('html').css('filter',
 				'hue-rotate('+ui.value+'deg) saturate('+saturation+'%)');
 			createCookie('hue', ui.value, cookieExpires);
 		}
@@ -330,12 +330,12 @@ function initSliders() {
 		min: 0,
 		value: saturation,
 		slide: function(event, ui) {
-			$('html').css('-webkit-filter',
+			$('html').css('filter',
 				'hue-rotate('+hue+'deg) saturate('+ui.value+'%)');
 			createCookie('saturation', ui.value, cookieExpires);
 		}
 	});
-	$('html').css('-webkit-filter',
+	$('html').css('filter',
 		'hue-rotate('+hue+'deg) saturate('+saturation+'%)');
 }
 
