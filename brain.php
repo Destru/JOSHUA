@@ -377,7 +377,7 @@ $static = array(
 	</table>
 	<p>
 		I <span class="command">work</span> with front end development and
-		on my spare time I make <a href="http://binaerpilot.no">music for robots</a>.
+		on my spare time <a href="https://cyberpunksocial.club">I make things with other nerds</a>.
 	',
 
 'destru' => '<p><b>Destru Kaneda</b> means Karate Sudden. Or Rudest Naaked.
@@ -531,7 +531,6 @@ $static = array(
 'larry3d' => 'Does a pair of queens beat 3 deuces?',
 'money' => 'Is a useless measure of wealth.',
 'life' => 'But how to live it?',
-'wip' => '<a href="http://binaerpilot.no/wip/">Work in progress.</a>',
 'ass' => 'Better than titties.',
 'bitch' => 'Love me \'cause they know that I can rock.',
 'sucker' => 'Like in the back seat of a Volkswagen?',
@@ -578,6 +577,8 @@ Rachael: HAHAHA!</pre>',
 'awesomeness' => 'Why, thank you.',
 'snap' => 'Rhythm is a dancer.',
 'rly' => 'srsly',
+'porn' => 'pr0n',
+'pr0n' => 'It\'s what\'s for dinner!',
 'primus' => 'As the toys go winding down.',
 'firefly' => 'One of the best sci-fi shows ever made.',
 'nananana' => 'Hey hey hey, goodbye!',
@@ -633,20 +634,8 @@ Rachael: HAHAHA!</pre>',
 
 	<p>I\'d also like to thank Rachael for being patient with me while working on this, Eirik and Inge for answering stupid questions, George McGinley Smith for his work on easing methods and an unknown person for the remade Contra logo. Last but not least, I\'d like to thank John Malkovich for being John Malkovich.',
 
-'porn' => '<pre>Perfect Breasts             <span class="light">(o)(o)</span>
-Fake Silicone Breasts       <span class="light">( + )( + )</span>
-High Nipple Breasts         <span class="light">(*)(*)</span>
-Big Nipple Breasts          <span class="light">(@)(@)</span>
-A Cups                      <span class="light">oo</span>
-D Cups                      <span class="light">{ O }{ O }</span>
-Wonder Bra Breasts          <span class="light">(oYo)</span>
-Cold Breasts                <span class="light">( ^ )( ^ )</span>
-Lopsided Breasts            <span class="light">(o)(O)</span>
-Pierced Breasts             <span class="light">(Q)(Q)</span>
-Hanging Tassels Breasts     <span class="light">(p)(p)</span>
-Against-The-Shower-Door     <span class="light">(  -  )(  -  )</span>
-Android Breasts             <span class="light">|o||o|</span>
-Porn Star Breasts           <span class="light">($)($)</span></pre>',
+'cyberpunk' => '<a href="https://cyberpunksocial.club">We are community.</a>',
+'csc' => '<a href="https://cyberpunksocial.club">We are community.</a>',
 
 'fallback' => '<ol>
 	<li>JOSHUA may not injure a human being or, through inaction, allow a human being to come to harm.

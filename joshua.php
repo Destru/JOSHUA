@@ -170,7 +170,7 @@ if (empty($output)) {
 			}
 			else error('notdomain');
 		}
-		else output('<p class="error">'.$joshua.'I need a domain to lookup.<p class="example">'.$command.' binaerpilot.no');
+		else output('<p class="error">'.$joshua.'I need a domain to lookup.<p class="example">'.$command.' cyberpunksocial.club');
 	}
 
 	// prime
@@ -766,7 +766,7 @@ if (empty($output)) {
 			$js = "$('#output').html('');";
 		}
 		else if ($command == "exit" || $command == "quit" || $command == "logout") {
-			$js = 'location.href = "http://binaerpilot.no";';
+			$js = 'location.href = "https://cyberpunksocial.club";';
 		}
 		else if ($command == "superplastic") $js = 'loadSuperplastic();';
 		else if ($command == "videos") $js = 'loadVideos();';
